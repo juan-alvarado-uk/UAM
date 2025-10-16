@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Edge Computing</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../img/cropped-favicon.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section><img src="../../img/cua_05.jpg" width="100%"></section>
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+						# Introducción al Aprendizaje de Máquina
+
+						---
+
+						## ¿Qué es el Aprendizaje Automático?
+
+						---
+
+						El **aprendizaje automático** (Machine Learning o ML) es una rama de la inteligencia artificial que permite a las máquinas **aprender de datos** sin ser programadas explícitamente para cada tarea específica.
+
+						---
+
+						A diferencia de la programación tradicional donde el desarrollador escribe reglas específicas para cada problema, en machine learning la máquina identifica **patrones complejos** en millones de datos y es capaz de usar esos patrones para predecir comportamientos futuros.
+
+						---
+
+						La idea central del ML es que existe una **relación matemática** entre cualquier combinación de datos de entrada y salida. El modelo no conoce esta relación de antemano, pero puede descubrirla si se le brindan suficientes ejemplos.
+
+						---
+
+						Como si se tratara de un ser humano, las máquinas de aprendizaje deben ser capaces de **generalizar conceptos** a partir de ejemplos.
+
+						---
+
+						## Relación con la Inteligencia Artificial y Deep Learning
+
+						---
+
+						Es importante comprender la relación jerárquica entre estos conceptos:
+
+						---
+
+						**Inteligencia Artificial (IA):** Es el campo más amplio, relacionado con la creación de computadoras y máquinas que pueden razonar, aprender y actuar de manera similar a la inteligencia humana.
+
+						---
+
+						Incluye muchas disciplinas: análisis de datos, estadística, ingeniería de hardware y software, neurociencia y filosofía.
+
+						---
+
+						**Machine Learning (ML):** Es un subconjunto de la IA que se enfoca en entrenar máquinas para ejecutar tareas sin estar programadas específicamente para ellas.
+
+						---
+
+						Utiliza técnicas como redes neuronales, aprendizaje supervisado y no supervisado, árboles de decisión y regresión lineal.
+
+						---
+
+						**Deep Learning (DL):** Es un subconjunto del machine learning que utiliza redes neuronales profundas con múltiples capas (generalmente tres o más, pero normalmente cientos o miles) para representar los datos mediante diferentes niveles de abstracción.
+
+						---
+
+						Requiere menos intervención humana que el ML tradicional, ya que puede aprender automáticamente las características relevantes de los datos.
+
+						---
+
+						## Componentes Principales del Machine Learning
+
+						---
+
+						Para que el aprendizaje automático funcione, se requieren tres elementos fundamentales:
+
+						---
+
+						**Conjunto de datos:** Los datos son la materia prima de la cual las máquinas aprenden. Sin datos de alta calidad y en cantidad suficiente, no es posible entrenar un modelo efectivo.
+
+						---
+
+						**Algoritmo:** Es el conjunto de instrucciones y lógica que procesa los datos para extraer patrones. El estudio del machine learning se puede reducir al estudio de sus algoritmos, ya que representan las diversas técnicas para operar sobre datos y obtener modelos matemáticos.
+
+						---
+
+						**Modelo:** Es el resultado de entrenar un algoritmo con datos. El modelo es lo que finalmente se usa en casos reales para hacer predicciones o clasificaciones.
+
+						---
+
+						## Tipos de Aprendizaje Automático
+
+						---
+
+						Existen principalmente **cuatro tipos** de aprendizaje automático, clasificados según la naturaleza de los datos y el objetivo:
+
+						---
+
+						### Aprendizaje Supervisado
+
+						---
+
+						En el aprendizaje supervisado, el algoritmo trabaja con **datos etiquetados**, es decir, datos donde ya conocemos la respuesta correcta.
+
+						---
+
+						El modelo intenta encontrar una función que, dadas las variables de entrada, asigne la etiqueta de salida adecuada. El algoritmo aprende de un "histórico" de datos y así puede predecir el valor de salida para nuevos datos no vistos.
+
+						---
+
+						Este tipo de aprendizaje es similar al aprendizaje humano bajo la supervisión de un maestro, donde el profesor proporciona ejemplos correctos que el alumno memoriza y a partir de los cuales deduce reglas generales.
+
+						---
+
+						Dentro del aprendizaje supervisado existen dos categorías principales:
+
+						---
+
+						- **Modelos de clasificación:** Generan una etiqueta discreta (ejemplo: identificar si un correo es spam o no spam)
+
+						---
+
+						- **Modelos de regresión:** Producen un valor numérico continuo (ejemplo: predecir el precio de una casa)
+
+						---
+
+						### Aprendizaje No Supervisado
+
+						---
+
+						En el aprendizaje no supervisado, los datos **no están etiquetados**, por lo que el algoritmo debe encontrar patrones y estructura en los datos por sí mismo.
+
+						---
+
+						No hay respuestas correctas proporcionadas; la máquina determina correlaciones y relaciones mediante el análisis de los datos disponibles.
+
+						---
+
+						El método más común es el **análisis de clústeres** (clustering), que utiliza algoritmos de agrupamiento para categorizar puntos de datos según similitudes en sus valores.
+
+						---
+
+						También incluye algoritmos de asociación que identifican relaciones entre objetos dentro de grandes bases de datos.
+
+						---
+
+						Este tipo de aprendizaje es especialmente valioso porque los datos no etiquetados son mucho más abundantes que los etiquetados.
+
+						---
+
+						### Aprendizaje por Refuerzo
+
+						---
+
+						El aprendizaje por refuerzo trabaja mediante un sistema de **recompensa y castigo**.
+
+						---
+
+						Un agente toma acciones en un entorno específico para alcanzar una meta predeterminada. El agente recibe retroalimentación (positiva o negativa) por sus acciones, lo que le permite perfeccionar su proceso de toma de decisiones mediante **ensayo y error**.
+
+						---
+
+						Este método no se basa estrictamente en un conjunto de datos etiquetados (por lo que no es supervisado), pero tampoco es completamente no supervisado, ya que conocemos de antemano cuál es la recompensa esperada.
+
+						---
+
+						### Aprendizaje Semi-supervisado
+
+						---
+
+						Ofrece una **combinación** entre aprendizaje supervisado y no supervisado.
+
+						---
+
+						Los algoritmos se entrenan con un pequeño conjunto de datos etiquetados y un gran conjunto de datos sin etiquetar. Los datos etiquetados guían el proceso de aprendizaje para el cuerpo más grande de datos sin etiquetar.
+
+						---
+
+						## El Flujo de Trabajo del Machine Learning
+
+						---
+
+						Un proyecto típico de machine learning sigue una serie de pasos sistemáticos:
+
+						---
+
+						**Definición del problema:** Se define claramente el problema a resolver y se establecen los objetivos del proyecto. Esto implica entender el contexto, identificar las fuentes de datos relevantes y definir las métricas de rendimiento clave.
+
+						---
+
+						**Recolección y compilación de datos:** Se reúnen datos de diversas fuentes (bases de datos, sensores, archivos externos), asegurando un conjunto de datos completo y representativo.
+
+						---
+
+						**Preparación y preprocesamiento de datos:** Esta es una de las fases más importantes y consume hasta el 80% del tiempo en un proyecto real. Incluye:
+
+						---
+
+						- **Limpieza de datos:** Manejar valores faltantes, eliminar duplicados y abordar valores atípicos
+
+						---
+
+						- **Transformación de datos:** Normalizar, escalar y codificar variables para que estén en un formato consistente
+
+						---
+
+						- **Reducción de datos:** Seleccionar las características más relevantes para reducir la complejidad
+
+						---
+
+						**Análisis exploratorio de datos (EDA):** Se exploran los datos para obtener información, identificar patrones, tendencias y relaciones que ayuden a tomar decisiones sobre la selección de características y modelos.
+
+						---
+
+						**Selección y entrenamiento del modelo:** Se eligen algoritmos de machine learning adecuados según los requisitos del problema. El modelo se entrena usando los datos preparados, ajustando sus parámetros mediante un proceso iterativo.
+
+						---
+
+						Durante el entrenamiento, el algoritmo ajusta el modelo mediante una **función de pérdida** que mide los errores del modelo y técnicas de optimización como el descenso de gradientes para minimizar esos errores.
+
+						---
+
+						**Evaluación y ajuste del modelo:** Se evalúa el rendimiento usando técnicas como la validación cruzada y se ajustan los **hiperparámetros** para optimizar el rendimiento.
+
+						---
+
+						**Despliegue y monitoreo:** Se despliega el modelo entrenado en el entorno de producción, se integra en los sistemas existentes y se monitorea su rendimiento continuamente.
+
+						---
+
+						## Conjuntos de Datos: Entrenamiento, Validación y Prueba
+
+						---
+
+						Para evaluar correctamente un modelo de machine learning, es fundamental dividir los datos en tres conjuntos distintos:
+
+						---
+
+						**Conjunto de entrenamiento (Training Set):** Representa aproximadamente el 70-80% de los datos totales. Se utiliza para entrenar el modelo, es decir, para que el algoritmo ajuste sus parámetros internos.
+
+						---
+
+						**Conjunto de validación (Validation Set):** Representa aproximadamente el 10-15% de los datos. Se usa para realizar pruebas iniciales del modelo durante el entrenamiento y para ajustar los hiperparámetros del modelo (como el número de capas en una red neuronal, la tasa de aprendizaje, etc.).
+
+						---
+
+						Permite detectar problemas como el sobreajuste antes de la evaluación final.
+
+						---
+
+						**Conjunto de prueba (Test Set):** Representa aproximadamente el 10-15% de los datos. Proporciona una evaluación final e imparcial del modelo entrenado con datos que nunca han sido vistos durante el entrenamiento ni la validación.
+
+						---
+
+						La separación de estos conjuntos es crucial para verificar que el modelo pueda **generalizar** correctamente a datos nuevos y no solo memorizar los datos de entrenamiento.
+
+						---
+
+						## Problemas Comunes: Underfitting y Overfitting
+
+						---
+
+						Dos de los problemas más importantes en machine learning relacionados con la capacidad de generalización son:
+
+						---
+
+						**Underfitting (Subajuste):** Ocurre cuando el modelo es **demasiado simple** y no puede capturar los patrones importantes en los datos. El modelo tiene un desempeño pobre tanto en el conjunto de entrenamiento como en el de validación.
+
+						---
+
+						Es como mostrarle a alguien solo una raza de perros y pretender que reconozca todas las demás razas existentes.
+
+						---
+
+						**Overfitting (Sobreajuste):** Ocurre cuando el modelo es **demasiado complejo** y aprende no solo los patrones reales sino también el ruido y las particularidades específicas de los datos de entrenamiento.
+
+						---
+
+						El modelo tiene un excelente desempeño en el conjunto de entrenamiento (error cercano a cero) pero un desempeño deficiente en el conjunto de validación.
+
+						---
+
+						Es como memorizar datos específicos sin poder aplicar el conocimiento a situaciones nuevas.
+
+						---
+
+						El objetivo es encontrar un **punto medio** entre ambos extremos, donde el modelo tenga un buen desempeño tanto en el conjunto de entrenamiento como en el de validación.
+
+						---
+
+						## Sesgo y Varianza
+
+						---
+
+						Relacionados con los problemas anteriores están los conceptos de sesgo y varianza:
+
+						---
+
+						**Sesgo (Bias):** Se refiere a errores sistemáticos en las predicciones, donde un modelo simple puede no capturar la verdadera relación entre los datos debido a suposiciones simplistas. Un alto sesgo está asociado con el underfitting.
+
+						---
+
+						**Varianza:** Describe cuánto varían las predicciones del modelo ante nuevos datos, reflejando un modelo excesivamente complejo que memoriza los datos de entrenamiento pero falla en generalizar. Una alta varianza está asociada con el overfitting.
+
+						---
+
+						El **dilema sesgo-varianza** es el conflicto al intentar minimizar simultáneamente estas dos fuentes de error. Disminuir el sesgo suele aumentar la varianza y viceversa.
+
+						---
+
+						El objetivo es encontrar un equilibrio óptimo que minimice el error total en datos no vistos.
+
+						---
+
+						## Métricas de Evaluación
+
+						---
+
+						Para medir el desempeño de los modelos de machine learning, especialmente en problemas de clasificación, utilizamos varias métricas:
+
+						---
+
+						**Accuracy (Exactitud):** Representa el porcentaje total de valores correctamente clasificados. Es útil cuando los datos están balanceados, pero puede ser engañosa con datos desbalanceados.
+
+						---
+
+						**Precision (Precisión):** Indica qué porcentaje de los valores clasificados como positivos son realmente positivos. Mide la relevancia de nuestras predicciones.
+
+						---
+
+						**Recall (Exhaustividad):** Indica cuántos valores positivos son correctamente clasificados del total de valores positivos reales. Mide qué tan completa es nuestra detección.
+
+						---
+
+						**F1 Score:** Es la media armónica entre precisión y recall, proporcionando un balance entre ambas métricas. Es especialmente útil cuando trabajamos con datos desbalanceados.
+
+						---
+
+						## Ejemplos Cotidianos de Machine Learning
+
+						---
+
+						El machine learning está presente en nuestra vida diaria de múltiples formas:
+
+						---
+
+						**Motores de recomendación:** Netflix, Amazon y Spotify utilizan ML para recomendar contenido basándose en nuestros hábitos de consumo y los de millones de usuarios con perfiles similares.
+
+						---
+
+						**Asistentes de voz:** Siri y Alexa utilizan ML para limpiar ruido ambiental, comprender el idioma e interpretar órdenes. Aprenden de sus errores para mejorar continuamente.
+
+						---
+
+						**Detección de spam y fraude:** Twitter usa ML para combatir el spam, Facebook para detectar noticias falsas, y los bancos para detectar fraudes con tarjetas de crédito.
+
+						---
+
+						**Plataformas de aprendizaje de idiomas:** Duolingo utiliza ML tanto para el reconocimiento de voz como para priorizar qué reportes de errores necesitan revisión humana mediante regresión logística.
+
+						---
+
+						**Navegación y ubicación:** Los mapas utilizan ML para predecir tráfico, sugerir rutas óptimas y estimar tiempos de llegada basándose en patrones históricos.
+
+						---
+
+
+						### Actividad: "La predicción..."
+
+						---
+
+						**Objetivo:** Entender la diferencia entre aprendizaje supervisado y no supervisado.
+
+						---
+
+						**Materiales:** Ninguno (solo observación).
+
+						---
+
+						**Desarrollo:**
+
+						---
+
+						1. **Escenario supervisado:** Muestre una secuencia de números con etiquetas: 2→4, 5→10, 8→16. Pregunte: ¿Qué sigue para 11? (Los estudiantes deducen la regla: multiplicar por 2)
+
+						---
+
+						2. **Escenario no supervisado:** Muestre objetos mezclados de la mochila de varios estudiantes (lápices, cuadernos, celulares, llaves). Pida que los agrupen sin darles criterios. Diferentes grupos pueden agrupar por material, función, tamaño, etc.
+
+						---
+
+						3. Discutir cómo en el primer caso había una "respuesta correcta" y en el segundo caso el objetivo era encontrar estructura en los datos sin guía previa
+
+
+
+					</textarea>
+				</section>
+				<section><img src="../../img/cua_01.jpg" width="100%"></section>
+			</div>
+
+		</div>
+
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
