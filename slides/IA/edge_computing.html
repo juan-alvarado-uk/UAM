@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../img/cropped-favicon.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section><img src="../../img/cua_05.jpg"></section>
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+# Edge Computing
+
+Edge computing (computación en el borde) es un modelo de procesamiento distribuido donde los datos se procesan cerca de su fuente de generación, en lugar de depender de centros de datos remotos o la nube.
+
+---
+## Definiciones
+
+**Definición formal**: El Edge Computing es una arquitectura de TI distribuida y descentralizada que permite el procesamiento de datos cerca de la fuente de generación, mejorando la eficiencia y reduciendo la latencia.
+
+---
+
+**"Edge" (el borde)** se refiere a:
+- Servidores en el borde de internet
+- Computadoras de usuarios finales
+- Dispositivos IoT
+- Cualquier ubicación de procesamiento cercana a donde se generan o consumen los datos
+---
+## Evolución Histórica
+
+**Años 90**: Computación local (calculadoras, dispositivos individuales). ¡Todo local!
+---
+**2000-2010**: Auge del Cloud Computing con procesamiento centralizado en centros de datos remotos
+---
+**2010-presente**: Surgimiento del Edge Computing por necesidad de procesar datos más cerca de su origen debido a IoT y aplicaciones en tiempo real
+---
+## Edge Computing y Cloud Computing
+---
+## Diferencias Fundamentales
+
+| Aspecto | Cloud Computing | Edge Computing |
+|---------|----------------|----------------|
+| **Ubicación de procesamiento** | Centros de datos remotos | Cerca de fuente de datos |
+| **Latencia** | Mayor (datos viajan largas distancias) | Mínima (procesamiento local) |
+---
+| Aspecto | Cloud Computing | Edge Computing |
+|---------|----------------|----------------|
+| **Ancho de banda** | Requiere transmisión constante de datos | Reduce transmisión (solo datos relevantes) |
+| **Almacenamiento** | Plataformas de terceros alejadas | Cerca del usuario/dispositivo |
+---
+| Aspecto | Cloud Computing | Edge Computing |
+|---------|----------------|----------------|
+| **Velocidad de respuesta** | Demoras por distancia física | Respuesta casi instantánea |
+| **Escalabilidad** | Rápida y sencilla | Debe considerar heterogeneidad de dispositivos |
+---
+| Aspecto | Cloud Computing | Edge Computing |
+|---------|----------------|----------------|
+| **Seguridad** | Cifrado centralizado | Requiere cifrado independiente por nodo |
+| **Privacidad** | Datos viajan por internet | Datos permanecen locales |
+---
+## Relación Complementaria
+
+Edge Computing **no reemplaza** al Cloud Computing, sino que lo **complementa**:
+
+- Edge procesa datos críticos en tiempo real localmente
+- Datos procesados se envían a la nube para análisis profundos
+- **Fog Computing** actúa como intermediario entre edge y cloud
+---
+## Ventajas del Edge Computing
+---
+### Reducción de Latencia
+
+**Latencia** es el retraso entre una acción y su respuesta. Edge Computing elimina este retraso procesando datos localmente, permitiendo:
+
+- Vehículos autónomos tomar decisiones instantáneas
+- Dispositivos médicos responder en milisegundos
+- Aplicaciones industriales ajustar procesos en tiempo real
+---
+
+### Optimización de Ancho de Banda
+
+Al procesar datos en el borde, solo se transmite información relevante a la nube, resultando en:
+
+- Reducción de costos de transmisión de datos
+- Mejor utilización del ancho de banda de red
+- Alivio de congestión de red
+---
+
+### Mejora en Seguridad y Privacidad
+
+**Ventajas de privacidad**:
+- Datos sensibles se mantienen cerca de la fuente
+- Reduce riesgo de interceptación durante transmisión
+- Cumple con regulaciones como HIPAA en salud
+
+---
+### Mayor Disponibilidad y Confiabilidad
+
+Edge Computing permite que aplicaciones críticas sigan funcionando localmente incluso cuando la conectividad a la nube falla, garantizando operaciones ininterrumpidas.
+---
+## Arquitectura de Edge Computing
+---
+### Componentes de la Arquitectura
+
+**Dispositivos Edge (Edge Devices)**:
+- Cualquier dispositivo que gestiona el límite entre dos redes
+- Ejemplos: routers WiFi, gateways IoT, sensores inteligentes
+- Equipados con capacidad de procesamiento, memoria y almacenamiento local
+---
+**Centros de Datos Edge (Edge Data Centers)**:
+- Centros de datos más pequeños ubicados en el perímetro de la red
+- Proporcionan servicios de computación cerca de dispositivos edge
+- Más flexibles y pueden ubicarse en espacios reducidos
+---
+**Conectividad de Red**:
+- Conexión entre dispositivos edge y centro de datos central/nube
+- Puede ser intermitente en ubicaciones remotas
+- Requiere diseño para manejar desconexiones temporales
+---
+### Topologías de Edge Computing
+
+- **Edge Básico**: Procesamiento directamente en dispositivos IoT
+
+- **Edge Intermedio**: Gateways locales que agregan datos de múltiples sensores
+---
+- **Edge Regional**: Micro data centers que sirven a áreas geográficas específicas
+
+- **Edge Híbrido**: Combinación de procesamiento edge, fog y cloud
+
+						
+					</textarea>
+				</section>
+				<section><img src="../../img/cua_01.jpg"></section>
+			</div>
+
+		</div>
+		
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
