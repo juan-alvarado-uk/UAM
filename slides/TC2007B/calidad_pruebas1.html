@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../img/logo-tec-de-monterrey-white.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+# Calidad en el software
+
+---
+La calidad en el software se refiere al grado en que un producto o servicio de software cumple con los requisitos funcionales y no funcionales establecidos por el cliente o el usuario, así como con los estándares de calidad internos o externos definidos por la organización o la industria. 
+
+---
+La calidad en el software incluye aspectos como:
+
+<ul>
+	<li class="fragment" data-fragment-index="0">la funcionalidad,</li>
+	<li class="fragment" data-fragment-index="1">la usabilidad, </li> 
+	<li class="fragment" data-fragment-index="2">el rendimiento,  </li> 
+	<li class="fragment" data-fragment-index="3">la portabilidad y   </li> 
+	<li class="fragment" data-fragment-index="4">la mantenibilidad, </li>
+	<li class="fragment" data-fragment-index="5">la seguridad del software. </li>
+</ul>
+---
+Para lograr un software de calidad se requiere de un proceso de desarrollo que aplique buenas prácticas de ingeniería de software, así como de un proceso de prueba que verifique y valide el cumplimiento de los requisitos y los criterios de calidad.
+
+---
+## Pruebas
+Las pruebas son un conjunto de actividades que se realizan para evaluar y mejorar la calidad del software, identificando defectos y problemas que puedan afectar al funcionamiento, al rendimiento o a la satisfacción del cliente o del usuario. 
+
+---
+Las pruebas se pueden clasificar según diferentes criterios, como el nivel, el tipo, el objetivo, el método o la técnica que se utilice. 
+
+A continuación se describen algunos tipos de pruebas según el nivel y el objetivo.
+
+---
+### Pruebas locales
+
+Las pruebas locales son las que se realizan sobre una unidad o componente individual del software, como una función, un método, una clase o un módulo. 
+
+El objetivo de las pruebas locales es verificar que cada unidad o componente funcione correctamente según su especificación y diseño. 
+
+---
+Las pruebas locales se realizan generalmente por los desarrolladores durante la fase de codificación, utilizando herramientas y frameworks específicos para cada lenguaje o tecnología. 
+
+Algunos ejemplos de herramientas para realizar pruebas locales son JUnit para Java, NUnit para .NET, PyTest para Python o Mocha para JavaScript.
+
+---
+### Para testear...
+En equipos hacer lo siguiente en Python (por sorteo)
+
+1. Componente que permite ingresar los datos de una matriz, todo un renglón en una sola vez. El programa solicita los números de la matriz separados por espacios. Los números deben ser enteros.
+
+2. Componente que verifica la dimensión de matrices para realizar una operación determinada.
+
+---
+3. Componente que realiza la suma de matrices. Este componente recibe dos matrices y realiza la suma de ellas. Debe comprobar que las matrices tengan las mismas dimensiones de renglones que de columnas.
+
+---
+4. Componente que realiza la multiplicación de matrices. Este componente recibe dos matrices (matriz1, matriz2) y realiza la multiplicación matricial. Se debe verificar que matriz1 tenga el mismo número de renglones que columnas en la matriz2 y viceversa.
+
+---
+5. Componente que realiza la transpuesta de una matriz. Este componente recibe una matriz y devuelve la transpuesta de la matriz, en la que los renglones se convierten en columnas y las columnas en renglones.
+
+
+<aside class="notes">
+	Actividad: Puedes pedir a tus alumnos que escriban casos de prueba para probar una unidad o componente del software que hayan desarrollado o que les hayas proporcionado. Los casos de prueba deben incluir entradas, salidas esperadas y condiciones de prueba. Luego, pueden ejecutar los casos de prueba utilizando alguna herramienta o framework adecuado y verificar los resultados obtenidos.
+</aside>
+
+---
+### Pruebas de integración
+
+Las pruebas de integración son las que se realizan sobre un conjunto de unidades o componentes que se combinan para formar una parte o un todo del software, como una interfaz, una funcionalidad o un subsistema. 
+
+---
+El objetivo de las pruebas de integración es verificar que las unidades o componentes interactúen correctamente entre sí y con otros sistemas externos, como bases de datos, servicios web o APIs. 
+
+---
+Las pruebas de integración se realizan generalmente por los testers después de las pruebas locales, utilizando herramientas y frameworks específicos para cada tipo de integración. 
+
+---
+Algunos ejemplos de herramientas para realizar pruebas de integración son SoapUI para servicios web SOAP, Postman para servicios web RESTful, Selenium para interfaces web o Appium para interfaces móviles.
+
+<aside class="notes">
+	Actividad: Puedes pedir a tus alumnos que escriban casos de prueba para probar una parte o un todo del software que hayan desarrollado o que les hayas proporcionado. Los casos de prueba deben incluir entradas, salidas esperadas y condiciones de prueba. Luego, pueden ejecutar los casos de prueba utilizando alguna herramienta o framework adecuado y verificar los resultados obtenidos.
+</aside>
+
+---
+### Pruebas alfa
+Las pruebas alfa son las que se realizan sobre una versión preliminar del software antes de su lanzamiento al mercado o al cliente. 
+
+
+---
+El objetivo de las pruebas alfa es verificar que el software cumple con los requisitos funcionales y no funcionales establecidos, así como con los criterios de calidad definidos. 
+
+---
+Las pruebas alfa se realizan generalmente por los testers internos en un entorno controlado y simulado, utilizando técnicas como las pruebas exploratorias o las pruebas basadas en escenarios.
+
+<aside class="notes">
+	Actividad: Puedes pedir a tus alumnos que realicen pruebas alfa sobre una versión preliminar del software que hayan desarrollado o que les hayas proporcionado. Los alumnos deben explorar el software de forma libre y creativa, buscando defectos y problemas que puedan afectar a la funcionalidad, al rendimiento o a la usabilidad del software. Los alumnos deben registrar los defectos y problemas encontrados, así como las sugerencias de mejora que consideren oportunas.
+</aside>
+
+---
+### Modifiquemos el software.
+
+En equipos hacer lo siguiente:
+
+1. Todo un renglón en una sola vez si así lo desea el usuario. Si decide ingresar un renglón completo, el programa solicita los números de la matriz separados por un cracter definido por el usuario. Los números pueden ser enteros o flotantes.
+
+---
+2. Componente que verifica la dimensión de matrices para realizar una operación determinada y debe determinar que todos los renglones (y columnas) están completos.
+
+---
+3. (Sin modificaciones)
+
+---
+4. (Sin modificaciones)
+
+---
+5. Componente que realiza la transpuesta de una matriz. Este componente recibe una matriz y devuelve la transpuesta de la matriz, en la que los renglones se convierten en columnas y las columnas en renglones. Debe verificarse que todos los renglones estén completos.
+
+---
+### Pruebas de regresión
+Las pruebas de regresión son las que se realizan sobre el software después de haber introducido cambios o modificaciones, como correcciones de defectos, mejoras de funcionalidades o actualizaciones de versiones. 
+
+---
+El objetivo de las pruebas de regresión es verificar que los cambios o modificaciones no hayan afectado negativamente al funcionamiento, al rendimiento o a la calidad del software. 
+---
+
+Las pruebas de regresión se realizan generalmente por los testers internos en un entorno real o simulado, utilizando técnicas como las pruebas de retesteo, las pruebas selectivas o las pruebas completas.
+
+<aside class="notes">
+	Actividad: Puedes pedir a tus alumnos que realicen pruebas de regresión sobre el software que hayan desarrollado o que les hayas proporcionado, después de haber introducido cambios o modificaciones. Los alumnos deben ejecutar los casos de prueba que hayan diseñado previamente para probar el software, así como los casos de prueba específicos para probar los cambios o modificaciones. Los alumnos deben verificar que el software funciona correctamente después de los cambios o modificaciones y que no se han introducido nuevos defectos o problemas.
+</aside>
+						
+					</textarea>
+				</section>
+				<section><img src="../../img/tec-campus-toluca-BACK.jpeg"></section>
+			</div>
+
+		</div>
+		
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

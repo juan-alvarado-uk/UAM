@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../img/logo-tec-de-monterrey-white.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+### Pruebas dinámicas de validación
+---
+Las pruebas dinámicas de validación son las que se realizan sobre el software para comprobar que cumple con los requisitos y expectativas del cliente o del usuario final. 
+---
+El objetivo de las pruebas dinámicas de validación es verificar que el software satisface las necesidades y los objetivos del negocio, así como los criterios de aceptación definidos. 
+---
+Las pruebas dinámicas de validación se realizan generalmente por los testers **externos** en un entorno real o simulado, utilizando técnicas como: 
+---
+<ul>
+	<li class="fragment" data-fragment-index="0">las pruebas funcionales, </li>
+	<li class="fragment" data-fragment-index="1">las pruebas no funcionales,</li> 
+	<li class="fragment" data-fragment-index="2">las pruebas de usabilidad  </li> 
+	<li class="fragment" data-fragment-index="3">o las pruebas de aceptación.  </li> 
+</ul>
+---
+Por ejemplo, podriamos realizar pruebas dinámicas de validación sobre el software desarrollado. 
+---
+Se deben ejecutar los casos de prueba diseñados previamente para probar el software, así como los casos de prueba *específicos* para probar los requisitos y expectativas del cliente o del usuario final. 
+---
+Deben verificar que el software cumple con los requisitos y expectativas del cliente o del usuario final y que no hay defectos o problemas que afecten a la satisfacción o a la experiencia del usuario.  
+---
+### Pruebas bajo condiciones frontera
+---
+Las pruebas bajo condiciones frontera son las que se realizan sobre el software para comprobar su comportamiento ante situaciones extremas o límite, como: 
+---
+<ul>
+	<li class="fragment" data-fragment-index="0">entradas inválidas,</li>
+	<li class="fragment" data-fragment-index="1">valores máximos o mínimos,</li> 
+	<li class="fragment" data-fragment-index="2">errores inesperados o  </li> 
+	<li class="fragment" data-fragment-index="3">situaciones anómalas.  </li> 
+</ul>
+---
+El objetivo de las pruebas bajo condiciones frontera es verificar 
+
+<ul>
+	<li class="fragment" data-fragment-index="0">la robustez,</li>
+	<li class="fragment" data-fragment-index="1">la estabilidad y </li> 
+	<li class="fragment" data-fragment-index="2">la seguridad  </li> 
+</ul>
+
+<span class="fragment" data-fragment-index="3">del software ante situaciones extremas o límite. </span>
+---
+Las pruebas bajo condiciones frontera se realizan generalmente por los testers **internos** en un entorno controlado y simulado, utilizando técnicas como: 
+---
+<ul>
+	<li class="fragment" data-fragment-index="0">las pruebas negativas, </li>
+	<li class="fragment" data-fragment-index="1">las pruebas de estrés, </li> 
+	<li class="fragment" data-fragment-index="2">las pruebas de carga o  </li> 
+	<li class="fragment" data-fragment-index="3">las pruebas de seguridad  </li> 
+</ul>
+
+---
+### Introducción a pruebas no funcionales
+---
+Las pruebas no funcionales son aquellas que se realizan sobre el software para evaluar sus atributos de calidad no relacionados con la funcionalidad, como: 
+---
+<ul>
+	<li class="fragment" data-fragment-index="0">el rendimiento, </li>
+	<li class="fragment" data-fragment-index="1">la usabilidad, </li> 
+	<li class="fragment" data-fragment-index="2">la seguridad,  </li> 
+	<li class="fragment" data-fragment-index="3">la escalabilidad,  </li> 
+	<li class="fragment" data-fragment-index="4">la compatibilidad, etc.  </li> 
+</ul>
+
+---
+El objetivo de estas pruebas es verificar que el software cumple con los requisitos no funcionales especificados por el cliente o el usuario final.
+---
+¿Cuáles serían los atributos de calidad del software que han desarrollado?
+
+¿Como se probarían estos atributos?
+
+<aside class="notes">
+	Actividad sugerida
+	Puedes pedir a tus alumnos que seleccionen uno o más atributos de calidad no funcionales para probar el software que estén desarrollando o analizando. Luego, puedes pedirles que diseñen e implementen las pruebas no funcionales correspondientes al atributo seleccionado, utilizando las herramientas o frameworks adecuados, como LoadView, JMeter, Selenium, etc. Des
+</aside>
+
+						
+					</textarea>
+				</section>
+				<section><img src="../../img/tec-campus-toluca-BACK.jpeg"></section>
+			</div>
+
+		</div>
+		
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

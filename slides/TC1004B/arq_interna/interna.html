@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>TC1004 Arquitectura</title>
+
+		<link rel="stylesheet" href="../../../dist/reset.css">
+		<link rel="stylesheet" href="../../../dist/reveal.css">
+		<link rel="stylesheet" href="../../../dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../../img/tecnologico-de-monterrey-black-small.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section>
+					<h1>TC1004B</h1>
+					<h2>Arquitectura de sistemas de cómputo</h2>
+				</section>
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+
+						ESTRUCTURA GENERAL DE UNA COMPUTADORA
+
+						Se puede definir conceptualmente a una computadora como una máquina que consta de elementos de entrada, elementos de salida, un procesador central y una memoria.
+						---
+						![Diagrama de bloques de una computadora](bloques.png)
+						---
+						TIPOS DE COMPUTADORAS
+
+						Existen diversos criterios de clasificación para las arquitecturas de computadoras.
+
+						Uno de ellos es la manera en cómo ejecutan sus cálculos, el cual origina dos categorías de computadoras:
+						---
+						1.	Aquellas que realizan los cálculos de manera secuencial; y
+						2.	Aquellas que realizan los procesos en paralelo.
+						---
+
+						COMPUTADORAS SECUENCIALES
+
+						Dentro de esta clasificación encontramos a las computadoras SISD (Single-Instruction Stream, Single-Data Stream / Flujo Único de Instrucciones, Flujo Único de Datos).
+						---
+						La arquitectura de von Neumann pertenece a esta clasificación que corresponde a computadoras que tienen un sólo CPU ejecutando una instrucción a la vez, además, en este tipo de computadoras sólo se puede buscar o almacenar un elemento de datos a la vez.
+						---
+						En las computadoras de von Neumann los programas y datos se encuentran en una memoria externa.
+
+						Para ejecutar una instrucción, la computadora tiene que efectuar las siguientes operaciones:
+						---
+						1.	Traer el código de la instrucción a ejecutar.
+
+						2.	Decodificar la instrucción, es decir, saber cuáles son las micro-operaciones que tiene que realizar la computadora para ejecutar dicha instrucción.
+						3.	Traer los operandos en caso de que los requiera la instrucción.
+						4.	Ejecutar la instrucción y guardar el resultado.
+						---
+						Estas etapas se ejecutan de manera secuencial para cada instrucción, por lo tanto, una nueva instrucción no puede comenzar hasta que la anterior termine.
+						---
+
+						![Computadora de von Neumann](compuVonNeumann.png)
+						---
+
+						COMPUTADORAS PARALELAS
+
+						Una computadora que ejecuta procesos en paralelo cuenta con varios de sus componentes internos repetidos, de esta forma puede ejecutar varias instrucciones al mismo tiempo.
+						---
+						Dentro de esta clasificación encontramos a las computadoras
+						- SIMD (Single-Instruction Stream, Multiple-Data Stream / Flujo Único de Instrucciones, Flujo Múltiple de Datos) y
+						---
+						- MIMD (Multiple-Instruction Stream, Multiple-Data stream / Flujo Múltiple de Instrucciones, Flujo Múltiple de Datos).
+						---
+						Las arquitecturas SIMD son esenciales en el mundo de las computadoras paralelas, debido a su habilidad para manejar grandes vectores y matrices de datos en tiempos muy cortos.
+						---
+						El secreto detrás de este tipo de arquitectura es que cuentan con unos varios procesadores ejecutando la misma operación sobre un conjunto de datos.
+						---
+						Las arquitecturas MIMD tienen más de un procesador funcionando asíncrona e independientemente.
+
+						Al mismo tiempo, los diferentes procesadores pueden estar ejecutando diferentes instrucciones sobre diferentes conjuntos de datos.
+						---
+						Las arquitecturas MIMD se utilizan en aplicaciones que requieran gran poder de cómputo y distintos programas corriendo.
+
+						---
+
+						SEGMENTACIÓN ENCAUZADA (pipeline)
+
+						Una forma de lograr el paralelismo sin tener componentes repetidos es utilizando la segmentación encauzada (en inglés, pipeline).
+						---
+						En la segmentación encauzada la computadora está dividida en varias etapas, de manera que cada etapa efectúa operaciones sobre instrucciones diferentes.
+						---
+						La figura siguiente muestra este concepto con cuatro etapas, las cuales están ligadas con registros de acoplo.
+						---
+						![Procesador segmentado](procesador_segmentado.png)
+						---
+						- La primera etapa trae la instrucción Ij;
+						- la segunda, decodifica la instrucción Ij-1;
+						- la tercera, trae los operandos de la instrucción Ij-2; y por último
+						- la cuarta, ejecuta la instrucción Ij-3.
+						---
+
+						Un procesador segmentado de k etapas es en un principio k veces más rápido que un procesador sin esta tecnología.
+						---
+						La figura siguiente muestra el diagrama de tiempos/tareas de un procesador segmentado de cuatro etapas.
+						---
+						![Diagrama de tiempos/tareas](tiempos_tareas.png)
+						---
+						En el diagrama se observa que cada instrucción requiere 4 tiempos en ser ejecutada, sin embargo, una vez que el cauce está completo, el tiempo de salida de cada instrucción con respecto a la anterior es de periodo T.
+						---
+
+						En este tipo de arquitecturas es común hacer lecturas y escrituras en la memoria, tanto de instrucciones de programa como de datos, de manera simultánea.
+						---
+						Por tal motivo, es necesario que las memorias de datos y programas, con sus respectivos buses, estén separadas.
+
+						La figura siguiente muestra un tipo de esta arquitectura conocida como computadora tipo Harvard.
+						---
+						![Computadora tipo Harvard](harvard.png)
+						---
+
+						La arquitectura Harvard es un tipo de arquitectura de computadoras que difiere de la arquitectura von Neumann en la forma en que se almacenan y acceden a los datos y las instrucciones.
+						---
+						En la arquitectura Harvard, los datos y las instrucciones se almacenan en memorias separadas, lo que permite el acceso simultáneo a ambos.
+						---
+						Esto significa que la unidad de control y el procesador pueden acceder a datos y a instrucciones al mismo tiempo, lo que puede acelerar la ejecución de programas.
+						---
+						Variantes de arquitecturas:
+
+						Arquitectura RISC (Reduced Instruction Set Computing):
+
+						Esta arquitectura se centra en reducir la complejidad de las instrucciones para lograr un rendimiento más eficiente.
+						---
+						Se caracteriza por instrucciones más simples y un conjunto limitado de ellas, lo que permite un procesamiento más rápido.
+						---
+						Arquitectura CISC (Complex Instruction Set Computing):
+
+						A diferencia de la arquitectura RISC, la arquitectura CISC permite instrucciones más complejas y sofisticadas.
+						---
+						Esto puede simplificar la programación y reducir la cantidad de código necesario para ejecutar ciertas tareas, pero puede llevar a un rendimiento más lento en comparación con la arquitectura RISC.
+						---
+						Arquitectura de supercomputadoras:
+
+						Estas arquitecturas están diseñadas específicamente para ejecutar tareas de alta demanda computacional, como simulaciones científicas y análisis de datos masivos.
+						---
+						Normalmente están compuestas por múltiples procesadores trabajando en paralelo para lograr un rendimiento extremadamente alto.
+						---
+
+						EL CONTROLADOR DE LA COMPUTADORA
+
+						Un elemento fundamental es el controlador de la computadora, que como su nombre lo indica, controla y sincroniza todas las operaciones de la arquitectura interna y externa.
+						---
+						Coordina las actividades de la computadora y determina qué operaciones se deben realizar y en qué orden.
+
+						![Máquina de estados controlando una arquitectura](controlador.png)
+						---
+
+						MÁS DE COMPUTADORAS PARALELAS
+
+						Como se mencionó anteriormente, dentro de la clasificación de computadoras paralelas se encuentran las arquitecturas SIMD y MIMD.
+						---
+						El nombre que reciben estas arquitecturas proviene de la clasificación de computadoras que estableció Michael J. Flynn, un reconocido científico de la computación, quien utilizó los siguientes dos criterios para crear su taxonomía:
+						---
+						1)	el número de instrucciones que se están ejecutando simultáneamente en un momento dado, y
+						2)	el número de datos sobre los que se están ejecutando esas instrucciones.
+						---
+						Una computadora paralela es un tipo de computadora que posee dos o más procesadores independientes que cooperan y se comunican para solucionar un problema.
+						---
+						El programador de este tipo de computadoras debe dividir el problema a resolver en varias partes, de manera que el trabajo total sea distribuido entre los distintos procesadores; además, debe calcular la forma en la que cada parte del trabajo se relaciona con el resto de las partes.
+						---
+						El éxito de las computadoras paralelas sobre las computadoras desarrolladas para propósitos especiales se debe a que las primeras ofrecen rendimientos más altos a precios más bajos.
+						---
+						Además, la posibilidad de escalamiento es inherente en las computadoras paralelas, en teoría, estas pueden ser actualizadas cambiando o agregando más procesadores.
+
+						---
+						ARQUITECTURAS SIMD
+
+						Las arquitecturas SIMD (Single Instruction Multiple Data) ejecutan la misma instrucción sobre múltiples datos simultáneamente.
+						---
+
+						![Diagrama de bloques de la arquitectura SIMD](SIMD.png)
+						---
+						La característica principal de este tipo de arquitecturas es que cuentan con una sola unidad de control, quien es la responsable de interpretar y distribuir la misma instrucción a todos los procesadores.
+						---
+						En caso de que no se desee ejecutar la misma instrucción en todos los procesadores, es posible habilitar sólo los procesadores necesarios por medio de una máscara.
+						---
+						La figura anterior muestra un modelo de arquitectura SIMD de tres procesadores, cada uno operando con su propia memoria local.
+						---
+						Todos los procesadores operan bajo el control de una sola secuencia de instrucciones emitida por una unidad de control central.
+						---
+						Existen tres flujos de entrada de datos, uno por procesador, los cuales se operan de manera síncrona.
+
+						En cada paso, todos los procesadores ejecutan la misma instrucción sobre un dato diferente.
+						---
+						La mayoría de las aplicaciones interesantes que utilizan este tipo de computadoras requieren que los procesadores puedan comunicarse entre sí con el fin de intercambiar datos o resultados intermedios.
+						---
+						Esta comunicación se logra por alguno de los siguientes dos esquemas: mediante una memoria común (arquitecturas SIMD a memoria compartida) o mediante una red de interconexión (arquitecturas SIMD a memoria distribuida).
+						---
+						En las arquitecturas a memoria compartida todos los procesadores comparten el mismo espacio de memoria; esto significa que el conocimiento de donde se almacenan los datos no es preocupación para el usuario pues hay solamente una memoria para todos los procesadores.
+						---
+						En las arquitecturas de memoria distribuida cada procesador tiene su propia memoria asociada.
+
+						Los procesadores están conectados por medio de una red de interconexión que les permite intercambiar datos entres sus respectivas memorias cuando es necesario.
+						---
+						En contraste con las máquinas de memoria compartida, el usuario debe estar enterado de la localización de los datos en las memorias locales y deberá mover o distribuir estos datos explícitamente cuando sea necesario.
+						---
+						Las principales ventajas de estas arquitecturas son las siguientes:
+
+						- Funcionan muy bien con vectores de datos.
+						- La eficiencia es óptima cuando se manejan arreglos de datos en ciclos for.
+						---
+						Entre las desventajas se encuentran las siguientes:
+
+						- Las instrucciones de salto y las condicionales no pueden ser ejecutadas en paralelo porque sólo existe una unidad de control de instrucciones.
+						- El rendimiento decae considerablemente en las sentencias case en un factor de 1/p, donde p es el número de bloques case.
+						---
+						- Durante los ciclos while, los datos en algunos procesadores pueden encontrar la condición de salida del ciclo antes de que ocurra en otros procesadores. En este caso, los procesadores que hayan completado el ciclo deben deshabilitarse hasta que el resto de los procesadores cumplan con la condición de salida.
+						---
+						ARQUITECTURAS MIMD
+
+						Esta es quizás la mejor estrategia de diseño orientada a obtener el más alto rendimiento y la mejor relación costo/rendimiento.
+						---
+						La idea detrás de las arquitecturas MIMD (Multiple Instruction Multiple Data) es bastante simple: aumentar la capacidad de trabajo conectando varios procesadores entre sí para obtener un rendimiento global lo más cercano a la suma de rendimientos de cada procesador por separado.
+						---
+						La filosofía de trabajo plantea la división de un problema (programa) en varias tareas (procesos) independientes, de manera que a cada procesador se le asigna la resolución de uno de estos procesos.
+						---
+						Generalmente, las arquitecturas de este tipo consisten en varios procesadores autónomos que pueden ejecutar flujos independientes de instrucciones usando datos locales.
+						---
+						La característica principal de las arquitecturas MIMD es que son computadoras asíncronas con control descentralizado de hardware, es decir, cada procesador tiene su propia unidad de control ejecutando un programa diferente.
+
+						---
+						![Diagrama de bloques de la arquitectura MIMD](MIMD.png)
+						---
+
+						La comunicación entre procesadores se realiza de manera semejante a las arquitecturas SIMD, es decir, mediante una memoria común (arquitecturas MIMD a memoria compartida) o mediante una red de interconexión (arquitecturas MIMD a memoria distribuida).
+						---
+						En las arquitecturas de memoria compartida todos los procesadores se comunican por medio de una memoria común.
+						---
+						Por lo tanto, para transmitir un dato desde el procesador Pi al procesador Pj son necesarios dos pasos: 1) el procesador Pi escribe el dato en una dirección de memoria conocida por el procesador Pj; y 2) el procesador Pj lee esa localidad de memoria.
+						---
+						En los sistemas de memoria compartida, permitir múltiples lecturas simultáneas sobre la misma posición de memoria no debe ocasionar ningún problema.
+						---
+						Conceptualmente, si cada procesador requiere leer desde una misma posición de memoria copia el contenido de esa posición y lo almacena en su memoria local (memoria caché).
+						---
+						Sin embargo, si varios procesadores requieren escribir simultáneamente diferentes datos sobre la misma posición de memoria, entonces, es necesario establecer mecanismos de sincronización entre los procesadores para el acceso a zonas de memoria compartida.
+						---
+						La otra forma de comunicación entre procesadores es por medio de una red de interconexión.
+						---
+						En este modelo, la memoria es dividida entre el conjunto de procesadores para su acceso local, además, cada procesador cuenta con su propia memoria caché.
+						---
+						La red de interconexión puede ser de dos tipos:
+
+						1) directa, en las que existen enlaces físicos que conectan directamente pares de procesadores, permitiendo enviar o recibir datos en cualquier instante de tiempo; y
+						---
+						2) de múltiples etapas, que tienen una baja cantidad de enlaces entre procesadores, de manera que cuando es necesario comunicar un mensaje entre dos procesadores que no tienen conexión directa, debe encaminarse o enrutarse dicho mensaje por procesadores intermedios entre estos dos.
+						---
+
+						Arquitecturas SIMD y MIMD
+
+						Arquitecturas híbridas: Combina características de SIMD y MIMD para aprovechar los beneficios de ambos enfoques en un solo sistema.
+						---
+
+						Arquitecturas de GPU (Unidad de procesamiento gráfico): Diseñadas inicialmente para acelerar la renderización de gráficos, las GPU se han convertido en una opción popular para aplicaciones de procesamiento paralelo debido a su gran cantidad de núcleos y capacidad de ejecutar múltiples hilos simultáneamente.
+						---
+						Arquitecturas de múltiples núcleos: Los procesadores modernos están equipados con múltiples núcleos de procesamiento, lo que permite ejecutar múltiples instrucciones en paralelo en el mismo chip.
+
+					</textarea>
+				</section>
+
+				<section><img src="../../../img/tec-campus-toluca-BACK.jpeg"></section>
+			</div>
+
+		</div>
+
+
+		<script src="../../../dist/reveal.js"></script>
+		<script src="../../../plugin/notes/notes.js"></script>
+		<script src="../../../plugin/markdown/markdown.js"></script>
+		<script src="../../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+Para el tema 8.1 Arquitectura de un sistema computacional, puedes usar la guía que encontré, que explica los conceptos básicos de la organización y el funcionamiento de un computador, así como los componentes principales que lo conforman. Puedes hacer una presentación con imágenes y diagramas para ilustrar los puntos clave, y luego hacer una actividad práctica donde los alumnos identifiquen y describan las partes de un computador real o simulado.
+Para el tema 8.1.1 Jerarquías de memoria, puedes explicar las diferencias entre los distintos tipos de memoria que existen en un sistema computacional, como la memoria RAM, la memoria ROM, la memoria caché, el disco duro, etc. Puedes usar ejemplos y analogías para facilitar la comprensión, y luego hacer una actividad donde los alumnos clasifiquen diferentes dispositivos de almacenamiento según su capacidad, velocidad y función.
+Para el tema 8.1.2 Estructura de la unidad central de proceso, puedes describir las partes que componen la CPU, como la unidad aritmético-lógica, el registro de instrucciones, el contador de programa, el registro de estado, etc. Puedes mostrar cómo se ejecutan las instrucciones en la CPU mediante un diagrama de flujo o un pseudocódigo, y luego hacer una actividad donde los alumnos simulen el funcionamiento de la CPU con papel y lápiz o con una aplicación interactiva.
+Para el tema 8.1.3 Entrada y salida de datos, puedes explicar los conceptos de periféricos, dispositivos de entrada y salida, puertos e interfaces que permiten la comunicación entre el sistema computacional y el mundo exterior. Puedes mostrar ejemplos de diferentes periféricos y dispositivos que se usan para introducir o extraer datos del computador, como el teclado, el ratón, el monitor, la impresora, el escáner, etc. Puedes hacer una actividad donde los alumnos identifiquen y clasifiquen los periféricos y dispositivos que tienen a su alcance o que conocen.
+Para el tema 8.1.4 Comunicación entre usuarios y el sistema operativo, puedes explicar las funciones y características de un sistema operativo, como la gestión de recursos, la administración de procesos, la seguridad, la interfaz gráfica, etc. Puedes mostrar ejemplos de diferentes sistemas operativos que existen en el mercado, como Windows, Linux, MacOS, Android, iOS, etc. Puedes hacer una actividad donde los alumnos comparen y contrasten las ventajas y desventajas de cada sistema operativo según sus preferencias y necesidades.
+
+
+Cuarto, crea una diapositiva por cada subtema que vas a desarrollar, usando la información que te proporcioné en mi respuesta anterior. Puedes usar los títulos y subtítulos que quieras, siempre que sean claros y coherentes. Puedes usar imágenes, diagramas, tablas, gráficos o cualquier otro elemento visual que ayude a ilustrar y explicar los conceptos. Puedes usar las fuentes que encontré en mi búsqueda web para ampliar o verificar la información. Por ejemplo:
+
+
+# Introducción
+
+## Objetivos
+
+- Conocer los componentes y el funcionamiento de un sistema de cómputo.
+- Diferenciar los tipos y niveles de memoria en un sistema de cómputo.
+- Describir la estructura y el proceso de la unidad central de proceso (CPU).
+- Identificar y clasificar los periféricos y dispositivos de entrada y salida de datos.
+- Explicar las funciones y características de un sistema operativo.
+
+## Contenido
+- Arquitectura de un sistema computacional.
+- Jerarquías de memoria.
+- Estructura de la unidad central de proceso.
+- Entrada y salida de datos.
+- Comunicación entre usuarios y el sistema operativo.
+
+
+
+
+# Arquitectura de un sistema de cómputo
+
+## ¿Qué es la arquitectura de un sistema de cómputo?
+
+- Es la forma de seleccionar e interconectar componentes de hardware para crear computadoras según los requerimientos de funcionalidad, rendimiento y costo.
+
+- Los componentes principales son: la placa principal o tarjeta madre, el microprocesador central o unidad central de proceso (CPU), el disco duro, el bus, la memoria principal y otros componentes controladores.
+
+- La fuente de alimentación eléctrica proporciona la energía necesaria para el funcionamiento del sistema.
+
+
+
+
+# Resumen
+Hemos aprendido los componentes y el funcionamiento de un sistema computacional.
+Hemos diferenciado los tipos y niveles de memoria en un sistema computacional.
+Hemos descrito la estructura y el proceso de la unidad central de proceso (CPU).
+Hemos identificado y clasificado los periféricos y dispositivos de entrada y salida de datos.
+Hemos explicado las funciones y características de un sistema operativo.

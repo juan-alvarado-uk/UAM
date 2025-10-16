@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>TC1004 Arquitectura</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div>
+				<img src="../../img/logo-tec-de-monterrey-white.png" width = "400">
+				<p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+			</div>
+			<div class="slides">
+				<section>
+					<h1>TC1004B</h1>
+					<h2>Arquitectura de sistemas de cómputo</h2>	
+				</section>
+				<section data-markdown id="fragments" style="top: 205px; display: block;" class="present" data-fragment="-1">
+					<textarea data-template>
+# Diferentes tipos de computadoras
+---
+Objetivos
+
+Al final de esta presentación, usted debería:
+
+- comprender qué diferentes tipos de computadoras existen
+- comprender los conceptos de microprocesador y microcontrolador
+- ser capaz de identificar si un artefacto contiene un microprocesador o un microcontrolador con una precisión razonable
+- ser capaz de identificar cuándo es probable que un artefacto no contenga ninguno de los dos.
+---
+## ¿Qué hace que algo sea una computadora?
+
+Hay muchas computadoras por ahí.
+
+Algunas de ellas son obvias y otras están más ocultas, ya sea como granjas de servidores escondidas en grandes almacenes o como pequeños dispositivos de propósito especial escondidas dentro de cosas que no se consideran computadoras.
+---
+En el extremo superior, hay dudas sobre si un almacén lleno de máquinas es una colección de muchas computadoras diferentes o un único dispositivo computacional masivamente paralelo.
+
+En el extremo inferior, podemos preguntarnos si un microcontrolador básico es realmente una computadora o simplemente un dispositivo de control.
+---
+### Algunos ejemplos básicos
+
+Computadoras obvias para todos:
+
+- Servidores de computadora central
+- PC de escritorio (computadoras personales)
+- portátiles
+---
+Computadoras comercializadas como dispositivos de uso general:
+
+- Teléfonos inteligentes
+- tabletas
+---
+Computadoras escondidas a simple vista disfrazadas de dispositivos de propósito especial:
+
+- Consolas de juegos
+- Enrutadores
+---
+Todo lo que contenga un microprocesador.
+
+- Dispositivos de consumo (microondas, hornos, alarmas antirrobo,...)
+- Carros
+---
+### Haciendo las cosas un poco más precisas
+
+Nos centraremos en las computadoras digitales programables. 
+
+Definición [**Computadora**]: Dispositivo o máquina para realizar o facilitar cálculos;
+---
+Un dispositivo electrónico (o sistema de dispositivos) que se utiliza para
+- almacenar, manipular y comunicar información,
+- realizar cálculos complejos, o controlar o regular otros dispositivos o máquinas, y
+- es capaz de recibir información (datos) y procesarla de acuerdo con instrucciones de procedimiento variables (**programas o software**)
+---
+Esta definición se refiere en parte a términos de función, es decir, lo que hace.
+
+También lo es en parte en términos de implementación, es decir, cómo se construye: un dispositivo electrónico (o sistema de dispositivos).
+---
+La distinción entre función e implementación está en el centro del diseño, hardware y software basados en componentes.
+---
+Definición [**Programa**]: Un conjunto de declaraciones que (después de la traducción desde un lenguaje de programación a un formato ejecutable...) pueden ser ejecutadas por una computadora para producir un comportamiento deseado desde la computadora.
+---
+El punto aquí es que el hardware es multipropósito. Lo que hace que la ejecución puede cambiar dándole instrucciones diferentes; un programa diferente.
+---
+Definición [**Microprocesador**]: Un chip semiconductor, o chipset, que implementa el procesador central de una computadora. Los microprocesadores constan, como mínimo, de una ALU y una unidad de control.
+---
+Definición [**Microcontrolador**]: Una computadora de un solo chip diseñada específicamente para su uso en aplicaciones de control de dispositivos, control de comunicaciones o control de procesos. Normalmente consta de un microprocesador, memoria y puertos de entrada/salida.
+---
+Un microcontrolador típico puede tener una longitud de palabra relativamente corta, un rico conjunto de instrucciones de manipulación de bits y carecer de ciertas operaciones aritméticas y de cadenas que se encuentran en los microprocesadores de uso general.
+---
+
+## Diferentes tipos de computadoras
+
+Veamos una taxonomía (o clasificación) aproximada de los diferentes tipos de dispositivos informáticos que existen. 
+
+Está organizado en orden aproximado de potencia informática y (generalmente) precio.
+---
+### Servidores y granjas de servidores
+
+Empresas como Google, Amazon y Facebook (por ejemplo, también hay muchas otras) utilizan enormes cantidades de potencia informática.
+
+Esa potencia informática toma la forma de granjas de servidores.
+---
+Una granja de servidores típica consta de una sala que contiene bastidores de computadoras de gama alta, todas conectadas en red.
+
+El tamaño puede variar desde aproximadamente el tamaño de una habitación normal de una casa hasta un gran cobertizo que cubra el área de un campo de fútbol.
+---
+Estas instalaciones consumen mucha energía y la refrigeración es un problema importante.
+
+El costo anual de la energía es una fracción significativa del costo de construcción, y el costo de proporcionar refrigeración puede ser casi tan alto como el de las propias computadoras.
+---
+Para obtener más información sobre cómo se construyen estos centros de datos y cuestiones como los costos de energía, consulte [esto](https://www.google.com/about/datacenters) y algunas [fotos muy buenas.](https://www.google.com/about/datacenters/gallery/#/)
+---
+Centro de datos Council Blu de Google:						
+
+![](./arquitectura/Aspose.Words.3b2eeb76-d28b-4218-9ad5-84ffa2aeb47c.001.jpeg)
+
+---
+Un bastidor estándar tiene 19 pulgadas (480 mm) de ancho y las unidades tienen múltiplos de 1,75 pulgadas (44,5 mm) de alto (un poco menos para permitir su extracción).
+
+Los servidores montados en bastidor suelen estar en contenedores. A veces son contenedores verticales destinados a montarse en un chasis que les permite compartir cosas como fuentes de alimentación y conexiones de red.
+---
+Este es un HP Proliant BL660c ([referencia](https://www.hpe.com/h20195/v2/GetDocument.aspx?docname=c04543743)). Este servidor en particular puede tener hasta cuatro chips de CPU, cada uno con hasta aproximadamente 20 núcleos, hasta 2 TB de RAM y cuatro discos duros.
+
+![](./arquitectura/Aspose.Words.3b2eeb76-d28b-4218-9ad5-84ffa2aeb47c.002.png)
+---
+
+### Computadoras personales y portátiles
+
+Estas son las computadoras que vemos en casa y en las oficinas. Hay bastantes tipos diferentes:
+
+- PC tipo torre de estilo antiguo con una caja separada para CPU, memoria RAM y disco, construidos con componentes estandarizados
+- portátiles de gama alta que siguen arquitecturas de PC estándar
+---
+- PC todo en uno, básicamente una computadora portátil (menos batería, teclado y panel táctil) empaquetada en una pantalla
+- portátiles de gama baja, básicamente una tableta con teclado y panel táctil.
+---
+### Teléfonos móviles y tabletas
+
+Las aplicaciones de los teléfonos inteligentes y las tabletas son programas. Un teléfono inteligente o tableta con Android o iOS es básicamente una computadora pequeña que ejecuta una forma del sistema operativo Unix, y una aplicación es un programa que se ejecuta en ella.
+
+---
+### Computadoras personales disfrazadas de dispositivos de consumo
+
+Tu casa también puede contener una serie de dispositivos que son básicamente computadoras completamente funcionales empaquetadas como algo con un propósito especial.
+
+Muchos de estos ejecutan una variedad de aplicaciones diferentes y/o tienen software (firmware) que se puede actualizar y se conectan a Internet.
+---
+**Enrutador (inalámbrico):** Un enrutador es una computadora cuyo propósito principal es dirigir el tráfico de la red.
+
+Los enrutadores de la red troncal de Internet son computadoras poderosas por derecho propio. Pero el router de tu propia casa es mucho más básico.
+
+<aside class="notes">
+Una forma común de construir enrutadores domésticos es construir una pequeña computadora básica y ejecutar una versión de Linux en ella.
+Las ventajas de esto son que hace que sea mucho más fácil reutilizar el código existente disponible públicamente, lo que aumenta la confiabilidad y la seguridad y disminuye el costo.
+Además, desacopla el software de control del hardware, facilitando el cambio de ambos de forma independiente.
+</aside>
+---
+**Consola de juegos:** Una consola de juegos es básicamente una PC de escritorio que ejecuta un software ligeramente diferente.
+
+Las consolas de juegos modernas ejecutan diferentes aplicaciones y se conectan a Internet para jugar en línea.
+---
+Internamente son como PC, pero con algunas diferencias en el diseño y utilizando el poder de tener tiradas de producción masivas para reducir los costos de construcción.
+---
+**Almacenamiento en red:** Muchos hogares tienen almacenamiento direccionado en red que puede usar para copias de seguridad de computadoras portátiles y PC, así como almacenamiento centralizado de música, fotos y videos.
+---
+Estos también ejecutan diferentes aplicaciones y tienen firmware que se puede actualizar. Básicamente son computadoras pequeñas con discos adjuntos.
+
+![](./arquitectura/image.png)
+
+---
+### Dispositivos de consumo con gran capacidad informática
+
+También tenemos muchos dispositivos que realizan cantidades importantes de cálculo y que a su vez pueden estar conectados a Internet.
+---
+Pueden contener microprocesadores o dispositivos microcontroladores de alta gama (la diferencia está desapareciendo a medida que se colocan más cálculos y control en chips individuales).
+---
+1. Televisión: Las señales de televisión digital son básicamente codificaciones mp4. Los televisores toman esas codificaciones y las muestran en la pantalla. Eso requiere una potencia informática significativa. Muchos televisores ahora son "inteligentes", lo que significa que tienen acceso a Internet, y ejecutan aplicaciones para cosas como Netflix y YouTube.
+---
+2. Cámara: La mayoría de las cámaras, ya sean fijas o de vídeo, realizan mucho procesamiento (reconocimiento facial, codificación y decodificación de imágenes, control de la cámara,...). También pueden estar habilitados para Internet.
+---
+3. Impresora: Las impresoras también están conectadas en red y pueden realizar una gran cantidad de procesamiento (sin embargo, las impresoras de inyección de tinta más simples hacen que la computadora desde la que estás imprimiendo haga todo el trabajo).
+---
+4. Automóviles: utilizan un amplio control basado en computadora que cubre cosas como control y monitoreo del motor, navegadores por satélite,...
+
+					</textarea>
+				</section>
+				<section><img src="../../img/tec-campus-toluca-BACK.jpeg"></section>
+			</div>
+
+		</div>
+		
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
