@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+        <style>
+          #fixed-logo {
+            position: fixed;
+            top: 8px;
+            left: 12px;
+            z-index: 50; /* por encima del contenido */
+          }
+        
+          #fixed-logo img {
+            height: 40px;    /* ajusta a gusto */
+            width: auto;
+          }
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+        .slide-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1.5rem;
+            align-items: center;
+        }
+        .slide-two-col .text-col {
+            font-size: 0.9em;
+            text-align: left;
+        }
+        .slide-two-col .image-col img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="fixed-logo">
+  <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png" alt="Logo">
+</div>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>Mi Presentación</h1>
+    </section>
+    <section>
+      <h2>Introducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Este es el contenido de introducción.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/quality-g1788436e8_640.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Introducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/attention-g41203481a_640.png" alt="decorative image" /></div>
+        <div class="text-col"><ul><li>- Punto 1 - Punto 2 - Punto 3</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Detalles</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Aquí hay más detalles específicos.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-realtoughcandycom-11035396.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de Datos</h2>
+      <table>
+        <thead><tr><th>Nombre</th><th>Edad</th><th>Ciudad</th></tr></thead>
+        <tbody>
+          <tr><td>Ana</td><td>25</td><td>CDMX</td></tr>
+<tr><td>Luis</td><td>30</td><td>GDL</td></tr>
+<tr><td>María</td><td>28</td><td>MTY</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Código</h2>
+      <pre><code class="language-python">def ejemplo():
+    print(&quot;Hola mundo&quot;)
+    return True</code></pre>
+    </section>
+    <section>
+      <h1>Estructura básica de XML</h1>
+    </section>
+    <section>
+      <h2>Estructura básica de XML</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>XML es un lenguaje de marcado jerárquico donde los datos se organizan en elementos anidados, cada uno delimitado por etiquetas de apertura y cierre, y con atributos opcionales.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-fauxels-3183197.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura básica de XML</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Un documento XML bien formado debe tener exactamente un elemento raíz, no puede haber etiquetas cruzadas (ósea que no se abren y cierran sin invadir otras etiquetas) y los atributos deben ir con comillas alrededor de sus valores, en los siguientes ejemplos el primero está correcto y el segundo no.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-thisisengineering-3913016.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura básica de XML</h2>
+      <pre><code class="language-xml">&lt;producto id=&quot;1&quot; nombre=&quot;Laptop&quot; precio=&quot;25000.0&quot; /&gt;
+&lt;producto id=1 nombre=Laptop /&gt;   </code></pre>
+    </section>
+    <section>
+      <h2>Estructura básica de XML</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-anna-shvets-3683053.jpg" alt="decorative image" /></div>
+        <div class="text-col"><ul><li>Para servicios web, XML permite describir mensajes complejos (por ejemplo, una factura con muchísimos campos) de forma estructurada y con nombres explícitos para cada elemento.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura básica de XML</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Su principal desventaja es el mucho choro que incluye, pero a cambio es muy expresivo y tiene un ecosistema maduro de herramientas de validación, transformación (XSLT) y consulta (XPath, XQuery).</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-olya-kobruseva-5428836.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Esquemas XSD a nivel conceptual</h1>
+    </section>
+    <section>
+      <h2>Esquemas XSD a nivel conceptual</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>XSD (XML Schema Definition) es un lenguaje que describe la estructura, los tipos de datos y las reglas de validación de documentos XML asociados.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-fox-1595385.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Esquemas XSD a nivel conceptual</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Conceptualmente, un XSD define qué elementos pueden aparecer, en qué orden, cuántas veces, qué atributos admiten y qué tipos de datos tienen.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-arthur-brognoli-2440530.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Esquemas XSD a nivel conceptual</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-skitterphoto-1128843.jpg" alt="decorative image" /></div>
+        <div class="text-col"><ul><li>Los tipos simples describen valores atómicos (cadenas, números, fechas, booleanos), mientras que los tipos complejos agrupan elementos y atributos, permitiendo modelar estructuras anidadas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Esquemas XSD a nivel conceptual</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Cuando un XML se “valida” contra su XSD, se comprueba que cumple tanto las reglas sintácticas de XML como las reglas de contenido (por ejemplo, que un precio sea numérico y obligatorio).</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-cytonn-photography-955405.jpg" alt="decorative image" /></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/dracula.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        .reveal table th,
+        .reveal table td {
+            padding: 0.3em 0.5em;
+            border: 1px solid #ddd;
+        }
+        .reveal table th {
+            font-weight: bold;
+            background-color: rgba(100, 100, 100, 0.2);
+        }
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .reveal code {
+            max-height: 500px;
+            padding: 1em;
+        }
+        .reveal pre code {
+            max-height: 450px;
+            overflow: auto;
+        }
+        .reveal h2 {
+            margin-bottom: 0.5em;
+        }
+        .reveal ul, .reveal ol {
+            font-size: 0.9em;
+        }
+        .reveal p {
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Mi Presentación</h1>
+            </section>
+            <section>
+                <h2>Introducción</h2>
+                <p>Este es el contenido de introducción.</p>
+                <ul>
+                    <li>Punto 1</li>
+                    <li>Punto 2</li>
+                    <li>Punto 3</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Detalles</h2>
+                <p>Aquí hay más detalles específicos.</p>
+            </section>
+            <section>
+                <h2>Tabla de Datos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Ciudad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana</td>
+                            <td>25</td>
+                            <td>CDMX</td>
+                        </tr>
+                        <tr>
+                            <td>Luis</td>
+                            <td>30</td>
+                            <td>GDL</td>
+                        </tr>
+                        <tr>
+                            <td>María</td>
+                            <td>28</td>
+                            <td>MTY</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Código</h2>
+                <pre><code class="language-python">def ejemplo():
+    print(&quot;Hola mundo&quot;)
+    return True</code></pre>
+            </section>
+            <section>
+                <h1>Estructura básica de XML</h1>
+            </section>
+            <section>
+                <h1>Esquemas XSD a nivel conceptual</h1>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>
