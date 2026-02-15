@@ -6,21 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
     <style>
         <style>
-          #fixed-logo {
-            position: fixed;
-            top: 8px;
-            left: 12px;
-            z-index: 50; /* por encima del contenido */
-          }
         
-          #fixed-logo img {
-            height: 40px;    /* ajusta a gusto */
-            width: auto;
-          }
         /* Usar más ancho de pantalla */
         .reveal .slides {
             width: 95%;
@@ -28,6 +18,26 @@
         }
         .reveal section {
             padding: 0.5em 0.5em;
+        }
+        
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
         /* Layout dos columnas cuando hay imagen */
@@ -68,33 +78,38 @@
     </style>
 </head>
 <body>
-<div id="fixed-logo">
-  <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png" alt="Logo">
-</div>
 <div class="reveal">
+    <div>
+      <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+    </div>
   <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://juan-alvarado-uk.github.io/UAM/logos/cua_05.jpg" alt="slide image" />
+              <h1>Integración de Sistemas</h1>
+            </section>
     <section>
       <h1>Mi Presentación</h1>
     </section>
     <section>
       <h2>Introducción</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-fauxels-3182812.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Este es el contenido de introducción.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/quality-g1788436e8_640.jpg" alt="decorative image" /></div>
       </div>
     </section>
     <section>
       <h2>Introducción</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/attention-g41203481a_640.png" alt="decorative image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/warning-g9e7961896_640.png" alt="image" /></div>
         <div class="text-col"><ul><li>- Punto 1 - Punto 2 - Punto 3</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Detalles</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-pixabay-60504.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Aquí hay más detalles específicos.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-realtoughcandycom-11035396.jpg" alt="decorative image" /></div>
       </div>
     </section>
     <section>
@@ -121,14 +136,14 @@
       <h2>Estructura básica de XML</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>XML es un lenguaje de marcado jerárquico donde los datos se organizan en elementos anidados, cada uno delimitado por etiquetas de apertura y cierre, y con atributos opcionales.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-fauxels-3183197.jpg" alt="decorative image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/thumbs_up.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Estructura básica de XML</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-thisisengineering-3861970.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Un documento XML bien formado debe tener exactamente un elemento raíz, no puede haber etiquetas cruzadas (ósea que no se abren y cierran sin invadir otras etiquetas) y los atributos deben ir con comillas alrededor de sus valores, en los siguientes ejemplos el primero está correcto y el segundo no.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-thisisengineering-3913016.jpg" alt="decorative image" /></div>
       </div>
     </section>
     <section>
@@ -139,15 +154,15 @@
     <section>
       <h2>Estructura básica de XML</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-anna-shvets-3683053.jpg" alt="decorative image" /></div>
         <div class="text-col"><ul><li>Para servicios web, XML permite describir mensajes complejos (por ejemplo, una factura con muchísimos campos) de forma estructurada y con nombres explícitos para cada elemento.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-realtoughcandycom-11035396.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Estructura básica de XML</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Su principal desventaja es el mucho choro que incluye, pero a cambio es muy expresivo y tiene un ecosistema maduro de herramientas de validación, transformación (XSLT) y consulta (XPath, XQuery).</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-olya-kobruseva-5428836.jpg" alt="decorative image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/angry_man_fist.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -156,21 +171,21 @@
     <section>
       <h2>Esquemas XSD a nivel conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/angry_man.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>XSD (XML Schema Definition) es un lenguaje que describe la estructura, los tipos de datos y las reglas de validación de documentos XML asociados.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-fox-1595385.jpg" alt="decorative image" /></div>
       </div>
     </section>
     <section>
       <h2>Esquemas XSD a nivel conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-anna-shvets-3683053.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Conceptualmente, un XSD define qué elementos pueden aparecer, en qué orden, cuántas veces, qué atributos admiten y qué tipos de datos tienen.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-arthur-brognoli-2440530.jpg" alt="decorative image" /></div>
       </div>
     </section>
     <section>
       <h2>Esquemas XSD a nivel conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-skitterphoto-1128843.jpg" alt="decorative image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-fauxels-3182812.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Los tipos simples describen valores atómicos (cadenas, números, fechas, booleanos), mientras que los tipos complejos agrupan elementos y atributos, permitiendo modelar estructuras anidadas.</li></ul></div>
       </div>
     </section>
@@ -178,9 +193,13 @@
       <h2>Esquemas XSD a nivel conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Cuando un XML se “valida” contra su XSD, se comprueba que cumple tanto las reglas sintácticas de XML como las reglas de contenido (por ejemplo, que un precio sea numérico y obligatorio).</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM//img/pexels-cytonn-photography-955405.jpg" alt="decorative image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-pixabay-208494.jpg" alt="image" /></div>
       </div>
     </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://juan-alvarado-uk.github.io/UAM/logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
   </div>
 </div>
 

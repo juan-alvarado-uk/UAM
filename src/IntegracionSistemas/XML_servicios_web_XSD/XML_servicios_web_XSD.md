@@ -10,7 +10,6 @@ Un documento XML bien formado debe tener exactamente un elemento raíz, no puede
 <producto id=1 nombre=Laptop />   
 ```
 
----  
 Para servicios web, XML permite describir mensajes complejos (por ejemplo, una factura con muchísimos campos) de forma estructurada y con nombres explícitos para cada elemento.
 
 Su principal desventaja es el mucho choro que incluye, pero a cambio es muy expresivo y tiene un ecosistema maduro de herramientas de validación, transformación (XSLT) y consulta (XPath, XQuery).  
@@ -21,7 +20,7 @@ XSD (XML Schema Definition) es un lenguaje que describe la estructura, los tipos
 
 Conceptualmente, un XSD define qué elementos pueden aparecer, en qué orden, cuántas veces, qué atributos admiten y qué tipos de datos tienen.  
 
----  
+  
 Los tipos simples describen valores atómicos (cadenas, números, fechas, booleanos), mientras que los tipos complejos agrupan elementos y atributos, permitiendo modelar estructuras anidadas.
 
 Cuando un XML se “valida” contra su XSD, se comprueba que cumple tanto las reglas sintácticas de XML como las reglas de contenido (por ejemplo, que un precio sea numérico y obligatorio).  
@@ -64,11 +63,11 @@ Utiliza el archivo `product.xml` y el esquema `product.xsd` y usa una herramient
 - https://xmlformatter.org/xsd-validator/  
 
 Procedimiento:  
-1. Abrir el validador online en el navegador.  
-2. Copiar y pegar el contenido de `product.xml` en el área de XML.  
-3. Copiar y pegar el contenido de `product.xsd` en el área de XSD (si la herramienta lo separa) o subir ambos archivos.  
-4. Pulsar el botón de “Validar” o equivalente.  
-5. Revisar si el XML es válido; si no, leer los mensajes de error para corregir la estructura o los valores.  
+- Abrir el validador online en el navegador.  
+- Copiar y pegar el contenido de `product.xml` en el área de XML.  
+- Copiar y pegar el contenido de `product.xsd` en el área de XSD (si la herramienta lo separa) o subir ambos archivos.  
+- Pulsar el botón de “Validar” o equivalente.  
+- Revisar si el XML es válido; si no, leer los mensajes de error para corregir la estructura o los valores.  
 
 También se puede validar desde línea de comandos con `xmllint` (en Linux/macOS):
 
@@ -80,15 +79,17 @@ Si el XML cumple el esquema, el comando termina sin errores; de lo contrario, mu
 
 # Validar un XML que representa un contrato WSDL
 
-Hay dos escenarios distintos:  
+Hay dos escenarios distintos: 
+
 - Validar la instancia de mensaje SOAP que usa tipos definidos en el WSDL (lo habitual).  
 - Validar el propio documento WSDL como XML y contra los esquemas oficiales de WSDL.  
 
 Para el primer caso, muchos entornos extraen automáticamente los XSD definidos en el WSDL o referenciados, y luego permiten validar mensajes contra esos tipos.  
 
 Para el segundo caso, existen validadores específicos de WSDL que:  
-1. Verifican que el WSDL es XML bien formado.  
-2. Lo comparan con los esquemas de WSDL 1.1 o 2.0 para asegurar que su estructura es correcta.  
+
+- Verifican que el WSDL es XML bien formado.  
+- Lo comparan con los esquemas de WSDL 1.1 o 2.0 para asegurar que su estructura es correcta.  
 
 
 
@@ -97,7 +98,8 @@ Para el segundo caso, existen validadores específicos de WSDL que:
 
 # Ejemplo de validación contra los esquemas de WSDL: 
 
-Un editor/validador de WSDL en línea  
+Un editor/validador de WSDL en línea 
+
 - WSDL Analyzer: https://wsdl-analyzer.net  
 
 ## WSDL simple con errores para validar
@@ -110,8 +112,8 @@ Ejemplo de archivo `HelloService-with-errors.wsdl`
 
 El WSDL tiene los tipos en la sección `<types>`. Ahí puede haber:
 
-1. Esquemas XSD embebidos (dentro del propio WSDL).  
-2. Esquemas XSD importados o incluidos mediante `xsd:import` o `xsd:include`.  
+- Esquemas XSD embebidos (dentro del propio WSDL).  
+- Esquemas XSD importados o incluidos mediante `xsd:import` o `xsd:include`.  
 
 ## Tipos embebidos
 
@@ -130,6 +132,7 @@ En un WSDL sencillo, podríamos tener algo como lo siguiente:
 ```
 
 Para obtener el XSD:  
+
 - Se copia el contenido de `<xsd:schema>...</xsd:schema>` y se pega en un archivo nuevo, por ejemplo `hello.xsd`.  
 - Se le puede agregar cabecera XML (línea 1):
 
@@ -178,7 +181,7 @@ Supongamos que tenemos el archivo `hello.xsd` y un mensaje XML, `helloRequest.xm
 </sayHelloRequest>
 ```
 
-... y esto se valida con el xml y xsd como ya se había visto.
+...y esto se valida con el xml y xsd como ya se había visto.
 
 
 
@@ -204,9 +207,8 @@ Fragmento con errores intencionales:
 
 ## Estructura de un mensaje SOAP
 
-Un mensaje SOAP típico es un documento XML con esta estructura general:
+Un mensaje SOAP típico es un documento XML con la siguiente estructura general:
 
----
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope
@@ -227,8 +229,9 @@ Un mensaje SOAP típico es un documento XML con esta estructura general:
 </soap:Envelope>
 ```
 
----
-Componentes:  
+
+Componentes: 
+
 - Envelope: elemento raíz que identifica el mensaje como SOAP y define namespaces.  
 - Header (opcional): metadatos que pueden procesar intermediarios (autenticación, direccionamiento, políticas).  
 - Body (obligatorio): contiene la operación invocada y los datos de negocio.  

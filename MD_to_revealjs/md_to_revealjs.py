@@ -268,6 +268,8 @@ class MarkdownToRevealJS:
 
         chunk: List[str] = []
         for sent in sentences:
+            if not isinstance(sent, str):
+                continue
             if not sent.strip():
                 continue
             chunk.append(sent.strip())
@@ -303,14 +305,23 @@ class MarkdownToRevealJS:
 
         paragraphs = text.split("\n\n")
         sentences: List[str] = []
-        sentence_re = re.compile(r"(?<=[\.!?])\s+")
+
+        # Explicación:
+        # (?<!(\d)) asegura que justo antes del punto NO haya un dígito.
+        # Es decir, no corta en "1. Texto", pero sí en "Texto final."
+        sentence_re = re.compile(r"(?<!(\d))(?<=[\.!?])\s+")
+        # sentence_re = re.compile(r"(?<=[\.!?])\s+")
 
         for para in paragraphs:
             para = para.strip()
             if not para:
                 continue
             parts = sentence_re.split(para)
-            sentences.extend(parts)
+            # Filtrar y asegurar que todo sea str no vacío
+            for p in parts:
+                if isinstance(p, str) and p.strip():
+                    sentences.append(p.strip())
+            # sentences.extend(parts)
 
         return sentences
 
@@ -350,12 +361,16 @@ class MarkdownToRevealJS:
 
     # ===================== HTML =====================
 
-    def generate_html(self, theme: str = "black") -> str:
+    def generate_html(self, theme: str = "solarized") -> str:
         slide_html_parts: List[str] = []
 
         for slide in self.slides:
             if slide["type"] == "title":
                 slide_html_parts.append(self._render_title_slide(slide))
+            elif slide["type"] == "cover":
+                slide_html_parts.append(self._render_full_image_slide(slide, kind="cover"))
+            elif slide["type"] == "closing":
+                slide_html_parts.append(self._render_full_image_slide(slide, kind="closing"))
             else:
                 slide_html_parts.append(self._render_content_slide(slide))
 
@@ -371,17 +386,7 @@ class MarkdownToRevealJS:
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
     <style>
         <style>
-          #fixed-logo {{
-            position: fixed;
-            top: 8px;
-            left: 12px;
-            z-index: 50; /* por encima del contenido */
-          }}
         
-          #fixed-logo img {{
-            height: 40px;    /* ajusta a gusto */
-            width: auto;
-          }}
         /* Usar más ancho de pantalla */
         .reveal .slides {{
             width: 95%;
@@ -389,6 +394,26 @@ class MarkdownToRevealJS:
         }}
         .reveal section {{
             padding: 0.5em 0.5em;
+        }}
+        
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {{
+            text-align: center;
+        }}
+        .full-image-slide .full-slide-image {{
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: cover;
+            border-radius: 12px;
+        }}
+        .full-image-slide h1,
+        .full-image-slide h2 {{
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }}
 
         /* Layout dos columnas cuando hay imagen */
@@ -429,10 +454,11 @@ class MarkdownToRevealJS:
     </style>
 </head>
 <body>
-<div id="fixed-logo">
-  <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png" alt="Logo">
-</div>
 <div class="reveal">
+    <div>
+      <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+    </div>
   <div class="slides">
 {chr(10).join(slide_html_parts)}
   </div>
@@ -463,14 +489,34 @@ class MarkdownToRevealJS:
       <h1>{title}</h1>
     </section>"""
 
+    def _render_full_image_slide(self, slide: Dict[str, Any], kind: str = "cover") -> str:
+        img = slide.get("image")
+        if not img:
+            return '    <section></section>'
+        title_overlay = ""
+        if kind == "cover":
+            # Si quieres poner un título general aquí, puedes hacerlo:
+            title_overlay = '<h1>Integración de Sistemas</h1>'
+            # title_overlay = ""
+        elif kind == "closing":
+            title_overlay = '<h2>Gracias</h2>'
+
+        full_src = "https://juan-alvarado-uk.github.io/UAM/" + img[3:]
+        img_html = f'<img class="full-slide-image" src="{full_src}" alt="slide image" />'
+
+        return f"""    <section class="full-image-slide">
+              {img_html}
+              {title_overlay}
+            </section>"""
+
     def _render_content_slide(self, slide: Dict[str, Any]) -> str:
         title = self._escape_html(slide["title"])
         blocks_html: List[str] = []
 
         # Slides con imagen decorativa → dos columnas
         if slide.get("image") and slide.get("image_side") in ("left", "right"):
-            full_src = "https://juan-alvarado-uk.github.io/UAM/" + slide["image"][2:]
-            img_html = f'<img src="{full_src}" alt="decorative image" />'
+            full_src = "https://juan-alvarado-uk.github.io/UAM/" + slide["image"][3:]
+            img_html = f'<img src="{full_src}" alt="image" />'
             text_html = self._render_blocks_as_text(blocks=slide.get("content_blocks", []))
 
             if slide["image_side"] == "left":
@@ -552,6 +598,23 @@ class MarkdownToRevealJS:
                     .replace('"', "&quot;")
                     .replace("'", "&#39;"))
 
+    # ===================== SLIDES ESPECIALES (PORTADA / CIERRE) =====================
+    def _add_cover_slide(self, image: str):
+        """Diapositiva de portada con imagen a pantalla casi completa."""
+        self.slides.insert(0, {
+            "type": "cover",
+            "title": "",
+            "image": image,
+        })
+
+    def _add_closing_slide(self, image: str):
+        """Diapositiva final de cierre con imagen a pantalla casi completa."""
+        self.slides.append({
+            "type": "closing",
+            "title": "",
+            "image": image,
+        })
+
 
 # ===================== CLI =====================
 
@@ -587,6 +650,19 @@ def main():
         use_images=not args.no_images,
     )
     converter.parse_markdown(markdown)
+
+    # Elegir imágenes para portada y cierre (pueden ser fijas o aleatorias)
+    cover_img = None
+    closing_img = None
+    if not args.no_images: #and DECORATIVE_IMAGES:
+        cover_img = "../logos/cua_05.jpg"   # random.choice(DECORATIVE_IMAGES)
+        closing_img = "../logos/cua_01.jpg"   # random.choice(DECORATIVE_IMAGES)
+
+    if cover_img:
+        converter._add_cover_slide(cover_img)
+    if closing_img:
+        converter._add_closing_slide(closing_img)
+
     html = converter.generate_html(theme=args.theme)
 
     output_path = Path(args.output)
