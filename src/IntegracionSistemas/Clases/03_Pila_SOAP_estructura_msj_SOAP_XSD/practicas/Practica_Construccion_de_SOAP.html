@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Practica_Construccion_de_SOAP</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h1>Práctica: SOAP/XML básico</h1>
+<h2>Objetivo</h2>
+<p>Dado un mensaje REST/JSON sencillo, escribir el equivalente como mensaje SOAP/XML básico, centrado en la estructura Envelope–Header–Body y en la traducción de campos.</p>
+<h2>Paso a paso detallado</h2>
+<ol>
+<li>
+<p>Preparación del entorno</p>
+<ul>
+<li>Verificar que cada alumno tenga un editor de texto (VS Code, Notepad++, Sublime, etc.) y un navegador.</li>
+<li>Crear una carpeta local <code>soap_lab/</code> donde se guardarán los archivos del ejercicio.</li>
+</ul>
+</li>
+<li>
+<p>JSON de partida</p>
+<ul>
+<li>
+<p>Usar el siguiente JSON y guardarlo como <code>producto.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;Laptop&quot;,
+  &quot;price&quot;: 25000.0
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Análisis del JSON</p>
+<ul>
+<li>Identificar el recurso principal (Product) y sus campos: id (entero), name (cadena), price (número).</li>
+<li>Discutir brevemente qué tipo de operación podría estar representando (p. ej., respuesta a “obtener producto”).</li>
+</ul>
+</li>
+<li>
+<p>Crear el archivo XML</p>
+<ul>
+<li>
+<p>En el editor, crear <code>producto_soap.xml</code> con la declaración XML:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Definir el Envelope y namespaces</p>
+<ul>
+<li>
+<p>Agregar el elemento raíz:</p>
+<pre><code class="language-xml">&lt;soap:Envelope
+    xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot;
+    xmlns:prod=&quot;http://example.com/products&quot;&gt;
+</code></pre>
+</li>
+<li>
+<p>Mantener sangrías claras para facilitar la lectura.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Añadir Header (vacío para esta práctica)</p>
+<ul>
+<li>
+<p>Dentro de Envelope, añadir:</p>
+<pre><code class="language-xml">  &lt;soap:Header&gt;
+    &lt;!-- Sin contenido en este ejercicio --&gt;
+  &lt;/soap:Header&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Añadir Body con operación y datos</p>
+<p>Fragmento completo del Body esperado:</p>
+<pre><code class="language-xml">    &lt;soap:Body&gt;
+      &lt;prod:ProductResponse&gt;
+        &lt;prod:Product&gt;
+          &lt;prod:id&gt;1&lt;/prod:id&gt;
+          &lt;prod:name&gt;Laptop&lt;/prod:name&gt;
+          &lt;prod:price&gt;25000.0&lt;/prod:price&gt;
+        &lt;/prod:Product&gt;
+      &lt;/prod:ProductResponse&gt;
+    &lt;/soap:Body&gt;
+</code></pre>
+</li>
+<li>
+<p>Cerrar el Envelope</p>
+<pre><code class="language-xml">  &lt;/soap:Envelope&gt;
+</code></pre>
+<ul>
+<li>Verificar que las etiquetas estén correctamente anidadas y cerradas.</li>
+</ul>
+</li>
+<li>
+<p>Validación básica</p>
+<ul>
+<li>Copiar el XML y pegarlo en un validador de XML online para confirmar que es bien formado.</li>
+<li>Corregir cualquier error de anidamiento o de nombres de etiqueta.</li>
+</ul>
+</li>
+<li>
+<p>¿Cómo sería el body para la petición (Request) de un producto?</p>
+</li>
+<li>
+<p>¿Cómo se sería el WSDL considerando sólo la operación de request?</p>
+</li>
+<li>
+<p>Revisión en parejas</p>
+<ul>
+<li>Intercambiar archivos y revisar que:
+<ul>
+<li>Exista un solo Envelope.</li>
+<li>Header y Body estén presentes.</li>
+<li>Los datos sean equivalentes al JSON original.</li>
+<li>Que el WSDL sea correcto</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+</body>
+</html>

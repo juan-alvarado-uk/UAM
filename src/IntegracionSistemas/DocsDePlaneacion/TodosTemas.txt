@@ -1,0 +1,26 @@
+- Panorama histórico: de integración punto a punto a SOA, servicios web SOAP/XML y surgimiento de REST.
+- Concepto actual de integración: monolito vs SOA vs microservicios vs eventos.
+- Introducción formal a la integración de sistemas (tipos: datos, funcional, semántica).
+- Pila clásica de servicios web SOAP: XML, WSDL, UDDI, WS-*, contratos estrictos.
+- Casos actuales donde SOAP sigue siendo relevante (banca, gobierno, salud) vs APIs modernas.
+- XML para servicios web: estructura básica, esquemas XSD a nivel conceptual.
+- Estructura de un mensaje SOAP: Envelope, Header, Body, Fault; comparación con mensajes REST/JSON ligeros.
+- Diferencias clave SOAP vs REST (formato, estado, seguridad).
+- Análisis y diseño para integración: requisitos de integración (fuentes de datos, latencia, seguridad).
+- Transición conceptual: de servicios SOAP (WSDL) a diseño de APIs REST (OpenAPI) y coexistencia SOAP/REST.
+- Introducción a OpenAPI/Swagger como “WSDL moderno” para REST.
+- Buenas prácticas de diseño de APIs REST: recursos, URIs, verbos HTTP, manejo de errores.
+- Estándares de datos: JSON y XML
+- Introducción a otros estilos: gRPC y mensajería asíncrona (solo a nivel conceptual) para contrastar con SOAP/REST.
+- Lenguajes de descripción para servicios web: WSDL y OpenAPI.
+- Documentación y descubrimiento: UDDI, portales de APIs y catálogos de servicios modernos.
+- Implementación práctica de un servicio REST sencillo (Node.js/Express o Python/FastAPI) que devuelva JSON.
+- Consumo de servicios SOAP desde una app moderna: patrones de “façade” REST sobre SOAP (conceptual + ejemplo).
+- Seguridad básica: HTTPS, claves API sencillas.
+- Integración semántica y Web Semántica: conceptos básicos de vocabularios, ontologías ligeras, JSON-LD, etiquetas semánticas en APIs.
+- Registros/catálogos de servicios modernos: portales de APIs, documentación, términos de uso.
+- Patrones de integración SOAP–REST–microservicios en entornos empresariales. 
+- Flujos de trabajo y orquestación de servicios.
+- Integración síncrona vs asíncrona: llamadas REST/gRPC vs colas/eventos, webhooks.
+- Ejemplos de aplicación: e-commerce, bibliotecas digitales, SIG, sistemas de pago y notificaciones, incluyendo coexistencia SOAP/REST.
+- Tendencias actuales: API-first, event-driven architecture, serverless, GraphQL, APIs internas/externas/partner.

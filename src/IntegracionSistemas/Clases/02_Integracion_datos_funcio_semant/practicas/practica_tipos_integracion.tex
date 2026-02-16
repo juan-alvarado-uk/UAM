@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+
+% ===== Paquetes básicos =====
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+\setstretch{1.1}
+
+% Configuración para código
+%\lstset{
+%	basicstyle=\ttfamily\small,
+%	breaklines=true,
+%	showstringspaces=false,
+%	columns=fullflexible
+%}
+
+
+\lstdefinelanguage{JavaScript}{
+	% Palabras clave básicas
+	morekeywords=[1]{
+		break, case, catch, class, const, continue, debugger, default, delete, do,
+		else, export, extends, finally, for, function, if, import, in, instanceof,
+		let, new, return, super, switch, this, throw, try, typeof, var, void, while,
+		with, yield
+	},
+	% Literales y tipos
+	morekeywords=[2]{
+		false, null, true, undefined,
+		boolean, number, string, symbol, bigint
+	},
+	% Objetos y funciones globales
+	morekeywords=[3]{
+		Array, Boolean, Date, Error, EvalError, Function, JSON, Map, Math,
+		Number, Object, Promise, Proxy, RangeError, ReferenceError, RegExp, Set,
+		String, SyntaxError, TypeError, URIError, WeakMap, WeakSet,
+		console, window, document
+	},
+	sensitive=true,                % distingue mayúsculas
+	% Comentarios
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morecomment=[s]{/**}{*/},      % estilo JSDoc
+	% Cadenas
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]`                % template strings
+}[keywords, comments, strings]
+
+
+
+\lstdefinestyle{jsstyle}{
+	language=JavaScript,
+	basicstyle=\ttfamily\small,
+	keywordstyle=[1]\color{blue}\bfseries,
+	keywordstyle=[2]\color{orange!80!black},
+	keywordstyle=[3]\color{teal!70!black},
+	stringstyle=\color{green!50!black},
+	commentstyle=\color{gray},
+	numberstyle=\tiny\color{gray},
+	numbers=left,
+	stepnumber=1,
+	breaklines=true,
+	showstringspaces=false,
+	columns=fullflexible
+}
+
+
+\lstdefinestyle{terminalstyle}{
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{black!5},
+	keywordstyle=\color{black},
+	commentstyle=\color{black},
+	stringstyle=\color{black},
+	showstringspaces=false,
+	breaklines=true,
+}
+
+
+
+\title{Detectando tipos de integración en un caso sencillo}
+\author{Juan Alvarado}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Intrucciones}
+	
+	%5.1 Manual de laboratorio de la Práctica 1
+	%“Detectando tipos de integración en un caso sencillo”
+	
+	\begin{itemize}
+		\item Formar 4 equipos y elegir un contexto organizacional concreto (por ejemplo, biblioteca universitaria, clínica pequeña, tienda en línea de productos digitales).
+	 	
+		\item 	Identificar al menos seis sistemas o aplicaciones que podrían existir en ese contexto (por ejemplo, sistema de inventario, punto de venta, CRM, portal web, sistema de facturación, app móvil).
+		 	
+		\item 	Dibujar un diagrama simple con cajas para cada sistema y flechas que representen intercambios de información conocidos o razonables.
+	 	
+		\item 	Para cada flecha, describir en una frase qué se intercambia (por ejemplo, “ventas diarias”, “datos de clientes”, “citas médicas confirmadas”).
+		 	
+		\item 	Clasificar cada intercambio como principalmente de datos, funcional o semántico; si hay duda, anotar el motivo de la duda para discutirlo.
+		 	
+		\item 	Elegir tres integraciones que parezcan críticas y escribir brevemente qué podría salir mal si la integración fallara en cada uno de los tres niveles (datos inconsistentes, funciones que no se coordinan, significados distintos).
+		 	
+		\item 	Preparar una mini‑presentación de 5 minutos por equipo donde muestren su diagrama y discutan al menos un caso de cada tipo de integración.
+	\end{itemize}
+	
+	
+\end{document}

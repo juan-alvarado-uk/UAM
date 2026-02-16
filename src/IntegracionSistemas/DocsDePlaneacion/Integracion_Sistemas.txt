@@ -1,0 +1,64 @@
+Unidad: Cuajimalpa
+
+División: Ciencias de la comunicación y diseño 
+
+Nombre del plan: Licenciatura en tecnologías y sistemas de información.
+
+Unidad de enseñanza aprendizaje: Integración de sistemas
+Clave: 450211
+
+OBJETIVO (S):
+Objetivo General:
+
+Que al final del curso el alumno sea capaz de:
+
+Conocer los principales problemas que surgen en la integración de distintos sistemas de información, destacando los aspectos referentes a la integración de sus datos, su integración funcional e interoperatividad, así como la gestión del conocimiento para su integración semántica.
+
+Objetivos Específicos:
+
+Que al final del curso el alumno sea capaz de:
+
+1. Entender y aplicar los estándares de diseño de los Servicios Web.
+2. Implementar dichos estándares en sistemas distribuidos.
+3. Ofrecer una visión integral de los Servicios Web y de su impacto sobre la empresa tradicional, así como su papel en la sociedad.
+
+
+CONTENIDO SINTETICO:
+
+1. Introducción a la integración de sistemas.
+2. Análisis y diseño para la integración de sistemas.
+3. Estándares basados en lenguajes para la integración de sistemas.
+4. Protocolos para el intercambio de datos.
+5. Lenguajes de descripción para la documentación de Servicios Web.
+6. Registros públicos de almacenamiento de información sobre la organización y sus servicios
+7. Servicios en la Web Semántica.
+8. Flujos de trabajo y protocolos de integración para Servicios Web.
+9. Ejemplos de aplicación (Sistemas de Información Geográfica, Bibliotecas digitales, comercio electrónico).
+10. El futuro de los Servicios Web.
+
+MODALIDADES DE CONDUCCION DEL PROCESO ENSEÑANZA-APRENDIZAJE:
+- Exposiciones temáticas por parte del profesor.
+- Discusión grupal.
+- Prácticas.
+- Reportes de trabajos.
+
+MODALIDADES DE EVALUACION:
+
+Evaluación Global.
+
+Se ponderarán las siguientes actividades a criterio del profesor:
+- Reportes escritos de los trabajos realizados.
+- Tareas individuales.
+- Evaluaciones periódicas.
+- Participación tanto en las sesiones teóricas como prácticas.
+- Evaluación terminal.
+
+
+BIBLIOGRAFIA NECESARIA O RECOMENDABLE:
+1. Barry D., (2003), Web Services and Service-Oriented Architectures, The Savvy Manager's Guide (The Savvy Manager's Guides), Elsevier Science.
+2. Boar C., (2003), XML Web Services in the Organization, Microsoft press.
+3. Cerami E., (2002), Web Services Essentials ('Reilly XL), O'Reilly Media.
+4. Daconta M. C., Obrst L. J., Smith K. T., (2003), The Semantic Web, A Guide to the Future of XML, Web Services and Knowledge Management, Wiley.
+5. Deitel H. M., Deitel P. J., Duwaldt B., Trees L.K. (2002), Web Services, A Technical Introduction, Deitel Developer Series.
+6. Iverson W., (2004), Real World Web Services, O'Reilly Media.
+7. Newcomer E., (2002), Understanding Web Services, XML, WSDL, SOAP and UDDI, Addison Wesley.

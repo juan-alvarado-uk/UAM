@@ -118,6 +118,14 @@ class MarkdownToRevealJS:
                     self._flush_table()
                     # seguimos procesando esta línea como texto normal
 
+            # NUEVO: separadores manuales de slide (--- o *** en una línea)
+            if re.match(r'^\s*(---|\*\*\*)\s*$', line):
+                # Vaciar cualquier texto acumulado en slides
+                self._flush_text_buffer()
+                # Avanzar a la siguiente línea y seguir
+                i += 1
+                continue
+
             # Encabezados
             heading_match = re.match(r"^(#{1,3})\s+(.+)$", line)
             if heading_match:
@@ -256,30 +264,135 @@ class MarkdownToRevealJS:
         self.in_table = False
 
     def _flush_text_buffer(self):
+        """
+        Convierte el buffer de texto en slides mezclando párrafos y listas,
+        respetando límites de caracteres y número de ítems de lista por slide.
+        """
         if not self.current_text_buffer or not any(l.strip() for l in self.current_text_buffer):
             self.current_text_buffer = []
             return
 
-        paragraph = self._join_lines_to_paragraph(self.current_text_buffer)
-        sentences = self._split_into_sentences(paragraph)
+        blocks = self._split_text_buffer_into_blocks()
 
-        if self.debug:
-            print(f"  -> Flush texto: {len(sentences)} frases")
+        max_chars_per_slide = 300  # límite visual aproximado
+        max_list_items_per_slide = 9
 
-        chunk: List[str] = []
-        for sent in sentences:
-            if not isinstance(sent, str):
-                continue
-            if not sent.strip():
-                continue
-            chunk.append(sent.strip())
-            if len(chunk) >= self.max_sentences_per_slide:
-                self._add_text_slide(chunk)
-                chunk = []
-        if chunk:
-            self._add_text_slide(chunk)
+        # Estado acumulado de la slide actual
+        current_blocks: List[Dict[str, Any]] = []
+        current_chars = 0
+        current_list_items_count = 0
+
+        def flush_slide():
+            nonlocal current_blocks, current_chars, current_list_items_count
+            if not current_blocks:
+                return
+            # Convertimos los bloques acumulados en una slide de contenido de texto/listas
+            # Aquí usamos la misma estructura que usamos en _add_text_slide/_add_list_slide,
+            # pero agrupando todo en un solo content_block "text+list".
+            # Para no reescribir mucho, llamamos a un helper que traduce esos bloques
+            # a un único content_block de tipo "text" o mantenemos la lista de bloques
+            # tal como está y usamos el render actual (más recomendable).
+            img = self._pick_image()
+            side = None
+            if img:
+                side = random.choice(["left", "right"])
+            self.slides.append({
+                "type": "content",
+                "title": self._current_title(),
+                "content_blocks": current_blocks,
+                "image": img,
+                "image_side": side,
+            })
+            current_blocks = []
+            current_chars = 0
+            current_list_items_count = 0
+
+        for block in blocks:
+            kind = block["kind"]
+
+            if kind == "paragraph":
+                # Convertimos el párrafo a frases y luego las empaquetamos en bloques de texto
+                paragraph = self._join_lines_to_paragraph(block["lines"])
+                sentences = self._split_into_sentences(paragraph)
+
+                for sent in sentences:
+                    if not isinstance(sent, str):
+                        continue
+                    s = sent.strip()
+                    if not s:
+                        continue
+                    s_len = len(s)
+
+                    # Si la frase sola ya se pasa de max_chars, la ponemos en una slide aparte
+                    if s_len > max_chars_per_slide:
+                        # Vaciar slide actual
+                        flush_slide()
+                        current_blocks.append({"kind": "text", "sentences": [s]})
+                        flush_slide()
+                        continue
+
+                    # ¿Cabe en la slide actual?
+                    if current_chars + (1 if current_chars > 0 else 0) + s_len > max_chars_per_slide:
+                        # No cabe: cerramos slide y empezamos otra
+                        flush_slide()
+
+                    # Añadimos la frase al último bloque de texto si existe y es texto
+                    if current_blocks and current_blocks[-1]["kind"] == "text":
+                        current_blocks[-1]["sentences"].append(s)
+                    else:
+                        current_blocks.append({"kind": "text", "sentences": [s]})
+                    current_chars += (1 if current_chars > 0 else 0) + s_len
+
+            elif kind == "list":
+                ordered = block["ordered"]
+                items = block["items"]
+
+                for item in items:
+                    item = item.strip()
+                    if not item:
+                        continue
+                    item_len = len(item)
+
+                    # Si el item de lista es muy largo, lo tratamos similar a una frase larga
+                    # (slide propia si no cabe).
+                    # Criterio de corte: caracteres o máximo de ítems de lista.
+                    if current_list_items_count >= max_list_items_per_slide or \
+                            current_chars + (1 if current_chars > 0 else 0) + item_len > max_chars_per_slide:
+                        flush_slide()
+
+                    # Añadimos el item a un bloque de lista existente o creamos nuevo
+                    if current_blocks and current_blocks[-1]["kind"] == "list" and current_blocks[-1][
+                        "ordered"] == ordered:
+                        current_blocks[-1]["items"].append(item)
+                    else:
+                        current_blocks.append({
+                            "kind": "list",
+                            "ordered": ordered,
+                            "items": [item]
+                        })
+                    current_chars += (1 if current_chars > 0 else 0) + item_len
+                    current_list_items_count += 1
+
+        # Última slide pendiente
+        flush_slide()
 
         self.current_text_buffer = []
+
+    def _add_list_slide(self, items: List[str], ordered: bool):
+        img = self._pick_image()
+        side = None
+        if img:
+            side = random.choice(["left", "right"])
+        slide = {
+            "type": "content",
+            "title": self._current_title(),
+            "content_blocks": [
+                {"kind": "list", "ordered": ordered, "items": items}
+            ],
+            "image": img,
+            "image_side": side,
+        }
+        self.slides.append(slide)
 
     # ===================== UTILIDADES DE TEXTO =====================
 
@@ -324,6 +437,68 @@ class MarkdownToRevealJS:
             # sentences.extend(parts)
 
         return sentences
+
+    def _split_text_buffer_into_blocks(self) -> List[Dict[str, Any]]:
+        """
+        Separa self.current_text_buffer en bloques:
+        - {"kind": "list", "ordered": bool, "items": [str, ...]}
+        - {"kind": "paragraph", "lines": [str, ...]}
+        """
+        lines = self.current_text_buffer
+        blocks: List[Dict[str, Any]] = []
+
+        numbered_re = re.compile(r"^\s*\d+\.\s+")
+        bullet_re = re.compile(r"^\s*[-*+]\s+")
+
+        current_para: List[str] = []
+        current_list_items: List[str] = []
+        current_list_ordered: bool | None = None
+
+        def flush_para():
+            nonlocal current_para
+            if current_para and any(l.strip() for l in current_para):
+                blocks.append({"kind": "paragraph", "lines": current_para})
+            current_para = []
+
+        def flush_list():
+            nonlocal current_list_items, current_list_ordered
+            if current_list_items:
+                blocks.append({
+                    "kind": "list",
+                    "ordered": bool(current_list_ordered),
+                    "items": current_list_items
+                })
+            current_list_items = []
+            current_list_ordered = None
+
+        for ln in lines:
+            if not ln.strip():
+                flush_para()
+                flush_list()
+                continue
+
+            if numbered_re.match(ln):
+                flush_para()
+                if current_list_ordered is False:
+                    flush_list()
+                current_list_ordered = True
+                text = numbered_re.sub("", ln, count=1).strip()
+                current_list_items.append(text)
+            elif bullet_re.match(ln):
+                flush_para()
+                if current_list_ordered is True:
+                    flush_list()
+                current_list_ordered = False
+                text = bullet_re.sub("", ln, count=1).strip()
+                current_list_items.append(text)
+            else:
+                flush_list()
+                current_para.append(ln)
+
+        flush_para()
+        flush_list()
+
+        return blocks
 
     # ===================== CREACIÓN DE SLIDES =====================
 
@@ -403,7 +578,9 @@ class MarkdownToRevealJS:
         .full-image-slide .full-slide-image {{
             max-width: 100%;
             max-height: 90vh;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
             border-radius: 12px;
         }}
         .full-image-slide h1,
@@ -417,20 +594,49 @@ class MarkdownToRevealJS:
         }}
 
         /* Layout dos columnas cuando hay imagen */
-        .slide-two-col {{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 1.5rem;
-            align-items: center;
-        }}
-        .slide-two-col .text-col {{
-            font-size: 0.9em;
-            text-align: left;
-        }}
-        .slide-two-col .image-col img {{
-            max-width: 100%;
-            border-radius: 8px;
-        }}
+      .slide-two-col {{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        /* ocupar toda la altura de la slide lógica de reveal */
+        height: 100%;
+        box-sizing: border-box;
+      }}
+    
+      .slide-two-col .text-col {{
+        font-size: 0.9em;
+        text-align: left;
+        /* alinear texto arriba y permitir scroll si se pasa */
+        align-self: flex-start;
+        max-height: 100%;
+        overflow: auto;
+      }}
+    
+      .slide-two-col .image-col {{
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }}
+    
+      .slide-two-col .image-col img {{
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }}
+    
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {{
+        max-width: 100%;
+        max-height: 100%;
+      }}
 
         /* Ajuste general */
         .reveal table {{
@@ -510,14 +716,15 @@ class MarkdownToRevealJS:
             </section>"""
 
     def _render_content_slide(self, slide: Dict[str, Any]) -> str:
+        """Genera HTML para una diapositiva de contenido (texto, listas, código, tablas, imagen)."""
         title = self._escape_html(slide["title"])
         blocks_html: List[str] = []
 
-        # Slides con imagen decorativa → dos columnas
+        # Slides con imagen decorativa → layout dos columnas
         if slide.get("image") and slide.get("image_side") in ("left", "right"):
             full_src = "https://juan-alvarado-uk.github.io/UAM/" + slide["image"][3:]
             img_html = f'<img src="{full_src}" alt="image" />'
-            text_html = self._render_blocks_as_text(blocks=slide.get("content_blocks", []))
+            text_html = self._render_blocks_as_text(slide.get("content_blocks", []))
 
             if slide["image_side"] == "left":
                 left = f'<div class="image-col">{img_html}</div>'
@@ -531,9 +738,8 @@ class MarkdownToRevealJS:
         {right}
       </div>"""
         else:
-            # Sin imagen: texto/código/tabla ocupan todo el ancho
-            txt = self._render_blocks_fullwidth(slide.get("content_blocks", []))
-            body = txt
+            # Sin imagen decorativa: todo el contenido ocupa el ancho
+            body = self._render_blocks_fullwidth(slide.get("content_blocks", []))
 
         return f"""    <section>
       <h2>{title}</h2>
@@ -541,32 +747,66 @@ class MarkdownToRevealJS:
     </section>"""
 
     def _render_blocks_as_text(self, blocks: List[Dict[str, Any]]) -> str:
-        """Solo renderiza bloques de texto como lista; ignora código/tablas aquí."""
-        parts: List[str] = []
-        for block in blocks:
-            if block["kind"] == "text":
-                lis = "".join(f"<li>{self._escape_html(s)}</li>" for s in block["sentences"])
-                parts.append(f"<ul>{lis}</ul>")
-        return "\n".join(parts)
-
-    def _render_blocks_fullwidth(self, blocks: List[Dict[str, Any]]) -> str:
+        """Renderiza solo bloques de texto y listas como HTML (para la columna de texto)."""
         parts: List[str] = []
         for block in blocks:
             kind = block["kind"]
             if kind == "text":
-                lis = "".join(f"<li>{self._escape_html(s)}</li>" for s in block["sentences"])
+                lis = "".join(
+                    f"<li>{self._process_inline_markdown(s)}</li>"
+                    for s in block["sentences"]
+                )
+                parts.append(f"<ul>{lis}</ul>")
+            elif kind == "list":
+                tag = "ol" if block["ordered"] else "ul"
+                lis = "".join(
+                    f"<li>{self._process_inline_markdown(item)}</li>"
+                    for item in block["items"]
+                )
+                parts.append(f"<{tag}>{lis}</{tag}>")
+            # No incluimos código ni tablas aquí: se muestran full-width
+        return "\n".join(parts)
+
+    def _render_blocks_fullwidth(self, blocks: List[Dict[str, Any]]) -> str:
+        """Renderiza todos los tipos de bloques ocupando el ancho completo de la slide."""
+        parts: List[str] = []
+        for block in blocks:
+            kind = block["kind"]
+
+            if kind == "text":
+                lis = "".join(
+                    f"<li>{self._process_inline_markdown(s)}</li>"
+                    for s in block["sentences"]
+                )
                 parts.append(f"""      <div class="text-col">
         <ul>
 {lis}
         </ul>
       </div>""")
+
+            elif kind == "list":
+                tag = "ol" if block["ordered"] else "ul"
+                lis = "".join(
+                    f"<li>{self._process_inline_markdown(item)}</li>"
+                    for item in block["items"]
+                )
+                parts.append(f"""      <div class="text-col">
+        <{tag}>
+{lis}
+        </{tag}>
+      </div>""")
+
             elif kind == "code":
                 code = "\n".join(block["lines"])
                 code = self._escape_html(code)
                 lang_class = f"language-{block['language']}" if block["language"] else ""
-                parts.append(f"""      <pre><code class="{lang_class}">{code}</code></pre>""")
+                parts.append(
+                    f"""      <pre><code class="{lang_class}">{code}</code></pre>"""
+                )
+
             elif kind == "table":
                 parts.append(self._render_table(block["lines"]))
+
         return "\n".join(parts)
 
     def _render_table(self, lines: List[str]) -> str:
@@ -590,6 +830,28 @@ class MarkdownToRevealJS:
           {chr(10).join(body_rows)}
         </tbody>
       </table>"""
+
+    def _process_inline_markdown(self, text: str) -> str:
+        """Aplica formato inline básico de Markdown (negritas, itálicas, código, enlaces)."""
+        # Primero escapamos HTML
+        text = self._escape_html(text)
+
+        # Código inline: `code`
+        text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+
+        # Negritas: **text** o __text__
+        text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
+        text = re.sub(r'__([^_]+)__', r'<strong>\1</strong>', text)
+
+        # Itálicas: *text* o _text_
+        # (importante aplicar después de negritas para evitar conflictos)
+        text = re.sub(r'\*([^*]+)\*', r'<em>\1</em>', text)
+        text = re.sub(r'_([^_]+)_', r'<em>\1</em>', text)
+
+        # Enlaces: [texto](url)
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+
+        return text
 
     def _escape_html(self, text: str) -> str:
         return (text.replace("&", "&amp;")

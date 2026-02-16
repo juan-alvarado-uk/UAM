@@ -1,0 +1,120 @@
+\documentclass[11pt,a4paper]{article}
+
+% ===== Paquetes básicos =====
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\geometry{margin=2.5cm}
+\setstretch{1.1}
+
+% Configuración para código
+%\lstset{
+%	basicstyle=\ttfamily\small,
+%	breaklines=true,
+%	showstringspaces=false,
+%	columns=fullflexible
+%}
+
+
+\lstdefinelanguage{JavaScript}{
+	% Palabras clave básicas
+	morekeywords=[1]{
+		break, case, catch, class, const, continue, debugger, default, delete, do,
+		else, export, extends, finally, for, function, if, import, in, instanceof,
+		let, new, return, super, switch, this, throw, try, typeof, var, void, while,
+		with, yield
+	},
+	% Literales y tipos
+	morekeywords=[2]{
+		false, null, true, undefined,
+		boolean, number, string, symbol, bigint
+	},
+	% Objetos y funciones globales
+	morekeywords=[3]{
+		Array, Boolean, Date, Error, EvalError, Function, JSON, Map, Math,
+		Number, Object, Promise, Proxy, RangeError, ReferenceError, RegExp, Set,
+		String, SyntaxError, TypeError, URIError, WeakMap, WeakSet,
+		console, window, document
+	},
+	sensitive=true,                % distingue mayúsculas
+	% Comentarios
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morecomment=[s]{/**}{*/},      % estilo JSDoc
+	% Cadenas
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]`                % template strings
+}[keywords, comments, strings]
+
+
+
+\lstdefinestyle{jsstyle}{
+	language=JavaScript,
+	basicstyle=\ttfamily\small,
+	keywordstyle=[1]\color{blue}\bfseries,
+	keywordstyle=[2]\color{orange!80!black},
+	keywordstyle=[3]\color{teal!70!black},
+	stringstyle=\color{green!50!black},
+	commentstyle=\color{gray},
+	numberstyle=\tiny\color{gray},
+	numbers=left,
+	stepnumber=1,
+	breaklines=true,
+	showstringspaces=false,
+	columns=fullflexible
+}
+
+
+\lstdefinestyle{terminalstyle}{
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{black!5},
+	keywordstyle=\color{black},
+	commentstyle=\color{black},
+	stringstyle=\color{black},
+	showstringspaces=false,
+	breaklines=true,
+}
+
+
+
+\title{Explorando un WSDL y comparándolo con una API REST}
+\author{Juan Alvarado}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Requisitos previos}
+	\begin{itemize}
+		\item Navegador web actualizado en Windows o macOS.
+		\item 	Un editor de texto simple (Notepad, VS Code, TextEdit) instalado.
+	\end{itemize}
+	
+	\section*{Intrucciones}
+	
+	\begin{itemize}
+		\item Se proporciona la URL de un servicio SOAP público: URL del WSDL (para abrir en el navegador o descargar):
+		\href{http://www.dneonline.com/calculator.asmx?wsdl}{http://www.dneonline.com/calculator.asmx?wsdl}
+		\item 	Abrir el WSDL en el navegador o descargarlo y abrirlo en el editor de texto para ver su contenido XML.
+		\item 	Localizar visualmente las secciones principales: tipos (definiciones de datos), mensajes, portType (operaciones abstractas), binding (detalles de protocolo) y service (endpoints concretos).
+		\item 	Elegir una operación del WSDL y anotar: nombre de la operación, estructura de la petición, estructura de la respuesta y tipos de datos involucrados.
+		\item 	También se proporciona la sigueinte liga con la documentación pública de una API REST sencilla: URL: \href{https://restful-api.dev}{https://restful-api.dev}.
+		\item 	Identificar en la documentación REST los elementos equivalentes al contrato: rutas (URIs), métodos HTTP, parámetros de entrada, formato de respuesta, códigos de estado.
+		\item En parejas, completar una tabla conceptual donde se mapeen los conceptos de WSDL a los de la API REST (por ejemplo, “operación” equivale a “endpoint + método HTTP”).
+		\item 	Escribir un breve párrafo comparando la rigidez del contrato SOAP/WSDL frente a la flexibilidad percibida en la API REST; incluir al menos una ventaja y una desventaja de cada enfoque.
+		\item Compartir algunas conclusiones en grupo para consolidar la idea de contratos estrictos frente a APIs modernas más ágiles.
+	\end{itemize}
+	
+	
+\end{document}

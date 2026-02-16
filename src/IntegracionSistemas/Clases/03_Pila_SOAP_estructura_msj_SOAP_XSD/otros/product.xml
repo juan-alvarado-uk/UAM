@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product xmlns="http://example.com/products">
+  <id>1</id>
+  <name>Laptop</name>
+  <price>25000.0</price>
+</product>

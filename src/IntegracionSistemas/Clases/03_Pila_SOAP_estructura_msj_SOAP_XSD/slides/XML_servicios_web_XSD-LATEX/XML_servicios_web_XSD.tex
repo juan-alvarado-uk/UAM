@@ -1,0 +1,1061 @@
+% !TEX program = lualatex
+        
+% IMPORTANT! In order for the document to compile, one needs to use XeLaTeX or LuaLaTeX as compiler. This can be done in  Overleaf by Menu -> Settings -> Compiler -> Choose XeLaTeX/LuaLaTeX
+\documentclass[t,24pt,aspectratio=169]{beamer}
+
+\usepackage{UAM}
+\usepackage{multicol} % Package for multiple coloumns
+\usepackage[style=authoryear]{biblatex}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,
+	frame=single,
+	showstringspaces=false
+}
+
+%\usepackage{minted}
+% lualatex -shell-escape -synctex=1 -interaction=nonstopmode archivo.tex
+
+% \toplinje{Text at top} % The text at top. Remove the command if no text is desired
+
+
+\addbibresource{references.bib}
+\begin{document}
+
+% The first slide. One can for instance change the main title, the subtitle, speaker, KU-unit, date and backgroundimage
+{
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{uam/cua_05.jpg}}
+\begin{frame}
+    \begin{textblock*}{\textwidth}(0.53\textwidth,0.1\textheight)
+        \begin{beamercolorbox}[wd=8.5cm,ht=7.3cm,sep=0.5cm]{hvidbox}
+            \fontsize{5}{10}\fontfamily{ptm}\selectfont \textls[200]{UNIVERSIDAD AUTÓNOMA METROPOLITANA}
+            \noindent\textcolor{KUrod}{\rule{6.8cm}{0.4pt}}
+        \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock*}{\textwidth}(0.53\textwidth,0.1\textheight)
+        \begin{beamercolorbox}[wd=8.5cm,sep=0.5cm]{hvidbox}
+                \Huge \textcolor{KUrod}{Integración de sistemas}
+                \vspace{0.5cm}
+                \par
+                \Large XML para servicios web y XSD
+
+                \vspace{0.5cm}
+                \par
+                \normalsize Juan Alvarado
+        \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock}{1}(14.5,11.38)
+        % \includegraphics[width=1cm]{KU/KU-logo.png}
+    \end{textblock}
+\end{frame}
+}
+
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+			\centering
+			\Huge{Estructura básica de XML}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+XML es un lenguaje de marcado jerárquico donde los datos se organizan en elementos anidados, cada uno delimitado por etiquetas de apertura y cierre, y con atributos opcionales.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+\begin{multicols}{2} 
+
+Un documento XML bien formado debe tener exactamente un elemento raíz, no puede haber etiquetas cruzadas (ósea que no se abren y cierran sin invadir otras etiquetas) y los atributos deben ir con comillas alrededor de sus valores, en los siguientes ejemplos el primero está correcto y el segundo no.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-209717.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+\begin{multicols}{2} 
+
+
+\begin{lstlisting}[language = xml]
+<producto id="1" nombre="Laptop" precio="25000.0" />
+<producto id=1 nombre=Laptop />   
+
+\end{lstlisting}
+
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/important-g74dfdc749_640.png}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+Para servicios web, XML permite describir mensajes complejos (por ejemplo, una factura con muchísimos campos) de forma estructurada y con nombres explícitos para cada elemento.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura básica de XML}
+			\vfill
+\begin{multicols}{2} 
+
+Su principal desventaja es el mucho choro que incluye, pero a cambio es muy expresivo y tiene un ecosistema maduro de herramientas de validación, transformación (XSLT) y consulta (XPath, XQuery).
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/question-mark-g4c3d4d4cd_640.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Esquemas XSD a nivel conceptual}
+			\vfill
+			\centering
+			\Huge{Esquemas XSD a nivel conceptual}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Esquemas XSD a nivel conceptual}
+			\vfill
+XSD (XML Schema Definition) es un lenguaje que describe la estructura, los tipos de datos y las reglas de validación de documentos XML asociados.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Esquemas XSD a nivel conceptual}
+			\vfill
+\begin{multicols}{2} 
+
+Conceptualmente, un XSD define qué elementos pueden aparecer, en qué orden, cuántas veces, qué atributos admiten y qué tipos de datos tienen.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-fauxels-3182812.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Esquemas XSD a nivel conceptual}
+			\vfill
+Los tipos simples describen valores atómicos (cadenas, números, fechas, booleanos), mientras que los tipos complejos agrupan elementos y atributos, permitiendo modelar estructuras anidadas.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Esquemas XSD a nivel conceptual}
+			\vfill
+Cuando un XML se “valida” contra su XSD, se comprueba que cumple tanto las reglas sintácticas de XML como las reglas de contenido (por ejemplo, que un precio sea numérico y obligatorio).
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{XSD y WSDL}
+			\vfill
+			\centering
+			\Huge{XSD y WSDL}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{XSD y WSDL}
+			\vfill
+En WSDL, las definiciones de tipos de datos de los mensajes SOAP normalmente se expresan mediante XSD, ya sea embebidos en el propio WSDL o referenciados desde archivos externos.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{XSD y WSDL}
+			\vfill
+Cada mensaje de entrada o salida se asocia con elementos definidos en el esquema, de modo que el contrato queda fuertemente tipificado a nivel de XML.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{XSD y WSDL}
+			\vfill
+\begin{multicols}{2} 
+
+Esto facilita que herramientas de generación de código generen clases o estructuras en lenguajes como Java, C\# o PHP que cumplen el contrato XSD/WSDL.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-olya-kobruseva-5428828.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de XSD simple}
+			\vfill
+			\centering
+			\Huge{Ejemplo de XSD simple}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de XSD simple}
+			\vfill
+\begin{multicols}{2} 
+
+Un XSD minimalista para un producto podría verse como sigue:
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://example.com/products"
+            xmlns="http://example.com/products"
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/detective-g436100e9c_640.png}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de XSD simple}
+			\vfill
+\begin{multicols}{2} 
+
+elementFormDefault="qualified">
+\\~\\
+<xsd:element name="Product" type="ProductType"/>
+\\~\\
+<xsd:complexType name="ProductType">
+\\~\\
+<xsd:sequence>
+\\~\\
+<xsd:element name="id" type="xsd:int"/>
+\\~\\
+<xsd:element name="name" type="xsd:string"/>
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-olya-kobruseva-5428828.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de XSD simple}
+			\vfill
+<xsd:element name="price" type="xsd:decimal"/>
+\\~\\
+</xsd:sequence>
+\\~\\
+</xsd:complexType>
+\\~\\
+</xsd:schema>
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+			\centering
+			\Huge{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+\begin{multicols}{2} 
+
+Utiliza el archivo \texttt{product.xml} y el esquema \texttt{product.xsd} y usa una herramienta online como:
+\\~\\
+- https://www.freeformatter.com/xml-validator-xsd.html
+\\~\\
+- https://xmlformatter.org/xsd-validator/
+\\~\\
+Procedimiento:
+\\~\\
+1. Abrir el validador online en el navegador.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/question-mark-g46cab4743_640.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+\begin{multicols}{2} 
+
+2. Copiar y pegar el contenido de \texttt{product.xml} en el área de XML.
+\\~\\
+3. Copiar y pegar el contenido de \texttt{product.xsd} en el área de XSD (si la herramienta lo separa) o subir ambos archivos.
+\\~\\
+4. Pulsar el botón de “Validar” o equivalente.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-270408.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+\begin{multicols}{2} 
+
+5. Revisar si el XML es válido; si no, leer los mensajes de error para corregir la estructura o los valores.
+\\~\\
+También se puede validar desde línea de comandos con \texttt{xmllint} (en Linux/macOS):
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+xmllint --noout --schema product.xsd product.xml
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-356079.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo en línea: validar XML contra XSD}
+			\vfill
+Si el XML cumple el esquema, el comando termina sin errores; de lo contrario, muestra las violaciones encontradas.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Validar un XML que representa un contrato WSDL}
+			\vfill
+			\centering
+			\Huge{Validar un XML que representa un contrato WSDL}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Validar un XML que representa un contrato WSDL}
+			\vfill
+\begin{multicols}{2} 
+
+Hay dos escenarios distintos:
+\\~\\
+- Validar la instancia de mensaje SOAP que usa tipos definidos en el WSDL (lo habitual).
+\\~\\
+- Validar el propio documento WSDL como XML y contra los esquemas oficiales de WSDL.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-skitterphoto-4341.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Validar un XML que representa un contrato WSDL}
+			\vfill
+\begin{multicols}{2} 
+
+Para el primer caso, muchos entornos extraen automáticamente los XSD definidos en el WSDL o referenciados, y luego permiten validar mensajes contra esos tipos.
+\\~\\
+Para el segundo caso, existen validadores específicos de WSDL que:
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-skitterphoto-4341.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Validar un XML que representa un contrato WSDL}
+			\vfill
+1. Verifican que el WSDL es XML bien formado.
+\\~\\
+2. Lo comparan con los esquemas de WSDL 1.1 o 2.0 para asegurar que su estructura es correcta.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de validación contra los esquemas de WSDL:}
+			\vfill
+			\centering
+			\Huge{Ejemplo de validación contra los esquemas de WSDL:}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de validación contra los esquemas de WSDL:}
+			\vfill
+\begin{multicols}{2} 
+
+Un editor/validador de WSDL en línea
+\\~\\
+- WSDL Analyzer: https://wsdl-analyzer.net
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-247791.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{WSDL simple con errores para validar}
+			\vfill
+\begin{multicols}{2} 
+
+Ejemplo de archivo \texttt{HelloService-with-errors.wsdl}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-thisisengineering-3912976.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de validación con XSD desde el WSDL}
+			\vfill
+			\centering
+			\Huge{Ejemplo de validación con XSD desde el WSDL}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Cómo obtener los XSD desde el WSDL}
+			\vfill
+El WSDL tiene los tipos en la sección \texttt{<types>}. Ahí puede haber:
+\\~\\
+1. Esquemas XSD embebidos (dentro del propio WSDL).
+\\~\\
+2. Esquemas XSD importados o incluidos mediante \texttt{xsd:import} o \texttt{xsd:include}.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos embebidos}
+			\vfill
+En un WSDL sencillo, podríamos tener algo como lo siguiente:
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<types>
+  <xsd:schema
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://example.com/hello"
+      elementFormDefault="qualified">
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos embebidos}
+			\vfill
+<xsd:element name="sayHelloRequest" type="xsd:string"/>
+\\~\\
+<xsd:element name="sayHelloResponse" type="xsd:string"/>
+\\~\\
+</xsd:schema>
+\\~\\
+</types>
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+Para obtener el XSD:
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos embebidos}
+			\vfill
+- Se copia el contenido de \texttt{<xsd:schema>...</xsd:schema>} y se pega en un archivo nuevo, por ejemplo \texttt{hello.xsd}.
+\\~\\
+- Se le puede agregar cabecera XML (línea 1):
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos embebidos}
+			\vfill
+\begin{multicols}{2} 
+
+targetNamespace="http://example.com/hello"
+\\~\\
+elementFormDefault="qualified">
+\\~\\
+<xsd:element name="sayHelloRequest" type="xsd:string"/>
+\\~\\
+<xsd:element name="sayHelloResponse" type="xsd:string"/>
+\\~\\
+</xsd:schema>
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/thumbs_up.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos embebidos}
+			\vfill
+\begin{multicols}{2} 
+
+\texttt{hello.xsd} se puede usar en cualquier validador XML–XSD para validar mensajes de ejemplo.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-208494.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos importados}
+			\vfill
+En otros WSDL, podría haber algo como:
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<types>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://example.com/hello/types"
+                schemaLocation="http://example.com/schemas/hello-types.xsd"/>
+  </xsd:schema>
+</types>
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos importados}
+			\vfill
+
+\end{lstlisting}
+
+\\~\\
+Aquí no está el XSD completo adentro, sino referenciado:
+\\~\\
+- \texttt{schemaLocation} señala la URL (o ruta) del XSD real.
+\\~\\
+- Para obtenerlo, hay que abrir esa URL en el navegador o descargar el archivo \texttt{hello-types.xsd}.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Tipos importados}
+			\vfill
+- Ese archivo se usa como esquema para validación XML–XSD.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Usar el XSD extraído con un validador XML–XSD}
+			\vfill
+\begin{multicols}{2} 
+
+Supongamos que tenemos el archivo \texttt{hello.xsd} y un mensaje XML, \texttt{helloRequest.xml}:
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<sayHelloRequest xmlns="http://example.com/hello">
+  Hola mundo
+</sayHelloRequest>
+
+\end{lstlisting}
+
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-digital-buggu-193777.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Usar el XSD extraído con un validador XML–XSD}
+			\vfill
+... y esto se valida con el xml y xsd como ya se había visto.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Actividad: XML sencillo para analizar}
+			\vfill
+			\centering
+			\Huge{Actividad: XML sencillo para analizar}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Actividad: XML sencillo para analizar}
+			\vfill
+Fragmento con errores intencionales:
+\\~\\
+
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product id=1>
+    <name>Laptop</name>
+    <price>25000.00</price>
+  </product>
+  <product>
+    <name>Mouse</name>
+  </product>
+</items>
+
+\end{lstlisting}
+
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Mensajes SOAP: estructura y comparación con REST/JSON}
+			\vfill
+			\centering
+			\Huge{Mensajes SOAP: estructura y comparación con REST/JSON}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura de un mensaje SOAP}
+			\vfill
+\begin{multicols}{2} 
+
+Un mensaje SOAP típico es un documento XML con esta estructura general:
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/question-mark-g4c3d4d4cd_640.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura de un mensaje SOAP}
+			\vfill
+
+\begin{lstlisting}[language = xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:prod="http://example.com/products">
+  <soap:Header>
+    <!-- Metadatos, seguridad, tracking, etc. -->
+  </soap:Header>
+  <soap:Body>
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura de un mensaje SOAP}
+			\vfill
+\begin{multicols}{2} 
+
+<prod:GetProductResponse>
+\\~\\
+<prod:Product>
+\\~\\
+<prod:id>1</prod:id>
+\\~\\
+<prod:name>Laptop</prod:name>
+\\~\\
+<prod:price>25000.00</prod:price>
+\\~\\
+</prod:Product>
+\\~\\
+</prod:GetProductResponse>
+\\~\\
+</soap:Body>
+\\~\\
+</soap:Envelope>
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-tara-winstead-8850721.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura de un mensaje SOAP}
+			\vfill
+Componentes:
+\\~\\
+- Envelope: elemento raíz que identifica el mensaje como SOAP y define namespaces.
+\\~\\
+- Header (opcional): metadatos que pueden procesar intermediarios (autenticación, direccionamiento, políticas).
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Estructura de un mensaje SOAP}
+			\vfill
+- Body (obligatorio): contiene la operación invocada y los datos de negocio.
+\\~\\
+- Fault (opcional dentro de Body): describe errores de procesamiento en formato estándar (código, motivo, detalles).
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de Fault}
+			\vfill
+
+\begin{lstlisting}[language = xml]
+<soap:Body>
+  <soap:Fault>
+    <faultcode>soap:Client</faultcode>
+    <faultstring>Invalid product ID</faultstring>
+    <detail>
+      <prod:InvalidId>0</prod:InvalidId>
+    </detail>
+  </soap:Fault>
+</soap:Body>
+
+\end{lstlisting}
+
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Ejemplo de Fault}
+			\vfill
+Este tipo de Fault permite a los consumidores manejar errores de manera uniforme, independientemente de la implementación interna del servicio.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Comparación con mensajes REST/JSON ligeros}
+			\vfill
+			\centering
+			\Huge{Comparación con mensajes REST/JSON ligeros}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Comparación con mensajes REST/JSON ligeros}
+			\vfill
+\begin{multicols}{2} 
+
+Un JSON equivalente al ejemplo de producto sería:
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+\{
+\\~\\
+"id": 1,
+\\~\\
+"name": "Laptop",
+\\~\\
+"price": 25000.0
+\\~\\
+\}
+\\~\\
+
+\end{lstlisting}
+
+\\~\\
+Comparación conceptual:
+\\~\\
+- En REST/JSON, el cuerpo suele contener directamente los datos, sin una envoltura estándar como Envelope/Body ni namespaces XML.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/check-g04b94897b_640.png}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Comparación con mensajes REST/JSON ligeros}
+			\vfill
+- SOAP introduce capas adicionales que facilitan extensiones (seguridad, intermediarios, transacciones), pero aumentan tamaño y complejidad de parsing.
+\\~\\
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}[fragile, hvid]
+		\frametitle{Comparación con mensajes REST/JSON ligeros}
+			\vfill
+\begin{multicols}{2} 
+
+- En REST/JSON, los contratos pueden estar descritos en OpenAPI, pero el formato JSON en sí es más flexible y menos fuertemente tipado que un XML + XSD típico.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{img/pexels-pixabay-60504.jpg}
+\end{multicols}
+			\vfill
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{
+	\setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{uam/cua_01.jpg}}
+	\begin{frame}[billede]
+		\begin{textblock*}{\textwidth}(0\textwidth,0.77\textheight)
+			\begin{beamercolorbox}[wd=7.8cm,sep=0.3cm]{rodbox}
+				{\huge ¡Gracias!}
+			\end{beamercolorbox}
+		\end{textblock*}
+	\end{frame}
+}
+
+%%%%% THIS IS THE BLOCK OF REFERENCES 
+
+% \begin{frame}[hvid, allowframebreaks]
+	% \frametitle{Referencias}
+	% \printbibliography
+	
+	% \end{frame}
+
+
+%%%%%% END OF THE BLOCK OF REFERENCES
+
+\end{document}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://example.com/hello"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/hello">
+
+  <types>
+    <xsd:schema
+        targetNamespace="http://example.com/hello"
+        elementFormDefault="qualified">
+      <xsd:element name="sayHelloRequest" type="xsd:string"/>
+      <xsd:element name="sayHelloResponse" type="xsd:string"/>
+
+  <!-- Mensajes -->
+  <message name="SayHelloRequest">
+    <part name="parameters" element="sayHelloRequest"/>
+  </message>
+
+  <message name="SayHelloResponse">
+    <part name="parameters" element="tns:sayHelloResponse"/>
+  </message>
+
+  <portType name="Hello_PortType">
+    <operation name="sayHello">
+      <input message="tns:SayHelloRequest"/>
+      <output message="tns:SayHelloRespones"/>
+    </operation>
+  </portType>
+
+  <!-- Binding -->
+  <binding name="Hello_Binding" type="tns:Hello_PortType">
+    <soap:binding style="document"
+                  transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="sayHello">
+      <soap:operation soapAction="http://example.com/hello/sayHello"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <!-- Service -->
+  <service name="Hello_Service">
+    <documentation>WSDL File for HelloService</documentation>
+    <port name="Hello_Port" binding="tns:Hello_Binding">
+      <soap:address location="http://www.examples.com/SayHello/"/>
+    </port>
+  </service>
+
+</definitions>

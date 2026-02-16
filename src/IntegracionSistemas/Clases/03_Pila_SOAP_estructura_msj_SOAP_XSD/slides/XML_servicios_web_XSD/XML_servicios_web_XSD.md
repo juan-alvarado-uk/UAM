@@ -62,6 +62,7 @@ Utiliza el archivo `product.xml` y el esquema `product.xsd` y usa una herramient
 - https://www.freeformatter.com/xml-validator-xsd.html  
 - https://xmlformatter.org/xsd-validator/  
 
+---
 Procedimiento:  
 - Abrir el validador online en el navegador.  
 - Copiar y pegar el contenido de `product.xml` en el área de XML.  
@@ -69,6 +70,7 @@ Procedimiento:
 - Pulsar el botón de “Validar” o equivalente.  
 - Revisar si el XML es válido; si no, leer los mensajes de error para corregir la estructura o los valores.  
 
+---
 También se puede validar desde línea de comandos con `xmllint` (en Linux/macOS):
 
 ```bash

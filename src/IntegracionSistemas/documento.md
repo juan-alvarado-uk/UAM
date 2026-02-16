@@ -9,7 +9,13 @@ Este es el contenido de introducción.
 - Punto 2
 - Punto 3
 
+Aquí voy a poner una lista numerada para ver que pasa
 
+1. elemento 1
+2. elemento 2
+3. elemento 3
+4. elemento 4.
+5. elemento 5
 
 ### Detalles
 

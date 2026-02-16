@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
     <style>
         <style>
@@ -120,100 +120,82 @@
               <h1>Integración de Sistemas</h1>
             </section>
     <section>
-      <h1>Mi Presentación</h1>
+      <h1>Transición conceptual: de SOAP (WSDL) a REST (OpenAPI) y coexistencia</h1>
     </section>
     <section>
-      <h2>Introducción</h2>
+      <h1>De operaciones a recursos</h1>
+    </section>
+    <section>
+      <h2>De operaciones a recursos</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Este es el contenido de introducción.</li></ul>
-<ul><li>Punto 1</li><li>Punto 2</li><li>Punto 3</li></ul>
-<ul><li>Aquí voy a poner una lista numerada para ver que pasa</li></ul>
-<ol><li>elemento 1</li><li>elemento 2</li><li>elemento 3</li><li>elemento 4.</li><li>elemento 5</li></ol></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/question-mark-g46cab4743_640.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En un contrato SOAP descrito en WSDL, el foco está en <strong>“operaciones”</strong> que se invocan sobre un servicio, cada una con sus mensajes, de entrada y salida, definidos.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-thisisengineering-3862634.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Detalles</h2>
+      <h2>De operaciones a recursos</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Aquí hay más detalles específicos.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-pixabay-356079.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En REST el foco pasa a ser el <strong>conjunto de recursos expuestos</strong>: entidades como clientes, pedidos o facturas, cada una con una URI y un conjunto estándar de acciones implícitas según el verbo HTTP.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/traffic-signs-g1ac2fbc94_640.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Tabla de Datos</h2>
-      <table>
-        <thead><tr><th>Nombre</th><th>Edad</th><th>Ciudad</th></tr></thead>
-        <tbody>
-          <tr><td>Ana</td><td>25</td><td>CDMX</td></tr>
-<tr><td>Luis</td><td>30</td><td>GDL</td></tr>
-<tr><td>María</td><td>28</td><td>MTY</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h2>Código</h2>
-      <pre><code class="language-python">def ejemplo():
-    print(&quot;Hola mundo&quot;)
-    return True</code></pre>
-    </section>
-    <section>
-      <h1>Estructura básica de XML</h1>
-    </section>
-    <section>
-      <h2>Estructura básica de XML</h2>
+      <h2>De operaciones a recursos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-thisisengineering-3861970.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>XML es un lenguaje de marcado jerárquico donde los datos se organizan en elementos anidados, cada uno delimitado por etiquetas de apertura y cierre, y con atributos opcionales.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-cottonbro-studio-6804068.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Esto implica cambiar el modelo mental: una operación <code>CrearPedido</code> se reinterpreta como “crear un recurso pedido con un <code>POST</code> a <code>/pedidos</code>”, y <code>ConsultarPedido</code> como “leer ese recurso con <code>GET /pedidos/{id}</code>”.</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Estructura básica de XML</h2>
+      <h2>De operaciones a recursos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-cottonbro-studio-5474295.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Un documento XML bien formado debe tener exactamente un elemento raíz, no puede haber etiquetas cruzadas (ósea que no se abren y cierran sin invadir otras etiquetas) y los atributos deben ir con comillas alrededor de sus valores, en los siguientes ejemplos el primero está correcto y el segundo no.</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructura básica de XML</h2>
-      <pre><code class="language-xml">&lt;producto id=&quot;1&quot; nombre=&quot;Laptop&quot; precio=&quot;25000.0&quot; /&gt;
-&lt;producto id=1 nombre=Laptop /&gt;   </code></pre>
-    </section>
-    <section>
-      <h2>Estructura básica de XML</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Para servicios web, XML permite describir mensajes complejos (por ejemplo, una factura con muchísimos campos) de forma estructurada y con nombres explícitos para cada elemento.</li></ul></div>
         <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-skitterphoto-1128843.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>La lógica de negocio puede ser la misma, pero el contrato se organiza alrededor de recursos y representaciones en lugar de llamadas a funciones.</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Estructura básica de XML</h2>
+      <h1>Coexistencia y envolturas REST sobre SOAP</h1>
+    </section>
+    <section>
+      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Su principal desventaja es el mucho choro que incluye, pero a cambio es muy expresivo y tiene un ecosistema maduro de herramientas de validación, transformación (XSLT) y consulta (XPath, XQuery).</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-tara-winstead-8850721.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En muchas organizaciones no se elimina la <strong>infraestructura SOAP existente</strong>, sino que se construyen APIs REST que actúan como <strong>envolturas o adaptadores</strong> lógicos.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-marc-mueller-380769.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h1>Esquemas XSD a nivel conceptual</h1>
-    </section>
-    <section>
-      <h2>Esquemas XSD a nivel conceptual</h2>
+      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-thisisengineering-3913016.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>XSD (XML Schema Definition) es un lenguaje que describe la estructura, los tipos de datos y las reglas de validación de documentos XML asociados.</li><li>Conceptualmente, un XSD define qué elementos pueden aparecer, en qué orden, cuántas veces, qué atributos admiten y qué tipos de datos tienen.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-christina-morillo-1181715.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Un endpoint REST puede recibir una petición JSON ligera, <strong>transformarla internamente</strong> en una llamada SOAP al servicio legado y luego <strong>transformar la respuesta SOAP de regreso a JSON</strong>, sin que el consumidor conozca los detalles.</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Esquemas XSD a nivel conceptual</h2>
+      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-roman-odintsov-6898856.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Los tipos simples describen valores atómicos (cadenas, números, fechas, booleanos), mientras que los tipos complejos agrupan elementos y atributos, permitiendo modelar estructuras anidadas.</li></ul></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-fauxels-3182812.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Este patrón permite exponer una cara más moderna y coherente de los servicios existentes, mientras el interior sigue usando SOAP donde sea necesario (por ejemplo, por requisitos regulatorios).</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Esquemas XSD a nivel conceptual</h2>
+      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Cuando un XML se “valida” contra su XSD, se comprueba que cumple tanto las reglas sintácticas de XML como las reglas de contenido (por ejemplo, que un precio sea numérico y obligatorio).</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/exclamation-mark-blue.png" alt="image" /></div>
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-digital-buggu-374559.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En términos conceptuales, <strong>coexistir implica mantener alineados dos contratos: el WSDL del servicio SOAP y el documento OpenAPI de la fachada REST</strong>, para que ambos describan la misma capacidad aunque con estilos distintos.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/gears-gccf2d57f7_640.png" alt="image" /></div>
+        <div class="text-col"><ul><li>Se proporciona una lista de tres operaciones SOAP ficticias.</li><li>Deben escribir para cada una: a) el nombre del recurso REST que la reemplazaría, b) la URI y c) el verbo HTTP.</li><li>Comentar si alguna operación no encaja bien y qué ajustes de modelado requeriría.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-skitterphoto-4341.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li><code>ConsultarClientePorId</code></li><li><code>CrearPedidoDeVenta</code></li><li><code>GenerarFacturaParaPedido</code></li><li>(extra) <code>CancelarFacturaEmitida</code></li></ol></div>
       </div>
     </section>
     <section class="full-image-slide">

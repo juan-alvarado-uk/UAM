@@ -1,0 +1,298 @@
+\documentclass[11pt,a4paper]{article}
+
+% ===== Paquetes básicos =====
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+\setstretch{1.1}
+
+% Configuración para código
+%\lstset{
+	%	basicstyle=\ttfamily\small,
+	%	breaklines=true,
+	%	showstringspaces=false,
+	%	columns=fullflexible
+	%}
+
+
+\lstdefinelanguage{JavaScript}{
+	% Palabras clave básicas
+	morekeywords=[1]{
+		break, case, catch, class, const, continue, debugger, default, delete, do,
+		else, export, extends, finally, for, function, if, import, in, instanceof,
+		let, new, return, super, switch, this, throw, try, typeof, var, void, while,
+		with, yield
+	},
+	% Literales y tipos
+	morekeywords=[2]{
+		false, null, true, undefined,
+		boolean, number, string, symbol, bigint
+	},
+	% Objetos y funciones globales
+	morekeywords=[3]{
+		Array, Boolean, Date, Error, EvalError, Function, JSON, Map, Math,
+		Number, Object, Promise, Proxy, RangeError, ReferenceError, RegExp, Set,
+		String, SyntaxError, TypeError, URIError, WeakMap, WeakSet,
+		console, window, document
+	},
+	sensitive=true,                % distingue mayúsculas
+	% Comentarios
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morecomment=[s]{/**}{*/},      % estilo JSDoc
+	% Cadenas
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]`                % template strings
+}[keywords, comments, strings]
+
+
+
+\lstdefinestyle{jsstyle}{
+	language=JavaScript,
+	basicstyle=\ttfamily\small,
+	keywordstyle=[1]\color{blue}\bfseries,
+	keywordstyle=[2]\color{orange!80!black},
+	keywordstyle=[3]\color{teal!70!black},
+	stringstyle=\color{green!50!black},
+	commentstyle=\color{gray},
+	numberstyle=\tiny\color{gray},
+	numbers=left,
+	stepnumber=1,
+	breaklines=true,
+	showstringspaces=false,
+	columns=fullflexible
+}
+
+
+\lstdefinestyle{terminalstyle}{
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{black!5},
+	keywordstyle=\color{black},
+	commentstyle=\color{black},
+	stringstyle=\color{black},
+	showstringspaces=false,
+	breaklines=true,
+}
+
+
+
+\title{Extender el Monolito Mínimo con Operaciones en Singular}
+\author{Gu\'{\i}a de laboratorio}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+\section{Descripción general}
+	En esta práctica se trabajará sobre el \emph{monolito mínimo} desarrollado con Node.js y Express, extendiéndolo para soportar operaciones en singular sobre recursos de tipo \texttt{producto} y \texttt{pedido}. El objetivo es que se implementen rutas REST del tipo \texttt{GET}/\texttt{PUT}/\texttt{DELETE} para un solo recurso identificado por su \texttt{id}, y que investigue cómo manejar parámetros de ruta y códigos de estado HTTP en Express.\footnote{El monolito mínimo original concentra datos en memoria, lógica de negocio básica, rutas HTTP y arranque del servidor en un solo archivo \texttt{index.js}.}
+	
+\section{Punto de partida}
+
+Se asume que el proyecto base ya está creado siguiendo la guía de \emph{Monolito mínimo con Node.js y Express}. En particular, se cuenta con:
+
+\begin{itemize}
+	\item Un archivo \texttt{index.js} que:
+	\begin{itemize}
+		\item Configura un servidor Express y aplica el middleware \texttt{express.json()} para leer cuerpos JSON.
+		\item Define un arreglo \texttt{productos} con al menos tres productos de ejemplo.
+		\item Define un arreglo \texttt{pedidos} vacío para ir almacenando pedidos en memoria.
+		\item Implementa las rutas:
+		\begin{itemize}
+			\item \texttt{GET /productos} para listar todos los productos.
+			\item \texttt{POST /pedidos} para crear un nuevo pedido, con una validación básica del cuerpo de la petición.
+			\item \texttt{GET /pedidos} para listar todos los pedidos registrados.
+		\end{itemize}
+		\item Arranca el servidor con \texttt{app.listen(PORT, \dots)}.
+	\end{itemize}
+\end{itemize}
+
+\section{Parte A: Investigación}
+
+Previo a la implementación se deberá investigar los siguientes puntos:
+
+\begin{enumerate}
+	\item ¿Cómo se definen rutas con parámetros en Express? %Por ejemplo, una ruta del tipo \texttt{/productos/:id}.
+	\item ¿Cómo se accede al valor de esos parámetros en el manejador de la ruta %(\texttt{req.params.id})?
+	\item ¿Qué códigos de estado HTTP se usan típicamente para los siguientes casos?
+	\begin{itemize}
+		\item Recurso encontrado correctamente.
+		\item Recurso creado exitosamente.
+		\item Recurso no encontrado.
+		\item Petición inválida (datos incorrectos o incompletos).
+		\item Recurso eliminado sin contenido en la respuesta.
+	\end{itemize}
+	%\item ¿Cuál es la diferencia conceptual entre un endpoint de colección (\texttt{/productos}) y un endpoint de elemento (\texttt{/productos/:id}) en una API REST?
+\end{enumerate}
+
+
+\section{Parte B: Extender el monolito mínimo}
+
+En el mismo archivo \texttt{index.js} (sin dividir en más módulos), extender la API para soportar operaciones en singular:
+
+\subsection{Ruta \texttt{GET /producto/:id}}
+
+Agregar una ruta que permita obtener un solo producto, identificado por su \texttt{id}:
+
+\begin{itemize}
+	\item Leer el parámetro \texttt{id} %desde \texttt{req.params.id} 
+	y convertirlo a número (por default son cadenas en un petición HTTP).
+	\item Buscar en el arreglo \texttt{productos} el elemento cuyo \texttt{id} coincida con el valor recibido.
+	\item Si se encuentra, responder con el objeto producto y código de estado que coresponda  %\texttt{200}.
+	\item Si no se encuentra, responder con un mensaje de error en JSON y código de estado que corresponda %\texttt{404}.
+\end{itemize}
+
+\subsection{Ruta \texttt{GET /pedido/:id}}
+
+Agregar una ruta que permita obtener un solo pedido, identificado por su \texttt{id}:
+
+\begin{itemize}
+	\item Leer \texttt{id} %desde \texttt{req.params}.
+	\item Buscar el pedido correspondiente en el arreglo \texttt{pedidos}.
+	\item Responder con el pedido %(código \texttt{200}) 
+	si existe y el código correspondiente.
+	\item Responder con un mensaje de error si no existe y el código correspondiente. % \texttt{404} y
+\end{itemize}
+
+\subsection{Ruta \texttt{PUT /producto/:id}}
+
+Agregar una ruta para actualizar un producto existente:
+
+\begin{itemize}
+	\item Leer \texttt{id} %de \texttt{req.params} 
+	y los nuevos datos %desde \texttt{req.body}.
+	\item Localizar el producto correspondiente en el arreglo.
+	\item Si no existe, responder con el código y mensaje correspondiente. %\texttt{404}.
+	\item Si existe:
+	\begin{itemize}
+		\item Aplicar una validación básica: por ejemplo, si se envía \texttt{precio}, verificar que sea un número positivo; si no lo es, responder con el código correspondiente %\texttt{400}.
+		\item Actualizar únicamente los campos enviados (por ejemplo, \texttt{nombre} y/o \texttt{precio}), pueden no enviarse todos.
+		\item Responder con el producto actualizado y código que corresponda % \texttt{200}.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Ruta \texttt{DELETE /pedido/:id}}
+
+Agregar una ruta para eliminar un pedido existente:
+
+\begin{itemize}
+	\item Leer \texttt{id} %desde \texttt{req.params}.
+	\item Buscar el índice del pedido en el arreglo \texttt{pedidos} (por ejemplo, con \texttt{findIndex}).
+	\item Si no existe, responder con mensaje y código correspondiente. %\texttt{404}.
+	\item Si existe:
+	\begin{itemize}
+		\item Eliminar el elemento del arreglo.
+		\item Responder con código que corresponda (puede haber alternativas) %\texttt{204} (\emph{No Content}) o \texttt{200} con 
+		y un mensaje de confirmación.
+	\end{itemize}
+\end{itemize}
+
+\section{Parte C: Pruebas de la API}
+
+Utilizando \texttt{curl}, Postman, Insomnia u otro cliente HTTP, realizar al menos las siguientes pruebas:
+
+\begin{enumerate}
+	\item \textbf{GET /producto/:id}
+	\begin{itemize}
+		\item Caso exitoso: consultar un \texttt{id} correspondiente a un producto existente.
+		\item Caso de error: consultar un \texttt{id} inexistente y verificar la respuesta %\texttt{404}.
+	\end{itemize}
+	\item \textbf{GET /pedido/:id}
+	\begin{itemize}
+		\item Crear primero uno o más pedidos con \texttt{POST /pedidos}.
+		\item Consultar un \texttt{id} existente y uno inexistente.
+	\end{itemize}
+	\item \textbf{PUT /producto/:id}
+	\begin{itemize}
+		\item Actualizar un producto con datos válidos (por ejemplo, cambiar el \texttt{nombre} o el \texttt{precio}).
+		\item Intentar actualizar un producto inexistente %(debe responder \texttt{404}).
+		\item Enviar datos inválidos (por ejemplo, un \texttt{precio} negativo) %y verificar la respuesta \texttt{400}.
+	\end{itemize}
+	\item \textbf{DELETE /pedido/:id}
+	\begin{itemize}
+		\item Eliminar un pedido existente y verificar el código de estado %(por ejemplo, \texttt{204}).
+		\item Intentar eliminar nuevamente el mismo \texttt{id} y observar la respuesta que se obtiene. %\texttt{404}.
+	\end{itemize}
+\end{enumerate}
+
+	
+	%	\section*{6. Comentario final}
+	%	
+	%	Con Node \(\geq 16.9.0\) (idealmente una versi\'on LTS como 18 o 20) y este archivo \texttt{index.js}, la pr\'actica funciona sin el error de \texttt{Object.hasOwn} y sirve como base para discutir monolito, API REST y futuras refactorizaciones hacia servicios m\'as peque\~nos. \cite{web48,web49,web63,web65,web67}
+	%	
+	%	\bibliographystyle{plain}
+	%	\begin{thebibliography}{9}
+		%		
+		%		\bibitem{web48}
+		%		GitHub.
+		%		\newblock \emph{TypeError: Object.hasOwn is not a function · Issue \#41471}.
+		%		\newblock 2022.
+		%		
+		%		\bibitem{web49}
+		%		Stack Overflow.
+		%		\newblock \emph{TypeError: Object.hasOwn is not a function - javascript}.
+		%		\newblock 2023.
+		%		
+		%		\bibitem{web63}
+		%		MDN Web Docs.
+		%		\newblock \emph{Object.hasOwn()}.
+		%		\newblock 2025.
+		%		
+		%		\bibitem{web65}
+		%		GitHub.
+		%		\newblock \emph{[Discussion] Upgrade node and npm to latest LTS versions}.
+		%		\newblock 2023.
+		%		
+		%		\bibitem{web71}
+		%		npm.
+		%		\newblock \emph{node-lts-versions}.
+		%		\newblock 2025.
+		%		
+		%		\bibitem{web67}
+		%		npm.
+		%		\newblock \emph{express} (version info).
+		%		\newblock 2024.
+		%		
+		%		\bibitem{web73}
+		%		npm.
+		%		\newblock \emph{express} (versions overview).
+		%		\newblock 2025.
+		%		
+		%		\bibitem{web18}
+		%		Express.js.
+		%		\newblock \emph{Hello world example}.
+		%		\newblock 2024.
+		%		
+		%		\bibitem{web19}
+		%		Express.js.
+		%		\newblock \emph{Express "Hello World" example}.
+		%		\newblock 2024.
+		%		
+		%		\bibitem{web23}
+		%		JSON Parser Blog.
+		%		\newblock \emph{How to Parse JSON Request Bodies in Express.js with Body-Parser}.
+		%		\newblock 2025.
+		%		
+		%		\bibitem{web22}
+		%		JavaScript Tutorial.
+		%		\newblock \emph{Building the Express Hello World App}.
+		%		\newblock 2024.
+		%		
+		%		\bibitem{web25}
+		%		Tutorialspoint.
+		%		\newblock \emph{ExpressJS - Hello World!}.
+		%		\newblock n.d.
+		%		
+		%	\end{thebibliography}
+	
+\end{document}

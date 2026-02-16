@@ -1,0 +1,16 @@
+# Diferencias entre SOAP y REST (formato, estado, seguridad)
+
+La forma de operar de SOAP y REST tiene un impacto grande cuando se diseña y usa un sistema. Las diferencias afectan las decisiones de diseño que deben alinearse con los requerimientos de los usuarios y características de los sistemas. Las diferencias entre SOAP y REST se pueden ver en el **formato** de sus mensajes, en el **estado** que mantienen durante las comunicaciones y la **seguridad** que implementan.
+
+# Formato y estructura de los mensajes
+
+SOAP es un protocolo formal que exige que todos los mensajes viajen en XML, con una envoltura estándar donde se separan cabeceras y cuerpo, lo que facilita la estandarización, pero incrementa el **tamaño y complejidad** de cada mensaje. REST, en cambio, es un estilo arquitectónico que se apoya en HTTP y permite usar varios formatos de datos, siendo **JSON** el más usado por su **ligereza** y afinidad con estructuras de listas y diccionarios en lenguajes modernos. En la práctica, las APIs REST envían y reciben JSON en el cuerpo de la petición/respuesta, utilizando los encabezados HTTP (`Content-Type`, `Accept`) para indicar el formato, mientras que SOAP suele incluir más metadatos dentro del propio mensaje XML. Esta diferencia hace que las llamadas SOAP tengan mucho **más contenido** y sean **muy explícitas**, mientras que las llamadas REST resultan **más compactas** y **rápidas** de procesar.
+
+# Estado de la comunicación
+
+REST se basa en el principio de que cada petición debe ser autosuficiente: **el servidor no conserva información de peticiones anteriores** y cada llamada contiene todo lo necesario para procesarse, lo que se conoce como interacción *stateless*. Esta ausencia de estado en el servidor facilita el escalado horizontal, el balanceo de carga y la tolerancia a fallas, porque cualquier instancia puede atender cualquier petición sin depender de sesiones previas. SOAP puede funcionar de manera stateless, pero históricamente se ha utilizado con patrones más *stateful*, donde **el servidor mantiene contexto de una conversación**, útil para procesos transaccionales complejos, aunque más difícil de escalar. En integraciones modernas, suele preferirse mantener el estado en otros componentes (base de datos, caché, tokens) y que las APIs expuestas se mantengan lo más stateless posible para simplificar la operación.
+
+# Seguridad
+
+SOAP incluye especificaciones como WS‑Security, que permiten cifrar partes del mensaje, firmar digitalmente y adjuntar tokens de identidad **a nivel de mensaje**, independientemente del transporte, lo que resulta útil en sectores muy regulados. REST no define mecanismos de seguridad propios, sino que se apoya en HTTPS para el cifrado en tránsito y en esquemas de autenticación/autorización **implementados en la aplicación** (API keys, OAuth2, JWT, etc.). En la práctica, esto se traduce en que un servicio SOAP típico se configura con políticas detalladas de WS‑Security, mientras que una API REST suele documentar qué encabezados de autenticación se esperan y bajo qué caminos/roles, dejando el detalle de tokens a otras capas. Esta diferencia impacta el análisis de integración: hay que decidir si se requiere seguridad a nivel de mensaje (caso más típico de SOAP) o si basta con seguridad a nivel de transporte y aplicación (caso usual de REST).
+

@@ -1,0 +1,12 @@
+## Sección 5 – Buenas prácticas de diseño de APIs REST
+
+### 5.1 Modelado de recursos y URIs
+
+Una API REST clara modela recursos con nombres sustantivos y consistentes, normalmente en plural (`/clientes`, `/pedidos`, `/facturas`), evitando incluir verbos en las rutas. Las relaciones se representan mediante URIs anidadas cuando tiene sentido (`/clientes/{id}/pedidos`) sin caer en niveles excesivos de profundidad que compliquen la navegación. Las URIs deben ser estables en el tiempo y reflejar el modelo de dominio, no detalles internos de implementación, lo que facilita evolucionar la lógica sin romper integraciones. Además, conviene usar convenciones coherentes de nombres (por ejemplo, `kebab-case` o `snake_case`) y reservar los cambios de versión para casos donde el contrato realmente sufre modificaciones incompatibles. [stackoverflow](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
+
+### 5.2 Uso de verbos HTTP y manejo de errores
+
+Los verbos HTTP se utilizan de manera semántica: `GET` para recuperar recursos sin efectos secundarios, `POST` para crear o ejecutar operaciones no idempotentes, `PUT` o `PATCH` para actualizar y `DELETE` para eliminar. El manejo de errores se apoya en códigos de estado: las respuestas exitosas usan códigos 2xx (como `200 OK` o `201 Created`), errores debidos al cliente usan 4xx (`400 Bad Request`, `404 Not Found`, `409 Conflict`) y fallos internos usan 5xx (`500 Internal Server Error`). Además del código, es recomendable devolver un cuerpo JSON estructurado que incluya campos como `status`, `code`, `title` o `message`, y opcionalmente identificadores de incidente, siguiendo recomendaciones como las de “Problem Details” para mayor claridad. Diseñar bien estos errores hace que los integradores entiendan rápidamente qué salió mal y qué deben corregir, reduciendo tiempos de diagnóstico. [treblle](https://treblle.com/blog/rest-api-error-handling)
+
+**Actividad sugerida:**  
+Cada alumno diseña una respuesta de error JSON para un `POST /pedidos` con datos inválidos. Debe incluir al menos: `status`, `code`, `title` (mensaje corto) y `detail` (explicación breve). Luego se discute cuáles mensajes realmente ayudan a corregir el problema y cuáles solo repiten “error” sin información útil.

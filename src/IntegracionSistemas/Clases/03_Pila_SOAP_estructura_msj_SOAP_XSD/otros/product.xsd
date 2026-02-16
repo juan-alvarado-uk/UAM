@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/products"
+    xmlns="http://example.com/products"
+    elementFormDefault="qualified">
+
+  <!-- Elemento raíz -->
+  <xsd:element name="product" type="ProductType"/>
+
+  <!-- Tipo complejo que describe la estructura interna -->
+  <xsd:complexType name="ProductType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:int"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="price" type="xsd:decimal"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

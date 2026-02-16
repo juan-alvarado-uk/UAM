@@ -1,0 +1,133 @@
+\ProvidesPackage{UAM}
+
+\def\institution{UNIVERSIDAD AUTÓNOMA METROPOLITANA}
+
+\RequirePackage[ddmmyyyy]{datetime}
+\RequirePackage{fontspec}
+\RequirePackage{etoolbox}
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{hyperref}
+\RequirePackage{microtype}
+\RequirePackage{geometry}
+
+% Adjust bottom margin
+%\geometry{bottom=5cm}
+
+\newcommand*{\toplinje}[1]{\def\@toplinje{#1}}
+
+\renewcommand{\dateseparator}{--}
+\setmainfont{Arial}
+\definecolor{KUrod}{RGB}{144,26,30}
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm} 
+% Define a footline template with some space at the bottom
+\setbeamertemplate{footline}{%
+	\vspace*{2cm}% Adjust the value as needed
+}
+
+
+% Definir una plantilla personalizada para centrar verticalmente el contenido
+\defbeamertemplate*{background canvas}{vertical centering 2}
+{%
+	\vspace*{\fill}
+	\centering
+	\insertframetitle\par
+	\vspace*{\baselineskip}
+	\insertframesubtitle\par
+	\vspace*{\fill}
+}
+
+% Aplicar la plantilla personalizada
+\usebackgroundtemplate{vertical centering 2}
+
+
+
+\setbeamertemplate{frametitle}{
+    \insertframetitle
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor*{item}{}
+\setbeamertemplate{itemize items}[circle]
+\addtolength{\headsep}{0.9cm}
+\setbeamercolor{rodbox}{fg=white,bg=KUrod}
+\setbeamercolor{hvidbox}{fg=black,bg=white}
+
+\makeatletter
+\define@key{beamerframe}{rod}[true]{
+    \setbeamercolor{titlelike}{fg=white}
+    \setbeamercolor{normal text}{fg=white}
+    \usebeamercolor[fg]{normal text}
+    \setbeamercolor{background canvas}{bg=KUrod}
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.6,0.3)
+                \vspace{-0.1cm}
+                % \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{\institution}}
+        \end{textblock}
+        \includegraphics[width=\paperwidth,height=14pt]{hoved.png}
+        \ifdefined\@toplinje
+        \begin{textblock}{10}(3.6,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@toplinje\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+        % \begin{textblock}{10}(13.6,0.3)
+        %     % \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+        %     \tiny\textcolor{black}{\ \ \ \ \ \ \ \ \ \insertframenumber}
+        \end{textblock}
+    }
+}
+\define@key{beamerframe}{hvid}[true]{
+    \setbeamercolor{titlelike}{fg=KUrod}
+    \setbeamercolor{normal text}{fg=black}
+    \usebeamercolor[fg]{normal text}
+    \setbeamercolor{background canvas}{bg=white}
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.6,0.3)
+                \vspace{-0.1cm}
+                % \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{\institution}}
+        \end{textblock}
+        \includegraphics[width=\paperwidth,height=14pt]{hoved.png}
+        \ifdefined\@toplinje
+        \begin{textblock}{10}(3.6,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@toplinje\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+%         \begin{textblock}{10}(13.6,0.3)
+%             \tiny\textcolor{black}{\ \ \ \ \ \ \ \ \ \insertframenumber}
+%         \end{textblock}
+    }
+}
+\define@key{beamerframe}{billede}[true]{
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.6,0.3)
+                \vspace{-0.1cm}
+                % \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{\institution}}
+        \end{textblock}
+        \ifdefined\@toplinje
+        \begin{textblock}{10}(3.6,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@toplinje\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+        \includegraphics[width=\paperwidth,height=14pt]{hoved.png}
+        % \begin{textblock}{10}(13.6,0.3)
+        %     \tiny\textcolor{black}{\ \ \ \ \ \ \ \ \ \insertframenumber}
+        % \end{textblock}
+    }
+}
+\makeatother
