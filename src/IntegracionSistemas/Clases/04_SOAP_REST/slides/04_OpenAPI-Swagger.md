@@ -11,7 +11,31 @@ Swagger (hoy parte del ecosistema de OpenAPI) ofrece herramientas como editores 
 **Actividad**  
 Fragmento breve de un documento OpenAPI en YAML. 
 
+```yaml
+openapi: 3.0.0
+info:
+  title: API de Productos
+  version: 1.0.0
 
+paths:
+  /productos:
+    get:
+      summary: Obtener lista de productos
+      responses:
+        '200':
+          description: Lista de productos obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nombre:
+                      type: string
+```
 
 Localizar visualmente: 
 a) el título de la API, 
