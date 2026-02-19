@@ -38,8 +38,8 @@ paths:
 ```
 
 Localizar visualmente: 
-a) el título de la API, 
-b) una ruta específica, 
-c) el método HTTP y 
-d) el esquema de respuesta. 
+- el título de la API, 
+- una ruta específica, 
+- el método HTTP y 
+- el esquema de respuesta. 
 
