@@ -8,7 +8,7 @@ OpenAPI es una especificación que permite describir una API REST de forma estru
 
 Swagger (hoy parte del ecosistema de OpenAPI) ofrece herramientas como editores visuales, generadores de código cliente/servidor y visualizadores de documentación interactiva. Con estas herramientas, un equipo de desarrollo puede seguir un enfoque API‑first: primero diseña el contrato en OpenAPI, discute y acuerda con los consumidores, y solo después genera *stubs* o implementaciones que respeten ese contrato. Este enfoque reduce el riesgo de malentendidos, porque todos leen la misma especificación y pueden incluso probar la API mediante entornos de prueba basados en el documento. OpenAPI actúa como la pieza que formaliza el diseño REST y lo hace consumible por personas y herramientas, en paralelo al papel que WSDL cumple para SOAP.
 
-**Actividad**  
+# Actividad  
 Fragmento breve de un documento OpenAPI en YAML. 
 
 ```yaml

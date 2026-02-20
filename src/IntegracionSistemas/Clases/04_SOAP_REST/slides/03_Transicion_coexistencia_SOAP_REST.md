@@ -8,7 +8,7 @@ En un contrato SOAP descrito en WSDL, el foco está en **“operaciones”** que
 
 En muchas organizaciones no se elimina la **infraestructura SOAP existente**, sino que se construyen APIs REST que actúan como **envolturas o adaptadores** lógicos. Un endpoint REST puede recibir una petición JSON ligera, **transformarla internamente** en una llamada SOAP al servicio legado y luego **transformar la respuesta SOAP de regreso a JSON**, sin que el consumidor conozca los detalles. Este patrón permite exponer una cara más moderna y coherente de los servicios existentes, mientras el interior sigue usando SOAP donde sea necesario (por ejemplo, por requisitos regulatorios). En términos conceptuales, **coexistir implica mantener alineados dos contratos: el WSDL del servicio SOAP y el documento OpenAPI de la fachada REST**, para que ambos describan la misma capacidad aunque con estilos distintos.
 
-## Actividad
+# Actividad
 
 Se proporciona una lista de tres operaciones SOAP ficticias. Deben escribir para cada una: a) el nombre del recurso REST que la reemplazaría, b) la URI y c) el verbo HTTP. Comentar si alguna operación no encaja bien y qué ajustes de modelado requeriría.
 
