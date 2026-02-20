@@ -14,24 +14,28 @@ Diseñar respuestas de error JSON para un `POST /pedidos` con datos inválidos.
 
 # Seguridad y principio de mínimo privilegio
 
-Además de autenticar correctamente (tokens, API keys u OAuth2), una API REST debe aplicar **autorización** fina para que cada consumidor solo pueda acceder a los recursos y operaciones que realmente necesita, siguiendo el principio de mínimo privilegio. Esto implica diseñar roles y permisos alineados con tareas concretas en vez de dar accesos genéricos como “admin” a la mayoría de los clientes. En el contexto de APIs, el mínimo privilegio también se aplica a los tokens: conviene que tengan alcances (scopes) específicos, expiraciones cortas y que se roten periódicamente, para reducir el impacto si se filtran o son comprometidos.
+Además de autenticar correctamente (tokens, API keys u OAuth2), una API REST debe aplicar **autorización** fina para que cada usuario solo pueda acceder a los recursos y operaciones que realmente necesita, siguiendo el principio de mínimo privilegio. Esto implica diseñar roles y permisos para tareas concretas. En el contexto de APIs, el mínimo privilegio también se aplica a los tokens: conviene que tengan alcances específicos, expiraciones cortas y que se roten periódicamente, para reducir el impacto si se filtran o son comprometidos.
 
 Desde el punto de vista de diseño, es buena práctica validar siempre que el sujeto autenticado tenga permiso sobre el recurso concreto (por ejemplo, que un cliente solo pueda ver sus propios `/pedidos`, no los de otros usuarios), evitando confiar únicamente en datos enviados por el cliente como `customerId` en el cuerpo. También ayuda limitar la superficie de ataque: exponer solo los endpoints necesarios, evitar datos sensibles en respuestas de error y registrar los accesos relevantes para poder auditar comportamientos sospechosos o intentos de abuso. Como precaución final, cualquier permiso no otorgado explícitamente debe asumirse como denegado por default.
 
-**Actividad sugerida:**  
+# Actividad  
 Definir tres roles para la API de `/clientes` y `/pedidos` (por ejemplo: `cliente-final`, `operador-ventas`, `admin-sistema`) indicando qué métodos (`GET`, `POST`, `PATCH`, `DELETE`) pueden usar sobre qué recursos. Discutir si algún rol tiene permisos “de más” y cómo recortarlos para cumplir mínimo privilegio.
 
-***
 
 # Filtrado, paginación y sort para colecciones
 
-Cuando las colecciones crecen, devolver todos los elementos en un solo `GET /pedidos` degrada el desempeño y hace más difícil para el consumidor encontrar lo que necesita. Un patrón común es soportar paginación mediante parámetros de consulta como `?page=` y `?pageSize=`, devolviendo únicamente un subconjunto de resultados junto con metadatos sobre la paginación (por ejemplo, `total`, `page`, `pageSize`). Además, 
-- el filtrado (`GET /pedidos?estado=pagado&clienteId=123`) y el
-- ordenamiento (`?sort=fecha&direction=desc`) 
+Cuando las colecciones crecen, devolver todos los elementos en un solo `GET /pedidos` degrada el desempeño y hace más difícil encontrar lo que se necesita. Un patrón común es soportar paginación mediante parámetros de consulta como `?page=` y `?pageSize=`, devolviendo únicamente un subconjunto de resultados junto con metadatos sobre la paginación (por ejemplo, `total`, `page`, `pageSize`). 
+
+---
+Además, el filtrado 
+- (`GET /pedidos?estado=pagado&clienteId=123`) 
+
+y el ordenamiento 
+- (`?sort=fecha&direction=desc`) 
 
 permiten que el cliente pida exactamente el subconjunto de datos que necesita, reduciendo tráfico y carga en el servidor.
 
-Es importante documentar claramente qué parámetros de filtrado y ordenamiento soporta cada recurso, cuáles son obligatorios y qué valores son válidos, para evitar ambigüedades. También conviene validar y sanear estos parámetros, tanto para evitar consultas excesivamente costosas (por ejemplo, límites de página demasiado grandes) como para mitigar ataques de inyección contra la capa de datos. Desde el punto de vista de contrato, agregar paginación desde el inicio es recomendable, ya que introducirla después puede considerarse un cambio incompatible si antes se devolvían todas las filas sin restricciones.
+Es importante documentar qué parámetros de filtrado y ordenamiento soporta cada recurso, cuáles son obligatorios y qué valores son válidos, para evitar ambigüedades. También conviene validar estos parámetros, tanto para evitar consultas excesivamente costosas (por ejemplo, límites de página demasiado grandes) como para mitigar ataques de inyección contra la capa de datos. Desde el punto de vista de contrato, agregar paginación desde el inicio es recomendable, ya que introducirla después puede considerarse un cambio incompatible si antes se devolvían todas las filas sin restricciones.
 
 
 ### 5.5 Cache y encabezados HTTP para desempeño
