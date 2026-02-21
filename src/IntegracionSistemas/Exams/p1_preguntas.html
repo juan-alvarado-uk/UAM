@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<p>A continuación tienes dos exámenes pensados para resolverse en 2 horas cada uno, en formato compatible con Google Forms (Google Classroom). Cada reactivo es de opción múltiple e incluye tanto conceptos teóricos (tomados de los .md del espacio) como situaciones prácticas alineadas con las prácticas indicadas. <a href="https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_2308645d-8bcf-4483-94ed-f720d1b304cb/5fa752c0-54f2-4f21-a4e8-72b916623d66/Practica_Construccion_de_SOAP.md">ppl-ai-file-upload.s3.amazonaws</a></p>
+<hr>
+<h2 id="examen-1-%E2%80%93-soap-xmlxsd-wsdl-y-monolito-m%C3%ADnimo-nodejs">Examen 1 – SOAP, XML/XSD, WSDL y monolito mínimo Node.js</h2>
+<h3 id="secci%C3%B3n-a-conceptos-te%C3%B3ricos-soap-xml-xsd-wsdl">Sección A: Conceptos teóricos (SOAP, XML, XSD, WSDL)</h3>
+<ol>
+<li>¿Cuál es el propósito principal de usar XML en servicios web SOAP?</li>
+</ol>
+<ul>
+<li>A) Reducir el tamaño de los mensajes de red</li>
+<li>B) Representar datos estructurados de forma jerárquica y validable mediante esquemas</li>
+<li>C) Asegurar que todos los mensajes sean binarios</li>
+<li>D) Evitar el uso de HTTP como transporte</li>
+</ul>
+<ol start="2">
+<li>¿Qué característica define a un documento XML “bien formado”?</li>
+</ol>
+<ul>
+<li>A) Tener solo elementos de tipo string</li>
+<li>B) Usar siempre el mismo prefijo de espacio de nombres</li>
+<li>C) Tener un único elemento raíz y etiquetas correctamente anidadas y cerradas</li>
+<li>D) Incluir al menos un atributo en cada elemento</li>
+</ul>
+<ol start="3">
+<li>En un esquema XSD, ¿qué diferencia hay entre un tipo simple y un tipo complejo?</li>
+</ol>
+<ul>
+<li>A) El tipo simple solo se usa para atributos, el complejo solo para elementos</li>
+<li>B) El tipo simple describe valores atómicos; el complejo agrupa elementos y atributos anidados</li>
+<li>C) El tipo complejo solo se usa en WSDL, el simple solo en XML</li>
+<li>D) No hay diferencia; ambos se usan indistintamente</li>
+</ul>
+<ol start="4">
+<li>¿Cuál es el rol de XSD en el contexto de WSDL y servicios SOAP?</li>
+</ol>
+<ul>
+<li>A) Optimizar el rendimiento del servidor HTTP</li>
+<li>B) Describir la estructura y tipos de los mensajes XML que intercambia el servicio</li>
+<li>C) Registrar servicios en directorios públicos</li>
+<li>D) Gestionar la seguridad y el cifrado de los mensajes</li>
+</ul>
+<ol start="5">
+<li>¿Cuál de las siguientes opciones describe mejor a WSDL?</li>
+</ol>
+<ul>
+<li>A) Un formato ligero de datos alternativo a JSON</li>
+<li>B) Un protocolo de transporte para servicios web</li>
+<li>C) Un lenguaje basado en XML que describe operaciones, mensajes, tipos de datos y endpoints de un servicio</li>
+<li>D) Una base de datos de servicios web en la nube</li>
+</ul>
+<ol start="6">
+<li>En un mensaje SOAP típico, ¿qué elemento es obligatorio?</li>
+</ol>
+<ul>
+<li>A) soap:Header</li>
+<li>B) soap:Body</li>
+<li>C) soap:Fault</li>
+<li>D) soap:Security</li>
+</ul>
+<ol start="7">
+<li>¿Qué ventaja clave ofrece el uso de WSDL con contratos estrictos?</li>
+</ol>
+<ul>
+<li>A) Permite cambiar la estructura de los mensajes sin coordinar con los consumidores</li>
+<li>B) Facilita la generación de código cliente/servidor y la validación automática de mensajes</li>
+<li>C) Elimina la necesidad de usar XML</li>
+<li>D) Permite que el servicio sea completamente stateless sin esfuerzo</li>
+</ul>
+<ol start="8">
+<li>¿Qué componente de la “pila clásica” SOAP se diseñó para publicar y descubrir servicios?</li>
+</ol>
+<ul>
+<li>A) SOAP</li>
+<li>B) WSDL</li>
+<li>C) UDDI</li>
+<li>D) WS-Security</li>
+</ul>
+<ol start="9">
+<li>¿Cuál de las siguientes afirmaciones sobre SOAP y REST es correcta?</li>
+</ol>
+<ul>
+<li>A) SOAP usa típicamente XML y contratos formales; REST suele usar JSON y contratos más ligeros</li>
+<li>B) SOAP y REST siempre usan JSON</li>
+<li>C) REST requiere UDDI para descubrir servicios</li>
+<li>D) SOAP no puede usar HTTP como transporte</li>
+</ul>
+<ol start="10">
+<li>¿En qué contexto suele seguir siendo razonable usar SOAP en lugar de solo APIs REST?</li>
+</ol>
+<ul>
+<li>A) Aplicaciones móviles sin requisitos de seguridad</li>
+<li>B) Prototipos rápidos con cambios frecuentes de contrato</li>
+<li>C) Integraciones reguladas de largo plazo con contratos muy estructurados y WS-Security</li>
+<li>D) Sitios estáticos de contenido público</li>
+</ul>
+<h3 id="secci%C3%B3n-b-pr%C3%A1ctica-soapxml-y-wsdl-opci%C3%B3n-m%C3%BAltiple-sobre-casos">Sección B: Práctica SOAP/XML y WSDL (opción múltiple sobre casos)</h3>
+<ol start="11">
+<li>Te dan el siguiente JSON de respuesta de un producto:</li>
+</ol>
+<pre class="hljs"><code><div>{ <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Laptop"</span>, <span class="hljs-attr">"price"</span>: <span class="hljs-number">25000.0</span> }
+</div></code></pre>
+<p>¿Cuál sería el elemento principal más adecuado en el Body de un mensaje SOAP de respuesta?</p>
+<ul>
+<li>A) <code>&lt;GetProductRequest&gt;</code></li>
+<li>B) <code>&lt;ProductResponse&gt;</code> o equivalente que agrupe los datos del producto</li>
+<li>C) <code>&lt;ErrorResponse&gt;</code></li>
+<li>D) <code>&lt;EnvelopeProduct&gt;</code></li>
+</ul>
+<ol start="12">
+<li>En un mensaje SOAP bien formado que representa una respuesta de producto, ¿qué combinación es la más adecuada?</li>
+</ol>
+<ul>
+<li>A) Un único <code>&lt;soap:Envelope&gt;</code> con <code>&lt;soap:Header&gt;</code> y <code>&lt;soap:Body&gt;</code> internos</li>
+<li>B) Varios <code>&lt;soap:Envelope&gt;</code> anidados para cada elemento del producto</li>
+<li>C) Un <code>&lt;soap:Body&gt;</code> sin <code>&lt;soap:Envelope&gt;</code></li>
+<li>D) Un XML sin namespaces para simplificar</li>
+</ul>
+<ol start="13">
+<li>Si validas un XML de mensaje SOAP contra un XSD y el validador indica que el elemento <code>&lt;price&gt;</code> no es numérico, ¿qué significa?</li>
+</ol>
+<ul>
+<li>A) El WSDL está mal escrito</li>
+<li>B) El XML no es bien formado</li>
+<li>C) El valor del elemento no cumple el tipo de dato definido en el XSD</li>
+<li>D) El servidor HTTP está caído</li>
+</ul>
+<ol start="14">
+<li>Tienes un WSDL con tipos XSD embebidos en la sección <code>&lt;types&gt;</code>. ¿Qué necesitas hacer para validar un mensaje de ejemplo contra esos tipos?</li>
+</ol>
+<ul>
+<li>A) Ignorar la sección <code>&lt;types&gt;</code> y validar solo con el navegador</li>
+<li>B) Extraer o referenciar el XSD de la sección <code>&lt;types&gt;</code> y usarlo como esquema en un validador XML/XSD</li>
+<li>C) Convertir el WSDL a JSON y validarlo con OpenAPI</li>
+<li>D) No es posible validar mensajes usando un WSDL</li>
+</ul>
+<ol start="15">
+<li>Un <code>&lt;soap:Fault&gt;</code> en un mensaje SOAP se utiliza principalmente para:</li>
+</ol>
+<ul>
+<li>A) Enviar datos de negocio adicionales</li>
+<li>B) Configurar la autenticación del servicio</li>
+<li>C) Establecer una conexión persistente</li>
+<li>D) Comunicar errores de procesamiento con código, motivo y detalles</li>
+</ul>
+<h3 id="secci%C3%B3n-c-te%C3%B3ricopr%C3%A1ctico-nodejs-%E2%80%93-monolito-m%C3%ADnimo">Sección C: Teórico/práctico Node.js – Monolito mínimo</h3>
+<ol start="16">
+<li>En el laboratorio de “Monolito mínimo con Node.js y Express”, ¿qué característica distingue a las rutas iniciales implementadas?</li>
+</ol>
+<ul>
+<li>A) Solo exponen métodos GET y POST para recursos como productos y pedidos en memoria</li>
+<li>B) Incluyen persistencia en base de datos relacional</li>
+<li>C) Exponen exclusivamente métodos PUT y DELETE</li>
+<li>D) Usan colas de mensajes en lugar de HTTP</li>
+</ul>
+<ol start="17">
+<li>¿Cuál es el propósito de usar <code>app.use(express.json())</code> en una API Express?</li>
+</ol>
+<ul>
+<li>A) Permitir que Express sirva archivos estáticos</li>
+<li>B) Habilitar el parseo automático de cuerpos JSON en las peticiones</li>
+<li>C) Configurar el motor de plantillas HTML</li>
+<li>D) Asegurar la conexión HTTPS</li>
+</ul>
+<ol start="18">
+<li>En una ruta <code>GET /productos/:id</code>, el segmento <code>:id</code> en Express se conoce como:</li>
+</ol>
+<ul>
+<li>A) Query string</li>
+<li>B) Middleware</li>
+<li>C) Parámetro de ruta</li>
+<li>D) Header obligatorio</li>
+</ul>
+<ol start="19">
+<li>Para extender la API del monolito mínimo y permitir eliminar un producto específico, ¿cuál de las siguientes rutas es más apropiada?</li>
+</ol>
+<ul>
+<li>A) <code>DELETE /productos</code></li>
+<li>B) <code>DELETE /productos/:id</code></li>
+<li>C) <code>GET /productos/delete</code></li>
+<li>D) <code>POST /productos/remove/:id</code></li>
+</ul>
+<ol start="20">
+<li>Si una petición intenta obtener un producto por <code>id</code> que no existe, ¿qué código HTTP es más apropiado regresar?</li>
+</ol>
+<ul>
+<li>A) 200 OK con un cuerpo vacío</li>
+<li>B) 201 Created</li>
+<li>C) 404 Not Found</li>
+<li>D) 500 Internal Server Error</li>
+</ul>
+<ol start="21">
+<li>En la práctica de “monolito mínimo extendido”, al implementar <code>PUT /productos/:id</code>, ¿cuál es el comportamiento esperado?</li>
+</ol>
+<ul>
+<li>A) Crear siempre un producto nuevo sin importar si existe</li>
+<li>B) Actualizar los campos del producto existente identificado por <code>id</code></li>
+<li>C) Reiniciar el servidor</li>
+<li>D) Devolver siempre 204 sin contenido y sin cambios</li>
+</ul>
+<ol start="22">
+<li>¿Qué ventaja tiene mantener los datos de productos y pedidos en estructuras en memoria durante el laboratorio?</li>
+</ol>
+<ul>
+<li>A) Permite simular la lógica de negocio sin configurar una base de datos real</li>
+<li>B) Asegura durabilidad de datos entre reinicios</li>
+<li>C) Mejora la seguridad ante ataques externos</li>
+<li>D) Obliga a usar transacciones distribuidas</li>
+</ul>
+<ol start="23">
+<li>En pruebas con <code>curl</code> o Postman sobre el monolito mínimo, ¿cuál de estas opciones representa correctamente una petición POST para crear un producto?</li>
+</ol>
+<ul>
+<li>A) <code>POST /products</code> sin cuerpo, esperando que el servidor genere los datos</li>
+<li>B) <code>POST /productos</code> con encabezado <code>Content-Type: application/json</code> y un cuerpo JSON con los campos del producto</li>
+<li>C) <code>GET /productos/new</code> con parámetros en la URL</li>
+<li>D) <code>PUT /productos</code> con un cuerpo vacío</li>
+</ul>
+<ol start="24">
+<li>Cuando se extiende el monolito mínimo para manejar recursos “pedidos” además de “productos”, ¿qué principio se refuerza?</li>
+</ol>
+<ul>
+<li>A) Que todas las rutas deben compartir el mismo prefijo</li>
+<li>B) La separación de responsabilidades por tipo de recurso en la API</li>
+<li>C) Que solo se puede definir un recurso por servidor</li>
+<li>D) Que los métodos HTTP son intercambiables</li>
+</ul>
+<ol start="25">
+<li>¿Cuál es una diferencia clave entre la API monolítica mínima y una arquitectura de microservicios?</li>
+</ol>
+<ul>
+<li>A) En el monolito, todo el código corre en un mismo despliegue; en microservicios se distribuye en servicios independientes</li>
+<li>B) En un monolito no se pueden usar rutas HTTP</li>
+<li>C) Los microservicios no pueden comunicarse vía HTTP</li>
+<li>D) El monolito siempre es más escalable que cualquier microservicio</li>
+</ul>
+<hr>
+<h2 id="examen-2-%E2%80%93-tipos-de-integraci%C3%B3n-soap-vs-rest-wsdl-vs-rest-pr%C3%A1cticas-de-integraci%C3%B3n">Examen 2 – Tipos de integración, SOAP vs REST, WSDL vs REST, prácticas de integración</h2>
+<h3 id="secci%C3%B3n-a-tipos-de-integraci%C3%B3n-y-panorama-hist%C3%B3rico">Sección A: Tipos de integración y panorama histórico</h3>
+<ol>
+<li>En integración de sistemas, la integración “punto a punto” se caracteriza por:</li>
+</ol>
+<ul>
+<li>A) Un bus central que conecta todos los sistemas</li>
+<li>B) Conexiones directas específicas entre cada par de aplicaciones, generando “spaghetti” al crecer</li>
+<li>C) El uso exclusivo de colas de mensajes</li>
+<li>D) La obligación de usar solo SOAP/XML</li>
+</ul>
+<ol start="2">
+<li>¿Qué objetivo principal tiene la arquitectura SOA frente al “spaghetti” punto a punto?</li>
+</ol>
+<ul>
+<li>A) Aumentar el número de conexiones</li>
+<li>B) Agrupar la lógica en servicios de negocio con contratos claros y reutilizables</li>
+<li>C) Eliminar la necesidad de contratos</li>
+<li>D) Obligar a usar microservicios</li>
+</ul>
+<ol start="3">
+<li>¿Cuál de las siguientes afirmaciones describe mejor a REST en el contexto de integración?</li>
+</ol>
+<ul>
+<li>A) Es un protocolo binario para redes locales</li>
+<li>B) Es un estilo arquitectónico que aprovecha HTTP y trata recursos mediante métodos estándar como GET, POST, PUT, DELETE</li>
+<li>C) Es un lenguaje de programación orientado a objetos</li>
+<li>D) Es un reemplazo obligatorio de SOAP en todos los contextos</li>
+</ul>
+<ol start="4">
+<li>¿Qué ventaja principal aportó REST+JSON en comparación con SOAP/XML para muchas APIs modernas?</li>
+</ol>
+<ul>
+<li>A) Mayores requisitos de herramientas especializadas</li>
+<li>B) Contratos más rígidos e inflexibles</li>
+<li>C) Mensajes más ligeros y fáciles de consumir desde navegadores y apps móviles</li>
+<li>D) Imposibilidad de usar HTTPS</li>
+</ul>
+<ol start="5">
+<li>En el contexto actual, ¿qué es común encontrar en organizaciones grandes?</li>
+</ol>
+<ul>
+<li>A) Solo monolitos puros sin integración</li>
+<li>B) Solo microservicios sin legado</li>
+<li>C) La convivencia de monolitos, servicios SOAP heredados, APIs REST y mecanismos basados en eventos</li>
+<li>D) Exclusivamente colas de mensajes sin APIs</li>
+</ul>
+<ol start="6">
+<li>¿Qué tipo de integración se centra principalmente en compartir y sincronizar información (por ejemplo, tablas de clientes) entre sistemas?</li>
+</ol>
+<ul>
+<li>A) Integración de datos</li>
+<li>B) Integración funcional</li>
+<li>C) Integración semántica</li>
+<li>D) Integración física</li>
+</ul>
+<ol start="7">
+<li>¿Qué tipo de integración implica consumir capacidades o funciones remotas, como “consultar saldo” o “crear pedido”?</li>
+</ol>
+<ul>
+<li>A) Integración de datos</li>
+<li>B) Integración funcional</li>
+<li>C) Integración semántica</li>
+<li>D) Integración de red</li>
+</ul>
+<ol start="8">
+<li>¿A qué se refiere la integración semántica?</li>
+</ol>
+<ul>
+<li>A) A compartir archivos de texto sin estructura</li>
+<li>B) A alinear el significado de los datos y conceptos entre sistemas, evitando ambigüedades</li>
+<li>C) A comprimir mensajes para ahorrar ancho de banda</li>
+<li>D) A usar siempre el mismo tipo de base de datos</li>
+</ul>
+<ol start="9">
+<li>En un ejercicio donde mapeas sistemas de una organización y clasificas sus conexiones, ¿qué criterio usarías para etiquetar una integración como “crítica”?</li>
+</ol>
+<ul>
+<li>A) Que use JSON</li>
+<li>B) Que sea la que más ancho de banda consume</li>
+<li>C) Que, si falla, afecta procesos de negocio esenciales como facturación o pagos</li>
+<li>D) Que sea la más nueva</li>
+</ul>
+<ol start="10">
+<li>¿Qué efecto tiene agregar muchas integraciones punto a punto a lo largo del tiempo?</li>
+</ol>
+<ul>
+<li>A) Facilita el mantenimiento porque todas son similares</li>
+<li>B) Disminuye la dependencia entre sistemas</li>
+<li>C) Aumenta la complejidad, la duplicación de lógica y el acoplamiento</li>
+<li>D) Elimina la necesidad de documentación</li>
+</ul>
+<h3 id="secci%C3%B3n-b-soap-vs-rest-pila-soap-y-vigencia-de-soap">Sección B: SOAP vs REST, pila SOAP y vigencia de SOAP</h3>
+<ol start="11">
+<li>¿Cuál de las siguientes es una característica típica de SOAP en la era SOA?</li>
+</ol>
+<ul>
+<li>A) Uso exclusivo de JSON</li>
+<li>B) Mensajes con sobre <code>&lt;Envelope&gt;</code>, <code>&lt;Header&gt;</code> y <code>&lt;Body&gt;</code> en XML</li>
+<li>C) Eliminación de contratos formales</li>
+<li>D) Comunicación solo dentro de un mismo proceso</li>
+</ul>
+<ol start="12">
+<li>¿Qué elemento de la pila SOAP describe las operaciones disponibles y los tipos de mensajes?</li>
+</ol>
+<ul>
+<li>A) SOAP Envelope</li>
+<li>B) WSDL</li>
+<li>C) UDDI</li>
+<li>D) WS-Security</li>
+</ul>
+<ol start="13">
+<li>¿Qué rol jugaron las especificaciones WS-* (como WS-Security, WS-Policy) en el ecosistema SOAP?</li>
+</ol>
+<ul>
+<li>A) Definir formatos de imagen</li>
+<li>B) Extender SOAP con capacidades avanzadas de seguridad, políticas, confianza y transacciones</li>
+<li>C) Reemplazar completamente a WSDL</li>
+<li>D) Hacer innecesario el uso de XML</li>
+</ul>
+<ol start="14">
+<li>¿En qué sectores se menciona que SOAP sigue siendo comúnmente utilizado?</li>
+</ol>
+<ul>
+<li>A) Redes sociales y aplicaciones de mensajería instantánea</li>
+<li>B) Videojuegos móviles informales</li>
+<li>C) Banca, gobierno y salud con fuertes requisitos regulatorios</li>
+<li>D) Sitios web estáticos</li>
+</ul>
+<ol start="15">
+<li>¿Cuál de las siguientes situaciones favorece seguir usando un servicio SOAP existente en lugar de migrarlo inmediatamente a REST?</li>
+</ol>
+<ul>
+<li>A) El proveedor solo ofrece WSDL y WS-* y la integración es estable y de largo plazo</li>
+<li>B) La API se usa solo para pruebas internas temporales</li>
+<li>C) Se requiere una interfaz gráfica rica</li>
+<li>D) No hay requisitos de seguridad</li>
+</ul>
+<ol start="16">
+<li>¿Cuál es una diferencia conceptual clave entre mensajes SOAP y mensajes REST/JSON?</li>
+</ol>
+<ul>
+<li>A) REST/JSON obliga a usar WS-Security</li>
+<li>B) SOAP incluye un sobre estandarizado y namespaces; REST/JSON suele enviar directamente los datos sin esa envoltura</li>
+<li>C) SOAP no permite tipos de datos complejos</li>
+<li>D) REST requiere UDDI</li>
+</ul>
+<ol start="17">
+<li>¿Qué describe mejor a una API REST bien diseñada?</li>
+</ol>
+<ul>
+<li>A) Operaciones definidas por verbos arbitrarios en la URL</li>
+<li>B) Recursos identificados por URIs y manipulados con métodos HTTP estándar y códigos de estado apropiados</li>
+<li>C) Mensajes exclusivamente XML</li>
+<li>D) Ausencia total de contrato o documentación</li>
+</ul>
+<ol start="18">
+<li>¿En qué caso es especialmente importante decidir “cuándo convivir con SOAP y encapsularlo, y cuándo migrar a APIs más ligeras”?</li>
+</ol>
+<ul>
+<li>A) Cuando solo hay un sistema aislado sin integraciones</li>
+<li>B) Cuando no hay restricciones regulatorias ni de seguridad</li>
+<li>C) Cuando se integran sistemas legacy SOAP con nuevas aplicaciones y microservicios</li>
+<li>D) Cuando todos los servicios ya son REST</li>
+</ul>
+<h3 id="secci%C3%B3n-c-pr%C3%A1cticas-%E2%80%93-tipos-de-integraci%C3%B3n-comparaci%C3%B3n-wsdl-vs-rest">Sección C: Prácticas – Tipos de integración, comparación WSDL vs REST</h3>
+<ol start="19">
+<li>En la práctica de “tipos de integración”, un equipo dibuja varios sistemas y marca una integración entre el ERP y el sistema de facturación donde solo se replica la tabla de clientes cada noche. ¿Qué tipo de integración es la más adecuada?</li>
+</ol>
+<ul>
+<li>A) Funcional</li>
+<li>B) Semántica</li>
+<li>C) De datos</li>
+<li>D) De red</li>
+</ul>
+<ol start="20">
+<li>En esa misma práctica, otra integración permite que una app móvil invoque “consultar saldo” en un sistema bancario remoto. ¿Qué tipo de integración representa mejor esta situación?</li>
+</ol>
+<ul>
+<li>A) De datos, porque solo importa la tabla de saldos</li>
+<li>B) Funcional, porque se consume una capacidad remota de negocio</li>
+<li>C) Semántica, porque solo se alinea el significado</li>
+<li>D) Física, porque usa redes móviles</li>
+</ul>
+<ol start="21">
+<li>En el ejercicio de comparación WSDL vs REST, ¿cuál de estos elementos es más natural encontrar en un WSDL?</li>
+</ol>
+<ul>
+<li>A) Definiciones de <code>paths</code> y <code>responses</code> en JSON</li>
+<li>B) Elementos <code>&lt;portType&gt;</code>, <code>&lt;operation&gt;</code> y <code>&lt;message&gt;</code> que describen el contrato</li>
+<li>C) Documentación en formato Markdown</li>
+<li>D) Solo ejemplos de llamadas con <code>curl</code></li>
+</ul>
+<ol start="22">
+<li>En la documentación de una API REST equivalente, ¿qué preguntas se suelen responder de forma explícita?</li>
+</ol>
+<ul>
+<li>A) Qué URIs existen, qué métodos HTTP soportan, qué estructura de JSON esperan y devuelven</li>
+<li>B) Cómo generar código a partir de WSDL</li>
+<li>C) Cómo registrar el servicio en UDDI</li>
+<li>D) Cómo usar WS-Security</li>
+</ul>
+<ol start="23">
+<li>Cuando en la práctica se pide comparar un WSDL con una API REST, ¿qué objetivo conceptual se busca?</li>
+</ol>
+<ul>
+<li>A) Convertir siempre el WSDL en REST</li>
+<li>B) Identificar elementos de contrato en ambos enfoques y discutir ventajas/desventajas</li>
+<li>C) Demostrar que uno de los dos está obsoleto</li>
+<li>D) Medir solo el tamaño de los mensajes</li>
+</ul>
+<ol start="24">
+<li>En un escenario donde un servicio SOAP y una API REST exponen la misma funcionalidad de “consultar saldo”, ¿qué diferencia práctica suele encontrarse?</li>
+</ol>
+<ul>
+<li>A) El SOAP se consume solo desde navegadores</li>
+<li>B) El WSDL describe tipos y operaciones en XML, mientras que la API REST suele usar JSON y documentación tipo OpenAPI o similar</li>
+<li>C) El SOAP es siempre más rápido</li>
+<li>D) La API REST no puede usar HTTPS</li>
+</ul>
+<ol start="25">
+<li>En un ejercicio grupal, se identifica una integración donde dos sistemas usan el mismo campo “balance” con significados distintos (uno es saldo disponible, otro saldo contable total). ¿Qué tipo de problema se ilustra?</li>
+</ol>
+<ul>
+<li>A) Problema de sintaxis XML</li>
+<li>B) Problema de transporte HTTP</li>
+<li>C) Problema de integración semántica</li>
+<li>D) Problema exclusivo de rendimiento</li>
+</ul>
+<hr>
+<p>Si quieres, en el siguiente paso puedo proponerte claves sugeridas de respuesta para ambos exámenes, o ajustar el número de preguntas/dificultad para que se ajusten mejor al tiempo de 2 horas.</p>
+
+</body>
+</html>
