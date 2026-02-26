@@ -111,12 +111,12 @@
 <body>
 <div class="reveal">
     <div>
-      <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <img src="../../logos/variacion5Cua.png"  width = "200" alt="Logo">
       <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
     </div>
   <div class="slides">
     <section class="full-image-slide">
-              <img class="full-slide-image" src="https://juan-alvarado-uk.github.io/UAM/logos/cua_05.jpg" alt="slide image" />
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
               <h1>Integración de Sistemas</h1>
             </section>
     <section>
@@ -125,96 +125,96 @@
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-fauxels-3183197.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>En una integración real es muy importante identificar qué sistemas participan, qué tipo de datos manejan y quién es responsable de cada entidad de negocio (cliente, pedido, factura, etc.).</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-olya-kobruseva-5428828.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/quality-g1788436e8_640.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Esto implica listar sistemas origen (por ejemplo, e‑commerce, ERP, facturación, inventarios) y determinar para cada uno qué operaciones ofrece (<strong>consultar</strong>, <strong>crear</strong>, <strong>actualizar</strong>) y qué tan “oficiales” son sus datos.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-jorge-jesus-614117.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/question-mark-g4c3d4d4cd_640.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>A partir de esta identificación se definen los <strong>puntos de integración</strong>: qué APIs REST se deben exponer, qué servicios existentes se reutilizarán (incluyendo posibles servicios SOAP) y qué datos deben sincronizarse o solo consultarse bajo demanda.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-fox-1595385.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-lukas-574069.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Tener claros estos límites evita que varias APIs modifiquen el mismo dato de forma descoordinada, lo que generaría inconsistencias difíciles de resolver.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-kevin-ku-577585.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/check-g04b94897b_640.png" alt="image" /></div>
         <div class="text-col"><ul><li><strong>Actividad</strong> Dibujar un mapa de sistemas para un escenario e‑commerce + facturación + inventarios con cajas con nombres de sistemas y flechas indicando qué datos fluyen entre ellos.</li></ul></div>
+        <div class="image-col"><img src="../../img/traffic-signs-g1ac2fbc94_640.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Fuentes de datos y límites de sistemas</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Analizar casos como el siguiente: “si hay conflicto en el nombre de un cliente, ¿qué sistema gana?”, con ello determinar quien es el sistema “dueño” del dato.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-cottonbro-studio-5473298.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/angry_woman.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Latencia y granularidad de servicios</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-pixabay-247791.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>La latencia aceptable entre sistemas condiciona cuán “finas” o “gruesas” deben ser las operaciones expuestas.</li></ul></div>
+        <div class="image-col"><img src="../../img/gears-gccf2d57f7_640.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Latencia y granularidad de servicios</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Si un flujo requiere respuestas casi en <strong>tiempo real</strong> (por ejemplo, validación de pago en línea), conviene exponer servicios relativamente <strong>compactos y evitar secuencias largas</strong> de llamadas síncronas entre muchos sistemas, ya que cada salto añade retraso.</li></ul></div>
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-canva-studio-3194518.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-270408.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Latencia y granularidad de servicios</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-monstera-production-5849597.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-anna-shvets-3683053.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Cuando la <strong>latencia tolerable es mayor</strong> (por ejemplo, integración nocturna de reportes), se puede optar por <strong>llamadas más pesadas</strong> o incluso por mecanismos por lotes.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Latencia y granularidad de servicios</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-sora-shimazaki-5935755.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>En el diseño de APIs REST, esta reflexión se traduce en decidir si un cliente hace <strong>muchas llamadas pequeñas o menos llamadas más ricas</strong>, equilibrando simplicidad, rendimiento y claridad.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-digital-buggu-193777.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Requisitos de seguridad en la integración</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-julia-filirovska-4913769.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/attention-g41203481a_640.png" alt="image" /></div>
         <div class="text-col"><ul><li>Desde el análisis se deben capturar requerimientos de <strong>confidencialidad</strong> (qué datos deben viajar siempre cifrados), <strong>integridad</strong> (qué mensajes necesitan firma o verificación) y <strong>trazabilidad</strong> (qué operaciones deben dejar rastro detallado).</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Requisitos de seguridad en la integración</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-jess-bailey-designs-1558690.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Para cada flujo de integración se puede describir quién llama a quién, qué identidad usa y qué información mínima se necesita para autorizar la operación, sin entrar aún en protocolos concretos.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-christina-morillo-1181622.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Requisitos de seguridad en la integración</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="https://juan-alvarado-uk.github.io/UAM/img/pexels-thisisengineering-3912976.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Esto sirve de base para más adelante elegir mecanismos específicos de autenticación y autorización en las APIs REST o, donde corresponda, perfiles de seguridad en servicios SOAP existentes.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-karolina-grabowska-6757693.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">
-              <img class="full-slide-image" src="https://juan-alvarado-uk.github.io/UAM/logos/cua_01.jpg" alt="slide image" />
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
               <h2>Gracias</h2>
             </section>
   </div>

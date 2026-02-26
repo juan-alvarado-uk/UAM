@@ -21,6 +21,7 @@ import os
 # Extensiones de imagen que queremos considerar
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp")
 IMAGE_URL_PREFIX = "https://juan-alvarado-uk.github.io/UAM/"
+IMAGE_URL_PREFIX2 = "../../"
 
 def load_decorative_images_from_parent(folder_name: str = "img") -> list:
     """
@@ -662,7 +663,7 @@ class MarkdownToRevealJS:
 <body>
 <div class="reveal">
     <div>
-      <img src="https://juan-alvarado-uk.github.io/UAM/logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <img src="{IMAGE_URL_PREFIX2}logos/variacion5Cua.png"  width = "200" alt="Logo">
       <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
     </div>
   <div class="slides">
@@ -707,7 +708,7 @@ class MarkdownToRevealJS:
         elif kind == "closing":
             title_overlay = '<h2>Gracias</h2>'
 
-        full_src = "https://juan-alvarado-uk.github.io/UAM/" + img[3:]
+        full_src = IMAGE_URL_PREFIX2 + img[3:]  # "https://juan-alvarado-uk.github.io/UAM/" +
         img_html = f'<img class="full-slide-image" src="{full_src}" alt="slide image" />'
 
         return f"""    <section class="full-image-slide">
@@ -722,7 +723,7 @@ class MarkdownToRevealJS:
 
         # Slides con imagen decorativa → layout dos columnas
         if slide.get("image") and slide.get("image_side") in ("left", "right"):
-            full_src = "https://juan-alvarado-uk.github.io/UAM/" + slide["image"][3:]
+            full_src = IMAGE_URL_PREFIX2 + slide["image"][3:] # "https://juan-alvarado-uk.github.io/UAM/"
             img_html = f'<img src="{full_src}" alt="image" />'
             text_html = self._render_blocks_as_text(slide.get("content_blocks", []))
 
