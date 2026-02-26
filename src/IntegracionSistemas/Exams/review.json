@@ -1,0 +1,814 @@
+{
+  "examenes": [
+    {
+      "titulo": "Examen 1 – SOAP, XML/XSD, WSDL y monolito mínimo Node.js",
+      "preguntas": [
+        {
+          "id": "E1_P01",
+          "tipo": "opcion_multiple",
+          "enunciado": "En un servicio bancario basado en SOAP, se requiere enviar información de cuentas y transacciones entre sistemas heterogéneos. ¿Cuál es el propósito principal de usar XML en este tipo de servicios web?",
+          "opciones": [
+            "Reducir el tamaño de los mensajes de red",
+            "Representar datos estructurados de forma jerárquica y validable mediante esquemas",
+            "Asegurar que todos los mensajes sean binarios",
+            "Evitar el uso de HTTP como transporte"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1if6aGtqXCwVXtrEnX2aTN4As8SCEqx-I",
+          "feedback_correcta": "XML se utiliza para representar datos jerárquicos y validables, lo cual resulta fundamental en mensajes SOAP.",
+          "feedback_incorrecta": "XML en servicios web se valora por su estructura jerárquica y la posibilidad de validación mediante XSD, no por reducción de tamaño ni por ser binario."
+        },
+        {
+          "id": "E1_P02",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una compañía de seguros intercambia pólizas en formato XML entre aplicaciones internas. Antes de validar el contenido con XSD, se verifica que el XML esté bien formado. ¿Qué característica define que el documento XML esté bien formado?",
+          "opciones": [
+            "Tener solo elementos de tipo string",
+            "Usar siempre el mismo prefijo de espacio de nombres",
+            "Tener un único elemento raíz y etiquetas correctamente anidadas y cerradas",
+            "Incluir al menos un atributo en cada elemento"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1XIZXXpV-CdEJTmYfnybhA28y1gwchKU7",
+          "feedback_correcta": "Un XML bien formado se caracteriza por tener un único elemento raíz y etiquetas bien anidadas y cerradas.",
+          "feedback_incorrecta": "Las reglas de documento XML bien formado exigen un único elemento raíz y etiquetas correctamente anidadas y cerradas."
+        },
+        {
+          "id": "E1_P03",
+          "tipo": "opcion_multiple",
+          "enunciado": "En el XSD que describe los mensajes de un servicio de pedidos, algunos campos representan valores simples (como cantidades o precios) y otros representan estructuras completas (como dirección de envío con calle, ciudad y código postal). ¿Qué diferencia hay entre un tipo simple y un tipo complejo en XSD en este contexto?",
+          "opciones": [
+            "El tipo simple solo se usa para atributos, el complejo solo para elementos",
+            "El tipo simple describe valores atómicos; el complejo agrupa elementos y atributos anidados",
+            "El tipo complejo solo se usa en WSDL, el simple solo en XML",
+            "No hay diferencia; ambos se usan indistintamente"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1FRkIpuGsuVlbFpmBMOo-8thhwc2j4O2X",
+          "feedback_correcta": "Los tipos simples describen valores atómicos y los tipos complejos agrupan elementos y atributos.",
+          "feedback_incorrecta": "La diferencia importante es que el tipo simple representa un valor atómico y el tipo complejo define estructuras con elementos y/o atributos."
+        },
+        {
+          "id": "E1_P04",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una empresa define un contrato formal para su servicio SOAP de facturación y necesita asegurarse de que todos los mensajes cumplan la misma estructura. ¿Cuál es el rol de XSD en el contexto de WSDL y servicios SOAP en este escenario?",
+          "opciones": [
+            "Optimizar el rendimiento del servidor HTTP",
+            "Describir la estructura y tipos de los mensajes XML que intercambia el servicio",
+            "Registrar servicios en directorios públicos",
+            "Gestionar la seguridad y el cifrado de los mensajes"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1OWPilsiXq0PUo9fxz4KhDL9axHEqRMez",
+          "feedback_correcta": "XSD se utiliza para describir la estructura y los tipos de datos de los mensajes XML de un servicio.",
+          "feedback_incorrecta": "XSD no se orienta a rendimiento HTTP ni a seguridad; su finalidad es definir estructura y tipos de datos de los mensajes."
+        },
+        {
+          "id": "E1_P05",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un equipo de integración recibe un archivo que describe las operaciones disponibles de un servicio SOAP de inventarios, los mensajes que usa y los endpoints a los que puede conectarse. El archivo está definido en XML. ¿Qué describe mejor a este archivo?",
+          "opciones": [
+            "Un formato ligero de datos alternativo a JSON",
+            "Un protocolo de transporte para servicios web",
+            "Un lenguaje basado en XML que describe operaciones, mensajes, tipos de datos y endpoints de un servicio",
+            "Una base de datos de servicios web en la nube"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "19kqm3nMOxKudwiziJb-gVagAxYl_Gk3a",
+          "feedback_correcta": "WSDL es un lenguaje basado en XML para describir operaciones, mensajes, tipos y endpoints de un servicio.",
+          "feedback_incorrecta": "WSDL no es un formato de datos ni un protocolo; es un contrato descriptivo basado en XML."
+        },
+        {
+          "id": "E1_P06",
+          "tipo": "opcion_multiple",
+          "enunciado": "En un mensaje SOAP que devuelve el resultado de una consulta de cliente, se define un sobre con espacios de nombres y se agregan secciones opcionales según sea necesario. ¿Qué elemento es obligatorio en ese mensaje SOAP?",
+          "opciones": [
+            "soap:Header",
+            "soap:Body",
+            "soap:Fault",
+            "soap:Security"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1VrbghwpwURClI6OFVNm1oOYAfZGnlSvm",
+          "feedback_correcta": "En un mensaje SOAP, el elemento Body es obligatorio, mientras que Header y Fault son opcionales.",
+          "feedback_incorrecta": "El elemento obligatorio en SOAP es el Body; Header y Fault solo aparecen cuando se requieren."
+        },
+        {
+          "id": "E1_P07",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una organización desea que sus clientes internos puedan generar clientes SOAP y stubs de servidor automáticamente a partir de un contrato centralizado, reduciendo errores de integración. ¿Qué ventaja clave ofrece el uso de WSDL con contratos estrictos para este fin?",
+          "opciones": [
+            "Permite cambiar la estructura de los mensajes sin coordinar con los consumidores",
+            "Facilita la generación de código cliente/servidor y la validación automática de mensajes",
+            "Elimina la necesidad de usar XML",
+            "Permite que el servicio sea completamente stateless sin esfuerzo"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1qpxKilEBjtJ3stDGErr0HpDP50EdWlEa",
+          "feedback_correcta": "Los contratos estrictos en WSDL facilitan la generación de código y la validación automática de mensajes.",
+          "feedback_incorrecta": "La principal ventaja de contratos estrictos en WSDL es la generación de código y la validación automática, aunque exigen disciplina al evolucionar."
+        },
+        {
+          "id": "E1_P08",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un proveedor de servicios expone varios servicios SOAP y desea que sus consumidores externos puedan encontrarlos y consultarlos a través de un catálogo público. En la pila clásica basada en SOAP, ¿qué componente se diseñó con este propósito?",
+          "opciones": [
+            "SOAP",
+            "WSDL",
+            "UDDI",
+            "WS-Security"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1vj0bCjUh2uctd-bYe8eWQ9DB_jh3Fqyi",
+          "feedback_correcta": "UDDI se diseñó como registro para publicar y descubrir servicios web.",
+          "feedback_incorrecta": "En la pila SOAP, SOAP es el protocolo de mensajería, WSDL describe el contrato y UDDI actúa como registro o catálogo."
+        },
+        {
+          "id": "E1_P09",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un arquitecto compara el diseño de una integración basada en SOAP con otra basada en REST para exponer un catálogo de productos. ¿Cuál de las siguientes afirmaciones describe mejor la diferencia típica entre ambos enfoques?",
+          "opciones": [
+            "SOAP usa típicamente XML y contratos formales; REST suele usar JSON y contratos más ligeros",
+            "SOAP y REST siempre usan JSON",
+            "REST requiere UDDI para descubrir servicios",
+            "SOAP no puede usar HTTP como transporte"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "1AzRYYw9DlzTaba8rds4W5kDWSHUCaD-m",
+          "feedback_correcta": "SOAP suele usar XML y contratos formales, mientras que REST tiende a emplear JSON y contratos más ligeros.",
+          "feedback_incorrecta": "REST no requiere UDDI y SOAP no se limita en absoluto a JSON; REST se caracteriza por mensajes ligeros y menor rigidez contractual."
+        },
+        {
+          "id": "E1_P10",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una institución financiera evalúa exponer una operación de pagos a largo plazo con fuertes requisitos de auditoría y seguridad basada en WS-Security. ¿En qué contexto sigue siendo razonable preferir SOAP en lugar de solo APIs REST?",
+          "opciones": [
+            "Aplicaciones móviles sin requisitos de seguridad",
+            "Prototipos rápidos con cambios frecuentes de contrato",
+            "Integraciones reguladas de largo plazo con contratos muy estructurados y WS-Security",
+            "Sitios estáticos de contenido público"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1_0LhGjRZMP4_dqG6LcFUTgDgGN5Qx5b1",
+          "feedback_correcta": "SOAP resulta razonable en integraciones reguladas y de largo plazo con contratos muy estructurados y uso de WS-Security.",
+          "feedback_incorrecta": "SOAP encaja mejor en escenarios con requisitos fuertes de seguridad, contratos estables y uso de WS-Security que en prototipos cambiantes."
+        },
+        {
+          "id": "E1_P11",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un servicio SOAP devuelve la información de un producto en respuesta a una consulta por su identificador. El modelo de datos del producto en JSON es { \"id\": 1, \"name\": \"Laptop\", \"price\": 25000.0 }. ¿Cuál sería el elemento principal más adecuado en el Body del mensaje SOAP de respuesta?",
+          "opciones": [
+            "<GetProductRequest>",
+            "<ProductResponse> o equivalente que agrupe los datos del producto",
+            "<ErrorResponse>",
+            "<EnvelopeProduct>"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1WhydZ4AUJTvTFRhaR3BJQmHlwei5A5DB",
+          "feedback_correcta": "El Body suele contener un elemento que agrupa los datos del producto, como ProductResponse o equivalente.",
+          "feedback_incorrecta": "En el Body no se usan elementos de petición cuando se trata de una respuesta; tampoco se emplea un envoltorio como EnvelopeProduct para los datos."
+        },
+        {
+          "id": "E1_P12",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una integración revisa la estructura de los mensajes SOAP que intercambia un sistema de reservas. Se observa que cada mensaje tiene un sobre con un cuerpo y, en algunos casos, un encabezado adicional. ¿Qué combinación describe mejor un mensaje SOAP bien formado en este contexto?",
+          "opciones": [
+            "Un único <soap:Envelope> con <soap:Header> y <soap:Body> internos",
+            "Varios <soap:Envelope> anidados para cada elemento del producto",
+            "Un <soap:Body> sin <soap:Envelope>",
+            "Un XML sin namespaces para simplificar"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "1dF6bg8MFBUD0SGa3OYPvCHO9wtlnHIfF",
+          "feedback_correcta": "Un mensaje SOAP bien formado tiene un único Envelope que contiene Header opcional y Body obligatorio.",
+          "feedback_incorrecta": "En SOAP no se anidan múltiples Envelopes y siempre debe existir un Envelope que encapsule Header y Body."
+        },
+        {
+          "id": "E1_P13",
+          "tipo": "opcion_multiple",
+          "enunciado": "En un sistema de facturación, se valida un mensaje SOAP de factura contra el XSD correspondiente. El validador indica que el elemento <price> no es numérico. ¿Qué significa este resultado?",
+          "opciones": [
+            "El WSDL está mal escrito",
+            "El XML no es bien formado",
+            "El valor del elemento no cumple el tipo de dato definido en el XSD",
+            "El servidor HTTP está caído"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1B-eZiTjXMEC_Tn7GifIFfmq0115GOIQs",
+          "feedback_correcta": "El mensaje indica que el valor del elemento no cumple el tipo de dato definido en el XSD, aunque el XML pueda ser bien formado.",
+          "feedback_incorrecta": "Es necesario distinguir entre XML bien formado y XML válido frente a XSD; en este caso el problema es de tipo de dato, no de sintaxis."
+        },
+        {
+          "id": "E1_P14",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un integrador recibe un WSDL de un servicio de clientes que incluye los tipos XSD embebidos en la sección <types>. Se desea validar ejemplos de mensajes antes de poner el sistema en producción. ¿Qué se debe hacer para validar un mensaje XML contra esos tipos?",
+          "opciones": [
+            "Ignorar la sección <types> y validar solo con el navegador",
+            "Extraer o referenciar el XSD de la sección <types> y usarlo como esquema en un validador XML/XSD",
+            "Convertir el WSDL a JSON y validarlo con OpenAPI",
+            "No es posible validar mensajes usando un WSDL"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1fj4WUZhxo_XbfDQAojBrVO07RKI9Y2b7",
+          "feedback_correcta": "El XSD embebido en la sección types puede extraerse o referenciarse y usarse en un validador XML/XSD.",
+          "feedback_incorrecta": "El WSDL sí permite validar mensajes, extrayendo o referenciando sus XSD; la sección types no debe ignorarse."
+        },
+        {
+          "id": "E1_P15",
+          "tipo": "opcion_multiple",
+          "enunciado": "Durante la integración de un sistema de pagos, se recibe un mensaje SOAP con una estructura <soap:Fault> que incluye un código y una descripción de error. ¿Para qué se utiliza principalmente un elemento Fault en un mensaje SOAP?",
+          "opciones": [
+            "Enviar datos de negocio adicionales",
+            "Configurar la autenticación del servicio",
+            "Establecer una conexión persistente",
+            "Comunicar errores de procesamiento con código, motivo y detalles"
+          ],
+          "correcta": [4],
+          "puntos": 1,
+          "imagenPreguntaId": "1D_TnN5l2KAGHstZ8AQIoG5uhkd-rA6I8",
+          "feedback_correcta": "La estructura Fault se emplea para comunicar errores de procesamiento con código, motivo y detalles.",
+          "feedback_incorrecta": "Fault no transmite datos de negocio ni configuraciones; su propósito es estandarizar la información de error."
+        },
+        {
+          "id": "E1_P16",
+          "tipo": "opcion_multiple",
+          "enunciado": "Se construye una API sencilla con Node.js y Express para gestionar productos y pedidos en memoria durante el desarrollo. ¿Qué característica describe mejor las rutas iniciales de este monolito mínimo?",
+          "opciones": [
+            "Solo exponen métodos GET y POST para recursos como productos y pedidos en memoria",
+            "Incluyen persistencia en base de datos relacional",
+            "Exponen exclusivamente métodos PUT y DELETE",
+            "Usan colas de mensajes en lugar de HTTP"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "14uMAa9XrJPHtUGEY-rSHe4lrHOJ-1vSw",
+          "feedback_correcta": "El monolito mínimo inicia con rutas GET y POST en memoria para recursos como productos y pedidos.",
+          "feedback_incorrecta": "En la configuración inicial no se usa base de datos ni únicamente PUT/DELETE; el enfoque es un CRUD simple en memoria."
+        },
+        {
+          "id": "E1_P17",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una API REST construida con Express, se configura middleware para procesar el cuerpo de las solicitudes que llegan en formato JSON. ¿Cuál es el propósito de usar app.use(express.json()) en este contexto?",
+          "opciones": [
+            "Permitir que Express sirva archivos estáticos",
+            "Habilitar el parseo automático de cuerpos JSON en las peticiones",
+            "Configurar el motor de plantillas HTML",
+            "Asegurar la conexión HTTPS"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1xIuyDrokaCwCWPcxdoWsyXLRm3Iiqp6i",
+          "feedback_correcta": "La función express.json() permite parsear automáticamente cuerpos JSON en las solicitudes.",
+          "feedback_incorrecta": "express.json() no se relaciona con archivos estáticos ni con HTTPS; su función es procesar cuerpos JSON."
+        },
+        {
+          "id": "E1_P18",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una API expone la ruta GET /productos/:id para recuperar un producto específico a partir de su identificador. En Express, ¿cómo se denomina el segmento :id en esta ruta?",
+          "opciones": [
+            "Query string",
+            "Middleware",
+            "Parámetro de ruta",
+            "Header obligatorio"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1lJp7-Zf5pXC8zpf7kLR_6eBkuGjswRHS",
+          "feedback_correcta": "El segmento :id se conoce como parámetro de ruta en Express.",
+          "feedback_incorrecta": "Es importante diferenciar los parámetros de ruta (/recurso/:id) de la query string (?id=...) y de los encabezados."
+        },
+        {
+          "id": "E1_P19",
+          "tipo": "opcion_multiple",
+          "enunciado": "Se desea permitir que un cliente elimine un producto específico a través de una API REST. ¿Cuál de las siguientes rutas HTTP es más apropiada para implementar esta operación en un diseño basado en recursos?",
+          "opciones": [
+            "DELETE /productos",
+            "DELETE /productos/:id",
+            "GET /productos/delete",
+            "POST /productos/remove/:id"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "15d_UP7OqoF9TrHd9BrVH6LqwplMd-ip_",
+          "feedback_correcta": "La convención REST indica que DELETE /productos/:id es la forma adecuada de eliminar un recurso específico.",
+          "feedback_incorrecta": "El patrón habitual es enviar DELETE sobre la URI del recurso concreto, no sobre rutas genéricas ni sobre GETs simulando borrado."
+        },
+        {
+          "id": "E1_P20",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una solicitud GET /productos/999 intenta recuperar un producto que no existe en la colección gestionada por la API. ¿Qué código de estado HTTP es más apropiado devolver en este caso?",
+          "opciones": [
+            "200 OK con un cuerpo vacío",
+            "201 Created",
+            "404 Not Found",
+            "500 Internal Server Error"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1n7O4EBGiZ4ou9D4D3iGhXwPenlFk2zdP",
+          "feedback_correcta": "El código 404 Not Found es el más adecuado cuando el recurso solicitado por id no existe.",
+          "feedback_incorrecta": "El código 200 implica éxito con un recurso; cuando el recurso no se encuentra, el código estándar es 404."
+        },
+        {
+          "id": "E1_P21",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una API REST para productos ofrece la ruta PUT /productos/:id. El cliente envía un cuerpo JSON con los campos actualizados de un producto existente. ¿Cuál es el comportamiento esperado de esta operación según las prácticas habituales?",
+          "opciones": [
+            "Crear siempre un producto nuevo sin importar si existe",
+            "Actualizar los campos del producto existente identificado por id",
+            "Reiniciar el servidor",
+            "Devolver siempre 204 sin contenido y sin cambios"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1hTUVkMsP9Bhb_Jpnd9GnTTc932H3fcHZ",
+          "feedback_correcta": "La ruta PUT /productos/:id se emplea para actualizar los campos del producto existente identificado por ese id.",
+          "feedback_incorrecta": "La semántica habitual de PUT es actualizar o reemplazar el recurso, no crear siempre ni responder sin cambios."
+        },
+        {
+          "id": "E1_P22",
+          "tipo": "opcion_multiple",
+          "enunciado": "Durante el desarrollo de una API de ejemplo, se decide mantener los datos de productos y pedidos en estructuras de memoria en lugar de una base de datos. ¿Qué ventaja principal ofrece este enfoque en un entorno de laboratorio?",
+          "opciones": [
+            "Permite simular la lógica de negocio sin configurar una base de datos real",
+            "Asegura durabilidad de datos entre reinicios",
+            "Mejora la seguridad ante ataques externos",
+            "Obliga a usar transacciones distribuidas"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "1bzogTOaCd-kI7BcdrBV-dkYEsO47J_on",
+          "feedback_correcta": "Las estructuras en memoria permiten practicar la lógica y las rutas sin necesidad de configurar una base de datos real.",
+          "feedback_incorrecta": "El objetivo de usar estructuras en memoria es simplificar la práctica de lógica y rutas, no garantizar persistencia ni transacciones."
+        },
+        {
+          "id": "E1_P23",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un cliente HTTP utiliza curl o Postman para crear un nuevo producto en una API REST. ¿Qué configuración representa correctamente una petición POST adecuada para este propósito?",
+          "opciones": [
+            "POST /products sin cuerpo, esperando que el servidor genere los datos",
+            "POST /productos con encabezado Content-Type: application/json y un cuerpo JSON con los campos del producto",
+            "GET /productos/new con parámetros en la URL",
+            "PUT /productos con un cuerpo vacío"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "11af5mBSrI4npizQGToySf-caslqRyS-c",
+          "feedback_correcta": "El patrón adecuado es POST /productos con Content-Type: application/json y un cuerpo JSON con los campos del producto.",
+          "feedback_incorrecta": "POST sin cuerpo, GET para crear recursos o PUT vacío no corresponden al patrón principal utilizado para creación en la práctica."
+        },
+        {
+          "id": "E1_P24",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una API REST de una tienda en línea expone recursos como /productos y /pedidos, cada uno con sus propias rutas y lógica. ¿Qué principio de diseño se refuerza al separar las rutas por tipo de recurso?",
+          "opciones": [
+            "Que todas las rutas deben compartir el mismo prefijo",
+            "La separación de responsabilidades por tipo de recurso en la API",
+            "Que solo se puede definir un recurso por servidor",
+            "Que los métodos HTTP son intercambiables"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1sSO1cZ7oHZUI84Ej6-gAuiJ7W8Z-txQZ",
+          "feedback_correcta": "La extensión a productos y pedidos refuerza la separación de responsabilidades por tipo de recurso en la API.",
+          "feedback_incorrecta": "El objetivo no es limitar a un solo recurso por servidor, sino definir rutas claras y separadas para cada tipo de entidad."
+        },
+        {
+          "id": "E1_P25",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una empresa evalúa migrar una aplicación monolítica de comercio electrónico a una arquitectura de microservicios. ¿Cuál es una diferencia clave entre la API monolítica mínima y una arquitectura de microservicios en este escenario?",
+          "opciones": [
+            "En el monolito, todo el código corre en un mismo despliegue; en microservicios se distribuye en servicios independientes",
+            "En un monolito no se pueden usar rutas HTTP",
+            "Los microservicios no pueden comunicarse vía HTTP",
+            "El monolito siempre es más escalable que cualquier microservicio"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "15gNqPHspzCCByVfdkBK-W9WsY3XcGo3a",
+          "feedback_correcta": "En un monolito el código se despliega como un solo artefacto, mientras que en microservicios se distribuye en servicios independientes.",
+          "feedback_incorrecta": "La diferencia central radica en el modelo de despliegue: un artefacto único en el monolito frente a varios servicios autónomos en microservicios."
+        }
+      ]
+    },
+    {
+      "titulo": "Examen 2 – Tipos de integración, SOAP vs REST, WSDL vs REST, prácticas de integración",
+      "preguntas": [
+        {
+          "id": "E2_P01",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una empresa mediana, los sistemas de ventas, inventarios y facturación se han conectado progresivamente mediante enlaces directos entre pares de aplicaciones. ¿Cómo se caracteriza este estilo de integración “punto a punto” cuando el número de sistemas crece?",
+          "opciones": [
+            "Un bus central que conecta todos los sistemas",
+            "Conexiones directas específicas entre cada par de aplicaciones, generando “spaghetti” al crecer",
+            "El uso exclusivo de colas de mensajes",
+            "La obligación de usar solo SOAP/XML"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1OgUVgWAqP0-T08zjp5LvNozvOFHaknLz",
+          "feedback_correcta": "La integración punto a punto se basa en conexiones directas entre pares de sistemas y tiende a generar un esquema tipo “spaghetti” al crecer.",
+          "feedback_incorrecta": "En la integración punto a punto no existe un bus central; cada par de sistemas establece su propia integración específica."
+        },
+        {
+          "id": "E2_P02",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una organización que sufría alta complejidad por integraciones punto a punto decide reorganizar su arquitectura hacia servicios de negocio bien definidos. ¿Qué objetivo principal tiene la arquitectura SOA en comparación con ese “spaghetti” de integraciones?",
+          "opciones": [
+            "Aumentar el número de conexiones",
+            "Agrupar la lógica en servicios de negocio con contratos claros y reutilizables",
+            "Eliminar la necesidad de contratos",
+            "Obligar a usar microservicios"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1uX4cVDs_JsyunugNXJ11-EOoXFSLan1v",
+          "feedback_correcta": "SOA busca agrupar la lógica en servicios de negocio con contratos claros y reutilizables para reducir el “spaghetti”.",
+          "feedback_incorrecta": "El objetivo de SOA no es incrementar conexiones, sino definir servicios reutilizables con contratos bien especificados."
+        },
+        {
+          "id": "E2_P03",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un equipo diseña una API pública para consulta de productos accesible desde navegadores y aplicaciones móviles, siguiendo principios REST. ¿Cuál de las siguientes afirmaciones describe mejor a REST en este contexto?",
+          "opciones": [
+            "Es un protocolo binario para redes locales",
+            "Es un estilo arquitectónico que aprovecha HTTP y trata recursos mediante métodos estándar como GET, POST, PUT, DELETE",
+            "Es un lenguaje de programación orientado a objetos",
+            "Es un reemplazo obligatorio de SOAP en todos los contextos"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1VXNX18oxxZsfA9CZvW-dtd6ccJkKYLfm",
+          "feedback_correcta": "REST se considera un estilo arquitectónico que utiliza HTTP y trata recursos con métodos como GET, POST, PUT y DELETE.",
+          "feedback_incorrecta": "REST no es un protocolo binario ni un lenguaje de programación; se trata de un estilo arquitectónico para APIs."
+        },
+        {
+          "id": "E2_P04",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una startup expone sus servicios mediante una API para terceros. Decide usar REST con JSON en lugar de SOAP con XML para facilitar el consumo desde clientes ligeros. ¿Qué ventaja principal aporta REST+JSON en este caso?",
+          "opciones": [
+            "Mayores requisitos de herramientas especializadas",
+            "Contratos más rígidos e inflexibles",
+            "Mensajes más ligeros y fáciles de consumir desde navegadores y apps móviles",
+            "Imposibilidad de usar HTTPS"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1c33znoKL-aKUGGYYkDMRdUSo2MAB0cXv",
+          "feedback_correcta": "REST con JSON suele producir mensajes más ligeros y sencillos de consumir en navegadores y aplicaciones móviles.",
+          "feedback_incorrecta": "La ventaja típica de REST+JSON es la simplicidad y ligereza de los mensajes, no una mayor rigidez ni requisitos de herramientas pesadas."
+        },
+        {
+          "id": "E2_P05",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una organización grande con varios años de historia tecnológica, se hace un inventario de sistemas. Se encuentran aplicaciones monolíticas, servicios SOAP heredados, APIs REST recientes y algunos componentes por eventos. ¿Qué situación describe mejor este panorama?",
+          "opciones": [
+            "Solo monolitos puros sin integración",
+            "Solo microservicios sin legado",
+            "La convivencia de monolitos, servicios SOAP heredados, APIs REST y mecanismos basados en eventos",
+            "Exclusivamente colas de mensajes sin APIs"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "13QEofL_oVFICzKxIj_m90vqb-75zUPKH",
+          "feedback_correcta": "En muchas organizaciones grandes coexisten monolitos, servicios SOAP heredados, APIs REST y mecanismos basados en eventos.",
+          "feedback_incorrecta": "El panorama real suele mezclar estilos de integración; rara vez se eliminan por completo monolitos o servicios SOAP."
+        },
+        {
+          "id": "E2_P06",
+          "tipo": "opcion_multiple",
+          "enunciado": "Dos sistemas comparten información de clientes mediante procesos nocturnos que replican tablas completas de datos. No se invocan operaciones remotas; solo se copian registros. ¿Qué tipo de integración se está realizando principalmente?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración física"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "19_dQvJ3Sc_fo35gIWs_oajnSv9v8a-oi",
+          "feedback_correcta": "Cuando se comparten o sincronizan tablas e información entre sistemas se habla de integración de datos.",
+          "feedback_incorrecta": "La integración de datos se orienta a replicar y sincronizar información, a diferencia de la integración funcional que consume capacidades remotas."
+        },
+        {
+          "id": "E2_P07",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una aplicación móvil invoca un servicio remoto para ejecutar la operación \"consultar saldo\" en un sistema bancario central. ¿Qué tipo de integración representa mejor esta situación?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración de red"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1ADt6MMLFKZoRNyjjINxfg9VRKieq5z2t",
+          "feedback_correcta": "La integración funcional se refiere al consumo de capacidades de negocio remotas, como operaciones de consulta o creación.",
+          "feedback_incorrecta": "La integración de datos se centra en tablas e información, mientras que la funcional se enfoca en invocar operaciones de negocio remotas."
+        },
+        {
+          "id": "E2_P08",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una empresa, dos sistemas utilizan el campo \"cliente\" pero con significados distintos: en uno incluye personas físicas y morales, y en otro solo personas físicas. Se busca que ambos sistemas manejen el mismo concepto. ¿A qué se refiere este tipo de esfuerzo de integración?",
+          "opciones": [
+            "A compartir archivos de texto sin estructura",
+            "A alinear el significado de los datos y conceptos entre sistemas, evitando ambigüedades",
+            "A comprimir mensajes para ahorrar ancho de banda",
+            "A usar siempre el mismo tipo de base de datos"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1zvD07Fus2O_7F9eUQuhEBb8L8G3BWFQN",
+          "feedback_correcta": "La integración semántica se centra en alinear el significado de datos y conceptos entre sistemas para evitar ambigüedades.",
+          "feedback_incorrecta": "El problema semántico radica en que términos como “cliente” o “balance” tengan el mismo significado en todos los sistemas involucrados."
+        },
+        {
+          "id": "E2_P09",
+          "tipo": "opcion_multiple",
+          "enunciado": "En un análisis de riesgos de integración, se identifican conexiones entre sistemas de nómina, facturación y reporteo. ¿Qué criterio es más adecuado para etiquetar una integración como crítica en este contexto?",
+          "opciones": [
+            "Que use JSON",
+            "Que sea la que más ancho de banda consume",
+            "Que, si falla, afecta procesos de negocio esenciales como facturación o pagos",
+            "Que sea la más nueva"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "19ex8Wi_hrJV6lV9fJNwABsf3io85ZXR1",
+          "feedback_correcta": "Una integración se considera crítica cuando su fallo impacta procesos esenciales del negocio, como facturación o pagos.",
+          "feedback_incorrecta": "El carácter crítico se define por el impacto sobre procesos de negocio clave, no por el formato de mensaje ni por el ancho de banda."
+        },
+        {
+          "id": "E2_P10",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una empresa ha ido agregando integraciones directas entre aplicaciones a lo largo de varios años sin un diseño centralizado. Hoy tiene decenas de enlaces específicos entre pares de sistemas. ¿Qué efecto típico tiene esta acumulación de integraciones punto a punto?",
+          "opciones": [
+            "Facilita el mantenimiento porque todas son similares",
+            "Disminuye la dependencia entre sistemas",
+            "Aumenta la complejidad, la duplicación de lógica y el acoplamiento",
+            "Elimina la necesidad de documentación"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1n8j0UdrKD86c2qIF-CmEauVl5niF-RBE",
+          "feedback_correcta": "La acumulación de integraciones punto a punto incrementa la complejidad, la duplicación de lógica y el acoplamiento.",
+          "feedback_incorrecta": "Un número creciente de integraciones punto a punto suele generar un panorama de “spaghetti” difícil de mantener."
+        },
+        {
+          "id": "E2_P11",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un sistema de salud expone servicios SOAP para registrar citas y consultar expedientes. Los mensajes intercambiados se basan en XML y siguen una estructura estándar con sobre, encabezado y cuerpo. ¿Cuál de las siguientes es una característica típica de SOAP en este entorno?",
+          "opciones": [
+            "Uso exclusivo de JSON",
+            "Mensajes con sobre <Envelope>, <Header> y <Body> en XML",
+            "Eliminación de contratos formales",
+            "Comunicación solo dentro de un mismo proceso"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1FM47n53c7CP2dd8zz5FSkBkDpWbl1RBS",
+          "feedback_correcta": "SOAP se caracteriza por mensajes en XML con elementos Envelope, Header y Body.",
+          "feedback_incorrecta": "SOAP no se basa en JSON; su estructura estándar en XML con Envelope, Header y Body es una de sus características distintivas."
+        },
+        {
+          "id": "E2_P12",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un integrador recibe la descripción de un servicio SOAP que incluye operaciones como \"consultarCuenta\" y \"pagarServicio\". La descripción está en un archivo XML que documenta qué mensajes se envían y reciben. ¿Qué componente de la pila SOAP corresponde a este archivo?",
+          "opciones": [
+            "SOAP Envelope",
+            "WSDL",
+            "UDDI",
+            "WS-Security"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1Ly6PrWAaVntVZhRiG7FkiDngSLFuH54u",
+          "feedback_correcta": "WSDL es el componente que describe operaciones, mensajes y tipos de datos del servicio.",
+          "feedback_incorrecta": "En la pila SOAP, WSDL actúa como contrato; SOAP define el protocolo de mensaje y UDDI ofrece un registro de servicios."
+        },
+        {
+          "id": "E2_P13",
+          "tipo": "opcion_multiple",
+          "enunciado": "En un entorno empresarial, se adoptan especificaciones adicionales sobre SOAP para cubrir requisitos avanzados, como cifrado de mensajes, políticas de seguridad y transacciones distribuidas. ¿Qué rol jugaron las especificaciones WS-* en este ecosistema?",
+          "opciones": [
+            "Definir formatos de imagen",
+            "Extender SOAP con capacidades avanzadas de seguridad, políticas, confianza y transacciones",
+            "Reemplazar completamente a WSDL",
+            "Hacer innecesario el uso de XML"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1APVFFwf6vOeVYkzwhBY1InXqZHs7DDsZ",
+          "feedback_correcta": "Las especificaciones WS-* extendieron SOAP con capacidades avanzadas de seguridad, políticas, confianza y transacciones.",
+          "feedback_incorrecta": "WS-* no reemplaza WSDL ni define formatos gráficos; añade capacidades empresariales a la pila SOAP."
+        },
+        {
+          "id": "E2_P14",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una integración entre un banco, una entidad gubernamental y un proveedor de salud, se observa que la mayoría de los servicios siguen siendo SOAP con contratos formales y WS-Security. ¿En qué sectores se considera que SOAP sigue siendo comúnmente utilizado?",
+          "opciones": [
+            "Redes sociales y aplicaciones de mensajería instantánea",
+            "Videojuegos móviles informales",
+            "Banca, gobierno y salud con fuertes requisitos regulatorios",
+            "Sitios web estáticos"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1TMqz0vM228QUb1GG23yQymnFW4GdrcZg",
+          "feedback_correcta": "SOAP sigue siendo frecuente en banca, gobierno y salud, donde existen requisitos regulatorios y de seguridad estrictos.",
+          "feedback_incorrecta": "Estos sectores valoran contratos formales y WS-Security; SOAP no se asocia principalmente con redes sociales o juegos casuales."
+        },
+        {
+          "id": "E2_P15",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un integrador externo se conecta a un proveedor de servicios que documenta su interfaz mediante WSDL y especificaciones WS-Security. La integración ha sido estable durante años y cumple con regulaciones estrictas. ¿Cuál de las siguientes situaciones favorece seguir usando este servicio SOAP en lugar de migrarlo de inmediato a REST?",
+          "opciones": [
+            "El proveedor solo ofrece WSDL y WS-* y la integración es estable y de largo plazo",
+            "La API se usa solo para pruebas internas temporales",
+            "Se requiere una interfaz gráfica rica",
+            "No hay requisitos de seguridad"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "12O_mANPHLZAhgDCWv_-eguBPJZiYE0Fg",
+          "feedback_correcta": "Cuando el proveedor solo dispone de WSDL y WS-* y la integración es estable y de largo plazo, tiene sentido mantener SOAP.",
+          "feedback_incorrecta": "Migrar a REST no siempre es prioritario si la integración SOAP es estable, regulada y responde a necesidades de largo plazo."
+        },
+        {
+          "id": "E2_P16",
+          "tipo": "opcion_multiple",
+          "enunciado": "En una arquitectura híbrida, un servicio de cuentas se expone tanto como SOAP/XML como a través de una API REST/JSON. Al comparar los mensajes intercambiados, se nota que en SOAP siempre aparece un sobre con espacios de nombres, mientras que en REST no. ¿Cuál es una diferencia conceptual clave entre mensajes SOAP y mensajes REST/JSON en este escenario?",
+          "opciones": [
+            "REST/JSON obliga a usar WS-Security",
+            "SOAP incluye un sobre estandarizado y namespaces; REST/JSON suele enviar directamente los datos sin esa envoltura",
+            "SOAP no permite tipos de datos complejos",
+            "REST requiere UDDI"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1w5p88DcwuhwfcIbNjWSwBEJ9yjXNj__-",
+          "feedback_correcta": "SOAP incorpora un sobre estandarizado y namespaces, mientras que REST/JSON suele transmitir directamente los datos sin esa envoltura.",
+          "feedback_incorrecta": "REST no obliga al uso de WS-Security ni de UDDI; su formato típico es JSON sin un Envelope estándar como en SOAP."
+        },
+        {
+          "id": "E2_P17",
+          "tipo": "opcion_multiple",
+          "enunciado": "Al diseñar una API REST para gestión de pedidos, se buscan buenas prácticas para que otros equipos puedan consumirla fácilmente. ¿Qué descripción se ajusta mejor a una API REST bien diseñada?",
+          "opciones": [
+            "Operaciones definidas por verbos arbitrarios en la URL",
+            "Recursos identificados por URIs y manipulados con métodos HTTP estándar y códigos de estado apropiados",
+            "Mensajes exclusivamente XML",
+            "Ausencia total de contrato o documentación"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1W0H8XssOvVhY5hvJFxEnZ2Tg85xXTN1q",
+          "feedback_correcta": "Una API REST bien diseñada identifica recursos por URIs y los manipula usando métodos HTTP estándar y códigos de estado coherentes.",
+          "feedback_incorrecta": "REST no se limita a la ausencia de contrato; se recomienda documentar recursos, métodos y respuestas de forma explícita."
+        },
+        {
+          "id": "E2_P18",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una organización planea modernizar su plataforma. Algunos sistemas críticos siguen exponiendo servicios SOAP, mientras que los nuevos desarrollos se plantean como microservicios REST. ¿En qué caso es especialmente importante decidir cuándo convivir con SOAP y encapsularlo y cuándo migrar a APIs más ligeras?",
+          "opciones": [
+            "Cuando solo hay un sistema aislado sin integraciones",
+            "Cuando no hay restricciones regulatorias ni de seguridad",
+            "Cuando se integran sistemas legacy SOAP con nuevas aplicaciones y microservicios",
+            "Cuando todos los servicios ya son REST"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1apVzPHrJUXpG1SNXJCYsu0wy2yX7A_vT",
+          "feedback_correcta": "El dilema entre convivir con SOAP y encapsularlo o migrar a APIs ligeras es especialmente relevante al integrar sistemas SOAP heredados con nuevas aplicaciones y microservicios.",
+          "feedback_incorrecta": "Cuando todo el entorno es REST el problema se reduce; la decisión es crítica al coexistir con sistemas SOAP legacy."
+        },
+        {
+          "id": "E2_P19",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un área de TI describe una integración en la que el sistema de contabilidad copia cada noche la información de clientes desde el sistema de CRM para tener una copia local de esos datos. No se invocan funciones de negocio remotas, solo se replican registros. ¿Qué tipo de integración describe mejor esta situación?",
+          "opciones": [
+            "Funcional",
+            "Semántica",
+            "De datos",
+            "De red"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1-Ixtt_pHWO1a-lCSYNfGoZQ82AwBsOZ-",
+          "feedback_correcta": "La réplica nocturna de la tabla de clientes corresponde a un caso de integración de datos.",
+          "feedback_incorrecta": "En este escenario no se invoca una función de negocio; se copian datos entre sistemas, lo cual encaja con integración de datos."
+        },
+        {
+          "id": "E2_P20",
+          "tipo": "opcion_multiple",
+          "enunciado": "En otro escenario, una aplicación web permite consultar en tiempo real el saldo de un cliente llamando a una operación expuesta por un sistema de núcleo bancario remoto. ¿Qué tipo de integración representa mejor esta situación?",
+          "opciones": [
+            "De datos, porque solo importa la tabla de saldos",
+            "Funcional, porque se consume una capacidad remota de negocio",
+            "Semántica, porque solo se alinea el significado",
+            "Física, porque usa redes móviles"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1gTD9Bu3IDYYxdvjOx2xWzzL62IUDK8gA",
+          "feedback_correcta": "La invocación de la operación “consultar saldo” representa un ejemplo de integración funcional.",
+          "feedback_incorrecta": "Aquí no se comparten tablas directamente, sino una capacidad de negocio remota; por ello se trata de integración funcional."
+        },
+        {
+          "id": "E2_P21",
+          "tipo": "opcion_multiple",
+          "enunciado": "Al revisar la especificación de un servicio basado en SOAP, se observa un documento en XML que define tipos de datos, mensajes y operaciones mediante elementos como <portType>, <operation> y <message>. ¿Cuál de las siguientes opciones describe mejor este tipo de documento?",
+          "opciones": [
+            "Definiciones de paths y responses en JSON",
+            "Elementos <portType>, <operation> y <message> que describen el contrato",
+            "Documentación en formato Markdown",
+            "Solo ejemplos de llamadas con curl"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1r4UGQJaB8N6RrlhdLSByDcFAf33jOZma",
+          "feedback_correcta": "En un documento WSDL es habitual encontrar elementos como portType, operation y message que describen el contrato.",
+          "feedback_incorrecta": "Las definiciones de paths y responses en JSON son propias de OpenAPI y REST, no de WSDL."
+        },
+        {
+          "id": "E2_P22",
+          "tipo": "opcion_multiple",
+          "enunciado": "Una API REST pública para consulta de pedidos se publica junto con documentación accesible para desarrolladores externos. ¿Qué tipo de información suele incluir esta documentación para que otros puedan consumir la API correctamente?",
+          "opciones": [
+            "Qué URIs existen, qué métodos HTTP soportan, qué estructura de JSON esperan y devuelven",
+            "Cómo generar código a partir de WSDL",
+            "Cómo registrar el servicio en UDDI",
+            "Cómo usar WS-Security"
+          ],
+          "correcta": [1],
+          "puntos": 1,
+          "imagenPreguntaId": "15oKjqg8QMTO-iWOcGVCABj0NdOMXqVf3",
+          "feedback_correcta": "La documentación de una API REST suele precisar qué URIs existen, qué métodos HTTP soportan y qué estructura JSON se espera en solicitudes y respuestas.",
+          "feedback_incorrecta": "La generación de código a partir de WSDL y el registro en UDDI pertenecen al ámbito SOAP/WS-*, no a la documentación típica de REST."
+        },
+        {
+          "id": "E2_P23",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un arquitecto compara el contrato de un servicio SOAP descrito con WSDL y el contrato de una API REST documentado con OpenAPI. El objetivo es decidir qué estilo usar en un nuevo proyecto. ¿Qué objetivo conceptual se persigue al realizar esta comparación?",
+          "opciones": [
+            "Convertir siempre el WSDL en REST",
+            "Identificar elementos de contrato en ambos enfoques y discutir ventajas/desventajas",
+            "Demostrar que uno de los dos está obsoleto",
+            "Medir solo el tamaño de los mensajes"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1n8uACVYclviYPopwsI2fKXVOPBWlYuaK",
+          "feedback_correcta": "El objetivo consiste en identificar los elementos de contrato en WSDL y REST y reflexionar sobre sus ventajas y desventajas.",
+          "feedback_incorrecta": "La intención no es declarar obsoleto a uno de los enfoques, sino comprender cómo cada uno expresa su contrato."
+        },
+        {
+          "id": "E2_P24",
+          "tipo": "opcion_multiple",
+          "enunciado": "Un servicio de consulta de saldo se expone simultáneamente como SOAP y como API REST. Para SOAP se entrega un WSDL; para REST, se proporciona una especificación OpenAPI en formato JSON. ¿Qué diferencia práctica suele encontrarse entre ambos contratos?",
+          "opciones": [
+            "El SOAP se consume solo desde navegadores",
+            "El WSDL describe tipos y operaciones en XML, mientras que la API REST suele usar JSON y documentación tipo OpenAPI o similar",
+            "El SOAP es siempre más rápido",
+            "La API REST no puede usar HTTPS"
+          ],
+          "correcta": [2],
+          "puntos": 1,
+          "imagenPreguntaId": "1mxqb0333l-k8BiXEMrnV9lmFmkaqQNAI",
+          "feedback_correcta": "En un servicio SOAP la funcionalidad se describe en WSDL mediante XML, mientras que en REST suele documentarse con JSON y especificaciones como OpenAPI.",
+          "feedback_incorrecta": "Ambos pueden usar HTTPS; la diferencia suele estar en el formato del contrato (WSDL en XML frente a documentación JSON en REST)."
+        },
+        {
+          "id": "E2_P25",
+          "tipo": "opcion_multiple",
+          "enunciado": "En la integración entre dos sistemas financieros, ambos intercambian un campo llamado \"balance\". En un sistema, representa saldo disponible; en el otro, saldo contable total. Esta diferencia genera inconsistencias en los reportes consolidados. ¿Qué tipo de problema se está ilustrando?",
+          "opciones": [
+            "Problema de sintaxis XML",
+            "Problema de transporte HTTP",
+            "Problema de integración semántica",
+            "Problema exclusivo de rendimiento"
+          ],
+          "correcta": [3],
+          "puntos": 1,
+          "imagenPreguntaId": "1NQHnMKsU6HVlprT689EAYYtIlJWtYyjI",
+          "feedback_correcta": "El uso distinto del campo “balance” ilustra un problema de integración semántica.",
+          "feedback_incorrecta": "En este caso el conflicto no reside en transporte ni en sintaxis, sino en el significado diferente que cada sistema asigna al mismo dato."
+        }
+      ]
+    }
+  ]
+}
