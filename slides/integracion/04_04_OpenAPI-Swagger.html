@@ -120,68 +120,68 @@
               <h1>Integración de Sistemas</h1>
             </section>
     <section>
-      <h1>Transición conceptual: de SOAP (WSDL) a REST (OpenAPI) y coexistencia</h1>
+      <h1>OpenAPI/Swagger “WSDL” para REST</h1>
     </section>
     <section>
-      <h1>De operaciones a recursos</h1>
+      <h1>OpenAPI</h1>
     </section>
     <section>
-      <h2>De operaciones a recursos</h2>
+      <h2>OpenAPI</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>En un contrato SOAP descrito en WSDL, el foco está en <strong>“operaciones”</strong> que se invocan sobre un servicio, cada una con sus mensajes, de entrada y salida, definidos.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-pixabay-356079.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/phone-g29857e29e_640.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>OpenAPI es una especificación que permite describir una API REST de forma estructurada: versión, información general, servidores, rutas (<code>paths</code>), métodos HTTP, parámetros, cuerpos de petición, respuestas y esquemas de datos.</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>De operaciones a recursos</h2>
+      <h2>OpenAPI</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Esta descripción se guarda normalmente en un archivo YAML o JSON que actúa como contrato vivo entre quienes implementan la API y quienes la consumen, similar al rol del WSDL en el mundo SOAP.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-digital-buggu-374559.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>OpenAPI</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Dentro de <code>paths</code> se documenta cada endpoint con sus métodos (<code>get</code>, <code>post</code>, etc.), descripciones, parámetros de ruta, cabeceras y ejemplos, mientras que en <code>components/schemas</code> se definen los modelos de datos reutilizables.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-buro-millennial-1438081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>OpenAPI</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>El resultado es una visión unificada de qué hace cada endpoint, qué espera y qué devuelve, lo que facilita la integración entre equipos y sistemas.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-canva-studio-3153207.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Herramientas Swagger y flujo API‑first</h1>
+    </section>
+    <section>
+      <h2>Herramientas Swagger y flujo API‑first</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/important-g74dfdc749_640.png" alt="image" /></div>
+        <div class="text-col"><ul><li>Swagger (hoy parte del ecosistema de OpenAPI) ofrece herramientas como editores visuales, generadores de código cliente/servidor y visualizadores de documentación interactiva.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Herramientas Swagger y flujo API‑first</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Con estas herramientas, un equipo de desarrollo puede seguir un enfoque API‑first: primero diseña el contrato en OpenAPI, discute y acuerda con los consumidores, y solo después genera <em>stubs</em> o implementaciones que respeten ese contrato.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-luis-gomes-546819.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Herramientas Swagger y flujo API‑first</h2>
       <div class="slide-two-col">
         <div class="image-col"><img src="../../img/question-mark-g4c3d4d4cd_640.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>En REST el foco pasa a ser el <strong>conjunto de recursos expuestos</strong>: entidades como clientes, pedidos o facturas, cada una con una URI y un conjunto estándar de acciones implícitas según el verbo HTTP.</li></ul></div>
+        <div class="text-col"><ul><li>Este enfoque reduce el riesgo de malentendidos, porque todos leen la misma especificación y pueden incluso probar la API mediante entornos de prueba basados en el documento.</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>De operaciones a recursos</h2>
+      <h2>Herramientas Swagger y flujo API‑first</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Esto implica cambiar el modelo mental: una operación <code>CrearPedido</code> se reinterpreta como “crear un recurso pedido con un <code>POST</code> a <code>/pedidos</code>”, y <code>ConsultarPedido</code> como “leer ese recurso con <code>GET /pedidos/{id}</code>”.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5473298.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>De operaciones a recursos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/sad_box_face2.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>La lógica de negocio puede ser la misma, pero el contrato se organiza alrededor de recursos y representaciones en lugar de llamadas a funciones.</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h1>Coexistencia y envolturas REST sobre SOAP</h1>
-    </section>
-    <section>
-      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>En muchas organizaciones no se elimina la <strong>infraestructura SOAP existente</strong>, sino que se construyen APIs REST que actúan como <strong>envolturas o adaptadores</strong> lógicos.</li></ul></div>
-        <div class="image-col"><img src="../../img/exclamation-mark-blue.png" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Un endpoint REST puede recibir una petición JSON ligera, <strong>transformarla internamente</strong> en una llamada SOAP al servicio legado y luego <strong>transformar la respuesta SOAP de regreso a JSON</strong>, sin que el consumidor conozca los detalles.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-lisa-fotios-16129703.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cytonn-photography-955405.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Este patrón permite exponer una cara más moderna y coherente de los servicios existentes, mientras el interior sigue usando SOAP donde sea necesario (por ejemplo, por requisitos regulatorios).</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h2>Coexistencia y envolturas REST sobre SOAP</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/3912976.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>En términos conceptuales, <strong>coexistir implica mantener alineados dos contratos: el WSDL del servicio SOAP y el documento OpenAPI de la fachada REST</strong>, para que ambos describan la misma capacidad aunque con estilos distintos.</li></ul></div>
+        <div class="text-col"><ul><li>OpenAPI actúa como la pieza que formaliza el diseño REST y lo hace consumible por personas y herramientas, en paralelo al papel que WSDL cumple para SOAP.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-208494.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -190,15 +190,42 @@
     <section>
       <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Se proporciona una lista de tres operaciones SOAP ficticias.</li><li>Deben escribir para cada una: a) el nombre del recurso REST que la reemplazaría, b) la URI y c) el verbo HTTP.</li><li>Comentar si alguna operación no encaja bien y qué ajustes de modelado requeriría.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-fauxels-3183153 (1).jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-209717.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Fragmento breve de un documento OpenAPI en YAML.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Actividad</h2>
+      <pre><code class="language-yaml">openapi: 3.0.0
+info:
+  title: API de Productos
+  version: 1.0.0
+
+paths:
+  /productos:
+    get:
+      summary: Obtener lista de productos
+      responses:
+        &#39;200&#39;:
+          description: Lista de productos obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nombre:
+                      type: string</code></pre>
+    </section>
+    <section>
+      <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ol><li><code>ConsultarClientePorId</code></li><li><code>CrearPedidoDeVenta</code></li><li><code>GenerarFacturaParaPedido</code></li><li>(extra) <code>CancelarFacturaEmitida</code></li></ol></div>
-        <div class="image-col"><img src="../../img/pexels-pixabay-270557.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Localizar visualmente:</li></ul>
+<ul><li>el título de la API,</li><li>una ruta específica,</li><li>el método HTTP y</li><li>el esquema de respuesta.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-fauxels-3183153 (1).jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">

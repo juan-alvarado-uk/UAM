@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pratica_Contrato_API_en_Swager</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h1>Práctica: contrato de API en Swagger Editor online</h1>
+<h2>Objetivo</h2>
+<p>Definir un contrato simple de API para un catálogo de productos usando OpenAPI en Swagger Editor online, con operaciones CRUD básicas sobre <code>/products</code>.</p>
+<h2>Paso a paso detallado</h2>
+<ol>
+<li>
+<p>Acceso a Swagger Editor</p>
+<ul>
+<li>Abrir <code>https://editor.swagger.io</code> en el navegador.</li>
+</ul>
+</li>
+<li>
+<p>Limpiar el contenido</p>
+<ul>
+<li>Seleccionar todo el YAML en el panel izquierdo y borrar el contenido.</li>
+</ul>
+</li>
+<li>
+<p>Esqueleto inicial de OpenAPI</p>
+<p>Escribir lo siguiente:</p>
+<pre><code class="language-yaml">openapi: 3.0.0
+info:
+  title: Catalogo de Productos
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths: {}
+components: {}
+</code></pre>
+</li>
+<li>
+<p>Definir el recurso <code>/products</code> y operaciones básicas</p>
+<p>Sustituir <code>paths: {}</code> por:</p>
+<pre><code class="language-yaml">paths:
+  /products:
+    get:
+      summary: Listar productos
+      responses:
+        '200':
+          description: Lista de productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      summary: Crear producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Producto creado
+  /products/{id}:
+    get:
+      summary: Obtener producto por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+    put:
+      summary: Actualizar producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Producto actualizado
+    delete:
+      summary: Eliminar producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Producto eliminado
+</code></pre>
+</li>
+<li>
+<p>Definir el esquema <code>Product</code></p>
+<p>Sustituir <code>components: {}</code> por:</p>
+<pre><code class="language-yaml">components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - name
+        - price
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Laptop
+        price:
+          type: number
+          format: float
+          example: 25000.0
+</code></pre>
+</li>
+<li>
+<p>Exploración en la interfaz de Swagger</p>
+<ul>
+<li>En el panel derecho, revisar cómo aparecen las operaciones agrupadas por <code>/products</code>.</li>
+<li>Usar “Try it out” para ver ejemplos de cuerpos JSON basados en el esquema <code>Product</code>.</li>
+</ul>
+</li>
+</ol>
+
+</body>
+</html>
