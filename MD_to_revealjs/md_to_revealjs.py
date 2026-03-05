@@ -882,6 +882,7 @@ class MarkdownToRevealJS:
 # ===================== CLI =====================
 
 def main():
+    # El siguiente comando se ejecuta desde el directorio de md_to_revealjs.py
     # python md_to_revealjs.py ../src/IntegracionSistemas/Clases/04_SOAP_REST/slides/02_Analisis_diseno.md -o ../slides/integracion/04_02_Analisis_diseno.html -t solarized
     # el anterior es la forma standar para convertir l entrada en src en el reveal en slides
     parser = argparse.ArgumentParser(description="Convierte Markdown a Reveal.js")

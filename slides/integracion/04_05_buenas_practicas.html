@@ -128,22 +128,15 @@
     <section>
       <h2>Modelado de recursos y URIs</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/quality-control-g92320417d_640.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Una API REST clara modela recursos con nombres claros y consistentes, normalmente en plural (<code>/clientes</code>, <code>/pedidos</code>, <code>/facturas</code>), evitando incluir verbos en las rutas.</li></ul></div>
+        <div class="text-col"><ul><li>Una API REST modela recursos con nombres claros y significativos, normalmente en plural (<code>/clientes</code>, <code>/pedidos</code>, <code>/facturas</code>), evitando incluir verbos en las rutas.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-fauxels-3183153 (1).jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelado de recursos y URIs</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Las relaciones se representan mediante URIs anidadas cuando tiene sentido (<code>/clientes/{id}/pedidos</code>) sin caer en niveles excesivos de profundidad que compliquen la navegación.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-kevin-ku-577585.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Modelado de recursos y URIs</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Las URIs deben ser estables en el tiempo y reflejar el modelo de dominio, no detalles internos de implementación, lo que facilita evolucionar la lógica sin romper integraciones.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-digital-buggu-193777.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-270557.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Las relaciones se representan mediante URIs anidadas cuando tiene sentido</li><li>(<code>/clientes/{id}/pedidos</code>)</li><li>sin caer en niveles excesivos de profundidad.</li><li>Las URIs deben ser estables en el tiempo y reflejar el modelo, no detalles de implementación.</li></ul></div>
       </div>
     </section>
     <section>
@@ -152,22 +145,24 @@
     <section>
       <h2>Uso de verbos HTTP y manejo de errores</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/important-g74dfdc749_640.png" alt="image" /></div>
-        <div class="text-col"><ul><li>Los verbos HTTP se utilizan de manera semántica: <code>GET</code> para recuperar recursos sin efectos secundarios, <code>POST</code> para crear o ejecutar operaciones no idempotentes, <code>PUT</code> para actualizar y <code>DELETE</code> para eliminar.</li></ul></div>
+        <div class="text-col"><ul><li>Los verbos HTTP se utilizan de manera semántica:</li></ul>
+<ul><li><code>GET</code> para recuperar recursos sin efectos secundarios,</li><li><code>POST</code> para crear o ejecutar operaciones no idempotentes,</li><li><code>PUT</code> para actualizar y</li><li><code>DELETE</code> para eliminar.</li></ul>
+<ul><li>El manejo de errores se apoya en códigos de estado,</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-luis-gomes-546819.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Uso de verbos HTTP y manejo de errores</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>El manejo de errores se apoya en códigos de estado: las respuestas exitosas usan códigos 2xx (como <code>200 OK</code> o <code>201 Created</code>), errores del cliente usan 4xx (<code>400 Bad Request</code>, <code>404 Not Found</code>, <code>409 Conflict</code>) y fallas internas usan 5xx (<code>500 Internal Server Error</code>).</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-jess-bailey-designs-1558690.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>las respuestas exitosas usan códigos 2xx (como <code>200 OK</code> o <code>201 Created</code>),</li><li>errores del cliente usan 4xx (<code>400 Bad Request</code>, <code>404 Not Found</code>, <code>409 Conflict</code>) y</li><li>fallas internas usan 5xx (<code>500 Internal Server Error</code>).</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3861970.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Uso de verbos HTTP y manejo de errores</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-pixabay-289737.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Además del código de estado, es recomendable devolver un cuerpo JSON estructurado que incluya campos como <code>status</code>, <code>code</code>, <code>title</code> o <code>message</code>, y opcionalmente identificadores de incidente.</li></ul></div>
+        <div class="text-col"><ul><li>Además del código de estado, es recomendable devolver un cuerpo JSON que incluya campos como <code>status</code>, <code>code</code> o <code>message</code>, y opcionalmente identificadores de incidente.</li></ul></div>
+        <div class="image-col"><img src="../../img/mark-995567_640.jpeg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -176,8 +171,8 @@
     <section>
       <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Diseñar respuestas de error JSON para un <code>POST /pedidos</code> con datos inválidos.</li></ul></div>
-        <div class="image-col"><img src="../../img/set-g7a12b2815_640.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Diseñar la respuesta de error JSON para un <code>GET /products/{id}:</code> para un producto inexistente y un <code>POST /products</code> con datos no válidos.</li><li>Usar el editor Swagger y documento de la práctica &quot;Pratica Contrato API en Swager&quot;</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-monstera-production-5849597.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -186,35 +181,36 @@
     <section>
       <h2>Seguridad y principio de mínimo privilegio</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Además de autenticar correctamente (tokens, API keys u OAuth2), una API REST debe aplicar <strong>autorización</strong> fina para que cada usuario solo pueda acceder a los recursos y operaciones que realmente necesita, siguiendo el principio de mínimo privilegio.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-pixabay-60504.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Además de autenticar correctamente (tokens, API keys u OAuth2), una API REST debe aplicar <strong>autorización</strong> para que cada usuario solo pueda acceder a los recursos y operaciones que necesita, siguiendo el principio de mínimo privilegio.</li><li>Esto implica diseñar roles y permisos para tareas concretas.</li></ul></div>
+        <div class="image-col"><img src="../../img/check-g04b94897b_640.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Seguridad y principio de mínimo privilegio</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-3584924.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Esto implica diseñar roles y permisos para tareas concretas.</li><li>En el contexto de APIs, el mínimo privilegio también se aplica a los tokens: conviene que tengan alcances específicos, expiraciones cortas y que se roten periódicamente, para reducir el impacto si se filtran o son comprometidos.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-8088495.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En el contexto de APIs, el mínimo privilegio también se aplica a los tokens: conviene que tengan alcances específicos, expiraciones cortas y que se roten periódicamente, para reducir el impacto si se filtran o son comprometidos.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Seguridad y principio de mínimo privilegio</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-lukas-574069.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Desde el punto de vista de diseño, es buena práctica validar siempre que el sujeto autenticado tenga permiso sobre el recurso concreto (por ejemplo, que un cliente solo pueda ver sus propios <code>/pedidos</code>, no los de otros usuarios), evitando confiar únicamente en datos enviados por el cliente como <code>customerId</code> en el cuerpo.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-roman-odintsov-6898856.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Es buena práctica validar siempre que el sujeto autenticado tenga permiso sobre el recurso concreto (por ejemplo, que un cliente solo pueda ver sus propios <code>/pedidos</code>, no los de otros usuarios), evitando confiar únicamente en datos enviados por el cliente como <code>customerId</code> en el cuerpo.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Seguridad y principio de mínimo privilegio</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>También ayuda limitar la superficie de ataque: exponer solo los endpoints necesarios, evitar datos sensibles en respuestas de error y registrar los accesos relevantes para poder auditar comportamientos sospechosos o intentos de abuso.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-thisisengineering-3862634.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>También ayuda limitar la superficie de ataque</li></ul>
+<ul><li>exponer solo los endpoints necesarios,</li><li>evitar datos sensibles en respuestas de error y</li><li>registrar los accesos relevantes para poder auditar comportamientos sospechosos o intentos de abuso</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-fauxels-3183153.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Seguridad y principio de mínimo privilegio</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-yan-krukau-7792868.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-christina-morillo-1181715.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Como precaución final, cualquier permiso no otorgado explícitamente debe asumirse como denegado por default.</li></ul></div>
       </div>
     </section>
@@ -224,14 +220,14 @@
     <section>
       <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5474295.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Definir tres roles para la API de <code>/clientes</code> y <code>/pedidos</code> (por ejemplo: <code>cliente-final</code>, <code>operador-ventas</code>, <code>admin-sistema</code>) indicando qué métodos (<code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>DELETE</code>) pueden usar sobre qué recursos.</li></ul></div>
+        <div class="text-col"><ul><li>Definir tres roles para una API con recursos <code>/clientes</code> y <code>/pedidos</code> (por ejemplo: <code>cliente-final</code>, <code>operador-ventas</code>, <code>admin-sistema</code>) indicando qué métodos (<code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>DELETE</code>) pueden usar sobre qué recursos.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-jorge-jesus-614117.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/phone-g29857e29e_640.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-fox-1595385.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Discutir si algún rol tiene permisos “de más” y cómo recortarlos para cumplir mínimo privilegio.</li></ul></div>
       </div>
     </section>
@@ -241,15 +237,16 @@
     <section>
       <h2>Filtrado, paginación y sort para colecciones</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ul><li>Cuando las colecciones crecen, devolver todos los elementos en un solo <code>GET /pedidos</code> degrada el desempeño y hace más difícil encontrar lo que se necesita.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-8088495.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Cuando las colecciones crecen, devolver todos los elementos en un solo <code>GET /pedidos</code> degrada el desempeño y hace más difícil encontrar lo que se necesita.</li><li>Un patrón común es soportar paginación mediante parámetros de consulta como</li></ul>
+<ul><li><code>?page=</code> y</li><li><code>?pageSize=</code>,</li></ul></div>
+        <div class="image-col"><img src="../../img/question-mark-g46cab4743_640.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Filtrado, paginación y sort para colecciones</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-8088495.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Un patrón común es soportar paginación mediante parámetros de consulta como <code>?page=</code> y <code>?pageSize=</code>, devolviendo únicamente un subconjunto de resultados junto con metadatos sobre la paginación (por ejemplo, <code>total</code>, <code>page</code>, <code>pageSize</code>).</li></ul></div>
+        <div class="text-col"><ul><li>devolviendo únicamente un subconjunto de resultados junto con metadatos sobre la paginación (por ejemplo, <code>total</code>, <code>page</code>, <code>pageSize</code>).</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-olya-kobruseva-5428836.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -259,8 +256,8 @@
 <ul><li>(<code>GET /pedidos?estado=pagado&amp;clienteId=123</code>)</li></ul>
 <ul><li>y el ordenamiento</li></ul>
 <ul><li>(<code>?sort=fecha&amp;direction=desc</code>)</li></ul>
-<ul><li>permiten que el cliente pida exactamente el subconjunto de datos que necesita, reduciendo tráfico y carga en el servidor.</li></ul></div>
-        <div class="image-col"><img src="../../img/young_man_wondering.jpg" alt="image" /></div>
+<ul><li>permiten pedir exactamente el subconjunto de datos que se necesita, reduciendo tráfico y carga en el servidor.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-canva-studio-3194518.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -269,28 +266,28 @@
     <section>
       <h2>Cache y encabezados HTTP para desempeño</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-lisa-fotios-16129703.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Las APIs REST pueden aprovechar HTTP caching para reducir latencia y carga en el servidor, especialmente para recursos de lectura frecuente que cambian poco.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-jopwell-2422293.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cache y encabezados HTTP para desempeño</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/angry_man_fist.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Encabezados como <code>Cache-Control</code>, <code>ETag</code> y <code>Last-Modified</code> permiten a clientes e intermediarios (por ejemplo, CDNs) reutilizar respuestas anteriores cuando el recurso no ha cambiado, evitando recalcular o reconsultar la base de datos en cada petición.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-olya-kobruseva-5428836.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Encabezados como <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Cache-Control">Cache-Control</a>, <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/ETag">ETag</a> (entity tag) y <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Last-Modified">Last-Modified</a> permiten a clientes e intermediarios (por ejemplo, CDNs) reutilizar respuestas anteriores cuando el recurso no ha cambiado, evitando recalcular o re-consultar la base de datos en cada petición.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Cache y encabezados HTTP para desempeño</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-jorge-jesus-614117.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Por ejemplo, al devolver un <code>GET /clientes/{id}</code> se puede incluir un <code>ETag</code> y permitir al cliente hacer peticiones condicionales con <code>If-None-Match</code>, recibiendo un <code>304 Not Modified</code> cuando los datos siguen vigentes.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Cache y encabezados HTTP para desempeño</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/mark-995567_640.jpeg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/detective-g436100e9c_640.png" alt="image" /></div>
         <div class="text-col"><ul><li>Desde el diseño de recursos, conviene identificar qué endpoints son “cacheables” (típicamente <code>GET</code> sin efectos secundarios) y decidir tiempos de vida (<code>max-age</code>) apropiados según la naturaleza del dato: información estática puede tener caché larga, mientras que datos críticos (saldos, estados en tiempo real) tendrán caché muy corta o nula.</li></ul></div>
       </div>
     </section>
@@ -300,8 +297,8 @@
     <section>
       <h2>Actividad</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Elegir dos recursos de la API de <code>/clientes</code> y <code>/pedidos</code>: uno “casi estático” (por ejemplo, catálogo de categorías) y uno muy dinámico (por ejemplo, estado actual del pedido).</li><li>Para cada uno deben proponer valores de <code>Cache-Control</code> y si usarían <code>ETag</code> o <code>Last-Modified</code>, justificando su decisión.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-christina-morillo-1181622.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Listar dos recursos de una API, uno “casi estático” y uno muy dinámico.</li><li>Para cada uno deben proponer valores de <code>Cache-Control</code> y si usarían <code>ETag</code> o <code>Last-Modified</code>.</li><li>Justificar decisión.</li></ul></div>
       </div>
     </section>
     <section class="full-image-slide">
