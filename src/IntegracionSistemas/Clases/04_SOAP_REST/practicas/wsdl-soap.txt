@@ -1,0 +1,282 @@
+# Preparación
+
+Hacer una cuenta en JetBrains (https://www.jetbrains.com/) con su cuenta institucional para tener acceso a herramientas sin costo.
+
+Descargar IntelliJ IDEA e instalar
+
+Activar su licencia educativa en el menu "Help" -> "Manage subscriptions". Usar para ello la cuenta creada en JetBrains.
+
+
+
+Pasos
+
+New Project
+
+Panel izquierdo en "Generators", seleccionar "Maven Archetype"
+
+en el panel derecho nombrar al projecto "soap"
+en Archetype, seleccionar maven-archetype-quickstart
+"click" en Create
+
+
+El proyecto tiene un directorio "src" y un pom.xml que son los elementos más importantes de momento.
+En "src" hay dos directorios, "test" no lo tocaremos en esta práctica.
+
+dentro de "src/main" crearemos una nueva ruta "resources/wsdl"
+
+en la carpeta "wsdl" pondremos el wsdl proporcionado para la practica
+
+2  Reemplazar el contenido del archivo pom.xml por lo siguiente
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>soap</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>soap</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- API JAX-WS (javax.xml.ws.*) -->
+    <dependency>
+      <groupId>javax.xml.ws</groupId>
+      <artifactId>jaxws-api</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+
+    <!-- Implementación Metro (runtime JAX-WS) -->
+    <dependency>
+      <groupId>com.sun.xml.ws</groupId>
+      <artifactId>rt</artifactId>
+      <version>2.3.7</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.mail</groupId>
+          <artifactId>jakarta.mail</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Plugin para ejecutar wsimport desde Maven -->
+      <plugin>
+        <groupId>com.sun.xml.ws</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <version>2.3.7</version>
+
+        <executions>
+          <execution>
+            <id>wsimport-hello</id>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <!-- Se ejecuta antes de compilar -->
+            <phase>generate-sources</phase>
+
+            <configuration>
+              <!-- Ruta al WSDL dentro del proyecto -->
+              <wsdlFiles>
+                <wsdlFile>
+                  ${project.basedir}/src/main/resources/wsdl/HelloService.wsdl
+                </wsdlFile>
+              </wsdlFiles>
+
+              <!-- Paquete Java para las clases generadas -->
+              <packageName>com.ejemplo.hello</packageName>
+
+              <!-- Directorio donde se colocan las fuentes generadas -->
+              <sourceDestDir>
+                ${project.build.directory}/generated-sources/wsimport
+              </sourceDestDir>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Plugin estándar de compilación (usa las properties de arriba) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+ 
+ 
+ -sincronizar los cambios Maven. Hay un pequeño icono con un "m" y una flechas formando un bucle.
+ 
+ 
+ - Abrir Maven "View" -> "Tool Windows" -> "Maven"
+ 
+ en la ventana de maven (en el lado derecho de la pantalla) se observa el proyecto actual. Desplegar las opciones de maven para el proyecto y de ellas desplegar "Lifecycle". 
+ 
+ hacer doble click sobre clean
+ hacer doble click sobre compile
+ 
+ Esto generara código para Web Services SOAP. y lo pondra en una nueva carpeta creada "target/generated-sources/wsimport". Este código no debe moverse de ahí. ni sus clases compiladas de "target/classes"
+ 
+ Revisar un poco los archivos fuente generados y su correspondencia con las secciones del wsdl.
+ 
+ HelloPortType.java es la interfaz que contiene la firma de los métodos que corresponden a las operaciones que proporciona nuestro sistema SOAP. 
+ 
+ 3 Implementar la interfaz
+ 
+ En "src/main/java" crearemos una ruta de subdirectorios "com/ejemplo/hello" (el package)
+ 
+ en IntelliJ IDEA lo veremos como com.ejemplo.hello, ahí crearemos una nueva clase java con nombre "HelloPortTypeImpl.java" esta será la clase que implementa la interfaz HelloPortType.java.
+ 
+ poner el siguiente contenido
+ 
+ 
+ package com.ejemplo.hello;
+
+import javax.jws.WebService;
+
+@WebService(
+        serviceName = "HelloService",
+        portName = "HelloPort",
+        targetNamespace = "http://www.examples.com/wsdl/HelloService.wsdl",
+        endpointInterface = "com.ejemplo.hello.HelloPortType"
+)
+public class HelloPortTypeImpl implements HelloPortType {
+
+    @Override
+    public SayHelloResponse sayHello(SayHelloRequest parameters) {
+        SayHelloResponse resp = new SayHelloResponse();
+        String name = parameters.getFirstName();
+        // String last = parameters.getLastName();
+        // System.out.println("lastname" + last);
+        if (name.isEmpty()){
+            resp.setGreeting("Hola anónimo amigo!!");
+        }else{
+            resp.setGreeting("Hola " + name + "!" );   //+ last + "!");
+        }
+
+        return resp;
+    }
+
+    @Override
+    public SayGoodbyeResponse sayGoodbye(SayGoodbyeRequest parameters) {
+        SayGoodbyeResponse resp = new SayGoodbyeResponse();
+        String name = parameters.getFirstName();
+        resp.setFarewell("Adiós " + name + "!");
+        return resp;
+    }
+}
+
+
+En este punto marcará errores en el código. El problema es que las referencias de los nuevos elementos del proyecto Maven no se han cargado aún correctamente. Ir a a la ventana de Maven y, en su barra superior, hacer click en la flecha del icono de fechas circulares que forma un bucle y seleccionar "Reload All Maven Projects". Los errores desapareceran.
+
+
+Explicar
+
+
+Crear un servidor y un cliente
+
+Hacer una nueva clase Java en com.ejemplo.hello con el nombre "HelloServer.java" y poner el siguiente contenido
+
+
+package com.ejemplo.hello;
+
+import javax.xml.ws.Endpoint;
+
+public class HelloServer {
+
+    public static void main(String[] args) {
+        String address = "http://localhost:8080/HelloService";
+
+        HelloPortTypeImpl implementacion = new HelloPortTypeImpl();
+
+        Endpoint.publish(address, implementacion);
+
+        System.out.println("HelloService publicado en " + address);
+        System.out.println("Pulsa Ctrl+C para detener.");
+    }
+}
+
+
+Hacer una nueva clase Java en com.ejemplo.hello con el nombre "HelloClient.java" y poner el siguiente contenido:
+
+
+package com.ejemplo.hello;
+
+public class HelloClient {
+
+    public static void main(String[] args) {
+        // Crear el "service" a partir de la clase generada
+        HelloService service = new HelloService();
+
+        // Obtener el port que implementa HelloPortType
+        HelloPortType port = service.getHelloPort();
+
+        // Construir solicitud sayHello
+        SayHelloRequest helloReq = new SayHelloRequest();
+        helloReq.setFirstName("Juan");
+
+        SayHelloResponse helloResp = port.sayHello(helloReq);
+        System.out.println("Respuesta sayHello: " + helloResp.getGreeting());
+
+        // Construir solicitud sayGoodbye
+        SayGoodbyeRequest byeReq = new SayGoodbyeRequest();
+        byeReq.setFirstName("Juan");
+
+        SayGoodbyeResponse byeResp = port.sayGoodbye(byeReq);
+        System.out.println("Respuesta sayGoodbye: " + byeResp.getFarewell());
+    }
+}
+
+
+
+Guardar todos los cambios
+
+En maven hacer doble click en compile
+
+
+4 Ejecutar
+
+en la petaña de HelloServer.java, hacer clic sobre el icono de ejecutar (hay dos iconos, cualquiera está bien, porque hacen lo mismo) y seleccionar "Run HelloServer.main()"
+
+Esto abrirá una ventana de terminal que muestra 
+
+HelloService publicado en http://localhost:8080/HelloService
+Pulsa Ctrl+C para detener.
+
+
+El servidor sigue corriendo hasta que lo detengamos. Nota cualquier cambio en las clases generadas o auto generadas requiere que se reinicie el servidor.
+
+Ejecutar el cliente
+
+en la pestaña de HelloClient.java, hacer clic sobre el icono de ejecutar (hay dos iconos, cualquiera está bien, porque hacen lo mismo) y seleccionar "Run HelloClient.main()"
+
+
+Esto abrirá una nueva pestaña de terminal (al lado de la del servidor) que debe mostrar:
+
+Respuesta sayHello: Hola Juan!
+Respuesta sayGoodbye: Adiós Juan!
+
+Process finished with exit code 0
+ 
+ 
+
+ 

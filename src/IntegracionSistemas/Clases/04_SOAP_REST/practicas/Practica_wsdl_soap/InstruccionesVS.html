@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="pr%C3%A1ctica-creaci%C3%B3n-de-un-servicio-web-soap-con-jax%E2%80%91ws-y-maven">Práctica: Creación de un servicio web SOAP con JAX‑WS y Maven</h1>
+<p>En esta práctica se mostrará paso a paso cómo crear, implementar y probar un servicio web SOAP en Java usando IntelliJ IDEA, Maven y JAX‑WS.</p>
+<h1 id="1-preparaci%C3%B3n-del-entorno">1. Preparación del entorno</h1>
+<h2 id="11-crear-cuenta-en-jetbrains">1.1 Crear cuenta en JetBrains</h2>
+<ul>
+<li>Crear una cuenta en JetBrains usando su cuenta institucional:<br>
+https://www.jetbrains.com/</li>
+</ul>
+<p>Esto sirve para tener de una licencia educativa gratuita para IntelliJ IDEA y otras herramientas de JetBrains. En esta práctica usaremos IntelliJ IDEA para que funcione bien entre diferentes sistemas operativos.</p>
+<h2 id="12-instalar-intellij-idea">1.2 Instalar IntelliJ IDEA</h2>
+<ul>
+<li>Descargar IntelliJ IDEA Ultimate
+<ul>
+<li>Para esto, inicia sesión con tu cuenta de JetBrains y haz click en el ícono de usuario en la parte superior derecha de la pantalla.</li>
+<li>En las herramientas disponibles selecciona IntelliJ IDEA Ultimate y descarga la versión compatible con tu sistema operativo.</li>
+</ul>
+</li>
+<li>Instalar IntelliJ IDEA siguiendo las instrucciones de instalación del sitio de JetBrains o de tu descarga.</li>
+</ul>
+<h2 id="13-activar-la-licencia-educativa">1.3 Activar la licencia educativa</h2>
+<ul>
+<li>Abrir IntelliJ IDEA.</li>
+<li>Ir al menú <code>Help</code> → <code>Manage subscriptions</code>.</li>
+<li>Iniciar sesión con tu cuenta de JetBrains.</li>
+</ul>
+<p>Con esto activarás la licencia educativa y desbloquearás todas las funcionalidades del IDE.</p>
+<h1 id="2-crear-el-proyecto-maven-base">2. Crear el proyecto Maven base</h1>
+<h2 id="21-crear-un-nuevo-proyecto-maven">2.1 Crear un nuevo proyecto Maven</h2>
+<ul>
+<li>En IntelliJ IDEA, elegir <code>New Project</code>.</li>
+<li>En el panel izquierdo, seleccionar la opción de <strong>Maven Archetype</strong>.</li>
+<li>En el panel derecho, establecer el nombre del proyecto como <code>soap</code>.</li>
+<li>En la sección de <em>Archetype</em>, seleccionar <code>maven-archetype-quickstart</code>.</li>
+<li>Hacer clic en <code>Create</code> (o <code>Finish</code>).</li>
+</ul>
+<p>Con esto usamos el archetype <code>maven-archetype-quickstart</code> para generar automáticamente la estructura mínima de un proyecto Java con Maven, evitando crear carpetas y archivos a mano.</p>
+<h2 id="22-revisar-la-estructura-inicial-del-proyecto">2.2 Revisar la estructura inicial del proyecto</h2>
+<ul>
+<li>Verificar que el proyecto contiene:
+<ul>
+<li>El directorio <code>src</code></li>
+<li>El archivo <code>pom.xml</code> (archivo de configuración de Maven)</li>
+</ul>
+</li>
+<li>Dentro de <code>src</code>, observar que existen:
+<ul>
+<li><code>src/main/java</code> (código fuente principal)</li>
+<li><code>src/test/java</code> (código de pruebas; en esta práctica no se utilizará)</li>
+</ul>
+</li>
+</ul>
+<p>Esto nos da la estructura estándar de un proyecto Maven, donde <code>pom.xml</code> define dependencias y plugins, y la carpeta <code>src/main</code> contiene el código fuente del proyecto.</p>
+<h2 id="23-crear-la-carpeta-para-el-wsdl">2.3 Crear la carpeta para el WSDL</h2>
+<ul>
+<li>Dentro de <code>src/main</code>, crear la ruta de directorios: <code>resources/wsdl</code>.
+<ul>
+<li>Es decir: <code>src/main/resources/wsdl</code>.</li>
+</ul>
+</li>
+<li>Copiar a la carpeta <code>wsdl</code> el archivo WSDL proporcionado para la práctica.</li>
+</ul>
+<p>Esto sirve para tener el archivo WSDL dentro de los recursos del proyecto para que Maven y el plugin de JAX‑WS puedan localizarlo y generar código Java necesario para el servicio SOAP.</p>
+<h1 id="3-configurar-maven-y-generar-clases-a-partir-del-wsdl">3. Configurar Maven y generar clases a partir del WSDL</h1>
+<h2 id="31-reemplazar-el-contenido-de-pomxml">3.1 Reemplazar el contenido de <code>pom.xml</code></h2>
+<ul>
+<li>Abrir el archivo <code>pom.xml</code> en el editor de IntelliJ IDEA.</li>
+<li>Reemplazar todo su contenido por el siguiente:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+  <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.example<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>soap<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>soap<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.apache.org<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.8.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- API JAX-WS (javax.xml.ws.*) --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.xml.ws<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jaxws-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Implementación Metro (runtime JAX-WS) --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sun.xml.ws<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>rt<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.7<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sun.mail<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.mail<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- Plugin para ejecutar wsimport desde Maven --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sun.xml.ws<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jaxws-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.7<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>wsimport-hello<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>wsimport<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- Se ejecuta antes de compilar --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>generate-sources<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+              <span class="hljs-comment">&lt;!-- Ruta al WSDL dentro del proyecto --&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">wsdlFiles</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">wsdlFile</span>&gt;</span>
+                  ${project.basedir}/src/main/resources/wsdl/HelloService.wsdl
+                <span class="hljs-tag">&lt;/<span class="hljs-name">wsdlFile</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">wsdlFiles</span>&gt;</span>
+
+              <span class="hljs-comment">&lt;!-- Paquete Java para nuestras clases generadas --&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">packageName</span>&gt;</span>com.ejemplo.hello<span class="hljs-tag">&lt;/<span class="hljs-name">packageName</span>&gt;</span>
+
+              <span class="hljs-comment">&lt;!-- Directorio donde se colocan las fuentes auto-generadas --&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">sourceDestDir</span>&gt;</span>
+                ${project.build.directory}/generated-sources/wsimport
+              <span class="hljs-tag">&lt;/<span class="hljs-name">sourceDestDir</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+
+      <span class="hljs-comment">&lt;!-- Plugin estándar de compilación --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.11.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">release</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">release</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</div></code></pre>
+<p><strong>Propósito:</strong></p>
+<ul>
+<li>Declarar las dependencias de JAX‑WS (API y runtime Metro) que permiten trabajar con servicios SOAP en Java.</li>
+<li>Configurar el plugin <code>jaxws-maven-plugin</code> para ejecutar <code>wsimport</code> durante la fase <code>generate-sources</code>, tomando el WSDL del proyecto y generando las clases Java necesarias (interfaces, requests, responses, etc.).</li>
+</ul>
+<h2 id="32-sincronizar-los-cambios-de-maven">3.2 Sincronizar los cambios de Maven</h2>
+<ul>
+<li>En IntelliJ, en la pestaña del <code>pom.xml</code>, localizar el ícono de Maven (una <code>m</code> con flechas formando un bucle) en la parte superior derecha o en la ventana de Maven.</li>
+<li>Hacer clic en el ícono para <strong>sincronizar</strong> el proyecto con el nuevo contenido de <code>pom.xml</code>.</li>
+</ul>
+<p>Esto es para indicar a IntelliJ que vuelva a leer la configuración de Maven, descargue las nuevas dependencias configuradas en el archivo <code>pom.xml</code> y reconfigure el proyecto de acuerdo con ellas.</p>
+<h2 id="33-abrir-la-ventana-de-maven">3.3 Abrir la ventana de Maven</h2>
+<ul>
+<li>Ir a <code>View</code> → <code>Tool Windows</code> → <code>Maven</code>.</li>
+<li>En la ventana de Maven (generalmente al lado derecho), localizar el proyecto actual y desplegar sus opciones.</li>
+<li>Dentro de las opciones del proyecto, desplegar la sección <code>Lifecycle</code>.</li>
+</ul>
+<p>Utilizamos la interfaz de Maven integrada en IntelliJ para ejecutar fases del ciclo de vida (como <code>clean</code> y <code>compile</code>) sin usar la línea de comandos.</p>
+<h2 id="34-ejecutar-clean-y-compile">3.4 Ejecutar <code>clean</code> y <code>compile</code></h2>
+<ul>
+<li>
+<p>En la sección <code>Lifecycle</code>:</p>
+<ul>
+<li>Hacer doble clic en <code>clean</code>.</li>
+<li>Hacer doble clic en <code>compile</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>clean</code>: para borrar resultados de compilaciones anteriores y garantizar que el proyecto se recompila desde cero.</p>
+</li>
+<li>
+<p><code>compile</code>: durante esta fase, el plugin <code>jaxws-maven-plugin</code> ejecutará el objetivo <code>wsimport</code> en la fase <code>generate-sources</code>, generando el código Java a partir del WSDL y compilando después todo el código.</p>
+</li>
+</ul>
+<h2 id="35-revisar-el-c%C3%B3digo-generado">3.5 Revisar el código generado</h2>
+<ul>
+<li>Después de compilar, verificar que se ha creado el directorio:<br>
+<code>target/generated-sources/wsimport</code></li>
+<li>Confirmar que dentro de ese directorio están las clases Java generadas para el servicio.</li>
+<li>No mover esas clases de esa carpeta, y tampoco las clases compiladas de <code>target/classes</code>.</li>
+</ul>
+<p><strong>Nota</strong>: Este código es generado automáticamente a partir del WSDL y Maven lo gestiona; no se debe editar ni mover manualmente, porque se regenerará cada vez que se ejecute <code>wsimport</code>.</p>
+<h2 id="36-identificar-la-interfaz-generada">3.6 Identificar la interfaz generada</h2>
+<ul>
+<li>Buscar y abrir el archivo <code>HelloPortType.java</code> dentro de las clases generadas.</li>
+<li>Observar que esta interfaz contiene las firmas de los métodos que representan las operaciones definidas en el WSDL (por ejemplo, <code>sayHello</code>, <code>sayGoodbye</code>).</li>
+</ul>
+<p><code>HelloPortType.java</code> es la interfaz que describe el contrato del servicio SOAP: qué operaciones expone, qué parámetros recibe y qué respuestas devuelve.</p>
+<h1 id="4-implementar-la-l%C3%B3gica-del-servicio">4. Implementar la lógica del servicio</h1>
+<h2 id="41-crear-el-paquete-de-implementaci%C3%B3n">4.1 Crear el paquete de implementación</h2>
+<ul>
+<li>En <code>src/main/java</code>, crear la ruta de subdirectorios <code>com/ejemplo/hello</code>.
+<ul>
+<li>En IntelliJ, se verá como el paquete <code>com.ejemplo.hello</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Esto sirve para crear el paquete donde se ubicará la implementación del servicio y otras clases relacionadas, alineado con el <code>packageName</code> configurado en el plugin de JAX‑WS.</p>
+<h2 id="42-crear-la-clase-helloporttypeimpl">4.2 Crear la clase <code>HelloPortTypeImpl</code></h2>
+<ul>
+<li>En el paquete <code>com.ejemplo.hello</code>, crear una nueva clase Java con el nombre <code>HelloPortTypeImpl.java</code>.</li>
+<li>Colocar el siguiente contenido:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> com.ejemplo.hello;
+
+<span class="hljs-keyword">import</span> javax.jws.WebService;
+
+<span class="hljs-meta">@WebService</span>(
+        serviceName = <span class="hljs-string">"HelloService"</span>,
+        portName = <span class="hljs-string">"HelloPort"</span>,
+        targetNamespace = <span class="hljs-string">"http://www.examples.com/wsdl/HelloService.wsdl"</span>,
+        endpointInterface = <span class="hljs-string">"com.ejemplo.hello.HelloPortType"</span>
+)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloPortTypeImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">HelloPortType</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SayHelloResponse <span class="hljs-title">sayHello</span><span class="hljs-params">(SayHelloRequest parameters)</span> </span>{
+        SayHelloResponse resp = <span class="hljs-keyword">new</span> SayHelloResponse();
+        String name = parameters.getFirstName();
+        resp.setGreeting(<span class="hljs-string">"Hola "</span> + name + <span class="hljs-string">"!"</span> );
+        <span class="hljs-keyword">return</span> resp;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SayGoodbyeResponse <span class="hljs-title">sayGoodbye</span><span class="hljs-params">(SayGoodbyeRequest parameters)</span> </span>{
+        SayGoodbyeResponse resp = <span class="hljs-keyword">new</span> SayGoodbyeResponse();
+        String name = parameters.getFirstName();
+        resp.setFarewell(<span class="hljs-string">"Adiós "</span> + name + <span class="hljs-string">"!"</span>);
+        <span class="hljs-keyword">return</span> resp;
+    }
+}
+</div></code></pre>
+<p><strong>Propósito:</strong></p>
+<ul>
+<li>Implementar la interfaz generada <code>HelloPortType</code>, con la lógica de negocio real del servicio (en este caso qué texto devolver al saludar y despedir).</li>
+<li>Mediante la anotación <code>@WebService</code>, indicar a JAX‑WS qué interfaz se está implementando (<code>endpointInterface</code>), qué nombre tiene el servicio, el puerto y el espacio de nombres, de modo que el runtime pueda publicar este servicio de acuerdo con el WSDL.</li>
+</ul>
+<h2 id="43-resolver-errores-de-referencias-si-aparecen">4.3 Resolver errores de referencias (si aparecen)</h2>
+<ul>
+<li>Es posible que, tras crear <code>HelloPortTypeImpl</code>, aparezcan errores en el código porque IntelliJ aún no reconoce correctamente las clases generadas y las dependencias Maven.</li>
+<li>Ir a la ventana de Maven.</li>
+<li>En la barra superior de la ventana de Maven, hacer clic en el ícono de flechas circulares y elegir <code>Reload All Maven Projects</code>.</li>
+</ul>
+<p>Lo anterior es para forzar a IntelliJ a recargar la configuración y las dependencias de Maven, de modo que reconozca las clases generadas por <code>wsimport</code> y desaparezcan los errores de referencia.</p>
+<h1 id="5-crear-el-servidor-y-el-cliente-soap">5. Crear el servidor y el cliente SOAP</h1>
+<h2 id="51-crear-la-clase-helloserver">5.1 Crear la clase <code>HelloServer</code></h2>
+<ul>
+<li>En el paquete <code>com.ejemplo.hello</code>, crear una nueva clase Java llamada <code>HelloServer.java</code>.</li>
+<li>Usar el siguiente contenido:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> com.ejemplo.hello;
+
+<span class="hljs-keyword">import</span> javax.xml.ws.Endpoint;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloServer</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        String address = <span class="hljs-string">"http://localhost:8080/HelloService"</span>;
+
+        HelloPortTypeImpl implementacion = <span class="hljs-keyword">new</span> HelloPortTypeImpl();
+
+        Endpoint.publish(address, implementacion);
+
+        System.out.println(<span class="hljs-string">"HelloService publicado en "</span> + address);
+        System.out.println(<span class="hljs-string">"Pulsa Ctrl+C para detener."</span>);
+    }
+}
+</div></code></pre>
+<p>Esto sirve para...</p>
+<ul>
+<li>Publicar el servicio SOAP en una URL local (<code>http://localhost:8080/HelloService</code>) usando la clase <code>Endpoint</code> de JAX‑WS.</li>
+<li>Asociar la URL con la implementación <code>HelloPortTypeImpl</code>, de modo que las peticiones SOAP que lleguen a esa dirección se atiendan con la lógica programada.</li>
+</ul>
+<h2 id="52-crear-la-clase-helloclient">5.2 Crear la clase <code>HelloClient</code></h2>
+<ul>
+<li>En el mismo paquete <code>com.ejemplo.hello</code>, crear una nueva clase Java llamada <code>HelloClient.java</code>.</li>
+<li>Usar el siguiente contenido:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> com.ejemplo.hello;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloClient</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// Crear el "service" a partir de la clase generada</span>
+        HelloService service = <span class="hljs-keyword">new</span> HelloService();
+
+        <span class="hljs-comment">// Obtener el port que implementa HelloPortType</span>
+        HelloPortType port = service.getHelloPort();
+
+        <span class="hljs-comment">// Construir solicitud sayHello</span>
+        SayHelloRequest helloReq = <span class="hljs-keyword">new</span> SayHelloRequest();
+        helloReq.setFirstName(<span class="hljs-string">"Juan"</span>);
+
+        SayHelloResponse helloResp = port.sayHello(helloReq);
+        System.out.println(<span class="hljs-string">"Respuesta sayHello: "</span> + helloResp.getGreeting());
+
+        <span class="hljs-comment">// Construir solicitud sayGoodbye</span>
+        SayGoodbyeRequest byeReq = <span class="hljs-keyword">new</span> SayGoodbyeRequest();
+        byeReq.setFirstName(<span class="hljs-string">"Juan"</span>);
+
+        SayGoodbyeResponse byeResp = port.sayGoodbye(byeReq);
+        System.out.println(<span class="hljs-string">"Respuesta sayGoodbye: "</span> + byeResp.getFarewell());
+    }
+}
+</div></code></pre>
+<p>Esto sirve para...</p>
+<ul>
+<li>Crear un cliente Java que use las clases generadas (<code>HelloService</code>, <code>HelloPortType</code>, <code>SayHelloRequest</code>, etc.) para consumir el servicio SOAP publicado por <code>HelloServer</code>.</li>
+<li>Construir solicitudes para las operaciones <code>sayHello</code> y <code>sayGoodbye</code> y mostrar en la consola las respuestas devueltas por el servicio.</li>
+</ul>
+<h2 id="53-guardar-cambios-y-recompilar">5.3 Guardar cambios y recompilar</h2>
+<ul>
+<li>Guardar todos los archivos Java modificados o creados.</li>
+<li>En la ventana de Maven, en <code>Lifecycle</code>, hacer doble clic nuevamente en <code>compile</code>.</li>
+</ul>
+<p>Esto es para recompilar el proyecto incluyendo las nuevas clases de implementación, servidor y cliente, asegurándose de que no haya errores de compilación antes de ejecutar.</p>
+<h1 id="6-ejecutar-y-probar-el-servicio-soap">6. Ejecutar y probar el servicio SOAP</h1>
+<h2 id="61-ejecutar-el-servidor">6.1 Ejecutar el servidor</h2>
+<ul>
+<li>
+<p>Abrir la pestaña del archivo <code>HelloServer.java</code>.</p>
+</li>
+<li>
+<p>Hacer clic en el ícono de ejecución (triángulo verde) junto a la declaración de <code>main</code>, y seleccionar <code>Run HelloServer.main()</code>.</p>
+</li>
+<li>
+<p>Se abrirá una ventana o pestaña de terminal dentro de IntelliJ que mostrará algo similar a:</p>
+<pre class="hljs"><code><div>HelloService publicado en http://localhost:8080/HelloService
+Pulsa Ctrl+C para detener.
+</div></code></pre>
+</li>
+</ul>
+<p>Con esto ponemos en marcha el servidor que expone el servicio SOAP; mientras esta consola esté activa, el servicio estará disponible para que otros clientes (como <code>HelloClient</code>) lo consuman.</p>
+<p><strong>Nota:</strong> cualquier cambio en las clases generadas o en la implementación del servicio requerirá detener el servidor y volver a ejecutarlo para aplicar los cambios.</p>
+<h2 id="62-ejecutar-el-cliente">6.2 Ejecutar el cliente</h2>
+<ul>
+<li>
+<p>Con el servidor aún en ejecución, abrir la pestaña del archivo <code>HelloClient.java</code>.</p>
+</li>
+<li>
+<p>Hacer clic en el ícono de ejecución y seleccionar <code>Run HelloClient.main()</code>.</p>
+</li>
+<li>
+<p>Se abrirá otra pestaña de terminal (además de la del servidor) que debería mostrar:</p>
+<pre class="hljs"><code><div>Respuesta sayHello: Hola Juan!
+Respuesta sayGoodbye: Adiós Juan!
+Process finished with exit code 0
+</div></code></pre>
+</li>
+</ul>
+<p>Con esto verificamos que el cliente puede conectarse correctamente al servicio SOAP, enviar mensajes según el contrato definido en el WSDL y recibir respuestas válidas de la implementación del servidor.</p>
+<h2 id="63-algunas-modificaciones">6.3 Algunas modificaciones</h2>
+<p>Nuestra implementación SOAP ya funciona bien, pero analizando el comportamiento en pruebas de esta implementación, se ha decidido que las operaciones <code>sayHello</code> y <code>sayGoodbye</code>, además del <code>firstname</code>, pidan el <code>lastname</code>.</p>
+<p>También se ha pedido que se compruebe si <code>firstname</code> y <code>lastname</code> llegan vacíos (o nulos), en cuyo caso el sistema lo detecte y pueda enviar un saludo y despedida que haga esta situación evidente, por ejemplo, &quot;¡Hola usuario anónimo!&quot;.</p>
+<p>En caso de que solo alguno de los nombres esté presente saludar o despedirse</p>
+<ol>
+<li>si solo <code>firstname</code>, saludar o despedirse coloquialmente,</li>
+<li>si solo <code>lastname</code>, saludar o despedirse formalmente</li>
+</ol>
+<p>Si están ambos, saludar coloquialmente y usar ambos nombres.</p>
+
+</body>
+</html>

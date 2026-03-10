@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none';
+script-src 'self';
+style-src 'unsafe-inline';
+img-src file: *;
+connect-src 'none';
+font-src * data: *;
+object-src 'none';
+media-src 'none';
+child-src 'none';">    
+  <style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style>
+  <style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style>
+  <style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>        
+  <style id="MJX-SVG-styles">
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+</style>
+ </head>
+ <body>
+  <div md-src-pos="0..15866">
+   <h1 id="práctica-creación-de-un-servicio-web-soap-con-jaxws-y-maven" md-src-pos="0..63">Práctica: Creación de un servicio web SOAP con JAX‑WS y Maven</h1>
+   <p md-src-pos="65..205"><span md-src-pos="65..117">En esta práctica se mostrará paso a paso cómo crear,</span> <span md-src-pos="118..189">implementar y probar un servicio web SOAP en Java usando IntelliJ IDEA,</span> <span md-src-pos="190..205">Maven y JAX‑WS.</span></p>
+   <h1 id="1-preparación-del-entorno" md-src-pos="207..235">1. Preparación del entorno</h1>
+   <h2 id="11-crear-cuenta-en-jetbrains" md-src-pos="237..269">1.1 Crear cuenta en JetBrains</h2>
+   <ul md-src-pos="271..367">
+    <li md-src-pos="271..367">Crear una cuenta en JetBrains usando su cuenta institucional:
+     <br>
+     <a href="https://www.jetbrains.com/" md-src-pos="339..365">https://www.jetbrains.com/</a></li>
+   </ul>
+   <p md-src-pos="369..580"><span md-src-pos="369..479">Esto sirve para tener de una licencia educativa gratuita para IntelliJ IDEA y otras herramientas de JetBrains.</span> <span md-src-pos="480..580">En esta práctica usaremos IntelliJ IDEA para que funcione bien entre diferentes sistemas operativos.</span></p>
+   <h2 id="12-instalar-intellij-idea" md-src-pos="582..611">1.2 Instalar IntelliJ IDEA</h2>
+   <ul md-src-pos="613..1021">
+    <li md-src-pos="613..912">Descargar IntelliJ IDEA Ultimate
+     <ul md-src-pos="650..912">
+      <li md-src-pos="650..783">Para esto, inicia sesión con tu cuenta de JetBrains y haz click en el ícono de usuario en la parte superior derecha de la pantalla.</li>
+      <li md-src-pos="786..912">En las herramientas disponibles selecciona IntelliJ IDEA Ultimate y descarga la versión compatible con tu sistema operativo.</li>
+     </ul></li>
+    <li md-src-pos="913..1021">Instalar IntelliJ IDEA siguiendo las instrucciones de instalación del sitio de JetBrains o de tu descarga.</li>
+   </ul>
+   <h2 id="13-activar-la-licencia-educativa" md-src-pos="1023..1059">1.3 Activar la licencia educativa</h2>
+   <ul md-src-pos="1061..1180">
+    <li md-src-pos="1061..1085">Abrir IntelliJ IDEA.</li>
+    <li md-src-pos="1086..1133">Ir al menú <code md-src-pos="1099..1105">Help</code> → <code md-src-pos="1108..1130">Manage subscriptions</code>.</li>
+    <li md-src-pos="1134..1180">Iniciar sesión con tu cuenta de JetBrains.</li>
+   </ul>
+   <p md-src-pos="1182..1273"><span md-src-pos="1182..1273">Con esto activarás la licencia educativa y desbloquearás todas las funcionalidades del IDE.</span></p>
+   <h1 id="2-crear-el-proyecto-maven-base" md-src-pos="1275..1308">2. Crear el proyecto Maven base</h1>
+   <h2 id="21-crear-un-nuevo-proyecto-maven" md-src-pos="1310..1346">2.1 Crear un nuevo proyecto Maven</h2>
+   <ul md-src-pos="1348..1650">
+    <li md-src-pos="1348..1391">En IntelliJ IDEA, elegir <code md-src-pos="1375..1388">New Project</code>.</li>
+    <li md-src-pos="1392..1463">En el panel izquierdo, seleccionar la opción de <strong md-src-pos="1442..1461">Maven Archetype</strong>.</li>
+    <li md-src-pos="1464..1535">En el panel derecho, establecer el nombre del proyecto como <code md-src-pos="1526..1532">soap</code>.</li>
+    <li md-src-pos="1536..1611">En la sección de <em md-src-pos="1555..1566">Archetype</em>, seleccionar <code md-src-pos="1580..1608">maven-archetype-quickstart</code>.</li>
+    <li md-src-pos="1612..1650">Hacer clic en <code md-src-pos="1628..1636">Create</code> (o <code md-src-pos="1640..1648">Finish</code>).</li>
+   </ul>
+   <p md-src-pos="1652..1833"><span md-src-pos="1652..1680">Con esto usamos el archetype</span> <code md-src-pos="1681..1709">maven-archetype-quickstart</code> <span md-src-pos="1710..1790">para generar automáticamente la estructura mínima de un proyecto Java con Maven,</span> <span md-src-pos="1791..1833">evitando crear carpetas y archivos a mano.</span></p>
+   <h2 id="22-revisar-la-estructura-inicial-del-proyecto" md-src-pos="1835..1884">2.2 Revisar la estructura inicial del proyecto</h2>
+   <ul md-src-pos="1886..2171">
+    <li md-src-pos="1886..2010">Verificar que el proyecto contiene:
+     <ul md-src-pos="1926..2010">
+      <li md-src-pos="1926..1947">El directorio <code md-src-pos="1942..1947">src</code></li>
+      <li md-src-pos="1950..2010">El archivo <code md-src-pos="1963..1972">pom.xml</code> (archivo de configuración de Maven)</li>
+     </ul></li>
+    <li md-src-pos="2011..2171">Dentro de <code md-src-pos="2023..2028">src</code>, observar que existen:
+     <ul md-src-pos="2054..2171">
+      <li md-src-pos="2054..2097"><code md-src-pos="2056..2071">src/main/java</code> (código fuente principal)</li>
+      <li md-src-pos="2100..2171"><code md-src-pos="2102..2117">src/test/java</code> (código de pruebas; en esta práctica no se utilizará)</li>
+     </ul></li>
+   </ul>
+   <p md-src-pos="2173..2340"><span md-src-pos="2173..2229">Esto nos da la estructura estándar de un proyecto Maven,</span> <span md-src-pos="2230..2235">donde</span> <code md-src-pos="2236..2245">pom.xml</code> <span md-src-pos="2246..2276">define dependencias y plugins,</span> <span md-src-pos="2277..2289">y la carpeta</span> <code md-src-pos="2290..2300">src/main</code> <span md-src-pos="2301..2340">contiene el código fuente del proyecto.</span></p>
+   <h2 id="23-crear-la-carpeta-para-el-wsdl" md-src-pos="2342..2378">2.3 Crear la carpeta para el WSDL</h2>
+   <ul md-src-pos="2380..2573">
+    <li md-src-pos="2380..2496">Dentro de <code md-src-pos="2392..2402">src/main</code>, crear la ruta de directorios: <code md-src-pos="2434..2450">resources/wsdl</code>.
+     <ul md-src-pos="2456..2496">
+      <li md-src-pos="2456..2496">Es decir: <code md-src-pos="2468..2493">src/main/resources/wsdl</code>.</li>
+     </ul></li>
+    <li md-src-pos="2497..2573">Copiar a la carpeta <code md-src-pos="2519..2525">wsdl</code> el archivo WSDL proporcionado para la práctica.</li>
+   </ul>
+   <p md-src-pos="2575..2759"><span md-src-pos="2575..2759">Esto sirve para tener el archivo WSDL dentro de los recursos del proyecto para que Maven y el plugin de JAX‑WS puedan localizarlo y generar código Java necesario para el servicio SOAP.</span></p>
+   <h1 id="3-configurar-maven-y-generar-clases-a-partir-del-wsdl" md-src-pos="2761..2817">3. Configurar Maven y generar clases a partir del WSDL</h1>
+   <h2 id="31-reemplazar-el-contenido-de-pomxml" md-src-pos="2819..2862">3.1 Reemplazar el contenido de <code md-src-pos="2853..2862">pom.xml</code></h2>
+   <ul md-src-pos="2864..2974">
+    <li md-src-pos="2864..2925">Abrir el archivo <code md-src-pos="2883..2892">pom.xml</code> en el editor de IntelliJ IDEA.</li>
+    <li md-src-pos="2926..2974">Reemplazar todo su contenido por el siguiente:</li>
+   </ul>
+   <pre class="code-fence" md-src-pos="2976..5776"><div class="code-fence-highlighter-copy-button" data-fence-content="PHByb2plY3QgeG1sbnM9Imh0dHA6Ly9tYXZlbi5hcGFjaGUub3JnL1BPTS80LjAuMCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIKICB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9tYXZlbi5hcGFjaGUub3JnL1BPTS80LjAuMCBodHRwOi8vbWF2ZW4uYXBhY2hlLm9yZy94c2QvbWF2ZW4tNC4wLjAueHNkIj4KICA8bW9kZWxWZXJzaW9uPjQuMC4wPC9tb2RlbFZlcnNpb24+CgogIDxncm91cElkPm9yZy5leGFtcGxlPC9ncm91cElkPgogIDxhcnRpZmFjdElkPnNvYXA8L2FydGlmYWN0SWQ+CiAgPHZlcnNpb24+MS4wLVNOQVBTSE9UPC92ZXJzaW9uPgogIDxwYWNrYWdpbmc+amFyPC9wYWNrYWdpbmc+CgogIDxuYW1lPnNvYXA8L25hbWU+CiAgPHVybD5odHRwOi8vbWF2ZW4uYXBhY2hlLm9yZzwvdXJsPgoKICA8cHJvcGVydGllcz4KICAgIDxwcm9qZWN0LmJ1aWxkLnNvdXJjZUVuY29kaW5nPlVURi04PC9wcm9qZWN0LmJ1aWxkLnNvdXJjZUVuY29kaW5nPgogIDwvcHJvcGVydGllcz4KCiAgPGRlcGVuZGVuY2llcz4KICAgIDxkZXBlbmRlbmN5PgogICAgICA8Z3JvdXBJZD5qdW5pdDwvZ3JvdXBJZD4KICAgICAgPGFydGlmYWN0SWQ+anVuaXQ8L2FydGlmYWN0SWQ+CiAgICAgIDx2ZXJzaW9uPjMuOC4xPC92ZXJzaW9uPgogICAgICA8c2NvcGU+dGVzdDwvc2NvcGU+CiAgICA8L2RlcGVuZGVuY3k+CiAgICA8IS0tIEFQSSBKQVgtV1MgKGphdmF4LnhtbC53cy4qKSAtLT4KICAgIDxkZXBlbmRlbmN5PgogICAgICA8Z3JvdXBJZD5qYXZheC54bWwud3M8L2dyb3VwSWQ+CiAgICAgIDxhcnRpZmFjdElkPmpheHdzLWFwaTwvYXJ0aWZhY3RJZD4KICAgICAgPHZlcnNpb24+Mi4zLjE8L3ZlcnNpb24+CiAgICA8L2RlcGVuZGVuY3k+CgogICAgPCEtLSBJbXBsZW1lbnRhY2nDs24gTWV0cm8gKHJ1bnRpbWUgSkFYLVdTKSAtLT4KICAgIDxkZXBlbmRlbmN5PgogICAgICA8Z3JvdXBJZD5jb20uc3VuLnhtbC53czwvZ3JvdXBJZD4KICAgICAgPGFydGlmYWN0SWQ+cnQ8L2FydGlmYWN0SWQ+CiAgICAgIDx2ZXJzaW9uPjIuMy43PC92ZXJzaW9uPgogICAgICA8ZXhjbHVzaW9ucz4KICAgICAgICA8ZXhjbHVzaW9uPgogICAgICAgICAgPGdyb3VwSWQ+Y29tLnN1bi5tYWlsPC9ncm91cElkPgogICAgICAgICAgPGFydGlmYWN0SWQ+amFrYXJ0YS5tYWlsPC9hcnRpZmFjdElkPgogICAgICAgIDwvZXhjbHVzaW9uPgogICAgICA8L2V4Y2x1c2lvbnM+CiAgICA8L2RlcGVuZGVuY3k+CiAgPC9kZXBlbmRlbmNpZXM+CgogIDxidWlsZD4KICAgIDxwbHVnaW5zPgogICAgICA8IS0tIFBsdWdpbiBwYXJhIGVqZWN1dGFyIHdzaW1wb3J0IGRlc2RlIE1hdmVuIC0tPgogICAgICA8cGx1Z2luPgogICAgICAgIDxncm91cElkPmNvbS5zdW4ueG1sLndzPC9ncm91cElkPgogICAgICAgIDxhcnRpZmFjdElkPmpheHdzLW1hdmVuLXBsdWdpbjwvYXJ0aWZhY3RJZD4KICAgICAgICA8dmVyc2lvbj4yLjMuNzwvdmVyc2lvbj4KCiAgICAgICAgPGV4ZWN1dGlvbnM+CiAgICAgICAgICA8ZXhlY3V0aW9uPgogICAgICAgICAgICA8aWQ+d3NpbXBvcnQtaGVsbG88L2lkPgogICAgICAgICAgICA8Z29hbHM+CiAgICAgICAgICAgICAgPGdvYWw+d3NpbXBvcnQ8L2dvYWw+CiAgICAgICAgICAgIDwvZ29hbHM+CiAgICAgICAgICAgIDwhLS0gU2UgZWplY3V0YSBhbnRlcyBkZSBjb21waWxhciAtLT4KICAgICAgICAgICAgPHBoYXNlPmdlbmVyYXRlLXNvdXJjZXM8L3BoYXNlPgoKICAgICAgICAgICAgPGNvbmZpZ3VyYXRpb24+CiAgICAgICAgICAgICAgPCEtLSBSdXRhIGFsIFdTREwgZGVudHJvIGRlbCBwcm95ZWN0byAtLT4KICAgICAgICAgICAgICA8d3NkbEZpbGVzPgogICAgICAgICAgICAgICAgPHdzZGxGaWxlPgogICAgICAgICAgICAgICAgICAke3Byb2plY3QuYmFzZWRpcn0vc3JjL21haW4vcmVzb3VyY2VzL3dzZGwvSGVsbG9TZXJ2aWNlLndzZGwKICAgICAgICAgICAgICAgIDwvd3NkbEZpbGU+CiAgICAgICAgICAgICAgPC93c2RsRmlsZXM+CgogICAgICAgICAgICAgIDwhLS0gUGFxdWV0ZSBKYXZhIHBhcmEgbnVlc3RyYXMgY2xhc2VzIGdlbmVyYWRhcyAtLT4KICAgICAgICAgICAgICA8cGFja2FnZU5hbWU+Y29tLmVqZW1wbG8uaGVsbG88L3BhY2thZ2VOYW1lPgoKICAgICAgICAgICAgICA8IS0tIERpcmVjdG9yaW8gZG9uZGUgc2UgY29sb2NhbiBsYXMgZnVlbnRlcyBhdXRvLWdlbmVyYWRhcyAtLT4KICAgICAgICAgICAgICA8c291cmNlRGVzdERpcj4KICAgICAgICAgICAgICAgICR7cHJvamVjdC5idWlsZC5kaXJlY3Rvcnl9L2dlbmVyYXRlZC1zb3VyY2VzL3dzaW1wb3J0CiAgICAgICAgICAgICAgPC9zb3VyY2VEZXN0RGlyPgogICAgICAgICAgICA8L2NvbmZpZ3VyYXRpb24+CiAgICAgICAgICA8L2V4ZWN1dGlvbj4KICAgICAgICA8L2V4ZWN1dGlvbnM+CiAgICAgIDwvcGx1Z2luPgoKICAgICAgPCEtLSBQbHVnaW4gZXN0w6FuZGFyIGRlIGNvbXBpbGFjacOzbiAtLT4KICAgICAgPHBsdWdpbj4KICAgICAgICA8Z3JvdXBJZD5vcmcuYXBhY2hlLm1hdmVuLnBsdWdpbnM8L2dyb3VwSWQ+CiAgICAgICAgPGFydGlmYWN0SWQ+bWF2ZW4tY29tcGlsZXItcGx1Z2luPC9hcnRpZmFjdElkPgogICAgICAgIDx2ZXJzaW9uPjMuMTEuMDwvdmVyc2lvbj4KICAgICAgICA8Y29uZmlndXJhdGlvbj4KICAgICAgICAgIDxyZWxlYXNlPjE3PC9yZWxlYXNlPgogICAgICAgIDwvY29uZmlndXJhdGlvbj4KICAgICAgPC9wbHVnaW4+CiAgICA8L3BsdWdpbnM+CiAgPC9idWlsZD4KCjwvcHJvamVjdD4=">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code class="language-xml" md-src-pos="2976..5776"><span md-src-pos="2976..2983"></span><span md-src-pos="2983..2984" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="2984..2991" style="color: rgb(213, 183, 120);">project</span><span md-src-pos="2991..2992" style="color: rgb(213, 183, 120);"> </span><span md-src-pos="2992..2997" style="color: rgb(188, 190, 196);">xmlns</span><span md-src-pos="2997..2998" style="color: rgb(106, 171, 115);">=</span><span md-src-pos="2998..2999" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="2999..3032" style="color: rgb(106, 171, 115);">http://maven.apache.org/POM/4.0.0</span><span md-src-pos="3032..3033" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="3033..3034" style="color: rgb(213, 183, 120);"> </span><span md-src-pos="3034..3043" style="color: rgb(188, 190, 196);">xmlns:xsi</span><span md-src-pos="3043..3044" style="color: rgb(106, 171, 115);">=</span><span md-src-pos="3044..3045" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="3045..3086" style="color: rgb(106, 171, 115);">http://www.w3.org/2001/XMLSchema-instance</span><span md-src-pos="3086..3087" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="3087..3088" style="color: rgb(213, 183, 120);">
+</span><span md-src-pos="3088..3090" style="color: rgb(213, 183, 120);">  </span><span md-src-pos="3090..3108" style="color: rgb(188, 190, 196);">xsi:schemaLocation</span><span md-src-pos="3108..3109" style="color: rgb(106, 171, 115);">=</span><span md-src-pos="3109..3110" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="3110..3187" style="color: rgb(106, 171, 115);">http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd</span><span md-src-pos="3187..3188" style="color: rgb(106, 171, 115);">"</span><span md-src-pos="3188..3189" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3189..3190">
+</span><span md-src-pos="3190..3192">  </span><span md-src-pos="3192..3193" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3193..3205" style="color: rgb(213, 183, 120);">modelVersion</span><span md-src-pos="3205..3206" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3206..3211">4.0.0</span><span md-src-pos="3211..3213" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3213..3225" style="color: rgb(213, 183, 120);">modelVersion</span><span md-src-pos="3225..3226" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3226..3227">
+</span><span md-src-pos="3227..3228">
+</span><span md-src-pos="3228..3230">  </span><span md-src-pos="3230..3231" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3231..3238" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3238..3239" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3239..3250">org.example</span><span md-src-pos="3250..3252" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3252..3259" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3259..3260" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3260..3261">
+</span><span md-src-pos="3261..3263">  </span><span md-src-pos="3263..3264" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3264..3274" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3274..3275" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3275..3279">soap</span><span md-src-pos="3279..3281" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3281..3291" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3291..3292" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3292..3293">
+</span><span md-src-pos="3293..3295">  </span><span md-src-pos="3295..3296" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3296..3303" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3303..3304" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3304..3316">1.0-SNAPSHOT</span><span md-src-pos="3316..3318" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3318..3325" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3325..3326" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3326..3327">
+</span><span md-src-pos="3327..3329">  </span><span md-src-pos="3329..3330" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3330..3339" style="color: rgb(213, 183, 120);">packaging</span><span md-src-pos="3339..3340" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3340..3343">jar</span><span md-src-pos="3343..3345" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3345..3354" style="color: rgb(213, 183, 120);">packaging</span><span md-src-pos="3354..3355" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3355..3356">
+</span><span md-src-pos="3356..3357">
+</span><span md-src-pos="3357..3359">  </span><span md-src-pos="3359..3360" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3360..3364" style="color: rgb(213, 183, 120);">name</span><span md-src-pos="3364..3365" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3365..3369">soap</span><span md-src-pos="3369..3371" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3371..3375" style="color: rgb(213, 183, 120);">name</span><span md-src-pos="3375..3376" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3376..3377">
+</span><span md-src-pos="3377..3379">  </span><span md-src-pos="3379..3380" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3380..3383" style="color: rgb(213, 183, 120);">url</span><span md-src-pos="3383..3384" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3384..3407">http://maven.apache.org</span><span md-src-pos="3407..3409" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3409..3412" style="color: rgb(213, 183, 120);">url</span><span md-src-pos="3412..3413" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3413..3414">
+</span><span md-src-pos="3414..3415">
+</span><span md-src-pos="3415..3417">  </span><span md-src-pos="3417..3418" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3418..3428" style="color: rgb(213, 183, 120);">properties</span><span md-src-pos="3428..3429" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3429..3430">
+</span><span md-src-pos="3430..3434">    </span><span md-src-pos="3434..3435" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3435..3463" style="color: rgb(213, 183, 120);">project.build.sourceEncoding</span><span md-src-pos="3463..3464" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3464..3469">UTF-8</span><span md-src-pos="3469..3471" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3471..3499" style="color: rgb(213, 183, 120);">project.build.sourceEncoding</span><span md-src-pos="3499..3500" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3500..3501">
+</span><span md-src-pos="3501..3503">  </span><span md-src-pos="3503..3505" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3505..3515" style="color: rgb(213, 183, 120);">properties</span><span md-src-pos="3515..3516" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3516..3517">
+</span><span md-src-pos="3517..3518">
+</span><span md-src-pos="3518..3520">  </span><span md-src-pos="3520..3521" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3521..3533" style="color: rgb(213, 183, 120);">dependencies</span><span md-src-pos="3533..3534" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3534..3535">
+</span><span md-src-pos="3535..3539">    </span><span md-src-pos="3539..3540" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3540..3550" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="3550..3551" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3551..3552">
+</span><span md-src-pos="3552..3558">      </span><span md-src-pos="3558..3559" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3559..3566" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3566..3567" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3567..3572">junit</span><span md-src-pos="3572..3574" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3574..3581" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3581..3582" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3582..3583">
+</span><span md-src-pos="3583..3589">      </span><span md-src-pos="3589..3590" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3590..3600" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3600..3601" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3601..3606">junit</span><span md-src-pos="3606..3608" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3608..3618" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3618..3619" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3619..3620">
+</span><span md-src-pos="3620..3626">      </span><span md-src-pos="3626..3627" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3627..3634" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3634..3635" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3635..3640">3.8.1</span><span md-src-pos="3640..3642" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3642..3649" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3649..3650" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3650..3651">
+</span><span md-src-pos="3651..3657">      </span><span md-src-pos="3657..3658" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3658..3663" style="color: rgb(213, 183, 120);">scope</span><span md-src-pos="3663..3664" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3664..3668">test</span><span md-src-pos="3668..3670" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3670..3675" style="color: rgb(213, 183, 120);">scope</span><span md-src-pos="3675..3676" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3676..3677">
+</span><span md-src-pos="3677..3681">    </span><span md-src-pos="3681..3683" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3683..3693" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="3693..3694" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3694..3695">
+</span><span md-src-pos="3695..3699">    </span><span md-src-pos="3699..3703" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="3703..3732" style="color: rgb(122, 126, 133);"> API JAX-WS (javax.xml.ws.*) </span><span md-src-pos="3732..3735" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="3735..3736">
+</span><span md-src-pos="3736..3740">    </span><span md-src-pos="3740..3741" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3741..3751" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="3751..3752" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3752..3753">
+</span><span md-src-pos="3753..3759">      </span><span md-src-pos="3759..3760" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3760..3767" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3767..3768" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3768..3780">javax.xml.ws</span><span md-src-pos="3780..3782" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3782..3789" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3789..3790" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3790..3791">
+</span><span md-src-pos="3791..3797">      </span><span md-src-pos="3797..3798" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3798..3808" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3808..3809" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3809..3818">jaxws-api</span><span md-src-pos="3818..3820" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3820..3830" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="3830..3831" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3831..3832">
+</span><span md-src-pos="3832..3838">      </span><span md-src-pos="3838..3839" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3839..3846" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3846..3847" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3847..3852">2.3.1</span><span md-src-pos="3852..3854" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3854..3861" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="3861..3862" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3862..3863">
+</span><span md-src-pos="3863..3867">    </span><span md-src-pos="3867..3869" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3869..3879" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="3879..3880" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3880..3881">
+</span><span md-src-pos="3881..3882">
+</span><span md-src-pos="3882..3886">    </span><span md-src-pos="3886..3890" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="3890..3929" style="color: rgb(122, 126, 133);"> Implementación Metro (runtime JAX-WS) </span><span md-src-pos="3929..3932" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="3932..3933">
+</span><span md-src-pos="3933..3937">    </span><span md-src-pos="3937..3938" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3938..3948" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="3948..3949" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3949..3950">
+</span><span md-src-pos="3950..3956">      </span><span md-src-pos="3956..3957" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3957..3964" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3964..3965" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3965..3979">com.sun.xml.ws</span><span md-src-pos="3979..3981" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="3981..3988" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="3988..3989" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="3989..3990">
+</span><span md-src-pos="3990..3996">      </span><span md-src-pos="3996..3997" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="3997..4007" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4007..4008" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4008..4010">rt</span><span md-src-pos="4010..4012" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4012..4022" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4022..4023" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4023..4024">
+</span><span md-src-pos="4024..4030">      </span><span md-src-pos="4030..4031" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4031..4038" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="4038..4039" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4039..4044">2.3.7</span><span md-src-pos="4044..4046" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4046..4053" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="4053..4054" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4054..4055">
+</span><span md-src-pos="4055..4061">      </span><span md-src-pos="4061..4062" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4062..4072" style="color: rgb(213, 183, 120);">exclusions</span><span md-src-pos="4072..4073" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4073..4074">
+</span><span md-src-pos="4074..4082">        </span><span md-src-pos="4082..4083" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4083..4092" style="color: rgb(213, 183, 120);">exclusion</span><span md-src-pos="4092..4093" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4093..4094">
+</span><span md-src-pos="4094..4104">          </span><span md-src-pos="4104..4105" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4105..4112" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="4112..4113" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4113..4125">com.sun.mail</span><span md-src-pos="4125..4127" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4127..4134" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="4134..4135" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4135..4136">
+</span><span md-src-pos="4136..4146">          </span><span md-src-pos="4146..4147" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4147..4157" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4157..4158" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4158..4170">jakarta.mail</span><span md-src-pos="4170..4172" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4172..4182" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4182..4183" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4183..4184">
+</span><span md-src-pos="4184..4192">        </span><span md-src-pos="4192..4194" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4194..4203" style="color: rgb(213, 183, 120);">exclusion</span><span md-src-pos="4203..4204" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4204..4205">
+</span><span md-src-pos="4205..4211">      </span><span md-src-pos="4211..4213" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4213..4223" style="color: rgb(213, 183, 120);">exclusions</span><span md-src-pos="4223..4224" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4224..4225">
+</span><span md-src-pos="4225..4229">    </span><span md-src-pos="4229..4231" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4231..4241" style="color: rgb(213, 183, 120);">dependency</span><span md-src-pos="4241..4242" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4242..4243">
+</span><span md-src-pos="4243..4245">  </span><span md-src-pos="4245..4247" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4247..4259" style="color: rgb(213, 183, 120);">dependencies</span><span md-src-pos="4259..4260" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4260..4261">
+</span><span md-src-pos="4261..4262">
+</span><span md-src-pos="4262..4264">  </span><span md-src-pos="4264..4265" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4265..4270" style="color: rgb(213, 183, 120);">build</span><span md-src-pos="4270..4271" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4271..4272">
+</span><span md-src-pos="4272..4276">    </span><span md-src-pos="4276..4277" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4277..4284" style="color: rgb(213, 183, 120);">plugins</span><span md-src-pos="4284..4285" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4285..4286">
+</span><span md-src-pos="4286..4292">      </span><span md-src-pos="4292..4296" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="4296..4339" style="color: rgb(122, 126, 133);"> Plugin para ejecutar wsimport desde Maven </span><span md-src-pos="4339..4342" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="4342..4343">
+</span><span md-src-pos="4343..4349">      </span><span md-src-pos="4349..4350" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4350..4356" style="color: rgb(213, 183, 120);">plugin</span><span md-src-pos="4356..4357" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4357..4358">
+</span><span md-src-pos="4358..4366">        </span><span md-src-pos="4366..4367" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4367..4374" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="4374..4375" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4375..4389">com.sun.xml.ws</span><span md-src-pos="4389..4391" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4391..4398" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="4398..4399" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4399..4400">
+</span><span md-src-pos="4400..4408">        </span><span md-src-pos="4408..4409" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4409..4419" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4419..4420" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4420..4438">jaxws-maven-plugin</span><span md-src-pos="4438..4440" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4440..4450" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="4450..4451" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4451..4452">
+</span><span md-src-pos="4452..4460">        </span><span md-src-pos="4460..4461" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4461..4468" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="4468..4469" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4469..4474">2.3.7</span><span md-src-pos="4474..4476" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4476..4483" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="4483..4484" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4484..4485">
+</span><span md-src-pos="4485..4486">
+</span><span md-src-pos="4486..4494">        </span><span md-src-pos="4494..4495" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4495..4505" style="color: rgb(213, 183, 120);">executions</span><span md-src-pos="4505..4506" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4506..4507">
+</span><span md-src-pos="4507..4517">          </span><span md-src-pos="4517..4518" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4518..4527" style="color: rgb(213, 183, 120);">execution</span><span md-src-pos="4527..4528" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4528..4529">
+</span><span md-src-pos="4529..4541">            </span><span md-src-pos="4541..4542" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4542..4544" style="color: rgb(213, 183, 120);">id</span><span md-src-pos="4544..4545" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4545..4559">wsimport-hello</span><span md-src-pos="4559..4561" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4561..4563" style="color: rgb(213, 183, 120);">id</span><span md-src-pos="4563..4564" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4564..4565">
+</span><span md-src-pos="4565..4577">            </span><span md-src-pos="4577..4578" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4578..4583" style="color: rgb(213, 183, 120);">goals</span><span md-src-pos="4583..4584" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4584..4585">
+</span><span md-src-pos="4585..4599">              </span><span md-src-pos="4599..4600" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4600..4604" style="color: rgb(213, 183, 120);">goal</span><span md-src-pos="4604..4605" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4605..4613">wsimport</span><span md-src-pos="4613..4615" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4615..4619" style="color: rgb(213, 183, 120);">goal</span><span md-src-pos="4619..4620" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4620..4621">
+</span><span md-src-pos="4621..4633">            </span><span md-src-pos="4633..4635" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4635..4640" style="color: rgb(213, 183, 120);">goals</span><span md-src-pos="4640..4641" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4641..4642">
+</span><span md-src-pos="4642..4654">            </span><span md-src-pos="4654..4658" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="4658..4688" style="color: rgb(122, 126, 133);"> Se ejecuta antes de compilar </span><span md-src-pos="4688..4691" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="4691..4692">
+</span><span md-src-pos="4692..4704">            </span><span md-src-pos="4704..4705" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4705..4710" style="color: rgb(213, 183, 120);">phase</span><span md-src-pos="4710..4711" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4711..4727">generate-sources</span><span md-src-pos="4727..4729" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4729..4734" style="color: rgb(213, 183, 120);">phase</span><span md-src-pos="4734..4735" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4735..4736">
+</span><span md-src-pos="4736..4737">
+</span><span md-src-pos="4737..4749">            </span><span md-src-pos="4749..4750" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4750..4763" style="color: rgb(213, 183, 120);">configuration</span><span md-src-pos="4763..4764" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4764..4765">
+</span><span md-src-pos="4765..4779">              </span><span md-src-pos="4779..4783" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="4783..4817" style="color: rgb(122, 126, 133);"> Ruta al WSDL dentro del proyecto </span><span md-src-pos="4817..4820" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="4820..4821">
+</span><span md-src-pos="4821..4835">              </span><span md-src-pos="4835..4836" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4836..4845" style="color: rgb(213, 183, 120);">wsdlFiles</span><span md-src-pos="4845..4846" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4846..4847">
+</span><span md-src-pos="4847..4863">                </span><span md-src-pos="4863..4864" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="4864..4872" style="color: rgb(213, 183, 120);">wsdlFile</span><span md-src-pos="4872..4873" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4873..4874">
+</span><span md-src-pos="4874..4953">                  ${project.basedir}/src/main/resources/wsdl/HelloService.wsdl
+</span><span md-src-pos="4953..4969">                </span><span md-src-pos="4969..4971" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4971..4979" style="color: rgb(213, 183, 120);">wsdlFile</span><span md-src-pos="4979..4980" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="4980..4981">
+</span><span md-src-pos="4981..4995">              </span><span md-src-pos="4995..4997" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="4997..5006" style="color: rgb(213, 183, 120);">wsdlFiles</span><span md-src-pos="5006..5007" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5007..5008">
+</span><span md-src-pos="5008..5009">
+</span><span md-src-pos="5009..5023">              </span><span md-src-pos="5023..5027" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="5027..5072" style="color: rgb(122, 126, 133);"> Paquete Java para nuestras clases generadas </span><span md-src-pos="5072..5075" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="5075..5076">
+</span><span md-src-pos="5076..5090">              </span><span md-src-pos="5090..5091" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5091..5102" style="color: rgb(213, 183, 120);">packageName</span><span md-src-pos="5102..5103" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5103..5120">com.ejemplo.hello</span><span md-src-pos="5120..5122" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5122..5133" style="color: rgb(213, 183, 120);">packageName</span><span md-src-pos="5133..5134" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5134..5135">
+</span><span md-src-pos="5135..5136">
+</span><span md-src-pos="5136..5150">              </span><span md-src-pos="5150..5154" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="5154..5210" style="color: rgb(122, 126, 133);"> Directorio donde se colocan las fuentes auto-generadas </span><span md-src-pos="5210..5213" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="5213..5214">
+</span><span md-src-pos="5214..5228">              </span><span md-src-pos="5228..5229" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5229..5242" style="color: rgb(213, 183, 120);">sourceDestDir</span><span md-src-pos="5242..5243" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5243..5244">
+</span><span md-src-pos="5244..5314">                ${project.build.directory}/generated-sources/wsimport
+</span><span md-src-pos="5314..5328">              </span><span md-src-pos="5328..5330" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5330..5343" style="color: rgb(213, 183, 120);">sourceDestDir</span><span md-src-pos="5343..5344" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5344..5345">
+</span><span md-src-pos="5345..5357">            </span><span md-src-pos="5357..5359" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5359..5372" style="color: rgb(213, 183, 120);">configuration</span><span md-src-pos="5372..5373" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5373..5374">
+</span><span md-src-pos="5374..5384">          </span><span md-src-pos="5384..5386" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5386..5395" style="color: rgb(213, 183, 120);">execution</span><span md-src-pos="5395..5396" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5396..5397">
+</span><span md-src-pos="5397..5405">        </span><span md-src-pos="5405..5407" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5407..5417" style="color: rgb(213, 183, 120);">executions</span><span md-src-pos="5417..5418" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5418..5419">
+</span><span md-src-pos="5419..5425">      </span><span md-src-pos="5425..5427" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5427..5433" style="color: rgb(213, 183, 120);">plugin</span><span md-src-pos="5433..5434" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5434..5435">
+</span><span md-src-pos="5435..5436">
+</span><span md-src-pos="5436..5442">      </span><span md-src-pos="5442..5446" style="color: rgb(122, 126, 133);">&lt;!--</span><span md-src-pos="5446..5478" style="color: rgb(122, 126, 133);"> Plugin estándar de compilación </span><span md-src-pos="5478..5481" style="color: rgb(122, 126, 133);">--&gt;</span><span md-src-pos="5481..5482">
+</span><span md-src-pos="5482..5488">      </span><span md-src-pos="5488..5489" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5489..5495" style="color: rgb(213, 183, 120);">plugin</span><span md-src-pos="5495..5496" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5496..5497">
+</span><span md-src-pos="5497..5505">        </span><span md-src-pos="5505..5506" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5506..5513" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="5513..5514" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5514..5538">org.apache.maven.plugins</span><span md-src-pos="5538..5540" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5540..5547" style="color: rgb(213, 183, 120);">groupId</span><span md-src-pos="5547..5548" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5548..5549">
+</span><span md-src-pos="5549..5557">        </span><span md-src-pos="5557..5558" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5558..5568" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="5568..5569" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5569..5590">maven-compiler-plugin</span><span md-src-pos="5590..5592" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5592..5602" style="color: rgb(213, 183, 120);">artifactId</span><span md-src-pos="5602..5603" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5603..5604">
+</span><span md-src-pos="5604..5612">        </span><span md-src-pos="5612..5613" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5613..5620" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="5620..5621" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5621..5627">3.11.0</span><span md-src-pos="5627..5629" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5629..5636" style="color: rgb(213, 183, 120);">version</span><span md-src-pos="5636..5637" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5637..5638">
+</span><span md-src-pos="5638..5646">        </span><span md-src-pos="5646..5647" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5647..5660" style="color: rgb(213, 183, 120);">configuration</span><span md-src-pos="5660..5661" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5661..5662">
+</span><span md-src-pos="5662..5672">          </span><span md-src-pos="5672..5673" style="color: rgb(213, 183, 120);">&lt;</span><span md-src-pos="5673..5680" style="color: rgb(213, 183, 120);">release</span><span md-src-pos="5680..5681" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5681..5683">17</span><span md-src-pos="5683..5685" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5685..5692" style="color: rgb(213, 183, 120);">release</span><span md-src-pos="5692..5693" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5693..5694">
+</span><span md-src-pos="5694..5702">        </span><span md-src-pos="5702..5704" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5704..5717" style="color: rgb(213, 183, 120);">configuration</span><span md-src-pos="5717..5718" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5718..5719">
+</span><span md-src-pos="5719..5725">      </span><span md-src-pos="5725..5727" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5727..5733" style="color: rgb(213, 183, 120);">plugin</span><span md-src-pos="5733..5734" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5734..5735">
+</span><span md-src-pos="5735..5739">    </span><span md-src-pos="5739..5741" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5741..5748" style="color: rgb(213, 183, 120);">plugins</span><span md-src-pos="5748..5749" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5749..5750">
+</span><span md-src-pos="5750..5752">  </span><span md-src-pos="5752..5754" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5754..5759" style="color: rgb(213, 183, 120);">build</span><span md-src-pos="5759..5760" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5760..5761">
+</span><span md-src-pos="5761..5762">
+</span><span md-src-pos="5762..5764" style="color: rgb(213, 183, 120);">&lt;/</span><span md-src-pos="5764..5771" style="color: rgb(213, 183, 120);">project</span><span md-src-pos="5771..5772" style="color: rgb(213, 183, 120);">&gt;</span><span md-src-pos="5772..5773">
+</span><span md-src-pos="5773..5776"></span></code></pre>
+   <p md-src-pos="5778..5794"><strong md-src-pos="5778..5792">Propósito:</strong></p>
+   <ul md-src-pos="5795..6120">
+    <li md-src-pos="5795..5906">Declarar las dependencias de JAX‑WS (API y runtime Metro) que permiten trabajar con servicios SOAP en Java.</li>
+    <li md-src-pos="5907..6120">Configurar el plugin <code md-src-pos="5930..5950">jaxws-maven-plugin</code> para ejecutar <code md-src-pos="5965..5975">wsimport</code> durante la fase <code md-src-pos="5992..6010">generate-sources</code>, tomando el WSDL del proyecto y generando las clases Java necesarias (interfaces, requests, responses, etc.).</li>
+   </ul>
+   <h2 id="32-sincronizar-los-cambios-de-maven" md-src-pos="6122..6161">3.2 Sincronizar los cambios de Maven</h2>
+   <ul md-src-pos="6163..6428">
+    <li md-src-pos="6163..6331">En IntelliJ, en la pestaña del <code md-src-pos="6196..6205">pom.xml</code>, localizar el ícono de Maven (una <code md-src-pos="6240..6243">m</code> con flechas formando un bucle) en la parte superior derecha o en la ventana de Maven.</li>
+    <li md-src-pos="6332..6428">Hacer clic en el ícono para <strong md-src-pos="6362..6377">sincronizar</strong> el proyecto con el nuevo contenido de <code md-src-pos="6416..6425">pom.xml</code>.</li>
+   </ul>
+   <p md-src-pos="6430..6625"><span md-src-pos="6430..6506">Esto es para indicar a IntelliJ que vuelva a leer la configuración de Maven,</span> <span md-src-pos="6507..6567">descargue las nuevas dependencias configuradas en el archivo</span> <code md-src-pos="6568..6577">pom.xml</code> <span md-src-pos="6578..6625">y reconfigure el proyecto de acuerdo con ellas.</span></p>
+   <h2 id="33-abrir-la-ventana-de-maven" md-src-pos="6627..6659">3.3 Abrir la ventana de Maven</h2>
+   <ul md-src-pos="6661..6893">
+    <li md-src-pos="6661..6704">Ir a <code md-src-pos="6668..6674">View</code> → <code md-src-pos="6677..6691">Tool Windows</code> → <code md-src-pos="6694..6701">Maven</code>.</li>
+    <li md-src-pos="6705..6818">En la ventana de Maven (generalmente al lado derecho), localizar el proyecto actual y desplegar sus opciones.</li>
+    <li md-src-pos="6819..6893">Dentro de las opciones del proyecto, desplegar la sección <code md-src-pos="6879..6890">Lifecycle</code>.</li>
+   </ul>
+   <p md-src-pos="6895..7044"><span md-src-pos="6895..6986">Utilizamos la interfaz de Maven integrada en IntelliJ para ejecutar fases del ciclo de vida</span> (<span md-src-pos="6988..6992">como</span> <code md-src-pos="6993..7000">clean</code> <span md-src-pos="7001..7002">y</span> <code md-src-pos="7003..7012">compile</code>) <span md-src-pos="7014..7044">sin usar la línea de comandos.</span></p>
+   <h2 id="34-ejecutar-clean-y-compile" md-src-pos="7046..7081">3.4 Ejecutar <code md-src-pos="7062..7069">clean</code> y <code md-src-pos="7072..7081">compile</code></h2>
+   <ul md-src-pos="7083..7510">
+    <li md-src-pos="7083..7183">
+     <p md-src-pos="7085..7111">En la sección <code md-src-pos="7099..7110">Lifecycle</code>:</p>
+     <ul md-src-pos="7114..7183">
+      <li md-src-pos="7114..7146">Hacer doble clic en <code md-src-pos="7136..7143">clean</code>.</li>
+      <li md-src-pos="7149..7183">Hacer doble clic en <code md-src-pos="7171..7180">compile</code>.</li>
+     </ul>
+    </li>
+    <li md-src-pos="7186..7303">
+     <p md-src-pos="7188..7303"><code md-src-pos="7188..7195">clean</code>: para borrar resultados de compilaciones anteriores y garantizar que el proyecto se recompila desde cero.</p>
+    </li>
+    <li md-src-pos="7304..7510">
+     <p md-src-pos="7306..7510"><code md-src-pos="7306..7315">compile</code>: durante esta fase, el plugin <code md-src-pos="7346..7366">jaxws-maven-plugin</code> ejecutará el objetivo <code md-src-pos="7389..7399">wsimport</code> en la fase <code md-src-pos="7411..7429">generate-sources</code>, generando el código Java a partir del WSDL y compilando después todo el código.</p>
+    </li>
+   </ul>
+   <h2 id="35-revisar-el-código-generado" md-src-pos="7512..7545">3.5 Revisar el código generado</h2>
+   <ul md-src-pos="7547..7840">
+    <li md-src-pos="7547..7653">Después de compilar, verificar que se ha creado el directorio:
+     <br>
+     <code md-src-pos="7616..7651">target/generated-sources/wsimport</code></li>
+    <li md-src-pos="7654..7746">Confirmar que dentro de ese directorio están las clases Java generadas para el servicio.</li>
+    <li md-src-pos="7747..7840">No mover esas clases de esa carpeta, y tampoco las clases compiladas de <code md-src-pos="7821..7837">target/classes</code>.</li>
+   </ul>
+   <p md-src-pos="7842..8027"><strong md-src-pos="7842..7850">Nota</strong>: <span md-src-pos="7852..7930">Este código es generado automáticamente a partir del WSDL y Maven lo gestiona;</span> <span md-src-pos="7931..7970">no se debe editar ni mover manualmente,</span> <span md-src-pos="7971..8015">porque se regenerará cada vez que se ejecute</span> <code md-src-pos="8016..8026">wsimport</code><span md-src-pos="8026..8027">.</span></p>
+   <h2 id="36-identificar-la-interfaz-generada" md-src-pos="8029..8068">3.6 Identificar la interfaz generada</h2>
+   <ul md-src-pos="8070..8312">
+    <li md-src-pos="8070..8152">Buscar y abrir el archivo <code md-src-pos="8098..8118">HelloPortType.java</code> dentro de las clases generadas.</li>
+    <li md-src-pos="8153..8312">Observar que esta interfaz contiene las firmas de los métodos que representan las operaciones definidas en el WSDL (por ejemplo, <code md-src-pos="8284..8294">sayHello</code>, <code md-src-pos="8296..8308">sayGoodbye</code>).</li>
+   </ul>
+   <p md-src-pos="8314..8466"><code md-src-pos="8314..8334">HelloPortType.java</code> <span md-src-pos="8335..8392">es la interfaz que describe el contrato del servicio SOAP</span>: <span md-src-pos="8394..8417">qué operaciones expone,</span> <span md-src-pos="8418..8466">qué parámetros recibe y qué respuestas devuelve.</span></p>
+   <h1 id="4-implementar-la-lógica-del-servicio" md-src-pos="8468..8507">4. Implementar la lógica del servicio</h1>
+   <h2 id="41-crear-el-paquete-de-implementación" md-src-pos="8509..8550">4.1 Crear el paquete de implementación</h2>
+   <ul md-src-pos="8552..8692">
+    <li md-src-pos="8552..8692">En <code md-src-pos="8557..8572">src/main/java</code>, crear la ruta de subdirectorios <code md-src-pos="8606..8625">com/ejemplo/hello</code>.
+     <ul md-src-pos="8631..8692">
+      <li md-src-pos="8631..8692">En IntelliJ, se verá como el paquete <code md-src-pos="8670..8689">com.ejemplo.hello</code>.</li>
+     </ul></li>
+   </ul>
+   <p md-src-pos="8694..8869"><span md-src-pos="8694..8803">Esto sirve para crear el paquete donde se ubicará la implementación del servicio y otras clases relacionadas,</span> <span md-src-pos="8804..8819">alineado con el</span> <code md-src-pos="8820..8833">packageName</code> <span md-src-pos="8834..8869">configurado en el plugin de JAX‑WS.</span></p>
+   <h2 id="42-crear-la-clase-helloporttypeimpl" md-src-pos="8871..8912">4.2 Crear la clase <code md-src-pos="8893..8912">HelloPortTypeImpl</code></h2>
+   <ul md-src-pos="8914..9053">
+    <li md-src-pos="8914..9019">En el paquete <code md-src-pos="8930..8949">com.ejemplo.hello</code>, crear una nueva clase Java con el nombre <code md-src-pos="8992..9016">HelloPortTypeImpl.java</code>.</li>
+    <li md-src-pos="9020..9053">Colocar el siguiente contenido:</li>
+   </ul>
+   <pre class="code-fence" md-src-pos="9055..9943"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFja2FnZSBjb20uZWplbXBsby5oZWxsbzsKCmltcG9ydCBqYXZheC5qd3MuV2ViU2VydmljZTsKCkBXZWJTZXJ2aWNlKAogICAgICAgIHNlcnZpY2VOYW1lID0gIkhlbGxvU2VydmljZSIsCiAgICAgICAgcG9ydE5hbWUgPSAiSGVsbG9Qb3J0IiwKICAgICAgICB0YXJnZXROYW1lc3BhY2UgPSAiaHR0cDovL3d3dy5leGFtcGxlcy5jb20vd3NkbC9IZWxsb1NlcnZpY2Uud3NkbCIsCiAgICAgICAgZW5kcG9pbnRJbnRlcmZhY2UgPSAiY29tLmVqZW1wbG8uaGVsbG8uSGVsbG9Qb3J0VHlwZSIKKQpwdWJsaWMgY2xhc3MgSGVsbG9Qb3J0VHlwZUltcGwgaW1wbGVtZW50cyBIZWxsb1BvcnRUeXBlIHsKCiAgICBAT3ZlcnJpZGUKICAgIHB1YmxpYyBTYXlIZWxsb1Jlc3BvbnNlIHNheUhlbGxvKFNheUhlbGxvUmVxdWVzdCBwYXJhbWV0ZXJzKSB7CiAgICAgICAgU2F5SGVsbG9SZXNwb25zZSByZXNwID0gbmV3IFNheUhlbGxvUmVzcG9uc2UoKTsKICAgICAgICBTdHJpbmcgbmFtZSA9IHBhcmFtZXRlcnMuZ2V0Rmlyc3ROYW1lKCk7CiAgICAgICAgcmVzcC5zZXRHcmVldGluZygiSG9sYSAiICsgbmFtZSArICIhIiApOwogICAgICAgIHJldHVybiByZXNwOwogICAgfQoKICAgIEBPdmVycmlkZQogICAgcHVibGljIFNheUdvb2RieWVSZXNwb25zZSBzYXlHb29kYnllKFNheUdvb2RieWVSZXF1ZXN0IHBhcmFtZXRlcnMpIHsKICAgICAgICBTYXlHb29kYnllUmVzcG9uc2UgcmVzcCA9IG5ldyBTYXlHb29kYnllUmVzcG9uc2UoKTsKICAgICAgICBTdHJpbmcgbmFtZSA9IHBhcmFtZXRlcnMuZ2V0Rmlyc3ROYW1lKCk7CiAgICAgICAgcmVzcC5zZXRGYXJld2VsbCgiQWRpw7NzICIgKyBuYW1lICsgIiEiKTsKICAgICAgICByZXR1cm4gcmVzcDsKICAgIH0KfQ==">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code class="language-java" md-src-pos="9055..9943"><span md-src-pos="9055..9063"></span><span md-src-pos="9063..9090">package com.ejemplo.hello;
+</span><span md-src-pos="9090..9091">
+</span><span md-src-pos="9091..9120">import javax.jws.WebService;
+</span><span md-src-pos="9120..9121">
+</span><span md-src-pos="9121..9134">@WebService(
+</span><span md-src-pos="9134..9182">        serviceName = "HelloService",
+</span><span md-src-pos="9182..9224">        portName = "HelloPort",
+</span><span md-src-pos="9224..9310">        targetNamespace = "http://www.examples.com/wsdl/HelloService.wsdl",
+</span><span md-src-pos="9310..9382">        endpointInterface = "com.ejemplo.hello.HelloPortType"
+</span><span md-src-pos="9382..9384">)
+</span><span md-src-pos="9384..9442">public class HelloPortTypeImpl implements HelloPortType {
+</span><span md-src-pos="9442..9443">
+</span><span md-src-pos="9443..9457">    @Override
+</span><span md-src-pos="9457..9524">    public SayHelloResponse sayHello(SayHelloRequest parameters) {
+</span><span md-src-pos="9524..9580">        SayHelloResponse resp = new SayHelloResponse();
+</span><span md-src-pos="9580..9629">        String name = parameters.getFirstName();
+</span><span md-src-pos="9629..9698">        resp.setGreeting("Hola " + name + "!" );
+</span><span md-src-pos="9698..9719">        return resp;
+</span><span md-src-pos="9719..9725">    }
+</span><span md-src-pos="9725..9726">
+</span><span md-src-pos="9726..9740">    @Override
+</span><span md-src-pos="9740..9813">    public SayGoodbyeResponse sayGoodbye(SayGoodbyeRequest parameters) {
+</span><span md-src-pos="9813..9873">        SayGoodbyeResponse resp = new SayGoodbyeResponse();
+</span><span md-src-pos="9873..9922">        String name = parameters.getFirstName();
+</span><span md-src-pos="9922..9991">        resp.setFarewell("Adiós " + name + "!");
+</span><span md-src-pos="9991..10012">        return resp;
+</span><span md-src-pos="10012..10018">    }
+</span><span md-src-pos="10018..10020">}
+</span><span md-src-pos="9940..9943"></span></code></pre>
+   <p md-src-pos="9945..9961"><strong md-src-pos="9945..9959">Propósito:</strong></p>
+   <ul md-src-pos="9962..10370">
+    <li md-src-pos="9962..10115">Implementar la interfaz generada <code md-src-pos="9997..10012">HelloPortType</code>, con la lógica de negocio real del servicio (en este caso qué texto devolver al saludar y despedir).</li>
+    <li md-src-pos="10116..10370">Mediante la anotación <code md-src-pos="10140..10153">@WebService</code>, indicar a JAX‑WS qué interfaz se está implementando (<code md-src-pos="10208..10227">endpointInterface</code>), qué nombre tiene el servicio, el puerto y el espacio de nombres, de modo que el runtime pueda publicar este servicio de acuerdo con el WSDL.</li>
+   </ul>
+   <h2 id="43-resolver-errores-de-referencias-si-aparecen" md-src-pos="10372..10424">4.3 Resolver errores de referencias (si aparecen)</h2>
+   <ul md-src-pos="10426..10763">
+    <li md-src-pos="10426..10601">Es posible que, tras crear <code md-src-pos="10455..10474">HelloPortTypeImpl</code>, aparezcan errores en el código porque IntelliJ aún no reconoce correctamente las clases generadas y las dependencias Maven.</li>
+    <li md-src-pos="10602..10631">Ir a la ventana de Maven.</li>
+    <li md-src-pos="10632..10763">En la barra superior de la ventana de Maven, hacer clic en el ícono de flechas circulares y elegir <code md-src-pos="10733..10760">Reload All Maven Projects</code>.</li>
+   </ul>
+   <p md-src-pos="10765..10959"><span md-src-pos="10765..10859">Lo anterior es para forzar a IntelliJ a recargar la configuración y las dependencias de Maven,</span> <span md-src-pos="10860..10906">de modo que reconozca las clases generadas por</span> <code md-src-pos="10907..10917">wsimport</code> <span md-src-pos="10918..10959">y desaparezcan los errores de referencia.</span></p>
+   <h1 id="5-crear-el-servidor-y-el-cliente-soap" md-src-pos="10961..11001">5. Crear el servidor y el cliente SOAP</h1>
+   <h2 id="51-crear-la-clase-helloserver" md-src-pos="11003..11038">5.1 Crear la clase <code md-src-pos="11025..11038">HelloServer</code></h2>
+   <ul md-src-pos="11040..11164">
+    <li md-src-pos="11040..11133">En el paquete <code md-src-pos="11056..11075">com.ejemplo.hello</code>, crear una nueva clase Java llamada <code md-src-pos="11112..11130">HelloServer.java</code>.</li>
+    <li md-src-pos="11134..11164">Usar el siguiente contenido:</li>
+   </ul>
+   <pre class="code-fence" md-src-pos="11166..11628"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFja2FnZSBjb20uZWplbXBsby5oZWxsbzsKCmltcG9ydCBqYXZheC54bWwud3MuRW5kcG9pbnQ7CgpwdWJsaWMgY2xhc3MgSGVsbG9TZXJ2ZXIgewoKICAgIHB1YmxpYyBzdGF0aWMgdm9pZCBtYWluKFN0cmluZ1tdIGFyZ3MpIHsKICAgICAgICBTdHJpbmcgYWRkcmVzcyA9ICJodHRwOi8vbG9jYWxob3N0OjgwODAvSGVsbG9TZXJ2aWNlIjsKCiAgICAgICAgSGVsbG9Qb3J0VHlwZUltcGwgaW1wbGVtZW50YWNpb24gPSBuZXcgSGVsbG9Qb3J0VHlwZUltcGwoKTsKCiAgICAgICAgRW5kcG9pbnQucHVibGlzaChhZGRyZXNzLCBpbXBsZW1lbnRhY2lvbik7CgogICAgICAgIFN5c3RlbS5vdXQucHJpbnRsbigiSGVsbG9TZXJ2aWNlIHB1YmxpY2FkbyBlbiAiICsgYWRkcmVzcyk7CiAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKCJQdWxzYSBDdHJsK0MgcGFyYSBkZXRlbmVyLiIpOwogICAgfQp9">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code class="language-java" md-src-pos="11166..11628"><span md-src-pos="11166..11174"></span><span md-src-pos="11174..11201">package com.ejemplo.hello;
+</span><span md-src-pos="11201..11202">
+</span><span md-src-pos="11202..11232">import javax.xml.ws.Endpoint;
+</span><span md-src-pos="11232..11233">
+</span><span md-src-pos="11233..11260">public class HelloServer {
+</span><span md-src-pos="11260..11261">
+</span><span md-src-pos="11261..11306">    public static void main(String[] args) {
+</span><span md-src-pos="11306..11379">        String address = "http://localhost:8080/HelloService";
+</span><span md-src-pos="11379..11380">
+</span><span md-src-pos="11380..11448">        HelloPortTypeImpl implementacion = new HelloPortTypeImpl();
+</span><span md-src-pos="11448..11449">
+</span><span md-src-pos="11449..11500">        Endpoint.publish(address, implementacion);
+</span><span md-src-pos="11500..11501">
+</span><span md-src-pos="11501..11579">        System.out.println("HelloService publicado en " + address);
+</span><span md-src-pos="11579..11647">        System.out.println("Pulsa Ctrl+C para detener.");
+</span><span md-src-pos="11647..11653">    }
+</span><span md-src-pos="11653..11655">}
+</span><span md-src-pos="11625..11628"></span></code></pre>
+   <p md-src-pos="11630..11650"><span md-src-pos="11630..11648">Esto sirve para...</span></p>
+   <ul md-src-pos="11651..11932">
+    <li md-src-pos="11651..11774">Publicar el servicio SOAP en una URL local (<code md-src-pos="11697..11733">http://localhost:8080/HelloService</code>) usando la clase <code md-src-pos="11751..11761">Endpoint</code> de JAX‑WS.</li>
+    <li md-src-pos="11775..11932">Asociar la URL con la implementación <code md-src-pos="11814..11833">HelloPortTypeImpl</code>, de modo que las peticiones SOAP que lleguen a esa dirección se atiendan con la lógica programada.</li>
+   </ul>
+   <h2 id="52-crear-la-clase-helloclient" md-src-pos="11934..11969">5.2 Crear la clase <code md-src-pos="11956..11969">HelloClient</code></h2>
+   <ul md-src-pos="11971..12101">
+    <li md-src-pos="11971..12070">En el mismo paquete <code md-src-pos="11993..12012">com.ejemplo.hello</code>, crear una nueva clase Java llamada <code md-src-pos="12049..12067">HelloClient.java</code>.</li>
+    <li md-src-pos="12071..12101">Usar el siguiente contenido:</li>
+   </ul>
+   <pre class="code-fence" md-src-pos="12103..13004"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFja2FnZSBjb20uZWplbXBsby5oZWxsbzsKCnB1YmxpYyBjbGFzcyBIZWxsb0NsaWVudCB7CgogICAgcHVibGljIHN0YXRpYyB2b2lkIG1haW4oU3RyaW5nW10gYXJncykgewogICAgICAgIC8vIENyZWFyIGVsICJzZXJ2aWNlIiBhIHBhcnRpciBkZSBsYSBjbGFzZSBnZW5lcmFkYQogICAgICAgIEhlbGxvU2VydmljZSBzZXJ2aWNlID0gbmV3IEhlbGxvU2VydmljZSgpOwoKICAgICAgICAvLyBPYnRlbmVyIGVsIHBvcnQgcXVlIGltcGxlbWVudGEgSGVsbG9Qb3J0VHlwZQogICAgICAgIEhlbGxvUG9ydFR5cGUgcG9ydCA9IHNlcnZpY2UuZ2V0SGVsbG9Qb3J0KCk7CgogICAgICAgIC8vIENvbnN0cnVpciBzb2xpY2l0dWQgc2F5SGVsbG8KICAgICAgICBTYXlIZWxsb1JlcXVlc3QgaGVsbG9SZXEgPSBuZXcgU2F5SGVsbG9SZXF1ZXN0KCk7CiAgICAgICAgaGVsbG9SZXEuc2V0Rmlyc3ROYW1lKCJKdWFuIik7CgogICAgICAgIFNheUhlbGxvUmVzcG9uc2UgaGVsbG9SZXNwID0gcG9ydC5zYXlIZWxsbyhoZWxsb1JlcSk7CiAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKCJSZXNwdWVzdGEgc2F5SGVsbG86ICIgKyBoZWxsb1Jlc3AuZ2V0R3JlZXRpbmcoKSk7CgogICAgICAgIC8vIENvbnN0cnVpciBzb2xpY2l0dWQgc2F5R29vZGJ5ZQogICAgICAgIFNheUdvb2RieWVSZXF1ZXN0IGJ5ZVJlcSA9IG5ldyBTYXlHb29kYnllUmVxdWVzdCgpOwogICAgICAgIGJ5ZVJlcS5zZXRGaXJzdE5hbWUoIkp1YW4iKTsKCiAgICAgICAgU2F5R29vZGJ5ZVJlc3BvbnNlIGJ5ZVJlc3AgPSBwb3J0LnNheUdvb2RieWUoYnllUmVxKTsKICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oIlJlc3B1ZXN0YSBzYXlHb29kYnllOiAiICsgYnllUmVzcC5nZXRGYXJld2VsbCgpKTsKICAgIH0KfQ==">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code class="language-java" md-src-pos="12103..13004"><span md-src-pos="12103..12111"></span><span md-src-pos="12111..12138">package com.ejemplo.hello;
+</span><span md-src-pos="12138..12139">
+</span><span md-src-pos="12139..12166">public class HelloClient {
+</span><span md-src-pos="12166..12167">
+</span><span md-src-pos="12167..12212">    public static void main(String[] args) {
+</span><span md-src-pos="12212..12282">        // Crear el "service" a partir de la clase generada
+</span><span md-src-pos="12282..12333">        HelloService service = new HelloService();
+</span><span md-src-pos="12333..12334">
+</span><span md-src-pos="12334..12390">        // Obtener el port que implementa HelloPortType
+</span><span md-src-pos="12390..12443">        HelloPortType port = service.getHelloPort();
+</span><span md-src-pos="12443..12444">
+</span><span md-src-pos="12444..12484">        // Construir solicitud sayHello
+</span><span md-src-pos="12484..12542">        SayHelloRequest helloReq = new SayHelloRequest();
+</span><span md-src-pos="12542..12591">        helloReq.setFirstName("Juan");
+</span><span md-src-pos="12591..12592">
+</span><span md-src-pos="12592..12654">        SayHelloResponse helloResp = port.sayHello(helloReq);
+</span><span md-src-pos="12654..12742">        System.out.println("Respuesta sayHello: " + helloResp.getGreeting());
+</span><span md-src-pos="12742..12743">
+</span><span md-src-pos="12743..12785">        // Construir solicitud sayGoodbye
+</span><span md-src-pos="12785..12845">        SayGoodbyeRequest byeReq = new SayGoodbyeRequest();
+</span><span md-src-pos="12845..12892">        byeReq.setFirstName("Juan");
+</span><span md-src-pos="12892..12893">
+</span><span md-src-pos="12893..12955">        SayGoodbyeResponse byeResp = port.sayGoodbye(byeReq);
+</span><span md-src-pos="12955..13043">        System.out.println("Respuesta sayGoodbye: " + byeResp.getFarewell());
+</span><span md-src-pos="13043..13049">    }
+</span><span md-src-pos="13049..13051">}
+</span><span md-src-pos="13001..13004"></span></code></pre>
+   <p md-src-pos="13006..13026"><span md-src-pos="13006..13024">Esto sirve para...</span></p>
+   <ul md-src-pos="13027..13337">
+    <li md-src-pos="13027..13200">Crear un cliente Java que use las clases generadas (<code md-src-pos="13081..13095">HelloService</code>, <code md-src-pos="13097..13112">HelloPortType</code>, <code md-src-pos="13114..13131">SayHelloRequest</code>, etc.) para consumir el servicio SOAP publicado por <code md-src-pos="13184..13197">HelloServer</code>.</li>
+    <li md-src-pos="13201..13337">Construir solicitudes para las operaciones <code md-src-pos="13246..13256">sayHello</code> y <code md-src-pos="13259..13271">sayGoodbye</code> y mostrar en la consola las respuestas devueltas por el servicio.</li>
+   </ul>
+   <h2 id="53-guardar-cambios-y-recompilar" md-src-pos="13339..13374">5.3 Guardar cambios y recompilar</h2>
+   <ul md-src-pos="13376..13520">
+    <li md-src-pos="13376..13434">Guardar todos los archivos Java modificados o creados.</li>
+    <li md-src-pos="13435..13520">En la ventana de Maven, en <code md-src-pos="13464..13475">Lifecycle</code>, hacer doble clic nuevamente en <code md-src-pos="13508..13517">compile</code>.</li>
+   </ul>
+   <p md-src-pos="13522..13695"><span md-src-pos="13522..13605">Esto es para recompilar el proyecto incluyendo las nuevas clases de implementación,</span> <span md-src-pos="13606..13625">servidor y cliente,</span> <span md-src-pos="13626..13695">asegurándose de que no haya errores de compilación antes de ejecutar.</span></p>
+   <h1 id="6-ejecutar-y-probar-el-servicio-soap" md-src-pos="13697..13736">6. Ejecutar y probar el servicio SOAP</h1>
+   <h2 id="61-ejecutar-el-servidor" md-src-pos="13738..13765">6.1 Ejecutar el servidor</h2>
+   <ul md-src-pos="13767..14150">
+    <li md-src-pos="13767..13819">
+     <p md-src-pos="13769..13819">Abrir la pestaña del archivo <code md-src-pos="13798..13816">HelloServer.java</code>.</p>
+    </li>
+    <li md-src-pos="13820..13951">
+     <p md-src-pos="13822..13951">Hacer clic en el ícono de ejecución (triángulo verde) junto a la declaración de <code md-src-pos="13902..13908">main</code>, y seleccionar <code md-src-pos="13924..13948">Run HelloServer.main()</code>.</p>
+    </li>
+    <li md-src-pos="13952..14150">
+     <p md-src-pos="13954..14045">Se abrirá una ventana o pestaña de terminal dentro de IntelliJ que mostrará algo similar a:</p>
+     <pre class="code-fence" md-src-pos="14049..14150"><div class="code-fence-highlighter-copy-button" data-fence-content="SGVsbG9TZXJ2aWNlIHB1YmxpY2FkbyBlbiBodHRwOi8vbG9jYWxob3N0OjgwODAvSGVsbG9TZXJ2aWNlClB1bHNhIEN0cmwrQyBwYXJhIGRldGVuZXIu">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code md-src-pos="14049..14150"><span md-src-pos="14049..14053"></span><span md-src-pos="14053..14114">HelloService publicado en http://localhost:8080/HelloService
+</span><span md-src-pos="14114..14141">Pulsa Ctrl+C para detener.
+</span><span md-src-pos="14145..14150"></span></code></pre>
+    </li>
+   </ul>
+   <p md-src-pos="14152..14342"><span md-src-pos="14152..14219">Con esto ponemos en marcha el servidor que expone el servicio SOAP;</span> <span md-src-pos="14220..14254">mientras esta consola esté activa,</span> <span md-src-pos="14255..14308">el servicio estará disponible para que otros clientes</span> (<span md-src-pos="14310..14314">como</span> <code md-src-pos="14315..14328">HelloClient</code>) <span md-src-pos="14330..14342">lo consuman.</span></p>
+   <p md-src-pos="14344..14508"><strong md-src-pos="14344..14353">Nota:</strong> <span md-src-pos="14354..14508">cualquier cambio en las clases generadas o en la implementación del servicio requerirá detener el servidor y volver a ejecutarlo para aplicar los cambios.</span></p>
+   <h2 id="62-ejecutar-el-cliente" md-src-pos="14510..14536">6.2 Ejecutar el cliente</h2>
+   <ul md-src-pos="14538..14908">
+    <li md-src-pos="14538..14624">
+     <p md-src-pos="14540..14624">Con el servidor aún en ejecución, abrir la pestaña del archivo <code md-src-pos="14603..14621">HelloClient.java</code>.</p>
+    </li>
+    <li md-src-pos="14625..14704">
+     <p md-src-pos="14627..14704">Hacer clic en el ícono de ejecución y seleccionar <code md-src-pos="14677..14701">Run HelloClient.main()</code>.</p>
+    </li>
+    <li md-src-pos="14705..14908">
+     <p md-src-pos="14707..14790">Se abrirá otra pestaña de terminal (además de la del servidor) que debería mostrar:</p>
+     <pre class="code-fence" md-src-pos="14794..14908"><div class="code-fence-highlighter-copy-button" data-fence-content="UmVzcHVlc3RhIHNheUhlbGxvOiBIb2xhIEp1YW4hClJlc3B1ZXN0YSBzYXlHb29kYnllOiBBZGnDs3MgSnVhbiEKUHJvY2VzcyBmaW5pc2hlZCB3aXRoIGV4aXQgY29kZSAw">
+  <img class="code-fence-highlighter-copy-button-icon" data-original-src="src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap" src="http://localhost:63342/markdownPreview/1390467018/src/IntegracionSistemas/Clases/04_SOAP_REST/practicas/Practica_wsdl_soap">
+  <span class="tooltiptext">Copy to clipboard</span>
+</div><code md-src-pos="14794..14908"><span md-src-pos="14794..14798"></span><span md-src-pos="14798..14829">Respuesta sayHello: Hola Juan!
+</span><span md-src-pos="14829..14863">Respuesta sayGoodbye: Adiós Juan!
+</span><span md-src-pos="14863..14897">Process finished with exit code 0
+</span><span md-src-pos="14903..14908"></span></code></pre>
+    </li>
+   </ul>
+   <p md-src-pos="14910..15112"><span md-src-pos="14910..14994">Con esto verificamos que el cliente puede conectarse correctamente al servicio SOAP,</span> <span md-src-pos="14995..15112">enviar mensajes según el contrato definido en el WSDL y recibir respuestas válidas de la implementación del servidor.</span></p>
+   <h2 id="63-algunas-modificaciones" md-src-pos="15114..15143">6.3 Algunas modificaciones</h2>
+   <p md-src-pos="15145..15367"><span md-src-pos="15145..15190">Nuestra implementación SOAP ya funciona bien,</span> <span md-src-pos="15191..15259">pero analizando el comportamiento en pruebas de esta implementación,</span> <span md-src-pos="15260..15294">se ha decidido que las operaciones</span> <code md-src-pos="15295..15305">sayHello</code> <span md-src-pos="15306..15307">y</span> <code md-src-pos="15308..15320">sayGoodbye</code><span md-src-pos="15320..15321">,</span> <span md-src-pos="15322..15332">además del</span> <code md-src-pos="15333..15344">firstname</code><span md-src-pos="15344..15345">,</span> <span md-src-pos="15346..15354">pidan el</span> <code md-src-pos="15355..15365">lastname</code><span md-src-pos="15365..15366">.</span></p>
+   <p md-src-pos="15369..15605"><span md-src-pos="15369..15409">También se ha pedido que se compruebe si</span> <code md-src-pos="15410..15421">firstname</code> <span md-src-pos="15422..15423">y</span> <code md-src-pos="15424..15434">lastname</code> <span md-src-pos="15435..15448">llegan vacíos</span> (<span md-src-pos="15450..15457">o nulos</span>)<span md-src-pos="15458..15459">,</span> <span md-src-pos="15460..15565">en cuyo caso el sistema lo detecte y pueda enviar un saludo y despedida que haga esta situación evidente,</span> <span md-src-pos="15566..15578">por ejemplo,</span> "<span md-src-pos="15580..15601">¡Hola usuario anónimo</span>!"<span md-src-pos="15603..15604">.</span></p>
+   <p md-src-pos="15607..15684"><span md-src-pos="15607..15683">En caso de que solo alguno de los nombres esté presente saludar o despedirse</span></p>
+   <ol md-src-pos="15685..15802">
+    <li md-src-pos="15685..15746">si solo <code md-src-pos="15696..15707">firstname</code>, saludar o despedirse coloquialmente,</li>
+    <li md-src-pos="15747..15802">si solo <code md-src-pos="15758..15768">lastname</code>, saludar o despedirse formalmente</li>
+   </ol>
+   <p md-src-pos="15804..15865"><span md-src-pos="15804..15819">Si están ambos,</span> <span md-src-pos="15820..15864">saludar coloquialmente y usar ambos nombres.</span></p>
+  </div>
+ </body>
+</html>
