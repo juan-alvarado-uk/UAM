@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="pr%C3%A1ctica-api-rest-con-fastapi-cliente-python-y-cliente-java-generado">Práctica: API REST con FastAPI, cliente Python y cliente Java generado</h1>
+<h2 id="1-preparaci%C3%B3n-del-entorno-con-conda-para-fastapi-y-cliente-python">1. Preparación del entorno con conda (para FastAPI y cliente Python)</h2>
+<h3 id="11-instalarverificar-instalaci%C3%B3n-de-conda">1.1 Instalar/Verificar instalación de conda</h3>
+<ol>
+<li>
+<p>Abrir una terminal:</p>
+<ul>
+<li>Windows: Anaconda Prompt o terminal.</li>
+<li>macOS / Linux: Terminal.</li>
+</ul>
+</li>
+<li>
+<p>Ejecutar:</p>
+<pre class="hljs"><code><div>conda --version
+</div></code></pre>
+</li>
+</ol>
+<p>Si aparece un número de versión, conda está instalado.</p>
+<p>Si no aparece un número de versión hay que instalar miniconda desde <a href="https://www.anaconda.com/download">aquí</a></p>
+<p><strong>NOTA:</strong> Asegúrense de que es miniconda y no Anaconda porque Anaconda es muy grande y tiene demasiadas cosas que tal vez no necesiten por ahora.</p>
+<p>Usaremos conda para crear un entorno aislado de trabajo, y no estropear el ambiente base (de python) de sus máquinas.</p>
+<hr>
+<h3 id="12-crear-y-activar-el-entorno-de-la-pr%C3%A1ctica">1.2 Crear y activar el entorno de la práctica</h3>
+<pre class="hljs"><code><div>conda create -n fastapi-client -y
+conda activate fastapi-client
+</div></code></pre>
+<p>Con esto tendremos un entorno virtual dedicado a esta práctica (<code>fastapi-client</code>), evitando contaminar otras instalaciones de Python.</p>
+<h3 id="13-instalar-dependencias-dentro-del-entorno">1.3 Instalar dependencias dentro del entorno</h3>
+<pre class="hljs"><code><div>conda install -y fastapi uvicorn requests
+</div></code></pre>
+<p>Esto es para instalar los paquetes necesarios para desarrollar la API y el cliente Python:</p>
+<ul>
+<li>FastAPI (framework web).</li>
+<li>Uvicorn (servidor ASGI).</li>
+<li>Requests (cliente HTTP en Python).</li>
+</ul>
+<hr>
+<h2 id="2-estructura-del-proyecto">2. Estructura del proyecto</h2>
+<p>En la carpeta donde guardarás la práctica, crear la siguiente estructura de directorios:</p>
+<pre class="hljs"><code><div>fastapi-client-practica/
+  server/
+  client/
+</div></code></pre>
+<hr>
+<h2 id="3-implementar-la-api-rest-con-fastapi">3. Implementar la API REST con FastAPI</h2>
+<h3 id="31-definir-la-api-b%C3%A1sica-crud-de-productos">3.1 Definir la API básica (CRUD de productos)</h3>
+<p>Dentro de <code>fastapi-client-practica/server/</code> crear un archivo <code>main.py</code> con el siguiente contenido.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> fastapi <span class="hljs-keyword">import</span> FastAPI, HTTPException
+<span class="hljs-keyword">from</span> pydantic <span class="hljs-keyword">import</span> BaseModel
+<span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> List
+
+app = FastAPI()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span><span class="hljs-params">(BaseModel)</span>:</span>
+    id: int
+    name: str
+    price: float
+
+<span class="hljs-comment"># "Base de datos" en memoria</span>
+products_db: list[Product] = []
+
+<span class="hljs-meta">@app.get("/products", response_model=List[Product])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">list_products</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> products_db
+
+<span class="hljs-meta">@app.get("/products/{product_id}", response_model=Product)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_product</span><span class="hljs-params">(product_id: int)</span>:</span>
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> products_db:
+        <span class="hljs-keyword">if</span> p.id == product_id:
+            <span class="hljs-keyword">return</span> p
+    <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">"Product not found"</span>)
+
+<span class="hljs-meta">@app.post("/products", response_model=Product, status_code=201)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_product</span><span class="hljs-params">(product: Product)</span>:</span>
+    <span class="hljs-keyword">if</span> product.price &lt; <span class="hljs-number">0.0</span>:
+        <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">400</span>, detail=<span class="hljs-string">"Price must be positive"</span>)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> products_db:
+        <span class="hljs-keyword">if</span> p.id == product.id:
+            <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">400</span>, detail=<span class="hljs-string">"Product ID already exists"</span>)
+
+    products_db.append(product)
+    <span class="hljs-keyword">return</span> product
+
+<span class="hljs-meta">@app.put("/products/{product_id}", response_model=Product)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_product</span><span class="hljs-params">(product_id: int, updated: Product)</span>:</span>
+    <span class="hljs-keyword">for</span> idx, p <span class="hljs-keyword">in</span> enumerate(products_db):
+        <span class="hljs-keyword">if</span> p.id == product_id:
+            products_db[idx] = updated
+            <span class="hljs-keyword">return</span> updated
+    <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">"Product not found"</span>)
+
+<span class="hljs-meta">@app.delete("/products/{product_id}", status_code=204)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete_product</span><span class="hljs-params">(product_id: int)</span>:</span>
+    <span class="hljs-keyword">for</span> idx, p <span class="hljs-keyword">in</span> enumerate(products_db):
+        <span class="hljs-keyword">if</span> p.id == product_id:
+            products_db.pop(idx)
+            <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">"Product not found"</span>)
+</div></code></pre>
+<p>Con esto hemos definido un conjunto de endpoints REST (GET, POST, PUT, DELETE) sobre un recurso <code>Product</code>, con validación básica y códigos HTTP adecuados.</p>
+<hr>
+<h3 id="32-ejecutar-el-servidor-fastapi">3.2 Ejecutar el servidor FastAPI</h3>
+<p>Desde <code>fastapi-client-practica</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> server
+uvicorn main:app --reload
+</div></code></pre>
+<p>El servidor quedará en <code>http://127.0.0.1:8000</code>.</p>
+<p>Con esto hemos expuesto la API como un servicio HTTP real que otros clientes podrán consumir.</p>
+<hr>
+<h3 id="33-opcional-explorar-swagger-ui-redoc">3.3 (Opcional) Explorar Swagger UI / ReDoc</h3>
+<ul>
+<li><code>http://127.0.0.1:8000/docs</code> → Swagger UI interactivo.</li>
+<li><code>http://127.0.0.1:8000/redoc</code> → vista tipo documento (ReDoc).</li>
+</ul>
+<p>FastAPI genera automáticamente documentación OpenAPI.</p>
+<hr>
+<h2 id="4-implementar-el-cliente-program%C3%A1tico-en-python">4. Implementar el cliente programático en Python</h2>
+<h3 id="41-cliente-s%C3%ADncrono-con-requests">4.1 Cliente síncrono con requests</h3>
+<p>Dentro de <code>fastapi-client-practica/client/</code> crear un archivo <code>client_sync.py</code> con el siguiente contenido.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> requests
+
+BASE_URL = <span class="hljs-string">"http://127.0.0.1:8000"</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_product</span><span class="hljs-params">()</span>:</span>
+    product = {<span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>, <span class="hljs-string">"name"</span>: <span class="hljs-string">"Laptop"</span>, <span class="hljs-string">"price"</span>: <span class="hljs-number">19999.99</span>}
+    resp = requests.post(<span class="hljs-string">f"<span class="hljs-subst">{BASE_URL}</span>/products"</span>, json=product)
+    print(<span class="hljs-string">"CREATE:"</span>, resp.status_code, resp.json())
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">list_products</span><span class="hljs-params">()</span>:</span>
+    resp = requests.get(<span class="hljs-string">f"<span class="hljs-subst">{BASE_URL}</span>/products"</span>)
+    print(<span class="hljs-string">"LIST:"</span>, resp.status_code, resp.json())
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_product</span><span class="hljs-params">(product_id: int)</span>:</span>
+    resp = requests.get(<span class="hljs-string">f"<span class="hljs-subst">{BASE_URL}</span>/products/<span class="hljs-subst">{product_id}</span>"</span>)
+    print(
+        <span class="hljs-string">f"GET <span class="hljs-subst">{product_id}</span>:"</span>,
+        resp.status_code,
+        resp.json() <span class="hljs-keyword">if</span> resp.headers.get(<span class="hljs-string">"content-type"</span>, <span class="hljs-string">""</span>).startswith(<span class="hljs-string">"application/json"</span>) <span class="hljs-keyword">else</span> resp.text,
+    )
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_product</span><span class="hljs-params">(product_id: int)</span>:</span>
+    updated = {<span class="hljs-string">"id"</span>: product_id, <span class="hljs-string">"name"</span>: <span class="hljs-string">"Laptop Pro"</span>, <span class="hljs-string">"price"</span>: <span class="hljs-number">25999.99</span>}
+    resp = requests.put(<span class="hljs-string">f"<span class="hljs-subst">{BASE_URL}</span>/products/<span class="hljs-subst">{product_id}</span>"</span>, json=updated)
+    print(<span class="hljs-string">"UPDATE:"</span>, resp.status_code, resp.json() <span class="hljs-keyword">if</span> resp.content <span class="hljs-keyword">else</span> <span class="hljs-string">""</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete_product</span><span class="hljs-params">(product_id: int)</span>:</span>
+    resp = requests.delete(<span class="hljs-string">f"<span class="hljs-subst">{BASE_URL}</span>/products/<span class="hljs-subst">{product_id}</span>"</span>)
+    print(<span class="hljs-string">"DELETE:"</span>, resp.status_code)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"---- Creating product ----"</span>)
+    create_product()
+
+    print(<span class="hljs-string">"\n---- Listing products ----"</span>)
+    list_products()
+
+    print(<span class="hljs-string">"\n---- Getting existing product ----"</span>)
+    get_product(<span class="hljs-number">1</span>)
+
+    print(<span class="hljs-string">"\n---- Updating product ----"</span>)
+    update_product(<span class="hljs-number">1</span>)
+    get_product(<span class="hljs-number">1</span>)
+
+    print(<span class="hljs-string">"\n---- Deleting product ----"</span>)
+    delete_product(<span class="hljs-number">1</span>)
+    list_products()
+
+    print(<span class="hljs-string">"\n---- Getting non-existing product (should be 404) ----"</span>)
+    get_product(<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()
+</div></code></pre>
+<p>Con esto tenemos un cliente programático que usa la API (CRUD) mediante peticiones HTTP reales.</p>
+<hr>
+<h3 id="42-ejecutar-el-cliente-python">4.2 Ejecutar el cliente Python</h3>
+<ol>
+<li>
+<p>Dejar corriendo el servidor (<code>uvicorn main:app --reload</code>).</p>
+</li>
+<li>
+<p>En otra terminal:</p>
+<pre class="hljs"><code><div>conda activate fastapi-client
+<span class="hljs-built_in">cd</span> fastapi-client-practica/client
+python client_sync.py
+</div></code></pre>
+</li>
+</ol>
+<p>Se observa el intercambio real de peticiones/respuestas entre el cliente Python y el servidor FastAPI.</p>
+<hr>
+<h2 id="5-exportar-la-especificaci%C3%B3n-openapi-openapijson">5. Exportar la especificación OpenAPI (openapi.json)</h2>
+<p>Con el servidor FastAPI aún corriendo, desde otra terminal (puede ser fuera del entorno conda):</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> fastapi-client-practica
+curl http://127.0.0.1:8000/openapi.json -o openapi.json
+</div></code></pre>
+<p><strong>Propósito:</strong> obtener localmente la descripción formal de la API en formato OpenAPI, que usaremos para generar el cliente Java.</p>
+<hr>
+<h2 id="6-generar-cliente-java-con-openapi-generator">6. Generar cliente Java con OpenAPI Generator</h2>
+<h3 id="61-descargar-openapi-generator-cli-jar">6.1 Descargar OpenAPI Generator CLI (JAR)</h3>
+<p>Ejemplo de descarga:</p>
+<pre class="hljs"><code><div>wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.6.0/openapi-generator-cli-7.6.0.jar -O openapi-generator-cli.jar
+</div></code></pre>
+<p>Esto es para disponer de la herramienta de línea de comandos que transforma OpenAPI en código Java.</p>
+<hr>
+<h3 id="62-generar-el-cliente-java">6.2 Generar el cliente Java</h3>
+<p>Desde <code>fastapi-client-practica</code> (donde está <code>openapi.json</code> y el JAR):</p>
+<p>En Windows (cmd o PowerShell)</p>
+<pre class="hljs"><code><div>java -jar openapi-generator-cli.jar generate ^
+  -i openapi.json ^
+  -g java ^
+  -o java-client
+</div></code></pre>
+<p>En Linux/MacOS</p>
+<pre class="hljs"><code><div>java -jar openapi-generator-cli.jar generate \
+  -i openapi.json \
+  -g java \
+  -o java-client
+</div></code></pre>
+<ul>
+<li><code>-i openapi.json</code>: archivo con la especificación de la API FastAPI.</li>
+<li><code>-g java</code>: tipo de cliente a generar. <a href="https://openapi-generator.tech/docs/generators/">openapi-generator</a></li>
+<li><code>-o java-client</code>: carpeta de salida con el proyecto Maven.</li>
+</ul>
+<p>Con esto tenemos un proyecto Java (con <code>pom.xml</code>) que contiene las clases de modelo y el cliente para llamar a tu API.</p>
+<hr>
+<h2 id="7-instalar-el-cliente-java-en-el-repositorio-maven-local">7. Instalar el cliente Java en el repositorio Maven local</h2>
+<h3 id="71-abrir-el-proyecto-generado-e-instalar-localmente-el-proyecto-del-paso-anterior">7.1 Abrir el proyecto generado e instalar localmente el proyecto del paso anterior</h3>
+<p>Abrir el directorio <code>java-client</code> en IntelliJ. Se detectará que es un proyecto Maven y así lo abrimos. Luego podemos revisar el código. La instalación de este cliente se puede hacer en la línea de comandos, pero la haremos con el maven que tiene IntelliJ IDEA seleccionando del <code>Lifecycle</code> la opción <code>install</code>.</p>
+<p>Esto compila el cliente y lo instala en el repositorio Maven local.</p>
+<p>Con esto permitimos que cualquier otro proyecto Maven de nuestra máquina pueda usar este cliente como dependencia.</p>
+<hr>
+<h2 id="8-crear-un-nuevo-proyecto-java-consumidor-en-intellij-idea">8. Crear un nuevo proyecto Java consumidor en IntelliJ IDEA</h2>
+<h3 id="81-crear-proyecto-maven">8.1 Crear proyecto Maven</h3>
+<ol>
+<li>Abrir IntelliJ IDEA.</li>
+<li>“File → New → Project…”.</li>
+<li>Elegir “Maven”.</li>
+<li>Configurar:
+<ul>
+<li>GroupId: <code>mx.uam.integracion</code>.</li>
+<li>ArtifactId: <code>fastapi-consumer</code>.</li>
+</ul>
+</li>
+<li>Finalizar.</li>
+</ol>
+<p>Con esto tendremos un proyecto separado que actuará como consumidor de la API FastAPI usando el cliente generado.</p>
+<hr>
+<h3 id="82-agregar-dependencia-al-cliente-generado">8.2 Agregar dependencia al cliente generado</h3>
+<ol>
+<li>
+<p>Abrir <code>java-client/pom.xml</code> y anotar:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+</div></code></pre>
+</li>
+<li>
+<p>En el <code>pom.xml</code> del proyecto <code>fastapi-consumer</code>, agregar:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- otras dependencias... --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.openapitools<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>openapi-java-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</div></code></pre>
+</li>
+<li>
+<p>En IntelliJ, recargar Maven (icono de “reload” en la ventana “Maven” o clic derecho → “Maven → Reload project”).</p>
+</li>
+</ol>
+<p>Con esto le decimos a Maven/IntelliJ que este proyecto depende del SDK Java, el generado desde OpenAPI.</p>
+<hr>
+<h2 id="9-consumir-la-api-fastapi-desde-el-proyecto-java">9. Consumir la API FastAPI desde el proyecto Java</h2>
+<h3 id="91-crear-clase-main-que-use-el-cliente">9.1 Crear clase <code>Main</code> que use el cliente</h3>
+<p>En <code>src/main/java</code>, crear paquetes y clase:</p>
+<ul>
+<li>Paquete: <code>mx.uam.integracion</code>.</li>
+<li>Clase: <code>Main</code>.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> mx.uam.integracion;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            org.openapitools.client.ApiClient client = <span class="hljs-keyword">new</span> org.openapitools.client.ApiClient();
+            client.setBasePath(<span class="hljs-string">"http://127.0.0.1:8000"</span>); <span class="hljs-comment">// URL de tu API FastAPI</span>
+            
+            org.openapitools.client.api.DefaultApi api = <span class="hljs-keyword">new</span> org.openapitools.client.api.DefaultApi(client);
+
+            <span class="hljs-comment">// Ejemplo: llamar a GET /products</span>
+            java.util.List&lt;org.openapitools.client.model.Product&gt; products = api.listProductsProductsGet(); 
+
+            System.out.println(<span class="hljs-string">"Productos obtenidos desde FastAPI:"</span>);
+            System.out.println(products);
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></code></pre>
+<hr>
+<h3 id="92-ejecutar-la-integraci%C3%B3n-completa">9.2 Ejecutar la integración completa</h3>
+<ol>
+<li>Asegurarse de que el servidor FastAPI está corriendo (<code>uvicorn main:app --reload</code>).</li>
+<li>En IntelliJ, en el proyecto <code>fastapi-consumer</code>, ejecutar <code>Main.main()</code> (clic derecho → “Run 'Main.main()'”, o clic sobre el icono verde y seleccionar “Run 'Main.main()'”).</li>
+<li>Ver en consola los productos devueltos (al inicio probablemente vacía; se pueden crear productos primero con el cliente Python o con la propia API).</li>
+</ol>
+<p>Con esto hemos probado de extremo a extremo la cadena: FastAPI → OpenAPI → OpenAPI Generator → cliente Java → app Java que consume la API.</p>
+<h2 id="10-modificaciones">10. Modificaciones</h2>
+<ul>
+<li>Hacer que la API responda con error si el precio al crear un producto es negativo.</li>
+<li>En general, hacer que responda con error si los datos no son correctos o faltan.</li>
+<li></li>
+</ul>
+
+</body>
+</html>
