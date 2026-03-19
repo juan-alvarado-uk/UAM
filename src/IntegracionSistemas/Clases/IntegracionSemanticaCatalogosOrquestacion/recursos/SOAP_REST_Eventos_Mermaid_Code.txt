@@ -1,0 +1,32 @@
+---
+config:
+  theme: neutral
+  layout: elk
+---
+flowchart LR
+ subgraph Frontend["Cliente"]
+        email["email"]
+        Cliente["Cliente"]
+  end
+ subgraph Servicios["Servicios"]
+        Carr["Carrito"]
+        Cat["Catálogo"]
+        Noti["Notificaciones"]
+        Pedi["Pedidos"]
+        Log["Logística"]
+        Eventos["Eventos"]
+  end
+ subgraph Facturacion["SOAP"]
+        Fact["Factturación"]
+  end
+    Cliente -- Crear Pedido --> Pedi
+    Cliente -- Agregar productos --> Carr
+    Cliente -- Consultar Catálogo --> Cat
+    Pedi -- Facturar pedido --> Fact
+    Fact -- Pedido facturado --> Pedi
+    Pedi -- Pedido Confirmado --> Eventos
+    Eventos -- "Escuchando eventos de logistica (e.g. Pedido Confirmado)" --> Log
+    Eventos -- "Escuchando eventos para notificar (e.g. Pedido Confirmado, Implica facturación, Envío confirmado)" --> Noti
+    Log -- Envío Confirmado --> Eventos
+    Noti -- Enviar email --> email
+    Pedi -- "Pedido Confirmado (Espere los detalles por correo...)" --> Cliente
