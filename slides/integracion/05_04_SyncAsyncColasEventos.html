@@ -128,15 +128,15 @@
     <section>
       <h2>Integración síncrona</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-thisisengineering-3861970.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5483149.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>En integración síncrona un cliente envía una petición y espera la respuesta para continuar, típico en HTTP/REST.</li><li>Es adecuado cuando se necesita feedback inmediato (consultar saldo, validar credenciales) y la latencia es aceptable y predecible.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Integración síncrona</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cytonn-photography-955405.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Sin embargo, acopla la disponibilidad del cliente y el servidor: si el servicio está caído, la operación falla en ese momento.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-marc-mueller-380769.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -146,14 +146,14 @@
       <h2>Integración asíncrona: colas y eventos</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>En integración asíncrona, un productor envía un mensaje o evento a una cola o bus, y los consumidores lo procesan más tarde sin bloquear al emisor.</li><li>Esto desacopla temporalmente a los sistemas, mejora tolerancia a fallas y permite procesar picos de carga de forma más suave.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-canva-studio-3194518.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/quality-g1788436e8_640.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Integración asíncrona: colas y eventos</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Tecnologías habituales incluyen colas de mensajes, logs de eventos y servicios de mensajería en la nube, pero el concepto se mantiene incluso con herramientas sencillas.</li></ul></div>
-        <div class="image-col"><img src="../../img/young_man_wondering.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-markus-spiske-965345.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -162,43 +162,43 @@
     <section>
       <h2>Actividad – “Clasifica el escenario”</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-markus-spiske-3991793.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-karolina-grabowska-6757693.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>En equipos, etiqueten cada escenario siguiente como “síncrono”, “asíncrono” o “mixto (REST + eventos)” y preparen una justificación de su decisión.</li><li>Discutir dónde cambiarían de enfoque si la carga o los requerimientos de experiencia de usuario aumentan.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Actividad – “Clasifica el escenario”</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/punctuation-marks-g7fe903a86_640.jpg" alt="image" /></div>
-        <div class="text-col"><ol><li><strong>Validar una contraseña</strong> cuando el usuario escribe sus credenciales en el formulario de login.</li><li><strong>Calcular el costo de envío</strong> cuando el usuario introduce su código postal en la pantalla de checkout.</li><li><strong>Registrar un pedido y mostrar confirmación</strong> cuando el usuario presiona “Comprar ahora”.</li></ol></div>
+        <div class="text-col"><ul><li><strong>Validar una contraseña</strong> cuando el usuario escribe sus credenciales en el formulario de login.</li><li><strong>Calcular el costo de envío</strong> cuando el usuario introduce su código postal en la pantalla de checkout.</li><li><strong>Registrar un pedido y mostrar confirmación</strong> cuando el usuario presiona “Comprar ahora”.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-fauxels-3183153.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Actividad – “Clasifica el escenario”</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ol><li><strong>Generar un reporte mensual pesado</strong> de ventas (miles de filas) que tarda varios minutos en calcularse.</li><li><strong>Enviar un correo de bienvenida</strong> después de que un usuario crea su cuenta en la plataforma.</li></ol></div>
+        <div class="image-col"><img src="../../img/pexels-realtoughcandycom-11035396.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Generar un reporte mensual pesado</strong> de ventas (miles de filas) que tarda varios minutos en calcularse.</li><li><strong>Enviar un correo de bienvenida</strong> después de que un usuario crea su cuenta en la plataforma.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Actualizar el stock</strong> cuando se confirma un pago, para evitar sobrevender productos en la tienda en línea.</li><li><strong>Procesar una importación masiva de clientes desde un archivo CSV</strong> subido por un administrador (decenas de miles de registros).</li></ul></div>
         <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Actividad – “Clasifica el escenario”</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/sad_box_face2.jpg" alt="image" /></div>
-        <div class="text-col"><ol><li><strong>Actualizar el stock</strong> cuando se confirma un pago, para evitar sobrevender productos en la tienda en línea.</li><li><strong>Procesar una importación masiva de clientes desde un archivo CSV</strong> subido por un administrador (decenas de miles de registros).</li></ol></div>
+        <div class="image-col"><img src="../../img/3912976.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Mostrar el balance actualizado de una cartera digital</strong> cuando el usuario abre la aplicación.</li><li><strong>Enviar notificaciones push simultáneas</strong> a todos los dispositivos de un usuario cuando se detecta un inicio de sesión desde un país inusual.</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Actividad – “Clasifica el escenario”</h2>
       <div class="slide-two-col">
-        <div class="text-col"><ol><li><strong>Mostrar el balance actualizado de una cartera digital</strong> cuando el usuario abre la aplicación.</li><li><strong>Enviar notificaciones push simultáneas</strong> a todos los dispositivos de un usuario cuando se detecta un inicio de sesión desde un país inusual.</li></ol></div>
-        <div class="image-col"><img src="../../img/angry_man_fist.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Actividad – “Clasifica el escenario”</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5473298.jpg" alt="image" /></div>
-        <div class="text-col"><ol><li><strong>Recalcular recomendaciones personalizadas</strong> (productos, cursos, artículos) cada vez que el usuario completa una compra o ve nuevo contenido.</li></ol></div>
+        <div class="image-col"><img src="../../img/pexels-cytonn-photography-955405.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Recalcular recomendaciones personalizadas</strong> (productos, cursos, artículos) cada vez que el usuario completa una compra o ve nuevo contenido.</li></ul></div>
       </div>
     </section>
     <section>
@@ -208,21 +208,21 @@
       <h2>API-first y event-driven</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>API-first (que ya hemos mencionado) implica diseñar primero los contratos de API (incluyendo semántica) antes de implementar, de modo que sirvan de base común para equipos de desarrollo y stakeholders externos.</li></ul></div>
-        <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/pexels-julia-filirovska-4913769.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>API-first y event-driven</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>La arquitectura dirigida por eventos (event-driven) enfatiza que los cambios significativos del sistema se publican como eventos, que otros servicios observan y manejan de forma reactiva.</li></ul></div>
-        <div class="image-col"><img src="../../img/pexels-anna-shvets-3683053.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/question-mark-g4c3d4d4cd_640.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>API-first y event-driven</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-6804080.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Juntas, estas ideas permiten sistemas más modulares, escalables y alineados con el negocio, pero exigen mayor disciplina en diseño de contratos y en gobernanza.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-270557.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">
