@@ -6,7 +6,7 @@ En empresas grandes, estos portales actúan como “tienda interna” de servici
 También pueden incluir buscadores por dominio de negocio, tags y versiones, y paneles de uso para monitorear consumo por aplicación cliente. 
 
 # Documentación y contratos publicados
-Los portales exponen contratos REST (OpenAPI) o de otros estilos y pueden incluir variantes enriquecidas con semántica (ej. JSON-LD o enlaces a vocabularios). 
+Los portales exponen contratos REST (OpenAPI) o de otros estilos y pueden incluir variantes enriquecidas con semántica (ejemplo: JSON-LD o enlaces a vocabularios). 
 Es normal que compartan porciones de código listos para copiar en varios lenguajes, SDK generados automáticamente y guías para iniciar a usar la API. 
 Para integradores, el portal es la primera fuente para entender límites de uso, formatos, errores y ciclos de vida (versionado, deprecaciones). 
 

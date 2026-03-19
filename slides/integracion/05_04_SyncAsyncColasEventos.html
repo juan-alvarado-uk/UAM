@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+        <style>
+        
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+        }
+        
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        /* ocupar toda la altura de la slide lógica de reveal */
+        height: 100%;
+        box-sizing: border-box;
+      }
+    
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left;
+        /* alinear texto arriba y permitir scroll si se pasa */
+        align-self: flex-start;
+        max-height: 100%;
+        overflow: auto;
+      }
+    
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+    
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+    
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              <h1>Integración de Sistemas</h1>
+            </section>
+    <section>
+      <h1>Síncrono vs asíncrono, colas y eventos</h1>
+    </section>
+    <section>
+      <h1>Integración síncrona</h1>
+    </section>
+    <section>
+      <h2>Integración síncrona</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3861970.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En integración síncrona un cliente envía una petición y espera la respuesta para continuar, típico en HTTP/REST.</li><li>Es adecuado cuando se necesita feedback inmediato (consultar saldo, validar credenciales) y la latencia es aceptable y predecible.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Integración síncrona</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-cytonn-photography-955405.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Sin embargo, acopla la disponibilidad del cliente y el servidor: si el servicio está caído, la operación falla en ese momento.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Integración asíncrona: colas y eventos</h1>
+    </section>
+    <section>
+      <h2>Integración asíncrona: colas y eventos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>En integración asíncrona, un productor envía un mensaje o evento a una cola o bus, y los consumidores lo procesan más tarde sin bloquear al emisor.</li><li>Esto desacopla temporalmente a los sistemas, mejora tolerancia a fallas y permite procesar picos de carga de forma más suave.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-canva-studio-3194518.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Integración asíncrona: colas y eventos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Tecnologías habituales incluyen colas de mensajes, logs de eventos y servicios de mensajería en la nube, pero el concepto se mantiene incluso con herramientas sencillas.</li></ul></div>
+        <div class="image-col"><img src="../../img/young_man_wondering.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Actividad – “Clasifica el escenario”</h1>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-markus-spiske-3991793.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En equipos, etiqueten cada escenario siguiente como “síncrono”, “asíncrono” o “mixto (REST + eventos)” y preparen una justificación de su decisión.</li><li>Discutir dónde cambiarían de enfoque si la carga o los requerimientos de experiencia de usuario aumentan.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/punctuation-marks-g7fe903a86_640.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li><strong>Validar una contraseña</strong> cuando el usuario escribe sus credenciales en el formulario de login.</li><li><strong>Calcular el costo de envío</strong> cuando el usuario introduce su código postal en la pantalla de checkout.</li><li><strong>Registrar un pedido y mostrar confirmación</strong> cuando el usuario presiona “Comprar ahora”.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li><strong>Generar un reporte mensual pesado</strong> de ventas (miles de filas) que tarda varios minutos en calcularse.</li><li><strong>Enviar un correo de bienvenida</strong> después de que un usuario crea su cuenta en la plataforma.</li></ol></div>
+        <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/sad_box_face2.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li><strong>Actualizar el stock</strong> cuando se confirma un pago, para evitar sobrevender productos en la tienda en línea.</li><li><strong>Procesar una importación masiva de clientes desde un archivo CSV</strong> subido por un administrador (decenas de miles de registros).</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li><strong>Mostrar el balance actualizado de una cartera digital</strong> cuando el usuario abre la aplicación.</li><li><strong>Enviar notificaciones push simultáneas</strong> a todos los dispositivos de un usuario cuando se detecta un inicio de sesión desde un país inusual.</li></ol></div>
+        <div class="image-col"><img src="../../img/angry_man_fist.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “Clasifica el escenario”</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5473298.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li><strong>Recalcular recomendaciones personalizadas</strong> (productos, cursos, artículos) cada vez que el usuario completa una compra o ve nuevo contenido.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h1>API-first y event-driven</h1>
+    </section>
+    <section>
+      <h2>API-first y event-driven</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>API-first (que ya hemos mencionado) implica diseñar primero los contratos de API (incluyendo semántica) antes de implementar, de modo que sirvan de base común para equipos de desarrollo y stakeholders externos.</li></ul></div>
+        <div class="image-col"><img src="../../img/sad_box_face.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>API-first y event-driven</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>La arquitectura dirigida por eventos (event-driven) enfatiza que los cambios significativos del sistema se publican como eventos, que otros servicios observan y manejan de forma reactiva.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-anna-shvets-3683053.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>API-first y event-driven</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-6804080.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Juntas, estas ideas permiten sistemas más modulares, escalables y alineados con el negocio, pero exigen mayor disciplina en diseño de contratos y en gobernanza.</li></ul></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+        <style>
+        
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+        }
+        
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        /* ocupar toda la altura de la slide lógica de reveal */
+        height: 100%;
+        box-sizing: border-box;
+      }
+    
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left;
+        /* alinear texto arriba y permitir scroll si se pasa */
+        align-self: flex-start;
+        max-height: 100%;
+        overflow: auto;
+      }
+    
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+    
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+    
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              <h1>Integración de Sistemas</h1>
+            </section>
+    <section>
+      <h1>Catálogos de APIs y términos de uso</h1>
+    </section>
+    <section>
+      <h1>Portales de APIs modernos</h1>
+    </section>
+    <section>
+      <h2>Portales de APIs modernos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Los catálogos modernos evolucionan la idea de UDDI hacia portales de APIs que concentran documentación, ejemplos, consola de pruebas y administración de claves.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5473298.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Portales de APIs modernos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>En empresas grandes, estos portales actúan como “tienda interna” de servicios, donde los equipos descubren qué APIs existen antes de crear una nueva.</li><li>También pueden incluir buscadores por dominio de negocio, tags y versiones, y paneles de uso para monitorear consumo por aplicación cliente.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-karolina-grabowska-6757693.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Documentación y contratos publicados</h1>
+    </section>
+    <section>
+      <h2>Documentación y contratos publicados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-arthur-brognoli-2440530.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Los portales exponen contratos REST (OpenAPI) o de otros estilos y pueden incluir variantes enriquecidas con semántica (ejemplo: JSON-LD o enlaces a vocabularios).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Documentación y contratos publicados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Es normal que compartan porciones de código listos para copiar en varios lenguajes, SDK generados automáticamente y guías para iniciar a usar la API.</li><li>Para integradores, el portal es la primera fuente para entender límites de uso, formatos, errores y ciclos de vida (versionado, deprecaciones).</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-356079.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Términos de uso y políticas</h1>
+    </section>
+    <section>
+      <h2>Términos de uso y políticas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Los términos de uso de APIs definen qué se puede hacer con los datos y con la infraestructura, incluyendo límites de cuota y restricciones legales.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-olya-kobruseva-5428836.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos de uso y políticas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Ejemplos típicos incluyen no exceder ciertas tasas de llamadas, no almacenar datos más allá de cierto nivel permitido, no revender datos ni el acceso a la API, y cumplir normativas de privacidad aplicables.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-arthur-brognoli-2440530.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos de uso y políticas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5474295.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Ignorar estos términos puede tener consecuencias legales o la revocación de claves (o llaves), por lo que deben considerarse parte del diseño de integración.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Actividad – “API detective”</h1>
+    </section>
+    <section>
+      <h2>Actividad – “API detective”</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Cada equipo selecciona un portal público (Microsoft, Google, GitHub, etc.) y localiza: Nombre de la API, enlace a documentación, límites de uso básicos y al menos una cláusula relevante de términos de uso.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-221164.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Actividad – “API detective”</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-3584924.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Compartir las restricciones que impactarían más el diseño de un sistema distribuido (por ejemplo, reintentos, volumen de llamadas, etc.).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>APIs internas, externas y de socios</h1>
+    </section>
+    <section>
+      <h2>APIs internas, externas y de socios</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>En una organización hay APIs sólo internas, APIs públicas abiertas y APIs de socios con acuerdos específicos.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-6804068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>APIs internas, externas y de socios</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-skitterphoto-1128843.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Las internas normalmente priorizan la velocidad de entrega y pueden asumir más conocimiento compartido; las públicas necesitan contratos muy claros, versionado cuidadoso y límites de consumo.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>APIs internas, externas y de socios</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Las APIs de socios incorporan acuerdos de negocio (seguridad, privacidad, etc.) que afectan la forma de hacer la integración y el monitoreo.</li></ul></div>
+        <div class="image-col"><img src="../../img/set-g7a12b2815_640.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ La orquestación se refiere a un componente central (orquestador) que coordina l
 La coreografía, en contraste, reparte la lógica entre los servicios, que reaccionan a eventos sin un controlador central único. 
 
 ![Flujo_distribuido.png](img/Flujo_distribuido.png)
-***
+
 # Actividad – “Role play de orquestación”
 El grupo representa un sistema de e‑commerce. Cada equipo es un servicio (Catálogo, Carrito, Pago, Envíos, Notificaciones).  
 Se elige a una persona como “orquestador” que va indicando a qué “servicio” le toca actuar y qué información recibe y devuelve en cada paso. 

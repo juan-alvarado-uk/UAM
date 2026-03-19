@@ -8,7 +8,7 @@ Una ontología ligera es un conjunto de términos (clases y propiedades) y relac
 
 # Vocabularios y ontologías ligeras
 En la Web Semántica, un vocabulario define un conjunto de términos estándar (por ejemplo, “Person”, “Organization”, “address”) que muchos sistemas pueden reutilizar. 
-Ontologías ligeras como las de [schema.org](schema.org) o modelos de [Core Vocabularies](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/core-vocabularies) permiten describir muchas cosas sin construir un modelo desde cero. 
+Ontologías ligeras como las de [schema.org](https://schema.org/) o modelos de [Core Vocabularies](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/core-vocabularies) permiten describir muchas cosas sin construir un modelo desde cero. 
 En integración de sistemas, o para abarcar todavía más, en el desarrollo de sistemas, adoptar vocabularios conocidos reduce la fricción al compartir datos entre microservicios internos, socios y plataformas públicas. 
 
 

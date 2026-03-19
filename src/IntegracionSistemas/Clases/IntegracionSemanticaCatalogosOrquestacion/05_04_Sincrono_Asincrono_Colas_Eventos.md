@@ -13,25 +13,25 @@ Tecnologías habituales incluyen colas de mensajes, logs de eventos y servicios 
 En equipos, etiqueten cada escenario siguiente como “síncrono”, “asíncrono” o “mixto (REST + eventos)” y preparen una justificación de su decisión. 
 Discutir dónde cambiarían de enfoque si la carga o los requerimientos de experiencia de usuario aumentan. 
 
-1. **Validar una contraseña** cuando el usuario escribe sus credenciales en el formulario de login. 
+- **Validar una contraseña** cuando el usuario escribe sus credenciales en el formulario de login. 
 
-2. **Calcular el costo de envío** cuando el usuario introduce su código postal en la pantalla de checkout. 
+- **Calcular el costo de envío** cuando el usuario introduce su código postal en la pantalla de checkout. 
 
-3. **Registrar un pedido y mostrar confirmación** cuando el usuario presiona “Comprar ahora”. 
+- **Registrar un pedido y mostrar confirmación** cuando el usuario presiona “Comprar ahora”. 
 
-4. **Generar un reporte mensual pesado** de ventas (miles de filas) que tarda varios minutos en calcularse. 
+- **Generar un reporte mensual pesado** de ventas (miles de filas) que tarda varios minutos en calcularse. 
 
-5. **Enviar un correo de bienvenida** después de que un usuario crea su cuenta en la plataforma. 
+- **Enviar un correo de bienvenida** después de que un usuario crea su cuenta en la plataforma. 
 
-6. **Actualizar el stock** cuando se confirma un pago, para evitar sobrevender productos en la tienda en línea. 
+- **Actualizar el stock** cuando se confirma un pago, para evitar sobrevender productos en la tienda en línea. 
 
-7. **Procesar una importación masiva de clientes desde un archivo CSV** subido por un administrador (decenas de miles de registros). 
+- **Procesar una importación masiva de clientes desde un archivo CSV** subido por un administrador (decenas de miles de registros). 
 
-8. **Mostrar el balance actualizado de una cartera digital** cuando el usuario abre la aplicación.
+- **Mostrar el balance actualizado de una cartera digital** cuando el usuario abre la aplicación.
 
-9. **Enviar notificaciones push simultáneas** a todos los dispositivos de un usuario cuando se detecta un inicio de sesión desde un país inusual. 
+- **Enviar notificaciones push simultáneas** a todos los dispositivos de un usuario cuando se detecta un inicio de sesión desde un país inusual. 
 
-10. **Recalcular recomendaciones personalizadas** (productos, cursos, artículos) cada vez que el usuario completa una compra o ve nuevo contenido.
+- **Recalcular recomendaciones personalizadas** (productos, cursos, artículos) cada vez que el usuario completa una compra o ve nuevo contenido.
 
 
 # API-first y event-driven
