@@ -95,9 +95,6 @@ Para el segundo caso, existen validadores específicos de WSDL que:
 
 
 
-
-
-
 # Ejemplo de validación contra los esquemas de WSDL: 
 
 Un editor/validador de WSDL en línea 

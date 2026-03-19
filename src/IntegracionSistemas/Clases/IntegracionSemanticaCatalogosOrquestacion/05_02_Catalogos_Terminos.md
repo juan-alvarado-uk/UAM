@@ -18,7 +18,7 @@ Ignorar estos términos puede tener consecuencias legales o la revocación de cl
 # Actividad – “API detective”
 Cada equipo selecciona un portal público (Microsoft, Google, GitHub, etc.) y localiza:  
 Nombre de la API, enlace a documentación, límites de uso básicos y al menos una cláusula relevante de términos de uso. 
-Compartan en voz alta qué restricciones impactarían más el diseño de un sistema distribuido (por ejemplo, reintentos, volumen de llamadas, etc.). 
+Compartir las restricciones que impactarían más el diseño de un sistema distribuido (por ejemplo, reintentos, volumen de llamadas, etc.). 
 
 # APIs internas, externas y de socios
 En una organización hay APIs sólo internas, APIs públicas abiertas y APIs de socios con acuerdos específicos. 

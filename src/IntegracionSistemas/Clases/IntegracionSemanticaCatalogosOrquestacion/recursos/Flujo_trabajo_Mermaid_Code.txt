@@ -1,0 +1,39 @@
+---
+config:
+  theme: neutral
+---
+flowchart LR
+ subgraph Frontend["Frontend"]
+        FE["Aplicación Web / Móvil"]
+  end
+ subgraph Servicios["Servicios"]
+        Pag["Pagos"]
+        Inv["Inventario"]
+        Env["Envíos"]
+        Carr["Carrito"]
+        Pedi["Pedidos"]
+  end
+    FE -- Agregar item --> Carr
+    Carr -- Eliminar item --> FE
+    Carr -- Comprobar existencia --> Inv
+    Inv -- Existencia en inventario --> Carr
+    FE -- Modificar item --> Carr
+    Carr -- Item modificado --> FE
+    FE -- Crear pedido --> Pedi
+    FE -- Eliminar pedido --> Pedi
+    FE -- Modificar pedido --> Pedi
+    Pedi -- Pedido creado --> FE
+    Pedi -- Pedido eliminado --> FE
+    Pedi -- Pedido modificado --> FE
+    Pedi -- Comprobar existencias --> Inv
+    Inv -- Existencias en inventario --> Pedi
+    FE -- Realizar pago --> Pag
+    Pag -- Transacción --> APIPagos["API Pagos"]
+    APIPagos -- Transacción terminada --> Pag
+    Pag -- Obtener detalles de pedido --> Pedi
+    Pedi -- Detalles de pedido --> Pag
+    Pag -- Programar envío --> Env
+    Env -- Obtener detalles del pedido --> Pedi
+    Pedi -- Detalles del pedido --> Env
+    Env -- Confirmación de envío --> Pag
+    Pag -- Confirmación de pago y envío --> FE
