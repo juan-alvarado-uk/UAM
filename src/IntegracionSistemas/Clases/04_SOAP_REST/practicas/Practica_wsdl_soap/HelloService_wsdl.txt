@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="HelloServiceContract"
+             targetNamespace="http://www.examples.com/wsdl/HelloService.wsdl"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://www.examples.com/wsdl/HelloService.wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <types>
+        <xsd:schema targetNamespace="http://www.examples.com/wsdl/HelloService.wsdl"
+                    elementFormDefault="qualified">
+            <xsd:element name="SayHelloRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="firstName" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SayHelloResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="greeting" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SayGoodbyeRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="firstName" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SayGoodbyeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="farewell" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+
+    <!-- Mensajes para sayHello -->
+    <message name="SayHelloRequest">
+        <part name="parameters" element="tns:SayHelloRequest"/>
+    </message>
+
+    <message name="SayHelloResponse">
+        <part name="greeting" element="tns:SayHelloResponse"/>
+    </message>
+
+    <!-- Mensajes para sayGoodbye -->
+    <message name="SayGoodbyeRequest">
+        <part name="parameters" element="tns:SayGoodbyeRequest"/>
+    </message>
+
+    <message name="SayGoodbyeResponse">
+        <part name="farewell" element="tns:SayGoodbyeResponse"/>
+    </message>
+
+    <!-- PortType con dos operaciones -->
+    <portType name="HelloPortType">
+        <operation name="sayHello">
+            <documentation>Returns a greeting for the given first name.</documentation>
+            <input message="tns:SayHelloRequest"/>
+            <output message="tns:SayHelloResponse"/>
+        </operation>
+
+        <operation name="sayGoodbye">
+            <documentation>Returns a farewell message for the given first name.</documentation>
+            <input message="tns:SayGoodbyeRequest"/>
+            <output message="tns:SayGoodbyeResponse"/>
+        </operation>
+    </portType>
+
+    <!-- Binding document/literal -->
+    <binding name="HelloBinding" type="tns:HelloPortType">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <operation name="sayHello">
+            <soap:operation soapAction="http://www.examples.com/wsdl/HelloService.wsdl/sayHello"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="sayGoodbye">
+            <soap:operation soapAction="http://www.examples.com/wsdl/HelloService.wsdl/sayGoodbye"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <!-- Service concreto -->
+    <service name="HelloService">
+        <documentation>WSDL File for HelloService</documentation>
+        <port name="HelloPort" binding="tns:HelloBinding">
+            <soap:address location="http://localhost:8080/HelloService"/>
+        </port>
+    </service>
+
+</definitions>

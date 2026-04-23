@@ -1,0 +1,774 @@
+{
+  "examenes": [
+    {
+      "titulo": "Examen Final A - SOAP, REST, OpenAPI e Integración",
+      "configuracion": {
+        "duracionMinutos": 120,
+        "totalPreguntas": 25,
+        "puntosPorPregunta": 4
+      },
+      "preguntas": [
+        {
+          "id": "EF1P01",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de comercio electrónico necesita exponer información de pedidos a aplicaciones web y móviles. Se está evaluando usar SOAP o REST para diseñar la API. ¿Cuál de las siguientes afirmaciones describe mejor una diferencia típica entre SOAP y REST en cuanto al formato de los mensajes?",
+          "opciones": [
+            "SOAP suele usar mensajes en JSON sin ningún tipo de envoltura, mientras que REST exige siempre XML con envoltura estándar",
+            "SOAP se apoya típicamente en mensajes XML con un sobre estandarizado, mientras que REST suele usar JSON más ligero sin una envoltura de mensaje fija",
+            "SOAP y REST siempre usan exactamente el mismo formato de mensaje y no hay diferencias en este aspecto",
+            "REST exige que todos los mensajes se envíen en XML con encabezados WS-Security, mientras que SOAP no permite encabezados de seguridad"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. SOAP se basa habitualmente en XML con un sobre estándar (Envelope, Header, Body), mientras que REST suele preferir JSON sin una envoltura fija, lo que produce mensajes más ligeros.",
+          "feedbackIncorrecta": "No es correcto. SOAP suele usar XML con una envoltura estándar, mientras que REST normalmente usa JSON más liviano sin un sobre de mensaje fijo."
+        },
+        {
+          "id": "EF1P02",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una compañía desea diseñar una API para consultar saldos bancarios desde múltiples canales. Se requiere alta escalabilidad y facilidad para balancear carga entre instancias. ¿Qué característica de REST resulta especialmente útil para este objetivo?",
+          "opciones": [
+            "El uso obligatorio de sesiones de servidor stateful para cada cliente",
+            "El principio de interacciones stateless, donde cada petición contiene toda la información necesaria",
+            "La restricción de usar solo un servidor central para todas las peticiones",
+            "La obligación de mantener una conversación de varias fases con contexto en el servidor"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. REST se apoya en interacciones stateless, de modo que cada petición es autosuficiente, lo que facilita el escalado horizontal y el balanceo de carga.",
+          "feedbackIncorrecta": "Incorrecto. La escalabilidad de REST se apoya en interacciones stateless, no en sesiones stateful obligatorias ni en un único servidor central."
+        },
+        {
+          "id": "EF1P03",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una institución del sector salud debe cumplir requisitos estrictos de seguridad y auditoría al intercambiar expedientes entre sistemas. Se está evaluando un servicio basado en SOAP. ¿Cuál es una ventaja relevante de SOAP en cuanto a seguridad para este tipo de escenario?",
+          "opciones": [
+            "SOAP incorpora especificaciones como WS-Security para firma y cifrado a nivel de mensaje, independientes del transporte",
+            "SOAP impide completamente el uso de certificados digitales",
+            "SOAP no permite adjuntar tokens de identidad en los mensajes",
+            "SOAP solo puede protegerse mediante cifrado de la base de datos, no del mensaje"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "SOAP cuenta con WS-Security, que permite firmar y cifrar partes del mensaje XML y adjuntar tokens de identidad a nivel de mensaje, útil en entornos regulados.",
+          "feedbackIncorrecta": "No es correcto. Una ventaja de SOAP es WS-Security, que permite firma y cifrado a nivel de mensaje, no la ausencia de mecanismos de seguridad avanzados."
+        },
+        {
+          "id": "EF1P04",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una organización quiere exponer una API pública para consultar productos desde aplicaciones móviles. Se decide usar REST con JSON. ¿Cuál es una motivación técnica típica para elegir REST+JSON en este caso?",
+          "opciones": [
+            "Los mensajes JSON suelen ser más ligeros y fáciles de consumir desde navegadores y aplicaciones móviles",
+            "REST requiere siempre herramientas pesadas de middleware para poder funcionar",
+            "REST obliga a usar UDDI para descubrir servicios",
+            "REST no permite usar HTTPS para cifrar la comunicación"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. REST con JSON suele producir mensajes ligeros y sencillos de procesar en navegadores y aplicaciones móviles.",
+          "feedbackIncorrecta": "Incorrecto. Una razón común para usar REST+JSON en APIs públicas es la ligereza y simplicidad de los mensajes, no la necesidad de middleware pesado ni el uso de UDDI."
+        },
+        {
+          "id": "EF1P05",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un equipo está definiendo una API REST para gestionar pedidos. Se discute cómo representar los recursos en las URIs. ¿Cuál de las siguientes opciones refleja una buena práctica de modelado de recursos?",
+          "opciones": [
+            "Usar nombres de recursos en plural, como /pedidos y /pedidos/{id}, y dejar que los métodos HTTP expresen la acción",
+            "Usar verbos en las URIs, como /crearPedido y /borrarPedido, independientemente del método HTTP",
+            "Usar una sola URI /servicioPedidos para todas las operaciones, diferenciando la acción con un campo en el cuerpo",
+            "Definir URIs diferentes para cada tipo de cliente, como /pedidosWeb y /pedidosMovil"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Es buena práctica modelar recursos con sustantivos, por ejemplo /pedidos y /pedidos/{id}, y delegar la acción en los métodos HTTP.",
+          "feedbackIncorrecta": "Incorrecto. Las buenas prácticas recomiendan usar sustantivos en las URIs (como /pedidos) y usar los métodos HTTP para indicar la operación, en lugar de verbos en la ruta."
+        },
+        {
+          "id": "EF1P06",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una API REST ofrece un endpoint GET /clientes/{id}. Cuando el cliente solicitado no existe, se debe enviar una respuesta apropiada. ¿Qué combinación de código de estado HTTP y contenido se alinea mejor con las buenas prácticas?",
+          "opciones": [
+            "Devolver 200 OK con un cuerpo vacío sin indicar que no se encontró el recurso",
+            "Devolver 404 Not Found con un cuerpo JSON que describa el error de recurso no encontrado",
+            "Devolver 500 Internal Server Error sin detalles",
+            "Devolver 201 Created indicando que el recurso será creado en el futuro"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. Cuando un recurso no existe, se recomienda devolver 404 Not Found y, además, un cuerpo JSON con detalles del error.",
+          "feedbackIncorrecta": "No es correcto. Para un recurso inexistente se prefiere 404 Not Found y un JSON de error, no 200 vacío ni 500 genérico."
+        },
+        {
+          "id": "EF1P07",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una API REST de facturas, los clientes pueden consultar colecciones muy grandes de registros. Se quiere evitar que un solo llamado GET devuelva miles de elementos a la vez. ¿Qué técnica de diseño se recomienda aplicar sobre la colección /facturas?",
+          "opciones": [
+            "Incluir todas las facturas siempre en una sola respuesta para simplificar",
+            "Implementar paginación usando parámetros de consulta como ?page y ?pageSize",
+            "Obligar a que todos los consumidores descarguen las facturas en archivos comprimidos",
+            "Cambiar el método a POST para que el servidor decida el tamaño de la respuesta sin informar al cliente"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. La paginación mediante parámetros de consulta como ?page y ?pageSize es una práctica común para manejar colecciones grandes.",
+          "feedbackIncorrecta": "Incorrecto. La estrategia recomendada es paginar la colección con parámetros de consulta (por ejemplo, ?page y ?pageSize), no devolver siempre todos los registros en una sola respuesta."
+        },
+        {
+          "id": "EF1P08",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una organización expone una API para consultar catálogos de productos. Muchos clientes consultan los mismos recursos sin que cambien con frecuencia. ¿Qué mecanismo de HTTP puede usarse para reducir la carga del servidor y la latencia percibida por los clientes?",
+          "opciones": [
+            "Evitar por completo el uso de encabezados HTTP estándar",
+            "Usar encabezados de caché como Cache-Control, ETag y Last-Modified para permitir reutilizar respuestas cuando no han cambiado",
+            "Deshabilitar todas las respuestas para peticiones GET",
+            "Enviar siempre respuestas con código 500 para que los clientes reintenten la petición"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Encabezados como Cache-Control, ETag y Last-Modified permiten que clientes y proxies reutilicen respuestas cuando el recurso no ha cambiado, reduciendo carga y latencia.",
+          "feedbackIncorrecta": "No es correcto. Para mejorar desempeño en lecturas frecuentes es conveniente usar encabezados de caché estándar (Cache-Control, ETag, Last-Modified), no deshabilitar GET ni devolver errores."
+        },
+        {
+          "id": "EF1P09",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa desea documentar formalmente una API REST para pagos, incluyendo rutas, parámetros, cuerpos de petición y respuestas. El equipo decide usar la especificación OpenAPI. ¿Cuál es el rol principal de un documento OpenAPI en este contexto?",
+          "opciones": [
+            "Servir únicamente como guía informal sin valor contractual entre equipos",
+            "Actuar como un contrato estructurado que describe la API y puede ser usado por personas y herramientas para integrar sistemas",
+            "Sustituir por completo la necesidad de pruebas de integración",
+            "Reemplazar al protocolo HTTP por un protocolo propietario"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. OpenAPI proporciona un contrato estructurado que describe rutas, métodos, parámetros y esquemas de datos, útil tanto para personas como para herramientas de integración.",
+          "feedbackIncorrecta": "Incorrecto. Un documento OpenAPI funciona como contrato formal de la API, no solo como guía informal, y no reemplaza el uso de HTTP ni las pruebas."
+        },
+        {
+          "id": "EF1P10",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una definición OpenAPI 3 para una API de clientes, se quiere describir que la respuesta de GET /clientes es una lista de objetos Cliente. ¿Cómo se representa normalmente esta situación en la sección de esquema de la respuesta?",
+          "opciones": [
+            "Definiendo un schema de tipo object con un solo cliente y sin indicar que es arreglo",
+            "Usando type: array y un campo items que referencia el esquema Cliente",
+            "Usando únicamente un texto libre en la descripción sin esquema estructurado",
+            "Definiendo múltiples propiedades con nombres cliente1, cliente2, cliente3 en el nivel raíz"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. En OpenAPI, una lista se modela con type: array y items apuntando al esquema que representa cada elemento, como Cliente.",
+          "feedbackIncorrecta": "No es correcto. Una colección en OpenAPI se expresa con type: array e items que describe el tipo de cada elemento, no con propiedades cliente1, cliente2, etc."
+        },
+        {
+          "id": "EF1P11",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un equipo de desarrollo quiere seguir un enfoque API-first para construir una nueva plataforma de reservas. Se decide usar OpenAPI desde el inicio. ¿Cuál de las siguientes secuencias refleja mejor el enfoque API-first?",
+          "opciones": [
+            "Implementar primero el código de la API y después escribir la especificación OpenAPI solo como documentación histórica",
+            "Diseñar y acordar primero la especificación OpenAPI con los consumidores, y luego generar o implementar el código conforme a ese contrato",
+            "Escribir directamente los clientes sin ningún contrato y generar OpenAPI una vez que todo esté en producción",
+            "Configurar primero la base de datos y dejar la definición de la API para el final, sin involucrar a los consumidores"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. API-first implica diseñar y acordar primero la especificación OpenAPI con los consumidores para que el código se genere o implemente respetando ese contrato.",
+          "feedbackIncorrecta": "Incorrecto. En API-first, la especificación OpenAPI se define y acuerda antes de implementar, no después como simple documentación."
+        },
+        {
+          "id": "EF1P12",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de logística compara la manera en que SOAP y REST describen sus interfaces. En el mundo SOAP se usa WSDL. En el mundo REST, ¿qué combinación cumple un papel comparable para describir operaciones y datos?",
+          "opciones": [
+            "Un archivo de texto sin estructura con ejemplos de llamadas",
+            "Una especificación OpenAPI en formato YAML o JSON que documenta paths, métodos y esquemas de datos",
+            "Exclusivamente comentarios en el código fuente del servidor",
+            "Una configuración de firewall sin detalles de la API"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. En REST, una especificación OpenAPI en YAML o JSON describe rutas, métodos, parámetros y esquemas, de forma comparable al rol de WSDL en SOAP.",
+          "feedbackIncorrecta": "No es correcto. El papel de WSDL en SOAP se asemeja al de OpenAPI en REST, no a simples ejemplos sueltos o comentarios de código."
+        },
+        {
+          "id": "EF1P13",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una compañía provee servicios a terceros mediante APIs REST. Para gestionar el acceso de distintos clientes, se definen contratos de uso y límites de consumo. ¿Qué elemento suele formar parte de un portal de APIs moderno para soportar este escenario?",
+          "opciones": [
+            "Una lista de tablas físicas de la base de datos que nadie puede ver",
+            "Documentación de URIs, estructuras de JSON, ejemplos de peticiones y políticas como límites de llamadas por minuto",
+            "Solo un formulario de contacto sin detalles técnicos",
+            "Un catálogo de servicios SOAP sin ninguna relación con las APIs REST"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Un portal de APIs moderno incluye documentación técnica (URIs, métodos, JSON) y políticas como rate limiting, términos de uso y manejo de llaves.",
+          "feedbackIncorrecta": "Incorrecto. Un portal de APIs típico ofrece documentación detallada y políticas de uso, no solo formularios genéricos o listados de tablas internas."
+        },
+        {
+          "id": "EF1P14",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de software quiere distinguir entre APIs internas usadas solo por equipos de la organización y APIs públicas ofrecidas a cualquiera en internet. ¿Cuál afirmación describe correctamente una API interna?",
+          "opciones": [
+            "Es accesible sin autenticación a cualquier usuario externo",
+            "Está destinada a equipos dentro de la organización y suele tener mayor flexibilidad de cambio, pero aun así requiere gobernanza y documentación",
+            "Nunca necesita controles de seguridad porque se usa dentro de la empresa",
+            "Siempre debe ser idéntica a las APIs públicas para evitar confusiones"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Las APIs internas se usan dentro de la organización, pero requieren gobernanza, documentación y seguridad, aunque las políticas de cambio sean más flexibles.",
+          "feedbackIncorrecta": "No es correcto. Una API interna no se expone libremente a externos y debe tener controles, documentación y cierta gobernanza, aunque difiera de las APIs públicas."
+        },
+        {
+          "id": "EF1P15",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un proveedor tecnológico ofrece a sus socios de negocio una API para integrarse con su plataforma. El acceso está limitado a organizaciones con contratos específicos. ¿Cómo se clasificaría este tipo de API?",
+          "opciones": [
+            "API interna",
+            "API de socios (partner API)",
+            "API pública sin restricciones",
+            "API de sistema operativo"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Una API expuesta a organizaciones seleccionadas bajo acuerdos de negocio y políticas específicas se considera una API de socios o partner API.",
+          "feedbackIncorrecta": "Incorrecto. En este escenario se trata de una partner API, no de una API totalmente pública ni de una API interna cerrada."
+        },
+        {
+          "id": "EF1P16",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de análisis de datos debe integrar información de clientes procedente de varios sistemas: CRM, facturación y soporte. El problema principal es que los identificadores y los atributos de cliente no coinciden entre sistemas, y se desea consolidar un \"vista única\" de cada persona. ¿Qué tipo de integración predomina en este caso?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración física de red"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. El reto descrito es consolidar y sincronizar información de clientes, lo que corresponde principalmente a integración de datos.",
+          "feedbackIncorrecta": "Incorrecto. El escenario se centra en unificar y sincronizar datos de clientes, lo cual es un caso de integración de datos, no funcional o semántica."
+        },
+        {
+          "id": "EF1P17",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una pasarela de pagos en línea, un módulo de frontend debe invocar una operación remota para procesar un cargo en la tarjeta de un cliente. El interés principal es coordinar capacidades remotas, no solo copiar tablas. ¿Qué tipo de integración describe mejor este escenario?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración de red física"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Invocar una operación remota de negocio, como procesar un pago, es un ejemplo de integración funcional.",
+          "feedbackIncorrecta": "No es correcto. El foco aquí es coordinar funciones remotas de negocio, por lo que se trata de integración funcional, no de simple integración de datos."
+        },
+        {
+          "id": "EF1P18",
+          "tipo": "opcionmultiple",
+          "enunciado": "Dos sistemas de una misma empresa usan el campo \"cliente\" con significados distintos: en uno incluye personas físicas y morales, en otro solo personas físicas. Se desea alinear el significado para evitar errores al compartir información. ¿Qué tipo de integración está principalmente en juego?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración de red"
+          ],
+          "correcta": [3],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Cuando el problema radica en que los términos tienen significados distintos, se trata de un reto de integración semántica.",
+          "feedbackIncorrecta": "Incorrecto. Este escenario ilustra un problema de significado compartido de términos (semántica), no solo de movimiento de datos o funciones remotas."
+        },
+        {
+          "id": "EF1P19",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una empresa mediana coexisten varios sistemas: ERP, CRM, portal web y una aplicación móvil. Se quiere que un cliente pueda realizar todo el flujo de compra sin notar qué sistema ejecuta cada parte del proceso. ¿Cuál es el objetivo global de la integración de sistemas en este contexto?",
+          "opciones": [
+            "Asegurar que cada sistema se use de forma aislada sin interacción",
+            "Lograr que múltiples aplicaciones se coordinen como si fueran un solo sistema coherente desde la perspectiva del usuario",
+            "Eliminar la necesidad de tener múltiples aplicaciones",
+            "Forzar a todos los sistemas a compartir la misma base de datos física"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. El propósito de la integración es que múltiples aplicaciones se coordinen como un sistema coherente, sin que el usuario perciba qué componente está detrás.",
+          "feedbackIncorrecta": "No es correcto. La integración busca que varios sistemas trabajen de forma coordinada como un sistema coherente para el usuario, no que todos usen la misma base o se mantengan aislados."
+        },
+        {
+          "id": "EF1P20",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un banco necesita mostrar el saldo de una cuenta en tiempo real cuando el usuario abre la aplicación. El cliente debe obtener la respuesta inmediatamente o saber si ocurrió un error. ¿Qué tipo de integración es más apropiado para esta operación de consulta de saldo?",
+          "opciones": [
+            "Integración síncrona, donde el cliente espera la respuesta para continuar",
+            "Integración asíncrona, donde la respuesta puede llegar varios minutos después",
+            "Integración batch nocturna, donde se procesan todas las consultas una vez al día",
+            "Integración exclusivamente basada en eventos, sin posibilidad de consulta directa"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Consultar saldo requiere feedback inmediato para el usuario, por lo que se implementa típicamente como una operación síncrona.",
+          "feedbackIncorrecta": "Incorrecto. La consulta de saldo demanda una respuesta inmediata, por lo que se considera un caso de integración síncrona, no batch ni puramente asíncrono."
+        },
+        {
+          "id": "EF1P21",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una cadena de tiendas debe generar un reporte mensual muy pesado de ventas, que tarda varios minutos en calcularse. Los usuarios solo necesitan recibir una notificación cuando el reporte esté listo para descargar. ¿Qué enfoque de integración se ajusta mejor a este tipo de proceso?",
+          "opciones": [
+            "Integración síncrona, donde el usuario espera en la pantalla hasta que termine el cálculo",
+            "Integración asíncrona mediante colas o eventos, permitiendo que el cálculo se ejecute en segundo plano",
+            "Integración estrictamente manual, sin soporte del sistema",
+            "Integración síncrona con recarga forzada del navegador cada pocos segundos"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Procesos largos como reportes mensuales pesados suelen implementarse de forma asíncrona, usando colas o eventos para no bloquear al usuario.",
+          "feedbackIncorrecta": "No es correcto. Para tareas de larga duración se recomienda integración asíncrona con colas o eventos, no mantener al usuario esperando en una operación síncrona prolongada."
+        },
+        {
+          "id": "EF1P22",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una plataforma en línea envía un correo de bienvenida a cada usuario que crea una cuenta. El correo no es necesario para que el usuario comience a usar el sistema, pero debe enviarse con fiabilidad. ¿Qué tipo de integración es más adecuada para este envío de correos?",
+          "opciones": [
+            "Integración síncrona en la misma petición de creación de cuenta",
+            "Integración asíncrona, publicando un mensaje o evento que un servicio de correo procesará aparte",
+            "Integración batch anual, enviando todos los correos una vez al año",
+            "Integración exclusivamente manual, con un operador enviando correos uno a uno"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. El envío de correos de bienvenida es un ejemplo típico de integración asíncrona, normalmente implementada mediante colas o eventos.",
+          "feedbackIncorrecta": "Incorrecto. El correo de bienvenida suele implementarse como proceso asíncrono, disparado por un evento o mensaje, no como paso bloqueante de la creación de cuenta."
+        },
+        {
+          "id": "EF1P23",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa tecnológica desea adoptar una arquitectura dirigida por eventos (event-driven) para coordinar microservicios. ¿Cuál enunciado describe mejor la idea central de una arquitectura dirigida por eventos?",
+          "opciones": [
+            "Los servicios se comunican únicamente mediante llamadas síncronas directas",
+            "Los componentes publican eventos cuando ocurre algo relevante y otros servicios se suscriben y reaccionan a esos eventos",
+            "Todos los servicios comparten un único repositorio de base de datos y no hay mensajes",
+            "El sistema solo puede operar en modo batch nocturno"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. En una arquitectura dirigida por eventos, los componentes publican eventos sobre cambios relevantes y otros servicios reaccionan a esos eventos de forma desacoplada.",
+          "feedbackIncorrecta": "No es correcto. La esencia de la arquitectura dirigida por eventos es que los servicios publican y consumen eventos, no solo llamadas síncronas directas."
+        },
+        {
+          "id": "EF1P24",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un equipo de arquitectura está definiendo políticas de seguridad para sus APIs REST. Se recomienda aplicar el principio de mínimo privilegio. ¿Qué práctica concreta se alinea con este principio?",
+          "opciones": [
+            "Conceder a todos los tokens acceso completo a todos los recursos para evitar errores de autorización",
+            "Definir roles y alcances específicos de los tokens, de modo que cada consumidor solo pueda acceder a los recursos y operaciones que necesita",
+            "Permitir que cualquier usuario autenticado modifique todos los recursos de la API",
+            "Evitar registrar accesos o errores para simplificar la implementación"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. El principio de mínimo privilegio implica otorgar solo los permisos necesarios, definiendo roles y alcances específicos sobre recursos y operaciones.",
+          "feedbackIncorrecta": "Incorrecto. El mínimo privilegio consiste en limitar permisos a lo estrictamente necesario, no en otorgar acceso total a todos los consumidores."
+        },
+        {
+          "id": "EF1P25",
+          "tipo": "opcionmultiple",
+          "enunciado": "Dos sistemas necesitan intercambiar información sobre productos y se desea que ambos interpreten los campos de la misma manera. Se decide usar un vocabulario estándar y anotar las respuestas JSON con metadatos que indiquen el significado de cada campo. ¿Qué beneficio aporta esta aproximación?",
+          "opciones": [
+            "Reduce el tamaño de los mensajes al mínimo posible",
+            "Ayuda a que distintos sistemas compartan un significado común para los datos, mejorando la integración semántica",
+            "Elimina la necesidad de definir tipos de datos",
+            "Impide que otros sistemas se integren si no usan el mismo lenguaje de programación"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. El uso de vocabularios estándar y anotaciones semánticas ayuda a que los sistemas compartan el mismo significado para los datos, favoreciendo la integración semántica.",
+          "feedbackIncorrecta": "Incorrecto. Esta aproximación busca alinear el significado de los datos entre sistemas (integración semántica), no solamente reducir tamaño de mensajes."
+        }
+      ]
+    },
+    {
+      "titulo": "Examen Final B - Contratos, Patrones y Escenarios de Integración",
+      "configuracion": {
+        "duracionMinutos": 120,
+        "totalPreguntas": 25,
+        "puntosPorPregunta": 4
+      },
+      "preguntas": [
+        {
+          "id": "EF2P01",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una aseguradora expone servicios de consulta de pólizas mediante SOAP a sus socios. Los mensajes contienen un sobre con cabeceras y cuerpo claramente diferenciados. ¿Qué elemento del mensaje SOAP es obligatorio en cada intercambio válido?",
+          "opciones": [
+            "El elemento Header, que contiene siempre la autenticación",
+            "El elemento Body, que contiene el contenido principal del mensaje",
+            "El elemento Fault, que debe estar presente aunque no haya error",
+            "El elemento Attachment, que contiene documentos binarios"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. En un mensaje SOAP, el Body es obligatorio, mientras que Header y Fault son secciones opcionales.",
+          "feedbackIncorrecta": "Incorrecto. El único elemento obligatorio en el sobre SOAP es el Body; Header y Fault solo aparecen cuando son necesarios."
+        },
+        {
+          "id": "EF2P02",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un proveedor de servicios de transporte publica un documento que describe en XML las operaciones disponibles, los mensajes de solicitud y respuesta y los endpoints para conectarse. Los consumidores usan este documento para generar clientes automáticamente. ¿Qué tipo de documento es este en el mundo SOAP?",
+          "opciones": [
+            "Un esquema XSD independiente del servicio",
+            "Un documento WSDL que describe el contrato del servicio web",
+            "Un archivo de configuración del servidor web",
+            "Un archivo de log con ejemplos de tráfico"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. WSDL es el lenguaje basado en XML que describe operaciones, mensajes, tipos de datos y endpoints de un servicio SOAP.",
+          "feedbackIncorrecta": "No es correcto. El documento descrito corresponde a un WSDL, no solo a un XSD aislado ni a un archivo de configuración del servidor."
+        },
+        {
+          "id": "EF2P03",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un banco quiere que sus sistemas internos generen clientes SOAP a partir del contrato de un servicio de pagos sin escribir manualmente todas las clases. ¿Qué ventaja clave proporciona el uso de WSDL con contratos estrictos en este escenario?",
+          "opciones": [
+            "Permite cambiar la estructura de los mensajes sin avisar a los consumidores",
+            "Facilita la generación automática de código de cliente y servidor, así como la validación de mensajes",
+            "Elimina completamente la necesidad de XML",
+            "Evita que se utilicen patrones de seguridad avanzados"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Un WSDL bien definido permite generar código cliente/servidor y validar mensajes, reduciendo errores de integración.",
+          "feedbackIncorrecta": "Incorrecto. La ventaja de contratos estrictos en WSDL es la generación de código y la validación automática, no la libertad para cambiar el mensaje sin coordinación."
+        },
+        {
+          "id": "EF2P04",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una organización pública mantiene servicios SOAP con WS-Security para trámites ciudadanos de alto impacto legal. Estos servicios han sido estables durante años y cumplen regulaciones específicas. ¿Por qué puede ser razonable mantener SOAP en lugar de migrar inmediatamente a REST?",
+          "opciones": [
+            "Porque SOAP siempre es más rápido que cualquier alternativa",
+            "Porque la combinación de contratos WSDL estables y WS-Security satisface requisitos regulatorios y de seguridad de largo plazo",
+            "Porque SOAP no requiere ningún tipo de gobernanza",
+            "Porque REST no puede usar HTTPS para cifrado"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. En entornos regulados con contratos WSDL estables y WS-Security, puede ser razonable mantener servicios SOAP consolidados.",
+          "feedbackIncorrecta": "No es correcto. La razón para conservar SOAP en este contexto es la estabilidad del contrato y el soporte de WS-Security frente a requisitos regulatorios, no un supuesto mayor rendimiento universal."
+        },
+        {
+          "id": "EF2P05",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa detecta que, con el tiempo, ha creado docenas de integraciones directas entre pares de aplicaciones (ventas, inventarios, facturación, reportes), con formatos específicos en cada conexión. ¿Cómo se caracteriza típicamente este tipo de arquitectura de integración?",
+          "opciones": [
+            "Como una arquitectura limpia y fuertemente desacoplada",
+            "Como un esquema de integraciones punto a punto que tiende al \"spaghetti\" de conexiones",
+            "Como una implementación estricta de microservicios desacoplados",
+            "Como una integración exclusivamente basada en eventos estándar"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Las integraciones punto a punto entre muchos sistemas generan un panorama de tipo \"spaghetti\", difícil de mantener y evolucionar.",
+          "feedbackIncorrecta": "Incorrecto. El crecimiento de integraciones directas entre pares suele llevar a una arquitectura de tipo \"spaghetti\", no a una solución fuertemente desacoplada."
+        },
+        {
+          "id": "EF2P06",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una firma de retail decide reorganizar su arquitectura y pasar de integraciones punto a punto a un enfoque basado en servicios de negocio bien definidos. ¿Cuál es el objetivo principal de una arquitectura orientada a servicios (SOA) en este contexto?",
+          "opciones": [
+            "Aumentar el número de conexiones y formatos distintos",
+            "Agrupar la lógica en servicios de negocio con contratos claros y reutilizables",
+            "Eliminar la necesidad de contratos y documentación",
+            "Forzar el uso de un único lenguaje de programación para todos los servicios"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. SOA busca encapsular lógica en servicios de negocio con contratos claros y reutilizables, reduciendo el \"spaghetti\" de integraciones punto a punto.",
+          "feedbackIncorrecta": "No es correcto. La arquitectura orientada a servicios pretende definir servicios de negocio reutilizables con contratos claros, no incrementar conexiones desordenadas."
+        },
+        {
+          "id": "EF2P07",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una startup está creando su primera aplicación de comercio electrónico pequeña. Un solo equipo se encarga de toda la solución y el tráfico esperado es moderado. ¿Qué característica típica tiene una arquitectura monolítica que puede ser ventajosa en este caso?",
+          "opciones": [
+            "Todo se despliega como una sola aplicación, lo que simplifica el desarrollo y el despliegue inicial",
+            "Cada módulo se despliega en su propio servidor, aunque esto complejiza el arranque",
+            "Se obliga a usar múltiples bases de datos distribuidas desde el inicio",
+            "Todos los cambios deben coordinarse con docenas de equipos independientes"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Un monolito se despliega como una sola unidad, lo que simplifica el desarrollo y el despliegue en escenarios pequeños o de baja complejidad.",
+          "feedbackIncorrecta": "Incorrecto. En un sistema pequeño, un monolito bien diseñado simplifica el despliegue al agrupar la lógica en una sola aplicación."
+        },
+        {
+          "id": "EF2P08",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una plataforma de video bajo demanda está creciendo rápidamente. Distintos módulos (catálogo, streaming, facturación, recomendaciones) tienen ritmos de cambio y cargas muy diferentes. Se considera migrar hacia microservicios. ¿Cuál es una ventaja típica de una arquitectura de microservicios en este escenario?",
+          "opciones": [
+            "Obligar a que todos los módulos compartan exactamente la misma base de datos",
+            "Permitir escalar de forma independiente solo los servicios que lo necesitan, como streaming o recomendaciones",
+            "Garantizar que nunca se produzcan fallos de comunicación entre servicios",
+            "Evitar por completo el uso de APIs para integración"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. Los microservicios permiten escalar selectivamente servicios específicos, como streaming o recomendaciones, sin escalar todo el sistema.",
+          "feedbackIncorrecta": "No es correcto. Una ventaja de microservicios es escalar servicios de manera independiente, no compartir obligatoriamente una base de datos única para todo."
+        },
+        {
+          "id": "EF2P09",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una arquitectura de microservicios, cada servicio tiene su propia base de datos y modelo de datos. ¿Qué desafío de integración se vuelve más relevante en este tipo de arquitectura?",
+          "opciones": [
+            "La necesidad de compilar todo en un solo artefacto",
+            "La coordinación de flujos de negocio distribuidos y la consistencia de datos entre servicios",
+            "La imposibilidad de usar APIs REST",
+            "La eliminación completa de problemas de integración"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. La descomposición en servicios independientes con bases de datos propias incrementa la complejidad de coordinación de flujos y consistencia de datos.",
+          "feedbackIncorrecta": "Incorrecto. Un reto importante en microservicios es coordinar flujos distribuidos y gestionar consistencia entre bases de datos independientes."
+        },
+        {
+          "id": "EF2P10",
+          "tipo": "opcionmultiple",
+          "enunciado": "En un sistema de comercio electrónico, el proceso de compra involucra varios servicios: catálogo, carrito, pagos, facturación y envíos. Se plantea usar un componente central que coordine el orden de las llamadas y maneje errores y compensaciones. ¿Cómo se conoce este estilo de coordinación?",
+          "opciones": [
+            "Coreografía basada en eventos sin componente central",
+            "Orquestación, donde un orquestador central controla el flujo entre servicios",
+            "Integración punto a punto sin ninguna coordinación",
+            "Integración batch sincrónica"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Cuando un componente central coordina el flujo entre servicios, se habla de orquestación.",
+          "feedbackIncorrecta": "Incorrecto. La descripción corresponde a orquestación, no a coreografía, ya que hay un componente central que controla el flujo."
+        },
+        {
+          "id": "EF2P11",
+          "tipo": "opcionmultiple",
+          "enunciado": "En otro sistema distribuido, los servicios publican eventos como \"PedidoCreado\" o \"PagoConfirmado\" en un bus, y otros servicios reaccionan sin que exista un controlador central único. ¿Qué término describe mejor esta forma de coordinar el flujo de trabajo?",
+          "opciones": [
+            "Orquestación centralizada",
+            "Coreografía, donde cada servicio reacciona a eventos sin un controlador central",
+            "Integración monolítica",
+            "Procesamiento batch sin notificaciones"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Cuando no hay un orquestador central y los servicios reaccionan a eventos, se habla de coreografía.",
+          "feedbackIncorrecta": "No es correcto. El escenario descrito es de coreografía basada en eventos, no de orquestación con un controlador central."
+        },
+        {
+          "id": "EF2P12",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un proveedor de servicios financieros decide modelar sus APIs REST siguiendo buenas prácticas. Para la operación de actualización completa de una transferencia existente, ¿qué combinación de método HTTP y URI se alinea mejor con el diseño basado en recursos?",
+          "opciones": [
+            "POST /transferencias",
+            "PUT /transferencias/{id}",
+            "GET /transferencias/actualizar",
+            "DELETE /transferencias/{id}/actualizar"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. PUT /transferencias/{id} es una forma típica de representar la actualización completa de un recurso específico de manera idempotente.",
+          "feedbackIncorrecta": "Incorrecto. La convención habitual es usar PUT sobre la URI del recurso que se actualiza, por ejemplo PUT /transferencias/{id}."
+        },
+        {
+          "id": "EF2P13",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una API REST de contratación de servicios ofrece la ruta DELETE /contratos/{id} para eliminar un contrato específico. ¿Qué comportamiento y código de estado se consideran adecuados al eliminar correctamente un contrato existente?",
+          "opciones": [
+            "Devolver 204 No Content indicando que la eliminación fue exitosa sin contenido adicional",
+            "Devolver 201 Created indicando que se creó un nuevo recurso",
+            "Devolver 404 Not Found siempre, aunque el recurso exista",
+            "Devolver 500 Internal Server Error sin detalles"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. Es común devolver 204 No Content tras un DELETE exitoso, indicando que se procesó la solicitud sin incluir un cuerpo en la respuesta.",
+          "feedbackIncorrecta": "No es correcto. Para un DELETE exitoso suele usarse 204 No Content, no 201 Created ni 500 genérico."
+        },
+        {
+          "id": "EF2P14",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un proveedor de servicios en la nube ofrece una API REST para gestionar recursos de infraestructura. Los desarrolladores externos necesitan saber qué URIs existen, qué métodos soportan y qué estructura de JSON deben enviar o esperar. ¿Qué tipo de información debe incluir la documentación de esta API para ser útil?",
+          "opciones": [
+            "Únicamente capturas de pantalla de la consola de administración",
+            "Listados detallados de tablas internas de la base de datos",
+            "Descripción de URIs, métodos HTTP, parámetros, cuerpos y estructuras JSON de respuesta, junto con códigos de estado",
+            "Solo métricas internas de rendimiento del servidor"
+          ],
+          "correcta": [3],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. La documentación útil de una API REST describe URIs, métodos, parámetros, estructuras de JSON y códigos de estado esperados.",
+          "feedbackIncorrecta": "Incorrecto. Los consumidores necesitan detalles sobre URIs, métodos, parámetros y JSON, no solo tablas internas o métricas de rendimiento."
+        },
+        {
+          "id": "EF2P15",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un equipo de integración evalúa cuándo una conexión entre dos sistemas debe considerarse crítica. Entre las opciones siguientes, ¿qué criterio es más apropiado para clasificar una integración como crítica?",
+          "opciones": [
+            "Que utilice el formato XML en lugar de JSON",
+            "Que consuma más ancho de banda que otras integraciones",
+            "Que su falla impacte directamente procesos esenciales del negocio, como facturación o pagos",
+            "Que sea la integración más reciente desde el punto de vista de implementación"
+          ],
+          "correcta": [3],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Una integración se considera crítica cuando su fallo afecta procesos clave del negocio, como facturación o pagos.",
+          "feedbackIncorrecta": "Incorrecto. La criticidad depende del impacto en el negocio (por ejemplo, facturación o pagos), no del formato de datos o la antigüedad de la integración."
+        },
+        {
+          "id": "EF2P16",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de telecomunicaciones debe sincronizar diariamente los datos de clientes entre su CRM y su sistema de facturación. Se ejecutan procesos automáticos que copian y transforman registros entre bases de datos. ¿Qué tipo de integración describe mejor este mecanismo?",
+          "opciones": [
+            "Integración de datos",
+            "Integración funcional",
+            "Integración semántica",
+            "Integración física solamente"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. La sincronización periódica de registros entre bases de datos es un ejemplo típico de integración de datos.",
+          "feedbackIncorrecta": "No es correcto. El escenario se refiere a mover y transformar registros entre sistemas, lo que corresponde a integración de datos."
+        },
+        {
+          "id": "EF2P17",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un sistema de banca digital expone una API REST para realizar transferencias bancarias. El equipo diseña el manejo de errores y quiere seguir buenas prácticas. ¿Cuál de las opciones siguientes refleja un diseño adecuado para los errores?",
+          "opciones": [
+            "Devolver siempre 200 OK con un texto genérico indicando que algo falló",
+            "Usar códigos HTTP adecuados (por ejemplo 400, 404, 409, 500) y cuerpos JSON con un código específico de error y un mensaje descriptivo",
+            "Devolver errores solo mediante códigos 302 de redirección",
+            "Cerrar la conexión sin respuesta cuando ocurre un error inesperado"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Es buena práctica usar códigos HTTP apropiados y cuerpos JSON estructurados con código y mensaje de error para facilitar el tratamiento en los clientes.",
+          "feedbackIncorrecta": "Incorrecto. No se recomienda responder siempre 200 o cerrar la conexión sin explicación; se deben usar códigos HTTP y mensajes de error claros en JSON."
+        },
+        {
+          "id": "EF2P18",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de contenidos digitales decide enriquecer las respuestas JSON de su API pública usando JSON-LD y vocabularios como schema.org. Además de servir a otras aplicaciones, quiere que buscadores y asistentes digitales interpreten mejor su información. ¿Qué ventaja concreta aporta esta decisión?",
+          "opciones": [
+            "Permite validar sus mensajes directamente con XSD",
+            "Mejora la interpretación automática del contenido por parte de motores de búsqueda y agentes inteligentes, al proporcionar contexto semántico",
+            "Obliga a que todas las integraciones usen SOAP",
+            "Elimina la necesidad de documentar la API"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. JSON-LD y vocabularios estandarizados aportan contexto semántico que mejora la interpretación del contenido por sistemas automáticos, además de ayudar a la integración semántica.",
+          "feedbackIncorrecta": "Incorrecto. El uso de JSON-LD y vocabularios ayuda a que buscadores y agentes interpreten mejor el contenido, y a alinear la semántica entre sistemas."
+        },
+        {
+          "id": "EF2P19",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa de mensajería quiere que su sistema de notificaciones móviles envíe alertas a todos los dispositivos de un usuario cuando detecta un inicio de sesión desde un país inusual. El evento de inicio de sesión se detecta en un servicio distinto. ¿Qué estilo de integración facilita la incorporación de nuevos consumidores de este evento en el futuro?",
+          "opciones": [
+            "Integración punto a punto con llamadas directas a cada nuevo consumidor",
+            "Una arquitectura dirigida por eventos donde se publique un evento de seguridad y varios servicios se suscriban",
+            "Una integración monolítica con un solo proceso que haga todo",
+            "Una integración batch mensual con generación de reportes"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Publicar eventos de seguridad y permitir que múltiples servicios se suscriban facilita agregar nuevos consumidores sin modificar el emisor original.",
+          "feedbackIncorrecta": "Incorrecto. Una arquitectura dirigida por eventos permite que nuevos servicios se suscriban a eventos como inicios de sesión sospechosos sin cambiar el servicio emisor."
+        },
+        {
+          "id": "EF2P20",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una organización planea introducir un catálogo de APIs para su ecosistema interno y externo. Entre otros objetivos, desea que los equipos conozcan qué APIs existen y cómo usarlas. ¿Qué elemento es esencial incluir en este catálogo?",
+          "opciones": [
+            "Solo la lista de servidores físicos usados por cada API",
+            "Información sobre la finalidad de cada API, sus URIs principales, métodos soportados, esquemas de datos y políticas de uso",
+            "Únicamente el costo de licenciamiento de cada API",
+            "Un listado de todos los proveedores de hardware de la organización"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. Un catálogo de APIs debe describir qué hace cada API, sus URIs, métodos, estructuras de datos y políticas de uso para que otros equipos puedan integrarse correctamente.",
+          "feedbackIncorrecta": "Incorrecto. El catálogo debe centrarse en la descripción funcional y técnica de las APIs y sus políticas, no solo en detalles de infraestructura o licencias."
+        },
+        {
+          "id": "EF2P21",
+          "tipo": "opcionmultiple",
+          "enunciado": "Un proveedor de pagos decide exponer tanto un servicio SOAP como una API REST para consultar transacciones. Para SOAP entrega un WSDL, y para REST entrega un documento OpenAPI. ¿Qué diferencia práctica suele encontrarse entre estos dos contratos?",
+          "opciones": [
+            "El WSDL describe operaciones, mensajes y tipos en XML, mientras que OpenAPI suele describir recursos y operaciones REST usando JSON o YAML",
+            "El WSDL siempre se implementa con JSON y OpenAPI con XML",
+            "OpenAPI no permite describir esquemas de datos",
+            "El WSDL solo es legible por humanos y OpenAPI solo por máquinas"
+          ],
+          "correcta": [1],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. WSDL describe operaciones y mensajes en XML, mientras que OpenAPI describe recursos, rutas y esquemas típicamente en JSON o YAML.",
+          "feedbackIncorrecta": "Incorrecto. La diferencia común es que WSDL usa XML para describir operaciones, mensajes y tipos, mientras que OpenAPI usa JSON/YAML para describir recursos y esquemas."
+        },
+        {
+          "id": "EF2P22",
+          "tipo": "opcionmultiple",
+          "enunciado": "En una especificación OpenAPI, las operaciones relacionadas con el mismo dominio de negocio (por ejemplo, pedidos) se agrupan mediante un mecanismo para facilitar la navegación y la generación de documentación. ¿Qué elemento de OpenAPI se usa típicamente para este propósito?",
+          "opciones": [
+            "El campo servers",
+            "Los tags, que agrupan operaciones por categoría o dominio",
+            "components/schemas",
+            "securitySchemes"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Los tags en OpenAPI se utilizan para agrupar operaciones relacionadas, por ejemplo todas las operaciones de \"Pedidos\".",
+          "feedbackIncorrecta": "No es correcto. Los tags sirven para agrupar operaciones por dominio, mientras que servers, components y securitySchemes cumplen otros propósitos."
+        },
+        {
+          "id": "EF2P23",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa ofrece una API REST que permite a aplicaciones externas invocar capacidades de negocio como \"crear pedido\" o \"cancelar suscripción\". Los consumidores integran esta API en sus propios sistemas, que se ejecutan en infraestructuras distintas. ¿Qué tipo de integración se está realizando principalmente?",
+          "opciones": [
+            "Integración de datos exclusivamente",
+            "Integración funcional, consumiendo capacidades de negocio remotas expuestas como servicios",
+            "Integración semántica sin llamadas remotas",
+            "Integración física de centros de datos"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Exacto. Invocar operaciones de negocio remotas mediante una API REST es un caso típico de integración funcional.",
+          "feedbackIncorrecta": "Incorrecto. Aquí el foco es consumir capacidades de negocio remotas (crear pedido, cancelar suscripción), lo cual es integración funcional."
+        },
+        {
+          "id": "EF2P24",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una administración pública maneja datos de ciudadanos en varios sistemas: impuestos, salud y educación. Aunque los datos se intercambian mediante integraciones técnicas, cada sistema usa criterios distintos para definir quién es \"ciudadano activo\". ¿Cuál es el principal riesgo de no abordar este problema semántico?",
+          "opciones": [
+            "Mayor consumo de ancho de banda",
+            "Errores en la interpretación de la información, como considerar activo a un ciudadano en un sistema y no en otro",
+            "Incompatibilidad de sistemas operativos",
+            "Mayor velocidad de respuesta en las consultas"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Así es. Sin alinear la semántica, se corre el riesgo de interpretar de forma diferente conceptos como \"ciudadano activo\" en distintos sistemas, generando errores de negocio.",
+          "feedbackIncorrecta": "Incorrecto. El problema principal es la inconsistencia semántica, que puede llevar a interpretaciones contradictorias de conceptos clave entre sistemas."
+        },
+        {
+          "id": "EF2P25",
+          "tipo": "opcionmultiple",
+          "enunciado": "Una empresa está eligiendo entre exponer un servicio crítico como SOAP con WS-Security o como API REST sobre HTTPS con tokens de acceso. ¿Qué aspecto debe analizarse cuidadosamente al comparar estas opciones desde la perspectiva de seguridad?",
+          "opciones": [
+            "Solo el tamaño de los mensajes intercambiados",
+            "Si se requiere seguridad a nivel de mensaje (como WS-Security) o si basta con seguridad a nivel de transporte (HTTPS) y aplicación (tokens)",
+            "Únicamente el número de endpoints disponibles",
+            "La cantidad de memoria RAM del servidor"
+          ],
+          "correcta": [2],
+          "puntos": 4,
+          "feedbackCorrecta": "Correcto. Una diferencia clave es decidir si se necesita seguridad a nivel de mensaje como en WS-Security o si basta con HTTPS y mecanismos de autenticación/autorización de la aplicación.",
+          "feedbackIncorrecta": "Incorrecto. La comparación no se limita al tamaño de mensajes, sino a si se requiere seguridad a nivel de mensaje o basta con seguridad de transporte y aplicación."
+        }
+      ]
+    }
+  ]
+}
