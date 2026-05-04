@@ -275,9 +275,10 @@ class MarkdownToRevealJS:
 
         blocks = self._split_text_buffer_into_blocks()
 
-        max_chars_per_slide = 300
+        max_chars_per_slide = 300  # límite visual aproximado
         max_list_items_per_slide = 9
 
+        # Estado acumulado de la slide actual
         current_blocks: List[Dict[str, Any]] = []
         current_chars = 0
         current_list_items_count = 0
