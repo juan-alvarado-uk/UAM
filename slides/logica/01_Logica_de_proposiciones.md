@@ -82,7 +82,7 @@ Decidir si los siguientes enunciados son proposiciones o no, y por qué:
 - “El usuario ingresó su contraseña.”  
 - “El archivo existe.”  
 - “Hoy es miércoles.”  
-- 
+
 En todas estas frases no se observa, a nivel lógico, ninguna unión explícita con otros enunciados mediante “y”, “o”, “si… entonces…”, etc. 
 
 
@@ -101,9 +101,7 @@ Estas proposiciones **combinan** partes más simples y utilizan **conectivos ló
 1. “La aplicación móvil está actualizada.”  
 2. “La consulta terminó en error o el tiempo de espera fue excedido.”  
 3. “Si se interrumpe la energía eléctrica, el sistema entra en modo de respaldo.”  
-4. “El servicio de correo funciona.”  
-
-Aquí hay que identificar la presencia de conectores del lenguaje natural que indiquen **unión de varias ideas**. 
+4. “El servicio de correo funciona.”   
 
 
 # Representación simbólica de proposiciones
@@ -127,15 +125,13 @@ Estos símbolos permiten escribir en forma breve expresiones como:
 - “Si la contraseña es correcta y la cuenta está activa, entonces se permite el acceso” → se verá más adelante como una expresión con condicional. 
 
 
-## Ejemplos cotidianos
-
-Una situación de la vida cotidiana...
+## Ejemplo
 
 - P: “Hoy hace frío.”  
 - Q: “Está lloviendo.”  
 - R: “La persona lleva paraguas.”  
 
-Al representar enunciados cotidianos de este modo, es más sencillo manipularlos y analizar sus combinaciones, dejando de lado detalles no lógicos del lenguaje natural. 
+Al representar enunciados de este modo, es más sencillo manipularlos y analizar sus combinaciones, dejando de lado detalles no lógicos del lenguaje natural. 
 
 ***
 
