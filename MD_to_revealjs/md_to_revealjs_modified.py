@@ -815,8 +815,7 @@ class MarkdownToRevealJS:
 <body>
 <div class="reveal">
     <div>
-      <img src="{IMAGE_URL_PREFIX2}logos/variacion5Cua.png"  width = "200" alt="Logo">
-      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+      <img src="{IMAGE_URL_PREFIX2}logos/variacion5Cua.png"  width = "100" alt="Logo">
     </div>
   <div class="slides">
 {chr(10).join(slide_html_parts)}

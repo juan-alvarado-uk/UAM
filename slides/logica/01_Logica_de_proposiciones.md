@@ -352,7 +352,7 @@ en la segunda, basta P y, además, al menos una de Q o R.
 Dadas las letras proposicionales P, Q, R:
 
 1. \(P\)  
-2. ¬P  
+2. \(¬P \) 
 3. \((P \land Q)\)  
 4. \((P \lor (¬Q))\)  
 5. \(((P \land Q) \to R)\)  
@@ -435,6 +435,8 @@ Enunciado: “El sistema genera una alerta si la temperatura es mayor a 80 grado
 
 ---
 
+Fórmula:
+
 \[
 ((P \lor Q) \to R)
 \]
@@ -450,6 +452,7 @@ Enunciado: “El sistema está disponible si y solo si la base de datos está di
 - R: “La red está activa.”  
 
 ---
+Fórmula:
 
 \[
 P \leftrightarrow (Q \land R)
@@ -460,6 +463,7 @@ P \leftrightarrow (Q \land R)
 Ejemplo 4.  
 Enunciado: “No es cierto que llueva y haga calor al mismo tiempo.”  
 
+---
 - P: “Llueve.”  
 - Q: “Hace calor.”  
 
@@ -478,6 +482,7 @@ Se niega la conjunción: la frase indica que esa combinación (lluvia y calor si
 Ejemplo 5.  
 Enunciado: “Si estudia y duerme bien, entonces tendrá mejor rendimiento.”  
 
+---
 - P: “Estudia.”  
 - Q: “Duerme bien.”  
 - R: “Tiene mejor rendimiento.”  
@@ -498,12 +503,6 @@ Fórmula:
 2. “Si el usuario acepta los términos, entonces puede continuar y acceder al servicio.”  
 3. “La red no está disponible o el servicio se encuentra en mantenimiento.”  
 4. “El respaldo se completará si y solo si hay suficiente espacio y no ocurre ningún error durante el proceso.”  
-
-En cada caso se espera:
-
-- Identificación de proposiciones simples y su simbolización.  
-- Uso adecuado de ¬, ∧, ∨, →, ↔ y paréntesis. 
-
 
 # Identificación del conectivo principal de una fórmula
 
