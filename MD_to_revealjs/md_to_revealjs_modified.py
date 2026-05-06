@@ -855,8 +855,8 @@ class MarkdownToRevealJS:
         title_overlay = ""
         if kind == "cover":
             # Si quieres poner un título general aquí, puedes hacerlo:
-            title_overlay = '<h1>Integración de Sistemas</h1>'
-            # title_overlay = ""
+            # title_overlay = '<h1>Integración de Sistemas</h1>'
+            title_overlay = ""
         elif kind == "closing":
             title_overlay = '<h2>Gracias</h2>'
 

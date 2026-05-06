@@ -1,0 +1,277 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\geometry{letterpaper,margin=2.5cm}
+
+\begin{document}
+	
+	
+	% Encabezado institucional
+	\begin{center}
+		{\bfseries UNIVERSIDAD AUTÓNOMA METROPOLITANA}\\[4pt]
+		{\bfseries UNIDAD CUAJIMALPA}\\[4pt]
+		DIVISIÓN DE CIENCIAS DE LA COMUNICACIÓN Y DISEÑO\\[4pt]
+		{\bfseries LICENCIATURA EN TECNOLOGÍAS DE LA INFORMACIÓN}
+	\end{center}
+	
+	\vspace{1em}
+	
+	\begin{table}[h]
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{@{}l@{\hspace{0.5cm}}l@{}}
+			PROFESOR: &
+			\underline{\makebox[0.7\textwidth][c]{\MakeUppercase{Juan Manuel Alvarado López}}} \\[0.3em]
+			ADSCRITO AL: &
+			{\small \underline{\makebox[0.7\textwidth][l]{\textbf{DEPARTAMENTO DE TECNOLOGÍAS DE LA INFORMACIÓN}}}} \\[0.3em]
+			OTRO: &
+			\underline{\makebox[0.7\textwidth][c]{ }} \\[0.3em]
+			UEA: &
+			\underline{\makebox[0.7\textwidth][c]{\MakeUppercase{Lógica y Programación Lógica}}} \\[0.3em]
+		\end{tabular}
+	\end{table}
+	
+	
+	% Objetivo
+	\noindent{OBJETIVO:} Conocer los fundamentos de la lógica de proposiciones y de la lógica de primer orden, así como del paradigma de programación lógica.
+	
+	Al final del curso los alumnos serán capaces de:
+	\begin{enumerate}
+		\item Conocer la teoría de la lógica de proposiciones y de la lógica de primer orden y sus aplicaciones como formalismo de representación del conocimiento.
+		\item Conocer los fundamentos de la programación lógica.
+		\item Realizar programas en un lenguaje de programación lógica.
+	\end{enumerate}
+	
+	\vspace{1em}
+	
+	% HORARIO en tabla
+	\section*{Horario}
+	
+	\begin{center}
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Día} & \textbf{Horario} & \textbf{Aula} \\
+			\hline
+			\underline{\makebox[2.8cm][c]{Lunes}} &
+			\underline{\makebox[2.8cm][c]{13--15}} &
+			\underline{\makebox[2.8cm][c]{L-522}} \\
+			\hline
+			\underline{\makebox[2.8cm][c]{Miércoles}} &
+			\underline{\makebox[2.8cm][c]{13--16}} &
+			\underline{\makebox[2.8cm][c]{L-522}} \\
+			\hline
+			%			\underline{\makebox[2.8cm][c]{\ }} &
+			%			\underline{\makebox[2.8cm][c]{\ }} &
+			%			\underline{\makebox[2.8cm][c]{\ }} \\
+			%			\hline
+		\end{tabular}
+	\end{center}
+	
+	
+	\vspace{1em}
+
+
+% Plan de 11 semanas 
+\section*{Plan de trabajo (11 semanas)}
+
+\setlength{\extrarowheight}{2pt}
+\begin{longtable}{|>{\centering\arraybackslash}p{1.2cm}|p{7.2cm}|p{7.2cm}|}
+	\hline
+	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades (resumen)} \\
+	\hline
+	\endfirsthead
+	\hline
+	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades clave (resumen)} \\
+	\hline
+	\endhead
+	
+	1 & 
+	Introducción a la lógica de proposiciones: noción de proposición, conectivos lógicos básicos, fórmulas bien formadas y primeras tablas de verdad. &
+	Identificar qué enunciados son proposiciones e introducir la traducción muy básica desde lenguaje natural a fórmulas proposicionales. \\
+	\hline
+	
+	2 &
+	Tablas de verdad completas y clasificación de fórmulas: tautologías, contradicciones y fórmulas contingentes; consecuencia lógica con tablas de verdad. &
+	Practicar construcción de tablas de verdad, clasificación de fórmulas y detección de contraejemplos; consolidar traducción de enunciados y conectivos. \\
+	\hline
+	
+	3 &
+	Equivalencias lógicas y formas normales: leyes lógicas principales, equivalencia de fórmulas, formas normal conjuntiva (FNC) y disyuntiva (FND). &
+	Realizar tablas de verdad para fórmulas de varias proposiciones y usar equivalencias para simplificar fórmulas y apoyar el análisis de consecuencia lógica. \\
+	\hline
+	
+	4 &
+	Reglas de inferencia en lógica de proposiciones y noción de prueba formal. &
+	Resolver ejercicios con reglas de inferencia (modus ponens, modus tollens, etcétera) y construir demostraciones cortas paso a paso. \\
+	\hline
+	
+	5 &
+	Aplicaciones y límites de la lógica de proposiciones. Introducción a la lógica de primer orden: predicados, constantes, variables y cuantificadores. &
+	Modelar pequeños problemas con lógica proposicional y completar pruebas formales; comenzar a expresar propiedades simples usando predicados y cuantificadores. \\
+	\hline
+	
+	6 &
+	Examen parcial sobre lógica de proposiciones (incluyendo pruebas básicas) y repaso integrador. &
+	Resolver cuestionario de repaso que combine definiciones, tablas de verdad, formas normales y demostraciones breves; análisis de dificultades recurrentes. \\
+	\hline
+	
+	7 &
+	Sintaxis y semántica de la lógica de primer orden: términos, fórmulas bien formadas, alcance de cuantificadores e interpretación en estructuras. &
+	Traducir enunciados simples con ``para todo'' y ``existe'' a fórmulas de primer orden; distinguir constantes, variables y predicados. \\
+	\hline
+	
+	8 &
+	Reglas de inferencia en lógica de primer orden y preparación del método de Herbrand (ideas de instanciación, eliminación de implicaciones y skolemización). &
+	Formalizar relaciones en lógica de primer orden y evaluar la verdad de fórmulas en estructuras finitas; practicar instanciación de fórmulas universales. \\
+	\hline
+	
+	9 &
+	Idea general del método de Herbrand y vínculo con cláusulas de Horn. Introducción a un lenguaje de programación lógica (por ejemplo, Prolog): hechos, reglas y consultas. &
+	Construir universos y bases de Herbrand sencillas; leer pequeños programas lógicos, entenderlos como bases de conocimiento y razonar sobre sus consecuencias. \\
+	\hline
+	
+	10 &
+	Temas suplementarios de programación lógica (por ejemplo, recursión simple y listas, según el nivel del grupo), dudas y repaso general para el examen final. &
+	Resolver ejercicios integrados de lógica proposicional, primer orden, método de Herbrand y programación lógica; escribir un pequeño conjunto de hechos y reglas. \\
+	\hline
+	
+	11 &
+	Examen final integrador. &
+	Aplicación global de los contenidos del curso en un examen final que integre lógica de proposiciones, lógica de primer orden y nociones básicas de programación lógica. \\
+	\hline
+	
+\end{longtable}
+
+
+
+	
+	% Criterios de evaluación (desde el .md)
+	\section*{Criterios e instrumentos de evaluación}
+	
+	La calificación final se integra a partir de los siguientes instrumentos de evaluación. Cada uno mide distintas dimensiones del aprendizaje: la comprensión conceptual, la aplicación práctica y el desempeño individual.
+	
+	\begin{center}
+		\begin{tabular}{|l|p{7cm}|c|}
+			\hline
+			\textbf{Instrumento} & \textbf{Descripción} & \textbf{Porcentaje} \\
+			\hline
+			Tareas & Trabajo individual o colaborativo entregado fuera del horario de clase & 25\% \\
+			\hline
+			Actividades de clase & Ejercicios, prácticas, participación y productos desarrollados durante la sesión & 25\% \\
+			\hline
+			Examen parcial & Evaluación escrita o práctica a mitad del periodo & 25\% \\
+			\hline
+			Examen final & Evaluación escrita o práctica al cierre del periodo & 25\% \\
+			\hline
+			Total & & 100\% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\vspace{0.5em}
+	
+	\noindent\textbf{Calificación mínima aprobatoria.} La calificación mínima aprobatoria es \textbf{6.0 (seis)} en escala de 0 a 10.
+	
+	\noindent\textbf{Equivalencias numéricas:}
+	\begin{itemize}
+		\item NA: 0.0 a < 6.0
+		\item S: 6.0 a < 8.0
+		\item B: 8.0 a < 9.0
+		\item MB: 9.0 a 10.0
+	\end{itemize}
+	
+	\subsection*{Entrega de trabajos y actividades}
+	
+	\begin{itemize}
+		\item Las fechas de entrega se publicarán con anticipación en la plataforma institucional y no serán modificadas salvo causa de fuerza mayor debidamente justificada.
+		\item Los trabajos se entregarán \textbf{exclusivamente en los formatos indicados} (PDF, Word, ZIP u otro especificado) y a través del canal oficial del curso (por ejemplo, la plataforma LMS institucional).
+		\item \textbf{No se aceptarán entregas mediante ligas o vínculos a servicios de almacenamiento en la nube} (Google Drive, OneDrive, Dropbox, etcétera).
+		\item Los trabajos entregados después de la fecha y hora límite no serán considerados para evaluación, salvo circunstancias excepcionales documentadas.
+	\end{itemize}
+	
+	% Política de asistencia (desde el .md)
+	\section*{Política de asistencia}
+	
+	La asistencia regular es un factor determinante en el aprendizaje. El seguimiento de las actividades presenciales, la participación en clase y la interacción entre pares no pueden reemplazarse por otros medios.
+	
+	\subsection*{Requisito mínimo de asistencia}
+	
+	\textbf{Se espera una asistencia regular a las sesiones del curso.} Cuando la asistencia mínima establecida no se cumple, el estudiante deja de ser elegible para consideraciones especiales en entregas extemporáneas, reprogramación de evaluaciones u otros ajustes extraordinarios.
+	
+	\subsection*{Definición de asistencia, retardo y falta}
+	
+	\begin{center}
+		\begin{tabular}{|l|p{8cm}|}
+			\hline
+			\textbf{Condición} & \textbf{Criterio} \\
+			\hline
+			Asistencia & Presente dentro de los primeros 15 minutos de iniciada la sesión \\
+			\hline
+			Retardo & Presente entre el minuto 16 y el minuto 30 de iniciada la sesión \\
+			\hline
+			Falta & Presente después del minuto 30, o no se presenta \\
+			\hline
+			Falta por abandono & Salida del aula sin justificación por más de 20 minutos continuos durante la sesión \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\vspace{0.5em}
+	
+	\noindent 2 retardos equivalen a 1 falta. Se permiten hasta \textbf{3 faltas}. A partir de la cuarta falta, el estudiante pierde el derecho a consideraciones especiales.
+	
+	\subsection*{Faltas justificadas}
+	
+	Las inasistencias por motivos de salud, compromisos institucionales (representación deportiva, cultural o académica) o causas de fuerza mayor deberán notificarse \textbf{antes de la sesión o a más tardar 48 horas después}, acompañadas del documento que las acredite. \textbf{Sin documento de evidencia no se justifica la falta.}
+	
+	% Integridad académica (desde el .md)
+	\section*{Integridad académica: plagio y uso de IA}
+	
+	La formación en este curso busca desarrollar competencias auténticas. La elaboración propia de los trabajos y evaluaciones es parte fundamental de ese proceso.
+	
+	\subsection*{Plagio}
+	
+	Se considera plagio toda reproducción total o parcial de ideas, textos, código fuente, diagramas u otros contenidos de terceros, sin el reconocimiento explícito de la fuente original mediante cita adecuada.
+	
+	\begin{itemize}
+		\item El estudiante es responsable de citar correctamente cualquier fuente consultada, ya sea impresa, digital o generada por herramientas de terceros.
+		\item Los trabajos que presenten indicios de plagio serán reportados y \textbf{no serán tomados en cuenta para efectos de evaluación}, quedando con valor de cero en el instrumento correspondiente.
+	\end{itemize}
+	
+	\subsection*{Uso de herramientas de inteligencia artificial}
+	
+	El uso de herramientas de inteligencia artificial generativa (como ChatGPT, Copilot, Gemini u otras similares) está \textbf{sujeto a las indicaciones específicas de cada actividad}. En términos generales:
+	
+	\begin{itemize}
+		\item \textbf{Uso permitido y declarado:} Las herramientas de IA podrán utilizarse como apoyo para exploración, estructuración o revisión de ideas, siempre que el estudiante declare explícitamente su uso al momento de la entrega.
+		\item \textbf{Uso no permitido:} Queda prohibido presentar como producción propia contenido íntegramente generado por una IA, sin intervención analítica o creativa sustancial del estudiante.
+		\item \textbf{En exámenes:} Queda estrictamente prohibido el uso de cualquier herramienta de IA, navegador web u otro recurso externo no autorizado explícitamente por el docente.
+	\end{itemize}
+	
+	\subsection*{Detección y consecuencias}
+	
+	Se hará uso de las \textbf{herramientas de detección de plagio y contenido generado por IA} disponibles. Si se detecta plagio o uso indebido de IA en un trabajo o actividad evaluable, dicho instrumento \textbf{quedará sin efecto para efectos de calificación} y se registrará con valor de cero, sin posibilidad de reentrega. En casos reincidentes, la situación será reportada a las instancias académicas correspondientes. El uso indebido de dispositivos electrónicos durante exámenes también anula la calificación del examen y será reportado.
+	
+	% Conducta y convivencia (desde el .md)
+	\section*{Conducta y convivencia en el aula}
+	
+	Un ambiente de aprendizaje respetuoso beneficia a todos. Las siguientes normas de convivencia aplican durante todas las sesiones presenciales:
+	
+	\begin{itemize}
+		\item \textbf{Puntualidad:} Se espera la presencia del estudiante al inicio de cada sesión.
+		\item \textbf{Respeto:} Se mantiene un trato respetuoso hacia los compañeros de clase y el personal de la institución en todo momento.
+		\item \textbf{Dispositivos electrónicos:} El uso de computadoras, tabletas y teléfonos inteligentes está \textbf{permitido únicamente con fines académicos} relacionados con la sesión en curso.
+		\item \textbf{Silencio y atención:} Se solicita silenciar notificaciones y evitar conversaciones paralelas que interrumpan la dinámica de la clase.
+		\item \textbf{Cuidado de instalaciones:} El estudiante es responsable de mantener en buen estado el mobiliario, equipo y espacios del aula.
+	\end{itemize}
+	
+	
+	
+\end{document}

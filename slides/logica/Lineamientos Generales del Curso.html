@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Lineamientos Generales del Curso</h1>
+    </section>
+    <section>
+      <h2>1. Datos del Curso</h2>
+      <table>
+        <thead><tr><th>Elemento</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td>Materia</td><td>Lógica y Programación Lógica</td></tr>
+<tr><td>Clave</td><td>450203</td></tr>
+<tr><td>Docente</td><td>Juan Manuel Alvarado López</td></tr>
+<tr><td>Correo institucional</td><td>jalvarado@cua.uam.mx</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>2. Descripción General del Curso</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Conocer los fundamentos de la lógica de proposiciones y de la lógica de primer orden, así como del paradigma de programación lógica.</p></div>
+        <div class="image-col"><img src="../../img/pexels-digital-buggu-374559.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>2. Descripción General del Curso</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Al final del curso los alumnos serán capaces de:</p></div>
+        <div class="image-col"><img src="../../img/pexels-cytonn-photography-955405.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>2. Descripción General del Curso</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3913016.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li>Conocer la teoría de la lógica de proposiciones, y de la lógica de primer orden y sus aplicaciones como formalismo de representación del conocimiento.</li><li>Conocer los fundamentos de la programación lógica.</li><li>Realizar programas en un lenguaje de programación lógica.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>3. Criterios e Instrumentos de Evaluación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/angry_woman.jpg" alt="image" /></div>
+        <div class="text-col"><p>La calificación final se integra a partir de los siguientes instrumentos de evaluación.</p><p>Cada uno mide distintas dimensiones del aprendizaje: la comprensión conceptual, la aplicación práctica y el desempeño individual.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>3. Criterios e Instrumentos de Evaluación</h2>
+      <table>
+        <thead><tr><th>Instrumento</th><th>Descripción</th><th>Porcentaje</th></tr></thead>
+        <tbody>
+          <tr><td>Tareas</td><td>Trabajo individual o colaborativo entregado fuera del horario de clase</td><td>25%</td></tr>
+<tr><td>Actividades de clase</td><td>Ejercicios, prácticas, participación y productos desarrollados durante la sesión</td><td>25%</td></tr>
+<tr><td>Examen Parcial</td><td>Evaluación escrita o práctica a mitad del periodo</td><td>25%</td></tr>
+<tr><td>Examen Final</td><td>Evaluación escrita o práctica al cierre del periodo</td><td>25%</td></tr>
+<tr><td>Total</td><td></td><td>100%</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>3.1 Calificación Mínima Aprobatoria</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-pixabay-60504.jpg" alt="image" /></div>
+        <div class="text-col"><p>La calificación mínima aprobatoria es <strong>6.0 (seis)</strong> en escala de 0 a 10.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Equivalencias numéricas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>NA: 0.0 a &lt; 6.0</li><li>S: 6.0 a &lt; 8.0</li><li>B: 8.0 a &lt; 9.0</li><li>MB: 9.0 a 10.0</li></ul></div>
+        <div class="image-col"><img src="../../img/check-g04b94897b_640.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>3.2 Entrega de Trabajos y Actividades</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Las fechas de entrega se publicarán con anticipación en la plataforma institucional y no serán modificadas salvo causa de fuerza mayor debidamente justificada.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3861951.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>3.2 Entrega de Trabajos y Actividades</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Los trabajos se entregarán <strong>exclusivamente en los formatos indicados</strong> (PDF, Word, ZIP u otro especificado) y a través del canal oficial del curso (ej. plataforma LMS institucional).</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-209717.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>3.2 Entrega de Trabajos y Actividades</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>No se aceptarán entregas mediante ligas o vínculos a servicios de almacenamiento en la nube</strong> (Google Drive, OneDrive, Dropbox, etc.). Este tipo de entrega permite continuar editando el documento después del plazo establecido, lo que compromete la equidad y la integridad del proceso de evaluación.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3913025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>3.2 Entrega de Trabajos y Actividades</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-pixabay-209717.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Los trabajos entregados después de la fecha y hora límite no serán considerados para evaluación, salvo circunstancias excepcionales documentadas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>4. Política de Asistencia</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La asistencia regular es un factor determinante en el aprendizaje.</p><p>El seguimiento de las actividades presenciales, la participación en clase y la interacción entre pares no pueden reemplazarse por otros medios.</p></div>
+        <div class="image-col"><img src="../../img/pexels-pixabay-247791.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>4.1 Requisito Mínimo de Asistencia</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Se espera una asistencia regular a las sesiones del curso.</strong> Cuando la asistencia mínima establecida no se cumple, el estudiante deja de ser elegible para consideraciones especiales en entregas extemporáneas, reprogramación de evaluaciones u otros ajustes que el profesor pudiera otorgar de manera extraordinaria.</p></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-6804068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>4.2 Definición de Asistencia, Retardo y Falta</h2>
+      <table>
+        <thead><tr><th>Condición</th><th>Criterio</th></tr></thead>
+        <tbody>
+          <tr><td>Asistencia</td><td>Presente dentro de los primeros 15 minutos de iniciada la sesión</td></tr>
+<tr><td>Retardo</td><td>Presente entre el minuto 16 y el minuto 30 de iniciada la sesión</td></tr>
+<tr><td>Falta</td><td>Presente después del minuto 30, o no se presenta</td></tr>
+<tr><td>Falta por abandono</td><td>Salida del aula sin justificación por más de 20 minutos continuos durante la sesión</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>4.2 Definición de Asistencia, Retardo y Falta</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>2 retardos equivalen a 1 falta.</strong> Se permiten hasta <strong>3 faltas</strong>.</p><p>A partir de la cuarta falta, el estudiante pierde el derecho a consideraciones especiales.</p></div>
+        <div class="image-col"><img src="../../img/pexels-arthur-brognoli-2440530.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>4.3 Faltas Justificadas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Las inasistencias por motivos de salud, compromisos institucionales (representación deportiva, cultural o académica) o causas de fuerza mayor deberán notificarse <strong>antes de la sesión o a más tardar 48 horas después</strong>, acompañadas del documento que las acredite.</p></div>
+        <div class="image-col"><img src="../../img/attention-g41203481a_640.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>4.3 Faltas Justificadas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Sin documento de evidencia no se justifica la falta.</strong></p></div>
+        <div class="image-col"><img src="../../img/pexels-olya-kobruseva-5428836.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5. Integridad Académica: Plagio y Uso de Inteligencia Artificial</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La formación en este curso busca desarrollar competencias auténticas.</p><p>La elaboración propia de los trabajos y evaluaciones es parte fundamental de ese proceso.</p></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-5474295.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.1 Plagio</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se considera plagio toda reproducción total o parcial de ideas, textos, código fuente, diagramas u otros contenidos de terceros, sin el reconocimiento explícito de la fuente original mediante cita adecuada.</p></div>
+        <div class="image-col"><img src="../../img/checkbox-g558c72338_640.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.1 Plagio</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>El estudiante es responsable de citar correctamente cualquier fuente consultada, ya sea impresa, digital o generada por herramientas de terceros.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-arthur-brognoli-2440530.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.1 Plagio</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-anna-shvets-3683053.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Los trabajos que presenten indicios de plagio serán reportados y <strong>no serán tomados en cuenta para efectos de evaluación</strong>, quedando con valor de cero en el instrumento correspondiente.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.2 Uso de Inteligencia Artificial</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El uso de herramientas de inteligencia artificial generativa (como ChatGPT, Copilot, Gemini u otras similares) está <strong>sujeto a las indicaciones específicas de cada actividad</strong>.</p><p>En términos generales:</p></div>
+        <div class="image-col"><img src="../../img/pexels-lisa-fotios-16129703.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.2 Uso de Inteligencia Artificial</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/angry_man_fist.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Uso permitido y declarado:</strong> Las herramientas de IA podrán utilizarse como apoyo para exploración, estructuración o revisión de ideas, siempre que el estudiante declare explícitamente su uso al momento de la entrega, indicando cómo y en qué parte del trabajo fue empleada.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.2 Uso de Inteligencia Artificial</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/question-mark-g46cab4743_640.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Uso no permitido:</strong> Queda prohibido presentar como producción propia contenido íntegramente generado por una IA, sin intervención analítica o creativa sustancial del estudiante.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.2 Uso de Inteligencia Artificial</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-roman-odintsov-6898856.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>En exámenes:</strong> Queda estrictamente prohibido el uso de cualquier herramienta de IA, navegador web u otro recurso externo no autorizado explícitamente por el docente.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.3 Detección y Consecuencias</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se hará uso de las <strong>herramientas de detección de plagio y contenido generado por IA</strong> disponibles.</p></div>
+        <div class="image-col"><img src="../../img/pexels-olya-kobruseva-5428828.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.3 Detección y Consecuencias</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si se detecta plagio o uso indebido de IA en un trabajo o actividad evaluable, dicho instrumento <strong>quedará sin efecto para efectos de calificación</strong> y se registrará con valor de cero, sin posibilidad de reentrega.</p></div>
+        <div class="image-col"><img src="../../img/pexels-fauxels-3184418.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.3 Detección y Consecuencias</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-thisisengineering-3912478.jpg" alt="image" /></div>
+        <div class="text-col"><p>En casos reincidentes, la situación será reportada a las instancias académicas correspondientes.</p><p>El uso indebido de dispositivos electrónicos durante exámenes también anula la calificación para el examen y también será reportado.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>5.3 Detección y Consecuencias</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-ann-h-2646533.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para los examenes además se hará uso de las herramientas disponibles para identificar conductas sospechosas.</p><p>La intención de estas disposiciones no es sancionar, sino proteger el valor del aprendizaje genuino y la equidad entre todos los participantes del curso.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>6. Conducta y Convivencia en el Aula</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un ambiente de aprendizaje respetuoso beneficia a todos.</p><p>Las siguientes normas de convivencia aplican durante todas las sesiones presenciales.</p></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-3584924.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>6. Conducta y Convivencia en el Aula</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-pixabay-208494.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Puntualidad:</strong> Se espera la presencia del estudiante al inicio de cada sesión.</li><li><strong>Respeto:</strong> Se mantiene un trato respetuoso hacia los compañeros de clase y el personal de la institución en todo momento.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>6. Conducta y Convivencia en el Aula</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Dispositivos electrónicos:</strong> El uso de computadoras, tabletas y teléfonos inteligentes está <strong>permitido únicamente con fines académicos</strong> relacionados con la sesión en curso. Cualquier otro uso durante la clase (redes sociales, mensajería, entretenimiento) queda fuera de lugar.</li></ul></div>
+        <div class="image-col"><img src="../../img/pexels-cottonbro-studio-6803529.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>6. Conducta y Convivencia en el Aula</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/pexels-canva-studio-3153207.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Silencio y atención:</strong> Se solicita silenciar notificaciones y evitar conversaciones paralelas que interrumpan la dinámica de la clase.</li><li><strong>Cuidado de instalaciones:</strong> El estudiante es responsable de mantener en buen estado el mobiliario, equipo y espacios del aula.</li></ul></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
