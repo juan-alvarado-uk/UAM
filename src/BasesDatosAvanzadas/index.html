@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Practica de Logica de Proposiciones</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h2>Práctica de Lógica de Proposiciones</h2>
+<h2>Objetivo de la práctica</h2>
+<p>Esta práctica consolida los conocimientos sobre proposiciones y conectivos lógicos. El objetivo es desarrollar habilidades para:</p>
+<ol>
+<li>Distinguir qué enunciados son proposiciones</li>
+<li>Traducir enunciados en lenguaje natural a fórmulas de lógica de proposiciones</li>
+<li>Identificar el conectivo principal de una fórmula</li>
+</ol>
+<hr>
+<h2>Sección I: Reconocimiento de Proposiciones</h2>
+<h3>Definición</h3>
+<p>Una <strong>proposición</strong> es un enunciado declarativo que puede ser calificado como verdadero o falso, pero no ambos simultáneamente. Las proposiciones transmiten información que puede evaluarse en términos de su valor de verdad.</p>
+<h3>Características de las proposiciones</h3>
+<ul>
+<li>Expresan hechos, afirmaciones o negaciones concretas</li>
+<li>Tienen exactamente un valor de verdad: verdadero (V) o falso (F)</li>
+<li>No pueden ser preguntas, órdenes, exclamaciones ni expresiones ambiguas</li>
+</ul>
+<hr>
+<h3>Ejemplos demostrativos</h3>
+<p><strong>Enunciados que SÍ son proposiciones:</strong></p>
+<ol>
+<li>“El sistema operativo Linux es de código abierto” → Es proposición (puede verificarse como verdadera)</li>
+<li>“7 es un número primo” → Es proposición (tiene valor de verdad definido)</li>
+<li>“La autenticación de dos factores mejora la seguridad” → Es proposición (afirmación verificable)</li>
+<li>“El protocolo HTTP opera en el puerto 80” → Es proposición (hecho técnico verificable)</li>
+</ol>
+<hr>
+<p><strong>Enunciados que NO son proposiciones:</strong></p>
+<ol>
+<li>“¿Qué es una base de datos?” → No es proposición (es una pregunta)</li>
+<li>“Instala el antivirus ahora” → No es proposición (es una orden)</li>
+<li>“¡Qué rápida es esta conexión!” → No es proposición (es una exclamación)</li>
+<li>“x + 5 &gt; 10” → No es proposición simple (depende del valor de x; es predicado)</li>
+<li>“Este programa es bueno” → No es proposición clara (ambigüedad en “bueno”)</li>
+</ol>
+<hr>
+<h3>Ejercicios Parte I.A: Identificación de proposiciones</h3>
+<p><strong>Instrucciones:</strong> Indica si cada enunciado es proposición (P) o no es proposición (NP). Justifica brevemente tu respuesta.</p>
+<ol>
+<li>“Python es un lenguaje de programación interpretado”</li>
+<li>“¿El algoritmo de ordenamiento burbuja tiene complejidad O(n²)?”</li>
+<li>“Configura el enrutador con la dirección IP 192.168.1.1”</li>
+<li>“La memoria RAM es volátil”</li>
+<li>“Un servidor web debería tener alta disponibilidad”</li>
+<li>“2 + 2 = 5”</li>
+<li>“¡Cuidado con el desbordamiento de buffer!”</li>
+<li>“Si n es par, entonces n es divisible por 2”</li>
+<li>“Todos los virus informáticos son maliciosos”</li>
+<li>“x es mayor que y”</li>
+</ol>
+<hr>
+<h3>Ejercicios Parte I.B: Construcción de proposiciones</h3>
+<p><strong>Instrucciones:</strong> Escribe 5 proposiciones relacionadas con Tecnologías y Sistemas de Información. Verifica que cada enunciado pueda ser verdadero o falso.</p>
+<p><strong>Ejemplo:</strong> “Un sistema de archivos distribuido permite acceder a datos desde múltiples nodos de red”</p>
+<p><strong>Espacios para tus proposiciones:</strong></p>
+<ul>
+<li>1 _______________________________________________</li>
+<li>2 _______________________________________________</li>
+<li>3 _______________________________________________</li>
+<li>4 _______________________________________________</li>
+<li>5 _______________________________________________</li>
+</ul>
+<h2>Sección II: Conectivos Lógicos y Formalización</h2>
+<h3>Definición de conectivos lógicos</h3>
+<p>Los <strong>conectivos lógicos</strong> son operadores que permiten construir proposiciones compuestas a partir de proposiciones simples. Cada conectivo tiene reglas específicas para determinar el valor de verdad de la proposición resultante.</p>
+<hr>
+<h3>Conectivos básicos</h3>
+<table>
+<thead>
+<tr>
+<th>Conectivo</th>
+<th>Símbolo</th>
+<th>Nombre</th>
+<th>Ejemplo en lenguaje natural</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Negación</td>
+<td>¬</td>
+<td>“no”, “no es cierto que”</td>
+<td>“No está lloviendo”</td>
+</tr>
+<tr>
+<td>Conjunción</td>
+<td>∧</td>
+<td>“y”, “pero”, “además”</td>
+<td>“Llueve y hace frío”</td>
+</tr>
+<tr>
+<td>Disyunción</td>
+<td>∨</td>
+<td>“o”</td>
+<td>“Estudiamos o descansamos”</td>
+</tr>
+<tr>
+<td>Condicional</td>
+<td>→</td>
+<td>“si…entonces”, “implica”</td>
+<td>“Si estudias, apruebas”</td>
+</tr>
+<tr>
+<td>Bicondicional</td>
+<td>↔</td>
+<td>“si y solo si”, “equivale a”</td>
+<td>“Apruebas si y solo si estudias”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Ejemplos de formalización</h3>
+<p><strong>Definamos las variables proposicionales:</strong></p>
+<ul>
+<li>p: “El usuario está autenticado”</li>
+<li>q: “El sistema permite el acceso”</li>
+<li>r: “Hay registro en el log”</li>
+</ul>
+<hr>
+<p><strong>Ejemplos de traducción:</strong></p>
+<ol>
+<li>
+<p>“El usuario no está autenticado”<br>
+<strong>Formalización:</strong> ¬p</p>
+</li>
+<li>
+<p>“El usuario está autenticado y el sistema permite el acceso”<br>
+<strong>Formalización:</strong> p ∧ q</p>
+</li>
+<li>
+<p>“Si el usuario está autenticado, entonces el sistema permite el acceso”<br>
+<strong>Formalización:</strong> p → q</p>
+</li>
+<li>
+<p>“El sistema permite el acceso si y solo si el usuario está autenticado”<br>
+<strong>Formalización:</strong> q ↔ p</p>
+</li>
+<li>
+<p>“El usuario está autenticado o hay registro en el log”<br>
+<strong>Formalización:</strong> p ∨ r</p>
+</li>
+<li>
+<p>“No es cierto que el usuario esté autenticado y el sistema permita el acceso”<br>
+<strong>Formalización:</strong> ¬(p ∧ q)</p>
+</li>
+<li>
+<p>“Si el usuario no está autenticado, entonces el sistema no permite el acceso”<br>
+<strong>Formalización:</strong> ¬p → ¬q</p>
+</li>
+</ol>
+<h3>Ejemplo de la vida cotidiana</h3>
+<p><strong>Situación:</strong> En una cafetería</p>
+<ul>
+<li>p: “Tengo dinero suficiente”</li>
+<li>q: “Hay café disponible”</li>
+<li>r: “Compro café”</li>
+</ul>
+<p><strong>Enunciados:</strong></p>
+<ol>
+<li>
+<p>“Compro café si tengo dinero suficiente y hay café disponible”</p>
+<ul>
+<li>(p ∧ q) → r</li>
+</ul>
+</li>
+<li>
+<p>“Si no hay café disponible, entonces no compro café”</p>
+<ul>
+<li>¬q → ¬r</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>Ejercicios Parte II.A: Traducción de lenguaje natural a fórmulas</h3>
+<p><strong>Variables proposicionales para sistemas de información:</strong></p>
+<ul>
+<li>p: “El servidor está activo”</li>
+<li>q: “La red está disponible”</li>
+<li>r: “Los usuarios pueden conectarse”</li>
+<li>s: “Se registra actividad en el sistema”</li>
+</ul>
+<hr>
+<p><strong>Instrucciones:</strong> Traduce cada enunciado a una fórmula lógica usando las variables proporcionadas.</p>
+<ol>
+<li>
+<p>“El servidor está activo y la red está disponible”</p>
+</li>
+<li>
+<p>“Si el servidor está activo, entonces los usuarios pueden conectarse”</p>
+</li>
+<li>
+<p>“Los usuarios pueden conectarse si y solo si el servidor está activo y la red está disponible”</p>
+</li>
+<li>
+<p>“No es cierto que el servidor esté activo y la red esté disponible”</p>
+</li>
+<li>
+<p>“Si la red no está disponible, entonces los usuarios no pueden conectarse”</p>
+</li>
+<li>
+<p>“El servidor está activo o se registra actividad en el sistema”</p>
+</li>
+<li>
+<p>“Si el servidor está activo y la red está disponible, entonces los usuarios pueden conectarse y se registra actividad”</p>
+</li>
+<li>
+<p>“No es cierto que si el servidor está activo, entonces los usuarios pueden conectarse”</p>
+</li>
+<li>
+<p>“El servidor está activo pero los usuarios no pueden conectarse”</p>
+</li>
+<li>
+<p>“Ni el servidor está activo ni la red está disponible”</p>
+</li>
+</ol>
+<h3>Ejercicios Parte II.B: Formalización con contexto de redes</h3>
+<p><strong>Define tus propias variables proposicionales basadas en el siguiente contexto:</strong></p>
+<p>“En una arquitectura de red, el enrutador principal gestiona el tráfico. Si el enrutador está operativo y no hay congestión en la red, entonces los paquetes se transmiten correctamente. Los paquetes se pierden si hay congestión o el enrutador presenta errores.”</p>
+<hr>
+<p><strong>Instrucciones:</strong></p>
+<ol>
+<li>Identifica al menos 4 proposiciones simples</li>
+<li>Asigna variables (p, q, r, s…)</li>
+<li>Formaliza las dos afirmaciones principales del párrafo</li>
+</ol>
+<p><strong>Tu solución:</strong></p>
+<p>Variables:</p>
+<ul>
+<li>p: _______________________________________________</li>
+<li>q: _______________________________________________</li>
+<li>r: _______________________________________________</li>
+<li>s: _______________________________________________</li>
+</ul>
+<p>Formalizaciones:</p>
+<ul>
+<li>1 _______________________________________________</li>
+<li>2 _______________________________________________</li>
+</ul>
+<h2>Sección III: Identificación del Conectivo Principal</h2>
+<h3>Definición</h3>
+<p>El <strong>conectivo principal</strong> de una fórmula es el último operador que se aplica al evaluar la expresión completa. Determina la estructura fundamental de la proposición compuesta.</p>
+<h3>Reglas de jerarquía y precedencia</h3>
+<p>La jerarquía de operadores (de menor a mayor precedencia):</p>
+<ol>
+<li>Bicondicional (↔)</li>
+<li>Condicional (→)</li>
+<li>Disyunción (∨)</li>
+<li>Conjunción (∧)</li>
+<li>Negación (¬)</li>
+</ol>
+<p><strong>Nota importante:</strong> Los paréntesis alteran la precedencia natural y deben respetarse siempre.</p>
+<h3>Estrategia para identificar el conectivo principal</h3>
+<ol>
+<li>Localiza el conectivo que NO está dentro de paréntesis</li>
+<li>Si hay varios, el de menor precedencia es el principal</li>
+<li>Si hay varios del mismo tipo al mismo nivel, considera el último (de derecha a izquierda para →, de izquierda a derecha para los demás)</li>
+</ol>
+<hr>
+<h3>Ejemplos demostrativos</h3>
+<p><strong>Ejemplo 1:</strong> p ∧ q → r</p>
+<p><strong>Análisis:</strong></p>
+<ul>
+<li>Tenemos conjunción (∧) y condicional (→)</li>
+<li>El condicional tiene menor precedencia</li>
+<li><strong>Conectivo principal:</strong> → (condicional)</li>
+<li><strong>Lectura:</strong> “Si (p y q), entonces r”</li>
+</ul>
+<hr>
+<p><strong>Ejemplo 2:</strong> ¬p ∨ (q ∧ r)</p>
+<p><strong>Análisis:</strong></p>
+<ul>
+<li>Tenemos negación (¬), disyunción (∨) y conjunción (∧)</li>
+<li>La conjunción está dentro de paréntesis, se evalúa primero</li>
+<li>Entre ¬p y ∨, la disyunción es el conectivo principal</li>
+<li><strong>Conectivo principal:</strong> ∨ (disyunción)</li>
+<li><strong>Lectura:</strong> “(no p) o (q y r)”</li>
+</ul>
+<hr>
+<p><strong>Ejemplo 3:</strong> (p → q) ∧ (r → s)</p>
+<p><strong>Análisis:</strong></p>
+<ul>
+<li>Ambos condicionales están dentro de paréntesis</li>
+<li>La conjunción conecta las dos subexpresiones</li>
+<li><strong>Conectivo principal:</strong> ∧ (conjunción)</li>
+<li><strong>Lectura:</strong> “(Si p entonces q) y (si r entonces s)”</li>
+</ul>
+<hr>
+<p><strong>Ejemplo 4:</strong> ¬(p ∨ q) → r</p>
+<p><strong>Análisis:</strong></p>
+<ul>
+<li>La disyunción está dentro de paréntesis con negación</li>
+<li>El condicional conecta ¬(p ∨ q) con r</li>
+<li><strong>Conectivo principal:</strong> → (condicional)</li>
+<li><strong>Lectura:</strong> “Si no es cierto que (p o q), entonces r”</li>
+</ul>
+<hr>
+<p><strong>Ejemplo 5:</strong> p ↔ (q → r)</p>
+<p><strong>Análisis:</strong></p>
+<ul>
+<li>El condicional está dentro de paréntesis</li>
+<li>El bicondicional conecta p con toda la expresión (q → r)</li>
+<li><strong>Conectivo principal:</strong> ↔ (bicondicional)</li>
+<li><strong>Lectura:</strong> “p si y solo si (si q entonces r)”</li>
+</ul>
+<hr>
+<h3>Ejercicios Parte III.A: Identificar conectivo principal</h3>
+<p><strong>Instrucciones:</strong> Para cada fórmula, identifica el conectivo principal y justifica brevemente tu respuesta.</p>
+<ol>
+<li>
+<p>p ∨ q ∧ r</p>
+</li>
+<li>
+<p>(p ∨ q) ∧ r</p>
+</li>
+<li>
+<p>¬p → q</p>
+</li>
+<li>
+<p>p → (q ∨ r)</p>
+</li>
+<li>
+<p>(p → q) ∨ (r → s)</p>
+</li>
+<li>
+<p>¬(p ∧ q) ∨ r</p>
+</li>
+<li>
+<p>p ∧ q → r ∨ s</p>
+</li>
+<li>
+<p>(p ↔ q) → r</p>
+</li>
+<li>
+<p>p → q → r</p>
+</li>
+<li>
+<p>¬p ∨ ¬q ∧ r</p>
+</li>
+</ol>
+<hr>
+<h3>Ejercicios Parte III.B: Análisis completo de fórmulas</h3>
+<p><strong>Instrucciones:</strong> Para cada fórmula, realiza lo siguiente:</p>
+<ol>
+<li>Identifica el conectivo principal</li>
+<li>Identifica las subexpresiones que conecta</li>
+<li>Escribe una lectura en lenguaje natural aproximada</li>
+</ol>
+<hr>
+<p><strong>Ejemplo resuelto:</strong></p>
+<p><strong>Fórmula:</strong> (p ∧ q) → (r ∨ s)</p>
+<ol>
+<li><strong>Conectivo principal:</strong> → (condicional)</li>
+<li><strong>Subexpresiones:</strong>
+<ul>
+<li>Antecedente: (p ∧ q)</li>
+<li>Consecuente: (r ∨ s)</li>
+</ul>
+</li>
+<li><strong>Lectura:</strong> “Si p y q, entonces r o s”</li>
+</ol>
+<hr>
+<p><strong>Ejercicio 1:</strong></p>
+<p><strong>Fórmula:</strong> ¬p ∨ (q → r)</p>
+<ol>
+<li>Conectivo principal: _______________</li>
+<li>Subexpresiones: _______________</li>
+<li>Lectura: _______________</li>
+</ol>
+<p><strong>Ejercicio 2:</strong></p>
+<p><strong>Fórmula:</strong> (p ∨ q) ↔ (¬r ∧ s)</p>
+<ol>
+<li>Conectivo principal: _______________</li>
+<li>Subexpresiones: _______________</li>
+<li>Lectura: _______________</li>
+</ol>
+<p><strong>Ejercicio 3:</strong></p>
+<p><strong>Fórmula:</strong> p → q ∧ ¬r</p>
+<ol>
+<li>Conectivo principal: _______________</li>
+<li>Subexpresiones: _______________</li>
+<li>Lectura: _______________</li>
+</ol>
+<p><strong>Ejercicio 4:</strong></p>
+<p><strong>Fórmula:</strong> ¬(p → q) ∨ (r ∧ s)</p>
+<ol>
+<li>Conectivo principal: _______________</li>
+<li>Subexpresiones: _______________</li>
+<li>Lectura: _______________</li>
+</ol>
+<hr>
+<h2>Sección IV: Ejercicios Integrados</h2>
+<h3>Parte IV.A: Análisis completo de proposiciones</h3>
+<p><strong>Contexto:</strong> Sistema de control de acceso universitario</p>
+<p>Las siguientes variables representan condiciones del sistema:</p>
+<ul>
+<li>a: “El estudiante tiene credencial vigente”</li>
+<li>b: “El estudiante está registrado en el sistema”</li>
+<li>c: “La puerta se abre”</li>
+<li>d: “Se registra el acceso en el log”</li>
+</ul>
+<hr>
+<p><strong>Instrucciones:</strong> Para cada enunciado:</p>
+<ol>
+<li>Determina si es una proposición válida (P/NP)</li>
+<li>Si es proposición, formalízala</li>
+<li>Identifica el conectivo principal de tu formalización</li>
+</ol>
+<hr>
+<p><strong>Ejercicio 1:</strong>
+“Si el estudiante tiene credencial vigente y está registrado, entonces la puerta se abre”</p>
+<ol>
+<li>¿Es proposición? _______________</li>
+<li>Formalización: _______________</li>
+<li>Conectivo principal: _______________</li>
+</ol>
+<p><strong>Ejercicio 2:</strong>
+“¿La puerta se abre cuando el estudiante tiene credencial vigente?”</p>
+<ol>
+<li>¿Es proposición? _______________</li>
+<li>Formalización: _______________</li>
+<li>Conectivo principal: _______________</li>
+</ol>
+<p><strong>Ejercicio 3:</strong>
+“Se registra el acceso en el log si y solo si la puerta se abre”</p>
+<ol>
+<li>¿Es proposición? _______________</li>
+<li>Formalización: _______________</li>
+<li>Conectivo principal: _______________</li>
+</ol>
+<p><strong>Ejercicio 4:</strong>
+“No es cierto que el estudiante tenga credencial vigente pero no esté registrado”</p>
+<ol>
+<li>¿Es proposición? _______________</li>
+<li>Formalización: _______________</li>
+<li>Conectivo principal: _______________</li>
+</ol>
+<hr>
+<h3>Parte IV.B: Ejercicio Integrado de Formalización</h3>
+<p><strong>Contexto:</strong> Proceso de respaldo de base de datos</p>
+<p>Lee el siguiente escenario y responde:</p>
+<p>“El sistema realiza respaldos automáticos cada noche. Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco. Si el respaldo no es exitoso, se envía una alerta al administrador. El administrador puede iniciar un respaldo manual cuando lo considere necesario.”</p>
+<hr>
+<p><strong>Instrucciones:</strong></p>
+<ol>
+<li>
+<p>Identifica al menos 5 enunciados que sean proposiciones</p>
+</li>
+<li>
+<p>Define variables proposicionales para cada una</p>
+</li>
+<li>
+<p>Formaliza la siguiente afirmación del texto:
+“Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco”</p>
+</li>
+<li>
+<p>Formaliza esta otra afirmación:
+“Si el respaldo no es exitoso, se envía una alerta al administrador”</p>
+</li>
+<li>
+<p>Identifica el conectivo principal de cada formalización anterior</p>
+</li>
+</ol>
+<h2>Sección V: Ejercicios Adicionales de Consolidación</h2>
+<h3>Parte V.A: Verdadero o Falso</h3>
+<p><strong>Instrucciones:</strong> Indica si cada afirmación es verdadera (V) o falsa (F). Justifica las falsas brevemente.</p>
+<ol>
+<li>
+<p>“El algoritmo de búsqueda es eficiente” es una proposición válida porque puede evaluarse como verdadera o falsa.</p>
+</li>
+<li>
+<p>En la fórmula p ∧ (q ∨ r), el conectivo principal es la conjunción (∧).</p>
+</li>
+<li>
+<p>Toda pregunta puede convertirse en proposición reformulándola como afirmación.</p>
+</li>
+<li>
+<p>La negación (¬) siempre tiene la mayor precedencia entre todos los conectivos.</p>
+</li>
+<li>
+<p>En (p → q) ↔ (¬q → ¬p), el conectivo principal es el condicional (→).</p>
+</li>
+<li>
+<p>“x + y = 10” es una proposición porque tiene un valor de verdad definido.</p>
+</li>
+<li>
+<p>La fórmula ¬p ∨ q → r tiene como conectivo principal el condicional (→).</p>
+</li>
+<li>
+<p>Dos fórmulas con el mismo conectivo principal siempre son equivalentes.</p>
+</li>
+</ol>
+<hr>
+<h3>Parte V.B: Corrección de errores</h3>
+<p><strong>Instrucciones:</strong> Las siguientes formalizaciones contienen errores. Identifica el error y proporciona la formalización correcta.</p>
+<p><strong>Variables:</strong></p>
+<ul>
+<li>p: “El firewall está activo”</li>
+<li>q: “Hay intentos de intrusión”</li>
+<li>r: “Se bloquean los paquetes sospechosos”</li>
+</ul>
+<hr>
+<ol>
+<li>
+<p><strong>Enunciado:</strong> “Si el firewall está activo, entonces se bloquean los paquetes sospechosos”<br>
+<strong>Formalización incorrecta:</strong> p ∧ r<br>
+<strong>Error:</strong> _______________<br>
+<strong>Corrección:</strong> _______________</p>
+</li>
+<li>
+<p><strong>Enunciado:</strong> “No hay intentos de intrusión y el firewall está activo”<br>
+<strong>Formalización incorrecta:</strong> ¬(q ∧ p)<br>
+<strong>Error:</strong> _______________<br>
+<strong>Corrección:</strong> _______________</p>
+</li>
+<li>
+<p><strong>Enunciado:</strong> “Hay intentos de intrusión o el firewall no está activo”<br>
+<strong>Formalización incorrecta:</strong> q → ¬p<br>
+<strong>Error:</strong> _______________<br>
+<strong>Corrección:</strong> _______________</p>
+</li>
+<li>
+<p><strong>Enunciado:</strong> “Si hay intentos de intrusión entonces, si el firewall está activo, se bloquean los paquetes”<br>
+<strong>Formalización incorrecta:</strong> (q ∧ p) → r<br>
+<strong>Error:</strong> _______________<br>
+<strong>Corrección:</strong> _______________</p>
+</li>
+</ol>
+<hr>
+<h2>Recomendaciones</h2>
+<ol>
+<li><strong>Lee cuidadosamente cada enunciado</strong> antes de determinar si es proposición</li>
+<li><strong>Identifica primero las proposiciones simples</strong> antes de formalizar expresiones complejas</li>
+<li><strong>Respeta los paréntesis</strong> al escribir fórmulas; determinan la estructura lógica</li>
+<li><strong>Verifica la precedencia</strong> de operadores al identificar conectivos principales</li>
+<li><strong>Usa ejemplos del contexto de sistemas</strong> para practicar la formalización</li>
+<li><strong>Revisa tus respuestas</strong> asegurándote de que la formalización capture el significado del enunciado original</li>
+</ol>
+<hr>
+<h2>Entrega</h2>
+<ul>
+<li><strong>Formato:</strong> PDF con las respuestas escritas a mano (en hojas de papel o sobre archivo digital)</li>
+<li><strong>Contenido:</strong> Respuestas simbólicas y justificaciones breves</li>
+<li><strong>Identificación:</strong> Nombre completo, matrícula, fecha</li>
+<li><strong>Presentación:</strong> Ordenada, legible, numeración clara de ejercicios</li>
+</ul>
+<p><strong>Nota:</strong> No es necesario copiar los enunciados completos; indica el número de ejercicio y tu respuesta.</p>
+
+</body>
+</html>

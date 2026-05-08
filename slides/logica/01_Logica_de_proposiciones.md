@@ -121,8 +121,7 @@ Se considera el siguiente ejemplo de un sistema de autenticación:
 
 Estos símbolos permiten escribir en forma breve expresiones como:
 
-- “La contraseña es correcta y la cuenta está activa” → \(P \land Q\).  
-- “Si la contraseña es correcta y la cuenta está activa, entonces se permite el acceso” → se verá más adelante como una expresión con condicional. 
+- “La contraseña es correcta y la cuenta está activa”: \(P \land Q\).   
 
 
 ## Ejemplo

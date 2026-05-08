@@ -33,19 +33,22 @@
 			OTRO: &
 			\underline{\makebox[0.7\textwidth][c]{ }} \\[0.3em]
 			UEA: &
-			\underline{\makebox[0.7\textwidth][c]{\MakeUppercase{Lógica y Programación Lógica}}} \\[0.3em]
+			\underline{\makebox[0.7\textwidth][c]{\MakeUppercase{Bases de datos avanzadas}}} \\[0.3em]
 		\end{tabular}
 	\end{table}
 	
 	
 	% Objetivo
-	\noindent{OBJETIVO:} Conocer los fundamentos de la lógica de proposiciones y de la lógica de primer orden, así como del paradigma de programación lógica.
+	\noindent{OBJETIVO:} El curso aborda conceptos y tecnologías de \textbf{bases de datos avanzadas} más allá del modelo relacional clásico, incluyendo modelos semánticos, bases de datos orientadas a objetos, distribuidas, semiestructuradas y NoSQL, así como aplicaciones analíticas y de grafos. Se busca que el estudiante comprenda las limitaciones del enfoque relacional tradicional y conozca alternativas de modelado, almacenamiento y consulta adecuadas a escenarios complejos, distribuidos o de gran escala.
 	
 	Al final del curso los alumnos serán capaces de:
 	\begin{enumerate}
-		\item Conocer la teoría de la lógica de proposiciones y de la lógica de primer orden y sus aplicaciones como formalismo de representación del conocimiento.
-		\item Conocer los fundamentos de la programación lógica.
-		\item Realizar programas en un lenguaje de programación lógica.
+		\item Conocer las características de la evolución experimentada por la tecnología de gestión de datos.
+		\item Emplear los principales modelos semánticos de datos.
+		\item Conocer y aplicar los fundamentos de las bases de datos orientadas a objetos.
+		\item Conocer la relación entre bases de datos relacionales y orientadas a objetos.
+		\item Entender y aplicar los conceptos básicos de organización y diseño de las bases de datos distribuidas.
+		\item Explorar las bases de datos semi-estructuradas como alternativa de la organización de las bases de datos.
 	\end{enumerate}
 	
 	\vspace{1em}
@@ -59,13 +62,13 @@
 			\hline
 			\textbf{Día} & \textbf{Horario} & \textbf{Aula} \\
 			\hline
-			\underline{\makebox[2.8cm][c]{Lunes}} &
-			\underline{\makebox[2.8cm][c]{13--15}} &
-			\underline{\makebox[2.8cm][c]{L-522}} \\
+			\underline{\makebox[2.8cm][c]{Martes}} &
+			\underline{\makebox[2.8cm][c]{11--14}} &
+			\underline{\makebox[2.8cm][c]{A-608COM}} \\
 			\hline
-			\underline{\makebox[2.8cm][c]{Miércoles}} &
-			\underline{\makebox[2.8cm][c]{13--16}} &
-			\underline{\makebox[2.8cm][c]{L-522}} \\
+			\underline{\makebox[2.8cm][c]{Viernes}} &
+			\underline{\makebox[2.8cm][c]{9--11}} &
+			\underline{\makebox[2.8cm][c]{A-428}} \\
 			\hline
 			%			\underline{\makebox[2.8cm][c]{\ }} &
 			%			\underline{\makebox[2.8cm][c]{\ }} &
@@ -78,78 +81,72 @@
 	\vspace{1em}
 
 
-% Plan de 11 semanas 
+% Plan de 11 semanas (usando tu contenido, resumido en la tabla)
 \section*{Plan de trabajo (11 semanas)}
 
 \setlength{\extrarowheight}{2pt}
 \begin{longtable}{|>{\centering\arraybackslash}p{1.2cm}|p{7.2cm}|p{7.2cm}|}
 	\hline
-	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades (resumen)} \\
+	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades} \\
 	\hline
 	\endfirsthead
 	\hline
-	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades (resumen)} \\
+	\textbf{Semana} & \textbf{Temas principales} & \textbf{Actividades} \\
 	\hline
 	\endhead
 	
-	1 & 
-	Introducción a la lógica de proposiciones: noción de proposición, conectivos lógicos básicos, fórmulas bien formadas y primeras tablas de verdad. &
-	Identificar qué enunciados son proposiciones e introducir la traducción muy básica desde lenguaje natural a fórmulas proposicionales. \\
+	1 &
+	Presentación de la UEA “Bases de Datos Avanzadas”: objetivos general y específicos, métodos de evaluación (exámenes, cuestionarios, prácticas, proyecto final), reglamento y visión general del contenido. & \\ 
 	\hline
 	
 	2 &
-	Tablas de verdad completas y clasificación de fórmulas: tautologías, contradicciones y fórmulas contingentes; consecuencia lógica con tablas de verdad. &
-	Practicar construcción de tablas de verdad, clasificación de fórmulas y detección de contraejemplos; consolidar traducción de enunciados y conectivos. \\
+	Evolución de la tecnología y limitaciones del modelo relacional (parte 1): recapitulación de modelo relacional clásico (tablas, claves, restricciones, SQL básico) y evolución histórica de archivos planos a SGBD y al modelo relacional. &
+	Reflexión sobre nuevas necesidades (datos complejos, multimedia, distribución geográfica, escalabilidad, web). \\
 	\hline
 	
 	3 &
-	Equivalencias lógicas y formas normales: leyes lógicas principales, equivalencia de fórmulas, formas normal conjuntiva (FNC) y disyuntiva (FND). &
-	Realizar tablas de verdad para fórmulas de varias proposiciones y usar equivalencias para simplificar fórmulas y apoyar el análisis de consecuencia lógica. \\
+	Evolución de la tecnología y limitaciones del modelo relacional (parte 2). Limitaciones del modelo relacional y primera introducción a modelos semánticos de datos (EER y noción de modelo semántico). &
+	Análisis de esquemas relacionales complicados y actividad en equipos para proponer mejoras usando ideas de modelos semánticos. \\
 	\hline
 	
 	4 &
-	Reglas de inferencia en lógica de proposiciones y noción de prueba formal. &
-	Resolver ejercicios con reglas de inferencia (modus ponens, modus tollens, etcétera) y construir demostraciones cortas paso a paso. \\
+	Modelos semánticos de datos: modelo Entidad–Relación extendido (especialización/generalización, agregación, atributos multivaluados, entidades débiles) y vínculos con modelos orientados a objetos y objeto–relacionales. &
+	Comparar un diagrama ER simple con su versión extendida para un mismo problema; Usando un caso de estudio, identificar requisitos difíciles de expresar en un modelo relacional plano y proponer alternativas semánticas. \\
 	\hline
 	
 	5 &
-	Aplicaciones y límites de la lógica de proposiciones. Introducción a la lógica de primer orden: predicados, constantes, variables y cuantificadores. &
-	Modelar pequeños problemas con lógica proposicional y completar pruebas formales; comenzar a expresar propiedades simples usando predicados y cuantificadores. \\
+	Bases de datos orientadas a objetos: fundamentos y relación con modelos semánticos. Recordatorio de POO y nociones de objetos persistentes, identificadores de objeto y clases almacenadas en la base de datos. &
+	Construcción de un modelo semántico con generalización, composición y atributos complejos. \\
 	\hline
 	
 	6 &
-	Examen parcial sobre lógica de proposiciones (incluyendo pruebas básicas) y repaso integrador. &
-	Resolver cuestionario de repaso que combine definiciones, tablas de verdad, formas normales y demostraciones breves; análisis de dificultades recurrentes. \\
+	Examen parcial que cubre los temas vistos hasta el momento & \\
 	\hline
 	
 	7 &
-	Sintaxis y semántica de la lógica de primer orden: términos, fórmulas bien formadas, alcance de cuantificadores e interpretación en estructuras. &
-	Traducir enunciados simples con ``para todo'' y ``existe'' a fórmulas de primer orden; distinguir constantes, variables y predicados. \\
+	Bases de datos distribuidas: fundamentos, organización y diseño. Concepto de base de datos distribuida, arquitecturas (centralizadas, distribuidas, federadas), fragmentación (horizontal, vertical, híbrida) y replicación. &
+	Transformar parte de un modelo semántico en un diseño orientado a objetos u objeto–relacional y discutir cómo podría distribuirse; proponer estrategias de fragmentación y replicación para un sistema con sedes en varias ciudades. \\
 	\hline
 	
 	8 &
-	Reglas de inferencia en lógica de primer orden y preparación del método de Herbrand (ideas de instanciación, eliminación de implicaciones y skolemización). &
-	Formalizar relaciones en lógica de primer orden y evaluar la verdad de fórmulas en estructuras finitas; practicar instanciación de fórmulas universales. \\
+	Bases de datos semiestructuradas: datos con esquema flexible, XML y JSON, bases documentales como complemento a bases relacionales y consulta básica (XPath/XQuery, consultas sobre JSON). &
+	Representar información en XML y JSON para un caso de estudio y plantear consultas de extracción y búsqueda. \\
 	\hline
 	
 	9 &
-	Idea general del método de Herbrand y vínculo con cláusulas de Horn. Introducción a un lenguaje de programación lógica (por ejemplo, Prolog): hechos, reglas y consultas. &
-	Construir universos y bases de Herbrand sencillas; leer pequeños programas lógicos, entenderlos como bases de conocimiento y razonar sobre sus consecuencias. \\
+	Otras tecnologías: NoSQL (documentales, clave–valor, columnas y grafos) y aplicaciones de bases de datos avanzadas; motivaciones de escalabilidad, alta disponibilidad y flexibilidad de esquemas. &
+	Representar un mismo conjunto de datos en XML y JSON y diseñar consultas; analizar qué tipo de base NoSQL (documental, clave–valor, grafo o columna) conviene para distintos escenarios; uso sugerido de MongoDB Community Edition. \\
 	\hline
 	
 	10 &
-	Temas suplementarios de programación lógica (por ejemplo, recursión simple y listas, según el nivel del grupo), dudas y repaso general para el examen final. &
-	Resolver ejercicios integrados de lógica proposicional, primer orden, método de Herbrand y programación lógica; escribir un pequeño conjunto de hechos y reglas. \\
+	Proyecto final y cierre: asesoría para el proyecto en equipo, revisión de la arquitectura de bases de datos avanzadas elegida. & \\
 	\hline
 	
 	11 &
-	Examen final integrador. &
-	Aplicación global de los contenidos del curso en un examen final que integre lógica de proposiciones, lógica de primer orden y nociones básicas de programación lógica. \\
+	Examen final. & \\
 	\hline
 	
 \end{longtable}
-
-
 
 	
 	% Criterios de evaluación (desde el .md)
@@ -162,9 +159,9 @@
 			\hline
 			\textbf{Instrumento} & \textbf{Descripción} & \textbf{Porcentaje} \\
 			\hline
-			Tareas & Trabajo individual o colaborativo entregado fuera del horario de clase & 25\% \\
+			Proyecto & Trabajo colaborativo integrador de conceptos vistos en clase & 25\% \\
 			\hline
-			Actividades de clase & Ejercicios, prácticas, participación y productos desarrollados durante la sesión & 25\% \\
+			Actividades & Ejercicios, tareas, prácticas, participación & 25\% \\
 			\hline
 			Examen parcial & Evaluación escrita o práctica a mitad del periodo & 25\% \\
 			\hline
@@ -257,7 +254,7 @@
 	
 	\subsection*{Detección y consecuencias}
 	
-	Se hará uso de las \textbf{herramientas de detección de plagio y contenido generado por IA} disponibles. Si se detecta plagio o uso indebido de IA en un trabajo o actividad evaluable, dicho instrumento \textbf{quedará sin efecto para efectos de calificación} y se registrará con valor de cero, sin posibilidad de reentrega. En casos reincidentes, la situación será reportada a las instancias académicas correspondientes. El uso indebido de dispositivos electrónicos durante exámenes también anula la calificación del examen y será reportado.
+	Se hará uso de las \textbf{herramientas de detección de plagio y contenido generado por IA} disponibles. Si se detecta plagio o uso indebido de IA en un trabajo o actividad evaluable, dicho instrumento \textbf{quedará sin efecto para efectos de calificación} y se registrará con valor de cero, sin posibilidad de re-entrega. En casos reincidentes, la situación será reportada a las instancias académicas correspondientes. El uso indebido de dispositivos electrónicos durante exámenes también anula la calificación del examen y será reportado.
 	
 	% Conducta y convivencia (desde el .md)
 	\section*{Conducta y convivencia en el aula}
