@@ -174,6 +174,69 @@ Los datos complejos son aquellos cuya estructura no se reduce cómodamente a atr
 
 Una receta extensa, un expediente médico con múltiples secciones o la descripción completa de una ruta con variantes ilustran estructuras cuya representación tabular puede volverse menos directa. 
 
+### Ejemplo con receta extensa
+
+Imaginemos una colección de recetas de cocina:
+
+- Receta 1: “Pozole rojo”
+  - 8 ingredientes
+  - 3 pasos
+  - Sin imágenes
+  - Sin notas del cocinero
+
+- Receta 2: “Mole poblano tradicional”
+  - 25 ingredientes
+  - 12 pasos, algunos con subpasos y tiempos específicos por fase
+  - 3 imágenes intercaladas (tostado de chiles, molido, emulsión final)
+  - Notas largas de variaciones regionales y sustituciones
+
+- Receta 3: “Tacos de pescado estilo Baja”
+  - 15 ingredientes, separados en “marinada”, “capeado”, “salsa” y “acompañamientos”
+  - Instrucciones divididas en secciones que se pueden preparar en distinto orden
+  - Comentarios de usuarios con modificaciones y reseñas
+
+Cada **instancia** de receta tiene estructura interna distinta (cantidad de secciones, longitud de texto, inserción de imágenes, comentarios), así que modelar todo en columnas fijas tipo `ingrediente1`, `ingrediente2`, `paso1`, `paso2` se vuelve un desastre; es más natural guardar el cuerpo de la receta como texto/JSON “no tabular” (no estructurado o semiestructurado) y solo algunos metadatos en tablas.
+
+### Ejemplo con expediente médico
+
+Una colección de expedientes médicos de pacientes:
+
+- Expediente A:
+  - Solo consultas de medicina general
+  - 5 notas de evolución muy cortas, casi puros textos libres
+  - Un par de resultados de laboratorio sencillos
+
+- Expediente B:
+  - Cirugía mayor + terapia intensiva
+  - Decenas de notas de distintas especialidades
+  - Gráficas de signos vitales, imágenes radiológicas (referencias a archivos DICOM), informes extensos
+  - Diferentes formatos de notas según el médico/servicio
+
+- Expediente C:
+  - Paciente con enfermedad crónica de larga evolución
+  - Años de seguimiento, cambios de tratamiento, reacciones adversas descritas narrativamente
+  - Reportes de laboratorio heterogéneos (distintos laboratorios, distintos formatos), cartas de interconsulta, notas de trabajo social
+
+Cada expediente es un **registro** que agrupa textos de longitud variable, tipos de documento distintos (notas, hojas de enfermería, PDFs de laboratorio, imágenes), y la estructura varía mucho entre pacientes y a lo largo del tiempo. Intentar convertir todo a una sola tabla con columnas fijas resultaría en miles de columnas vacías o en perder detalle narrativo; por eso se suele almacenar gran parte como texto libre, documentos adjuntos o estructuras flexibles.
+
+### Ejemplo con descripción de ruta con variantes
+
+Descripciones de rutas de senderismo:
+
+- Ruta 1:
+  - Trayecto simple A → B
+  - Pocas instrucciones de texto
+
+- Ruta 2:
+  - Trayecto con variantes: A → B, de B puedes ir a C (ruta fácil) o a D (ruta difícil) y luego re-unirte en E
+  - Descripción incluye bifurcaciones, tiempos por tramo, puntos de referencia, fotos, advertencias de clima
+
+- Ruta 3:
+  - Ruta circular con múltiples “escapes” hacia poblados cercanos
+  - Descripción textual mezclada con mapas, comentarios de otros usuarios, versiones alternativas de la misma ruta
+
+Las **instancias** (cada ruta) tienen estructuras de narrativa y ramificación diferentes que no encajan bien en un modelo puramente tabular de filas y columnas.
+
 
 ## Multimedia
 
