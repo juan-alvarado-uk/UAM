@@ -359,7 +359,19 @@ Se buscan renglones donde las dos premisas sean verdaderas al mismo tiempo. Eso 
 En ese renglón, la conclusión \(r\) es verdadera. No existe contraejemplo; por tanto, sí hay consecuencia lógica.
 
 
-## Procedimiento operativo para prácticas
+# Analogía con pruebas de sistemas
+
+Una tabla de verdad se parece a una matriz exhaustiva de escenarios. Cada renglón representa una combinación distinta de estados de entrada.
+
+Clasificar una fórmula equivale a identificar el comportamiento global de una especificación:
+
+- Tautología: la condición se cumple en todos los escenarios.
+- Contradicción: la condición no se cumple en ninguno.
+- Contingente: depende del escenario.
+
+Verificar consecuencia lógica equivale a revisar si existe un escenario válido para las premisas en el que la salida esperada no ocurra. Ese escenario sería el contraejemplo.
+
+# Práctica
 
 Resolver ejercicios de tablas de verdad requiere disciplina en el orden de trabajo. El objetivo es que el resultado sea verificable por cualquier otra persona.
 
@@ -373,49 +385,53 @@ Secuencia de trabajo:
 6. Clasificar la fórmula observando la última columna.
 7. Si hay premisas y conclusión, localizar contraejemplos.
 
-***
 
-## Ejercicios resueltos breves dentro de la exposición
+# Ejercicio 1
 
-### Caso A
 \[
 \neg(p \land q)
 \]
+
+---
 
 - Es verdadera cuando no se cumplen \(p\) y \(q\) simultáneamente.
 - Solo es falsa cuando ambas son verdaderas.
 - Por tanto, es contingente.
 
-***
 
-### Caso B
+
+# Ejercicio 2
+
 \[
 (p \rightarrow q)\lor (q \rightarrow p)
 \]
+
+---
 
 Al construir la tabla completa se observa que siempre da V. En cualquier combinación, al menos uno de los dos condicionales resulta verdadero.
 
 Por tanto, es tautología.
 
-***
+# Ejercicio 3
 
-### Caso C
 \[
 (p \lor q)\land \neg(p \lor q)
 \]
+
+---
 
 La fórmula exige que una misma subfórmula sea verdadera y falsa al mismo tiempo. Eso hace que todos los renglones terminen en F.
 
 Por tanto, es contradicción.
 
-***
 
-## Práctica integrada 1
+# Ejercicio 4
 
-Se analiza la fórmula:
 \[
 (p \lor q)\rightarrow p
 \]
+
+---
 
 Primero se construye \(p \lor q\), luego el condicional.
 
@@ -428,14 +444,15 @@ Primero se construye \(p \lor q\), luego el condicional.
 
 La fórmula es contingente porque mezcla V y F.
 
-***
 
-## Práctica integrada 2
 
-Se analiza la fórmula:
+# Ejercicio 5
+
 \[
 (p \land q)\rightarrow (p \lor q)
 \]
+
+---
 
 | p | q | \(p \land q\) | \(p \lor q\) | \((p \land q)\rightarrow (p \lor q)\) |
 |---|---|---|---|---|
@@ -446,9 +463,8 @@ Se analiza la fórmula:
 
 La fórmula siempre resulta verdadera. Por tanto, es una tautología.
 
-***
 
-## Práctica integrada 3
+# Ejercicio 6
 
 Se revisa si de las premisas
 \[
@@ -459,7 +475,8 @@ se sigue la conclusión
 q
 \]
 
-Tabla:
+---
+
 
 | p | q | \(p \lor q\) | \(\neg p\) | Conclusión \(q\) |
 |---|---|---|---|---|
@@ -472,44 +489,9 @@ Se buscan renglones donde las dos premisas sean verdaderas. Solo ocurre en el te
 
 En ese renglón, la conclusión es verdadera. No aparece contraejemplo, así que sí hay consecuencia lógica.
 
-***
 
-## Analogía con pruebas de sistemas
 
-Una tabla de verdad se parece a una matriz exhaustiva de escenarios. Cada renglón representa una combinación distinta de estados de entrada.
-
-Clasificar una fórmula equivale a identificar el comportamiento global de una especificación:
-
-- Tautología: la condición se cumple en todos los escenarios.
-- Contradicción: la condición no se cumple en ninguno.
-- Contingente: depende del escenario.
-
-Verificar consecuencia lógica equivale a revisar si existe un escenario válido para las premisas en el que la salida esperada no ocurra. Ese escenario sería el contraejemplo.
-
-***
-
-## Analogía cotidiana
-
-En la vida diaria también se usan razonamientos de este tipo, aunque no se escriban con símbolos. Una afirmación como “si hay clases, entonces hay estudiantes en el aula” puede ponerse a prueba revisando casos posibles.
-
-La tabla obliga a pensar con orden. En vez de discutir por intuición, se revisan sistemáticamente los escenarios, igual que se revisan combinaciones al probar una aplicación o al validar reglas de acceso.
-
-***
-
-## Señales de que una tabla está bien hecha
-
-Una tabla está bien construida cuando:
-
-- Tiene exactamente \(2^n\) renglones.
-- Las columnas base siguen el patrón ordenado de V y F.
-- Cada subfórmula tiene su propia columna cuando hace falta.
-- La columna final se obtiene respetando el conectivo principal.
-- La clasificación se basa solo en la columna final.
-- La consecuencia lógica se decide buscando contraejemplos, no por intuición.
-
-***
-
-## Conjunto breve de ejercicios para resolver
+## Algunos ejercicios más para resolver
 
 - Construir la tabla de verdad de \((p \land q)\rightarrow q\) y clasificarla.
 - Construir la tabla de verdad de \((p \rightarrow q)\land p\) y clasificarla.
@@ -518,18 +500,3 @@ Una tabla está bien construida cuando:
 - Decidir si \(p \lor q,\ q \models p\).
 - Decidir si \(p \land q \models p\).
 
-***
-
-## Resultados esperados del trabajo del alumnado
-
-Al terminar esta sesión, el alumnado puede construir tablas completas para fórmulas con 2 y 3 proposiciones, clasificar fórmulas según su columna final y determinar si una conclusión se sigue de ciertas premisas mediante la identificación o ausencia de contraejemplos.
-
-La evidencia natural de trabajo es una hoja de prácticas con tablas de verdad, clasificación y verificación de consecuencia lógica, en concordancia con la orientación práctica y de reportes escritos contemplada en la UEA. 
-
-***
-
-## Cierre conceptual
-
-Las tablas de verdad convierten el razonamiento lógico en un procedimiento visible y verificable. No sustituyen la comprensión de las fórmulas, pero sí ofrecen una forma rigurosa de comprobar qué siempre ocurre, qué nunca ocurre y qué depende del caso.
-
-Dominar este procedimiento fortalece una habilidad central en ingeniería en sistemas: analizar condiciones, detectar casos límite y justificar conclusiones con base en todos los escenarios relevantes.
