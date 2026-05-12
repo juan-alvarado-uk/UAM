@@ -9,32 +9,32 @@ Veremos cómo se pasó de archivos dispersos a sistemas de gestión de bases de 
 
 ## Panorama inicial
 
-Una **base de datos** es un **conjunto organizado de datos**; un sistema gestor de bases de datos es el software que permite almacenarlos, consultarlos, actualizarlos y protegerlos de manera controlada. 
+Una **base de datos** es un **conjunto organizado de datos**; un sistema de administración de bases de datos es el software que permite almacenarlos, consultarlos, actualizarlos y protegerlos de manera controlada. 
 
 Una agenda personal, un catálogo de productos en Excel, etc., pueden funcionar mientras el volumen es pequeño. Cuando la cantidad crece, el asunto pasa de: “¿dónde está el dato?” a: “¿cómo se garantiza que todos trabajen con la misma **versión correcta del dato**?” 
 
-## Recapitulación del modelo relacional clásico
+# El modelo relacional clásico
 
 El **modelo relacional** organiza la información en relaciones, conocidas de forma práctica como **tablas**, compuestas por filas y columnas. 
 
-Cada **fila** representa una ocurrencia concreta de **algo de interés** y cada **columna** representa una **propiedad** de ese conjunto de ocurrencias. Una tabla de estudiantes puede contener matrícula y nombre; una tabla de inscripciones puede contener matrícula, grupo y fecha; y ambas se conectan por atributos comunes para expresar relaciones entre datos. 
+Cada **fila** representa una ocurrencia concreta de **algo de interés** y cada **columna** representa una **propiedad** de ese conjunto de ocurrencias. Una tabla de estudiantes puede contener matrícula y nombre; una tabla de inscripciones puede contener matrícula, materia, grupo y fecha; y ambas se conectan por atributos comunes para expresar relaciones entre datos. 
 
-### Tablas
+## Tablas
 
-Una tabla es una estructura lógica donde los datos se agrupan por tema y se representan en filas y columnas. 
+Una tabla es una estructura lógica donde los datos se agrupan por tema y se organizan en filas y columnas. 
 
-La fuerza del enfoque tabular está en separar asuntos distintos en estructuras distintas y después relacionarlos cuando se necesita análisis conjunto. En vez de repetir el nombre completo de una persona en cada movimiento, se guarda una referencia compartida y se consulta cuando haga falta. 
+La fuerza del enfoque tabular está en separar asuntos distintos en estructuras distintas y después **relacionarlos** cuando se necesita análisis conjunto. En vez de repetir el nombre completo de una persona en cada movimiento, se guarda una referencia compartida y se consulta cuando hace falta. 
 
 ***
 
-**Ejemplo.** En un sistema de autenticación, una tabla puede almacenar cuentas y otra los eventos de acceso. Así, el mismo usuario no se captura desde cero en cada intento de inicio de sesión, sino que se enlaza mediante un identificador. 
+**Ejemplo.** En un sistema de autenticación, una tabla puede almacenar cuentas y otra los eventos de acceso. Así, el mismo usuario no se captura (completo) desde cero en cada intento de inicio de sesión, sino que se enlaza mediante un identificador. 
 
 
-### Llaves o identificadores
+## Llaves o identificadores
 
 Una **llave primaria** identifica de manera única cada fila dentro de una tabla, y una **llave foránea** enlaza filas de una tabla con filas de otra. 
 
-Estos identificadores permiten expresar relaciones sin duplicar toda la información asociada. Varias tablas pueden unirse mediante una llave principal o una llave foránea, lo que permite conectar cuentas con transacciones, clientes con compras o equipos con bitácoras de servicio. 
+Estos identificadores permiten expresar relaciones sin duplicar toda la información asociada. Varias tablas pueden unirse mediante una llave principal o una llave foránea, lo que permite conectar cuentas con transacciones, clientes con compras o equipos con bitácoras de servicio, etc. 
 
 ***
 
@@ -56,14 +56,14 @@ CREATE TABLE Inscripcion (
 En este esquema, `id_alumno` distingue a cada estudiante y puede reaparecer en otra tabla para representar una relación lógica entre conjuntos de datos. 
 
 
-### Restricciones
+## Restricciones
 
 Las **restricciones** son reglas declaradas en la base para preservar la consistencia de los datos, por ejemplo unicidad, obligatoriedad de captura o validez de relaciones. 
 
 Sirven para impedir registros absurdos o contradictorios. Si una inscripción referencia a un estudiante inexistente, o si dos personas intentan registrarse con el mismo identificador único, la base debe rechazar el dato en lugar de aceptarlo sin control. 
 
 
-### SQL básico
+## SQL básico
 
 SQL, Structured Query Language, es el lenguaje estándar para interactuar con bases de datos relacionales. 
 
@@ -95,16 +95,16 @@ JOIN Inscripcion i
 La operación de Join es una de las razones del éxito del modelo relacional, porque permite reconstruir información distribuida en varias tablas a partir de atributos compartidos. 
 
 
-## Archivos planos y DBMS
+# Archivos planos y DBMS
 
 Un **archivo plano** es una forma de almacenamiento donde la información se guarda como **registros secuenciales**, sin un mecanismo robusto para relaciones, integridad compartida o acceso concurrente sofisticado. 
 
-Esta solución **funcionaba** cuando los procesos eran **reducidos**, el **intercambio era mínimo** y la mayor parte del trabajo se hacía por **lotes** o de forma **local**. 
+Esta solución **funcionaba** cuando los procesos eran **reducidos**, el **intercambio era mínimo** y la mayor parte del trabajo se hacía de forma **local**. 
 
 Con el crecimiento de las operaciones surgieron varios problemas: **repetición** del mismo dato en múltiples archivos, dificultad para **actualizarlo** en todos lados, **dependencia del formato físico** y escasa **flexibilidad** para nuevas consultas. Si un domicilio aparecía en cinco archivos distintos, una sola modificación exigía rastrear cada copia; y si se omitía una, aparecía la inconsistencia. 
 
 
-### Problemas típicos de los archivos planos 
+## Problemas típicos de los archivos planos 
 
 - Duplicidad de datos en distintos archivos. 
 - Dependencia entre programas y formatos de almacenamiento. 
@@ -116,21 +116,21 @@ Con el crecimiento de las operaciones surgieron varios problemas: **repetición*
 **Ejemplo.** Un negocio pequeño puede tener un archivo plano para clientes, otro para ventas y otro para pagos, cada uno con nombres escritos de manera distinta. Queremos responder, ¿cuánto compró una persona durante el mes?
 
 
-### DBMS
+## DBMS
 
-Un DBMS es software que centraliza el manejo de datos y ofrece estructura, acceso multiusuario, control de privilegios, acceso por red y operaciones de mantenimiento. 
+Un DBMS es el software que centraliza el manejo de datos y ofrece estructura, acceso multiusuario, control de privilegios, acceso por red y operaciones de mantenimiento. 
 
-La aparición de los DBMS surge de la necesidad de separar los datos de los programas y de ofrecer servicios comunes para muchas aplicaciones. En lugar de que cada aplicación inventara su propio mecanismo de almacenamiento, el gestor asume tareas como seguridad, actualización, concurrencia, respaldo y consulta para todos. 
+**La aparición de los DBMS surge de la necesidad de separar los datos de los programas y de ofrecer servicios comunes para muchas aplicaciones**. En lugar de que cada aplicación inventara su propio mecanismo de almacenamiento, el gestor asume tareas como seguridad, actualización, concurrencia, respaldo y consulta para todos. 
 
 
-## Modelos jerárquico, de red y relacional
+# Modelos jerárquico, de red y relacional
 
 Un **modelo de datos** es una forma conceptual de representar entidades, relaciones y reglas para organizar la información. 
 
 Antes del predominio del enfoque relacional, existieron modelos que resolvían parte del problema, pero imponían formas rígidas para acceder a los datos.
 
 
-### Modelo jerárquico
+## Modelo jerárquico
 
 El modelo jerárquico organiza la información como un árbol, donde cada nodo hijo depende de un nodo padre. 
 
@@ -142,7 +142,7 @@ Su estructura era adecuada cuando la realidad podía representarse como relacion
 ---
 
 
-### Modelo de red
+## Modelo de red
 
 El modelo de red amplió la idea jerárquica permitiendo conexiones más flexibles entre registros, incluyendo asociaciones de muchos a muchos. 
 
@@ -153,7 +153,7 @@ Con ello resolvió algunas limitaciones del árbol estricto, pero a cambio intro
 ---
 
 
-### El modelo relacional
+## El modelo relacional
 
 El modelo relacional propone representar los datos mediante relaciones y operar sobre ellas de forma declarativa, apoyándose en teoría de conjuntos y álgebra relacional. 
 
@@ -164,11 +164,11 @@ El modelo relacional dominó en un lapso de tiempo importante porque combinó es
 También influyó su capacidad para operaciones transaccionales confiables, ACID: atomicidad, coherencia, aislamiento y durabilidad. 
 
 
-## Nuevas necesidades
+# Nuevas necesidades
 
 Nuevas necesidades han surgido cuando los requerimientos de almacenamiento y consulta superan el escenario clásico de datos estructurados, centralizados y moderados en volumen.
 
-### Datos complejos
+## Datos complejos
 
 Los datos complejos son aquellos cuya estructura no se reduce cómodamente a atributos simples y planos, como colecciones ricas, componentes compuestos o representaciones de objetos amplios. 
 
