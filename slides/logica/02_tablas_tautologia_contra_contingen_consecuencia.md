@@ -224,6 +224,18 @@ Otro error común es calcular directamente la fórmula completa sin columnas int
 
 También es frecuente invertir el comportamiento del condicional. Debe recordarse que \(p \rightarrow q\) solo es falso en el caso \(V \rightarrow F\).
 
+# Analogía con pruebas de sistemas
+
+Una tabla de verdad se parece a una matriz exhaustiva de escenarios. Cada renglón representa una combinación distinta de estados de entrada.
+
+Clasificar una fórmula equivale a identificar el comportamiento global de una especificación:
+
+- Tautología: la condición se cumple en todos los escenarios.
+- Contradicción: la condición no se cumple en ninguno.
+- Contingente: depende del escenario.
+
+Verificar consecuencia lógica equivale a revisar si existe un escenario válido para las premisas en el que la salida esperada no ocurra. Ese escenario sería el contraejemplo.
+
 
 # Consecuencia lógica
 
@@ -359,17 +371,7 @@ Se buscan renglones donde las dos premisas sean verdaderas al mismo tiempo. Eso 
 En ese renglón, la conclusión \(r\) es verdadera. No existe contraejemplo; por tanto, sí hay consecuencia lógica.
 
 
-# Analogía con pruebas de sistemas
 
-Una tabla de verdad se parece a una matriz exhaustiva de escenarios. Cada renglón representa una combinación distinta de estados de entrada.
-
-Clasificar una fórmula equivale a identificar el comportamiento global de una especificación:
-
-- Tautología: la condición se cumple en todos los escenarios.
-- Contradicción: la condición no se cumple en ninguno.
-- Contingente: depende del escenario.
-
-Verificar consecuencia lógica equivale a revisar si existe un escenario válido para las premisas en el que la salida esperada no ocurra. Ese escenario sería el contraejemplo.
 
 # Práctica
 
