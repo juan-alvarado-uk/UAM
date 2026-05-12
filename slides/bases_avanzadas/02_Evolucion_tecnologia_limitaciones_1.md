@@ -175,7 +175,7 @@ Los datos complejos son aquellos cuya estructura no se reduce cómodamente a atr
 Una receta extensa, un expediente médico con múltiples secciones o la descripción completa de una ruta con variantes ilustran estructuras cuya representación tabular puede volverse menos directa. 
 
 
-### Multimedia
+## Multimedia
 
 Los datos multimedia incluyen imágenes, audio, video y otros contenidos cuyo manejo supera al texto y al número como formatos principales. 
 
@@ -186,7 +186,7 @@ Los modelos no relacionales surgieron, entre otras razones, para responder mejor
 **Ejemplo.** Un sistema de vigilancia no solo guarda un identificador y una fecha: también administra secuencias de video, metadatos, eventos y búsquedas por tiempo. Un álbum familiar digital no solo incluye el nombre de la foto; incluye tamaño, formato, etiquetas, ubicación y puede incluir relaciones con personas, momentos o lugares.
 
 
-### Distribución geográfica
+## Distribución geográfica
 
 La distribución geográfica implica que los datos y sus usuarios se encuentran repartidos entre distintos nodos, sedes o regiones conectadas por red. 
 
@@ -194,11 +194,11 @@ Cuando las organizaciones dejaron de operar desde un solo punto y comenzaron a d
 
 ***
 
-**Ejemplo.** Una plataforma de disponibilidad de habitaciones requiere responder desde varias ciudades casi al mismo tiempo. Una cadena de suministro también necesita que distintos puntos consulten existencias, movimientos y entregas sin depender de revisar una sola libreta en un solo edificio.
+**Ejemplo.** Una plataforma de disponibilidad de habitaciones requiere responder desde varias ciudades casi al mismo tiempo. Una cadena de suministro también necesita que distintos puntos consulten existencias, movimientos y entregas sin depender de un solo recurso en un solo lugar.
 
 ***
 
-### Escalabilidad
+## Escalabilidad
 
 Escalabilidad es la capacidad de un sistema para seguir ofreciendo servicio aceptable cuando crecen usuarios, datos, operaciones o nodos. 
 
