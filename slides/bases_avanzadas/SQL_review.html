@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>SQL</h1>
+    </section>
+    <section>
+      <h2>SQL</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición.</strong> SQL (Structured Query Language) es el lenguaje estándar declarativo para interactuar con bases de datos relacionales.</p><p>Es <strong>declarativo</strong> porque describes <strong>qué</strong> quieres obtener, no <strong>cómo</strong> obtenerlo paso a paso.</p></div>
+        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>SQL</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>SQL fue desarrollado por IBM en los años 70 y adoptado como estándar por ANSI e ISO, lo que significa que funciona (con variaciones menores) en casi todos los sistemas de bases de datos relacionales: MySQL, PostgreSQL, Oracle, SQL Server, SQLite.</p></div>
+        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Los tres sub-lenguajes de SQL</h1>
+    </section>
+    <section>
+      <h2>Los tres sub-lenguajes de SQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
+        <div class="text-col"><p>SQL se divide en tres categorías según su función:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>DDL - Data Definition Language</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
+        <div class="text-col"><p>Controla la <strong>estructura</strong> de la base de datos: tablas, columnas, restricciones, índices.</p><p><strong>Comandos principales:</strong></p>
+<ul><li><code>CREATE</code> - Crear nuevas estructuras</li><li><code>ALTER</code> - Modificar estructuras existentes</li><li><code>DROP</code> - Eliminar estructuras</li><li><code>TRUNCATE</code> - Vaciar una tabla sin eliminarla</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>DDL - Data Definition Language</h2>
+      <pre><code class="language-sql">CREATE TABLE Estudiante (
+  id INT PRIMARY KEY,                    -- Llave primaria
+  nombre VARCHAR(100) NOT NULL,          -- Texto obligatorio
+  correo VARCHAR(100) UNIQUE,            -- Sin duplicados
+  promedio DECIMAL(3,2),                 -- Número con decimales
+  fecha_ingreso DATE
+);</code></pre>
+    </section>
+    <section>
+      <h2>DDL - Data Definition Language</h2>
+      <pre><code class="language-sql">ALTER TABLE Estudiante 
+ADD COLUMN telefono VARCHAR(15);</code></pre>
+    </section>
+    <section>
+      <h2>DDL - Data Definition Language</h2>
+      <pre><code class="language-sql">DROP TABLE Estudiante;</code></pre>
+    </section>
+    <section>
+      <h2>DML - Data Manipulation Language</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
+        <div class="text-col"><p>Controla el <strong>contenido</strong> de las tablas: insertar, consultar, actualizar, eliminar datos.</p><p><strong>Comandos principales:</strong></p>
+<ul><li><code>SELECT</code> - Consultar datos (el más usado)</li><li><code>INSERT</code> - Agregar registros</li><li><code>UPDATE</code> - Modificar registros existentes</li><li><code>DELETE</code> - Eliminar registros</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>DML - Data Manipulation Language</h2>
+      <pre><code class="language-sql">INSERT INTO Estudiante (id, nombre, correo, promedio, fecha_ingreso)
+VALUES (1, &#39;Ana López&#39;, &#39;ana@uam.mx&#39;, 9.5, &#39;2024-01-15&#39;);
+
+-- Insertar múltiples registros
+INSERT INTO Estudiante (id, nombre, correo, promedio, fecha_ingreso)
+VALUES 
+  (2, &#39;Carlos Ruiz&#39;, &#39;carlos@uam.mx&#39;, 8.7, &#39;2024-01-15&#39;),
+  (3, &#39;María Torres&#39;, &#39;maria@uam.mx&#39;, 9.2, &#39;2024-01-16&#39;);</code></pre>
+    </section>
+    <section>
+      <h2>DML - Data Manipulation Language</h2>
+      <pre><code class="language-sql">UPDATE Estudiante 
+SET promedio = 9.8, correo = &#39;ana.lopez@uam.mx&#39;
+WHERE id = 1;</code></pre>
+    </section>
+    <section>
+      <h2>DML - Data Manipulation Language</h2>
+      <pre><code class="language-sql">DELETE FROM Estudiante 
+WHERE promedio &lt; 6.0; 
+-- Ejemplo peligroso</code></pre>
+    </section>
+    <section>
+      <h2>DCL - Data Control Language</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Controla <strong>permisos</strong> y acceso a la base de datos.</p><p><strong>Comandos principales:</strong></p>
+<ul><li><code>GRANT</code> - Otorgar permisos</li><li><code>REVOKE</code> - Quitar permisos</li></ul></div>
+        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>DCL - Data Control Language</h2>
+      <pre><code class="language-sql">GRANT SELECT, INSERT ON Estudiante TO &#39;usuario_admin&#39;;
+REVOKE DELETE ON Estudiante FROM &#39;usuario_lectura&#39;;</code></pre>
+    </section>
+    <section>
+      <h1>SELECT</h1>
+    </section>
+    <section>
+      <h2>SELECT</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+        <div class="text-col"><p>El comando <code>SELECT</code> es el principal de SQL.</p><p>Sirve para <strong>obtener información</strong> de las tablas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura básica</h2>
+      <pre><code class="language-sql">SELECT columnas
+FROM tabla
+WHERE condición;</code></pre>
+    </section>
+    <section>
+      <h2>Estructura básica</h2>
+      <pre><code class="language-sql">-- Seleccionar todas las columnas
+SELECT * FROM Estudiante;
+
+-- Seleccionar columnas específicas
+SELECT nombre, promedio FROM Estudiante;
+
+-- Con filtro (WHERE)
+SELECT nombre, promedio 
+FROM Estudiante 
+WHERE promedio &gt;= 9.0;
+
+-- Con múltiples condiciones
+SELECT nombre, promedio 
+FROM Estudiante 
+WHERE promedio &gt;= 9.0 AND fecha_ingreso &gt;= &#39;2024-01-01&#39;;
+
+-- con LIKE
+SELECT nombre 
+FROM Estudiante 
+WHERE promedio &gt; 9.0 OR correo LIKE &#39;%@uam.mx&#39;;</code></pre>
+    </section>
+    <section>
+      <h1>ORDER BY - Ordenar resultados</h1>
+    </section>
+    <section>
+      <h2>ORDER BY - Ordenar resultados</h2>
+      <pre><code class="language-sql">-- Orden ascendente (por default)
+SELECT nombre, promedio 
+FROM Estudiante 
+ORDER BY promedio ASC;
+
+-- Orden descendente
+SELECT nombre, promedio 
+FROM Estudiante 
+ORDER BY promedio DESC;
+
+-- Ordenar por múltiples columnas
+SELECT nombre, promedio 
+FROM Estudiante 
+ORDER BY promedio DESC, nombre ASC;</code></pre>
+    </section>
+    <section>
+      <h1>Funciones agregadas</h1>
+    </section>
+    <section>
+      <h2>Funciones agregadas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las funciones agregadas calculan un <strong>valor único</strong> a partir de múltiples filas.</p><p><strong>Funciones principales:</strong></p>
+<ul><li><code>COUNT()</code> - Contar registros</li><li><code>SUM()</code> - Sumar valores</li><li><code>AVG()</code> - Calcular promedio</li><li><code>MAX()</code> - Obtener máximo</li><li><code>MIN()</code> - Obtener mínimo</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones agregadas</h2>
+      <pre><code class="language-sql">-- Contar total de estudiantes
+SELECT COUNT(*) AS total_estudiantes 
+FROM Estudiante;
+
+-- Promedio general
+SELECT AVG(promedio) AS promedio_general 
+FROM Estudiante;
+
+-- Mejor y peor promedio
+SELECT MAX(promedio) AS mejor, MIN(promedio) AS peor 
+FROM Estudiante;</code></pre>
+    </section>
+    <section>
+      <h1>GROUP BY - Agrupar datos</h1>
+    </section>
+    <section>
+      <h2>GROUP BY - Agrupar datos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><code>GROUP BY</code> agrupa filas con valores similares y permite aplicar funciones agregadas <strong>por grupo</strong>.</p></div>
+        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>GROUP BY - Agrupar datos</h2>
+      <pre><code class="language-sql">-- Promedio por fecha de ingreso
+SELECT fecha_ingreso, AVG(promedio) AS promedio_grupo
+FROM Estudiante
+GROUP BY fecha_ingreso;</code></pre>
+    </section>
+    <section>
+      <h1>HAVING - Filtrar grupos</h1>
+    </section>
+    <section>
+      <h2>HAVING - Filtrar grupos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0013.jpg" alt="image" /></div>
+        <div class="text-col"><p><code>HAVING</code> es como <code>WHERE</code>, pero para <strong>grupos</strong> (después de <code>GROUP BY</code>).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>HAVING - Filtrar grupos</h2>
+      <pre><code class="language-sql">-- Solo mostrar fechas con más de 3 estudiantes
+SELECT fecha_ingreso, COUNT(*) AS total
+FROM Estudiante
+GROUP BY fecha_ingreso
+HAVING COUNT(*) &gt; 3;</code></pre>
+    </section>
+    <section>
+      <h2>HAVING - Filtrar grupos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Diferencia:</strong></p>
+<ul><li><code>WHERE</code> filtra <strong>filas</strong> antes de agrupar</li><li><code>HAVING</code> filtra <strong>grupos</strong> después de agrupar</li></ul></div>
+        <div class="image-col"><img src="../../img/0069.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>JOIN - Combinar tablas</h1>
+    </section>
+    <section>
+      <h2>JOIN - Combinar tablas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+        <div class="text-col"><p><code>JOIN</code> permite unir información de <strong>múltiples tablas</strong> relacionadas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>INNER JOIN - Solo coincidencias</h2>
+      <pre><code class="language-sql">SELECT e.nombre, i.materia
+FROM Estudiante e
+INNER JOIN Inscripcion i ON e.id = i.id_estudiante;</code></pre>
+    </section>
+    <section>
+      <h2>LEFT JOIN - Todos de la izquierda</h2>
+      <pre><code class="language-sql">SELECT e.nombre, i.materia
+FROM Estudiante e
+LEFT JOIN Inscripcion i ON e.id = i.id_estudiante;</code></pre>
+    </section>
+    <section>
+      <h2>RIGHT JOIN - Todos de la derecha</h2>
+      <pre><code class="language-sql">SELECT e.nombre, i.materia
+FROM Estudiante e
+RIGHT JOIN Inscripcion i ON e.id = i.id_estudiante;</code></pre>
+    </section>
+    <section>
+      <h2>Múltiples JOINs</h2>
+      <pre><code class="language-sql">-- Si no se especifíca INNER, LEFT o RIGHT, por default es INNER
+SELECT e.nombre, m.nombre AS materia, p.nombre AS profesor
+FROM Estudiante e
+  JOIN Inscripcion i ON e.id = i.id_estudiante
+  JOIN Materia m ON i.id_materia = m.id
+  JOIN Profesor p ON m.id_profesor = p.id;</code></pre>
+    </section>
+    <section>
+      <h1>UNION - Combinar consultas</h1>
+    </section>
+    <section>
+      <h2>UNION - Combinar consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0007.jpg" alt="image" /></div>
+        <div class="text-col"><p><code>UNION</code> combina los <strong>resultados</strong> de dos o más consultas <code>SELECT</code>.</p><p><strong>Reglas:</strong></p>
+<ul><li>Mismo número de columnas</li><li>Tipos de datos compatibles</li><li><code>UNION</code> elimina duplicados, <code>UNION ALL</code> los conserva</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>UNION - Combinar consultas</h2>
+      <pre><code class="language-sql">-- Todos los nombres (estudiantes y profesores)
+SELECT nombre FROM Estudiante
+UNION
+SELECT nombre FROM Profesor;
+
+-- Con UNION ALL (incluye duplicados)
+SELECT nombre FROM Estudiante
+UNION ALL
+SELECT nombre FROM Profesor;</code></pre>
+    </section>
+    <section>
+      <h1>ORDEN DE EJECUCIÓN: Lo más importante</h1>
+    </section>
+    <section>
+      <h2>ORDEN DE EJECUCIÓN: Lo más importante</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>NOTA:</strong> El orden en que se <strong>escriben</strong> las cláusulas NO es el orden en que SQL las <strong>ejecuta</strong>.</p></div>
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Orden de escritura (sintaxis obligatoria):</h1>
+    </section>
+    <section>
+      <h2>Orden de escritura (sintaxis obligatoria):</h2>
+      <pre><code class="language-sql">SELECT columnas                    -- 1
+FROM tabla                         -- 2
+WHERE condición                    -- 3
+GROUP BY columnas                  -- 4
+HAVING condición_grupo             -- 5
+ORDER BY columnas                  -- 6</code></pre>
+    </section>
+    <section>
+      <h1>Orden de ejecución real (semántica interna):</h1>
+    </section>
+    <section>
+      <h2>Orden de ejecución real (semántica interna):</h2>
+      <pre><code class="">1. FROM (y JOIN)     -- Identifica y combina las tablas fuente
+2. WHERE             -- Filtra filas individuales
+3. GROUP BY          -- Agrupa las filas filtradas
+4. HAVING            -- Filtra grupos
+5. SELECT            -- Selecciona y calcula columnas
+6. ORDER BY          -- Ordena el resultado final</code></pre>
+    </section>
+    <section>
+      <h1>WHERE no puede usar alias de SELECT</h1>
+    </section>
+    <section>
+      <h2>WHERE no puede usar alias de SELECT</h2>
+      <pre><code class="language-sql">-- ERROR - El alias aún no existe cuando se ejecuta WHERE
+SELECT nombre, promedio * 10 AS puntos
+FROM Estudiante
+WHERE puntos &gt; 90;
+
+-- CORRECTO usa &#39;promedio&#39;
+SELECT nombre, promedio * 10 AS puntos
+FROM Estudiante
+WHERE promedio * 10 &gt; 90;</code></pre>
+    </section>
+    <section>
+      <h1>HAVING SÍ puede usar funciones agregadas</h1>
+    </section>
+    <section>
+      <h2>HAVING SÍ puede usar funciones agregadas</h2>
+      <pre><code class="language-sql">-- CORRECTO - HAVING se ejecuta después de GROUP BY
+SELECT fecha_ingreso, COUNT(*) AS total
+FROM Estudiante
+GROUP BY fecha_ingreso
+HAVING COUNT(*) &gt; 5;</code></pre>
+    </section>
+    <section>
+      <h1>ORDER BY SÍ puede (debe) usar alias de SELECT</h1>
+    </section>
+    <section>
+      <h2>ORDER BY SÍ puede (debe) usar alias de SELECT</h2>
+      <pre><code class="language-sql">-- CORRECTO - ORDER BY se ejecuta al final
+SELECT nombre, promedio * 10 AS puntos
+FROM Estudiante
+ORDER BY puntos DESC;</code></pre>
+    </section>
+    <section>
+      <h1>Ejemplo completo</h1>
+    </section>
+    <section>
+      <h2>Ejemplo completo</h2>
+      <pre><code class="language-sql">-- Mostrar materias populares con buen rendimiento
+SELECT 
+  m.nombre AS materia,
+  COUNT(i.id_estudiante) AS total_inscritos,
+  AVG(e.promedio) AS promedio_grupo,
+  MAX(e.promedio) AS mejor_alumno
+FROM Materia m
+  JOIN Inscripcion i ON m.id = i.id_materia
+  JOIN Estudiante e ON i.id_estudiante = e.id
+WHERE e.promedio &gt;= 7.0                      -- Solo estudiantes aprobados
+GROUP BY m.nombre                            -- Agrupar por materia
+HAVING COUNT(i.id_estudiante) &gt; 5            -- Solo materias con más de 5
+ORDER BY total_inscritos DESC, promedio_grupo DESC;
+</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo completo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Ejecución paso a paso:</strong></p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo completo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li><strong>FROM + JOIN:</strong> Combina Materia, Inscripcion y Estudiante</li><li><strong>WHERE:</strong> Filtra solo estudiantes con promedio ≥ 7.0</li><li><strong>GROUP BY:</strong> Agrupa por nombre de materia</li><li><strong>HAVING:</strong> Filtra grupos con más de 5 estudiantes</li><li><strong>SELECT:</strong> Calcula COUNT, AVG, MAX y crea los alias</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo completo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0019.jpg" alt="image" /></div>
+        <div class="text-col"><ol start="6"><li><strong>ORDER BY:</strong> Ordena por inscritos y luego por promedio</li></ol></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

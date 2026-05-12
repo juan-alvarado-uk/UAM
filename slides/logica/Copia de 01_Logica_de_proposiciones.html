@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Lógica de proposiciones</h1>
+    </section>
+    <section>
+      <h2>Lógica de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0009.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>: La lógica de proposiciones es un sistema formal que permite representar enunciados que pueden ser <strong>verdaderos</strong> o <strong>falsos</strong>, y razonar rigurosamente a partir de ellos usando reglas bien definidas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lógica de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>En el contexto de los sistemas de información, la lógica de proposiciones aparece cuando se describe si un sistema se encuentra en determinado estado, si se cumple una política de seguridad o si un módulo debe ejecutarse bajo ciertas condiciones.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lógica de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0035.jpg" alt="image" /></div>
+        <div class="text-col"><p>Así como en programación se combinan expresiones booleanas con <code>&amp;&amp;</code>, <code>||</code> o <code>!</code>, en lógica se combinan proposiciones con conectivos como “y”, “o” y “no”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo tecnológico</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se considera un sistema de autenticación muy sencillo:</p>
+<ul><li>“El usuario ingresó una contraseña válida”.</li><li>“El usuario tiene una cuenta activa”.</li><li>“Se permite el acceso al sistema”.</li></ul>
+<p>Cada una de estas frases puede pensarse como algo que, para un intento de inicio de sesión concreto, es <strong>verdadero</strong> o <strong>falso</strong>.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo tecnológico</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La <strong>lógica de proposiciones</strong> permite representar estas ideas <strong>simbólicamente</strong> y <strong>combinarlas para expresar reglas</strong> como: “el sistema concede acceso solo si la contraseña es válida y la cuenta está activa”.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0087.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Proposiciones</h1>
+    </section>
+    <section>
+      <h2>Proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>: Una proposición es un enunciado declarativo al que se le puede asignar, de manera clara, un <strong>valor de verdad</strong>: verdadero (V) o falso (F), pero no ambos a la vez.</p><p>Esto significa que el enunciado describe un hecho o situación que, en principio, podría verificarse.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0072.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>“Hoy llueve en Toluca.”<ul><li>Es proposición: o bien efectivamente llueve, o bien no llueve.</li><li>Tiene un valor de verdad bien definido para este día y lugar.</li></ul></li><li>“3 es un número primo.”<ul><li>Es proposición y es verdadera.</li></ul></li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0069.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0098.png" alt="image" /></div>
+        <div class="text-col"><ol start="3"><li>“La base de datos principal está disponible.”<ul><li>Es proposición: o el servicio está disponible o no lo está, aunque en la práctica sea necesario un monitoreo para saberlo.</li></ul></li><li>“El servidor respondió en menos de dos segundos.”<ul><li>Es proposición, porque la condición de tiempo se verifica o se incumple.</li></ul></li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0050.jpg" alt="image" /></div>
+        <div class="text-col"><ol start="5"><li>“El usuario está autenticado y tiene rol de administrador.”<ul><li>Es proposición compuesta; combina dos proposiciones más simples mediante un conectivo lógico (se detallará después).</li></ul></li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Enunciados que no son proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0076.jpg" alt="image" /></div>
+        <div class="text-col"><p>Hay enunciados que <strong><em>no se consideran proposiciones</em></strong> porque no admiten un valor de verdad claro.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Enunciados que no son proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>Preguntas:<ul><li>“¿Qué hora es?”</li><li>No es proposición, no tiene valor de verdad.</li></ul></li><li>Órdenes o instrucciones:<ul><li>“Cierra la ventana del navegador.”</li><li>No describe un hecho que pueda ser verdadero o falso; solo indica una acción.</li></ul></li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0097.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Enunciados que no son proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol start="3"><li>Expresiones de deseo u opinión vaga:<ul><li>“Sería bueno actualizar el sistema operativo.”</li><li>No se modela como verdadera o falsa en este nivel; mezcla deseos, valoraciones y contexto.</li></ul></li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0003.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Enunciados que no son proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol start="4"><li>Enunciados ambiguos:<ul><li>“Esta frase es falsa.”</li><li>No se usa como proposición en lógica elemental porque no admite un valor de verdad consistente; genera una paradoja;</li></ul></li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0076.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Identificar proposiciones (ejemplos)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Decidir si los siguientes enunciados son proposiciones o no, y por qué:</p>
+<ol><li>“El proceso de respaldo se ejecutó correctamente.”</li><li>“¿El servidor está encendido?”</li><li>“Guarda tu trabajo antes de cerrar la sesión.”</li><li>“2 + 2 = 5.”</li><li>“La red tendrá mejor rendimiento el próximo mes.”</li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0019.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Proposiciones simples y compuestas</h1>
+    </section>
+    <section>
+      <h2>Proposiciones simples y compuestas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0069.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>: Una proposición simple (o atómica) es aquella que no se descompone, dentro del lenguaje de trabajo, en proposiciones más pequeñas unidas por conectivos lógicos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Proposiciones simples y compuestas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0004.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>: Una proposición compuesta es aquella formada a partir de dos o más proposiciones simples unidas por uno o varios conectivos lógicos, o bien la negación de una proposición.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones simples</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0101.png" alt="image" /></div>
+        <div class="text-col"><ul><li>“El servidor web está activo.”</li><li>“El usuario ingresó su contraseña.”</li><li>“El archivo existe.”</li><li>“Hoy es miércoles.”</li></ul>
+<p>En todas estas frases no se observa, a nivel lógico, ninguna unión explícita con otros enunciados mediante “y”, “o”, “si… entonces…”, etc.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones compuestas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0057.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>“El servidor web está activo y la base de datos está disponible.”</li><li>“El usuario está autenticado o el acceso será rechazado.”</li><li>“Si el usuario no acepta los términos, entonces no puede continuar.”</li><li>“El sistema es seguro si y solo si todas las políticas están habilitadas.”</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de proposiciones compuestas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0105.jpeg" alt="image" /></div>
+        <div class="text-col"><p>Estas proposiciones <strong>combinan</strong> partes más simples y utilizan <strong>conectivos lógicos</strong> como <strong>“y”</strong>, <strong>“o”</strong>, “<strong>si… entonces…</strong>”, “<strong>si y solo si…</strong>”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos para practicar (simple vs compuesta)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>“La aplicación móvil está actualizada.”</li><li>“La consulta terminó en error o el tiempo de espera fue excedido.”</li><li>“Si se interrumpe la energía eléctrica, el sistema entra en modo de respaldo.”</li><li>“El servicio de correo funciona.”</li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Representación simbólica de proposiciones</h1>
+    </section>
+    <section>
+      <h2>Representación simbólica de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>: En lógica de proposiciones, cada proposición simple se representa mediante una letra proposicional (generalmente mayúscula), como P, Q, R, S, etc., para trabajar de forma más concisa y abstracta.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0091.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Representación simbólica de proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta sustitución de frases largas por símbolos funciona como una especie de “alias” para razonamiento lógico; el contenido específico se puede anotar aparte.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asociar enunciados con letras</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se considera el siguiente ejemplo de un sistema de autenticación:</p>
+<ul><li>P: “La contraseña es correcta.”</li><li>Q: “La cuenta está activa.”</li><li>R: “El usuario tiene permisos de administrador.”</li></ul>
+<p>Estos símbolos permiten escribir en forma breve expresiones como:</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0049.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asociar enunciados con letras</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>“La contraseña es correcta y la cuenta está activa”: \(P \land Q\).</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>P: “Hoy hace frío.”</li><li>Q: “Está lloviendo.”</li><li>R: “La persona lleva paraguas.”</li></ul>
+<p>Al representar enunciados de este modo, es más sencillo manipularlos y analizar sus combinaciones, dejando de lado detalles no lógicos del lenguaje natural.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0008.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Conectivos lógicos básicos</h1>
+    </section>
+    <section>
+      <h2>Conectivos lógicos básicos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>: Un conectivo lógico es un <strong>símbolo</strong> que permite construir <strong>nuevas proposiciones</strong> a partir de una o más proposiciones ya dadas, de forma similar a como las operaciones aritméticas construyen nuevas expresiones a partir de números.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0038.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Conectivos lógicos básicos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Los conectivos básicos que veremos son:</p>
+<ul><li>Negación</li><li>Conjunción</li><li>Disyunción</li><li>Condicional</li><li>Bicondicional</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0080.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Negación (no)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0015.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>: La negación de una proposición P, escrita ¬P, es una nueva proposición que es verdadera cuando P es falsa, y falsa cuando P es verdadera.</p><p>Símbolo habitual: ¬ (también se usa a veces ~).</p><p>Lecturas comunes: “no P”, “no es el caso que P”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de negación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>P: “El servidor está en línea.”<ul><li>¬P: “El servidor no está en línea.”</li></ul></li><li>Q: “Hoy es viernes.”<ul><li>¬Q: “Hoy no es viernes.”</li></ul></li><li>R: “La conexión es segura (cifrada).”<ul><li>¬R: “La conexión no es segura (no está cifrada).”</li></ul></li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0031.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica de la negación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0020.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una tabla de verdad muestra el valor de verdad de una fórmula para todas las combinaciones posibles de verdad de sus componentes.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica de la negación</h2>
+      <table>
+        <thead><tr><th>P</th><th>¬P</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Conjunción (y)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>: La conjunción de P y Q, escrita \(P \land Q\), es verdadera únicamente cuando P y Q son ambas verdaderas; en cualquier otro caso es falsa.</p><p>Símbolo habitual: ∧.</p><p>Lecturas comunes: “P y Q”, “P además Q”.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0052.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de conjunción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo:</p>
+<ul><li>P: “La contraseña es correcta.”</li><li>Q: “La cuenta está activa.”</li><li>\(P \land Q\): “La contraseña es correcta y la cuenta está activa.”</li></ul>
+<p>Esta proposición describe la situación donde ambas condiciones se cumplen; si alguna falla, la conjunción completa deja de ser verdadera.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0008.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica de la conjunción</h2>
+      <table>
+        <thead><tr><th>P</th><th>Q</th><th>\(P \land Q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Disyunción (o)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0008.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>.</p><p>La disyunción de P y Q, escrita \(P \lor Q\), es verdadera cuando al menos una de las dos proposiciones es verdadera, y solo es falsa cuando ambas son falsas.</p><p>Símbolo habitual: \( \lor \).</p><p>Lecturas comunes: “P o Q” (en sentido inclusivo: puede ser P, o Q, o ambas).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de disyunción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0052.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo:</p>
+<ul><li>P: “Llueve.”</li><li>Q: “Hace mucho frío.”</li><li>\(P \lor Q\): “Llueve o hace mucho frío (o ambas cosas).”</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica de la disyunción</h2>
+      <table>
+        <thead><tr><th>P</th><th>Q</th><th>\(P \lor Q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Condicional (si… entonces…)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>.</p><p>El condicional, escrito \(P \to Q\), se lee “si P, entonces Q” y se considera falso solo cuando P es verdadera y Q es falsa; en cualquier otro caso se considera verdadero.</p><p>Símbolo habitual: \( \to \).</p><p>Lecturas comunes: “si P entonces Q”, “P implica Q”.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0017.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de condicional</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo:</p>
+<ul><li>P: “El usuario está autenticado.”</li><li>Q: “El usuario puede acceder al panel de administración.”</li><li>\(P \to Q\): “Si el usuario está autenticado, entonces puede acceder al panel de administración.”</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica del condicional</h2>
+      <table>
+        <thead><tr><th>P</th><th>Q</th><th>\(P \to Q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica del condicional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Pensemos el condicional como una promesa:</p><p>&quot;Si pasa \(P\), entonces garantizo \(Q\)&quot;</p>
+<ul><li>Si \(P\) ocurre y \(Q\) falla \( \to \) promesa rota (falso)</li><li>En cualquier otro caso \( \to \) no se rompe la promesa (verdadero)</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0028.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica del condicional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo para desarrollar.</p>
+<ul><li>\(P\): &quot;Estudio para el examen&quot;</li><li>\(Q\): &quot;Apruebo el examen&quot;</li></ul>
+<p>La proposición: \(P \to Q\) &quot;Si estudio para el examen, entonces apruebo el examen&quot;</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0001.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bicondicional (si y solo si)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>.</p><p>El bicondicional, escrito \(P \leftrightarrow Q\), es verdadero cuando P y Q tienen el mismo valor de verdad (ambas verdaderas o ambas falsas) y es falso cuando tienen valores distintos.</p><p>Símbolo habitual: ↔.</p><p>Lecturas comunes: “P si y solo si Q”, “P es equivalente a Q”.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0001.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de bicondicional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo:</p>
+<ul><li>P: “Tiene acceso al estacionamiento.”</li><li>Q: “Cuenta con la tarjeta de residente vigente.”</li><li>\(P \leftrightarrow Q\): “Tiene acceso al estacionamiento si y solo si cuenta con la tarjeta de residente vigente.”</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0007.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad básica del bicondicional</h2>
+      <table>
+        <thead><tr><th>P</th><th>Q</th><th>\(P \leftrightarrow Q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Fórmulas bien formadas (FBF)</h1>
+    </section>
+    <section>
+      <h2>Fórmulas bien formadas (FBF)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0026.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición</strong>: Una fórmula bien formada (FBF) es una expresión construida correctamente a partir de letras proposicionales y conectivos lógicos, siguiendo reglas sintácticas que indican cómo se pueden combinar.</p><p>De manera informal, las reglas mínimas son las siguientes:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Fórmulas bien formadas (FBF)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>Toda letra proposicional (P, Q, R, …) es una FBF.</li><li>Si ϕ es una FBF, entonces ¬ϕ también es una FBF.</li><li>Si ϕ y ψ son FBF, entonces \((ϕ \land ψ)\), \((ϕ \lor ψ)\), \((ϕ \to ψ)\), \((ϕ \leftrightarrow ψ)\) son FBF.</li><li>Nada más es FBF salvo lo que se puede construir aplicando finitamente estas reglas.</li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0027.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Importancia de los paréntesis</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Los paréntesis se usan para dejar claro qué conectivo actúa primero, del mismo modo que en una expresión aritmética se decide si primero se suma o se multiplica.</p><p>Ejemplo:</p>
+<ul><li>\((P \land Q) \lor R\)</li><li>\(P \land (Q \lor R)\)</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Importancia de los paréntesis</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ambas son FBF y representan situaciones distintas: en la primera, se exige que P y Q se cumplan juntos, o bien R; en la segunda, basta P y, además, al menos una de Q o R.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0015.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de fórmulas bien formadas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0047.jpg" alt="image" /></div>
+        <div class="text-col"><p>Dadas las letras proposicionales P, Q, R:</p>
+<ol><li>\(P\)</li><li>\(¬P \)</li><li>\((P \land Q)\)</li><li>\((P \lor (¬Q))\)</li><li>\(((P \land Q) \to R)\)</li><li>\((P \leftrightarrow (Q \lor R))\)</li></ol>
+<p>Todas estas expresiones se pueden generar aplicando las reglas indicadas; por tanto son fórmulas bien formadas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de expresiones que NO son FBF</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0096.png" alt="image" /></div>
+        <div class="text-col"><ol><li>\(P \land \land Q\)<ul><li>Tiene dos conectivos seguidos sin una proposición entre ellos.</li></ul></li><li>\(¬ \lor P\)<ul><li>La negación no está aplicada a una fórmula, y el “o” tampoco tiene dos argumentos visibles.</li></ul></li><li>\(P Q \land\)<ul><li>No respeta el patrón “proposición conectivo proposición”.</li></ul></li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos para practicar (es FBF o no lo es)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se analiza si las siguientes expresiones son fórmulas bien formadas:</p>
+<ol><li>\(P \land (Q \lor R)\)</li><li>\((¬P \to Q)\)</li><li>\(P \lor Q \land\)</li><li>\((P \leftrightarrow (Q \to R))\)</li><li>\(¬(P \lor)\)</li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>De lenguaje natural a fórmulas de lógica de proposiciones (traducción)</h1>
+    </section>
+    <section>
+      <h2>Traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>: La traducción de lenguaje natural a fórmulas de lógica de proposiciones consiste en asociar a cada enunciado simple una letra proposicional y reemplazar conectores del lenguaje cotidiano (“no”, “y”, “o”, “si… entonces…”, “si y solo si…”) por los conectivos lógicos correspondientes.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0099.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este paso permite analizar de forma abstracta reglas de negocio, políticas de seguridad o condiciones de ejecución presentes en sistemas informáticos.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0079.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Pasos típicos para traducir</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>Identificar las proposiciones simples que la forman.</li><li>Asignar una letra proposicional a cada una.</li><li>Determinar qué conectores del lenguaje natural están presentes (“no”, “y”, “o”, “si… entonces…”).</li><li>Escribir la fórmula usando las letras y los conectivos lógicos adecuados.</li></ol></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0042.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Pasos típicos para traducir</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0077.jpg" alt="image" /></div>
+        <div class="text-col"><ol start="5"><li>Agregar paréntesis cuando sea necesario para evitar ambigüedades.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0035.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 1.</p><p>Enunciado: “Si el usuario está autenticado y tiene rol de administrador, entonces puede eliminar registros.”</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>P: “El usuario está autenticado.”</li><li>Q: “El usuario tiene rol de administrador.”</li><li>R: “El usuario puede eliminar registros.”</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0087.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0024.jpg" alt="image" /></div>
+        <div class="text-col"><p>Fórmula:</p><p>\[ ((P \land Q) \to R) \]</p><p>El par de paréntesis exteriores agrupa todo el condicional, y los internos dejan claro que primero se construye \(P \land Q\).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo 2.</p><p>Enunciado: “El sistema genera una alerta si la temperatura es mayor a 80 grados o el ventilador está apagado.”</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0073.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>P: “La temperatura es mayor a 80 grados.”</li><li>Q: “El ventilador está apagado.”</li><li>R: “El sistema genera una alerta.”</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0090.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0096.png" alt="image" /></div>
+        <div class="text-col"><p>Fórmula:</p><p>\[ ((P \lor Q) \to R) \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0095.png" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 3.</p><p>Enunciado: “El sistema está disponible si y solo si la base de datos está disponible y la red está activa.”</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0094.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>P: “El sistema está disponible.”</li><li>Q: “La base de datos está disponible.”</li><li>R: “La red está activa.”</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Fórmula:</p><p>\[ P \leftrightarrow (Q \land R) \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0065.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0058.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 4.</p><p>Enunciado: “No es cierto que llueva y haga calor al mismo tiempo.”</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0094.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>P: “Llueve.”</li><li>Q: “Hace calor.”</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Fórmula:</p><p>\[ ¬(P \land Q) \]</p><p>Se niega la conjunción: la frase indica que esa combinación (lluvia y calor simultáneos) no se da.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0014.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo 5.</p><p>Enunciado: “Si estudia y duerme bien, entonces tendrá mejor rendimiento.”</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>P: “Estudia.”</li><li>Q: “Duerme bien.”</li><li>R: “Tiene mejor rendimiento.”</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0069.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de traducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0040.jpg" alt="image" /></div>
+        <div class="text-col"><p>Fórmula:</p><p>\[ ((P \land Q) \to R) \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos para practicar (traducción)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0031.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li>“Si la batería está baja o el equipo está en modo de ahorro de energía, entonces se reduce el brillo de la pantalla.”</li><li>“Si el usuario acepta los términos, entonces puede continuar y acceder al servicio.”</li><li>“La red no está disponible o el servicio se encuentra en mantenimiento.”</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos para practicar (traducción)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0033.jpg" alt="image" /></div>
+        <div class="text-col"><ol start="4"><li>“El respaldo se completará si y solo si hay suficiente espacio y no ocurre ningún error durante el proceso.”</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h1>Identificación del conectivo principal de una fórmula</h1>
+    </section>
+    <section>
+      <h2>Identificación del conectivo principal de una fórmula</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición</strong>.</p><p>El conectivo principal de una fórmula es el conectivo de más “alto nivel” que estructura toda la expresión, es decir, el último que se aplicó al construirla según las reglas de formación.</p><p>Identificarlo resulta importante para:</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0023.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Identificación del conectivo principal de una fórmula</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0060.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Entender la forma global de la fórmula.</li><li>Desarrollar tablas de verdad de manera ordenada.</li><li>Aplicar transformaciones o reglas de inferencia sobre la estructura adecuada.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cómo localizar el conectivo principal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0104.png" alt="image" /></div>
+        <div class="text-col"><ol><li>Se observa la fórmula completa, con paréntesis.</li><li>Se busca el conectivo que no está encerrado totalmente dentro de otros paréntesis, o que “divide” a la fórmula más externa en dos partes.</li><li>En el caso de la negación, si la fórmula tiene forma ¬ϕ y nada más por fuera, el conectivo principal es la negación.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de conectivo principal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0053.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 1.</p><p>\[ (P \land Q) \]</p>
+<ul><li>La fórmula completa está entre paréntesis.</li><li>El conectivo que une P y Q es \( \land \).</li></ul>
+<p>Conectivo principal: conjunción (\( \land \)).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de conectivo principal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0059.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 2.</p><p>\[ (P \land Q) \to R \]</p>
+<ul><li>La fórmula puede verse como ϕ \( \to \) R, donde ϕ es \((P \land Q)\).</li><li>El conectivo que estructura todo es \( \to \).</li></ul>
+<p>Conectivo principal: condicional (\( \to \)).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de conectivo principal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0060.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo 3.</p><p>\[ ¬(P \lor Q) \]</p>
+<ul><li>Toda la fórmula está bajo una negación y luego entre paréntesis.</li><li>El símbolo más externo es \( ¬ \).</li></ul>
+<p>Conectivo principal: negación \( ¬ \).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de conectivo principal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo 4.</p><p>\[ (P \land Q) \leftrightarrow (R \lor S) \]</p>
+<ul><li>A la izquierda hay una conjunción, a la derecha una disyunción, y ambas partes están unidas por \( \leftrightarrow \).</li><li>El conectivo principal es el bicondicional.</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0017.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos para practicar (conectivo principal)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>\((P \lor Q) \land R\)</li><li>\(¬(P \to Q)\)</li><li>\((P \to (Q \land R))\)</li><li>\((P \leftrightarrow Q) \lor R\)</li><li>\(¬P \lor Q\)</li></ol>
+<p>El análisis se apoya en la estructura de paréntesis y en la posición relativa de los conectivos.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
