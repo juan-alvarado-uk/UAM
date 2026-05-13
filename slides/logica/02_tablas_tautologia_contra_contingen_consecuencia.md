@@ -353,7 +353,6 @@ Conclusión:
 
 - \(r\)
 
-Tabla resumida:
 
 | p | q | r | \(p \land q\) | \((p \land q)\rightarrow r\) | Conclusión \(r\) |
 |---|---|---|---|---|---|
