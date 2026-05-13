@@ -251,7 +251,7 @@ Un contraejemplo es un renglón de la tabla donde:
 - Todas las premisas valen V.
 - La conclusión vale F.
 
-Ese único renglón basta para destruir la consecuencia lógica. Es parecido a encontrar un caso de prueba que rompe una afirmación general sobre un sistema: un solo caso contrario es suficiente para mostrar que la relación no era necesaria.
+Ese único renglón basta para destruir la consecuencia lógica. Es parecido a encontrar un caso de prueba que rompe una afirmación general sobre un sistema: un solo caso contrario es suficiente para mostrar que el argumento no es válido.
 
 
 # Método con tablas de verdad para verificar consecuencia
