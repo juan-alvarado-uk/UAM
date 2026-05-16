@@ -147,14 +147,10 @@ Ejemplo:
 p \lor \neg p
 \]
 
-Tabla breve:
-
 | p | \(\neg p\) | \(p \lor \neg p\) |
 |---|---|---|
 | V | F | V |
 | F | V | V |
-
-Siempre resulta verdadera. No existe ninguna asignación que la vuelva falsa.
 
 
 ## Contradicción
@@ -166,14 +162,10 @@ Ejemplo:
 p \land \neg p
 \]
 
-Tabla breve:
-
 | p | \(\neg p\) | \(p \land \neg p\) |
 |---|---|---|
 | V | F | F |
 | F | V | F |
-
-Nunca resulta verdadera. No existe ningún caso que la haga cumplirse.
 
 
 ## Fórmula contingente
@@ -210,38 +202,34 @@ Este criterio ahorra tiempo en prácticas y evita decisiones intuitivas sin resp
 
 La expresión “hoy llueve o no llueve” tiene forma \(p \lor \neg p\). Es tautológica porque cubre exhaustivamente ambos casos posibles.
 
+---
+
 La expresión “la puerta está abierta y no está abierta al mismo tiempo” tiene forma \(p \land \neg p\). Es contradictoria porque exige algo y su negación de manera simultánea.
 
-La expresión “si estudio, apruebo” con forma \(p \rightarrow q\) es contingente. A veces será verdadera y existe al menos una situación donde será falsa.
+---
 
+La expresión “si estudio, apruebo” con forma \(p \rightarrow q\) es contingente. A veces será verdadera y existe al menos una situación donde será falsa.
 
 
 ## Errores frecuentes al construir tablas
 
 Un error frecuente es usar menos renglones de los necesarios. Cuando esto ocurre, la tabla deja fuera casos posibles y la clasificación pierde validez.
 
+---
+
 Otro error común es calcular directamente la fórmula completa sin columnas intermedias. Esto suele provocar confusión, sobre todo en expresiones con negaciones o agrupaciones.
+
+---
 
 También es frecuente invertir el comportamiento del condicional. Debe recordarse que \(p \rightarrow q\) solo es falso en el caso \(V \rightarrow F\).
 
-# Analogía con pruebas de sistemas
-
-Una tabla de verdad se parece a una matriz exhaustiva de escenarios. Cada renglón representa una combinación distinta de estados de entrada.
-
-Clasificar una fórmula equivale a identificar el comportamiento global de una especificación:
-
-- Tautología: la condición se cumple en todos los escenarios.
-- Contradicción: la condición no se cumple en ninguno.
-- Contingente: depende del escenario.
-
-Verificar consecuencia lógica equivale a revisar si existe un escenario válido para las premisas en el que la salida esperada no ocurra. Ese escenario sería el contraejemplo.
-
-
 # Consecuencia lógica
 
-La consecuencia lógica estudia si una conclusión se sigue necesariamente de una o varias premisas. En términos intuitivos, se pregunta si hay alguna situación donde todas las premisas sean verdaderas y la conclusión sea falsa.
+La consecuencia lógica estudia si **una conclusión** se sigue *necesariamente* de una o varias **premisas**. En términos intuitivos, se pregunta si hay alguna situación donde **todas las premisas sean verdaderas y la conclusión sea falsa**. La pista está en: *necesariamente*
 
-Si esa situación existe, entonces la conclusión no se sigue lógicamente. Si no existe, entonces sí hay consecuencia lógica.
+---
+
+Si esa situación existe (*todas las premisas fueron verdaderas y la conclusión fue falsa*), entonces *la conclusión no se sigue lógicamente*. Si no existe, entonces sí hay consecuencia lógica.
 
 
 ## Contraejemplo
@@ -251,16 +239,20 @@ Un contraejemplo es un renglón de la tabla donde:
 - Todas las premisas valen V.
 - La conclusión vale F.
 
-Ese único renglón basta para destruir la consecuencia lógica. Es parecido a encontrar un caso de prueba que rompe una afirmación general sobre un sistema: un solo caso contrario es suficiente para mostrar que el argumento no es válido.
+Ese único renglón basta para destruir la consecuencia lógica. Es parecido a encontrar un caso de prueba que rompe una afirmación general sobre un sistema: **un solo caso contrario es suficiente para mostrar que el argumento no es válido**.
 
 
 # Método con tablas de verdad para verificar consecuencia
 
 Para decidir si
+
 \[
-P_1, P_2, \dots, P_n \models C
+P_1, P_2, \ldots, P_n \models C
 \]
+
 se construye una sola tabla con todas las proposiciones involucradas. Después se agregan columnas para cada premisa y una para la conclusión.
+
+---
 
 Al final se revisan únicamente los renglones donde todas las premisas son verdaderas:
 
@@ -294,8 +286,6 @@ Por tanto, no hay contraejemplo. Sí existe consecuencia lógica:
 p \rightarrow q,\ p \models q
 \]
 
-
-
 ## Lectura intuitiva del ejemplo
 
 En lenguaje cotidiano: “si estudio, apruebo; estudio; por lo tanto, apruebo”. La tabla muestra que no aparece ningún caso donde las dos premisas se mantengan verdaderas y la conclusión falle.
@@ -313,8 +303,6 @@ Premisas:
 Conclusión:
 
 - \(p\)
-
-Tabla:
 
 | p | q | \(p \rightarrow q\) | Premisa \(q\) | Conclusión \(p\) |
 |---|---|---|---|---|
@@ -370,13 +358,9 @@ Se buscan renglones donde las dos premisas sean verdaderas al mismo tiempo. Eso 
 En ese renglón, la conclusión \(r\) es verdadera. No existe contraejemplo; por tanto, sí hay consecuencia lógica.
 
 
-
-
 # Práctica
 
 Resolver ejercicios de tablas de verdad requiere disciplina en el orden de trabajo. El objetivo es que el resultado sea verificable por cualquier otra persona.
-
-Secuencia de trabajo:
 
 1. Identificar las letras proposicionales distintas.
 2. Calcular el número de renglones.

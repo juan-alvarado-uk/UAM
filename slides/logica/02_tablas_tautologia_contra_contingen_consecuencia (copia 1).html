@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Introducción</h1>
+    </section>
+    <section>
+      <h2>Introducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0015.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las tablas de verdad son un procedimiento sistemático para determinar el valor de verdad de una fórmula en todas las combinaciones posibles de sus proposiciones simples.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Introducción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0024.jpg" alt="image" /></div>
+        <div class="text-col"><p>Usaremos fórmulas de 2 y 3 proposiciones, y clasificaremos como tautología, contradicción o contingente, y se revisa la consecuencia lógica mediante la búsqueda de contraejemplos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Tabla de verdad</h1>
+    </section>
+    <section>
+      <h2>Tabla de verdad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una tabla de verdad es un mapa completo de casos posibles.</p><p>Así como en pruebas de software se revisan <strong>distintas</strong> entradas para ver cómo responde un sistema, en lógica se revisan <strong>todas</strong> las asignaciones posibles de verdad para observar cómo responde una fórmula.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla de verdad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si una fórmula usa dos proposiciones, existen 4 combinaciones posibles de valores.</p><p>Si usa tres proposiciones, existen 8 combinaciones posibles, porque cada proposición puede tomar dos valores y el total crece como \(2^n\), donde \(n\) es el número de proposiciones distintas.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0037.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Número de renglones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0031.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>1 proposición \(\rightarrow 2\) renglones.</li><li>2 proposiciones \(\rightarrow 4\) renglones.</li><li>3 proposiciones \(\rightarrow 8\) renglones.</li><li>4 proposiciones \(\rightarrow 16\) renglones.</li></ul>
+<p>Esta idea es importante porque evita omisiones.</p><p>Una tabla incompleta produce conclusiones incorrectas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Construcción sistemática</h1>
+    </section>
+    <section>
+      <h2>Construcción sistemática</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0055.jpg" alt="image" /></div>
+        <div class="text-col"><p>Construir sistemáticamente una tabla de verdad significa seguir un orden fijo para no perder renglones ni cometer saltos en los valores.</p><p>El objetivo no es adivinar el resultado, sino llegar a él por un procedimiento repetible.</p><p>El proceso general consta de cuatro partes:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Construcción sistemática</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0039.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Identificar las proposiciones simples distintas.</li><li>Calcular cuántos renglones tendrá la tabla.</li><li>Escribir las columnas de las proposiciones simples con el patrón correcto de V y F.</li><li>Agregar columnas intermedias hasta obtener la columna final de la fórmula.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 2 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si la fórmula contiene \(p\) y \(q\), se usan 4 renglones:</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 2 proposiciones</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 2 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este orden puede verse como un contador binario lógico.</p><p>La primera proposición cambia más lento y la última cambia más rápido.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0078.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si la fórmula contiene \(p\), \(q\) y \(r\), se usan 8 renglones:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 3 proposiciones</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>r</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>V</td><td>F</td></tr>
+<tr><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Patrón de llenado para 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Aquí también se sigue un ritmo fijo:</p>
+<ul><li>\(p\) cambia cada 4 renglones.</li><li>\(q\) cambia cada 2 renglones.</li><li>\(r\) cambia en cada renglón.</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0033.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Orden correcto de evaluación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La tabla se construye desde las subfórmulas internas hasta la fórmula completa.</p><p>Es parecido al seguimiento de una expresión en programación: primero se resuelven los componentes internos y luego se combina el resultado.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0084.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Orden correcto de evaluación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Por ejemplo, para \((p \land q)\rightarrow r\), conviene crear primero la columna de \(p \land q\), y después usar esa columna para evaluar el condicional completo.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0098.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 1: construcción completa con 2 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0102.png" alt="image" /></div>
+        <div class="text-col"><p>La fórmula \(p \rightarrow q\) expresa que si ocurre \(p\), entonces ocurre \(q\).</p><p>En un ejemplo cotidiano: “si llueve, entonces la calle se moja”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 1: construcción completa con 2 proposiciones</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \rightarrow q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 1: construcción completa con 2 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La columna final muestra que esta fórmula no siempre es verdadera ni siempre es falsa.</p><p>Tiene al menos un caso verdadero y al menos un caso falso; por eso es contingente.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0028.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura del caso falso</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0073.jpg" alt="image" /></div>
+        <div class="text-col"><p>En un condicional, el único caso falso ocurre cuando el antecedente es verdadero y el consecuente es falso.</p><p>En lenguaje cotidiano, el problema aparece cuando se prometió algo y no se cumplió.</p><p>Ejemplo de sistemas: “si el usuario introduce credenciales válidas, entonces obtiene acceso”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura del caso falso</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0070.jpg" alt="image" /></div>
+        <div class="text-col"><p>Esa afirmación sería falsa justo en el caso en que las credenciales sean válidas y, aun así, no se permita el acceso.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 2: construcción completa con subfórmulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0014.jpg" alt="image" /></div>
+        <div class="text-col"><p>La fórmula \((p \lor q)\land \neg p\) combina una disyunción y una negación.</p><p>Para evitar errores, se crean columnas intermedias.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 2: construcción completa con subfórmulas</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \lor q\)</th><th>\(\neg p\)</th><th>\((p \lor q)\land \neg p\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>V</td><td>F</td><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 2: construcción completa con subfórmulas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La fórmula final resulta verdadera en un solo caso.</p><p>Esto basta para afirmar que no es contradicción, y también basta para afirmar que no es tautología.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0016.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 3: tabla con 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La fórmula \((p \land q)\rightarrow r\) puede leerse en contexto tecnológico así: “si el servidor está activo y la base de datos responde, entonces el servicio queda disponible”.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0020.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 3: tabla con 3 proposiciones</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>r</th><th>\(p \land q\)</th><th>\((p \land q)\rightarrow r\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>V</td><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>V</td><td>F</td><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>F</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 3: tabla con 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0102.png" alt="image" /></div>
+        <div class="text-col"><p>La fórmula solo es falsa cuando \(p\) y \(q\) son verdaderas pero \(r\) es falsa.</p><p>En términos de operación de sistemas, ese es el caso donde las condiciones previas se cumplen, pero el resultado esperado no ocurre.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Clasificación de fórmulas</h1>
+    </section>
+    <section>
+      <h2>Clasificación de fórmulas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La clasificación de una fórmula depende únicamente de la columna final de su tabla de verdad.</p><p>Esa columna funciona como la “firma de comportamiento” de la fórmula.</p><p>Existen tres clases fundamentales:</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0088.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Clasificación de fórmulas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Tautología: la columna final contiene solo V.</li><li>Contradicción: la columna final contiene solo F.</li><li>Contingente: la columna final contiene tanto V como F.</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tautología</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una tautología es una fórmula verdadera en todas las combinaciones posibles.</p><p>Es como una política del sistema que se mantiene correcta sin importar el estado de entrada.</p><p>Ejemplo: \[ p \lor \neg p \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tautología</h2>
+      <table>
+        <thead><tr><th>p</th><th>\(\neg p\)</th><th>\(p \lor \neg p\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Contradicción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0068.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una contradicción es una fórmula falsa en todas las combinaciones posibles.</p><p>Representa una condición imposible de satisfacer.</p><p>Ejemplo: \[ p \land \neg p \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Contradicción</h2>
+      <table>
+        <thead><tr><th>p</th><th>\(\neg p\)</th><th>\(p \land \neg p\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Fórmula contingente</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una fórmula contingente es verdadera en algunas combinaciones y falsa en otras.</p><p>Es la situación más común en lógica aplicada, porque muchas condiciones dependen del estado del entorno.</p><p>Ejemplo: \[ p \land q \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0037.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Fórmula contingente</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \land q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Fórmula contingente</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0013.jpg" alt="image" /></div>
+        <div class="text-col"><p>Como aparece al menos una V y al menos una F, se trata de una fórmula contingente.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Criterio visual rápido de clasificación</h1>
+    </section>
+    <section>
+      <h2>Criterio visual rápido de clasificación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0102.png" alt="image" /></div>
+        <div class="text-col"><p>Clasificar una fórmula puede hacerse sin volver a leer toda la expresión si ya se construyó bien la tabla.</p><p>Basta con observar la última columna.</p>
+<ul><li>Todo V \(\rightarrow\) tautología.</li><li>Todo F \(\rightarrow\) contradicción.</li><li>Mezcla de V y F \(\rightarrow\) contingente.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Criterio visual rápido de clasificación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este criterio ahorra tiempo en prácticas y evita decisiones intuitivas sin respaldo.</p><p>En lógica, la clasificación se demuestra; no se supone.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0039.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de clasificación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0016.jpg" alt="image" /></div>
+        <div class="text-col"><p>La expresión “hoy llueve o no llueve” tiene forma \(p \lor \neg p\).</p><p>Es tautológica porque cubre exhaustivamente ambos casos posibles.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de clasificación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0035.jpg" alt="image" /></div>
+        <div class="text-col"><p>La expresión “la puerta está abierta y no está abierta al mismo tiempo” tiene forma \(p \land \neg p\).</p><p>Es contradictoria porque exige algo y su negación de manera simultánea.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de clasificación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0079.jpg" alt="image" /></div>
+        <div class="text-col"><p>La expresión “si estudio, apruebo” con forma \(p \rightarrow q\) es contingente.</p><p>A veces será verdadera y existe al menos una situación donde será falsa.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores frecuentes al construir tablas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un error frecuente es usar menos renglones de los necesarios.</p><p>Cuando esto ocurre, la tabla deja fuera casos posibles y la clasificación pierde validez.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0039.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores frecuentes al construir tablas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0087.jpg" alt="image" /></div>
+        <div class="text-col"><p>Otro error común es calcular directamente la fórmula completa sin columnas intermedias.</p><p>Esto suele provocar confusión, sobre todo en expresiones con negaciones o agrupaciones.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores frecuentes al construir tablas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>También es frecuente invertir el comportamiento del condicional.</p><p>Debe recordarse que \(p \rightarrow q\) solo es falso en el caso \(V \rightarrow F\).</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0001.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Consecuencia lógica</h1>
+    </section>
+    <section>
+      <h2>Consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0089.jpg" alt="image" /></div>
+        <div class="text-col"><p>La consecuencia lógica estudia si <strong>una conclusión</strong> se sigue <em>necesariamente</em> de una o varias <strong>premisas</strong>.</p><p>En términos intuitivos, se pregunta si hay alguna situación donde <strong>todas las premisas sean verdaderas y la conclusión sea falsa</strong>.</p><p>La pista está en: <em>necesariamente</em></p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si esa situación existe (<em>todas las premisas fueron verdaderas y la conclusión fue falsa</em>), entonces <em>la conclusión no se sigue lógicamente</em>.</p><p>Si no existe, entonces sí hay consecuencia lógica.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Contraejemplo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un contraejemplo es un renglón de la tabla donde:</p>
+<ul><li>Todas las premisas valen V.</li><li>La conclusión vale F.</li></ul>
+<p>Ese único renglón basta para destruir la consecuencia lógica.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0097.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Contraejemplo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Es parecido a encontrar un caso de prueba que rompe una afirmación general sobre un sistema: <strong>un solo caso contrario es suficiente para mostrar que el argumento no es válido</strong>.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Método con tablas de verdad para verificar consecuencia</h1>
+    </section>
+    <section>
+      <h2>Método con tablas de verdad para verificar consecuencia</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para decidir si</p><p>\[ P_1, P_2, \ldots, P_n \models C \]</p><p>se construye una sola tabla con todas las proposiciones involucradas.</p><p>Después se agregan columnas para cada premisa y una para la conclusión.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Método con tablas de verdad para verificar consecuencia</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Al final se revisan únicamente los renglones donde todas las premisas son verdaderas:</p>
+<ul><li>Si en alguno de esos renglones la conclusión es falsa, no hay consecuencia lógica.</li><li>Si en todos esos renglones la conclusión es verdadera, sí hay consecuencia lógica.</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 4: sí hay consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0042.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se analizan las premisas:</p>
+<ul><li>\(p \rightarrow q\)</li><li>\(p\)</li></ul>
+<p>y la conclusión:</p>
+<ul><li>\(q\)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 4: sí hay consecuencia lógica</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \rightarrow q\)</th><th>Premisa \(p\)</th><th>Conclusión \(q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 4: sí hay consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ahora se buscan renglones donde ambas premisas sean verdaderas.</p><p>Eso solo ocurre en el primer renglón, y allí la conclusión también es verdadera.</p><p>Por tanto, no hay contraejemplo.</p><p>Sí existe consecuencia lógica: \[ p \rightarrow q,\ p \models q \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0087.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura intuitiva del ejemplo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En lenguaje cotidiano: “si estudio, apruebo; estudio; por lo tanto, apruebo”.</p><p>La tabla muestra que no aparece ningún caso donde las dos premisas se mantengan verdaderas y la conclusión falle.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0048.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura intuitiva del ejemplo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En sistemas: “si el token es válido, el acceso queda autorizado; el token es válido; por lo tanto, el acceso queda autorizado”.</p><p>Bajo esta estructura lógica, la conclusión se sigue de las premisas.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0022.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 5: no hay consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Premisas:</p>
+<ul><li>\(p \rightarrow q\)</li><li>\(q\)</li></ul>
+<p>Conclusión:</p>
+<ul><li>\(p\)</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 5: no hay consecuencia lógica</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \rightarrow q\)</th><th>Premisa \(q\)</th><th>Conclusión \(p\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 5: no hay consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se observan los renglones donde ambas premisas son verdaderas.</p><p>Eso ocurre en el primero y en el tercero.</p>
+<ul><li>En el primer renglón, la conclusión es V.</li><li>En el tercer renglón, la conclusión es F.</li></ul>
+<p>El tercer renglón es un contraejemplo.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0056.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 5: no hay consecuencia lógica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0064.jpg" alt="image" /></div>
+        <div class="text-col"><p>Por tanto, no hay consecuencia lógica: \[ p \rightarrow q,\ q \not\models p \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura intuitiva del contraejemplo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0019.jpg" alt="image" /></div>
+        <div class="text-col"><p>En lenguaje cotidiano: “si estudio, apruebo; aprobé; por lo tanto, estudié”.</p><p>Eso no se sigue necesariamente, porque pudo haberse aprobado por otra razón.</p><p>En sistemas: “si el servicio principal está activo, entonces hay respuesta; hay respuesta; por lo tanto, el servicio principal está activo”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lectura intuitiva del contraejemplo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0083.jpg" alt="image" /></div>
+        <div class="text-col"><p>Tampoco es necesario, porque la respuesta pudo venir de un respaldo, de caché o de una réplica.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 6: consecuencia con 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0037.jpg" alt="image" /></div>
+        <div class="text-col"><p>Premisas:</p>
+<ul><li>\(p \land q\)</li><li>\((p \land q) \rightarrow r\)</li></ul>
+<p>Conclusión:</p>
+<ul><li>\(r\)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo 6: consecuencia con 3 proposiciones</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>r</th><th>\(p \land q\)</th><th>\((p \land q)\rightarrow r\)</th><th>Conclusión \(r\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>V</td><td>F</td><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>V</td><td>F</td><td>V</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>V</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo 6: consecuencia con 3 proposiciones</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0094.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se buscan renglones donde las dos premisas sean verdaderas al mismo tiempo.</p><p>Eso solo ocurre en el primer renglón.</p><p>En ese renglón, la conclusión \(r\) es verdadera.</p><p>No existe contraejemplo; por tanto, sí hay consecuencia lógica.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Práctica</h1>
+    </section>
+    <section>
+      <h2>Práctica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Resolver ejercicios de tablas de verdad requiere disciplina en el orden de trabajo.</p><p>El objetivo es que el resultado sea verificable por cualquier otra persona.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0104.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Práctica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0089.jpg" alt="image" /></div>
+        <div class="text-col"><ol><li>Identificar las letras proposicionales distintas.</li><li>Calcular el número de renglones.</li><li>Construir las columnas base de V y F.</li><li>Agregar columnas intermedias de cada subfórmula.</li><li>Obtener la columna final.</li><li>Clasificar la fórmula observando la última columna.</li><li>Si hay premisas y conclusión, localizar contraejemplos.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 1</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 1</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0010.jpg" alt="image" /></div>
+        <div class="text-col"><p>\[ \neg(p \land q) \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 1</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Es verdadera cuando no se cumplen \(p\) y \(q\) simultáneamente.</li><li>Solo es falsa cuando ambas son verdaderas.</li><li>Por tanto, es contingente.</li></ul></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0018.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 2</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 2</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0039.jpg" alt="image" /></div>
+        <div class="text-col"><p>\[ (p \rightarrow q)\lor (q \rightarrow p) \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 2</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0029.jpg" alt="image" /></div>
+        <div class="text-col"><p>Al construir la tabla completa se observa que siempre da V.</p><p>En cualquier combinación, al menos uno de los dos condicionales resulta verdadero.</p><p>Por tanto, es tautología.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 3</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 3</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>\[ (p \lor q)\land \neg(p \lor q) \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0070.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 3</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0075.jpg" alt="image" /></div>
+        <div class="text-col"><p>La fórmula exige que una misma subfórmula sea verdadera y falsa al mismo tiempo.</p><p>Eso hace que todos los renglones terminen en F.</p><p>Por tanto, es contradicción.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 4</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 4</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>\[ (p \lor q)\rightarrow p \]</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0084.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 4</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Primero se construye \(p \lor q\), luego el condicional.</p></div>
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0098.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 4</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \lor q\)</th><th>\((p \lor q)\rightarrow p\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>F</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejercicio 4</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>La fórmula es contingente porque mezcla V y F.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 5</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 5</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0081.jpg" alt="image" /></div>
+        <div class="text-col"><p>\[ (p \land q)\rightarrow (p \lor q) \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 5</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \land q\)</th><th>\(p \lor q\)</th><th>\((p \land q)\rightarrow (p \lor q)\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>V</td><td>F</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>F</td><td>V</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejercicio 5</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0098.png" alt="image" /></div>
+        <div class="text-col"><p>La fórmula siempre resulta verdadera.</p><p>Por tanto, es una tautología.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicio 6</h1>
+    </section>
+    <section>
+      <h2>Ejercicio 6</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0047.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se revisa si de las premisas \[ p \lor q,\ \neg p \] se sigue la conclusión \[ q \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 6</h2>
+      <table>
+        <thead><tr><th>p</th><th>q</th><th>\(p \lor q\)</th><th>\(\neg p\)</th><th>Conclusión \(q\)</th></tr></thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>F</td><td>V</td></tr>
+<tr><td>V</td><td>F</td><td>V</td><td>F</td><td>F</td></tr>
+<tr><td>F</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+<tr><td>F</td><td>F</td><td>F</td><td>V</td><td>F</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejercicio 6</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0080.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se buscan renglones donde las dos premisas sean verdaderas.</p><p>Solo ocurre en el tercer renglón.</p><p>En ese renglón, la conclusión es verdadera.</p><p>No aparece contraejemplo, así que sí hay consecuencia lógica.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Algunos ejercicios más para resolver</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0079.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Construir la tabla de verdad de \((p \land q)\rightarrow q\) y clasificarla.</li><li>Construir la tabla de verdad de \((p \rightarrow q)\land p\) y clasificarla.</li><li>Construir la tabla de verdad de \(\neg(p \lor q)\) y clasificarla.</li><li>Decidir si \(p \rightarrow q,\ \neg q \models \neg p\).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Algunos ejercicios más para resolver</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/img/0074.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Decidir si \(p \lor q,\ q \models p\).</li><li>Decidir si \(p \land q \models p\).</li></ul></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://ubicua.cua.uam.mx/pluginfile.php/268902/mod_folder/content/0/logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

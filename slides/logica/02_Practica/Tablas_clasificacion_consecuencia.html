@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+<script>
+window.onload = () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]
+  });
+};
+</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="pr%C3%A1ctica-de-tablas-de-verdad-y-clasificaci%C3%B3n-de-f%C3%B3rmulas">Práctica de tablas de verdad y clasificación de fórmulas</h1>
+<h2 id="objetivo-de-la-pr%C3%A1ctica">Objetivo de la práctica</h2>
+<p>Esta práctica tiene ejercicios para construir tablas de verdad, clasificar fórmulas y revisar si una conclusión realmente se sigue de unas premisas.</p>
+<p>Una tabla de verdad es un arreglo sistemático de casos posibles para las proposiciones que aparecen en una fórmula. Con esta práctica, los alumnos serán capaces de construir tablas completas de fórmulas de dos y tres proposiciones, clasificar fórmulas como tautología, contradicción o contingente, y detectar contraejemplos cuando una conclusión no se siga de las premisas.</p>
+<p>Una tautología es una fórmula que resulta verdadera en todos los renglones; una contradicción resulta falsa en todos; una contingente mezcla renglones verdaderos y falsos. Esta clasificación funciona como una prueba de estrés: una tautología se comporta como una condición que nunca falla, una contradicción como una condición imposible, y una contingente como una regla cuyo resultado depende del contexto.</p>
+<h2 id="recordatorio-conceptual-m%C3%ADnimo">Recordatorio conceptual mínimo</h2>
+<p>Una fórmula bien formada es una expresión construida correctamente con proposiciones y conectivos. En esta práctica se usarán los conectivos básicos ya estudiados: negación $\neg$, conjunción $\land$, disyunción $\lor$, condicional $\to$ y bicondicional $\leftrightarrow$.</p>
+<p>Para construir una tabla de verdad de manera sistemática se procede por columnas. Primero se listan todas las combinaciones de valores de verdad de las proposiciones simples; después se calculan las subfórmulas; al final se obtiene la columna de la fórmula completa, que es la que permite clasificarla o decidir si hay consecuencia lógica.</p>
+<h2 id="convenciones-de-trabajo">Convenciones de trabajo</h2>
+<p>Una tabla completa de dos proposiciones tiene 4 renglones, porque hay cuatro combinaciones posibles de verdad. Una tabla completa de tres proposiciones tiene 8 renglones, porque cada nueva proposición duplica el número de casos.</p>
+<p>Se usarán las letras <strong>V</strong> y <strong>F</strong> para representar verdadero y falso. Cuando se revise una consecuencia lógica, la atención se pondrá en los renglones donde todas las premisas sean verdaderas; si en alguno de esos renglones la conclusión es falsa, aparece un contraejemplo y la consecuencia lógica no se cumple.</p>
+<h2 id="m%C3%A9todo-de-construcci%C3%B3n-paso-a-paso">Método de construcción paso a paso</h2>
+<p>Una construcción sistemática evita errores y funciona como un procedimiento de laboratorio. El orden recomendado es el siguiente:</p>
+<ol>
+<li>Identificar las proposiciones simples de la fórmula.</li>
+<li>Determinar cuántos renglones tendrá la tabla: 4 para dos proposiciones, 8 para tres.</li>
+<li>Llenar las columnas base con el patrón de valores de verdad.</li>
+<li>Construir columnas intermedias para cada subfórmula entre paréntesis.</li>
+<li>Completar la columna final de la fórmula.</li>
+<li>Clasificar o analizar la relación entre premisas y conclusión.</li>
+</ol>
+<h3 id="patr%C3%B3n-base-para-dos-proposiciones">Patrón base para dos proposiciones</h3>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patr%C3%B3n-base-para-tres-proposiciones">Patrón base para tres proposiciones</h3>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ejemplo-guiado-1-tabla-de-verdad-y-clasificaci%C3%B3n">Ejemplo guiado 1: tabla de verdad y clasificación</h2>
+<p>Una conjunción afirma que dos condiciones se cumplen al mismo tiempo. Si en un sistema de acceso se define que “el acceso se concede si la credencial es válida y la huella coincide”, la conjunción solo será verdadera cuando ambas partes sean verdaderas.</p>
+<p><strong>Fórmula:</strong> $p \land q$</p>
+<p><strong>Interpretación tecnológica:</strong></p>
+<ul>
+<li>$p$: la credencial es válida.</li>
+<li>$q$: la huella coincide.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>$p \land q$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>La fórmula no es siempre verdadera ni siempre falsa. Por tanto, $p \land q$ es una fórmula contingente.</p>
+<h2 id="ejemplo-guiado-2-f%C3%B3rmula-tautol%C3%B3gica">Ejemplo guiado 2: fórmula tautológica</h2>
+<p>Una tautología se comporta como una verificación que siempre sale bien sin importar el escenario. La fórmula $p \lor \neg p$ expresa que una proposición o bien es verdadera o bien no lo es; por eso cubre todos los casos posibles.</p>
+<p><strong>Fórmula:</strong> $p \lor \neg p$</p>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>$\neg p$</th>
+<th>$p \lor \neg p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<p>Como la columna final contiene solo valores verdaderos, esta fórmula es una tautología.</p>
+<h2 id="ejemplo-guiado-3-f%C3%B3rmula-contradictoria">Ejemplo guiado 3: fórmula contradictoria</h2>
+<p>Una contradicción es una condición imposible, como pedir que un servicio esté disponible y no disponible al mismo tiempo en el mismo instante. La fórmula $p \land \neg p$ nunca puede resultar verdadera.</p>
+<p><strong>Fórmula:</strong> $p \land \neg p$</p>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>$\neg p$</th>
+<th>$p \land \neg p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>Como la columna final contiene solo valores falsos, esta fórmula es una contradicción.</p>
+<h2 id="ejemplo-guiado-4-consecuencia-l%C3%B3gica-con-tabla-de-verdad">Ejemplo guiado 4: consecuencia lógica con tabla de verdad</h2>
+<p>Una conclusión es consecuencia lógica de unas premisas cuando no existe ningún caso en el que todas las premisas sean verdaderas y la conclusión sea falsa. En términos de revisión de redes, sería como afirmar que, si todas las condiciones operativas declaradas se cumplen, entonces el resultado esperado también debe cumplirse sin excepción.</p>
+<p><strong>Premisas:</strong></p>
+<ol>
+<li>$p \to q$</li>
+<li>$p$</li>
+</ol>
+<p><strong>Conclusión:</strong></p>
+<ul>
+<li>$q$</li>
+</ul>
+<p><strong>Interpretación cotidiana:</strong></p>
+<ul>
+<li>$p$: está lloviendo.</li>
+<li>$q$: la calle se moja.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>$p \to q$</th>
+<th>Premisas verdaderas al mismo tiempo</th>
+<th>Conclusión $q$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>Sí</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>No</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>No</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>No</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>Solo interesa el renglón donde ambas premisas son verdaderas al mismo tiempo. En ese renglón, la conclusión también es verdadera; por eso sí hay consecuencia lógica.</p>
+<h2 id="ejemplo-guiado-5-detecci%C3%B3n-de-contraejemplo">Ejemplo guiado 5: detección de contraejemplo</h2>
+<p>Un contraejemplo es un renglón de la tabla donde todas las premisas son verdaderas y la conclusión es falsa. Encontrar un solo contraejemplo basta para negar la consecuencia lógica, igual que basta una sola prueba fallida para mostrar que un criterio no garantiza el resultado prometido.</p>
+<p><strong>Premisas:</strong></p>
+<ol>
+<li>$p \lor q$</li>
+</ol>
+<p><strong>Conclusión:</strong></p>
+<ul>
+<li>$p$</li>
+</ul>
+<p><strong>Interpretación tecnológica:</strong></p>
+<ul>
+<li>$p$: el servidor principal está disponible.</li>
+<li>$q$: el servidor de respaldo está disponible.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>$p \lor q$</th>
+<th>Conclusión $p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>En el renglón $p=F$, $q=V$, la premisa es verdadera y la conclusión es falsa. Ese renglón es un contraejemplo; por tanto, la conclusión no se sigue de la premisa.</p>
+<h2 id="secci%C3%B3n-i-ejercicios-de-construcci%C3%B3n-de-tablas-de-verdad">Sección I: ejercicios de construcción de tablas de verdad</h2>
+<p>Una tabla de verdad completa exige que no se omita ningún caso posible. En este bloque se practica la mecánica de construcción, como quien revisa todas las rutas de ejecución de un proceso antes de afirmar que entiende su comportamiento.</p>
+<p>Construir la tabla completa de cada fórmula y completar todas las columnas intermedias.</p>
+<ol>
+<li>$\neg p \lor q$</li>
+<li>$(p \to q) \land p$</li>
+<li>$(p \lor q) \to p$</li>
+<li>$(p \land \neg q) \lor q$</li>
+<li>$(p \to q) \lor r$</li>
+<li>$(p \leftrightarrow q) \to r$</li>
+<li>$p \to (q \to r)$</li>
+<li>$(p \land r) \lor (q \land \neg r)$</li>
+</ol>
+<h2 id="secci%C3%B3n-ii-ejercicios-de-clasificaci%C3%B3n-de-f%C3%B3rmulas">Sección II: ejercicios de clasificación de fórmulas</h2>
+<p>Clasificar una fórmula consiste en leer su columna final como si se leyera un diagnóstico. Si todo sale verdadero, la fórmula es tautología; si todo sale falso, es contradicción; si el resultado cambia según el caso, es contingente.</p>
+<p><strong>Instrucción general:</strong> para cada fórmula, construir la tabla de verdad completa y escribir al final una de estas tres etiquetas: tautología, contradicción o contingente.</p>
+<ol>
+<li>$(p \to q) \lor (q \to p)$</li>
+<li>$(p \land q) \land \neg p$</li>
+<li>$(p \to q) \land (q \to p)$</li>
+<li>$(p \lor q) \to (q \lor p)$</li>
+</ol>
+<h3 id="con-contexto-aplicado">Con contexto aplicado</h3>
+<ol>
+<li>$(a \land b) \to a$
+<ul>
+<li>$a$: el usuario ingresó credenciales válidas.</li>
+<li>$b$: el segundo factor fue aprobado.</li>
+</ul>
+</li>
+<li>$d \land \neg d$
+<ul>
+<li>$d$: el servicio está disponible.</li>
+</ul>
+</li>
+<li>$n \lor \neg n$
+<ul>
+<li>$n$: la red responde al ping.</li>
+</ul>
+</li>
+<li>$(s \to t) \land s$
+<ul>
+<li>$s$: el sensor envía señal.</li>
+<li>$t$: el panel recibe datos.</li>
+</ul>
+</li>
+</ol>
+<h2 id="secci%C3%B3n-iii-ejercicios-de-consecuencia-l%C3%B3gica">Sección III: ejercicios de consecuencia lógica</h2>
+<p>La consecuencia lógica se revisa observando premisas y conclusión en la misma tabla. En esta sección no basta con llenar columnas: también debe identificarse si existe o no al menos un contraejemplo.</p>
+<p><strong>Instrucción general:</strong> construir la tabla de verdad completa y responder dos cosas:</p>
+<ol>
+<li>¿La conclusión se sigue de las premisas?</li>
+<li>Si no se sigue, ¿cuál es un contraejemplo?</li>
+</ol>
+<hr>
+<ol>
+<li>Premisas: $(p \to q)$, $(q \to r)$, $p$<br>
+Conclusión: $r$</li>
+<li>Premisas: $(p \land q) \to r$, $p \land q$<br>
+Conclusión: $r$</li>
+<li>Premisas: $p \to q$, $r$<br>
+Conclusión: $q$</li>
+<li>Premisas: $(p \lor q) \to r$, $p$<br>
+Conclusión: $r$</li>
+</ol>
+<h3 id="con-aplicaciones">Con aplicaciones</h3>
+<ol>
+<li>
+<p>Premisas:</p>
+<ul>
+<li>$a \to b$</li>
+<li>$a$<br>
+Conclusión: $b$<br>
+Interpretación: si el intento de autenticación es válido, entonces la sesión se habilita; el intento es válido; por tanto, la sesión se habilita.</li>
+</ul>
+</li>
+<li>
+<p>Premisas:</p>
+<ul>
+<li>$m \to n$</li>
+<li>$n$<br>
+Conclusión: $m$<br>
+Interpretación: si hay mantenimiento, entonces el servicio se detiene; el servicio se detiene; por tanto, hay mantenimiento.</li>
+</ul>
+</li>
+<li>
+<p>Premisas:</p>
+<ul>
+<li>$r \lor s$</li>
+<li>$\neg r$<br>
+Conclusión: $s$<br>
+Interpretación: o responde el enlace principal o responde el enlace alterno; no responde el enlace principal; por tanto, responde el alterno.</li>
+</ul>
+</li>
+<li>
+<p>Premisas:</p>
+<ul>
+<li>$(d \land e) \to f$</li>
+<li>$d \land e$<br>
+Conclusión: $f$<br>
+Interpretación: si hay energía y conectividad, entonces la estación transmite; hay energía y conectividad; por tanto, la estación transmite.</li>
+</ul>
+</li>
+</ol>
+
+</body>
+</html>

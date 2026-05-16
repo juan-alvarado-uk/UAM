@@ -316,7 +316,63 @@ Ejemplo:
 | F | F | V                       |
 
 
-***
+# Precedencia
+
+El orden de precedencia de los conectivos indica qué se evalúa antes cuando una fórmula no tiene paréntesis, igual que la prioridad de operadores en aritmética. 
+
+
+## Regla más importante: paréntesis
+
+Siempre se evalúa primero lo que está dentro de paréntesis, comenzando por los más internos. 
+
+Si una parte de la fórmula está entre paréntesis, se resuelve completa y luego se conecta con el resto, igual que en una expresión aritmética como \((2+3)\cdot 4\). 
+
+
+## Orden típico de precedencia
+
+En lógica proposicional (con los conectivos usuales) se usa, por convenio, el siguiente orden de prioridad cuando no hay paréntesis: 
+
+1. Negación: ¬  
+2. Conjunción: ∧  
+3. Disyunción: ∨  
+4. Condicional: →  
+5. Bicondicional: ↔  
+
+Esto significa, por ejemplo, que en la expresión  
+\[
+¬p \land q \rightarrow r
+\]
+primero se aplica la negación a \(p\), luego se evalúa \(¬p \land q\), y finalmente el condicional \((¬p \land q)\rightarrow r\). 
+
+
+## Conectivos del mismo nivel
+
+Cuando aparecen varios conectivos del mismo tipo seguidos (por ejemplo, varias conjunciones o varias disyunciones), se agrupan de manera estándar sin afectar el resultado, porque estos conectivos son asociativos. 
+
+Por ejemplo, \(p \land q \land r\) puede leerse como \((p \land q)\land r\) o como \(p \land (q \land r)\) sin cambios en la tabla de verdad. 
+
+Cuando en una fórmula aparecen varios condicionales encadenados, además del orden general de precedencia se necesita decidir cómo se agrupan esos condicionales, es decir, dónde estarían los paréntesis “invisibles”. 
+
+## Muchos Condicionales...
+
+En una expresión como
+
+\[
+p \rightarrow q \rightarrow r
+\]
+
+aparecen dos condicionales seguidos. Para que la fórmula sea clara, hace falta saber si se entiende como:
+
+- \((p \rightarrow q)\rightarrow r\), o
+- \(p \rightarrow (q \rightarrow r)\).
+
+Los textos de lógica suelen exigir paréntesis en este tipo de casos, porque el condicional no es asociativo de manera estándar; es decir, cambiar la agrupación puede cambiar la tabla de verdad. 
+
+Por eso, ante “condicionales encadenados”, o más generalmente, con expresiones que puedan generar confusión, la forma de trabajar es:
+
+- Colocar explícitamente los paréntesis que indiquen cómo se entiende la cadena.
+- Después aplicar la precedencia normal (¬, ∧, ∨, →, ↔) respetando esa agrupación. 
+
 
 # Fórmulas bien formadas (FBF)
 

@@ -990,7 +990,7 @@ class MarkdownToRevealJS:
         text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
         text = re.sub(r'__([^_]+)__', r'<strong>\1</strong>', text)
         text = re.sub(r'\*([^*]+)\*', r'<em>\1</em>', text)
-        text = re.sub(r'_([^_]+)_', r'<em>\1</em>', text)
+        # text = re.sub(r'_([^_]+)_', r'<em>\1</em>', text)
         text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" />', text)
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
         return text
