@@ -1,0 +1,1263 @@
+% IMPORTANT! In order for the document to compile, one needs to use XeLaTeX or LuaLaTeX as compiler. This can be done in  Overleaf by Menu -> Settings -> Compiler -> Choose XeLaTeX/LuaLaTeX
+\documentclass[t,24pt,aspectratio=169]{beamer}
+
+\usepackage{KUstyle}
+\usepackage{multicol} % Package for multiple coloumns
+\usepackage[style=authoryear]{biblatex}
+
+% \toplinje{Text at top} % The text at top. Remove the command if no text is desired
+
+
+\addbibresource{references.bib}
+\begin{document}
+
+% The first slide. One can for instance change the main title, the subtitle, speaker, KU-unit, date and backgroundimage
+{
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{pictures/tec-campus-toluca-front.jpeg}}
+\begin{frame}
+    \begin{textblock*}{\textwidth}(0.53\textwidth,0.1\textheight)
+        \begin{beamercolorbox}[wd=8.5cm,ht=7.3cm,sep=0.5cm]{hvidbox}
+            \fontsize{5}{10}\fontfamily{ptm}\selectfont \textls[200]{TECNOLÓGICO DE MONTERREY}
+            \noindent\textcolor{KUrod}{\rule{6.8cm}{0.4pt}}
+        \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock*}{\textwidth}(0.53\textwidth,0.1\textheight)
+        \begin{beamercolorbox}[wd=8.5cm,sep=0.5cm]{hvidbox}
+                \Huge \textcolor{KUrod}{Modelo Relacional}
+                \vspace{0.5cm}
+                \par
+                \Large Para el diseño de bases de datos.
+                \vspace{0.5cm}
+                \par
+                \normalsize Juan Alvarado
+        \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock}{1}(14.5,11.38)
+        % \includegraphics[width=1cm]{KU/KU-logo.png}
+    \end{textblock}
+\end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[hvid]
+    \frametitle{OBJETIVOS}
+
+
+\begin{itemize}
+\item Conocer el modelo relacional y conocer el proceso para pasar de una representación Entidad-Relación a una representación en el modelo Relacional.
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Modelo relacional}
+        \vfill
+\centering
+\\~\\
+\Huge{Modelo relacional}
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Modelo relacional}
+        \vfill
+Una base de datos relacional consiste en un conjunto de tablas, a cada una de las cuales se le asigna un nombre exclusivo.
+\\~\\
+Cada fila de la tabla representa una relación entre un conjunto de valores.
+\\~\\
+Dado que cada tabla es un conjunto de dichas relaciones, hay una fuerte correspondencia entre el concepto de tabla y el concepto matemático de relación, del que toma su nombre el modelo de datos relacional.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Transformación de un Diagrama E-R a tablas}
+        \vfill
+\centering
+\\~\\
+\Huge{REDUCCIÓN DE UN ESQUEMA E-R A TABLAS}
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Transformación de un Diagrama E-R a tablas}
+        \vfill
+Una base de datos que se ajusta a un esquema de bases de datos E-R se puede representar por una colección de tablas.
+\\~\\
+Los modelos E-R y el de bases de datos relacionales son representaciones abstractas y lógicas de empresas del mundo real.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Transformación de un Diagrama E-R a tablas}
+        \vfill
+Debido a que los dos modelos emplean principios de diseño similares, se puede convertir un diseño E-R en un diseño relacional.
+\\~\\
+Convertir una representación de bases de datos de un diagrama E-R a un formato de tablas es la base para la derivación de un diseño de bases de datos relacional desde un diagrama E-R.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+\begin{multicols}{2} \centering
+\\~\\
+\Huge{Representación tabular de los conjuntos de entidades fuertes}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-olya-kobruseva-5428836.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+\begin{multicols}{2} Sea E un conjunto de entidades fuertes con los atributos descriptivos $a_1 , a_2,…,a_n$. 
+\\~\\
+Esta entidad se representa mediante una tabla llamada $E$ con $n$ columnas distintas, cada una de las cuales corresponde a uno de los atributos de $E$.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/important-gb080015ce_640.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+Cada fila de la tabla corresponde a una entidad del conjunto de entidades E.
+\\~\\
+Considérese el conjunto de entidades préstamo del diagrama E-R siguiente.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,height=6.9cm,keepaspectratio]{gfx/figura 2_8.png}
+\end{center}
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+        \begin{center}
+    \includegraphics[width=8cm,height=6.9cm,keepaspectratio]{gfx/tabla_prestamo.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+\begin{multicols}{2} $D_1$ denota el conjunto de todos los números de préstamo y $D_2$ denota el conjunto de todos los saldos.
+\\~\\
+Cualquier fila de la tabla préstamo debe consistir en una tupla($v_1$,$v_2$), donde $v_1$ es un número de préstamo (es decir, $v_1$ está en el conjunto $D_1$) y $v_2$ es un importe (es decir, $v_1$ está en el conjunto $D_2$).
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-olya-kobruseva-5428836.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+En general, la tabla préstamo contendrá sólo un subconjunto del conjunto de todas las filas posibles.
+\\~\\
+El conjunto de todas las filas posibles de préstamo es el producto cartesiano de $D_1$ y $D_2$, denotado por
+\\~\\
+$D_1$ × $D_2$
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades fuertes}
+        \vfill
+En general, si se tiene una tabla de n columnas, se denota el producto cartesiano de $D_1, D_2,…,D_n$ por
+\\~\\
+$D_1$ × $D_2$ × … × $D_{n-1}$ × $D_n$
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+\centering
+\\~\\
+\Huge{Representación tabular de los conjuntos de entidades débiles}
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+A es un conjunto de entidades débiles con los atributos $a_1, a_2,…,a_m$. 
+\\~\\
+B es el conjunto de entidades fuertes del que A depende.
+\\~\\
+La clave primaria de B es el conjunto de atributos $b_1, b_2,…,b_n$.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+Se representa el conjunto de entidades A mediante una tabla llamada \textit{A} con una columna por cada uno de los atributos del conjunto:
+\\~\\
+${(a_1, a_2,…,a_m)} \cup {(b_1, b_2,…,b_n)}$
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        Por ejemplo, considérese el conjunto de entidades pago del siguiente diagrama E-R.
+\\~\\
+Este conjunto de entidades tiene tres atributos: \textit{\textbf{número-pago}}, \textit{\textbf{fecha-pago}} e \textit{\textbf{importe-pago}}.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,height=6.9cm,keepaspectratio]{gfx/figura_2_16_prestamo_pago.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+\begin{multicols}{2} 
+La clave primaria del conjunto de entidades préstamo, de la que pago depende, es \textit{\textbf{número-préstamo}}.
+\\~\\
+Entonces, pago se representa mediante una tabla con cuatro columnas \textbf{número-préstamo, número-pago, fecha-pago e importe-pago}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-pixabay-60504.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,height=6.9cm,keepaspectratio]{gfx/tabla_pago.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de relaciones}
+        \vfill
+\centering
+\\~\\
+\Huge{Representación tabular de}
+
+\Huge{los conjuntos de relaciones}
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de relaciones}
+        \vfill
+Sea R un conjunto de relaciones, 
+\\~\\
+sean $a_1, a_2,…,a_m$ el conjunto de atributos formados por la unión de las claves primarias de cada uno de los conjuntos de entidades que participan en R, y 
+\\~\\
+sean $b_1, b_2,…,b_n$ los atributos descriptivos de R (si los hay).
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de relaciones}
+        \vfill
+El conjunto de relaciones se representa mediante una tabla llamada R con una columna por cada uno de los atributos del conjunto:
+\\~\\
+${(a_1, a_2,…,a_m)} \cup {(b_1, b_2,…,b_n)}$
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de relaciones}
+        \vfill
+Como ejemplo, considérese el conjunto de relaciones \textbf{prestatario} del siguiente diagrama E-R.
+\\~\\
+Este conjunto de relaciones involucra los dos siguientes conjuntos de entidades:
+\\~\\
+• cliente, con la clave primaria \textbf{id-cliente}.
+\\~\\
+• préstamo, con la clave primaria \textbf{número-préstamo}.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,height=6.9cm,keepaspectratio]{gfx/figura 2_8.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de relaciones}
+        \vfill
+\begin{multicols}{2} 
+
+Como el conjunto de relaciones no tiene atributos, la tabla prestatario se forma con dos columnas \textbf{id-cliente} y \textbf{número-préstamo}.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-cottonbro-studio-8088495.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        \begin{center}
+    \includegraphics[width=8cm,keepaspectratio]{gfx/tabla_prestatario.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}[fragile, hvid]
+%     \frametitle{Representación tabular de los conjuntos de relaciones}
+%         \vfill
+% \begin{multicols}{2} 
+% ################# Figura 2.26 Tabla prestatario
+% \\~\\
+% \columnbreak
+% \centering
+% \includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-thisisengineering-3913016.jpg}
+% \end{multicols}
+%         \vfill
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} \centering
+\\~\\
+\Huge{Redundancia de tablas}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/reminder-g3c09298ed_640.png}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+Un conjunto de relaciones uniendo un conjunto de entidades débiles con el correspondiente conjunto de entidades fuertes es un caso especial.
+\\~\\
+Estas relaciones son muchos a uno y no tienen atributos descriptivos.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} 
+Además, la clave primaria de un conjunto de entidades débiles incluye la clave primaria del conjunto de entidades fuertes.
+\\~\\
+En el diagrama E-R (siguiente), el conjunto de entidades débiles pago depende del conjunto de entidades fuertes préstamo a través del conjunto de relaciones pago-préstamo.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-fauxels-3183153 (1).jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Representación tabular de los conjuntos de entidades débiles}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,height=6.9cm,keepaspectratio]{gfx/figura_2_16_prestamo_pago.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} 
+La clave primaria de pago es \{\textbf{número-préstamo, número-pago}\} y 
+\\~\\
+la clave primaria de préstamo es \{\textbf{número-préstamo}\}.
+\\~\\
+Como \textbf{pago-préstamo} no tiene atributos descriptivos, la tabla para \textbf{pago-préstamo} tendría dos columnas, \textbf{número-préstamo} y \textbf{número-pago}.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/gears-gccf2d57f7_640.png}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} 
+La tabla para el conjunto de entidades pago tiene cuatro columnas, \textbf{número-préstamo, número-pago, fecha-pago e importe-pago}.
+\\~\\
+Cada combinación (\textbf{número-préstamo, número-pago}) en \textbf{pago-préstamo} también se encontraría en la tabla \textbf{pago}, y viceversa.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-cottonbro-studio-5474295.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+Por tanto, la tabla (para la relación) pago-préstamo es redundante.
+\\~\\
+En general, la tabla para el \textbf{conjunto de relaciones} que une un \textbf{conjunto de entidades débiles} con su correspondiente \textbf{conjunto de entidades fuertes} es redundante y no necesita representación tabular.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+Combinación de tablas: Considérese el siguiente diagrama E-R
+\\~\\
+\centering
+\includegraphics[width=13cm,keepaspectratio]{gfx/figura_2_27_cuenta_cuenta-sucursal_sucursal.png}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}[fragile, hvid]
+%     \frametitle{Redundancia de tablas}
+%         \vfill
+% \begin{multicols}{2} ######################  de la Figura 2.27.
+% \\~\\
+% \columnbreak
+% \centering
+% \includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-thisisengineering-3861951.jpg}
+% \end{multicols}
+%         \vfill
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} 
+La doble línea del diagrama E-R indica que la participación de \textbf{cuenta} en \textbf{cuenta-sucursal} es total.
+\\~\\
+Entonces, una cuenta no puede existir sin estar asociada con una sucursal particular.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/punctuation-marks-g7fe903a86_640.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+Además, el conjunto de relaciones \textbf{cuenta-sucursal} es muchos a uno desde \textbf{cuenta} a \textbf{sucursal}.
+\\~\\
+Por lo tanto, se puede combinar la tabla para \textbf{cuenta-sucursal} con la tabla para \textbf{cuenta} y se necesitan sólo las dos tablas siguientes:
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Redundancia de tablas}
+        \vfill
+\begin{multicols}{2} 
+• \textbf{cuenta}, con los atributos \textbf{número-cuenta}, \textbf{saldo} y \textbf{nombre-sucursal}
+\\~\\
+• \textbf{sucursal}, con los atributos \textbf{nombre-sucursal}, \textbf{ciudad-sucursal} y \textbf{activo}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/important-gb080015ce_640.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Atributos compuestos}
+        \vfill
+\begin{multicols}{2} 
+Los atributos compuestos se manejan creando un atributo separado para cada uno de los atributos componentes; no se crea una columna separada para el propio atributo compuesto.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-fauxels-3183153.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Atributos compuestos}
+        \vfill
+\begin{multicols}{2} 
+Por ejemplo, si dirección es un atributo compuesto del conjunto de entidades cliente y los componentes de dirección son \textbf{ciudad} y \textbf{calle}. 
+\\~\\
+La tabla generada de \textbf{cliente} contendría las columnas \textbf{calle-dirección} y \textbf{ciudad-dirección}; no hay una columna separada para dirección.
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-fauxels-3183153.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Atributos multivalorados}
+        \vfill
+En los ejemplos mostrados se ha visto que los atributos en un diagrama E-R generalmente se asocian directamente en columnas para las tablas apropiadas.
+\\~\\
+Los atributos multivalorados, sin embargo, son una excepción; para estos atributos se crean tablas nuevas.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Atributos multivalorados}
+        \vfill
+La creación de estas tablas para atributos multivalorados es simple. 
+\\~\\
+Para un atributo multivalorado M se crea una tabla T con una columna C que corresponde a la clave primaria del conjunto de entidades o conjunto de relaciones del que M es atributo.
+\\~\\
+Por ejemplo, (otra vez) el atributo dirección, pero suponiendo el escenario en el que un cliente puede tener muchas direcciones.  
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+\begin{multicols}{2} \centering
+\\~\\
+\Huge{Estructura básica de Bases de datos relacionales}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-cottonbro-studio-5483149.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+Considérese la tabla cuenta siguiente:
+\\~\\
+\centering
+\includegraphics[width=8cm,keepaspectratio]{gfx/figura_3_1_tabla_relacion_cuenta.png}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+La tabla tiene tres encabezados para cada columna: \textbf{número-cuenta}, \textbf{nombre-sucursal} y \textbf{saldo}. 
+\\~\\
+Siguiendo la terminología del modelo relacional se puede hacer referencia a estas cabeceras como atributos.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+Para cada atributo hay un conjunto de valores permitidos, llamado dominio de ese atributo.
+\\~\\
+En general, \textbf{cuenta} sólo contendrá un subconjunto del conjunto de todas las filas posibles.
+\\~\\
+Por tanto, \textbf{cuenta} es un subconjunto de
+\\~\\
+$D_1 × D_2 × D_3$
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+\begin{multicols}{2} 
+En general, una tabla de n atributos debe ser un subconjunto de
+\\~\\
+$D_1 × D_2 × … × D_{n – 1} × D_n$
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/warning-g9e7961896_640.png}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+Como las tablas son esencialmente relaciones, se suelen utilizar los términos matemáticos relación y tupla en lugar de los términos tabla y fila.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}[fragile, hvid]
+%     \frametitle{Estructura básica de Bases de datos relacionales}
+%         \vfill
+% \textbf{Esquema de la base de datos}
+% \\~\\
+% Cuando se habla de bases de datos se debe diferenciar entre el \textbf{esquema de la base de datos}, o diseño lógico de la misma, y el \textbf{ejemplar de la base de datos}, que es una captura instantánea de los datos de ella en un momento dado.
+% \\~\\
+%         \vfill
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+\textbf{Claves}
+\\~\\
+Los conceptos de superclave, de clave candidata y de clave primaria, también son aplicables en el modelo relacional. (ver diagrama cuenta-sucursal )
+\\~\\
+Tanto \{nombre-sucursal\} como \{nombre-sucursal, ciudad-sucursal\} son superclaves. 
+\\~\\
+\{nombre-sucursal, ciudad-sucursal\} no es una clave candidata porque \{nombre-sucursal\} es un subconjunto de \{nombre-sucursal, ciudad-sucursal\} y \{nombre-sucursal\} es una superclave.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Estructura básica de Bases de datos relacionales}
+        \vfill
+\begin{multicols}{2} 
+
+Por lo tanto, (como ya hemos encontrado las llaves mínimas) {nombre-sucursal} es una clave candidata, y será la elección de clave primaria para el diseño de la tabla.
+\\~\\
+El atributo ciudad-sucursal no es una superclave, dado que dos sucursales de la misma ciudad pueden tener nombres diferentes (y diferentes volúmenes de activos).
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/pexels-fauxels-3183186.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Diagramas de esquema}
+        \vfill
+\begin{multicols}{2} \centering
+\\~\\
+\Huge{Diagramas de esquema relacional}
+\\~\\
+\columnbreak
+\centering
+\includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{gfx/secret-g9ee85311d_640.jpg}
+\end{multicols}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Diagramas de esquema}
+        \vfill
+Un esquema de bases de datos, junto con las dependencias de clave primaria y externa, se puede mostrar gráficamente mediante diagramas de esquema relacional.
+\\~\\
+No se debe confundir un diagrama de esquema relacional con un diagrama Entidad-Relación. 
+\\~\\
+No son la misma cosa.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Diagramas de esquema}
+        \vfill
+En particular, los diagramas E-R no muestran explícitamente los atributos clave externa, mientras que los diagramas de esquema relacional sí lo hacen.
+\\~\\
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Ejemplo: Diagrama E-R (bancario)}
+    Transformar a Diagrama de esquema relacional
+        \vfill
+        \begin{center}
+    \includegraphics[width=8cm,keepaspectratio]{gfx/figura_3_8_Diagrama_ER_banco.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile, hvid]
+    \frametitle{Ejemplo: Diagrama esquema relacional (bancario)}
+        \vfill
+        \begin{center}
+    \includegraphics[width=12cm,keepaspectratio]{gfx/figura_3_9_Diagrama_Esquema_banco.png}
+\end{center}
+        \vfill
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%\begin{frame}[hvid]
+%\frametitle{Requerimientos}
+%    \begin{multicols}{2}
+%        \begin{itemize}
+%        \item Un requerimiento es una declaración de cómo un producto futuro será o cómo se comportará.
+%        \item Deben ser específicos, claros y no ambiguos.
+%        \item Los requerimientos de software se clasifican en
+%            \begin{itemize}
+%                \item Requerimientos de negocio (\textbf{funcionales}) y
+%                \item Requerimientos técnicos (\textbf{no funcionales})
+%            \end{itemize}
+%    \end{itemize}
+%        \vfill\null
+%        \columnbreak
+%            \includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{pictures/pexels-vlada-karpovich-4050296.jpeg}
+%    \end{multicols}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[hvid]
+%\frametitle{Requerimientos}
+%    \begin{multicols}{2}
+%        \begin{itemize}
+%        \item Los requerimientos funcionales tienen que ver con las operaciones que realiza el sistema, con sus funciones.
+%        \item Los requerimientos no funcionales se relacionan con las restricciones o condiciones a las que el sistema debe apegarse.
+%    \end{itemize}
+%        \vfill\null
+%        \columnbreak
+%            \includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{pictures/mark-995567_640.jpeg}
+%    \end{multicols}
+%\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%% This is examples of different types of slides
+%\begin{frame}[hvid]
+%\frametitle{CMMI}
+%        
+%    \begin{itemize}
+%        \item Existen estándares que se pueden usar para mantener un control del desarrollo de software no solo en la definición de requerimientos, sino en todo el proceso.
+%        \item CMMI (Capability Maturity Model Integration) para Desarrollo, Versión 1.3 \parencite{ProductCMMIfor2010} es un ejemplo de este tipo de estándares.
+%        \item En lo particular, en CMMI para desarrollo en el nivel 3 de madurez, podemos encontrar las siguientes áreas de proceso 
+%
+%\begin{itemize}
+%    \item Desarrollo de requerimientos (RD) (proceso de ingeniería)
+%    \item Gestión de requerimientos (REQM) (proceso de administración)
+%\end{itemize}
+%        
+%        
+%    \end{itemize}
+%\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}[hvid]
+%\frametitle{CMMI}
+%     El propósito del desarrollo de requerimientos (RD) es obtener, analizar y establecer los requerimientos. Incluye las siguientes metas específicas (Specific Goals, \textbf{SG}) y prácticas específicas (Specific Practice, \textbf{SP}) para el logro de estas metas. 
+%     \\~\\
+%    \begin{description}
+%    \item [SG 1] Desarrollar los requerimientos del cliente.
+%    \begin{description}
+%        \item [SP 1.1] Obtener necesidades.
+%        \item [SP 1.2] Transformar las necesidades de las partes.
+%    \end{description}
+%    \item [SG 2] Desarrollar los requerimientos del producto.
+%    \begin{description}
+%        \item [SP 2.1] Establecer requerimientos de productos y componentes de productos.
+%        \item [SP 2.2] Asignar requerimientos de componentes de productos.
+%        \item [SP 2.3] Identificar los requerimientos de la interfaz.
+%    \end{description}
+%    
+%    
+%\end{description}
+%\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}[hvid]
+%\frametitle{CMMI}
+%        
+%    \begin{description}
+%    \item [SG 3] Analizar y validar requerimientos.
+%    \begin{description}
+%        \item [SP 3.1] Establecer conceptos y escenarios operativos.
+%        \item [SP 3.2] Establecer una definición de los atributos de calidad y funcionalidad requeridos.
+%        \item [SP 3.3] Analizar requerimientos.
+%        \item [SP 3.4] Analizar los requerimientos para lograr el equilibrio.
+%        \item [SP 3.5] Validar requerimientos.
+%        
+%    \end{description}
+%    
+%\end{description}
+%\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}[hvid]
+%\frametitle{Recolección de datos}
+%Para la definición de requerimientos es necesario conseguir información apropiada. \textcite{Nuseibeh2000Roadmap} señalan que para ello se pueden utilizar; métodos tradicionales, de grupo, prototipos, técnicas cognitivas, entre otras. Un paso previo a la recolección de datos es la identificación de las partes interesadas. 
+%\\~\\
+%Tanto la identificación de partes interesadas, así como la recolección de datos y análisis de actividades corresponden a actividades del análisis sociotécnico.
+%\\~\\
+%El éxito en la definición de requerimientos depende de varios factores, entre ellos, las técnicas de recolección de datos y su correcta aplicación.
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\begin{frame}[hvid]
+%\frametitle{Análisis de requerimientos}
+%Debe considerarse cuidadosamente cómo registrar los datos, así como el análisis, interpretación y presentación de los mismos. Este análisis debe ocurrir poco después de que se recopilen los datos, incluyendo sesiones piloto posteriores o prototipos para mostrar funcionalidades. 
+%\\~\\
+%El objetivo de estas tareas es identificar criterios importantes de las partes interesadas. Para ello los resultados y datos recopilados se deben discutir y presentar. Dentro de las opciones de presentación se pueden incluir: diagramas de flujo de datos, diagramas de flujo de trabajo, gráficos, diagramas, nubes de palabras, etc.
+%
+%\end{frame}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}[hvid]
+% \frametitle{Análisis de requerimientos}
+% El propósito de este trabajo es entender los resultados. Separar lo que dicen los datos (números, hechos) y lo que se cree que significan (interpretación) es crucial.
+% \\~\\
+% La ambigüedad de las necesidades de las partes interesadas ocurre cuando el personal asume que comprende las necesidades y no las analiza con la intención de eliminar declaraciones que pueden tener más de un posible significado o interpretación \parencite{Schmidt13}.
+% \\~\\
+% Debe asegurarse de que las interpretaciones son razonables y creíbles, ¿Por qué significa lo que se cree que significa?, ¿Cómo se puede racionalizar esta conclusión?
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}[hvid]
+% \frametitle{Slide with 2 coloumns}
+%     \begin{multicols}{2}
+%         \begin{itemize}
+%             \item Bullet 1
+%             \item Bullet 2
+%         \end{itemize}
+%         \vfill\null
+%         \columnbreak
+%         \begin{itemize}
+%             \item Bullet 3
+%             \item Bullet 4
+%             \item Bullet 5
+%         \end{itemize}
+%     \end{multicols}
+% \end{frame}
+
+% \begin{frame}[hvid]
+% \frametitle{Slide with a coloumn and an image}
+%     \begin{multicols}{2}
+%         \begin{itemize}
+%             \item Bullet 1
+%             \item Bullet 2
+%         \end{itemize}
+%         \vfill\null
+%         \columnbreak
+%             \includegraphics[width=6.6cm,height=5.9cm,keepaspectratio]{pictures/1.jpg}
+%     \end{multicols}
+% \end{frame}
+
+% \begin{frame}[hvid]
+% \frametitle{Slide with large image}
+%     \vspace{0.5cm}
+%     \includegraphics[width=14.5cm,height=6cm,keepaspectratio]{pictures/2.jpg}
+% \end{frame}
+
+% This is an example with [billede], where one adds a backgroundimage
+{
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{pictures/tec-campus-toluca-BACK.jpeg}}
+\begin{frame}[billede]
+    \begin{textblock*}{\textwidth}(0\textwidth,0.77\textheight)
+        \begin{beamercolorbox}[wd=7.8cm,sep=0.3cm]{rodbox}
+        {\huge ¡Gracias!}
+        \end{beamercolorbox}
+    \end{textblock*}
+\end{frame}
+}
+
+% {
+% \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{pictures/4.jpg}}
+% \begin{frame}[billede]
+%     \begin{textblock*}{\textwidth}(0.57\textwidth,0.4\textheight)
+%         \begin{beamercolorbox}[wd=7.8cm,sep=0.3cm]{rodbox}
+%         Here is some text and a list.
+%             \begin{itemize}
+%                 \item Bullet 1
+%                 \item Bullet 2
+%                 \item Bullet 3
+%                 \item Bullet 4
+%             \end{itemize}
+%         \end{beamercolorbox}
+%     \end{textblock*}
+% \end{frame}
+% }
+
+% \begin{frame}[rod]
+%     \fontsize{80}{0}\selectfont ``
+%     \\
+%     \vspace{-0.6cm}
+%     \fontsize{32}{0}\selectfont Prediction is very difficult, especially if it's about the future.
+%     \\
+%     \vspace{2.8cm}
+%     \fontsize{18}{0}\selectfont Niels Bohr
+% \end{frame}
+
+% \begin{frame}[rod]
+%     \vspace{0.9cm}
+%     \resizebox{\textwidth}{!}{
+%         \begin{tabular}{r l}
+%             \textbf{Research} & Forskning \\
+%             \textbf{Education} & Uddannelse \\
+%             \textbf{Exchange of knowdledge} & Forskningsformidling \\
+%         \end{tabular}
+%     }
+% \end{frame}
+
+
+%%%%% THIS IS THE BLOCK OF REFERENCES 
+
+% \begin{frame}[hvid, allowframebreaks]
+% \frametitle{Referencias}
+% \printbibliography
+
+% \end{frame}
+
+
+%%%%%% END OF THE BLOCK OF REFERENCES
+
+\end{document}

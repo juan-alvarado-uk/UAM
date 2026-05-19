@@ -1,0 +1,3085 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="sql">SQL</h1>
+<p><strong>Definición.</strong> SQL (Structured Query Language) es el lenguaje estándar declarativo para interactuar con bases de datos relacionales. Es <strong>declarativo</strong> porque describes <strong>qué</strong> quieres obtener, no <strong>cómo</strong> obtenerlo paso a paso.</p>
+<p>SQL fue desarrollado por IBM en los años 70 y adoptado como estándar por ANSI e ISO, por lo que funciona, con variaciones menores, en sistemas como MySQL, PostgreSQL, Oracle, SQL Server y SQLite.</p>
+<hr>
+<h1 id="los-tres-sublenguajes-de-sql">Los tres sublenguajes de SQL</h1>
+<p>SQL se divide en tres categorías según su función.</p>
+<h2 id="ddl---data-definition-language">DDL - Data Definition Language</h2>
+<p>Controla la <strong>estructura</strong> de la base de datos: tablas, columnas, restricciones e índices.</p>
+<p><strong>Comandos principales:</strong></p>
+<ul>
+<li><code>CREATE</code> - Crear nuevas estructuras.</li>
+<li><code>ALTER</code> - Modificar estructuras existentes.</li>
+<li><code>DROP</code> - Eliminar estructuras.</li>
+<li><code>TRUNCATE</code> - Vaciar una tabla sin eliminarla.</li>
+</ul>
+<h3 id="create-table">CREATE TABLE</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Estudiante (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+  nombre <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  correo <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">UNIQUE</span>,
+  promedio <span class="hljs-built_in">DECIMAL</span>(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>),
+  fecha_ingreso <span class="hljs-built_in">DATE</span>
+);
+</div></code></pre>
+<h3 id="resultado-estructural-de-create-table-estudiante">Resultado estructural de <code>CREATE TABLE Estudiante</code></h3>
+<p>La tabla queda creada <strong>sin registros</strong>, pero con su estructura definida.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><em>(sin filas)</em></td>
+<td></td>
+<td></td>
+<td style="text-align:right"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="alter-table">ALTER TABLE</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> Estudiante
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> telefono <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">15</span>);
+</div></code></pre>
+<h3 id="resultado-estructural-despu%C3%A9s-de-alter-table">Resultado estructural después de <code>ALTER TABLE</code></h3>
+<p>La tabla sigue sin registros, pero ahora tiene una nueva columna.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><em>(sin filas)</em></td>
+<td></td>
+<td></td>
+<td style="text-align:right"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="drop-table">DROP TABLE</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> Estudiante;
+</div></code></pre>
+<h3 id="efecto-de-drop-table">Efecto de <code>DROP TABLE</code></h3>
+<p>La tabla <code>Estudiante</code> deja de existir en la base de datos.</p>
+<hr>
+<h2 id="dml---data-manipulation-language">DML - Data Manipulation Language</h2>
+<p>Controla el <strong>contenido</strong> de las tablas: insertar, consultar, actualizar y eliminar datos.</p>
+<p><strong>Comandos principales:</strong></p>
+<ul>
+<li><code>SELECT</code> - Consultar datos (el más usado).</li>
+<li><code>INSERT</code> - Agregar registros.</li>
+<li><code>UPDATE</code> - Modificar registros existentes.</li>
+<li><code>DELETE</code> - Eliminar registros.</li>
+</ul>
+<h3 id="insert-de-un-registro">INSERT de un registro</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> Estudiante (<span class="hljs-keyword">id</span>, nombre, correo, promedio, fecha_ingreso)
+<span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">'Ana López'</span>, <span class="hljs-string">'ana@uam.mx'</span>, <span class="hljs-number">9.5</span>, <span class="hljs-string">'2024-01-15'</span>);
+</div></code></pre>
+<h3 id="resultado-despu%C3%A9s-del-primer-insert">Resultado después del primer <code>INSERT</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="insert-de-m%C3%BAltiples-registros">INSERT de múltiples registros</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> Estudiante (<span class="hljs-keyword">id</span>, nombre, correo, promedio, fecha_ingreso)
+<span class="hljs-keyword">VALUES</span>
+  (<span class="hljs-number">2</span>, <span class="hljs-string">'Carlos Ruiz'</span>, <span class="hljs-string">'carlos@uam.mx'</span>, <span class="hljs-number">8.7</span>, <span class="hljs-string">'2024-01-15'</span>),
+  (<span class="hljs-number">3</span>, <span class="hljs-string">'María Torres'</span>, <span class="hljs-string">'maria@uam.mx'</span>, <span class="hljs-number">9.2</span>, <span class="hljs-string">'2024-01-16'</span>);
+</div></code></pre>
+<h3 id="resultado-despu%C3%A9s-del-insert-m%C3%BAltiple">Resultado después del <code>INSERT</code> múltiple</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update">UPDATE</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">UPDATE</span> Estudiante
+<span class="hljs-keyword">SET</span> promedio = <span class="hljs-number">9.8</span>, correo = <span class="hljs-string">'ana.lopez@uam.mx'</span>
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">1</span>;
+</div></code></pre>
+<h3 id="resultado-despu%C3%A9s-de-update">Resultado después de <code>UPDATE</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana.lopez@uam.mx</td>
+<td style="text-align:right">9.8</td>
+<td>2024-01-15</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete">DELETE</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">WHERE</span> promedio &lt; <span class="hljs-number">6.0</span>;
+</div></code></pre>
+<h3 id="observaci%C3%B3n">Observación</h3>
+<p>En este ejemplo no se elimina ninguna fila porque ningún registro tiene <code>promedio &lt; 6.0</code>.</p>
+<hr>
+<h2 id="dcl---data-control-language">DCL - Data Control Language</h2>
+<p>Controla <strong>permisos</strong> y acceso a la base de datos.</p>
+<p><strong>Comandos principales:</strong></p>
+<ul>
+<li><code>GRANT</code> - Otorgar permisos.</li>
+<li><code>REVOKE</code> - Quitar permisos.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">SELECT</span>, <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> Estudiante <span class="hljs-keyword">TO</span> <span class="hljs-string">'usuario_admin'</span>;
+<span class="hljs-keyword">REVOKE</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> Estudiante <span class="hljs-keyword">FROM</span> <span class="hljs-string">'usuario_lectura'</span>;
+</div></code></pre>
+<h3 id="efecto-conceptual">Efecto conceptual</h3>
+<ul>
+<li><code>usuario_admin</code> puede consultar e insertar en <code>Estudiante</code>.</li>
+<li><code>usuario_lectura</code> ya no puede ejecutar <code>DELETE</code> sobre <code>Estudiante</code>.</li>
+</ul>
+<hr>
+<h1 id="base-de-ejemplo-para-consultas">Base de ejemplo para consultas</h1>
+<p>Para los ejemplos de <code>SELECT</code>, <code>GROUP BY</code> y <code>JOIN</code>, se usará una base pequeña con varias tablas y pocos registros, para que quepa en pantalla y permita mostrar resultados intermedios.</p>
+<h2 id="tabla-estudiante">Tabla <code>Estudiante</code></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabla-materia">Tabla <code>Materia</code></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th style="text-align:right">id_profesor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabla-profesor">Tabla <code>Profesor</code></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">100</td>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td style="text-align:right">101</td>
+<td>Dra. Vega</td>
+</tr>
+<tr>
+<td style="text-align:right">102</td>
+<td>Dr. Ríos</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabla-inscripcion">Tabla <code>Inscripcion</code></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id_estudiante</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="select">SELECT</h1>
+<p>El comando <code>SELECT</code> es el principal de SQL. Sirve para <strong>obtener información</strong> de las tablas.</p>
+<h2 id="estructura-b%C3%A1sica">Estructura básica</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> columnas
+<span class="hljs-keyword">FROM</span> tabla
+<span class="hljs-keyword">WHERE</span> condición;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio
+<span class="hljs-keyword">FROM</span> Estudiante;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante">Paso 1: FROM Estudiante</h2>
+<p>Aquí <strong>no se discrimina ninguna columna todavía</strong>. La tabla de trabajo conserva todo lo que viene de <code>Estudiante</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-select-nombre-promedio">Paso 2: SELECT nombre, promedio</h2>
+<p>Hasta este momento se proyectan solo las columnas pedidas.</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">8.7</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">9.2</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">6.8</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="where">WHERE</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">WHERE</span> promedio &gt;= <span class="hljs-number">9.0</span>;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante">Paso 1: FROM Estudiante</h2>
+<p>Se conserva la tabla completa con todas sus columnas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-where-promedio-90">Paso 2: WHERE promedio &gt;= 9.0</h2>
+<p>Primero se filtran filas, pero todavía sin reducir columnas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-nombre-promedio">Paso 3: SELECT nombre, promedio</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">9.2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="order-by---ordenar-resultados">ORDER BY - Ordenar resultados</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> promedio <span class="hljs-keyword">DESC</span>;
+</div></code></pre>
+<h2 id="resultado-ordenado">Resultado ordenado</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">9.2</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">8.7</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">6.8</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="funciones-agregadas">Funciones agregadas</h1>
+<p>Las funciones agregadas calculan un <strong>valor único</strong> a partir de múltiples filas.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+<li><code>COUNT()</code> - Contar registros.</li>
+<li><code>SUM()</code> - Sumar valores.</li>
+<li><code>AVG()</code> - Calcular promedio.</li>
+<li><code>MAX()</code> - Obtener máximo.</li>
+<li><code>MIN()</code> - Obtener mínimo.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">AS</span> total_estudiantes
+<span class="hljs-keyword">FROM</span> Estudiante;
+
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">AVG</span>(promedio) <span class="hljs-keyword">AS</span> promedio_general
+<span class="hljs-keyword">FROM</span> Estudiante;
+
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MAX</span>(promedio) <span class="hljs-keyword">AS</span> mejor, <span class="hljs-keyword">MIN</span>(promedio) <span class="hljs-keyword">AS</span> peor
+<span class="hljs-keyword">FROM</span> Estudiante;
+</div></code></pre>
+<h2 id="resultados">Resultados</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">total_estudiantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">promedio_general</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">8.55</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">mejor</th>
+<th style="text-align:right">peor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">9.5</td>
+<td style="text-align:right">6.8</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="group-by---agrupar-datos">GROUP BY - Agrupar datos</h1>
+<p><code>GROUP BY</code> agrupa filas con valores similares y permite aplicar funciones agregadas <strong>por grupo</strong>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> fecha_ingreso, <span class="hljs-keyword">AVG</span>(promedio) <span class="hljs-keyword">AS</span> promedio_grupo
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> fecha_ingreso;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante">Paso 1: FROM Estudiante</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-group-by-fechaingreso">Paso 2: GROUP BY fecha_ingreso</h2>
+<h3 id="grupo-2024-01-15">Grupo <code>2024-01-15</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grupo-2024-01-16">Grupo <code>2024-01-16</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-fechaingreso-avgpromedio">Paso 3: SELECT fecha_ingreso, AVG(promedio)</h2>
+<table>
+<thead>
+<tr>
+<th>fecha_ingreso</th>
+<th style="text-align:right">promedio_grupo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024-01-15</td>
+<td style="text-align:right">9.10</td>
+</tr>
+<tr>
+<td>2024-01-16</td>
+<td style="text-align:right">8.00</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="having---filtrar-grupos">HAVING - Filtrar grupos</h1>
+<p><code>HAVING</code> es como <code>WHERE</code>, pero para <strong>grupos</strong> después de <code>GROUP BY</code>.</p>
+<p>Para que se vea realmente el filtrado de grupos, en este ejemplo se agregan más estudiantes.</p>
+<h2 id="tabla-estudiante-usada-aqu%C3%AD">Tabla <code>Estudiante</code> usada aquí</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>Jorge Nava</td>
+<td>jorge@uam.mx</td>
+<td style="text-align:right">7.9</td>
+<td>2024-01-17</td>
+<td>555-1006</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>Sofía León</td>
+<td>sofia@uam.mx</td>
+<td style="text-align:right">9.0</td>
+<td>2024-01-17</td>
+<td>555-1007</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> fecha_ingreso, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">AS</span> total
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> fecha_ingreso
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) &gt; <span class="hljs-number">2</span>;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante">Paso 1: FROM Estudiante</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>Jorge Nava</td>
+<td>jorge@uam.mx</td>
+<td style="text-align:right">7.9</td>
+<td>2024-01-17</td>
+<td>555-1006</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>Sofía León</td>
+<td>sofia@uam.mx</td>
+<td style="text-align:right">9.0</td>
+<td>2024-01-17</td>
+<td>555-1007</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-group-by-fechaingreso">Paso 2: GROUP BY fecha_ingreso</h2>
+<h3 id="grupo-2024-01-15">Grupo <code>2024-01-15</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grupo-2024-01-16">Grupo <code>2024-01-16</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grupo-2024-01-17">Grupo <code>2024-01-17</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>Jorge Nava</td>
+<td>jorge@uam.mx</td>
+<td style="text-align:right">7.9</td>
+<td>2024-01-17</td>
+<td>555-1006</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>Sofía León</td>
+<td>sofia@uam.mx</td>
+<td style="text-align:right">9.0</td>
+<td>2024-01-17</td>
+<td>555-1007</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-having-count-2">Paso 3: HAVING COUNT(*) &gt; 2</h2>
+<p>Aquí se eliminan los grupos con 2 registros y solo permanece el grupo que cumple la condición.</p>
+<h3 id="grupo-que-sobrevive">Grupo que sobrevive</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>Jorge Nava</td>
+<td>jorge@uam.mx</td>
+<td style="text-align:right">7.9</td>
+<td>2024-01-17</td>
+<td>555-1006</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>Sofía León</td>
+<td>sofia@uam.mx</td>
+<td style="text-align:right">9.0</td>
+<td>2024-01-17</td>
+<td>555-1007</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-4-select-fechaingreso-count-as-total">Paso 4: SELECT fecha_ingreso, COUNT(*) AS total</h2>
+<table>
+<thead>
+<tr>
+<th>fecha_ingreso</th>
+<th style="text-align:right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024-01-17</td>
+<td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="join---combinar-tablas">JOIN - Combinar tablas</h1>
+<p><code>JOIN</code> permite unir información de múltiples tablas relacionadas.</p>
+<h2 id="inner-join---solo-coincidencias">INNER JOIN - Solo coincidencias</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> e.nombre, i.id_materia
+<span class="hljs-keyword">FROM</span> Estudiante e
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> e.id = i.id_estudiante;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante-e">Paso 1: FROM Estudiante e</h2>
+<p>Todavía se conservan <strong>todas</strong> las columnas de <code>Estudiante</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-inner-join-con-inscripcion-i">Paso 2: INNER JOIN con Inscripcion i</h2>
+<p>Después del <code>JOIN</code>, la tabla intermedia contiene las columnas de ambas tablas involucradas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-enombre-iidmateria">Paso 3: SELECT e.nombre, i.id_materia</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="left-join---todos-de-la-izquierda">LEFT JOIN - Todos de la izquierda</h2>
+<p>Para que el <code>LEFT JOIN</code> se aprecie mejor, en este ejemplo se agrega un estudiante sin inscripción.</p>
+<h3 id="tabla-estudiante-usada-aqu%C3%AD">Tabla <code>Estudiante</code> usada aquí</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabla-inscripcion-usada-aqu%C3%AD">Tabla <code>Inscripcion</code> usada aquí</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id_estudiante</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> e.nombre, i.id_materia
+<span class="hljs-keyword">FROM</span> Estudiante e
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> e.id = i.id_estudiante;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante-e">Paso 1: FROM Estudiante e</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-left-join-con-inscripcion-i">Paso 2: LEFT JOIN con Inscripcion i</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right">NULL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-enombre-iidmateria">Paso 3: SELECT e.nombre, i.id_materia</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Elena Gil</td>
+<td style="text-align:right">NULL</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="left-join-where-paso-a-paso">LEFT JOIN + WHERE paso a paso</h2>
+<p>Este caso ayuda a explicar por qué un filtro en <code>WHERE</code> puede eliminar filas que venían del <code>LEFT JOIN</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> e.nombre, i.id_materia
+<span class="hljs-keyword">FROM</span> Estudiante e
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> e.id = i.id_estudiante
+<span class="hljs-keyword">WHERE</span> i.id_materia = <span class="hljs-number">10</span>;
+</div></code></pre>
+<h2 id="paso-1-from-left-join">Paso 1: FROM + LEFT JOIN</h2>
+<p>Antes del <code>SELECT</code>, la tabla de trabajo todavía tiene todas las columnas que resultaron del <code>JOIN</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Elena Gil</td>
+<td>elena@uam.mx</td>
+<td style="text-align:right">8.1</td>
+<td>2024-01-17</td>
+<td>555-1005</td>
+<td style="text-align:right">NULL</td>
+<td style="text-align:right">NULL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-where-iidmateria-10">Paso 2: WHERE i.id_materia = 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-enombre-iidmateria">Paso 3: SELECT e.nombre, i.id_materia</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resultado">Resultado</h2>
+<p>Aunque se escribió <code>LEFT JOIN</code>, el <code>WHERE</code> quitó las filas con <code>NULL</code>, por lo que Elena ya no aparece.</p>
+<hr>
+<h2 id="right-join---todos-de-la-derecha">RIGHT JOIN - Todos de la derecha</h2>
+<p>Para que el <code>RIGHT JOIN</code> se aprecie al mismo nivel de detalle que el <code>LEFT JOIN</code>, en este ejemplo se agrega una inscripción sin estudiante asociado.</p>
+<h3 id="tabla-estudiante-usada-aqu%C3%AD">Tabla <code>Estudiante</code> usada aquí</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id</th>
+<th>nombre</th>
+<th>correo</th>
+<th style="text-align:right">promedio</th>
+<th>fecha_ingreso</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabla-inscripcion-usada-aqu%C3%AD">Tabla <code>Inscripcion</code> usada aquí</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">id_estudiante</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">99</td>
+<td style="text-align:right">12</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> e.nombre, i.id_materia
+<span class="hljs-keyword">FROM</span> Estudiante e
+<span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> e.id = i.id_estudiante;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante-e">Paso 1: FROM Estudiante e</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-right-join-con-inscripcion-i">Paso 2: RIGHT JOIN con Inscripcion i</h2>
+<p>Se conservan todas las filas de la tabla de la derecha, incluso si no tienen coincidencia en <code>Estudiante</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td style="text-align:right">NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td style="text-align:right">99</td>
+<td style="text-align:right">12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-select-enombre-iidmateria">Paso 3: SELECT e.nombre, i.id_materia</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td style="text-align:right">12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resultado">Resultado</h2>
+<p>La fila con <code>i.id_estudiante = 99</code> permanece porque <code>RIGHT JOIN</code> conserva todas las filas de <code>Inscripcion</code>, aunque no exista un estudiante correspondiente.</p>
+<hr>
+<h2 id="m%C3%BAltiples-joins">Múltiples JOINs</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> e.nombre, m.nombre <span class="hljs-keyword">AS</span> materia, p.nombre <span class="hljs-keyword">AS</span> profesor
+<span class="hljs-keyword">FROM</span> Estudiante e
+  <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> e.id = i.id_estudiante
+  <span class="hljs-keyword">JOIN</span> Materia m <span class="hljs-keyword">ON</span> i.id_materia = m.id
+  <span class="hljs-keyword">JOIN</span> Profesor p <span class="hljs-keyword">ON</span> m.id_profesor = p.id;
+</div></code></pre>
+<h2 id="paso-1-from-estudiante-e">Paso 1: FROM Estudiante e</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-join-con-inscripcion-i">Paso 2: JOIN con Inscripcion i</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-join-con-materia-m">Paso 3: JOIN con Materia m</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+<th style="text-align:right">i.id_materia</th>
+<th style="text-align:right">m.id</th>
+<th>m.nombre</th>
+<th style="text-align:right">m.id_profesor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-4-join-con-profesor-p">Paso 4: JOIN con Profesor p</h2>
+<table>
+<thead>
+<tr>
+<th>e.nombre</th>
+<th>m.nombre</th>
+<th>p.nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td>Ana López</td>
+<td>IA</td>
+<td>Dr. Ríos</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td>Redes</td>
+<td>Dra. Vega</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-5-select-final">Paso 5: SELECT final</h2>
+<table>
+<thead>
+<tr>
+<th>estudiante</th>
+<th>materia</th>
+<th>profesor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td>Ana López</td>
+<td>IA</td>
+<td>Dr. Ríos</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td>Redes</td>
+<td>Dra. Vega</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td>BD</td>
+<td>Dr. Soto</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="union---combinar-consultas">UNION - Combinar consultas</h1>
+<p><code>UNION</code> combina los resultados de dos o más consultas <code>SELECT</code>.</p>
+<p><strong>Reglas:</strong></p>
+<ul>
+<li>Mismo número de columnas.</li>
+<li>Tipos de datos compatibles.</li>
+<li><code>UNION</code> elimina duplicados y <code>UNION ALL</code> los conserva.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre <span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">UNION</span>
+<span class="hljs-keyword">SELECT</span> nombre <span class="hljs-keyword">FROM</span> Profesor;
+</div></code></pre>
+<h2 id="resultado">Resultado</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+</tr>
+<tr>
+<td>María Torres</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+</tr>
+<tr>
+<td>Dr. Soto</td>
+</tr>
+<tr>
+<td>Dra. Vega</td>
+</tr>
+<tr>
+<td>Dr. Ríos</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="orden-de-ejecuci%C3%B3n-lo-m%C3%A1s-importante">ORDEN DE EJECUCIÓN: Lo más importante</h1>
+<p><strong>NOTA:</strong> El orden en que se escriben las cláusulas no es el orden en que SQL las ejecuta.</p>
+<h2 id="orden-de-escritura">Orden de escritura</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> columnas                    <span class="hljs-comment">-- 1</span>
+<span class="hljs-keyword">FROM</span> tabla                         <span class="hljs-comment">-- 2</span>
+<span class="hljs-keyword">WHERE</span> condición                    <span class="hljs-comment">-- 3</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> columnas                  <span class="hljs-comment">-- 4</span>
+<span class="hljs-keyword">HAVING</span> condición_grupo             <span class="hljs-comment">-- 5</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> columnas                  <span class="hljs-comment">-- 6</span>
+</div></code></pre>
+<h2 id="orden-de-ejecuci%C3%B3n-real">Orden de ejecución real</h2>
+<ol>
+<li><code>FROM</code> y <code>JOIN</code> - Identifica y combina las tablas fuente.</li>
+<li><code>WHERE</code> - Filtra filas individuales.</li>
+<li><code>GROUP BY</code> - Agrupa las filas filtradas.</li>
+<li><code>HAVING</code> - Filtra grupos.</li>
+<li><code>SELECT</code> - Selecciona y calcula columnas.</li>
+<li><code>ORDER BY</code> - Ordena el resultado final.</li>
+</ol>
+<hr>
+<h1 id="where-no-puede-usar-alias-de-select">WHERE no puede usar alias de SELECT</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio * <span class="hljs-number">10</span> <span class="hljs-keyword">AS</span> puntos
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">WHERE</span> puntos &gt; <span class="hljs-number">90</span>;
+</div></code></pre>
+<h2 id="explicaci%C3%B3n">Explicación</h2>
+<p>Esto produce error porque el alias <code>puntos</code> todavía no existe cuando se evalúa <code>WHERE</code>.</p>
+<h2 id="forma-correcta">Forma correcta</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio * <span class="hljs-number">10</span> <span class="hljs-keyword">AS</span> puntos
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">WHERE</span> promedio * <span class="hljs-number">10</span> &gt; <span class="hljs-number">90</span>;
+</div></code></pre>
+<hr>
+<h1 id="having-s%C3%AD-puede-usar-funciones-agregadas">HAVING sí puede usar funciones agregadas</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> fecha_ingreso, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">AS</span> total
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> fecha_ingreso
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) &gt; <span class="hljs-number">1</span>;
+</div></code></pre>
+<h2 id="resultado">Resultado</h2>
+<table>
+<thead>
+<tr>
+<th>fecha_ingreso</th>
+<th style="text-align:right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024-01-15</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>2024-01-16</td>
+<td style="text-align:right">2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="order-by-s%C3%AD-puede-usar-alias">ORDER BY sí puede usar alias</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> nombre, promedio * <span class="hljs-number">10</span> <span class="hljs-keyword">AS</span> puntos
+<span class="hljs-keyword">FROM</span> Estudiante
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> puntos <span class="hljs-keyword">DESC</span>;
+</div></code></pre>
+<h2 id="resultado">Resultado</h2>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th style="text-align:right">puntos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana López</td>
+<td style="text-align:right">95</td>
+</tr>
+<tr>
+<td>María Torres</td>
+<td style="text-align:right">92</td>
+</tr>
+<tr>
+<td>Carlos Ruiz</td>
+<td style="text-align:right">87</td>
+</tr>
+<tr>
+<td>Luis Pérez</td>
+<td style="text-align:right">68</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="ejemplo-completo">Ejemplo completo</h1>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
+  m.nombre <span class="hljs-keyword">AS</span> materia,
+  <span class="hljs-keyword">COUNT</span>(i.id_estudiante) <span class="hljs-keyword">AS</span> total_inscritos,
+  <span class="hljs-keyword">AVG</span>(e.promedio) <span class="hljs-keyword">AS</span> promedio_grupo,
+  <span class="hljs-keyword">MAX</span>(e.promedio) <span class="hljs-keyword">AS</span> mejor_alumno
+<span class="hljs-keyword">FROM</span> Materia m
+  <span class="hljs-keyword">JOIN</span> Inscripcion i <span class="hljs-keyword">ON</span> m.id = i.id_materia
+  <span class="hljs-keyword">JOIN</span> Estudiante e <span class="hljs-keyword">ON</span> i.id_estudiante = e.id
+<span class="hljs-keyword">WHERE</span> e.promedio &gt;= <span class="hljs-number">7.0</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> m.nombre
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(i.id_estudiante) &gt; <span class="hljs-number">0</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> total_inscritos <span class="hljs-keyword">DESC</span>, promedio_grupo <span class="hljs-keyword">DESC</span>;
+</div></code></pre>
+<h2 id="paso-1-from-materia-m">Paso 1: FROM Materia m</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">m.id</th>
+<th>m.nombre</th>
+<th style="text-align:right">m.id_profesor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-2-join-con-inscripcion-i">Paso 2: JOIN con Inscripcion i</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">m.id</th>
+<th>m.nombre</th>
+<th style="text-align:right">m.id_profesor</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-3-join-con-estudiante-e">Paso 3: JOIN con Estudiante e</h2>
+<p>Aquí todavía se conservan todas las columnas provenientes de las tablas que participan.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">m.id</th>
+<th>m.nombre</th>
+<th style="text-align:right">m.id_profesor</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4</td>
+<td>Luis Pérez</td>
+<td>luis@uam.mx</td>
+<td style="text-align:right">6.8</td>
+<td>2024-01-16</td>
+<td>555-1004</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-4-where-epromedio-70">Paso 4: WHERE e.promedio &gt;= 7.0</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">m.id</th>
+<th>m.nombre</th>
+<th style="text-align:right">m.id_profesor</th>
+<th style="text-align:right">i.id_estudiante</th>
+<th style="text-align:right">i.id_materia</th>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td>BD</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td>Redes</td>
+<td style="text-align:right">101</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td>IA</td>
+<td style="text-align:right">102</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-5-group-by-mnombre">Paso 5: GROUP BY m.nombre</h2>
+<h3 id="grupo-bd">Grupo <code>BD</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Carlos Ruiz</td>
+<td>carlos@uam.mx</td>
+<td style="text-align:right">8.7</td>
+<td>2024-01-15</td>
+<td>555-1002</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grupo-redes">Grupo <code>Redes</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">3</td>
+<td>María Torres</td>
+<td>maria@uam.mx</td>
+<td style="text-align:right">9.2</td>
+<td>2024-01-16</td>
+<td>555-1003</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grupo-ia">Grupo <code>IA</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">e.id</th>
+<th>e.nombre</th>
+<th>e.correo</th>
+<th style="text-align:right">e.promedio</th>
+<th>e.fecha_ingreso</th>
+<th>e.telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Ana López</td>
+<td>ana@uam.mx</td>
+<td style="text-align:right">9.5</td>
+<td>2024-01-15</td>
+<td>555-1001</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-6-having-countiidestudiante-0">Paso 6: HAVING COUNT(i.id_estudiante) &gt; 0</h2>
+<p>Todos los grupos permanecen.</p>
+<h2 id="paso-7-select">Paso 7: SELECT</h2>
+<table>
+<thead>
+<tr>
+<th>materia</th>
+<th style="text-align:right">total_inscritos</th>
+<th style="text-align:right">promedio_grupo</th>
+<th style="text-align:right">mejor_alumno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">9.10</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>Redes</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9.20</td>
+<td style="text-align:right">9.2</td>
+</tr>
+<tr>
+<td>IA</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9.50</td>
+<td style="text-align:right">9.5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="paso-8-order-by-totalinscritos-desc-promediogrupo-desc">Paso 8: ORDER BY total_inscritos DESC, promedio_grupo DESC</h2>
+<table>
+<thead>
+<tr>
+<th>materia</th>
+<th style="text-align:right">total_inscritos</th>
+<th style="text-align:right">promedio_grupo</th>
+<th style="text-align:right">mejor_alumno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">9.10</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>IA</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9.50</td>
+<td style="text-align:right">9.5</td>
+</tr>
+<tr>
+<td>Redes</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9.20</td>
+<td style="text-align:right">9.2</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
