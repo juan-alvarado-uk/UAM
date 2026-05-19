@@ -28,7 +28,7 @@ Una **estructura compleja** es aquella cuya forma natural no es una fila plana, 
 
 Ejemplo: En un sistema de comercio electrónico, un pedido suele incluir productos, descuentos, direcciones de envío, métodos de pago y estados de procesamiento, todo ello con historial. Representar esto únicamente con una tabla de pedidos y unas cuantas tablas auxiliares puede funcionar, pero conforme se añaden variantes (por ejemplo, cupones, envíos parciales, devoluciones), el número de tablas y relaciones crece y el esquema se vuelve menos intuitivo. 
 
-Otro ejemplo: Algo similar ocurre con los perfiles de usuario: un perfil puede incluir datos personales, preferencias de notificación, dispositivos asociados, métodos de autenticación, historial de sesiones, listas de deseos y configuraciones de privacidad. Conceptualmente se percibe como un “solo objeto”, pero en un diseño relacional estricto se descompone en muchas tablas que deben unirse para obtener una visión completa. 
+Otro ejemplo: Los perfiles de usuario pueden incluir datos personales, preferencias de notificación, dispositivos asociados, métodos de autenticación, historial de sesiones, listas de deseos y configuraciones de privacidad. Conceptualmente se percibe como un “solo objeto”, pero en un diseño relacional estricto se descompone en muchas tablas que deben unirse para obtener una visión completa. 
 
 ***
 
@@ -40,7 +40,7 @@ En sistemas complejos, esta brecha entre “modelo lógico” y “modelo concep
 
 ***
 
-Un *objeto* del mundo real rara vez se ve como una lista plana. Un automóvil se concibe con motor, póliza, historial de servicios, sensores y propietario. Una cuenta de un sitio de comercio electrónico se entiende con direcciones, métodos de pago, carrito, historial y preferencias. En tablas, *esto puede derivar en muchas relaciones separadas y consultas más largas para recomponer algo que, conceptualmente, se entiende como una sola unidad*. 
+Un *objeto* del mundo real rara vez se ve como una lista plana (como hemos visto). En tablas, *esto puede derivar en muchas relaciones separadas y consultas más largas para recomponer algo que, conceptualmente, se entiende como una sola unidad*. 
 
 En términos prácticos, esto implica que ciertas operaciones, como mostrar el “perfil completo” de un usuario o el estado detallado de un pedido, *requieren múltiples uniones y combinaciones de datos dispersos*. Aunque esto se puede resolver con vistas, procedimientos almacenados o capas de servicio, la **complejidad** subyacente **permanece** y se **incrementa** a medida que el **dominio se enriquece**. 
 
@@ -48,7 +48,7 @@ A largo plazo, este tipo de diseños tiende a acumular “deuda conceptual”: p
 
 ***
 
-Las **listas de tamaño variable** también se vuelven incómodas en un diseño rígido. Un producto puede tener cero, tres o quince variantes; una publicación puede tener miles de reacciones; un video puede tener múltiples subtítulos y pistas de audio. En lugar de una estructura integrada, aparecen varias tablas auxiliares y un aumento de uniones entre datos, lo que encarece tanto la comprensión como el rendimiento de algunas consultas. 
+Las **listas de tamaño variable** también se vuelven incómodas en un diseño rígido. Un producto puede tener cero, tres o quince variantes; una publicación puede tener miles de reacciones; un video puede tener múltiples subtítulos y pistas de audio. En lugar de una estructura integrada, aparecen varias tablas auxiliares y un aumento de uniones entre datos, lo que dificulta tanto la comprensión como el rendimiento de algunas consultas. 
 
 ---
 
@@ -59,7 +59,7 @@ En aplicaciones donde las listas son muy grandes o muy dinámicas, este patrón 
 
 ***
 
-Las **jerarquías** son otra fuente de tensión. En la realidad, “persona” puede incluir “estudiante”, “docente”, “administrativo” o “cliente frecuente”; “contenido” puede incluir “video”, “imagen” o “transmisión en vivo”. El reto no es solo guardar los atributos, sino representar que ciertas propiedades se heredan y otras solo aplican a subtipos específicos, algo que el modelo tabular sencillo expresa solo mediante convenciones y tablas adicionales. 
+Las **jerarquías** son otra fuente de tensión. En la realidad, “persona” puede incluir “estudiante”, “docente”, “administrativo” o “cliente frecuente”; “contenido” puede incluir “video”, “imagen” o “transmisión en vivo”. El problema no es solo guardar los atributos, sino representar que ciertas propiedades se heredan y otras solo aplican a subtipos específicos, algo que el modelo tabular sencillo expresa solo mediante convenciones y tablas adicionales. 
 
 ---
 
