@@ -11,18 +11,18 @@
 
 2. **Diseño relacional simple del dominio asignado**  
    - Cada equipo propone un esquema relacional básico: tablas principales, tablas auxiliares y claves externas mínimas necesarias.  
-   - El diseño debe intentar ser “limpio” y normalizado en la medida de lo posible (sin concentrarse aún en rendimiento). 
+   - El diseño debe intentar ser “limpio” y normalizado en la medida de lo posible (sin concentrarse en rendimiento). 
    - Pueden usarse herramientas de IA generativa para auxiliarse en el diseño. 
 
 3. **Detección de síntomas de tensión**  
-   Sobre su propio diseño, cada equipo marca y anota:  
+   Sobre su propio diseño, cada equipo anota:  
    - Dónde se requieren muchas tablas para representar un solo concepto central (por ejemplo, usuario o contenido).  
    - Dónde aparecen listas de tamaño variable que obligan a crear tablas auxiliares adicionales.  
    - Qué columnas se ven opcionales o vacías para muchos registros.  
    - Qué consultas típicas exigirían múltiples uniones para reconstruir una unidad conceptual que en el dominio se percibe como única.  
 
 4. **Presentación**  
-   Cada equipo presenta una breve presentación donde responde:   
+   Cada equipo hace una breve presentación donde responde:   
    - Elementos complejos del dominio (objetos compuestos, listas, jerarquías).  
    - Indicios concretos de tensión del modelo tabular simple (tablas auxiliares, columnas vacías, uniones numerosas).  
    - Mostrar ejemplos específicos de dónde y cómo el diseño relacional comienza a alejarse de la forma natural del dominio.
