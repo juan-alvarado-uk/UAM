@@ -128,7 +128,7 @@ Hay que agregar a todo lo anterior, la **rigidez del esquema** frente a datos **
 
 ---
 
-Por ejemplo, en un catálogo de productos, ciertos tipos pueden requerir atributos específicos (talla y color para ropa, memoria y procesador para dispositivos, caducidad y ingredientes para alimentos). Intentar unificar todo esto en una sola tabla de productos suele producir gran cantidad de columnas nulas y lógica adicional en la aplicación para interpretar qué columnas aplican a cada tipo de producto. 
+Por ejemplo, en un catálogo de productos, ciertos tipos pueden requerir atributos específicos (talla y color para ropa, memoria y procesador para dispositivos, caducidad e ingredientes para alimentos). Intentar unificar todo esto en una sola tabla de productos suele producir gran cantidad de columnas nulas y lógica adicional en la aplicación para interpretar qué columnas aplican a cada tipo de producto. 
 
 ---
 
