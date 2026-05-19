@@ -2,21 +2,21 @@
 
 # Limitaciones del modelo relacional ante dominios complejos
 
-Se entiende por **limitación del modelo relacional** la dificultad para representar o procesar ciertos dominios modernos sin introducir **complejidad excesiva**, **pérdida de claridad** o **costos elevados de operación**. El punto central no es que el modelo relacional sea “malo”, sino que, aunque funciona muy bien para muchos problemas administrativos y transaccionales, comienza a **tensarse** cuando debe reflejar estructuras ricas, cambiantes y distribuidas. 
+**Limitación del modelo relacional** implica la dificultad para representar o procesar ciertos dominios modernos sin introducir **complejidad excesiva**, **pérdida de claridad** o **costos elevados de operación**. El punto central no es que el modelo relacional sea “malo”, sino que, aunque funciona muy bien para muchos problemas administrativos y transaccionales, comienza a **tensarse** cuando debe reflejar estructuras ricas, cambiantes y distribuidas. 
 
 En su contexto de **origen**, el modelo relacional aportó **claridad**, **formalización** y **herramientas sólidas** para manejar datos estructurados de manera coherente. Esto se nota especialmente en sistemas de nómina, contabilidad, inventarios clásicos o registro de clientes, donde las **entidades tienen atributos relativamente estables** y las **relaciones entre tablas son claras y bien definidas**. 
 
-Sin embargo, la **evolución tecnológica** ha llevado a que muchas aplicaciones traten con **información mucho más diversa**: datos de interacción en tiempo real, flujos continuos de eventos, contenido generado por usuarios, integraciones con servicios externos y registros de comportamiento complejos. Como hemos visto, esto no solo aumenta el volumen de datos, sino también la variedad de estructuras que se deben representar de manera coherente en la base de datos. 
-
-Muchas aplicaciones actuales manejan **información heterogénea**: perfiles con muchos atributos y variantes, catálogos dinámicos, eventos masivos, contenido multimedia, documentos flexibles y relaciones jerárquicas o en grafo. 
+Sin embargo, la **evolución tecnológica** ha llevado a que muchas aplicaciones traten con **información mucho más diversa y masiva**. Como hemos visto, esto no solo aumenta el volumen de datos, sino también la variedad de estructuras que se deben representar de manera coherente en la base de datos. 
 
 Además, la integración de múltiples servicios y APIs obliga a convivir con formatos externos como *JSON* o *XML*, en los que la estructura de los datos no siempre coincide con el esquema rígido de una base relacional. Esto introduce una brecha entre la forma natural en que los datos llegan o se producen y la forma en que deben acomodarse en tablas. 
 
 ***
 
-El problema, entonces, no es solo técnico sino conceptual. Cuando el dominio incluye *objetos con sub-partes internas*, *colecciones de tamaño variable*, *jerarquías de tipos*, etc., el diseño relacional simple tiende a **multiplicar** tablas, claves externas y excepciones de modelado, hasta que el esquema se hace difícil de leer y de mantener. 
+El problema, entonces, no es solo técnico sino conceptual. Cuando el dominio incluye *objetos con sub-partes internas*, *colecciones de tamaño variable*, *jerarquías de tipos*, etc., el diseño relacional tiende a **multiplicar** tablas, llaves foráneas etc.
 
-*A medida que el dominio crece en complejidad, se vuelve más frecuente encontrar tablas que existen solo para “sostener” listas o relaciones auxiliares.* También aparecen convenciones implícitas (por ejemplo, ciertas combinaciones de columnas significan un tipo u otro de entidad) que no quedan reflejadas con claridad en el modelo relacional básico. Esto puede provocar que el modelo físico se aleje cada vez más de la comprensión conceptual que se tiene del sistema. 
+*A medida que el dominio crece en complejidad, se vuelve comun encontrar tablas que existen solo para “sostener” listas o relaciones auxiliares.* También aparecen convenciones implícitas (por ejemplo, ciertas combinaciones de columnas significan un tipo u otro de entidad) que no quedan reflejadas con claridad en el modelo relacional básico. 
+
+---
 
 En este contexto, *las bases relacionales siguen siendo valiosas*, pero dejan claro que se necesita un nivel de **modelado adicional o complementario** que capture mejor el **significado** del dominio antes de llegar al nivel de tablas.
 
@@ -24,11 +24,9 @@ En este contexto, *las bases relacionales siguen siendo valiosas*, pero dejan cl
 
 ## Estructuras complejas y señales de tensión
 
-Una **estructura compleja** es aquella cuya forma natural no es una fila plana, sino una composición de elementos, listas, anidamientos o jerarquías. Ejemplos típicos son un pedido con varias líneas y promociones, un perfil de usuario con diversas preferencias y dispositivos, o un árbol de comentarios en una red social con respuestas a respuestas. 
+Una **estructura compleja** es aquella cuya forma natural no es una fila plana, sino una composición de elementos, listas, anidamientos o jerarquías.
 
-Ejemplo: En un sistema de comercio electrónico, un pedido suele incluir productos, descuentos, direcciones de envío, métodos de pago y estados de procesamiento, todo ello con historial. Representar esto únicamente con una tabla de pedidos y unas cuantas tablas auxiliares puede funcionar, pero conforme se añaden variantes (por ejemplo, cupones, envíos parciales, devoluciones), el número de tablas y relaciones crece y el esquema se vuelve menos intuitivo. 
-
-Otro ejemplo: Los perfiles de usuario pueden incluir datos personales, preferencias de notificación, dispositivos asociados, métodos de autenticación, historial de sesiones, listas de deseos y configuraciones de privacidad. Conceptualmente se percibe como un “solo objeto”, pero en un diseño relacional estricto se descompone en muchas tablas que deben unirse para obtener una visión completa. 
+Ejemplo: En un sistema de comercio electrónico, un pedido incluye productos, descuentos, direcciones de envío, métodos de pago y estados de procesamiento, todo ello con historial. Representar esto únicamente con una tabla de pedidos y unas cuantas tablas auxiliares puede funcionar, pero conforme se añaden variantes (por ejemplo, cupones, envíos parciales, devoluciones), el número de tablas y relaciones crece y el esquema se vuelve menos intuitivo.  
 
 ***
 
@@ -42,9 +40,7 @@ En sistemas complejos, esta brecha entre “modelo lógico” y “modelo concep
 
 Un *objeto* del mundo real rara vez se ve como una lista plana (como hemos visto). En tablas, *esto puede derivar en muchas relaciones separadas y consultas más largas para recomponer algo que, conceptualmente, se entiende como una sola unidad*. 
 
-En términos prácticos, esto implica que ciertas operaciones, como mostrar el “perfil completo” de un usuario o el estado detallado de un pedido, *requieren múltiples uniones y combinaciones de datos dispersos*. Aunque esto se puede resolver con vistas, procedimientos almacenados o capas de servicio, la **complejidad** subyacente **permanece** y se **incrementa** a medida que el **dominio se enriquece**. 
-
-A largo plazo, este tipo de diseños tiende a acumular “deuda conceptual”: pequeñas decisiones que se tomaron para encajar el dominio en tablas se convierten en obstáculos para *extender* o *adaptar* el sistema, porque las *nuevas necesidades* de negocio ya *no encajan bien en el esquema existente*.
+En términos prácticos, esto implica que ciertas operaciones, *requieren múltiples uniones y combinaciones de datos dispersos*. Aunque esto se puede resolver con vistas, procedimientos almacenados o capas de servicio, la **complejidad** subyacente **permanece** y se **incrementa** a medida que el **dominio se enriquece**. Este tipo de diseños tiende a acumular “deuda conceptual”.
 
 ***
 
