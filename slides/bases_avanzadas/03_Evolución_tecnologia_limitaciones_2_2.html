@@ -134,330 +134,104 @@
               
             </section>
     <section>
-      <h1>Evolución de la tecnología y limitaciones del modelo relacional (parte 2)</h1>
-    </section>
-    <section>
-      <h1>Limitaciones del modelo relacional ante dominios complejos</h1>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p><strong>Limitación del modelo relacional</strong> implica la dificultad para representar o procesar ciertos dominios modernos sin introducir <strong>complejidad excesiva</strong>, <strong>pérdida de claridad</strong> o <strong>costos elevados de operación</strong>.</p></div>
-        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>El punto central no es que el modelo relacional sea “malo”, sino que, aunque funciona muy bien para muchos problemas administrativos y transaccionales, comienza a <strong>tensarse</strong> cuando debe reflejar estructuras ricas, cambiantes y distribuidas.</p></div>
-        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>En su contexto de <strong>origen</strong>, el modelo relacional aportó <strong>claridad</strong>, <strong>formalización</strong> y <strong>herramientas sólidas</strong> para manejar datos estructurados de manera coherente.</p></div>
-        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0105.jpeg" alt="image" /></div>
-        <div class="text-col"><p>Esto se nota especialmente en sistemas de nómina, contabilidad, inventarios clásicos o registro de clientes, donde las <strong>entidades tienen atributos relativamente estables</strong> y las <strong>relaciones entre tablas son claras y bien definidas</strong>.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Sin embargo, la <strong>evolución tecnológica</strong> ha llevado a que muchas aplicaciones traten con <strong>información mucho más diversa y masiva</strong>.</p><p>Como hemos visto, esto no solo aumenta el volumen de datos, sino también la variedad de estructuras que se deben representar de manera coherente en la base de datos.</p></div>
-        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Además, la integración de múltiples servicios y APIs obliga a convivir con formatos externos como <em>JSON</em> o <em>XML</em>, en los que la estructura de los datos no siempre coincide con el esquema rígido de una base relacional.</p></div>
-        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Esto introduce una brecha entre la forma natural en que los datos llegan o se producen y la forma en que deben acomodarse en tablas.</p></div>
-        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>El problema, entonces, no es solo técnico sino conceptual.</p><p>Cuando el dominio incluye <em>objetos con sub-partes internas</em>, <em>colecciones de tamaño variable</em>, <em>jerarquías de tipos</em>, etc., el diseño relacional tiende a <strong>multiplicar</strong> tablas, llaves foráneas etc.</p></div>
-        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
-        <div class="text-col"><p><em>A medida que el dominio crece en complejidad, se vuelve comun encontrar tablas que existen solo para “sostener” listas o relaciones auxiliares.</em> También aparecen convenciones implícitas (por ejemplo, ciertas combinaciones de columnas significan un tipo u otro de entidad) que no quedan reflejadas con claridad en el modelo relacional básico.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Limitaciones del modelo relacional ante dominios complejos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>En este contexto, <em>las bases relacionales siguen siendo valiosas</em>, pero dejan claro que se necesita un nivel de <strong>modelado adicional o complementario</strong> que capture mejor el <strong>significado</strong> del dominio antes de llegar al nivel de tablas.</p></div>
-        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
-        <div class="text-col"><p>Una <strong>estructura compleja</strong> es aquella cuya forma natural no es una fila plana, sino una composición de elementos, listas, anidamientos o jerarquías.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
-        <div class="text-col"><p>Ejemplo: En un sistema de comercio electrónico, un pedido incluye productos, descuentos, direcciones de envío, métodos de pago y estados de procesamiento, todo ello con historial.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
-        <div class="text-col"><p>Representar esto únicamente con una tabla de pedidos y unas cuantas tablas auxiliares puede funcionar, pero conforme se añaden variantes (por ejemplo, cupones, envíos parciales, devoluciones), el número de tablas y relaciones crece y el esquema se vuelve menos intuitivo.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>En el modelo relacional básico, los datos se organizan en tablas y columnas con valores simples; <em>cada registro tiene el mismo conjunto de atributos y se asume que cada atributo toma un único valor de su dominio</em>.</p></div>
-        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0032.jpg" alt="image" /></div>
-        <div class="text-col"><p>Cuando aparecen <em>listas anidadas</em> o <em>jerarquías</em>, el diseño se fragmenta en múltiples tablas relacionadas con esquemas correctos en términos formales, pero cada vez <em>menos naturales en términos de cómo se percibe el dominio</em>.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
-        <div class="text-col"><p>Desde el punto de vista de teoría de bases de datos, esta <em>fragmentación es una consecuencia directa de la normalización y de las restricciones del modelo relacional</em>, que no permite atributos multivaluados ni estructuras anidadas dentro de una misma columna.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Las <strong>listas de tamaño variable</strong> son incómodas en un diseño rígido.</p><p>Un producto puede tener cero, tres o quince variantes; una publicación puede tener miles de reacciones; un video puede tener múltiples subtítulos y pistas de audio.</p></div>
-        <div class="image-col"><img src="../../img/0072.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
-        <div class="text-col"><p>En lugar de una estructura integrada, aparecen varias tablas auxiliares y un aumento de uniones entre datos, lo que dificulta tanto la comprensión como el rendimiento de algunas consultas.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>En aplicaciones donde las listas son muy grandes o muy dinámicas, este patrón puede introducir problemas adicionales:</p></div>
-        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0052.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Consultas que recorren gran número de filas para reconstruir listas completas.</li><li>Dificultad para mantener contadores o agregados consistentes (por ejemplo, número de reacciones, seguidores, reproducciones).</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Mayor riesgo de inconsistencia si no se cuidan las restricciones de integridad referencial y las operaciones transaccionales.</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Las <strong>jerarquías</strong> son otra fuente de tensión.</p><p>En la realidad, “persona” puede incluir “estudiante”, “docente”, “administrativo” o “cliente frecuente”; “contenido” puede incluir “video”, “imagen” o “transmisión en vivo”.</p></div>
-        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>El problema no es solo guardar los atributos, sino representar que ciertas propiedades se heredan y otras solo aplican a subtipos específicos, algo que el modelo tabular sencillo expresa solo mediante convenciones y tablas adicionales.</p></div>
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Para capturar este tipo de jerarquías en un esquema relacional, suelen utilizarse estrategias como:</p></div>
-        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Una tabla única con columnas opcionales para todos los subtipos.</li><li>Tablas separadas para cada subtipo, con claves compartidas hacia una tabla general.</li><li>Combinaciones de ambas, apoyadas en vistas o restricciones adicionales.</li></ul></div>
-        <div class="image-col"><img src="../../img/0103.png" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Cada estrategia tiene ventajas y desventajas, pero ninguna refleja de manera tan directa la idea de “supertipo/subtipo” como lo hace un modelo semántico como EER.</p></div>
-        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>El resultado es que el conocimiento sobre la jerarquía termina repartido entre el esquema, el código de la aplicación y la documentación, lo que aumenta la complejidad global.</p></div>
-        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0078.jpg" alt="image" /></div>
-        <div class="text-col"><p><em>Con el tiempo aparecen señales claras de que el esquema se está complicando demasiado</em>:</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
-        <div class="text-col"><ul><li>Muchas tablas para representar una sola “cosa” del dominio.</li><li>Muchas referencias entre tablas para reconstruir un objeto frecuente en consultas.</li><li>Muchas columnas que aplican solo a ciertos casos y quedan vacías en otros.</li></ul></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
-        <div class="text-col"><p>A estas señales se pueden añadir otras más operativas, como un <strong>aumento constante en la complejidad de las consultas SQL</strong>, proliferación de <strong>vistas</strong> y <strong>procedimientos</strong> ad‑hoc para compensar la rigidez del esquema, y necesidad recurrente de <strong>migraciones complejas</strong> cada vez que el dominio cambia.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Estructuras complejas y señales de tensión</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Todas estas manifestaciones apuntan que el modelo relacional, tal como está aplicado, ya no representa de forma natural la realidad que se intenta modelar.</p></div>
-        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h1>Actividad 1: Detectar límites del modelo relacional en sistemas actuales</h1>
-    </section>
-    <section>
       <h1>Rendimiento, escalabilidad y rigidez del esquema</h1>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Una base de datos no se evalúa solo por cómo modela, sino por cómo <strong>responde bajo carga real</strong>.</p><p>El <strong>rendimiento</strong> es la capacidad de responder con <strong>tiempos aceptables</strong> y <strong>uso razonable de recursos</strong>.</p></div>
-        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
         <div class="text-col"><p>La <strong>escalabilidad</strong> es la capacidad de <strong>sostener o mejorar</strong> ese comportamiento <strong>cuando crecen datos, usuarios o distribución geográfica</strong>.</p></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><p>Las bases relacionales se diseñaron en un contexto donde el <em>volumen y la distribución eran menores</em>, y en muchos sistemas actuales se enfrentan a millones de eventos por segundo, usuarios globales y picos de tráfico muy marcados.</p></div>
+        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>En sistemas distribuidos modernos, no es raro que una misma aplicación tenga usuarios en múltiples regiones, que interactúan con servicios desde dispositivos móviles, navegadores y otras plataformas.</p></div>
-        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
         <div class="text-col"><p>Cada interacción genera lecturas y escrituras sobre la base de datos, por lo que la arquitectura de almacenamiento debe equilibrar tiempos de respuesta, consistencia y disponibilidad, algo que no siempre se consigue solo con escalar una única instancia relacional.</p></div>
+        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
         <div class="text-col"><p>La combinación de alto volumen y alta concurrencia hace que las decisiones de diseño de esquema (índices, normalización, claves) tengan impacto directo en latencia y throughput, no solo en elegancia conceptual.</p></div>
+        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
         <div class="text-col"><p>Escalar verticalmente significa agregar recursos a un mismo servidor (más CPU, memoria o disco), mientras que escalar horizontalmente significa agregar nodos y repartir la carga entre ellos.</p></div>
-        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
         <div class="text-col"><p>El escalado vertical suele ser más simple pero llega a un límite físico (por ejemplo, cuando una máquina virtual en la nube ya no puede crecer más); el horizontal permite crecer más, a costa de mayor complejidad de coordinación y consistencia.</p></div>
-        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
         <div class="text-col"><p>En términos cotidianos, el escalado vertical se parece a comprar un camión más grande para transportar más mercancía, mientras que el escalado horizontal se parece a organizar una flota de camiones que comparten el trabajo.</p></div>
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>La flota puede transportar mucho más, pero requiere rutas claras, coordinación entre conductores y mecanismos de control para evitar pérdidas o inconsistencias.</p></div>
-        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
         <div class="text-col"><p>En bases de datos, esto se traduce en decisiones sobre replicación (cuántas copias de los datos existen y dónde), partición o fragmentación (cómo se distribuyen los datos entre nodos) y mecanismos de consenso o coordinación entre servidores.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Cada estrategia introduce ventajas pero también complejidad adicional en el diseño y la operación del sistema.</p></div>
         <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0062.jpg" alt="image" /></div>
-        <div class="text-col"><p><em>En entornos masivos, las consultas con muchas uniones sobre grandes volúmenes y las escrituras concurrentes en puntos centralizados pueden producir cuellos de botella</em>.</p></div>
+        <div class="text-col"><p>Cada estrategia introduce ventajas pero también complejidad adicional en el diseño y la operación del sistema.</p></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="text-col"><p><em>En entornos masivos, las consultas con muchas uniones sobre grandes volúmenes y las escrituras concurrentes en puntos centralizados pueden producir cuellos de botella</em>.</p></div>
+        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
         <div class="text-col"><p>La réplica ayuda a atender más lecturas, pero las escrituras se concentran en nodos concretos; la fragmentación reparte datos entre servidores, pero obliga a pensar en cómo localizar la información y sincronizar actualizaciones.</p></div>
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -465,27 +239,27 @@
       <div class="slide-two-col">
         <div class="text-col"><p>En la práctica, muchas arquitecturas combinan varias técnicas:</p>
 <ul><li>Réplicas de solo lectura para descargar consultas frecuentes.</li><li>Partición por rango, hash o clave de cliente para distribuir carga de escritura.</li><li>Cachés intermedias para reducir la presión sobre la base principal.</li></ul></div>
-        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0029.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
         <div class="text-col"><p>Estas soluciones funcionan, pero muestran que el <em>modelo relacional clásico, centrado en una única imagen lógica de los datos, fue pensado para un escenario menos distribuido</em>.</p></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
         <div class="text-col"><p>El “tensionamiento” aparece cuando se busca mantener propiedades fuertes de consistencia y relaciones complejas en un entorno distribuido y de alta escala.</p></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
         <div class="text-col"><p>Hay que agregar a todo lo anterior, la <strong>rigidez del esquema</strong> frente a datos <strong>semiestructurados</strong>.</p><p><em>XML</em> y <em>JSON</em> permiten anidamientos, arreglos y campos opcionales, de modo que distintos <em>registros comparten una base común, pero no necesariamente las mismas propiedades</em>.</p></div>
       </div>
     </section>
@@ -493,34 +267,34 @@
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Por ejemplo, en un catálogo de productos, ciertos tipos pueden requerir atributos específicos (talla y color para ropa, memoria y procesador para dispositivos, caducidad e ingredientes para alimentos).</p></div>
-        <div class="image-col"><img src="../../img/0097.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0062.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
         <div class="text-col"><p>Intentar unificar todo esto en una sola tabla de productos suele producir gran cantidad de columnas nulas y lógica adicional en la aplicación para interpretar qué columnas aplican a cada tipo de producto.</p></div>
+        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
         <div class="text-col"><p>Cuando el dominio se actualiza con frecuencia (nuevos tipos de productos, nuevas propiedades, cambios en reglas de negocio), cada ajuste puede exigir alterar el esquema, migrar datos o introducir soluciones temporales que incrementan la complejidad del sistema.</p></div>
-        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
         <div class="text-col"><p>Esto es especialmente costoso en entornos donde el tiempo de inactividad debe ser mínimo.</p></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
         <div class="text-col"><p>Problemas típicos derivados de la rigidez del esquema son (algunos ya los hemos mencionado):</p></div>
       </div>
     </section>
@@ -528,13 +302,13 @@
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Columnas opcionales que quedan vacías para muchos registros.</li><li>Reestructuración del esquema ante cambios frecuentes en el dominio.</li><li>Dificultad para conservar la estructura original de datos anidados sin deformarla.</li><li>Diseños difíciles de entender cuando el dominio admite muchas variaciones.</li></ul></div>
-        <div class="image-col"><img src="../../img/0031.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
         <div class="text-col"><p>A estos puntos puede añadirse la <em>dificultad para reutilizar datos con otros sistemas que esperan formatos semiestructurados</em>, así como la necesidad de capas de transformación que incrementan el acoplamiento entre componentes.</p></div>
       </div>
     </section>
@@ -542,97 +316,97 @@
       <h2>Rendimiento, escalabilidad y rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Cada una de estas señales indica que quizá el esquema relacional, tal como se ha definido, no es el mejor <strong>reflejo del dominio actual</strong>.</p></div>
-        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
         <div class="text-col"><p>Para abordar estas limitaciones, se recurre a <strong>modelos semánticos de datos</strong>.</p><p>Un <strong>modelo semántico</strong> pone el énfasis en el <strong>significado del dominio</strong>, las relaciones entre conceptos y las reglas de negocio, más que en detalles físicos de almacenamiento.</p></div>
+        <div class="image-col"><img src="../../img/0052.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
         <div class="text-col"><p>La idea central es que <em>un buen modelo no solo guarda datos, sino que representa con claridad qué es cada cosa, cómo se relaciona con las demás y qué restricciones rigen esas relaciones</em>.</p></div>
-        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Este tipo de modelos, como el modelo <strong>Entidad‑Relación Extendido (EER)</strong>, se sitúan en un nivel de abstracción más alto que las tablas físicas.</p></div>
-        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><em>Permiten dialogar con personas expertas del dominio usando un lenguaje cercano a su realidad (personas, cursos, productos, pedidos, dispositivos) y solo después se traducen a estructuras concretas de almacenamiento.</em></p></div>
-        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><em>Los modelos semánticos ayudan a detectar inconsistencias, omisiones y ambigüedades desde etapas tempranas del diseño, lo que reduce el riesgo de que el esquema físico arrastre errores conceptuales difíciles de corregir más adelante.</em></p></div>
-        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0028.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>El <strong>modelo Entidad‑Relación extendido (EER)</strong> es una evolución del modelo ER clásico que añade mecanismos para expresar <em>jerarquías</em>, <em>especializaciones</em>, <em>generalizaciones</em> y <em>agregaciones</em>.</p></div>
-        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
         <div class="text-col"><p>La <strong>generalización</strong> permite abstraer un <em>supertipo</em> a partir de varios <em>subtipos</em> (por ejemplo, “persona” como supertipo de “estudiante”, “docente” y “administrativo”), mientras que la <strong>especialización</strong> descompone un tipo general en variantes que heredan atributos y relaciones del <em>supertipo</em>.</p></div>
-        <div class="image-col"><img src="../../img/0096.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
         <div class="text-col"><p>Estas extensiones permiten representar de forma explícita que ciertos atributos se comparten y otros se añaden solo en subtipos específicos, <em>evitando ambigüedades como columnas opcionales poco claras</em>.</p></div>
-        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><em>Este nivel de detalle semántico prepara mejor el camino para decidir, más adelante, cómo se traducirán estas jerarquías a tablas relacionales, eligiendo entre diferentes estrategias de mapeo según las necesidades del sistema.</em></p></div>
-        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
         <div class="text-col"><p>La <strong>agregación</strong>, por su parte, permite elevar a entidad la <em>combinación de varias entidades y su relación</em>, tratándola como una unidad conceptual de nivel superior.</p></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Estas ideas ayudan a modelar de forma más natural objetos compuestos, jerarquías de tipos y unidades complejas que en un esquema relacional básico se reparten en muchas tablas.</p></div>
-        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0076.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0061.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
         <div class="text-col"><p>Por ejemplo, en un sistema de gestión de proyectos, la relación entre empleado, proyecto y rol puede considerarse como una entidad agregada que representa una asignación específica.</p></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
         <div class="text-col"><p>Modelar esto explícitamente en EER facilita entender qué se está midiendo (asignación) y cómo se relaciona con otras partes del sistema, como tiempos, costos o evaluaciones.</p></div>
       </div>
     </section>
@@ -640,34 +414,34 @@
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Esta claridad semántica no elimina la necesidad de bases relacionales, pero sí ofrece un marco conceptual más sólido para decidir qué tablas y relaciones se necesitan, y cómo se justifican en términos del dominio.</p></div>
-        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>En un sistema educativo, por ejemplo, un enfoque puramente relacional podría concentrar todo en una sola tabla de usuarios con muchas columnas opcionales (matrícula, área académica, salario, promedio, rol administrativo, etc.).</p></div>
-        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Desde una perspectiva semántica, resulta más claro pensar en una entidad general “persona” y en subtipos con propiedades particulares, de modo que el modelo refleje que no todas las personas comparten las mismas características.</p></div>
-        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
         <div class="text-col"><p>Este enfoque no solo mejora la comprensión, sino que también facilita la comunicación entre quienes diseñan el sistema, quienes lo implementan y quienes lo usan.</p></div>
-        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p>Las decisiones de diseño dejan de basarse únicamente en conveniencias técnicas y se alinean mejor con la lógica del dominio, reduciendo la brecha entre “cómo se guardan los datos” y “qué significan esos datos”.</p></div>
       </div>
     </section>
@@ -680,15 +454,15 @@
     <section>
       <h2>Para cerrar</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0082.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
         <div class="text-col"><p>El uso de modelos semánticos y EER no reemplaza al modelo relacional, sino que lo complementa: el diseño conceptual captura el dominio con más fidelidad, y luego se decide qué partes conviene llevar a tablas clásicas y qué partes sugieren alternativas o extensiones en la arquitectura global del sistema.</p></div>
       </div>
     </section>
     <section>
       <h2>Para cerrar</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
         <div class="text-col"><p>De este modo, el modelo relacional se mantiene como una herramienta poderosa, pero se reconoce que en dominios complejos necesita apoyarse en modelos de mayor capacidad expresiva para evitar esquemas rígidos, difíciles de mantener y poco alineados con la realidad.</p></div>
-        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">

@@ -101,11 +101,11 @@ VALUES
 
 ### Resultado después del `INSERT` múltiple
 
-| id | nombre | correo | promedio | fecha_ingreso |
-|---:|---|---|---:|---|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 |
-| 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 |
-| 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 |
+| id | nombre       | correo        | promedio | fecha_ingreso |
+|---:|--------------|---------------|---------:|---------------|
+|  1 | Ana López    | ana@uam.mx    |      9.5 | 2024-01-15    |
+|  2 | Carlos Ruiz  | carlos@uam.mx |      8.7 | 2024-01-15    |
+|  3 | María Torres | maria@uam.mx  |      9.2 | 2024-01-16    |
 
 ### UPDATE
 
@@ -179,11 +179,11 @@ Para los ejemplos de `SELECT`, `GROUP BY` y `JOIN`, se usará una base pequeña 
 
 ## Tabla `Profesor`
 
-| id | nombre |
-|---:|---|
-| 100 | Dr. Soto |
+|  id | nombre    |
+|----:|-----------|
+| 100 | Dr. Soto  |
 | 101 | Dra. Vega |
-| 102 | Dr. Ríos |
+| 102 | Dr. Ríos  |
 
 ## Tabla `Inscripcion`
 
@@ -668,14 +668,14 @@ Se conservan todas las filas de la tabla de la derecha, incluso si no tienen coi
 
 ## Paso 3: SELECT e.nombre, i.id_materia
 
-| nombre | id_materia |
-|---|---:|
-| Ana López | 10 |
-| Ana López | 12 |
-| Carlos Ruiz | 10 |
-| María Torres | 11 |
-| Luis Pérez | 10 |
-| NULL | 12 |
+| nombre       | id_materia |
+|--------------|-----------:|
+| Ana López    |         10 |
+| Ana López    |         12 |
+| Carlos Ruiz  |         10 |
+| María Torres |         11 |
+| Luis Pérez   |         10 |
+| NULL         |         12 |
 
 ## Resultado
 
@@ -686,7 +686,7 @@ La fila con `i.id_estudiante = 99` permanece porque `RIGHT JOIN` conserva todas 
 ## Múltiples JOINs
 
 ```sql
-SELECT e.nombre, m.nombre AS materia, p.nombre AS profesor
+SELECT e.nombre as estudiante, m.nombre AS materia, p.nombre AS profesor
 FROM Estudiante e
   JOIN Inscripcion i ON e.id = i.id_estudiante
   JOIN Materia m ON i.id_materia = m.id
@@ -695,52 +695,57 @@ FROM Estudiante e
 
 ## Paso 1: FROM Estudiante e
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---|---:|---|---|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
-| 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 |
-| 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 |
-| 4 | Luis Pérez | luis@uam.mx | 6.8 | 2024-01-16 | 555-1004 |
+| e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|--------------|---------------|-----------:|-----------------|------------|
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
+|    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   |
+|    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   |
+|    4 | Luis Pérez   | luis@uam.mx   |        6.8 | 2024-01-16      | 555-1004   |
 
-## Paso 2: JOIN con Inscripcion i
+## Paso 2: JOIN con Inscripción i
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono | i.id_estudiante | i.id_materia |
-|---:|---|---|---:|---|---|---:|---:|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 | 1 | 10 |
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 | 1 | 12 |
-| 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 | 2 | 10 |
-| 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 | 3 | 11 |
-| 4 | Luis Pérez | luis@uam.mx | 6.8 | 2024-01-16 | 555-1004 | 4 | 10 |
+| e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono | i.id_estudiante | i.id_materia |
+|-----:|--------------|---------------|-----------:|-----------------|------------|----------------:|-------------:|
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |               1 |           10 |
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |               1 |           12 |
+|    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   |               2 |           10 |
+|    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   |               3 |           11 |
+|    4 | Luis Pérez   | luis@uam.mx   |        6.8 | 2024-01-16      | 555-1004   |               4 |           10 |
 
 ## Paso 3: JOIN con Materia m
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono | i.id_materia | m.id | m.nombre | m.id_profesor |
-|---:|---|---|---:|---|---|---:|---:|---|---:|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 | 10 | 10 | BD | 100 |
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 | 12 | 12 | IA | 102 |
-| 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 | 10 | 10 | BD | 100 |
-| 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 | 11 | 11 | Redes | 101 |
-| 4 | Luis Pérez | luis@uam.mx | 6.8 | 2024-01-16 | 555-1004 | 10 | 10 | BD | 100 |
+| e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono | i.id_estudiante | i.id_materia | m.id | m.nombre | m.id_profesor |
+|-----:|--------------|---------------|-----------:|-----------------|------------|-----------------|-------------:|-----:|----------|--------------:|
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   | 1               |           10 |   10 | BD       |           100 |
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   | 1               |           12 |   12 | IA       |           102 |
+|    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   | 2               |           10 |   10 | BD       |           100 |
+|    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   | 3               |           11 |   11 | Redes    |           101 |
+|    4 | Luis Pérez   | luis@uam.mx   |        6.8 | 2024-01-16      | 555-1004   | 4               |           10 |   10 | BD       |           100 |
 
 ## Paso 4: JOIN con Profesor p
 
-| e.nombre | m.nombre | p.nombre |
-|---|---|---|
-| Ana López | BD | Dr. Soto |
-| Ana López | IA | Dr. Ríos |
-| Carlos Ruiz | BD | Dr. Soto |
-| María Torres | Redes | Dra. Vega |
-| Luis Pérez | BD | Dr. Soto |
+| e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono | i.id_estudiante | i.id_materia | m.id | m.nombre | m.id_profesor | p.id | p.nombre  |
+|-----:|--------------|---------------|-----------:|-----------------|------------|-----------------|-------------:|-----:|----------|--------------:|------|-----------|
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   | 1               |           10 |   10 | BD       |           100 | 100  | Dr.Soto   |
+|    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   | 1               |           12 |   12 | IA       |           102 | 102  | Dr. Ríos  |
+|    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   | 2               |           10 |   10 | BD       |           100 | 100  | Dr.Soto   |
+|    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   | 3               |           11 |   11 | Redes    |           101 | 101  | Dra. Vega |
+|    4 | Luis Pérez   | luis@uam.mx   |        6.8 | 2024-01-16      | 555-1004   | 4               |           10 |   10 | BD       |           100 | 100  | Dr.Soto   |
+
 
 ## Paso 5: SELECT final
 
-| estudiante | materia | profesor |
-|---|---|---|
-| Ana López | BD | Dr. Soto |
-| Ana López | IA | Dr. Ríos |
-| Carlos Ruiz | BD | Dr. Soto |
-| María Torres | Redes | Dra. Vega |
-| Luis Pérez | BD | Dr. Soto |
+```sql
+SELECT e.nombre as estudiante, m.nombre AS materia, p.nombre AS profesor ...
+```
+
+| estudiante   | materia | profesor  |
+|--------------|---------|-----------|
+| Ana López    | BD      | Dr. Soto  |
+| Ana López    | IA      | Dr. Ríos  |
+| Carlos Ruiz  | BD      | Dr. Soto  |
+| María Torres | Redes   | Dra. Vega |
+| Luis Pérez   | BD      | Dr. Soto  |
 
 ---
 
@@ -871,87 +876,87 @@ FROM Materia m
   JOIN Estudiante e ON i.id_estudiante = e.id
 WHERE e.promedio >= 7.0
 GROUP BY m.nombre
-HAVING COUNT(i.id_estudiante) > 0
+HAVING COUNT(i.id_estudiante) >= 0
 ORDER BY total_inscritos DESC, promedio_grupo DESC;
 ```
 
 ## Paso 1: FROM Materia m
 
 | m.id | m.nombre | m.id_profesor |
-|---:|---|---:|
-| 10 | BD | 100 |
-| 11 | Redes | 101 |
-| 12 | IA | 102 |
+|-----:|----------|--------------:|
+|   10 | BD       |           100 |
+|   11 | Redes    |           101 |
+|   12 | IA       |           102 |
 
 ## Paso 2: JOIN con Inscripcion i
 
 | m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia |
-|---:|---|---:|---:|---:|
-| 10 | BD | 100 | 1 | 10 |
-| 10 | BD | 100 | 2 | 10 |
-| 10 | BD | 100 | 4 | 10 |
-| 11 | Redes | 101 | 3 | 11 |
-| 12 | IA | 102 | 1 | 12 |
+|-----:|----------|--------------:|----------------:|-------------:|
+|   10 | BD       |           100 |               1 |           10 |
+|   10 | BD       |           100 |               2 |           10 |
+|   10 | BD       |           100 |               4 |           10 |
+|   11 | Redes    |           101 |               3 |           11 |
+|   12 | IA       |           102 |               1 |           12 |
 
 ## Paso 3: JOIN con Estudiante e
 
 Aquí todavía se conservan todas las columnas provenientes de las tablas que participan.
 
-| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---:|---:|---:|---:|---|---|---:|---|---|
-| 10 | BD | 100 | 1 | 10 | 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
-| 10 | BD | 100 | 2 | 10 | 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 |
-| 10 | BD | 100 | 4 | 10 | 4 | Luis Pérez | luis@uam.mx | 6.8 | 2024-01-16 | 555-1004 |
-| 11 | Redes | 101 | 3 | 11 | 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 |
-| 12 | IA | 102 | 1 | 12 | 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
+| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|----------|--------------:|----------------:|-------------:|-----:|--------------|---------------|-----------:|-----------------|------------|
+|   10 | BD       |           100 |               1 |           10 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
+|   10 | BD       |           100 |               2 |           10 |    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   |
+|   10 | BD       |           100 |               4 |           10 |    4 | Luis Pérez   | luis@uam.mx   |        6.8 | 2024-01-16      | 555-1004   |
+|   11 | Redes    |           101 |               3 |           11 |    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   |
+|   12 | IA       |           102 |               1 |           12 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
 
 ## Paso 4: WHERE e.promedio >= 7.0
 
-| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---:|---:|---:|---:|---|---|---:|---|---|
-| 10 | BD | 100 | 1 | 10 | 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
-| 10 | BD | 100 | 2 | 10 | 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 |
-| 11 | Redes | 101 | 3 | 11 | 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 |
-| 12 | IA | 102 | 1 | 12 | 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
+| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|----------|--------------:|----------------:|-------------:|-----:|--------------|---------------|-----------:|-----------------|------------|
+|   10 | BD       |           100 |               1 |           10 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
+|   10 | BD       |           100 |               2 |           10 |    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   |
+|   11 | Redes    |           101 |               3 |           11 |    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   |
+|   12 | IA       |           102 |               1 |           12 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
 
 ## Paso 5: GROUP BY m.nombre
 
 ### Grupo `BD`
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---|---:|---|---|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
-| 2 | Carlos Ruiz | carlos@uam.mx | 8.7 | 2024-01-15 | 555-1002 |
+| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|----------|--------------:|----------------:|-------------:|-----:|--------------|---------------|-----------:|-----------------|------------|
+|   10 | BD       |           100 |               1 |           10 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
+|   10 | BD       |           100 |               2 |           10 |    2 | Carlos Ruiz  | carlos@uam.mx |        8.7 | 2024-01-15      | 555-1002   |
 
 ### Grupo `Redes`
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---|---:|---|---|
-| 3 | María Torres | maria@uam.mx | 9.2 | 2024-01-16 | 555-1003 |
+| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|----------|--------------:|----------------:|-------------:|-----:|--------------|---------------|-----------:|-----------------|------------|
+|   11 | Redes    |           101 |               3 |           11 |    3 | María Torres | maria@uam.mx  |        9.2 | 2024-01-16      | 555-1003   |
 
 ### Grupo `IA`
 
-| e.id | e.nombre | e.correo | e.promedio | e.fecha_ingreso | e.telefono |
-|---:|---|---|---:|---|---|
-| 1 | Ana López | ana@uam.mx | 9.5 | 2024-01-15 | 555-1001 |
+| m.id | m.nombre | m.id_profesor | i.id_estudiante | i.id_materia | e.id | e.nombre     | e.correo      | e.promedio | e.fecha_ingreso | e.telefono |
+|-----:|----------|--------------:|----------------:|-------------:|-----:|--------------|---------------|-----------:|-----------------|------------|
+|   12 | IA       |           102 |               1 |           12 |    1 | Ana López    | ana@uam.mx    |        9.5 | 2024-01-15      | 555-1001   |
 
-## Paso 6: HAVING COUNT(i.id_estudiante) > 0
+## Paso 6: HAVING COUNT(i.id_estudiante) >= 0
 
-Todos los grupos permanecen.
+Todos los grupos permanecen porque todos los grupos (materias) tienen al menos un estudiante.
 
 ## Paso 7: SELECT
 
 | materia | total_inscritos | promedio_grupo | mejor_alumno |
-|---|---:|---:|---:|
-| BD | 2 | 9.10 | 9.5 |
-| Redes | 1 | 9.20 | 9.2 |
-| IA | 1 | 9.50 | 9.5 |
+|---------|----------------:|---------------:|-------------:|
+| BD      |               2 |           9.10 |          9.5 |
+| Redes   |               1 |           9.20 |          9.2 |
+| IA      |               1 |           9.50 |          9.5 |
 
 ## Paso 8: ORDER BY total_inscritos DESC, promedio_grupo DESC
 
 | materia | total_inscritos | promedio_grupo | mejor_alumno |
-|---|---:|---:|---:|
-| BD | 2 | 9.10 | 9.5 |
-| IA | 1 | 9.50 | 9.5 |
-| Redes | 1 | 9.20 | 9.2 |
+|---------|----------------:|---------------:|-------------:|
+| BD      |               2 |           9.10 |          9.5 |
+| IA      |               1 |           9.50 |          9.5 |
+| Redes   |               1 |           9.20 |          9.2 |
 
