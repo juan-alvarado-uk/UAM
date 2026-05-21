@@ -1,18 +1,27 @@
 # Rendimiento, escalabilidad y rigidez del esquema
 
-Una base de datos no se evalúa solo por cómo modela, sino por cómo **responde bajo carga real**. El **rendimiento** es la capacidad de responder con **tiempos aceptables** y **uso razonable de recursos**. La **escalabilidad** es la capacidad de **sostener o mejorar** ese comportamiento **cuando crecen datos, usuarios o distribución geográfica**. Las bases relacionales se diseñaron en un contexto donde el *volumen y la distribución eran menores*, y en muchos sistemas actuales se enfrentan a millones de eventos por segundo, usuarios globales y picos de tráfico muy marcados. 
+Una base de datos no se evalúa solo por cómo modela, sino por cómo **responde bajo carga real**. 
 
-En sistemas distribuidos modernos, no es raro que una misma aplicación tenga usuarios en múltiples regiones, que interactúan con servicios desde dispositivos móviles, navegadores y otras plataformas. Cada interacción genera lecturas y escrituras sobre la base de datos, por lo que la arquitectura de almacenamiento debe equilibrar tiempos de respuesta, consistencia y disponibilidad, algo que no siempre se consigue solo con escalar una única instancia relacional. 
+---
+El **rendimiento** es la capacidad de responder con **tiempos aceptables** y **uso razonable de recursos**. 
 
-La combinación de alto volumen y alta concurrencia hace que las decisiones de diseño de esquema (índices, normalización, claves) tengan impacto directo en latencia y throughput, no solo en elegancia conceptual. 
-
-***
-
-Escalar verticalmente significa agregar recursos a un mismo servidor (más CPU, memoria o disco), mientras que escalar horizontalmente significa agregar nodos y repartir la carga entre ellos. El escalado vertical suele ser más simple pero llega a un límite físico (por ejemplo, cuando una máquina virtual en la nube ya no puede crecer más); el horizontal permite crecer más, a costa de mayor complejidad de coordinación y consistencia. 
+---
+La **escalabilidad** es la capacidad de **sostener o mejorar** ese comportamiento **cuando crecen datos, usuarios o distribución geográfica**. 
 
 ---
 
-En términos cotidianos, el escalado vertical se parece a comprar un camión más grande para transportar más mercancía, mientras que el escalado horizontal se parece a organizar una flota de camiones que comparten el trabajo. La flota puede transportar mucho más, pero requiere rutas claras, coordinación entre conductores y mecanismos de control para evitar pérdidas o inconsistencias. 
+En sistemas distribuidos actuales, una misma aplicación tiene usuarios en múltiples regiones, que interactúan con servicios desde multiples tipos de dispositivos. Cada interacción genera lecturas y escrituras sobre la base de datos, por lo que la arquitectura de almacenamiento debe equilibrar tiempos de respuesta, consistencia y disponibilidad, algo que no siempre se consigue solo con escalar una única instancia relacional. 
+
+---
+La combinación de alto volumen y alta concurrencia hace que las decisiones de diseño de esquema (índices, normalización, claves) tengan impacto directo en la eficiancia de la base de datos. 
+
+---
+
+Escalar verticalmente significa agregar recursos a un mismo servidor (más CPU, memoria o disco), mientras que escalar horizontalmente significa agregar nodos y repartir la carga entre ellos. El escalado vertical suele ser más simple pero puede llegar a un límite físico (por ejemplo, cuando una máquina virtual en la nube ya no puede crecer más) además de pŕactico; el horizontal permite crecer más, a costa de mayor complejidad de coordinación y consistencia. 
+
+---
+
+En términos coloquiales, el escalado vertical se parece a comprar un camión más grande para transportar más mercancía, mientras que el escalado horizontal se parece a organizar una flota de camiones que comparten el trabajo. La flota puede transportar mucha mercancia, pero requiere rutas claras, coordinación entre conductores y mecanismos de control para evitar pérdidas o inconsistencias. 
 
 ---
 
@@ -20,22 +29,23 @@ En bases de datos, esto se traduce en decisiones sobre replicación (cuántas co
 
 ***
 
-*En entornos masivos, las consultas con muchas uniones sobre grandes volúmenes y las escrituras concurrentes en puntos centralizados pueden producir cuellos de botella*. La réplica ayuda a atender más lecturas, pero las escrituras se concentran en nodos concretos; la fragmentación reparte datos entre servidores, pero obliga a pensar en cómo localizar la información y sincronizar actualizaciones. 
+*En entornos masivos, las consultas con muchas uniones sobre grandes volúmenes y las escrituras concurrentes en puntos centralizados pueden producir cuellos de botella*. La réplica ayuda a atender más lecturas, pero las escrituras se concentran en nodos concretos. Con la fragmentación se reparten los datos entre servidores, pero es necesario pensar en cómo localizar la información y sincronizar actualizaciones. 
 
 ---
 
-En la práctica, muchas arquitecturas combinan varias técnicas:  
+Muchas arquitecturas combinan varias técnicas:  
 - Réplicas de solo lectura para descargar consultas frecuentes.  
 - Partición por rango, hash o clave de cliente para distribuir carga de escritura.  
 - Cachés intermedias para reducir la presión sobre la base principal. 
 
 ---
 
-Estas soluciones funcionan, pero muestran que el *modelo relacional clásico, centrado en una única imagen lógica de los datos, fue pensado para un escenario menos distribuido*. El “tensionamiento” aparece cuando se busca mantener propiedades fuertes de consistencia y relaciones complejas en un entorno distribuido y de alta escala.
+Estas soluciones funcionan, pero muestran que el **modelo relacional clásico**, de una **única imagen lógica de los datos**, fue pensado para un escenario **menos distribuido**. La tensión aparece cuando se busca mantener fuertes la consistencia y coherencia en un entorno distribuido y de alta escala.
 
 ***
 
-Hay que agregar a todo lo anterior, la **rigidez del esquema** frente a datos **semiestructurados**. *XML* y *JSON* permiten anidamientos, arreglos y campos opcionales, de modo que distintos *registros comparten una base común, pero no necesariamente las mismas propiedades*.  
+Además de lo anterior, la **rigidez del esquema** frente a datos **semiestructurados**. *XML* y *JSON* permiten anidamientos, arreglos y campos opcionales, de modo que 
+- *distintos registros comparten una base común, pero no necesariamente las mismas propiedades*.  
 
 ---
 
