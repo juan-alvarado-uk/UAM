@@ -389,7 +389,7 @@ JOIN estudiante e
 
 El JOIN “reconstruye” el subtipo **estudiante** como una vista unificada, sin columnas opcionales innecesarias.
 
-***
+---
 
 # Reconstruir la vista de PROFESOR con JOIN
 
