@@ -34,13 +34,13 @@ Cada ley es una equivalencia lógica general que vale para cualquier proposició
 ## Idempotencia
 
 - Idempotencia de ∨:  
-  \[
+  $$ 
   A \lor A \equiv A
-  \]  
+   $$  
 - Idempotencia de ∧:  
-  \[
+  $$ 
   A \land A \equiv A
-  \]  
+   $$  
 
 Estas leyes dicen que repetir la misma proposición con ∧ o ∨ no cambia su valor lógico. 
 
@@ -51,13 +51,13 @@ Estas leyes dicen que repetir la misma proposición con ∧ o ∨ no cambia su v
 **Algunas veces se encuentra con ⊥ para F y ⊤ para V):**  
 
 - Para ∧:  
-  \[
+  $$ 
   A \land \neg A \equiv F
-  \]  
+   $$  
 - Para ∨:  
-  \[
+  $$ 
   A \lor \neg A \equiv V
-  \]  
+   $$  
 
 ---
 Es decir, “A y no A” es siempre falso (contradicción), y “A o no A” es siempre verdadero (tautología). 
@@ -68,13 +68,13 @@ Es decir, “A y no A” es siempre falso (contradicción), y “A o no A” es 
 **Forma básica:**
 
 - Identidad de ∨:  
-  \[
+  $$ 
   A \lor F \equiv A
-  \]  
+   $$  
 - Identidad de ∧:  
-  \[
+  $$ 
   A \land V \equiv A
-  \]  
+   $$  
 
 
 ## Dominación (también llamada “anulación”)
@@ -82,27 +82,27 @@ Es decir, “A y no A” es siempre falso (contradicción), y “A o no A” es 
 Esta es la “otra cara” de identidad.
 
 - Dominación de ∨ (con tautología):  
-  \[
+  $$ 
   A \lor V \equiv V
-  \]  
+   $$  
 - Dominación de ∧ (con contradicción):  
-  \[
+  $$ 
   A \land F \equiv F
-  \]  
+   $$  
 
 
 ## Absorción
 
 -  
-  \[
+  $$ 
   A \lor (A \land B) \equiv A
-  \]  
+   $$  
 -  
-  \[
+  $$ 
   A \land (A \lor B) \equiv A
-  \]  
+   $$  
 
-Estas leyes capturan que, si A ya está presente, la parte extra \(A \land B\) o \(A \lor B\) no aporta nada nuevo en términos de condiciones lógicas. 
+Estas leyes capturan que, si A ya está presente, la parte extra $ A \land B $ o $ A \lor B $ no aporta nada nuevo en términos de condiciones lógicas. 
 
 
 ## Leyes conmutativas
@@ -124,7 +124,7 @@ Aquí se combinan además leyes asociativas (siguiente subsección), pero la ide
 
 ## Leyes asociativas
 
-Las leyes asociativas indican que, para conjunción y disyunción, la forma de agrupar con paréntesis no modifica el resultado:  
+Las leyes asociativas indican que, para conjunción y disyunción, la forma de agrupar con paréntesis no modifica el resultado (siempre y cuando se use el mismo conectivo lógico en la fórmula):  
 
 - $$ (p \land q) \land r \equiv p \land (q \land r) $$
 - $$ (p \lor q) \lor r \equiv p \lor (q \lor r) $$
@@ -188,7 +188,7 @@ $$
 
 ---
 
-Aplicando De Morgan:  
+(Extendiendo el ejemplo) Aplicando De Morgan:  
 $$
 \neg(p \land q) \lor r \equiv (\neg p \lor \neg q) \lor r
 $$  
@@ -197,10 +197,56 @@ $$
 \neg p \lor \neg q \lor r
 $$  
 
+
+
+
+
+
+
+## Con bicondicionales
+
+Para eliminar bicondicionales se usan equivalencias que reescriben $ p \leftrightarrow q $ en términos de condicionales, y luego se reemplaza cada condicional por una expresión con ¬ y ∨, igual que ya se hace para $ p \to q $. 
+
+***
+
+## Regla básica de eliminación del bicondicional
+
+La equivalencia principal es:
+
+$$ 
+p \leftrightarrow q \equiv (p \to q) \land (q \to p)
+$$
+
+Es decir, “$ p $ si y sólo si $ q $” se reescribe como “$ p $ implica $ q $ y $ q $ implica $ p $”. 
+
+***
+
+Combinando la regla anterior con la equivalencia del condicional $$ p \to q \equiv \neg p \lor q $$ se obtiene una regla para eliminar por completo ↔ en términos de ¬, ∧, ∨. 
+
+$$ 
+p \leftrightarrow q \equiv (\neg p \lor q) \land (\neg q \lor p)
+$$
+
+Esta forma es muy útil cuando se quiere ir hacia FNC (forma normal conjuntiva, que veremos más adelante).
+
+
+## Otra forma para la bicondicional
+
+También se puede expresar la bicondicional como una disyunción de casos (ambos verdaderos o ambos falsos):  
+
+$$ 
+p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)
+$$
+
+Este patrón se puede justificar por la definición de la tabla de verdad de $ \leftrightarrow $ que es verdadero exactamente cuando p y q tienen el mismo valor de verdad (los dos 1 o los dos 0). 
+
+Esta forma es especialmente natural como FND (forma normal disyuntiva, que veremos más adelante). 
+ 
+
 # Estrategia general de simplificación mediante equivalencias
 
 El objetivo de simplificar una fórmula es obtener otra expresión equivalente más “ligera”, con menos conectivos o con una estructura más transparente para el análisis y la implementación.   
-Las leyes vistas (conmutatividad, asociatividad, distributividad, De Morgan, doble negación, condicional-disyunción) se combinan como herramientas para ir transformando paso a paso.   
+Las leyes vistas (conmutatividad, asociatividad, distributividad, De Morgan, doble negación, condicional-disyunción, bicondicional) se combinan como herramientas para ir transformando paso a paso.   
 
 ***
 
@@ -457,9 +503,9 @@ Esta relación entre filas verdaderas/falsas y términos conjuntivos/disyuntivos
 
 Ejemplo: $ \varphi(p,q,r) = (p \land q) \lor r $
 
-Primero se muestran las columnas de p, q, r, luego \(p \land q\) y finalmente \(\varphi\). 
+Primero se muestran las columnas de p, q, r, luego $ p \land q $ y finalmente $ \varphi $. 
 
-| p | q | r | \(p \land q\) | \(\varphi = (p \land q) \lor r\) |
+| p | q | r | $ p \land q $ | $ \varphi = (p \land q) \lor r $ |
 |---|---|---|---------------|----------------------------------|
 | F | F | F | F             | F                                |
 | F | F | V | F             | V                                |
@@ -470,13 +516,13 @@ Primero se muestran las columnas de p, q, r, luego \(p \land q\) y finalmente \(
 | V | V | F | V             | V                                |
 | V | V | V | V             | V                                |
 
-En esta tabla se ve que \(\varphi\) es falsa en las filas 1, 3 y 5, y verdadera en las filas 2, 4, 6, 7 y 8. 
+En esta tabla se ve que $ \varphi $ es falsa en las filas 1, 3 y 5, y verdadera en las filas 2, 4, 6, 7 y 8. 
 
 ***
 
-# FND desde la tabla (filas donde \(\varphi = V\))
+# FND desde la tabla (filas donde $ \varphi = V $)
 
-Para la forma normal disyuntiva se usan las filas con \(\varphi = V\). 
+Para la forma normal disyuntiva se usan las filas con $ \varphi = V $. 
 
 **Filas verdaderas:** 2, 4, 6, 7 y 8.  
 
@@ -486,54 +532,54 @@ Regla:
 
 ***
 
-**Fila 2: \(p=F, q=F, r=V\)**  
+**Fila 2: $ p=F, q=F, r=V $**  
 
-- Literales: \(\neg p\), \(\neg q\), \(r\).  
-- Término: \(\neg p \land \neg q \land r\).  
-
-***
-
-**Fila 4: \(p=F, q=V, r=V\)**  
-
-- Literales: \(\neg p\), \(q\), \(r\).  
-- Término: \(\neg p \land q \land r\).  
+- Literales: $ \neg p $, $ \neg q $, $ r $.  
+- Término: $ \neg p \land \neg q \land r $.  
 
 ***
 
-**Fila 6: \(p=V, q=F, r=V\)**  
+**Fila 4: $ p=F, q=V, r=V $**  
 
-- Literales: \(p\), \(\neg q\), \(r\).  
-- Término: \(p \land \neg q \land r\).  
-
-***
-
-**Fila 7: \(p=V, q=V, r=F\)**  
-
-- Literales: \(p\), \(q\), \(\neg r\).  
-- Término: \(p \land q \land \neg r\).  
+- Literales: $ \neg p $, $ q $, $ r $.  
+- Término: $ \neg p \land q \land r $.  
 
 ***
 
-**Fila 8: \(p=V, q=V, r=V\)**  
+**Fila 6: $ p=V, q=F, r=V $**  
 
-- Literales: \(p\), \(q\), \(r\).  
-- Término: \(p \land q \land r\).  
+- Literales: $ p $, $ \neg q $, $ r $.  
+- Término: $ p \land \neg q \land r $.  
+
+***
+
+**Fila 7: $ p=V, q=V, r=F $**  
+
+- Literales: $ p $, $ q $, $ \neg r $.  
+- Término: $ p \land q \land \neg r $.  
+
+***
+
+**Fila 8: $ p=V, q=V, r=V $**  
+
+- Literales: $ p $, $ q $, $ r $.  
+- Término: $ p \land q \land r $.  
 
 ***
 
 **FND resultante**  
 
-\[
+$$ 
 \text{FND}(\varphi) = (\neg p \land \neg q \land r) \lor (\neg p \land q \land r) \lor (p \land \neg q \land r) \lor (p \land q \land \neg r) \lor (p \land q \land r)
-\]  
+ $$  
 
-Esta es una disyunción de conjunciones de literales, por lo que está en forma normal disyuntiva y es equivalente a \((p \land q) \lor r\). 
+Esta es una disyunción de conjunciones de literales, por lo que está en forma normal disyuntiva y es equivalente a $ (p \land q) \lor r $. 
 
 ***
 
-# FNC desde la tabla (filas donde \(\varphi = F\))
+# FNC desde la tabla (filas donde $ \varphi = F $)
 
-Para la forma normal conjuntiva se usan las filas con \(\varphi = F\). 
+Para la forma normal conjuntiva se usan las filas con $ \varphi = F $. 
 
 **Filas falsas:** 1, 3 y 5.  
 
@@ -543,34 +589,34 @@ Regla:
 
 ***
 
-**Fila 1: \(p=F, q=F, r=F\)**  
+**Fila 1: $ p=F, q=F, r=F $**  
 
-- Literales: \(p\), \(q\), \(r\).  
-- Cláusula: \(p \lor q \lor r\).  
-
-***
-
-**Fila 3: \(p=F, q=V, r=F\)**  
-
-- Literales: \(p\), \(\neg q\), \(r\).  
-- Cláusula: \(p \lor \neg q \lor r\).  
+- Literales: $ p $, $ q $, $ r $.  
+- Cláusula: $ p \lor q \lor r $.  
 
 ***
 
-**Fila 5: \(p=V, q=F, r=F\)**  
+**Fila 3: $ p=F, q=V, r=F $**  
 
-- Literales: \(\neg p\), \(q\), \(r\).  
-- Cláusula: \(\neg p \lor q \lor r\).  
+- Literales: $ p $, $ \neg q $, $ r $.  
+- Cláusula: $ p \lor \neg q \lor r $.  
+
+***
+
+**Fila 5: $ p=V, q=F, r=F $**  
+
+- Literales: $ \neg p $, $ q $, $ r $.  
+- Cláusula: $ \neg p \lor q \lor r $.  
 
 ***
 
 **FNC resultante**  
 
-\[
+$$ 
 \text{FNC}(\varphi) = (p \lor q \lor r) \land (p \lor \neg q \lor r) \land (\neg p \lor q \lor r)
-\]  
+ $$  
 
-Esta fórmula es conjunción de disyunciones de literales y es equivalente a \((p \land q) \lor r\).
+Esta fórmula es conjunción de disyunciones de literales y es equivalente a $ (p \land q) \lor r $.
 
 
 
