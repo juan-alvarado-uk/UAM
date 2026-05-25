@@ -1,0 +1,45 @@
+Para operaciones de reemplazos.txt
+
+-----
+
+Para ajustar el NIVEL de los ENCABEZADOS, porque por ejemplo, el resultado del LLM puede empezar desde el niveñ ## y talvez quiera subir un nivel todos los encabezados, hay que buscar:
+
+## 
+
+Notesé que hay ESPACIO despues de ##, y luego se reemplaza con:
+
+# 
+
+
+Notesé que hay ESPACIO despues de #. Con esta combinación se reemplazan todos y todos los niveles se restan un #.
+
+
+
+----
+
+La siguiente expresión regular sirve para encontrar NUMERALES EN ENCABEZADOS del tipo: 
+
+# 1. Algun texto, 
+## 1.1 Algún otro texto 
+
+y así por el estilo.
+
+(#)\ \b\d+(?:\.\d+)*\.?
+
+
+En el reemplazo hay que utilizar el capturador (o como se llame) para conservar el # (el último del encabezado) y eliminar el resto.
+
+$1
+
+Las dos cosas anteriores combinadas ayudan a no borrar listas numeradas en el documento, solo funcionan con los encabezados.
+
+
+
+
+---
+
+
+REFERENCIAS
+
+Usar esta expresión regular
+\[.*\]\(.*\)
