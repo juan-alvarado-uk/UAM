@@ -139,28 +139,28 @@
     <section>
       <h2>Rendimiento y escalabilidad</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0062.jpg" alt="image" /></div>
         <div class="text-col"><p>Una base de datos no se evalúa solo por cómo modela, sino por cómo responde bajo carga real.</p><p>El <strong>rendimiento</strong> y la <strong>escalabilidad</strong> son dimensiones relacionadas pero distintas que describen ese comportamiento.</p></div>
-        <div class="image-col"><img src="../../img/0032.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento y escalabilidad</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
         <div class="text-col"><p><strong>Rendimiento</strong></p><p>El rendimiento es la capacidad de una base de datos para responder con tiempos aceptables y uso razonable de recursos, bajo una carga dada.</p></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento y escalabilidad</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>En otras palabras, responde a:<ul><li>¿Qué tan rápido contesta una consulta?</li><li>¿Cuántos recursos consume para lograrlo?</li><li>¿Se mantiene estable bajo la carga actual?</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rendimiento y escalabilidad</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Escalabilidad</strong></p><p>La escalabilidad es la capacidad de sostener o mejorar ese comportamiento cuando crecen datos, usuarios o distribución geográfica.</p></div>
       </div>
     </section>
@@ -168,7 +168,7 @@
       <h2>Rendimiento y escalabilidad</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Esto implica:<ul><li>Mantener tiempos de respuesta aceptables al crecer el volumen de datos.</li><li>Mantener o mejorar rendimiento al aumentar usuarios concurrentes.</li><li>Adaptarse a usuarios en múltiples regiones sin degradación notable.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -177,28 +177,28 @@
     <section>
       <h2>Sistemas distribuidos y arquitectura de almacenamiento</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
         <div class="text-col"><p>En sistemas distribuidos actuales, una misma aplicación tiene usuarios en múltiples regiones, que interactúan con servicios desde múltiples tipos de dispositivos.</p></div>
-        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Sistemas distribuidos y arquitectura de almacenamiento</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0105.jpeg" alt="image" /></div>
         <div class="text-col"><p>Cada interacción genera lecturas y escrituras sobre la base de datos, por lo que la arquitectura de almacenamiento debe equilibrar tiempos de respuesta, consistencia y disponibilidad, algo que no siempre se consigue solo con escalar una única instancia relacional.</p></div>
-        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Sistemas distribuidos y arquitectura de almacenamiento</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0017.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Entorno actual:<ul><li>Usuarios distribuidos geográficamente.</li><li>Diversos dispositivos (móvil, web, etc.).</li><li>Interacciones constantes (lecturas y escrituras).</li></ul></li></ul></div>
       </div>
     </section>
     <section>
       <h2>Sistemas distribuidos y arquitectura de almacenamiento</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Retos para la base de datos:<ul><li>Mantener tiempos de respuesta bajos.</li><li>Mantener consistencia de la información.</li><li>Mantener alta disponibilidad del servicio.</li><li>Evitar depender únicamente de una instancia relacional única.</li></ul></li></ul></div>
       </div>
     </section>
@@ -208,15 +208,15 @@
     <section>
       <h2>Diseño de esquema y eficiencia</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
         <div class="text-col"><p>La combinación de alto volumen y alta concurrencia hace que las decisiones de diseño de esquema (índices, normalización, llaves) tengan impacto directo en la eficiencia de la base de datos.</p></div>
       </div>
     </section>
     <section>
       <h2>Diseño de esquema y eficiencia</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Índices:<ul><li>Aceleran consultas, pero aumentan costo de escritura.</li></ul></li><li>Normalización:<ul><li>Reduce redundancia, pero puede aumentar el número de uniones.</li></ul></li><li>Llaves (primarias y foráneas):<ul><li>Afectan integridad referencial y estrategias de acceso.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0038.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -225,29 +225,29 @@
     <section>
       <h2>Escalado vertical y horizontal</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
         <div class="text-col"><p>Escalar verticalmente significa agregar recursos a un mismo servidor (más CPU, memoria o disco), mientras que escalar horizontalmente significa agregar nodos y repartir la carga entre ellos.</p></div>
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Escalado vertical y horizontal</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
         <div class="text-col"><p>El escalado vertical puede ser más simple pero también puede llegar a un límite físico además de práctico; el horizontal permite crecer más, con el costo de mayor complejidad de coordinación y para mantener consistencia.</p></div>
       </div>
     </section>
     <section>
       <h2>Escalado vertical y horizontal</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Analogía coloquial</strong></p><p>En términos coloquiales, el escalado vertical se parece a comprar un camión más grande para transportar más mercancía, mientras que el escalado horizontal se parece a organizar una flota de camiones que comparten el trabajo.</p></div>
+        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Escalado vertical y horizontal</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
         <div class="text-col"><p>La flota puede transportar mucha mercancía, pero requiere rutas claras, coordinación entre conductores y mecanismos de control para evitar pérdidas o inconsistencias.</p></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -267,28 +267,28 @@
       <h2>Replicación, partición y consenso</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>En bases de datos, cuando hay situaciones como las mencionadas, se debe decidir sobre <strong>replicación</strong> (cuántas copias de los datos existen y dónde), <strong>partición o fragmentación</strong> (cómo se distribuyen los datos entre nodos) y mecanismos de consenso o coordinación entre servidores.</p></div>
-        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Replicación, partición y consenso</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Replicación:<ul><li>Múltiples copias de los datos.</li><li>Mejora disponibilidad y lectura, complica sincronización.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Replicación, partición y consenso</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Partición / fragmentación:<ul><li>Datos divididos entre nodos (por rango, hash, etc.).</li><li>Mejora reparto de carga, dificulta la localización de datos.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0038.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Replicación, partición y consenso</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Consenso / coordinación:<ul><li>Protocolos para acordar el estado entre servidores.</li><li>Aseguran consistencia, aumentan latencia y complejidad.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -297,21 +297,21 @@
     <section>
       <h2>Cuellos de botella y combinaciones de técnicas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
         <div class="text-col"><p>En entornos masivos, las consultas con muchas uniones sobre grandes volúmenes y las escrituras concurrentes en puntos centralizados pueden producir cuellos de botella.</p><p>La réplica ayuda a atender más lecturas, pero las escrituras se concentran en nodos concretos.</p></div>
+        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cuellos de botella y combinaciones de técnicas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0078.jpg" alt="image" /></div>
         <div class="text-col"><p>Con la fragmentación se reparten los datos entre servidores, pero es necesario pensar en cómo localizar la información y sincronizar actualizaciones.</p></div>
+        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cuellos de botella y combinaciones de técnicas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
         <div class="text-col"><p>Muchas arquitecturas combinan varias técnicas:</p>
 <ul><li>Réplicas de solo lectura para descargar consultas frecuentes.</li><li>Partición por rango, hash o id de cliente para distribuir carga de escritura.</li><li>Cachés intermedias para reducir la presión sobre la base principal.</li></ul></div>
       </div>
@@ -319,16 +319,16 @@
     <section>
       <h2>Cuellos de botella y combinaciones de técnicas</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p>Estas soluciones funcionan, pero muestran que el modelo relacional clásico, de una única imagen lógica de los datos, fue pensado para un escenario menos distribuido.</p><p>La tensión aparece cuando se busca mantener fuertes la consistencia y coherencia en un entorno distribuido y de alta escala.</p></div>
-        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cuellos de botella y combinaciones de técnicas</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Resumen de problemas y soluciones</strong></p>
 <ul><li>Problemas:<ul><li>Cuellos de botella en joins masivos.</li><li>Puntos únicos de escritura saturados.</li><li>Dificultad para mantener consistencia.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -336,7 +336,7 @@
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Soluciones:<ul><li>Réplicas para lectura.</li><li>Fragmentación para escritura.</li><li>Cachés para lecturas repetidas.</li></ul></li></ul>
 <p>La conclusión a la que se llega es que el modelo relacional clásico en el contexto de entornos altamente distribuidos provoca tensiones considerables.</p></div>
-        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0104.png" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -346,7 +346,7 @@
       <h2>Rigidez del esquema y datos semiestructurados</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Además de lo anterior, la rigidez del esquema frente a datos semiestructurados.</p><p>XML y JSON permiten anidamientos, arreglos y campos opcionales, de modo que distintos registros comparten una base común, pero no necesariamente las mismas propiedades.</p></div>
-        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -354,15 +354,15 @@
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Datos semiestructurados</strong></p>
 <ul><li>Estructura flexible:<ul><li>Campos opcionales.</li><li>Anidamiento de objetos.</li><li>Arreglos de elementos.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Rigidez del esquema y datos semiestructurados</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Esquema relacional</strong></p>
 <ul><li>Dificultad para representar variación sin multiplicar columnas o tablas.</li></ul></div>
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -371,22 +371,22 @@
     <section>
       <h2>Ejemplo: catálogo de productos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0055.jpg" alt="image" /></div>
         <div class="text-col"><p>En un catálogo de productos, ciertos tipos pueden requerir atributos específicos.</p><p>Intentar unificar todo esto en una sola tabla de productos produce muchas columnas nulas y lógica adicional en la aplicación para interpretar qué columnas aplican a cada tipo de producto.</p></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo: catálogo de productos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0061.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Atributos específicos:<ul><li>Ropa: talla, color.</li><li>Dispositivos: memoria, procesador.</li><li>Alimentos: caducidad, ingredientes.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0090.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo: catálogo de productos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Consecuencias de una sola tabla:<ul><li>Muchas columnas nulas.</li><li>Lógica condicional compleja en la aplicación.</li><li>Esquema difícil de mantener y extender.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -395,26 +395,26 @@
     <section>
       <h2>Cambios en el dominio y su impacto</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0027.jpg" alt="image" /></div>
         <div class="text-col"><p>Si el dominio se actualiza constantemente, tenemos:</p>
 <ul><li>Nuevos tipos de productos.</li><li>Nuevas propiedades.</li><li>Cambios en reglas de negocio.</li></ul></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cambios en el dominio y su impacto</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0050.jpg" alt="image" /></div>
         <div class="text-col"><p>Cada ajuste puede exigir:</p>
 <ul><li>Alterar el esquema.</li><li>Migrar datos.</li><li>Introducir soluciones temporales.</li></ul>
 <p>Todo lo cual incrementa la complejidad del sistema.</p></div>
-        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cambios en el dominio y su impacto</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>En resumen...</strong></p>
 <ul><li>Dominios dinámicos → cambios frecuentes.</li><li>Cada cambio repercute en:<ul><li>Estructura de la base.</li><li>Procesos de migración.</li><li>Complejidad operativa.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -423,29 +423,29 @@
     <section>
       <h2>Problemas por rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
         <div class="text-col"><p>Problemas típicos derivados de la rigidez del esquema son (algunos ya los hemos mencionado):</p></div>
-        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Problemas por rigidez del esquema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Columnas opcionales que quedan vacías para muchos registros.</li><li>Reestructuración del esquema ante cambios frecuentes en el dominio.</li><li>Dificultad para conservar la estructura original de datos anidados sin deformarla.</li><li>Diseños difíciles de entender cuando el dominio admite muchas variaciones.</li></ul></div>
+        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Problemas por rigidez del esquema</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>A lo anterior puede añadirse la dificultad para reutilizar datos con otros sistemas que esperan formatos semiestructurados, así como la necesidad de capas de transformación que incrementan el acoplamiento entre componentes.</p></div>
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Problemas por rigidez del esquema</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0029.jpg" alt="image" /></div>
         <div class="text-col"><p>Cada una de estas señales indica que quizá el esquema relacional, tal como se ha definido, no es el mejor reflejo del dominio actual.</p></div>
-        <div class="image-col"><img src="../../img/0052.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -455,27 +455,27 @@
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Para abordar estas limitaciones, se recurre a modelos semánticos de datos.</p><p>Un modelo semántico pone el énfasis en el significado del dominio, las relaciones entre conceptos y las reglas de negocio, más que en detalles físicos de almacenamiento.</p></div>
-        <div class="image-col"><img src="../../img/0009.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0031.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>La idea central es que un buen modelo no solo guarda datos, sino que representa con claridad qué es cada cosa, cómo se relaciona con las demás y qué restricciones rigen esas relaciones.</p></div>
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0078.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
         <div class="text-col"><p>Este tipo de modelos, como el modelo Entidad‑Relación Extendido (EER), se sitúan en un nivel de abstracción más alto que las tablas físicas.</p></div>
       </div>
     </section>
     <section>
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
         <div class="text-col"><p>Permiten dialogar con personas expertas del dominio usando un lenguaje cercano a su realidad (personas, cursos, productos, pedidos, dispositivos) y solo después se traducen a estructuras concretas de almacenamiento.</p></div>
       </div>
     </section>
@@ -483,415 +483,7 @@
       <h2>Modelos semánticos y EER como respuesta conceptual</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Los modelos semánticos ayudan a detectar inconsistencias, omisiones y ambigüedades desde etapas tempranas del diseño, lo que reduce el riesgo de que el esquema físico arrastre errores conceptuales difíciles de corregir más adelante.</p></div>
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h1>EER: generalización, especialización y agregación</h1>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>El modelo Entidad‑Relación extendido (EER) es una evolución del modelo ER clásico que añade mecanismos para expresar jerarquías, especializaciones, generalizaciones y agregaciones.</p></div>
-        <div class="image-col"><img src="../../img/0034.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0032.jpg" alt="image" /></div>
-        <div class="text-col"><p>La generalización permite abstraer un supertipo a partir de varios subtipos (por ejemplo, “persona” como supertipo de “estudiante”, “docente” y “administrativo”), mientras que la especialización descompone un tipo general en variantes que heredan atributos y relaciones del supertipo.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
-        <div class="text-col"><p>Estas extensiones permiten representar de forma explícita que ciertos atributos se comparten y otros se añaden solo en subtipos específicos, evitando ambigüedades como columnas opcionales poco claras.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
-        <div class="text-col"><p>Este nivel de detalle semántico prepara mejor el camino para decidir, más adelante, cómo se traducirán estas jerarquías a tablas relacionales, eligiendo entre diferentes estrategias de mapeo según las necesidades del sistema.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p><strong>Capacidades del EER</strong></p>
-<ul><li>Expresa:<ul><li>Jerarquías de tipos.</li><li>Generalizaciones y especializaciones.</li><li>Agregaciones (entidades compuestas).</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0028.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>EER: generalización, especialización y agregación</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Beneficios:<ul><li>Atributos comunes y específicos bien diferenciados.</li><li>Menos ambigüedad al pasar a tablas.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0096.png" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h1>Agregación y objetos compuestos</h1>
-    </section>
-    <section>
-      <h2>Agregación y objetos compuestos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>La agregación, por su parte, permite elevar a entidad la combinación de varias entidades y su relación, tratándola como una unidad conceptual de nivel superior.</p></div>
         <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Agregación y objetos compuestos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0103.png" alt="image" /></div>
-        <div class="text-col"><p>Estas ideas ayudan a modelar de forma más natural objetos compuestos, jerarquías de tipos y unidades complejas que en un esquema relacional básico se reparten en muchas tablas.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Agregación y objetos compuestos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
-        <div class="text-col"><p>Por ejemplo, en un sistema de gestión de proyectos, la relación entre empleado, proyecto y rol puede considerarse como una entidad agregada que representa una asignación específica.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Agregación y objetos compuestos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0031.jpg" alt="image" /></div>
-        <div class="text-col"><p>Modelar esto explícitamente en EER facilita entender qué se está midiendo (asignación) y cómo se relaciona con otras partes del sistema, como tiempos, costos o evaluaciones.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Agregación y objetos compuestos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Esta claridad semántica no elimina la necesidad de bases relacionales, pero sí ofrece un marco conceptual más sólido para decidir qué tablas y relaciones se necesitan, y cómo se justifican en términos del dominio.</p></div>
-        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h1>Ejemplo: “persona” y subtipos</h1>
-    </section>
-    <section>
-      <h2>Ejemplo: “persona” y subtipos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0090.jpg" alt="image" /></div>
-        <div class="text-col"><p>En un sistema educativo, por ejemplo, un enfoque puramente relacional podriamos concentrar todo en una sola tabla de usuarios con muchas columnas opcionales (matrícula, área académica, salario, promedio, rol administrativo, etc.).</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Ejemplo: “persona” y subtipos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
-        <div class="text-col"><p>Desde una perspectiva semántica, resulta mejor pensar en una entidad general “persona” y en subtipos con propiedades particulares, de modo que el modelo refleje que no todas las personas comparten las mismas características.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Ejemplo: “persona” y subtipos</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
-        <div class="text-col"><p>Este enfoque no solo mejora la comprensión, sino que también facilita la comunicación entre quienes diseñan el sistema, quienes lo implementan y quienes lo usan.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Ejemplo: “persona” y subtipos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Las decisiones de diseño dejan de basarse únicamente en conveniencias técnicas y se alinean mejor con la lógica del dominio, reduciendo la brecha entre “cómo se guardan los datos” y “qué significan esos datos”.</p></div>
-        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Ejemplo: “persona” y subtipos</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Tabla única de usuarios:<ul><li>Muchos campos opcionales.</li><li>Menor claridad semántica.</li></ul></li></ul>
-<ul><li>Modelo EER con “persona” y subtipos:<ul><li>Atributos mejor distribuidos.</li><li>Mejor alineación con el dominio educativo.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h1>Tabla base: PERSONA</h1>
-    </section>
-    <section>
-      <h2>Tabla base: PERSONA</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
-        <div class="text-col"><p>Esta tabla concentra lo que es común a todas las personas del sistema.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Tabla base: PERSONA</h2>
-      <pre><code class="language-sql">CREATE TABLE persona (
-    id_persona      INT PRIMARY KEY,
-    nombre          VARCHAR(100) NOT NULL,
-    apellido        VARCHAR(100) NOT NULL,
-    fecha_nacimiento DATE,
-    correo          VARCHAR(150),
-    telefono        VARCHAR(50)
-);</code></pre>
-    </section>
-    <section>
-      <h2>Tabla base: PERSONA</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>fecha_nacimiento</th><th>correo</th><th>telefono</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Ana</td><td>López</td><td>2000-05-10</td><td>ana.lopez@cua.uam.mx</td><td>555-111-1111</td></tr>
-<tr><td>2</td><td>Juan</td><td>Alvarado</td><td>1980-03-22</td><td>jalvarado@cua.uam.mx</td><td>555-222-2222</td></tr>
-<tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>1975-11-15</td><td>beatriz.sanchez@cua.uam.mx</td><td>555-333-3333</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Subtipo: ESTUDIANTE</h1>
-    </section>
-    <section>
-      <h2>Subtipo: ESTUDIANTE</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Solo aplica a quienes tienen rol de estudiante (ej.</p><p>matrícula, promedio, programa).</p></div>
-        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Subtipo: ESTUDIANTE</h2>
-      <pre><code class="language-sql">CREATE TABLE estudiante (
-    id_persona      INT PRIMARY KEY,
-    matricula       VARCHAR(20) NOT NULL,
-    programa        VARCHAR(100),
-    promedio        DECIMAL(3,2),
-    fecha_ingreso   DATE,
-    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
-);</code></pre>
-    </section>
-    <section>
-      <h2>Subtipo: ESTUDIANTE</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Subtipo: PROFESOR</h1>
-    </section>
-    <section>
-      <h2>Subtipo: PROFESOR</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Solo aplica a quienes tienen rol docente (ej.</p><p>área académica, nivel, salario).</p></div>
-        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Subtipo: PROFESOR</h2>
-      <pre><code class="language-sql">CREATE TABLE profesor (
-    id_persona      INT PRIMARY KEY,
-    area_academica  VARCHAR(100),
-    categoria       VARCHAR(50),   
-    salario         DECIMAL(10,2),
-    fecha_contratacion DATE,
-    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
-);</code></pre>
-    </section>
-    <section>
-      <h2>Subtipo: PROFESOR</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
-        <tbody>
-          <tr><td>2</td><td>Tecnologías</td><td>Asistente</td><td>45000.00</td><td>2025-01-10</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Subtipo: ADMINISTRATIVO</h1>
-    </section>
-    <section>
-      <h2>Subtipo: ADMINISTRATIVO</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Solo aplica a roles administrativos (ej.</p><p>área administrativa, puesto, tipo de contrato).</p></div>
-        <div class="image-col"><img src="../../img/0078.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Subtipo: ADMINISTRATIVO</h2>
-      <pre><code class="language-sql">CREATE TABLE administrativo (
-    id_persona      INT PRIMARY KEY,
-    area_admin      VARCHAR(100),
-    puesto          VARCHAR(100),
-    tipo_contrato   VARCHAR(50),
-    salario         DECIMAL(10,2),
-    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
-);</code></pre>
-    </section>
-    <section>
-      <h2>Subtipo: ADMINISTRATIVO</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
-        <tbody>
-          <tr><td>3</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000.00</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Reconstruir la vista de ESTUDIANTE con JOIN</h1>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
-        <div class="text-col"><p>Para ver la información “completa” de estudiantes, combinamos lo común (persona) con lo específico (estudiante).</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
-      <pre><code class="language-sql">SELECT 
-    p.id_persona,
-    p.nombre,
-    p.apellido,
-    p.correo,
-    e.matricula,
-    e.programa,
-    e.promedio,
-    e.fecha_ingreso
-FROM persona p
-JOIN estudiante e
-    ON p.id_persona = e.id_persona;</code></pre>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Ana</td><td>López</td><td>ana.lopez@cua.uam.mx</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
-        <div class="text-col"><p>El JOIN “reconstruye” el subtipo <strong>estudiante</strong> como una vista unificada, sin columnas opcionales innecesarias.</p></div>
-      </div>
-    </section>
-    <section>
-      <h1>Reconstruir la vista de PROFESOR con JOIN</h1>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
-      <pre><code class="language-sql">SELECT 
-    p.id_persona,
-    p.nombre,
-    p.apellido,
-    p.correo,
-    pr.area_academica,
-    pr.categoria,
-    pr.salario,
-    pr.fecha_contratacion
-FROM persona p
-JOIN profesor pr
-    ON p.id_persona = pr.id_persona;</code></pre>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
-        <tbody>
-          <tr><td>2</td><td>Juan</td><td>Alvarado</td><td>jalvarado@cua.uam.mx</td><td>Tecnologías</td><td>Asistente</td><td>45000</td><td>2025-01-10</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Reconstruir la vista de ADMINISTRATIVO con JOIN</h1>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
-      <pre><code class="language-sql">SELECT 
-    p.id_persona,
-    p.nombre,
-    p.apellido,
-    p.correo,
-    a.area_admin,
-    a.puesto,
-    a.tipo_contrato,
-    a.salario
-FROM persona p
-JOIN administrativo a
-    ON p.id_persona = a.id_persona;</code></pre>
-    </section>
-    <section>
-      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
-      <table>
-        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
-        <tbody>
-          <tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>beatriz.sanchez@cua.uam.mx</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000</td></tr>
-        </tbody>
-      </table>
-    </section>
-    <section>
-      <h1>Vista unificada con tipo de persona</h1>
-    </section>
-    <section>
-      <h2>Vista unificada con tipo de persona</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
-        <div class="text-col"><p>Para generar una vista que muestre todas las personas con su tipo (estudiante/profesor/administrativo) y atributos específicos, se puede usar un LEFT JOIN y una columna derivada para clasificar:</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Vista unificada con tipo de persona</h2>
-      <pre><code class="language-sql">SELECT
-    p.id_persona,
-    p.nombre,
-    p.apellido,
-    CASE 
-        WHEN e.id_persona IS NOT NULL THEN &#39;ESTUDIANTE&#39;
-        WHEN pr.id_persona IS NOT NULL THEN &#39;PROFESOR&#39;
-        WHEN a.id_persona IS NOT NULL THEN &#39;ADMINISTRATIVO&#39;
-        ELSE &#39;DESCONOCIDO&#39;
-    END AS tipo_persona,
-    e.matricula,
-    e.programa,
-    pr.area_academica,
-    pr.categoria,
-    a.area_admin,
-    a.puesto
-FROM persona p
-LEFT JOIN estudiante e
-    ON p.id_persona = e.id_persona
-LEFT JOIN profesor pr
-    ON p.id_persona = pr.id_persona
-LEFT JOIN administrativo a
-    ON p.id_persona = a.id_persona;</code></pre>
-    </section>
-    <section>
-      <h2>Vista unificada con tipo de persona</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
-        <div class="text-col"><p>Este tipo de consulta muestra cómo, partiendo de un diseño semánticamente más claro (persona + subtipos), se pueden reconstruir “usuarios” con sus propiedades sin recurrir a una única tabla con campos opcionales y llenos de nulos.</p></div>
-      </div>
-    </section>
-    <section>
-      <h1>Cierre: EER y modelo relacional</h1>
-    </section>
-    <section>
-      <h2>Cierre: EER y modelo relacional</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
-        <div class="text-col"><p>El uso de modelos semánticos y EER no reemplaza al modelo relacional, sino que lo complementa: el diseño conceptual captura el dominio con más fidelidad, y luego se decide qué partes conviene llevar a tablas clásicas y qué partes sugieren alternativas o extensiones en la arquitectura global del sistema.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>Cierre: EER y modelo relacional</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>De este modo, el modelo relacional se mantiene como una herramienta poderosa, pero se reconoce que en dominios complejos necesita apoyarse en modelos de mayor capacidad expresiva para evitar esquemas rígidos, difíciles de mantener y poco alineados con la realidad.</p></div>
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Cierre: EER y modelo relacional</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><ul><li>Modelo relacional:<ul><li>Sigue siendo central.</li></ul></li></ul>
-<ul><li>Modelos semánticos (EER):<ul><li>Mejoran la representación del dominio.</li><li>Ayudan a evitar rigidez y desalineación.</li></ul></li></ul></div>
-        <div class="image-col"><img src="../../img/0069.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">

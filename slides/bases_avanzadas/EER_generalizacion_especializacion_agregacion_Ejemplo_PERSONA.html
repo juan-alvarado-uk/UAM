@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>EER: generalización, especialización y agregación</h1>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El modelo Entidad‑Relación extendido (EER) es una evolución del modelo ER clásico que añade mecanismos para expresar jerarquías, especializaciones, generalizaciones y agregaciones.</p></div>
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La generalización permite abstraer un supertipo a partir de varios subtipos (por ejemplo, “persona” como supertipo de “estudiante”, “docente” y “administrativo”), mientras que la especialización descompone un tipo general en variantes que heredan atributos y relaciones del supertipo.</p></div>
+        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Estas extensiones permiten representar de forma explícita que ciertos atributos se comparten y otros se añaden solo en subtipos específicos, evitando ambigüedades como columnas opcionales poco claras.</p></div>
+        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este nivel de detalle semántico prepara mejor el camino para decidir, más adelante, cómo se traducirán estas jerarquías a tablas relacionales, eligiendo entre diferentes estrategias de mapeo según las necesidades del sistema.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Capacidades del EER</strong></p>
+<ul><li>Expresa:<ul><li>Jerarquías de tipos.</li><li>Generalizaciones y especializaciones.</li><li>Agregaciones (entidades compuestas).</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>EER: generalización, especialización y agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0008.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Beneficios:<ul><li>Atributos comunes y específicos bien diferenciados.</li><li>Menos ambigüedad al pasar a tablas.</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Agregación y objetos compuestos</h1>
+    </section>
+    <section>
+      <h2>Agregación y objetos compuestos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
+        <div class="text-col"><p>La agregación, por su parte, permite elevar a entidad la combinación de varias entidades y su relación, tratándola como una unidad conceptual de nivel superior.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación y objetos compuestos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Estas ideas ayudan a modelar de forma más natural objetos compuestos, jerarquías de tipos y unidades complejas que en un esquema relacional básico se reparten en muchas tablas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación y objetos compuestos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Por ejemplo, en un sistema de gestión de proyectos, la relación entre empleado, proyecto y rol puede considerarse como una entidad agregada que representa una asignación específica.</p></div>
+        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación y objetos compuestos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="text-col"><p>Modelar esto explícitamente en EER facilita entender qué se está midiendo (asignación) y cómo se relaciona con otras partes del sistema, como tiempos, costos o evaluaciones.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación y objetos compuestos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta claridad semántica no elimina la necesidad de bases relacionales, pero sí ofrece un marco conceptual más sólido para decidir qué tablas y relaciones se necesitan, y cómo se justifican en términos del dominio.</p></div>
+        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo: “persona” y subtipos</h1>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En un sistema educativo, por ejemplo, un enfoque puramente relacional podriamos concentrar todo en una sola tabla de usuarios con muchas columnas opcionales (matrícula, área académica, salario, promedio, rol administrativo, etc.).</p></div>
+        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
+        <div class="text-col"><p>Desde una perspectiva semántica, resulta mejor pensar en una entidad general “persona” y en subtipos con propiedades particulares, de modo que el modelo refleje que no todas las personas comparten las mismas características.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este enfoque no solo mejora la comprensión, sino que también facilita la comunicación entre quienes diseñan el sistema, quienes lo implementan y quienes lo usan.</p></div>
+        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las decisiones de diseño dejan de basarse únicamente en conveniencias técnicas y se alinean mejor con la lógica del dominio, reduciendo la brecha entre “cómo se guardan los datos” y “qué significan esos datos”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Tabla única de usuarios:<ul><li>Muchos campos opcionales.</li><li>Menor claridad semántica.</li></ul></li></ul>
+<ul><li>Modelo EER con “persona” y subtipos:<ul><li>Atributos mejor distribuidos.</li><li>Mejor alineación con el dominio educativo.</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Tabla base: PERSONA</h1>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta tabla concentra lo que es común a todas las personas del sistema.</p></div>
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <pre><code class="language-sql">CREATE TABLE persona (
+    id_persona      INT PRIMARY KEY,
+    nombre          VARCHAR(100) NOT NULL,
+    apellido        VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE,
+    correo          VARCHAR(150),
+    telefono        VARCHAR(50)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>fecha_nacimiento</th><th>correo</th><th>telefono</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ana</td><td>López</td><td>2000-05-10</td><td>ana.lopez@cua.uam.mx</td><td>555-111-1111</td></tr>
+<tr><td>2</td><td>Juan</td><td>Alvarado</td><td>1980-03-22</td><td>jalvarado@cua.uam.mx</td><td>555-222-2222</td></tr>
+<tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>1975-11-15</td><td>beatriz.sanchez@cua.uam.mx</td><td>555-333-3333</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: ESTUDIANTE</h1>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Solo aplica a quienes tienen rol de estudiante (ej., matrícula, promedio, programa).</p></div>
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <pre><code class="language-sql">CREATE TABLE estudiante (
+    id_persona      INT PRIMARY KEY,
+    matricula       VARCHAR(20) NOT NULL,
+    programa        VARCHAR(100),
+    promedio        DECIMAL(3,2),
+    fecha_ingreso   DATE,
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: PROFESOR</h1>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p>Solo aplica a quienes tienen rol docente (ej., área académica, nivel, salario).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <pre><code class="language-sql">CREATE TABLE profesor (
+    id_persona      INT PRIMARY KEY,
+    area_academica  VARCHAR(100),
+    categoria       VARCHAR(50),   
+    salario         DECIMAL(10,2),
+    fecha_contratacion DATE,
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>Tecnologías</td><td>Asistente</td><td>45000.00</td><td>2025-01-10</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: ADMINISTRATIVO</h1>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
+        <div class="text-col"><p>Solo aplica a roles administrativos (ej., área administrativa, puesto, tipo de contrato).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <pre><code class="language-sql">CREATE TABLE administrativo (
+    id_persona      INT PRIMARY KEY,
+    area_admin      VARCHAR(100),
+    puesto          VARCHAR(100),
+    tipo_contrato   VARCHAR(50),
+    salario         DECIMAL(10,2),
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000.00</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de ESTUDIANTE con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para ver la información “completa” de estudiantes, combinamos lo común (persona) con lo específico (estudiante).</p></div>
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    e.matricula,
+    e.programa,
+    e.promedio,
+    e.fecha_ingreso
+FROM persona p
+JOIN estudiante e
+    ON p.id_persona = e.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ana</td><td>López</td><td>ana.lopez@cua.uam.mx</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>El JOIN “reconstruye” el subtipo <strong>estudiante</strong> como una vista unificada, sin columnas opcionales innecesarias.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de PROFESOR con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    pr.area_academica,
+    pr.categoria,
+    pr.salario,
+    pr.fecha_contratacion
+FROM persona p
+JOIN profesor pr
+    ON p.id_persona = pr.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>Juan</td><td>Alvarado</td><td>jalvarado@cua.uam.mx</td><td>Tecnologías</td><td>Asistente</td><td>45000</td><td>2025-01-10</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de ADMINISTRATIVO con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    a.area_admin,
+    a.puesto,
+    a.tipo_contrato,
+    a.salario
+FROM persona p
+JOIN administrativo a
+    ON p.id_persona = a.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>beatriz.sanchez@cua.uam.mx</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Vista unificada con tipo de persona</h1>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0052.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para generar una vista que muestre todas las personas con su tipo (estudiante/profesor/administrativo) y atributos específicos, se puede usar un LEFT JOIN y una columna derivada para clasificar:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <pre><code class="language-sql">SELECT
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    CASE 
+        WHEN e.id_persona IS NOT NULL THEN &#39;ESTUDIANTE&#39;
+        WHEN pr.id_persona IS NOT NULL THEN &#39;PROFESOR&#39;
+        WHEN a.id_persona IS NOT NULL THEN &#39;ADMINISTRATIVO&#39;
+        ELSE &#39;DESCONOCIDO&#39;
+    END AS tipo_persona,
+    e.matricula,
+    e.programa,
+    pr.area_academica,
+    pr.categoria,
+    a.area_admin,
+    a.puesto
+FROM persona p
+LEFT JOIN estudiante e
+    ON p.id_persona = e.id_persona
+LEFT JOIN profesor pr
+    ON p.id_persona = pr.id_persona
+LEFT JOIN administrativo a
+    ON p.id_persona = a.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este tipo de consulta muestra cómo, partiendo de un diseño semánticamente más claro (persona + subtipos), se pueden reconstruir “usuarios” con sus propiedades sin recurrir a una única tabla con campos opcionales y llenos de nulos.</p></div>
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
