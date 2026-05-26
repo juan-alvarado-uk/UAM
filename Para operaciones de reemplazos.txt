@@ -43,3 +43,20 @@ REFERENCIAS
 
 Usar esta expresión regular
 \[.*\]\(.*\)
+
+
+
+Cuando el markdown me lo de con \[ en lugar de $$, etc., usar (sin exp regular):
+
+\[   y    \]
+
+reemplazar por
+
+$$
+
+
+\(   y  \)
+
+reemplazar por
+
+$

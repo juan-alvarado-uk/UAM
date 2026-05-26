@@ -134,260 +134,251 @@
               
             </section>
     <section>
-      <h1>Modelos Semánticos de Datos — Versión Compacta</h1>
+      <h1>¿Modelo semántico?</h1>
     </section>
     <section>
-      <h2>1. ¿Por qué un modelo semántico?</h2>
+      <h2>¿Modelo semántico?</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0029.jpg" alt="image" /></div>
         <div class="text-col"><p>Un <strong>modelo semántico de datos</strong> es un modelo conceptual cuyo objetivo es capturar el <em>significado</em> del dominio: qué tipos de cosas existen, qué restricciones impone el mundo real y cómo se relacionan los conceptos, todo antes de pensar en tablas o índices.</p></div>
+        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>1. ¿Por qué un modelo semántico?</h2>
+      <h2>¿Modelo semántico?</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>El modelo relacional plano puede representar cualquier cosa, pero a veces lo hace con dificultad.</p><p>Imagínense el archivo de un hospital con una única tabla <code>PERSONA(id, nombre, especialidad, cedula_prof, num_expediente, alergias, turno, area)</code>.</p></div>
-        <div class="image-col"><img src="../../img/0072.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>1. ¿Por qué un modelo semántico?</h2>
+      <h2>¿Modelo semántico?</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
         <div class="text-col"><p>Forzar médicos, pacientes y administrativos en la misma tabla produce columnas con valores nulos para la mayoría de los registros e impide imponer restricciones por tipo, como que <em>todo médico debe tener cédula profesional</em>.</p></div>
       </div>
     </section>
     <section>
-      <h2>1. ¿Por qué un modelo semántico?</h2>
+      <h2>¿Modelo semántico?</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Un modelo semántico resuelve esto con jerarquías, herencia y tipos especializados.</p></div>
-        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0094.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>2. El Modelo Entidad-Relación Extendido (EER)</h2>
+      <h1>El Modelo Entidad-Relación Extendido (EER)</h1>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>El <strong>EER</strong> (<em>Enhanced Entity-Relationship</em>) es una extensión del E-R clásico desarrollada en los años 1980 por Elmasri y Navathe.</p><p>Conserva todos los elementos del E-R básico y agrega cuatro constructores:</p></div>
-        <div class="image-col"><img src="../../img/0087.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0072.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>2. El Modelo Entidad-Relación Extendido (EER)</h2>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>Especialización / Generalización</strong> — jerarquías entre tipos de entidades con herencia</li><li><strong>Atributos multivaluados</strong> — atributos que toman más de un valor por ocurrencia</li><li><strong>Entidades débiles</strong> — entidades cuya identidad depende de otra entidad</li></ul></div>
-        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>2. El Modelo Entidad-Relación Extendido (EER)</h2>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0076.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>Agregación</strong> — tratar una relación como entidad de nivel superior</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Notación base (recordatorio)</h2>
+      <h2>Notación base</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>Rectángulo simple / doble</strong> → entidad fuerte / débil</li><li><strong>Elipse simple / doble / discontinua</strong> → atributo simple / multivaluado / derivado</li><li><strong>Atributo subrayado</strong> → atributo identificador; <strong>subrayado discontinuo</strong> → discriminante</li><li><strong>Rombo simple / doble</strong> → relación normal / relación identificadora</li></ul></div>
-        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Notación base (recordatorio)</h2>
+      <h2>Notación base</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>Línea doble / simple</strong> en la conexión entidad–relación → participación total / parcial</li></ul></div>
-        <div class="image-col"><img src="../../img/0099.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>3. Entidades Débiles</h2>
+      <h1>Entidades Débiles</h1>
+    </section>
+    <section>
+      <h2>Entidades Débiles</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
         <div class="text-col"><p>Una <strong>entidad débil</strong> no posee atributos propios suficientes para identificar sus ocurrencias de forma única.</p><p>Depende de una <strong>entidad identificadora</strong> (fuerte) tanto para su identidad como para su existencia.</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>3. Entidades Débiles</h2>
+      <h2>Entidades Débiles</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
         <div class="text-col"><p>El <strong>discriminante</strong> es el atributo (o conjunto) que, combinado con el identificador de la entidad propietaria, distingue cada ocurrencia.</p><p>La relación que las une es la <strong>relación identificadora</strong> (rombo doble).</p></div>
       </div>
     </section>
     <section>
-      <h2>3. Entidades Débiles</h2>
+      <h2>Entidades Débiles</h2>
       <div class="slide-two-col">
-        <div class="text-col"><p><strong>Ejemplo — lecturas de sensores:</strong></p></div>
-        <div class="image-col"><img src="../../img/0017.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Ejemplo — lecturas de sensores:</strong></p><p><img src="sensor-lectura.png" alt="sensor-lectura.png" /></p></div>
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>3. Entidades Débiles</h2>
-      <pre><code class="">[SENSOR] ─────&lt;GENERA&gt;════[LECTURA]
- id_sensor              ~timestamp~   ← discriminante
- tipo                   valor_medido
- ubicacion              unidad</code></pre>
-    </section>
-    <section>
-      <h2>3. Entidades Débiles</h2>
+      <h2>Entidades Débiles</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><code>LECTURA</code> es débil: su identificación completa requiere <code>id_sensor</code> + <code>timestamp</code>.</p><p>Dos sensores distintos pueden generar una lectura en el mismo instante; el <code>timestamp</code> solo no basta.</p></div>
-        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>3. Entidades Débiles</h2>
+      <h2>Entidades Débiles</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Cuándo reconocer una entidad débil</strong> — se cumplen las tres condiciones:</p>
 <ol><li>No tiene identificador propio suficiente.</li><li>Su ciclo de vida está ligado al de la entidad propietaria.</li><li>Sus ocurrencias solo se distinguen <em>dentro</em> del contexto de esa entidad propietaria.</li></ol></div>
-        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>4. Atributos Multivaluados</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>Un <strong>atributo multivaluado</strong> puede contener más de un valor para la misma ocurrencia.</p><p>Se representa con <strong>elipse doble</strong>.</p><p>El modelo relacional no los admite directamente (violan la primera forma normal); el EER los declara en el nivel conceptual y la materialización se decide en el diseño lógico.</p></div>
-        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>4. Atributos Multivaluados</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
-        <div class="text-col"><p><strong>Ejemplo — autenticación multi-factor:</strong></p></div>
-      </div>
-    </section>
-    <section>
-      <h2>4. Atributos Multivaluados</h2>
-      <pre><code class="">           [USUARIO]
-          /    |    \
-      {id}  {nombre}  {metodo_2FA}  ← elipse doble
-                       email | SMS | app_auth | llave_HW</code></pre>
-    </section>
-    <section>
-      <h2>4. Atributos Multivaluados</h2>
-      <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
-        <div class="text-col"><p>Un usuario puede tener entre cero y varios métodos activos simultáneamente.</p></div>
-      </div>
-    </section>
-    <section>
-      <h2>4. Atributos Multivaluados</h2>
-      <div class="slide-two-col">
-        <div class="text-col"><p>**Distinción: multivaluado vs.</p><p>compuesto**</p><p>Un atributo <strong>compuesto</strong> tiene partes con significado propio (<code>dirección</code> → calle, número, colonia).</p><p>Un atributo <strong>multivaluado</strong> tiene múltiples ocurrencias del mismo tipo (<code>teléfono</code> → varios números).</p><p>Un atributo puede ser ambas cosas a la vez.</p></div>
         <div class="image-col"><img src="../../img/0029.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>5. Especialización y Generalización</h2>
+      <h1>Atributos Multivaluados</h1>
+    </section>
+    <section>
+      <h2>Atributos Multivaluados</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un <strong>atributo multivaluado</strong> puede contener más de un valor para la misma ocurrencia.</p><p>Se representa con <strong>elipse doble</strong>.</p><p>El modelo relacional no los admite directamente (violan la primera forma normal); el EER los declara en el nivel conceptual y la materialización se decide en el diseño lógico.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos Multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Ejemplo — autenticación multi-factor:</strong></p><p><img src="multivaluado-MultifactorAutenticacion.png" alt="multivaluado-MultifactorAutenticacion.png" /></p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos Multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un usuario puede tener entre cero y varios métodos activos simultáneamente.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos Multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>**Distinción: multivaluado vs.</p><p>compuesto**</p><p>Un atributo <strong>compuesto</strong> tiene partes con significado propio (<code>dirección</code> → calle, número, colonia).</p><p>Un atributo <strong>multivaluado</strong> tiene múltiples ocurrencias del mismo tipo (<code>teléfono</code> → varios números).</p><p>Un atributo puede ser ambas cosas a la vez.</p></div>
+        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Especialización y Generalización</h1>
+    </section>
+    <section>
+      <h2>Especialización y Generalización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Especialización</strong> (<em>top-down</em>): se parte de una <strong>superclase</strong> y se identifican subgrupos con atributos o relaciones adicionales; cada subgrupo se convierte en <strong>subclase</strong>.</p></div>
       </div>
     </section>
     <section>
-      <h2>5. Especialización y Generalización</h2>
+      <h2>Especialización y Generalización</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Generalización</strong> (<em>bottom-up</em>): se parte de varias entidades con atributos comunes y se factorizan en una nueva superclase.</p><p>Ambos producen el mismo resultado en el diagrama: una <strong>jerarquía</strong>.</p></div>
-        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0009.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>5. Especialización y Generalización</h2>
+      <h2>Especialización y Generalización</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>La <strong>herencia</strong> garantiza que cada subclase adquiere automáticamente todos los atributos y relaciones de su superclase.</p></div>
-        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Restricciones de la jerarquía</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Disjunción</strong> — ¿puede una ocurrencia pertenecer a más de una subclase?</p>
 <ul><li><code>d</code> — <strong>Disjunta</strong>: pertenece a lo sumo a una subclase (vehículo es automóvil <em>o</em> motocicleta).</li><li><code>o</code> — <strong>Superpuesta</strong>: puede pertenecer a varias (un empleado puede ser supervisor <em>y</em> técnico).</li></ul></div>
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Restricciones de la jerarquía</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Completitud</strong> — ¿debe toda ocurrencia de la superclase pertenecer a alguna subclase?</p>
 <ul><li><strong>Total</strong> (línea doble): toda ocurrencia pertenece a al menos una subclase.</li><li><strong>Parcial</strong> (línea simple): algunas ocurrencias pueden no pertenecer a ninguna.</li></ul></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo — red de sensores (disjunta, total)</h2>
-      <pre><code class="">               [DISPOSITIVO]
-               id_dispositivo
-               ubicacion_gps
-               fabricante · estado
-                     ║         ← total
-                  ───d───      ← disjunta
-                /    |    \
-         [SENSOR] [ACTUADOR] [GATEWAY]
-         tipo_medida tipo_accion protocolo
-         frecuencia  voltaje     nodos_max
-         rango_min/max</code></pre>
+      <div class="slide-two-col">
+        <div class="text-col"><p><img src="Jerarquia-sensores.png" alt="Jerarquia-sensores.png" /></p></div>
+        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
+      </div>
     </section>
     <section>
       <h2>Ejemplo — red de sensores (disjunta, total)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
         <div class="text-col"><p>Todo dispositivo es exactamente uno de los tres tipos.</p><p>Los atributos comunes se definen una sola vez en la superclase.</p></div>
+        <div class="image-col"><img src="../../img/0087.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio de reflexión</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
         <div class="text-col"><p>&gt; Se diseña la base de datos de una biblioteca universitaria.</p><p>Los usuarios son: estudiantes de licenciatura, estudiantes de posgrado, profesores e investigadores externos.</p></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio de reflexión</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0104.png" alt="image" /></div>
         <div class="text-col"><p>Algunos profesores también cursan posgrado en la misma institución; algunos investigadores externos son profesores de otra institución.</p><p>&gt; &gt; **¿Cuál es la superclase?</p><p>¿La especialización es disjunta o superpuesta?</p><p>¿Total o parcial?</p><p>Justifica.**</p></div>
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>6. Agregación</h2>
+      <h1>Agregación</h1>
+    </section>
+    <section>
+      <h2>Agregación</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0010.jpg" alt="image" /></div>
         <div class="text-col"><p>La <strong>agregación</strong> permite tratar una relación —junto con las entidades que conecta— como una entidad de nivel superior, de modo que esa relación pueda participar en otras relaciones.</p></div>
-        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>6. Agregación</h2>
+      <h2>Agregación</h2>
       <div class="slide-two-col">
-        <div class="text-col"><p>Resuelve el caso en que &quot;una relación entre A y B tiene a su vez una relación con C&quot;, que el E-R básico no puede expresar directamente.</p><p><strong>Ejemplo — técnicos en proyectos de infraestructura:</strong></p></div>
-        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
+        <div class="text-col"><p>Resuelve el caso en que &quot;una relación entre A y B tiene a su vez una relación con C&quot;, que el E-R básico no puede expresar directamente.</p></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>6. Agregación</h2>
-      <pre><code class="">╔══════════════════════════════════════╗
-║  [TÉCNICO]──&lt;TRABAJA_EN&gt;──[PROYECTO] ║
-║               fecha_inicio           ║
-║               horas_semanales · rol  ║
-╚══════════════════════════════════════╝
-                    |
-               &lt;REQUIERE&gt;
-                    |
-               [EQUIPO]
-               num_serie · tipo_equipo</code></pre>
+      <h2>Agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Ejemplo — técnicos en proyectos de infraestructura:</strong></p><p><img src="tecnico-proyecto-equipo.png" alt="tecnico-proyecto-equipo.png" /></p></div>
+      </div>
     </section>
     <section>
-      <h2>6. Agregación</h2>
+      <h2>Agregación</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p>Los equipos no se asignan al técnico ni al proyecto por separado; se asignan a la <em>combinación específica</em> técnico+proyecto.</p><p>La agregación lo expresa sin crear entidades artificiales.</p></div>
       </div>
     </section>
     <section>
-      <h2>7. E-R Simple vs. EER — mismo problema</h2>
+      <h1>E-R Simple vs. EER — mismo problema</h1>
+    </section>
+    <section>
+      <h2>E-R Simple vs. EER — mismo problema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Dominio:</strong> red de sensores en una ciudad inteligente.</p></div>
+        <div class="image-col"><img src="../../img/0061.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -402,7 +393,7 @@
     <section>
       <h2>Modelo E-R simple</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
         <div class="text-col"><p>Problemas: NULLs masivos, restricciones de dominio no expresables, extensión obliga a alterar el esquema completo.</p></div>
       </div>
     </section>
@@ -426,36 +417,39 @@
     <section>
       <h2>Modelo EER equivalente</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0013.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Ganancias:</strong> restricciones por subclase explícitas en el esquema; herencia elimina redundancia; entidad débil captura la dependencia de existencia; extensión solo agrega una subclase nueva.</p></div>
       </div>
     </section>
     <section>
       <h2>Limitaciones que el EER suaviza</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0050.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0082.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Jerarquías de tipos → especialización/generalización</li><li>NULLs masivos → subclases con solo sus atributos propios</li><li>Dependencias de existencia → entidades débiles</li><li>Atributos con múltiples valores → atributos multivaluados</li><li>Relaciones que participan en relaciones → agregación</li></ul></div>
       </div>
     </section>
     <section>
       <h2>Limitaciones que el EER suaviza</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Lo que el EER no resuelve:</strong> comportamiento (métodos), encapsulamiento, identidad de objeto independiente del valor, polimorfismo — eso lo aporta el modelo orientado a objetos.</p></div>
       </div>
     </section>
     <section>
-      <h2>8. Modelo Conceptual Orientado a Objetos</h2>
+      <h1>Modelo Conceptual Orientado a Objetos</h1>
+    </section>
+    <section>
+      <h2>Modelo Conceptual Orientado a Objetos</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
         <div class="text-col"><p>Una <strong>clase</strong> es una plantilla que describe la estructura (atributos) y el comportamiento (métodos) de un conjunto de entidades del dominio.</p></div>
+        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>8. Modelo Conceptual Orientado a Objetos</h2>
+      <h2>Modelo Conceptual Orientado a Objetos</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Un <strong>objeto</strong> es una instancia concreta de una clase con un <strong>OID</strong> (<em>Object Identifier</em>) único asignado automáticamente, independiente del valor de sus atributos.</p><p>Dos objetos con los mismos valores en todos sus atributos siguen siendo objetos distintos.</p></div>
-        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0094.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -475,8 +469,8 @@
     <section>
       <h2>Diagrama de clases UML — notación</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Asociaciones</strong> (multiplicidad): <code>1..1</code>, <code>0..1</code>, <code>1..<em></code>, <code>0..</em></code></p><p><strong>Herencia:</strong> flecha de punta triangular vacía de la subclase hacia la superclase.</p><p>Las restricciones se indican con etiquetas: <code>{disjoint}</code>, <code>{overlapping}</code>, <code>{complete}</code>, <code>{incomplete}</code>.</p></div>
-        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -492,6 +486,9 @@
       </table>
     </section>
     <section>
+      <h1>Modelos Semánticos, OO y Objeto-Relacional</h1>
+    </section>
+    <section>
       <h2>El espectro de abstracción</h2>
       <pre><code class="">CONCEPTUAL            LÓGICO                FÍSICO
 ─────────────────────────────────────────────────
@@ -501,21 +498,21 @@ EER / Clases UML  →  Relacional /       →  Tablas, índices,
     <section>
       <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Estrategia 1 — Una tabla para toda la jerarquía:</strong> todos los atributos de superclase y subclases en una sola tabla con columna discriminante.</p><p>Ventaja: sin JOINs.</p><p>Desventaja: NULLs masivos.</p></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0082.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Estrategia 2 — Tabla de superclase + tabla por subclase:</strong> la superclase tiene su tabla; cada subclase tiene la suya con solo sus atributos propios, ligada por el identificador.</p><p>Ventaja: normalizado.</p><p>Desventaja: JOIN necesario para datos completos.</p></div>
       </div>
     </section>
     <section>
       <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Estrategia 3 — Solo tablas de subclases:</strong> los atributos de la superclase se duplican en cada subclase.</p><p>Ventaja: sin JOINs para consultas de subclase.</p><p>Desventaja: redundancia y UNION para consultas sobre la superclase.</p></div>
       </div>
     </section>
@@ -523,35 +520,35 @@ EER / Clases UML  →  Relacional /       →  Tablas, índices,
       <h2>El modelo objeto-relacional (ORDBMS)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Extiende el motor relacional con capacidades OO sin abandonar su infraestructura.</p><p>Extensiones principales:</p></div>
-        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0055.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>El modelo objeto-relacional (ORDBMS)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>UDT</strong> (<em>User-Defined Types</em>): tipos de dato complejos definidos por el diseñador (<code>Coordenada</code>, <code>Rango</code>).</li><li><strong>Herencia de tablas</strong>: una tabla hereda columnas y restricciones de otra.</li><li><strong>Tipos de colección</strong>: arreglos y conjuntos como tipo de columna (atributos multivaluados directos).</li></ul></div>
+        <div class="image-col"><img src="../../img/0069.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>El modelo objeto-relacional (ORDBMS)</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>REF</strong>: referencias directas entre filas sin JOINs explícitos.</li></ul></div>
-        <div class="image-col"><img src="../../img/0017.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>El modelo objeto-relacional (ORDBMS)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0087.jpg" alt="image" /></div>
         <div class="text-col"><p>PostgreSQL es el ejemplo más conocido de sistema objeto-relacional de código abierto.</p></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>El modelo objeto-relacional (ORDBMS)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Ejemplo — mismo dominio en tres niveles:</strong></p></div>
-        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0087.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -576,44 +573,47 @@ CREATE TABLE sensor (tipo_medida VARCHAR(30), frecuencia_hz FLOAT,
                      etiquetas TEXT[]) INHERITS (dispositivo);</code></pre>
     </section>
     <section>
+      <h1>Actividad Central — Red de Sensores</h1>
+    </section>
+    <section>
       <h2>Requisitos del sistema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
         <div class="text-col"><ol><li>Cuatro tipos de dispositivos: <strong>sensores de calidad del aire</strong> (CO₂, PM2.5, ozono), <strong>sensores meteorológicos</strong> (temperatura, humedad, presión, viento), <strong>actuadores</strong> (válvulas, aspersores) y <strong>nodos de comunicación</strong> (solo retransmiten).</li></ol></div>
       </div>
     </section>
     <section>
       <h2>Requisitos del sistema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0090.jpg" alt="image" /></div>
         <div class="text-col"><ol start="2"><li>Todo dispositivo tiene: identificador único, coordenadas GPS, fecha de instalación, estado.</li><li>Los sensores generan lecturas periódicas con marca de tiempo, valor y unidad. Una lectura solo existe en el contexto de su sensor.</li></ol></div>
       </div>
     </section>
     <section>
       <h2>Requisitos del sistema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0031.jpg" alt="image" /></div>
         <div class="text-col"><ol start="4"><li>Los sensores de calidad del aire generan en el mismo instante lecturas de múltiples contaminantes.</li><li>Cada dispositivo puede tener varios responsables de mantenimiento (preventivo, correctivo, calibración).</li><li>La relación dispositivo–responsable puede asociarse con órdenes de trabajo específicas.</li></ol></div>
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Requisitos del sistema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
         <div class="text-col"><ol start="7"><li>La ciudad se divide en zonas → subzonas → puntos de monitoreo donde se instalan los dispositivos.</li></ol></div>
       </div>
     </section>
     <section>
       <h2>Preguntas guía</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>Req. 1:</strong> ¿Qué constructor EER resuelve los cuatro tipos de dispositivo? ¿Disjunta o superpuesta? ¿Total o parcial?</li><li><strong>Req. 3:</strong> ¿Por qué <code>LECTURA</code> es entidad débil? ¿Cuál es su discriminante?</li></ul></div>
-        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Preguntas guía</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>Req. 4:</strong> ¿El hecho de generar múltiples valores en el mismo instante es un atributo multivaluado, una entidad débil anidada, o una relación ternaria? Argumenta.</li><li><strong>Req. 5:</strong> ¿Atributo multivaluado o relación independiente con <code>RESPONSABLE</code>? ¿Qué se pierde si solo se usa atributo multivaluado?</li></ul></div>
       </div>
     </section>
@@ -621,70 +621,73 @@ CREATE TABLE sensor (tipo_medida VARCHAR(30), frecuencia_hz FLOAT,
       <h2>Preguntas guía</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>Req. 6:</strong> ¿Qué constructor EER permite que la relación dispositivo–responsable participe en otra relación con <code>ORDEN_DE_TRABAJO</code>?</li><li><strong>Req. 7:</strong> ¿Cómo se expresa la jerarquía recursiva zona→subzona en el EER?</li></ul></div>
-        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Entregable</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0010.jpg" alt="image" /></div>
         <div class="text-col"><ol><li><strong>Diagrama EER</strong> con: jerarquía de especialización (restricciones explícitas), al menos un atributo multivaluado, al menos una entidad débil con discriminante, y agregación si aplica.</li></ol></div>
+        <div class="image-col"><img src="../../img/0105.jpeg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Entregable</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
         <div class="text-col"><ol start="2"><li><strong>Nota de justificación</strong> (máx. media cuartilla por decisión): por qué jerarquía y no columna de tipo; por qué entidad débil y no fuerte con relación 1:N; qué restricciones de jerarquía se eligieron y por qué.</li></ol></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h1>Glosario esencial</h1>
+    </section>
+    <section>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Agregación (EER):</strong> abstracción que trata una relación como entidad de nivel superior para participar en otras relaciones.</p><p><strong>Atributo discriminante:</strong> atributo de entidad débil que, combinado con el identificador de la propietaria, identifica cada ocurrencia.</p><p>Subrayado discontinuo en el diagrama.</p></div>
-        <div class="image-col"><img src="../../img/0052.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Atributo multivaluado:</strong> atributo con más de un valor por ocurrencia.</p><p>Elipse doble en el diagrama.</p><p><strong>Completitud:</strong> restricción de jerarquía — total (toda ocurrencia en alguna subclase) o parcial (algunas pueden no estarlo).</p></div>
-        <div class="image-col"><img src="../../img/0097.png" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Disjunción:</strong> restricción de jerarquía — disjunta <code>d</code> (una subclase como máximo) o superpuesta <code>o</code> (varias posibles).</p><p><strong>EER:</strong> extensión del E-R clásico con jerarquías, herencia, entidades débiles, atributos multivaluados y agregación.</p></div>
-        <div class="image-col"><img src="../../img/0012.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Entidad débil:</strong> entidad sin identificador propio suficiente; su existencia depende de la entidad identificadora.</p><p><strong>Herencia:</strong> propiedad por la cual una subclase adquiere automáticamente los atributos y relaciones de su superclase.</p></div>
-        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>OID:</strong> identificador único asignado automáticamente a cada objeto en el modelo orientado a objetos, independiente del valor de los atributos.</p><p><strong>ORDBMS / Modelo objeto-relacional:</strong> extensión del modelo relacional con UDT, herencia de tablas, colecciones y referencias entre objetos.</p></div>
-        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0029.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Especialización:</strong> proceso top-down de dividir una superclase en subclases con atributos propios adicionales.</p><p><strong>Generalización:</strong> proceso bottom-up de agrupar entidades con atributos comunes en una superclase.</p></div>
       </div>
     </section>
     <section>
-      <h2>11. Glosario esencial</h2>
+      <h2>Glosario esencial</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p><em>Bases de Datos Avanzadas — UAM Cuajimalpa</em> <em>Versión compacta: Modelos Semánticos · EER y Modelo Conceptual Orientado a Objetos</em></p></div>
-        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">

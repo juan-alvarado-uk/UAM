@@ -37,12 +37,8 @@ El **discriminante** es el atributo (o conjunto) que, combinado con el identific
 
 **Ejemplo — lecturas de sensores:**
 
-```
-[SENSOR] ─────<GENERA>════[LECTURA]
- id_sensor              ~timestamp~   ← discriminante
- tipo                   valor_medido
- ubicacion              unidad
-```
+![sensor-lectura.png](sensor-lectura.png)
+---
 
 `LECTURA` es débil: su identificación completa requiere `id_sensor` + `timestamp`. Dos sensores distintos pueden generar una lectura en el mismo instante; el `timestamp` solo no basta.
 
@@ -61,12 +57,9 @@ Un **atributo multivaluado** puede contener más de un valor para la misma ocurr
 
 **Ejemplo — autenticación multi-factor:**
 
-```
-           [USUARIO]
-          /    |    \
-      {id}  {nombre}  {metodo_2FA}  ← elipse doble
-                       email | SMS | app_auth | llave_HW
-```
+
+![multivaluado-MultifactorAutenticacion.png](multivaluado-MultifactorAutenticacion.png)
+---
 
 Un usuario puede tener entre cero y varios métodos activos simultáneamente.
 
@@ -102,20 +95,9 @@ Ambos producen el mismo resultado en el diagrama: una **jerarquía**. La **heren
 
 ## Ejemplo — red de sensores (disjunta, total)
 
-```
-               [DISPOSITIVO]
-               id_dispositivo
-               ubicacion_gps
-               fabricante · estado
-                     ║         ← total
-                  ───d───      ← disjunta
-                /    |    \
-         [SENSOR] [ACTUADOR] [GATEWAY]
-         tipo_medida tipo_accion protocolo
-         frecuencia  voltaje     nodos_max
-         rango_min/max
-```
+![Jerarquia-sensores.png](Jerarquia-sensores.png)
 
+---
 Todo dispositivo es exactamente uno de los tres tipos. Los atributos comunes se definen una sola vez en la superclase.
 
 ---
@@ -132,20 +114,11 @@ Todo dispositivo es exactamente uno de los tres tipos. Los atributos comunes se 
 
 La **agregación** permite tratar una relación —junto con las entidades que conecta— como una entidad de nivel superior, de modo que esa relación pueda participar en otras relaciones. Resuelve el caso en que "una relación entre A y B tiene a su vez una relación con C", que el E-R básico no puede expresar directamente.
 
+---
 **Ejemplo — técnicos en proyectos de infraestructura:**
 
-```
-╔══════════════════════════════════════╗
-║  [TÉCNICO]──<TRABAJA_EN>──[PROYECTO] ║
-║               fecha_inicio           ║
-║               horas_semanales · rol  ║
-╚══════════════════════════════════════╝
-                    |
-               <REQUIERE>
-                    |
-               [EQUIPO]
-               num_serie · tipo_equipo
-```
+![tecnico-proyecto-equipo.png](tecnico-proyecto-equipo.png)
+---
 
 Los equipos no se asignan al técnico ni al proyecto por separado; se asignan a la *combinación específica* técnico+proyecto. La agregación lo expresa sin crear entidades artificiales.
 
