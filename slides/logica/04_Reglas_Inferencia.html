@@ -139,36 +139,36 @@
     <section>
       <h2>Las tablas de verdad no son suficientes</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p>Las tablas de verdad permiten verificar si un argumento es válido: se construía la tabla completa y se buscaban contraejemplos.</p><p>Ese método es sistemático y correcto, pero tiene un problema serio cuando el número de variables crece.</p><p>Con $n$ variables atómicas, la tabla tiene $2^n$ filas.</p></div>
-        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Las tablas de verdad no son suficientes</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
         <div class="text-col"><p>Con 10 variables — algo perfectamente razonable en la especificación de un sistema real — la tabla tendría 1,024 filas.</p><p>Con 20 variables, más de un millón.</p></div>
       </div>
     </section>
     <section>
       <h2>Las tablas de verdad no son suficientes</h2>
       <div class="slide-two-col">
-        <div class="text-col"><p>Existe un camino distinto: en lugar de evaluar todas las combinaciones posibles, se puede derivar la conclusión paso a paso, aplicando en cada paso una regla que preserve la verdad.</p><p>Ese camino es la <strong>prueba formal</strong> o <strong>deducción</strong>.</p><p>La analogía con el trabajo cotidiano en sistemas es directa.</p></div>
         <div class="image-col"><img src="../../img/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>Existe un camino distinto: en lugar de evaluar todas las combinaciones posibles, se puede derivar la conclusión paso a paso, aplicando en cada paso una regla que preserve la verdad.</p><p>Ese camino es la <strong>prueba formal</strong> o <strong>deducción</strong>.</p><p>La analogía con el trabajo cotidiano en sistemas es directa.</p></div>
       </div>
     </section>
     <section>
       <h2>Las tablas de verdad no son suficientes</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0083.jpg" alt="image" /></div>
         <div class="text-col"><p>Cuando un desarrollador depura un programa, no prueba todas las entradas posibles; razona: &quot;si el módulo de autenticación falló y el log muestra que la conexión a la base de datos fue exitosa, entonces el problema está en la capa de validación de credenciales&quot;.</p><p>Eso es inferencia.</p></div>
-        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Las tablas de verdad no son suficientes</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
         <div class="text-col"><p>Las reglas formales que se estudian en esta sesión son precisamente la versión rigurosa de ese razonamiento.</p></div>
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -177,21 +177,21 @@
     <section>
       <h2>Argumento Válido y Prueba Formal</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
         <div class="text-col"><p>Un <strong>argumento</strong> en lógica proposicional es un conjunto finito de fórmulas llamadas <strong>premisas</strong>, acompañado de una fórmula designada llamada <strong>conclusión</strong>.</p><p>Se escribe habitualmente como:</p><p>$$ P_1,\; P_2,\; \ldots,\; P_n \;\vdash\; C $$</p></div>
-        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Argumento Válido y Prueba Formal</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
         <div class="text-col"><p>donde $P_1, \ldots, P_n$ son las premisas y $C$ es la conclusión.</p><p>Un argumento es <strong>válido</strong> cuando es imposible que todas las premisas sean verdaderas y la conclusión sea falsa al mismo tiempo; es decir, cuando la conclusión es consecuencia lógica de las premisas.</p></div>
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Argumento Válido y Prueba Formal</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
         <div class="text-col"><p>Una <strong>prueba formal</strong> (o <strong>demostración</strong>) es una secuencia finita de fórmulas $F_1, F_2, \ldots, F_k$, donde cada $F_i$ satisface exactamente una de estas dos condiciones:</p>
 <ul><li>Es una de las premisas del argumento, o</li><li>Se obtiene de fórmulas anteriores en la secuencia aplicando una <strong>regla de inferencia</strong>.</li></ul></div>
       </div>
@@ -199,8 +199,8 @@
     <section>
       <h2>Argumento Válido y Prueba Formal</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
         <div class="text-col"><p>La última fórmula de la secuencia es la conclusión que se quería demostrar.</p><p>Cada línea de la prueba lleva anotada su justificación: el nombre de la premisa o el nombre de la regla aplicada, junto con los números de línea de las que depende.</p></div>
-        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -209,7 +209,7 @@
     <section>
       <h2>Notación de las Pruebas Formales</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
         <div class="text-col"><p>Cada línea de una prueba tiene el siguiente formato:</p></div>
       </div>
     </section>
@@ -229,8 +229,8 @@
     <section>
       <h2>Notación de las Pruebas Formales</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
         <div class="text-col"><p>La columna de justificación es obligatoria.</p><p>Una línea sin justificación no tiene valor en una prueba formal.</p></div>
-        <div class="image-col"><img src="../../img/0061.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -239,7 +239,7 @@
     <section>
       <h2>Las Reglas de Inferencia Básicas</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><p>A continuación se presentan las reglas de inferencia más utilizadas en lógica de proposiciones.</p><p>Cada regla se expresa indicando las fórmulas que deben estar disponibles (hipótesis de la regla) y la fórmula que se obtiene (conclusión de la regla).</p></div>
       </div>
     </section>
@@ -247,13 +247,13 @@
       <h2>Modus Ponens (MP)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Si se sabe que $p \to q$ es verdadero, y también que $p$ es verdadero, entonces necesariamente $q$ es verdadero.</p><p>$$ \frac{p \to q \quad p}{q} \quad \text{Modus Ponens} $$</p><p><strong>Ejemplo cotidiano:</strong> &quot;Si llueve, la calle se moja&quot; y &quot;está lloviendo&quot;; por lo tanto, &quot;la calle está mojada&quot;.</p></div>
-        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modus Ponens (MP)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
         <div class="text-col"><p>El modus ponens es probablemente la regla más usada en razonamiento cotidiano y en especificación de sistemas basados en reglas.</p></div>
       </div>
     </section>
@@ -261,76 +261,76 @@
       <h2>Modus Tollens (MT)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Si se sabe que $p \to q$ y además que $q$ es falso ($\neg q$), entonces $p$ también es falso ($\neg p$).</p><p>$$ \frac{p \to q \quad \neg q}{\neg p} \quad \text{Modus Tollens} $$</p></div>
-        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0056.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modus Tollens (MT)</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Ejemplo cotidiano:</strong> &quot;Si el candidato aprobó el examen, recibe la certificación&quot; y &quot;no recibió la certificación&quot;; por lo tanto, &quot;no aprobó el examen&quot;.</p><p>El modus tollens es la base del razonamiento por descarte: cuando el efecto esperado no ocurre, se concluye que la causa tampoco ocurrió.</p></div>
-        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Silogismo Hipotético (SH)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Si $p \to q$ y $q \to r$, entonces se puede concluir $p \to r$.</p><p>La regla encadena condicionales.</p><p>$$ \frac{p \to q \quad q \to r}{p \to r} \quad \text{Silogismo Hipotético} $$</p><p><strong>Ejemplo cotidiano:</strong> &quot;Si estudio, aprendo; si aprendo, apruebo el examen&quot;; por lo tanto, &quot;si estudio, apruebo el examen&quot;.</p></div>
-        <div class="image-col"><img src="../../img/0074.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Silogismo Hipotético (SH)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Esta regla aparece con frecuencia cuando se modelan cadenas de dependencias entre módulos.</p></div>
-        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Silogismo Disyuntivo (SD)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Si se sabe que $p \lor q$ y además que $\neg p$ (es decir, $p$ es falso), entonces necesariamente $q$ es verdadero.</p><p>$$ \frac{p \lor q \quad \neg p}{q} \quad \text{Silogismo Disyuntivo} $$</p><p>Simétricamente, si se sabe $p \lor q$ y $\neg q$, se concluye $p$.</p></div>
-        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Silogismo Disyuntivo (SD)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Ejemplo cotidiano:</strong> &quot;La reunión es en línea o en la sala de juntas&quot; y &quot;la reunión no es en línea&quot;; por lo tanto, &quot;la reunión es en la sala de juntas&quot;.</p></div>
-        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0082.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Adición (Ad)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
         <div class="text-col"><p>Si se sabe que $p$ es verdadero, entonces $p \lor q$ también es verdadero, para cualquier $q$.</p><p>$$ \frac{p}{p \lor q} \quad \text{Adición} $$</p></div>
+        <div class="image-col"><img src="../../img/0028.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Adición (Ad)</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Justificación intuitiva:</strong> Si una disyunción requiere que al menos uno de sus disyuntos sea verdadero, y ya se sabe que $p$ lo es, la disyunción completa es verdadera sin importar el valor de $q$.</p></div>
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Adición (Ad)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
         <div class="text-col"><p>Esta regla parece trivial, pero es indispensable en pruebas donde se necesita construir una disyunción para aplicar después el silogismo disyuntivo.</p></div>
+        <div class="image-col"><img src="../../img/0008.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Simplificación (Simp)</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
         <div class="text-col"><p>Si se sabe que $p \land q$ es verdadero, entonces en particular $p$ es verdadero, y también $q$ es verdadero.</p><p>Se pueden extraer los conjuntos por separado.</p><p>$$ \frac{p \land q}{p} \qquad \frac{p \land q}{q} \quad \text{Simplificación} $$</p></div>
-        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Simplificación (Simp)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Ejemplo:</strong> La especificación dice &quot;el sistema es seguro y está disponible&quot;.</p><p>De ahí se puede concluir, por separado, que &quot;el sistema es seguro&quot; o que &quot;el sistema está disponible&quot;, según lo que se necesite en el razonamiento.</p></div>
       </div>
     </section>
@@ -338,63 +338,63 @@
       <h2>Conjunción (Conj)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Si se sabe que $p$ es verdadero y que $q$ es verdadero (en líneas separadas de la prueba), se puede combinar para obtener $p \land q$.</p><p>$$ \frac{p \quad q}{p \land q} \quad \text{Conjunción} $$</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conjunción (Conj)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Ejemplo en sistemas:</strong> Si se ha demostrado &quot;el respaldo fue exitoso&quot; y &quot;el sistema está en línea&quot;, se puede concluir &quot;el respaldo fue exitoso y el sistema está en línea&quot;, que podría ser la condición compuesta que se buscaba establecer.</p></div>
-        <div class="image-col"><img src="../../img/0027.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Doble Negación (DN)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Una fórmula y su doble negación son interderivables: de $p$ se puede pasar a $\neg \neg p$ y viceversa.</p><p>$$ \frac{p}{\neg \neg p} \qquad \frac{\neg \neg p}{p} \quad \text{Doble Negación} $$</p></div>
-        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Doble Negación (DN)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Esta regla se usa con frecuencia para preparar una fórmula para aplicar modus tollens o para simplificar negaciones acumuladas.</p></div>
-        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Transposición (Trans)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
         <div class="text-col"><p>Un condicional y su contrapositivo son lógicamente equivalentes.</p><p>Por eso, de $p \to q$ se puede derivar $\neg q \to \neg p$, y viceversa.</p><p>$$ \frac{p \to q}{\neg q \to \neg p} \quad \text{Transposición} $$</p></div>
       </div>
     </section>
     <section>
       <h2>Transposición (Trans)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Ejemplo:</strong> &quot;Si el protocolo es seguro, los datos viajan cifrados&quot; equivale a &quot;si los datos no viajan cifrados, el protocolo no es seguro&quot;.</p><p>La transposición es la contraparte formal del modus tollens: en lugar de aplicar MT directamente, a veces conviene primero transponer y luego aplicar MP.</p></div>
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Exportación / Importación (Exp)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
         <div class="text-col"><p>Permite reescribir una conjunción en el antecedente como un condicional anidado, y viceversa.</p><p>$$ \frac{(p \land q) \to r}{p \to (q \to r)} \quad \text{Exportación} $$</p><p>$$ \frac{p \to (q \to r)}{(p \land q) \to r} \quad \text{Importación} $$</p></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Exportación / Importación (Exp)</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Ejemplo en sistemas:</strong> &quot;Si el usuario está autenticado y tiene permisos de escritura, puede modificar el archivo&quot; equivale a &quot;si el usuario está autenticado, entonces si tiene permisos de escritura, puede modificar el archivo&quot;.</p></div>
-        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Absorción (Abs)</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
         <div class="text-col"><p>De $p \to q$ se puede derivar $p \to (p \land q$).</p><p>$$ \frac{p \to q}{p \to (p \land q)} \quad \text{Absorción} $$</p><p>Esta regla es útil cuando se necesita construir una conjunción dentro de la conclusión de un condicional.</p></div>
+        <div class="image-col"><img src="../../img/0094.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -434,36 +434,36 @@
     <section>
       <h2>Cómo Construir una Prueba Formal: Estrategia General</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><p>Antes de escribir la primera línea de una prueba, conviene seguir un proceso de análisis:</p></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cómo Construir una Prueba Formal: Estrategia General</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
         <div class="text-col"><ol><li><strong>Identificar la conclusión.</strong> ¿Qué forma tiene la fórmula que se quiere demostrar? ¿Es un condicional, una conjunción, una negación?</li><li><strong>Revisar las premisas.</strong> ¿Qué información está disponible? ¿Hay condicionales que podrían aprovecharse con MP o MT? ¿Hay disyunciones que podrían aprovecharse con SD?</li></ol></div>
+        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cómo Construir una Prueba Formal: Estrategia General</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
         <div class="text-col"><ol start="3"><li><strong>Trabajar hacia atrás (backward chaining).</strong> Pensar: &quot;para obtener $C$, ¿qué necesito tener disponible?&quot;. Si $C$ es $q$ y hay una premisa $p \to q$, solo se necesita derivar $p$.</li></ol></div>
-        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cómo Construir una Prueba Formal: Estrategia General</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0012.jpg" alt="image" /></div>
         <div class="text-col"><ol start="4"><li><strong>Escribir la prueba hacia adelante.</strong> Una vez identificado el camino, escribir las líneas en orden, con justificación en cada una.</li></ol></div>
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Cómo Construir una Prueba Formal: Estrategia General</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
         <div class="text-col"><p>&gt; <strong>Analogía con programación:</strong> Esto es similar al diseño descendente (top-down).</p><p>Primero se define qué resultado se necesita, luego qué subproblemas hay que resolver para llegar a él, y finalmente se implementa de menor a mayor.</p></div>
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -472,16 +472,16 @@
     <section>
       <h2>Ejemplo 1 — Prueba con MP y SH</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
-        <div class="text-col"><p><strong>Contexto:</strong> En una red corporativa: si un usuario intenta conectarse a la VPN, se verifica su identidad; si se verifica su identidad, se registra el acceso en el log de auditoría.</p></div>
+        <div class="image-col"><img src="../../img/0094.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Contexto:</strong> En una red corporativa: si un usuario intenta conectarse a la VPN, se verifica su identidad; si se verifica su identidad, se registra el acceso en el log de auditoría; el usuario intenta conectarse a la VPN.</p></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 1 — Prueba con MP y SH</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Variables:</strong></p>
 <ul><li>$p$: el usuario intenta conectarse a la VPN</li><li>$q$: se verifica la identidad del usuario</li><li>$r$: se registra el acceso en el log de auditoría</li></ul></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -490,7 +490,7 @@
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$p \to q$</li><li>$q \to r$</li><li>$p$</li></ol>
 <p><strong>Conclusión a demostrar:</strong> $r$</p></div>
-        <div class="image-col"><img src="../../img/0076.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -509,43 +509,43 @@
     <section>
       <h2>Ejemplo 1 — Prueba con MP y SH</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Interpretación:</strong> El usuario intentó conectarse a la VPN; por la cadena de condicionales, se concluye que el acceso quedó registrado en el log de auditoría.</p></div>
-        <div class="image-col"><img src="../../img/0008.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Contexto:</strong> Un sistema de disponibilidad tiene la siguiente especificación:</p></div>
-        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li>Si el servidor principal está activo, el servicio responde en menos de 200 ms.</li><li>El servicio responde en menos de 200 ms, o se activa el servidor de respaldo.</li><li>El servidor de respaldo no se activó.</li><li>El servicio no responde en menos de 200 ms.</li></ul></div>
-        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0010.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Variables:</strong></p>
 <ul><li>$a$: el servidor principal está activo</li><li>$r$: el servicio responde en menos de 200 ms</li><li>$b$: se activa el servidor de respaldo</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$a \to r$</li><li>$r \lor b$</li><li>$\neg b$</li><li>$\neg r$</li></ol>
 <p><strong>Conclusión a demostrar:</strong> $\neg a$</p></div>
-        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <table>
         <thead><tr><th>Línea</th><th>Fórmula</th><th>Justificación</th></tr></thead>
         <tbody>
@@ -558,83 +558,83 @@
       </table>
     </section>
     <section>
-      <h2>Ejemplo 2 — Prueba con MT y SD</h2>
+      <h2>Ejemplo 2 — Prueba con MT</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Interpretación:</strong> El servicio no responde dentro del tiempo esperado y el servidor de respaldo no se activó, lo que implica que el servidor principal tampoco está activo.</p></div>
-        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 3 — Prueba con Conj y MP</h2>
+      <h2>Ejemplo 3 — Prueba con MP</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0038.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0099.png" alt="image" /></div>
         <div class="text-col"><p><strong>Contexto:</strong> Una plataforma de pagos en línea establece: si el token de sesión es válido y el monto está dentro del límite autorizado, se aprueba la transacción; si la transacción es aprobada, se envía una notificación al usuario.</p></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 3 — Prueba con Conj y MP</h2>
+      <h2>Ejemplo 3 — Prueba con MP</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Variables:</strong></p>
 <ul><li>$p$: el token de sesión es válido</li><li>$q$: el monto está dentro del límite autorizado</li><li>$r$: la transacción es aprobada</li><li>$s$: se envía una notificación al usuario</li></ul></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 3 — Prueba con Conj y MP</h2>
+      <h2>Ejemplo 3 — Prueba con MP</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Premisas:</strong></p>
-<ol><li>$p \land q$</li><li>$(p \land q) \to r$</li><li>$r \to s$</li></ol>
+<ol><li>$(p \land q) \to r$</li><li>$r \to s$</li><li>$p \land q$</li></ol>
 <p><strong>Conclusión a demostrar:</strong> $s$</p></div>
-        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
-      <h2>Ejemplo 3 — Prueba con Conj y MP</h2>
+      <h2>Ejemplo 3 — Prueba con MP</h2>
       <table>
         <thead><tr><th>Línea</th><th>Fórmula</th><th>Justificación</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>$p \land q$</td><td>Premisa</td></tr>
-<tr><td>2</td><td>$(p \land q) \to r$</td><td>Premisa</td></tr>
-<tr><td>3</td><td>$r \to s$</td><td>Premisa</td></tr>
-<tr><td>4</td><td>$r$</td><td>MP, líneas 2 y 1</td></tr>
-<tr><td>5</td><td>$s$</td><td>MP, líneas 3 y 4</td></tr>
+          <tr><td>1</td><td>$(p \land q) \to r$</td><td>Premisa</td></tr>
+<tr><td>2</td><td>$r \to s$</td><td>Premisa</td></tr>
+<tr><td>3</td><td>$p \land q$</td><td>Premisa</td></tr>
+<tr><td>4</td><td>$r$</td><td>MP, líneas 1 y 3</td></tr>
+<tr><td>5</td><td>$s$</td><td>MP, líneas 2 y 4</td></tr>
         </tbody>
       </table>
     </section>
     <section>
-      <h2>Ejemplo 3 — Prueba con Conj y MP</h2>
+      <h2>Ejemplo 3 — Prueba con MP</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Interpretación:</strong> La sesión es válida y el monto está autorizado; por lo tanto, la transacción se aprueba y el usuario recibe su notificación.</p></div>
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Contexto de sistemas:</strong> Una política de acceso a datos sensibles establece:</p></div>
-        <div class="image-col"><img src="../../img/0104.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0065.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>Si el usuario tiene rol de administrador o tiene autorización especial, puede ver los registros.</li><li>El usuario no tiene autorización especial.</li><li>Si el usuario puede ver los registros y los registros están clasificados, debe firmar un acuerdo de confidencialidad.</li><li>Los registros están clasificados.</li></ul></div>
+        <div class="image-col"><img src="../../img/0077.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>El usuario tiene rol de administrador.</li></ul></div>
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0071.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0027.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Variables:</strong></p>
-<ul><li>$a$: el usuario tiene rol de administrador</li><li>$e$: el usuario tiene autorización especial</li><li>$v$: el usuario puede ver los registros</li><li>$c$: los registros están clasificados</li><li>$f$: el usuario debe firmar el acuerdo de confidencialidad</li></ul></div>
+<ul><li>$a$: el usuario tiene rol de administrador</li><li>$e$: el usuario tiene autorización especial</li><li>$v$: el usuario puede ver los registros</li><li>$c$: los registros están clasificados</li><li>$f$: el usuario firma acuerdo de confidencialidad</li></ul></div>
       </div>
     </section>
     <section>
@@ -643,7 +643,7 @@
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$(a \lor e) \to v$</li><li>$\neg e$</li><li>$(v \land c) \to f$</li><li>$c$</li><li>$a$</li></ol>
 <p><strong>Conclusión a demostrar:</strong> $f$</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -675,14 +675,14 @@
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Interpretación:</strong> El usuario debe firmar el acuerdo de confidencialidad.</p><p>Nótese la línea 6: para poder usar la premisa 1 (que tiene $a \lor e$ como antecedente), se construyó la disyunción a partir del hecho simple $a$ usando la regla de Adición.</p></div>
-        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0017.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejemplo 4</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Este es un uso clásico de Adición que no resulta obvio a primera vista.</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0056.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -691,35 +691,35 @@
     <section>
       <h2>Afirmación del Consecuente</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
         <div class="text-col"><p>De $p \to q$ y $q$, <strong>no</strong> se puede concluir $p$.</p><p>Esta es una falacia clásica.</p><p><strong>Ejemplo erróneo:</strong> &quot;Si hay fuego, hay humo&quot; y &quot;hay humo&quot;; por lo tanto, &quot;hay fuego&quot;.</p><p>Incorrecto: el humo puede tener otras causas.</p></div>
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Afirmación del Consecuente</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
         <div class="text-col"><p>En sistemas: &quot;Si el sistema está bajo ataque DDoS, la red se satura&quot; y &quot;la red está saturada&quot;; no se puede concluir automáticamente que hay un ataque DDoS — podría ser tráfico legítimo alto.</p></div>
+        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Negación del Antecedente</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>De $p \to q$ y $\neg p$, <strong>no</strong> se puede concluir $\neg q$.</p><p><strong>Ejemplo erróneo:</strong> &quot;Si apruebas el examen, obtienes el certificado&quot; y &quot;no aprobaste el examen&quot;; por lo tanto, &quot;no obtienes el certificado&quot;.</p><p>Incorrecto: podría haber otras vías para obtenerlo.</p></div>
-        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Usar líneas fuera de orden incorrecto</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
         <div class="text-col"><p>Las reglas de inferencia solo pueden aplicarse a fórmulas que ya aparecieron en líneas <strong>anteriores</strong> de la prueba.</p><p>No se puede usar una línea que todavía no ha sido derivada.</p></div>
-        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Justificación incompleta</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
         <div class="text-col"><p>Escribir solo &quot;MP&quot; sin indicar los números de línea no es una justificación válida.</p><p>Siempre deben citarse las líneas específicas de las que provienen las hipótesis de la regla.</p></div>
       </div>
     </section>
@@ -729,7 +729,7 @@
     <section>
       <h2>Modelado con Lógica de Proposiciones</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
         <div class="text-col"><p>El modelado lógico es el proceso de traducir un problema expresado en lenguaje natural a un conjunto de fórmulas proposicionales, y luego usar reglas de inferencia para derivar conclusiones.</p></div>
       </div>
     </section>
@@ -737,14 +737,14 @@
       <h2>Proceso de Modelado</h2>
       <div class="slide-two-col">
         <div class="text-col"><ol><li><strong>Identificar las proposiciones atómicas</strong> relevantes en el problema. Asignar una variable ($p, q, r, \ldots$) a cada una.</li><li><strong>Traducir las restricciones</strong> del problema a fórmulas lógicas.</li><li><strong>Identificar qué se quiere demostrar</strong> y escribirlo como conclusión.</li><li><strong>Construir la prueba formal.</strong></li></ol></div>
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Proceso de Modelado</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>&gt; <strong>Observación:</strong> No todas las oraciones en lenguaje natural se traducen directamente.</p><p>Frases como &quot;solo si&quot;, &quot;a menos que&quot;, &quot;ni..., ni...,&quot; requieren cuidado especial.</p></div>
-        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
@@ -767,7 +767,7 @@
     <section>
       <h2>El problema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
         <div class="text-col"><p>En un sistema de cómputo distribuido:</p>
 <ol><li>Si el servicio de autenticación está disponible y el servicio de base de datos está disponible, entonces los usuarios pueden iniciar sesión.</li><li>Si los usuarios pueden iniciar sesión, entonces hay actividad en el sistema.</li><li>No hay actividad en el sistema.</li></ol></div>
       </div>
@@ -775,21 +775,21 @@
     <section>
       <h2>El problema</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
         <div class="text-col"><p>¿Qué se puede concluir sobre la disponibilidad conjunta de los servicios?</p></div>
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelado</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
         <div class="text-col"><ul><li>$a$: el servicio de autenticación está disponible</li><li>$d$: el servicio de base de datos está disponible</li><li>$s$: los usuarios pueden iniciar sesión</li><li>$x$: hay actividad en el sistema</li></ul></div>
+        <div class="image-col"><img src="../../img/0083.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelado</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0022.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$(a \land d) \to s$</li><li>$s \to x$</li><li>$\neg x$</li></ol>
 <p><strong>Conclusión a demostrar:</strong> $\neg(a \land d)$</p></div>
@@ -812,13 +812,13 @@
       <h2>Modelado</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Interpretación:</strong> No es el caso que ambos servicios estén disponibles simultáneamente.</p><p>Aplicando De Morgan (equivalencia lógica ya conocida): al menos uno de los dos servicios está fuera de operación.</p></div>
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Modelado</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
         <div class="text-col"><p>El sistema no puede dar más información sin evidencia adicional sobre cuál de los dos es el que presenta problemas.</p></div>
       </div>
     </section>
@@ -828,14 +828,14 @@
     <section>
       <h2>Ejercicios para Resolver</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
         <div class="text-col"><p>Los siguientes ejercicios se resuelven aplicando únicamente las reglas presentadas en este material.</p><p>En cada caso, se dan las premisas y la conclusión; la tarea es construir la prueba formal completa, justificando cada línea.</p></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio 1</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$p \to q$</li><li>$\neg q$</li><li>$p \lor r$</li></ol>
 <p><strong>Conclusión:</strong> $r$</p><p><em>Pista: Empieza por obtener $\neg p$ a partir de las premisas 1 y 2.</em></p></div>
@@ -844,7 +844,7 @@
     <section>
       <h2>Ejercicio 2</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0012.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$m \to n$</li><li>$n \to o$</li><li>$o \to p$</li><li>$m$</li></ol>
 <p><strong>Conclusión:</strong> $p$</p><p><em>Pista: Encadena las primeras tres premisas con SH antes de aplicar MP.</em></p></div>
@@ -856,13 +856,13 @@
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$(a \land b) \to c$</li><li>$a$</li><li>$b$</li></ol>
 <p><strong>Conclusión:</strong> $c$</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio 4</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Contexto:</strong> Sistema de alertas de seguridad.</p>
 <ul><li>Si hay acceso no autorizado, se genera una alerta.</li><li>Si se genera una alerta, el administrador es notificado.</li><li>El administrador no fue notificado.</li><li>Hay acceso no autorizado o el servidor está en mantenimiento.</li></ul></div>
       </div>
@@ -872,13 +872,13 @@
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Variables:</strong></p>
 <ul><li>$u$: hay acceso no autorizado</li><li>$g$: se genera una alerta</li><li>$n$: el administrador es notificado</li><li>$m$: el servidor está en mantenimiento</li></ul></div>
-        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0104.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio 4</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0050.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0099.png" alt="image" /></div>
         <div class="text-col"><p><strong>Premisas:</strong></p>
 <ol><li>$u \to g$</li><li>$g \to n$</li><li>$\neg n$</li><li>$u \lor m$</li></ol>
 <p><strong>Conclusión:</strong> $m$</p></div>
@@ -887,17 +887,17 @@
     <section>
       <h2>Ejercicio 5</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
         <div class="text-col"><p><strong>Enunciado:</strong> Tres estudiantes, Luis, María y Nora, presentaron el proyecto final.</p><p>Se sabe:</p>
 <ul><li>Si Luis no entregó el proyecto, María tampoco lo entregó.</li><li>Nora entregó el proyecto si y solo si María lo entregó.</li><li>Nora no entregó el proyecto.</li></ul>
 <p>¿Entregó Luis el proyecto?</p></div>
-        <div class="image-col"><img src="../../img/0101.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Ejercicio 5</h2>
       <div class="slide-two-col">
-        <div class="text-col"><p><em>Tarea: Definir variables, traducir a fórmulas, construir la prueba y responder la pregunta con justificación formal.</em></p></div>
-        <div class="image-col"><img src="../../img/0033.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
+        <div class="text-col"><p>Definir variables, traducir a fórmulas, construir la prueba y responder la pregunta con justificación formal.</p></div>
       </div>
     </section>
     <section>
@@ -906,35 +906,35 @@
     <section>
       <h2>Resumen: Prueba Formal Correcta</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
         <div class="text-col"><p>Una prueba formal válida tiene estas características:</p></div>
-        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Resumen: Prueba Formal Correcta</h2>
       <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>Cada línea es una fórmula bien formada</strong> (concepto ya conocido de sesiones anteriores).</li><li><strong>Cada línea tiene exactamente una justificación</strong>: o es premisa, o es el resultado de aplicar una regla a líneas anteriores numeradas.</li></ul></div>
+        <div class="image-col"><img src="../../img/0097.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Resumen: Prueba Formal Correcta</h2>
+      <div class="slide-two-col">
         <div class="image-col"><img src="../../img/0012.jpg" alt="image" /></div>
-      </div>
-    </section>
-    <section>
-      <h2>Resumen: Prueba Formal Correcta</h2>
-      <div class="slide-two-col">
         <div class="text-col"><ul><li><strong>Las reglas se aplican correctamente</strong>: las hipótesis de la regla coinciden exactamente con las fórmulas citadas, incluyendo la estructura de los conectivos.</li><li><strong>La última línea es la conclusión</strong> que se quería demostrar.</li></ul></div>
-        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Resumen: Prueba Formal Correcta</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
         <div class="text-col"><ul><li><strong>No hay saltos</strong>: si una fórmula parece &quot;obvia&quot;, igual debe aparecer en su propia línea con justificación.</li></ul></div>
+        <div class="image-col"><img src="../../img/0099.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Resumen: Prueba Formal Correcta</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
         <div class="text-col"><p>Una prueba formal en lógica proposicional tiene la misma función que un algoritmo bien documentado en programación: cada operación está justificada, el estado del sistema está explícito en cada paso, y el resultado final es verificable de forma mecánica.</p></div>
       </div>
     </section>
@@ -945,49 +945,49 @@
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>La capacidad de construir pruebas formales es directamente aplicable en varias áreas de los sistemas de información:</p></div>
-        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0096.png" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Verificación de políticas de acceso.</strong> Los sistemas de control de acceso basado en roles (RBAC) y en atributos (ABAC) definen reglas que pueden modelarse como condicionales proposicionales.</p></div>
+        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
         <div class="text-col"><p>Verificar que una política es consistente (no permite accesos contradictorios) equivale a buscar pruebas o refutaciones en un sistema lógico.</p></div>
-        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0007.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
-        <div class="text-col"><p><strong>Especificación de requisitos.</strong> Al documentar requisitos de un sistema, expresiones como &quot;si el usuario es administrador, puede modificar configuraciones&quot; son condicionales proposicionales.</p><p>Las pruebas formales permiten verificar que los requisitos no se contradicen entre sí.</p></div>
+        <div class="text-col"><p><strong>Especificación de requerimientos.</strong> Al documentar requerimientos de un sistema, expresiones como &quot;si el usuario es administrador, puede modificar configuraciones&quot; son condicionales proposicionales.</p><p>Las pruebas formales permiten verificar que los requerimientos no se contradicen entre sí.</p></div>
+        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
         <div class="text-col"><p><strong>Motores de reglas.</strong> Sistemas como Drools, Prolog (que se verá más adelante en el curso), o los motores de reglas en plataformas de inteligencia artificial operan exactamente aplicando variantes de modus ponens de manera automática.</p></div>
-        <div class="image-col"><img src="../../img/0094.jpg" alt="image" /></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
-        <div class="image-col"><img src="../../img/0013.jpg" alt="image" /></div>
         <div class="text-col"><p>Entender la base formal permite leer, depurar y extender esos sistemas con solidez.</p></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
       </div>
     </section>
     <section>
       <h2>Conexión con Sistemas: ¿Para qué sirve esto realmente?</h2>
       <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
         <div class="text-col"><p><strong>Protocolos de red.</strong> La verificación formal de protocolos de comunicación (como TLS, o los protocolos de consenso en sistemas distribuidos) utiliza sistemas de prueba formales más avanzados que tienen como fundamento exactamente las reglas de inferencia estudiadas aquí.</p></div>
-        <div class="image-col"><img src="../../img/0003.jpg" alt="image" /></div>
       </div>
     </section>
     <section class="full-image-slide">

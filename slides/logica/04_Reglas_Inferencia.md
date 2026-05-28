@@ -231,7 +231,7 @@ Antes de escribir la primera línea de una prueba, conviene seguir un proceso de
 
 ## Ejemplo 1 — Prueba con MP y SH
 
-**Contexto:** En una red corporativa: si un usuario intenta conectarse a la VPN, se verifica su identidad; si se verifica su identidad, se registra el acceso en el log de auditoría.
+**Contexto:** En una red corporativa: si un usuario intenta conectarse a la VPN, se verifica su identidad; si se verifica su identidad, se registra el acceso en el log de auditoría; el usuario intenta conectarse a la VPN.
 
 ---
 **Variables:**
@@ -259,7 +259,7 @@ Antes de escribir la primera línea de una prueba, conviene seguir un proceso de
 
 ***
 
-## Ejemplo 2 — Prueba con MT y SD
+## Ejemplo 2 — Prueba con MT
 
 **Contexto:** Un sistema de disponibilidad tiene la siguiente especificación:
 - Si el servidor principal está activo, el servicio responde en menos de 200 ms.
@@ -294,7 +294,7 @@ Antes de escribir la primera línea de una prueba, conviene seguir un proceso de
 
 ***
 
-## Ejemplo 3 — Prueba con Conj y MP
+## Ejemplo 3 — Prueba con MP
 
 **Contexto:** Una plataforma de pagos en línea establece: si el token de sesión es válido y el monto está dentro del límite autorizado, se aprueba la transacción; si la transacción es aprobada, se envía una notificación al usuario.
 
@@ -307,19 +307,19 @@ Antes de escribir la primera línea de una prueba, conviene seguir un proceso de
 
 ---
 **Premisas:**
-1. $p \land q$
-2. $(p \land q) \to r$
-3. $r \to s$
+1. $(p \land q) \to r$
+2. $r \to s$
+3. $p \land q$
 
 **Conclusión a demostrar:** $s$
 
 | Línea | Fórmula             | Justificación    |
 |-------|---------------------|------------------|
-| 1     | $p \land q$         | Premisa          |
-| 2     | $(p \land q) \to r$ | Premisa          |
-| 3     | $r \to s$           | Premisa          |
-| 4     | $r$                 | MP, líneas 2 y 1 |
-| 5     | $s$                 | MP, líneas 3 y 4 |
+| 1     | $(p \land q) \to r$ | Premisa          |
+| 2     | $r \to s$           | Premisa          |
+| 3     | $p \land q$         | Premisa          |
+| 4     | $r$                 | MP, líneas 1 y 3 |
+| 5     | $s$                 | MP, líneas 2 y 4 |
 
 **Interpretación:** La sesión es válida y el monto está autorizado; por lo tanto, la transacción se aprueba y el usuario recibe su notificación.
 
@@ -341,7 +341,7 @@ Antes de escribir la primera línea de una prueba, conviene seguir un proceso de
 - $e$: el usuario tiene autorización especial
 - $v$: el usuario puede ver los registros
 - $c$: los registros están clasificados
-- $f$: el usuario debe firmar el acuerdo de confidencialidad
+- $f$: el usuario firma acuerdo de confidencialidad
 
 ---
 **Premisas:**
@@ -539,7 +539,7 @@ Los siguientes ejercicios se resuelven aplicando únicamente las reglas presenta
 
 ¿Entregó Luis el proyecto?
 
-*Tarea: Definir variables, traducir a fórmulas, construir la prueba y responder la pregunta con justificación formal.*
+Definir variables, traducir a fórmulas, construir la prueba y responder la pregunta con justificación formal.
 
 ***
 
@@ -563,7 +563,7 @@ La capacidad de construir pruebas formales es directamente aplicable en varias �
 
 **Verificación de políticas de acceso.** Los sistemas de control de acceso basado en roles (RBAC) y en atributos (ABAC) definen reglas que pueden modelarse como condicionales proposicionales. Verificar que una política es consistente (no permite accesos contradictorios) equivale a buscar pruebas o refutaciones en un sistema lógico.
 
-**Especificación de requisitos.** Al documentar requisitos de un sistema, expresiones como "si el usuario es administrador, puede modificar configuraciones" son condicionales proposicionales. Las pruebas formales permiten verificar que los requisitos no se contradicen entre sí.
+**Especificación de requerimientos.** Al documentar requerimientos de un sistema, expresiones como "si el usuario es administrador, puede modificar configuraciones" son condicionales proposicionales. Las pruebas formales permiten verificar que los requerimientos no se contradicen entre sí.
 
 **Motores de reglas.** Sistemas como Drools, Prolog (que se verá más adelante en el curso), o los motores de reglas en plataformas de inteligencia artificial operan exactamente aplicando variantes de modus ponens de manera automática. Entender la base formal permite leer, depurar y extender esos sistemas con solidez.
 

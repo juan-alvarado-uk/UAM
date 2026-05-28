@@ -37,7 +37,7 @@ El **discriminante** es el atributo (o conjunto) que, combinado con el identific
 
 **Ejemplo — lecturas de sensores:**
 
-![sensor-lectura.png](sensor-lectura.png)
+![sensor_lectura_3.png](sensor_lectura_3.png)
 ---
 
 `LECTURA` es débil: su identificación completa requiere `id_sensor` + `timestamp`. Dos sensores distintos pueden generar una lectura en el mismo instante; el `timestamp` solo no basta.
@@ -57,8 +57,7 @@ Un **atributo multivaluado** puede contener más de un valor para la misma ocurr
 
 **Ejemplo — autenticación multi-factor:**
 
-
-![multivaluado-MultifactorAutenticacion.png](multivaluado-MultifactorAutenticacion.png)
+![Multivaluado_multifactor.png](Multivaluado_multifactor.png)
 ---
 
 Un usuario puede tener entre cero y varios métodos activos simultáneamente.
