@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>¿Modelo semántico?</h1>
+    </section>
+    <section>
+      <h2>¿Modelo semántico?</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un <strong>modelo semántico de datos</strong> es un modelo conceptual cuyo objetivo es capturar el <em>significado</em> del dominio: qué tipos de cosas existen, qué restricciones impone el mundo real y cómo se relacionan los conceptos, todo antes de pensar en tablas o índices.</p></div>
+        <div class="image-col"><img src="../../img/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Modelo semántico?</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El modelo relacional plano puede representar cualquier cosa, pero a veces lo hace con dificultad.</p><p>Imagínense el archivo de un hospital con una única tabla <code>PERSONA(id, nombre, especialidad, cedula_prof, num_expediente, alergias, turno, area)</code>.</p></div>
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Modelo semántico?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>Forzar médicos, pacientes y administrativos en la misma tabla produce columnas con valores nulos para la mayoría de los registros e impide imponer restricciones por tipo, como que <em>todo médico debe tener cédula profesional</em>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Modelo semántico?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0013.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un modelo semántico resuelve esto con jerarquías, herencia y tipos especializados.</p><p>Esta es precisamente la idea de partida del <strong>Modelo Entidad-Relación Extendido (EER)</strong>: enriquecer el modelo E-R clásico para describir el dominio con mayor claridad antes de transformarlo al modelo relacional.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>El Modelo Entidad-Relación Extendido (EER)</h1>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El <strong>EER</strong> (<em>Enhanced Entity-Relationship</em>) es una extensión del E-R clásico que agrega mecanismos para representar mejor el significado de los datos mediante jerarquías, dependencias y estructuras conceptuales más expresivas.</p></div>
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Conserva los elementos básicos del modelo E-R y añade cuatro constructores fundamentales:</p></div>
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0103.png" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Especialización / Generalización</strong> — jerarquías entre tipos de entidades con herencia.</li><li><strong>Atributos multivaluados</strong> — atributos que pueden tomar más de un valor por ocurrencia.</li><li><strong>Entidades débiles</strong> — entidades cuya identidad depende de otra entidad.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Agregación</strong> — tratamiento de una relación como unidad conceptual de nivel superior.</li></ul></div>
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>El Modelo Entidad-Relación Extendido (EER)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Estas extensiones permiten distinguir con mayor precisión qué atributos son comunes, cuáles son propios de ciertos subtipos y qué restricciones dependen de la estructura del dominio, no solo de decisiones de implementación.</p></div>
+        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Notación base</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0079.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Rectángulo simple / doble</strong> → entidad fuerte / débil.</li><li><strong>Elipse simple / doble / discontinua</strong> → atributo simple / multivaluado / derivado.</li><li><strong>Atributo subrayado</strong> → atributo identificador; <strong>subrayado discontinuo</strong> → discriminante.</li><li><strong>Rombo simple / doble</strong> → relación normal / relación identificadora.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Notación base</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Línea doble / simple</strong> en la conexión entidad–relación → participación total / parcial.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Notación base</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+        <div class="text-col"><p><img src="EER_simbologia.png" alt="EER_simbologia.png" /></p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Especialización y generalización</h1>
+    </section>
+    <section>
+      <h2>Especialización y generalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una de las principales ventajas del EER es que permite representar <strong>jerarquías de tipos</strong>.</p></div>
+        <div class="image-col"><img src="../../img/0076.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Especialización y generalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En estas jerarquías aparece una <strong>superclase</strong>, que concentra lo común, y una o varias <strong>subclases</strong>, que añaden propiedades o relaciones particulares; las subclases heredan automáticamente los atributos y relaciones de la superclase.</p></div>
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Especialización y generalización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0075.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Especialización</strong> (<em>top-down</em>): se parte de una <strong>superclase</strong> y se identifican subgrupos con atributos o relaciones adicionales; cada subgrupo se convierte en <strong>subclase</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Especialización y generalización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0017.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Generalización</strong> (<em>bottom-up</em>): se parte de varias entidades con atributos comunes y se factorizan en una nueva superclase.</p><p>Ambos procesos producen el mismo resultado en el diagrama: una <strong>jerarquía</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Especialización y generalización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0092.jpg" alt="image" /></div>
+        <div class="text-col"><p>La <strong>herencia</strong> garantiza que cada subclase adquiere automáticamente todos los atributos y relaciones de su superclase.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Restricciones de la jerarquía</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Al definir una jerarquía, hay que responder dos preguntas fundamentales.</p><p><strong>Disjunción</strong> — ¿puede una ocurrencia pertenecer a más de una subclase?</p>
+<ul><li><code>d</code> — <strong>Disjunta</strong>: pertenece a lo sumo a una subclase.</li><li><code>o</code> — <strong>Superpuesta</strong>: puede pertenecer a varias.</li></ul></div>
+        <div class="image-col"><img src="../../img/0076.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Restricciones de la jerarquía</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
+        <div class="text-col"><p><strong>Completitud</strong> — ¿Toda ocurrencia de la superclase pertenece a alguna subclase?</p>
+<ul><li><strong>Total</strong> (línea doble): toda ocurrencia pertenece al menos a una subclase.</li><li><strong>Parcial</strong> (línea simple): algunas ocurrencias pueden no pertenecer a ninguna.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo — red de sensores (disjunta, total)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><img src="EER_disjunta_total.png" alt="EER_disjunta_total.png" /></p></div>
+        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo — red de sensores (disjunta, total)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Todo dispositivo es exactamente uno de los tres tipos.</p><p>Los atributos comunes se definen una sola vez en la superclase.</p></div>
+        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En un sistema educativo, un enfoque puramente relacional podría concentrar todo en una sola tabla de usuarios con muchas columnas opcionales (matrícula, área académica, salario, promedio, rol administrativo, etc.).</p></div>
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esto funciona técnicamente, pero expresa mal el dominio y dificulta distinguir qué atributos corresponden realmente a cada tipo de persona.</p></div>
+        <div class="image-col"><img src="../../img/0045.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+        <div class="text-col"><p>Desde una perspectiva semántica, resulta mejor pensar en una entidad general <code>PERSONA</code> y en subtipos con propiedades particulares, de modo que el modelo refleje que no todas las personas comparten las mismas características.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0098.png" alt="image" /></div>
+        <div class="text-col"><p>Este enfoque no solo mejora la comprensión, sino que también facilita la comunicación entre quienes diseñan el sistema, quienes lo implementan y quienes lo usan.</p><p>Las decisiones de diseño dejan de basarse únicamente en conveniencias técnicas y se alinean mejor con la lógica del dominio.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: “persona” y subtipos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Tabla única de usuarios:</strong><ul><li>Muchos campos opcionales.</li><li>Menor claridad semántica.</li></ul></li></ul>
+<ul><li><strong>Modelo EER con <code>PERSONA</code> y subtipos:</strong><ul><li>Atributos mejor distribuidos.</li><li>Mejor alineación con el dominio educativo.</li></ul></li></ul></div>
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Tabla base: PERSONA</h1>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta tabla concentra lo que es común a todas las personas del sistema.</p></div>
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <pre><code class="language-sql">CREATE TABLE persona (
+    id_persona      INT PRIMARY KEY,
+    nombre          VARCHAR(100) NOT NULL,
+    apellido        VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE,
+    correo          VARCHAR(150),
+    telefono        VARCHAR(50)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Tabla base: PERSONA</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>fecha_nacimiento</th><th>correo</th><th>telefono</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ana</td><td>López</td><td>2000-05-10</td><td>ana.lopez@cua.uam.mx</td><td>555-111-1111</td></tr>
+<tr><td>2</td><td>Juan</td><td>Alvarado</td><td>1980-03-22</td><td>jalvarado@cua.uam.mx</td><td>555-222-2222</td></tr>
+<tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>1975-11-15</td><td>beatriz.sanchez@cua.uam.mx</td><td>555-333-3333</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: ESTUDIANTE</h1>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
+        <div class="text-col"><p>Solo aplica a quienes tienen rol de estudiante, por ejemplo matrícula, promedio o programa.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <pre><code class="language-sql">CREATE TABLE estudiante (
+    id_persona      INT PRIMARY KEY,
+    matricula       VARCHAR(20) NOT NULL,
+    programa        VARCHAR(100),
+    promedio        DECIMAL(3,2),
+    fecha_ingreso   DATE,
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: ESTUDIANTE</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: PROFESOR</h1>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Solo aplica a quienes tienen rol docente, por ejemplo área académica, categoría o salario.</p></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <pre><code class="language-sql">CREATE TABLE profesor (
+    id_persona      INT PRIMARY KEY,
+    area_academica  VARCHAR(100),
+    categoria       VARCHAR(50),   
+    salario         DECIMAL(10,2),
+    fecha_contratacion DATE,
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: PROFESOR</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>Tecnologías</td><td>Asistente</td><td>45000.00</td><td>2025-01-10</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Subtipo: ADMINISTRATIVO</h1>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Solo aplica a roles administrativos, por ejemplo área administrativa, puesto o tipo de contrato.</p></div>
+        <div class="image-col"><img src="../../img/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <pre><code class="language-sql">CREATE TABLE administrativo (
+    id_persona      INT PRIMARY KEY,
+    area_admin      VARCHAR(100),
+    puesto          VARCHAR(100),
+    tipo_contrato   VARCHAR(50),
+    salario         DECIMAL(10,2),
+    FOREIGN KEY (id_persona) REFERENCES persona(id_persona)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Subtipo: ADMINISTRATIVO</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000.00</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de ESTUDIANTE con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para ver la información completa de estudiantes, combinamos lo común (<code>persona</code>) con lo específico (<code>estudiante</code>).</p><p>Esta es una forma típica de reconstruir una jerarquía cuando se ha mapeado a varias tablas.</p></div>
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    e.matricula,
+    e.programa,
+    e.promedio,
+    e.fecha_ingreso
+FROM persona p
+JOIN estudiante e
+    ON p.id_persona = e.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>matricula</th><th>programa</th><th>promedio</th><th>fecha_ingreso</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ana</td><td>López</td><td>ana.lopez@cua.uam.mx</td><td>A0123456</td><td>Ingeniería en Sistemas</td><td>9.1</td><td>2019-08-15</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ESTUDIANTE con JOIN</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El <code>JOIN</code> reconstruye el subtipo <code>ESTUDIANTE</code> como una vista unificada, sin columnas opcionales innecesarias.</p></div>
+        <div class="image-col"><img src="../../img/0062.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de PROFESOR con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    pr.area_academica,
+    pr.categoria,
+    pr.salario,
+    pr.fecha_contratacion
+FROM persona p
+JOIN profesor pr
+    ON p.id_persona = pr.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de PROFESOR con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_academica</th><th>categoria</th><th>salario</th><th>fecha_contratacion</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>Juan</td><td>Alvarado</td><td>jalvarado@cua.uam.mx</td><td>Tecnologías</td><td>Asistente</td><td>45000</td><td>2025-01-10</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Reconstruir la vista de ADMINISTRATIVO con JOIN</h1>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
+      <pre><code class="language-sql">SELECT 
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    p.correo,
+    a.area_admin,
+    a.puesto,
+    a.tipo_contrato,
+    a.salario
+FROM persona p
+JOIN administrativo a
+    ON p.id_persona = a.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Reconstruir la vista de ADMINISTRATIVO con JOIN</h2>
+      <table>
+        <thead><tr><th>id_persona</th><th>nombre</th><th>apellido</th><th>correo</th><th>area_admin</th><th>puesto</th><th>tipo_contrato</th><th>salario</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>Beatriz</td><td>Sánchez</td><td>beatriz.sanchez@cua.uam.mx</td><td>Servicios Escolares</td><td>Coordinadora de área</td><td>Tiempo completo</td><td>38000</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>Vista unificada con tipo de persona</h1>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para generar una vista que muestre todas las personas con su tipo y algunos atributos específicos, se puede usar <code>LEFT JOIN</code> y una columna derivada para clasificar cada fila.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <pre><code class="language-sql">SELECT
+    p.id_persona,
+    p.nombre,
+    p.apellido,
+    CASE 
+        WHEN e.id_persona IS NOT NULL THEN &#39;ESTUDIANTE&#39;
+        WHEN pr.id_persona IS NOT NULL THEN &#39;PROFESOR&#39;
+        WHEN a.id_persona IS NOT NULL THEN &#39;ADMINISTRATIVO&#39;
+        ELSE &#39;DESCONOCIDO&#39;
+    END AS tipo_persona,
+    e.matricula,
+    e.programa,
+    pr.area_academica,
+    pr.categoria,
+    a.area_admin,
+    a.puesto
+FROM persona p
+LEFT JOIN estudiante e
+    ON p.id_persona = e.id_persona
+LEFT JOIN profesor pr
+    ON p.id_persona = pr.id_persona
+LEFT JOIN administrativo a
+    ON p.id_persona = a.id_persona;</code></pre>
+    </section>
+    <section>
+      <h2>Vista unificada con tipo de persona</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este tipo de consulta muestra cómo, partiendo de un diseño semánticamente más claro (<code>persona</code> + subtipos), se pueden reconstruir “usuarios” con sus propiedades sin recurrir a una única tabla llena de campos opcionales.</p></div>
+        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se diseña la base de datos de una biblioteca universitaria.</p><p>Los usuarios son: estudiantes de licenciatura, estudiantes de posgrado, profesores e investigadores externos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
+        <div class="text-col"><p>Algunos profesores también cursan posgrado en la misma institución; algunos investigadores externos son profesores de otra institución.</p>
+<ul><li>¿Cuál es la superclase?</li><li>¿La especialización es disjunta o superpuesta?</li><li>¿Total o parcial?</li><li>Justificar respuestas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Entidades débiles</h1>
+    </section>
+    <section>
+      <h2>Entidades débiles</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una <strong>entidad débil</strong> no posee atributos propios suficientes para identificar sus ocurrencias de forma única.</p><p>Depende de una <strong>entidad identificadora</strong> o fuerte tanto para su identidad como, en muchos casos, para su existencia.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Entidades débiles</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0090.jpg" alt="image" /></div>
+        <div class="text-col"><p>El <strong>discriminante</strong> es el atributo —o conjunto de atributos— que, combinado con el identificador de la entidad propietaria, distingue cada ocurrencia.</p><p>La relación que las une es la <strong>relación identificadora</strong> y suele representarse con rombo doble.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Entidades débiles</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Ejemplo</strong> <img src="EER-Sensores-Lecturas.png" alt="EER-Sensores-Lecturas.png" /></p></div>
+        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Entidades débiles</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><code>LECTURA</code> es débil: su identificación completa requiere <code>id_sensor</code> + <code>timestamp</code>.</p><p>Dos sensores distintos pueden generar una lectura en el mismo instante; el <code>timestamp</code> solo no basta.</p></div>
+        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Entidades débiles</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Cuándo reconocer una entidad débil</strong> — se cumplen las tres condiciones:</p>
+<ol><li>No tiene identificador propio suficiente.</li><li>Su ciclo de vida está ligado al de la entidad propietaria.</li><li>Sus ocurrencias solo se distinguen <em>dentro</em> del contexto de esa entidad propietaria.</li></ol></div>
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Atributos multivaluados</h1>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un <strong>atributo multivaluado</strong> puede contener más de un valor para la misma ocurrencia.</p><p>Se representa con <strong>elipse doble</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El modelo relacional no los admite directamente en una sola columna si se quiere mantener una estructura normalizada, por lo que en el nivel conceptual se declaran como tales y su implementación se decide después.</p></div>
+        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Ejemplo — atributo multivaluado</strong></p><p><img src="EER_Multivaluado.png" alt="EER_Multivaluado.png" /></p></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un usuario puede tener entre cero y varios teléfonos.</p></div>
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Distinción: multivaluado vs compuesto</strong></p><p>Un atributo <strong>compuesto</strong> tiene partes con significado propio (<code>dirección</code> → calle, número, colonia).</p><p>En cambio, un atributo <strong>multivaluado</strong> tiene múltiples ocurrencias del mismo tipo (<code>teléfono</code> → varios números).</p></div>
+        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Atributos multivaluados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un atributo puede ser ambas cosas a la vez.</p></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Agregación</h1>
+    </section>
+    <section>
+      <h2>Agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+        <div class="text-col"><p>La <strong>agregación</strong> permite tratar una relación —junto con las entidades que conecta— como una entidad de nivel superior, de modo que esa relación pueda participar en otras relaciones.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+        <div class="text-col"><p>Esto resuelve el caso en que “una relación entre A y B tiene a su vez una relación con C”, algo que el E-R básico expresa con mayor dificultad.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Ejemplo — técnicos en proyectos de infraestructura:</strong> <img src="EER_tecnicos-proyectos-equipos-Agregacion.png" alt="EER_tecnicos-proyectos-equipos-Agregacion.png" /></p></div>
+        <div class="image-col"><img src="../../img/0096.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Agregación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Los equipos no se asignan al técnico ni al proyecto por separado; se asignan a la <em>combinación específica</em> técnico+proyecto.</p><p>La agregación permite expresar esa idea sin introducir entidades artificiales innecesarias.</p></div>
+        <div class="image-col"><img src="../../img/0042.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>E-R simple vs. EER — mismo problema</h1>
+    </section>
+    <section>
+      <h2>E-R simple vs. EER — mismo problema</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0031.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Dominio:</strong> red de sensores en una ciudad inteligente, en la que se tienen dispositivos de diferentes tipos y de los cuales los sensores generan lecturas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo E-R simple</h2>
+      <pre><code class="language-sql">-- Tabla única para todos los tipos de dispositivo
+CREATE TABLE dispositivo (
+    id_disp        VARCHAR(20)  PRIMARY KEY,
+    tipo_disp      VARCHAR(15)  NOT NULL,   -- &#39;sensor&#39; | &#39;actuador&#39; | &#39;gateway&#39;
+    ubicacion_lat  DECIMAL(9,6),
+    ubicacion_lon  DECIMAL(9,6),
+    estado         VARCHAR(15),
+    fabricante     VARCHAR(50),
+    -- atributos de SENSOR (NULL para actuadores y gateways)
+    tipo_medida    VARCHAR(30),
+    frecuencia_hz  FLOAT,
+    rango_min      FLOAT,
+    rango_max      FLOAT,
+    -- atributos de ACTUADOR (NULL para sensores y gateways)
+    tipo_accion    VARCHAR(30),
+    voltaje_op     FLOAT,
+    -- atributos de GATEWAY (NULL para sensores y actuadores)
+    protocolo      VARCHAR(20),
+    nodos_max      INTEGER
+);
+
+-- Lecturas generadas por cualquier dispositivo
+CREATE TABLE lectura (
+    id_disp    VARCHAR(20)  REFERENCES dispositivo(id_disp),
+    ts         TIMESTAMP    NOT NULL,
+    valor      FLOAT,
+    unidad     VARCHAR(10),
+    PRIMARY KEY (id_disp, ts)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo E-R simple</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0100.png" alt="image" /></div>
+        <div class="text-col"><p>Problemas:</p>
+<ul><li><code>NULL</code> masivos.</li><li>Restricciones de dominio no expresables con claridad.</li><li>Extender el esquema obliga a modificar la tabla completa.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo E-R simple</h2>
+      <table>
+        <thead><tr><th>id_disp</th><th>tipo_disp</th><th>frecuencia_hz</th><th>tipo_accion</th><th>protocolo</th><th>...</th></tr></thead>
+        <tbody>
+          <tr><td>S001</td><td>sensor</td><td>1.0</td><td>NULL</td><td>NULL</td><td>...</td></tr>
+<tr><td>A001</td><td>actuador</td><td>NULL</td><td>abrir_valvula</td><td>NULL</td><td>...</td></tr>
+<tr><td>G001</td><td>gateway</td><td>NULL</td><td>NULL</td><td>LoRa</td><td>...</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Modelo E-R simple</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El esquema no impide asignar <code>tipo_accion</code> a un sensor, ni impone que todo sensor tenga <code>frecuencia_hz</code>.</p><p>Esas reglas tendrían que resolverse fuera del modelo conceptual, por ejemplo en código de aplicación.</p></div>
+        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><img src="EER_equivalente.png" alt="EER_equivalente.png" /></p><p>Se generan cinco tablas: una para la superclase, una por cada subclase y una para <code>LECTURA</code>, que se modela como entidad débil.</p><p>Esta organización reduce nulos y refleja mejor las restricciones del dominio.</p></div>
+        <div class="image-col"><img src="../../img/0067.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">-- Superclase: atributos comunes a todos los tipos
+CREATE TABLE dispositivo (
+    id_dispositivo  VARCHAR(20)  PRIMARY KEY,
+    ubicacion_lat   DECIMAL(9,6) NOT NULL,
+    ubicacion_lon   DECIMAL(9,6) NOT NULL,
+    estado          VARCHAR(15)  NOT NULL,
+    fabricante      VARCHAR(50),
+    fecha_inst      DATE
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">-- Subclase SENSOR: solo sus atributos propios + referencia a superclase
+CREATE TABLE sensor (
+    id_dispositivo  VARCHAR(20)  PRIMARY KEY
+                                 REFERENCES dispositivo(id_dispositivo)
+                                 ON DELETE CASCADE,
+    tipo_medida     VARCHAR(30)  NOT NULL,
+    frecuencia_hz   FLOAT        NOT NULL,
+    rango_min       FLOAT,
+    rango_max       FLOAT
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">-- Subclase ACTUADOR
+CREATE TABLE actuador (
+    id_dispositivo  VARCHAR(20)  PRIMARY KEY
+                                 REFERENCES dispositivo(id_dispositivo)
+                                 ON DELETE CASCADE,
+    tipo_accion     VARCHAR(30)  NOT NULL,
+    voltaje_op      FLOAT        NOT NULL
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">-- Subclase GATEWAY
+CREATE TABLE gateway (
+    id_dispositivo  VARCHAR(20)  PRIMARY KEY
+                                 REFERENCES dispositivo(id_dispositivo)
+                                 ON DELETE CASCADE,
+    protocolo       VARCHAR(20)  NOT NULL,
+    nodos_max       INTEGER
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">-- Entidad débil LECTURA: identificada por (id_dispositivo + ts)
+CREATE TABLE lectura (
+    id_dispositivo  VARCHAR(20)  NOT NULL
+                                 REFERENCES sensor(id_dispositivo)
+                                 ON DELETE CASCADE,
+    ts              TIMESTAMP    NOT NULL,
+    valor           FLOAT        NOT NULL,
+    unidad          VARCHAR(10),
+    calidad_señal   FLOAT,
+    PRIMARY KEY (id_dispositivo, ts)
+);</code></pre>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para insertar un sensor se insertan dos filas: primero en <code>dispositivo</code> y luego en <code>sensor</code>.</p><p>Por las restricciones definidas, no puede existir una fila en <code>sensor</code> sin su correspondiente fila en <code>dispositivo</code>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0104.png" alt="image" /></div>
+        <div class="text-col"><p>Para ver todos los datos de un sensor se hace <code>JOIN</code>; esta es la forma habitual de reconstruir una jerarquía mapeada a varias tablas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo EER equivalente</h2>
+      <pre><code class="language-sql">SELECT d.id_dispositivo, d.ubicacion_lat, d.ubicacion_lon,
+       s.tipo_medida, s.frecuencia_hz
+FROM   dispositivo d
+JOIN   sensor s ON d.id_dispositivo = s.id_dispositivo
+WHERE  d.id_dispositivo = &#39;S001&#39;;</code></pre>
+    </section>
+    <section>
+      <h2>Limitaciones que el EER suaviza</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Jerarquías de tipos → especialización/generalización.</li><li><code>NULL</code> masivos → subclases con solo sus atributos propios.</li><li>Dependencias de existencia → entidades débiles.</li><li>Atributos con múltiples valores → atributos multivaluados.</li><li>Relaciones que participan en relaciones → agregación.</li></ul></div>
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Limitaciones que el EER suaviza</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Lo que el EER no resuelve:</strong> comportamiento, encapsulamiento, identidad de objeto independiente del valor o polimorfismo; eso pertenece ya al modelo orientado a objetos.</p></div>
+        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una vez definido el modelo EER, la jerarquía debe traducirse a tablas.</p><p>Existen varias estrategias; cada una tiene ventajas y costos.</p></div>
+        <div class="image-col"><img src="../../img/0066.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Estrategia 1 — Una tabla para toda la jerarquía:</strong> todos los atributos de superclase y subclases en una sola tabla con una columna discriminante.</p><p>Ventaja: sin <code>JOIN</code>.</p><p>Desventaja: muchos <code>NULL</code>.</p></div>
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Estrategia 2 — Tabla de superclase + tabla por subclase:</strong> la superclase tiene su tabla; cada subclase tiene la suya con solo sus atributos propios, ligada por el identificador.</p><p>Ventaja: modelo más limpio y normalizado.</p><p>Desventaja: se requieren <code>JOIN</code> para reconstruir la entidad completa.</p></div>
+        <div class="image-col"><img src="../../img/0006.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Las tres estrategias de mapeo de jerarquías al modelo relacional</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0102.png" alt="image" /></div>
+        <div class="text-col"><p><strong>Estrategia 3 — Solo tablas de subclases:</strong> los atributos de la superclase se duplican en cada subclase.</p><p>Ventaja: sin <code>JOIN</code> para consultar una subclase específica.</p><p>Desventaja: redundancia y necesidad de <code>UNION</code> para consultar toda la superclase.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Representación tabular del E-R y EER</h1>
+    </section>
+    <section>
+      <h2>Representación tabular del E-R y EER</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una base de datos diseñada con E-R o EER puede representarse finalmente como una colección de tablas.</p></div>
+        <div class="image-col"><img src="../../img/0048.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Representación tabular del E-R y EER</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
+        <div class="text-col"><p>En general, las entidades fuertes se convierten en tablas propias, las entidades débiles incorporan la clave de su entidad fuerte, los atributos compuestos se descomponen en atributos simples, los multivaluados suelen requerir tablas adicionales y las relaciones se representan con tablas que incorporan las claves de las entidades participantes.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Representación tabular del E-R y EER</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En otras palabras, el EER no sustituye al modelo relacional: lo prepara.</p><p>Primero ayuda a entender mejor el dominio; después, ese conocimiento se traduce a tablas según la estrategia de diseño elegida.</p></div>
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Actividad — App para escribir música</h1>
+    </section>
+    <section>
+      <h2>Actividad — App para escribir música</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Definir el modelo EER para una aplicación de escritura de música.</p></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Entregable</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Diagrama EER</strong> con:</p>
+<ul><li>jerarquía de especialización (restricciones explícitas);</li><li>atributos multivaluados (si hay);</li><li>entidades débiles (si hay) con discriminante;</li><li>agregación si aplica.</li></ul></div>
+        <div class="image-col"><img src="../../img/0047.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

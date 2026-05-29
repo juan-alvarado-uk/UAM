@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pruebas_formales</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h1>Práctica de pruebas formales y modelado en lógica de proposiciones</h1>
+<p>Esta práctica se centra en construir pruebas formales cortas y en modelar pequeños problemas con lógica de proposiciones, usando únicamente las reglas de inferencia vistas en clase.<br>
+El material está pensado para trabajo autónomo en dos horas, como hoja entregable para calificación.</p>
+<hr>
+<h2>Objetivo general de la práctica</h2>
+<p>Una prueba formal es una secuencia de fórmulas numeradas, donde cada línea es una premisa o se obtiene aplicando una regla de inferencia correcta a fórmulas de líneas anteriores.<br>
+El objetivo es practicar el uso ordenado de estas reglas para derivar conclusiones a partir de premisas en ejercicios de 4 a 6 pasos, además de modelar un problema sencillo desde lenguaje natural.</p>
+<hr>
+<h2>Instrucciones de trabajo</h2>
+<p>Una proposición es un enunciado que puede ser verdadero o falso; las fórmulas se construyen combinando proposiciones con conectivos como negación, conjunción, disyunción, condicional y bicondicional.<br>
+En esta práctica se usan reglas de inferencia básicas junto con equivalencias lógicas estudiadas en sesiones previas.</p>
+<ul>
+<li>Escribir claramente y limpiamente las respuestas.</li>
+<li>Resolver todos ejercicios de prueba formal de los que aparecen más adelante.</li>
+<li>Numerar todas las líneas de cada prueba e indicar la justificación (Premisa, MP, MT, SH, SD, Ad, Simp, Conj, DN, Trans, DeMorgan, etc.).</li>
+</ul>
+<p>$$alguna_cosa$$</p>
+<hr>
+<h2>Recordatorio: reglas de inferencia permitidas</h2>
+<p>Una regla de inferencia es un patrón que preserva la verdad: si las fórmulas de la parte superior del patrón son verdaderas, la fórmula de la parte inferior también lo es.<br>
+En esta práctica solo se usan las reglas listadas a continuación, que coinciden con las vistas en la sesión de reglas de inferencia y en la práctica de referencia.</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Hipótesis</th>
+<th>Conclusión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modus Ponens (MP)</td>
+<td>$p \rightarrow q$,$p$</td>
+<td>$q$</td>
+</tr>
+<tr>
+<td>Modus Tollens (MT)</td>
+<td>$p \rightarrow q$,$\neg q$</td>
+<td>$\neg p$</td>
+</tr>
+<tr>
+<td>Silogismo hipotético (SH)</td>
+<td>$p \rightarrow q$,$q \rightarrow r$</td>
+<td>$p \rightarrow r$</td>
+</tr>
+<tr>
+<td>Silogismo disyuntivo (SD)</td>
+<td>$p \lor q$,$\neg p$</td>
+<td>$q$</td>
+</tr>
+<tr>
+<td>Adición (Ad)</td>
+<td>$p$</td>
+<td>$p \lor q$</td>
+</tr>
+<tr>
+<td>Simplificación (Simp)</td>
+<td>$p \land q$</td>
+<td>$p$, $q$</td>
+</tr>
+<tr>
+<td>Conjunción (Conj)</td>
+<td>$p$,$q$</td>
+<td>$p \land q$</td>
+</tr>
+<tr>
+<td>Doble negación (DN)</td>
+<td>$p \equiv \neg\neg p$</td>
+<td>$p \equiv \neg\neg p$</td>
+</tr>
+<tr>
+<td>Transposición (Trans)</td>
+<td>$p \rightarrow q$</td>
+<td>$\neg q \rightarrow \neg p$</td>
+</tr>
+<tr>
+<td>De Morgan (DM)</td>
+<td>$\neg(p \land q) \equiv \neg p \lor \neg q$</td>
+<td>forma equivalente.</td>
+</tr>
+<tr>
+<td>De Morgan (DM)</td>
+<td>$\neg(p \lor q) \equiv \neg p \land \neg q$</td>
+<td>forma equivalente.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Recordatorio: leyes de simplificación por equivalencias</h2>
+<p>Una equivalencia lógica relaciona dos fórmulas con la misma tabla de verdad, de manera que cualquiera puede sustituir a la otra sin cambiar el significado de la condición.<br>
+Las siguientes leyes se usan para simplificar fórmulas y para transformar condicionales y bicondicionales en expresiones con$\land$,$\lor$y$\neg$, sobre todo al preparar pruebas o formas normales.</p>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Esquema equivalente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idempotencia ($\land$)</td>
+<td>$p \land p \equiv p$</td>
+</tr>
+<tr>
+<td>Idempotencia ($\lor$)</td>
+<td>$p \lor p \equiv p$</td>
+</tr>
+<tr>
+<td>Complemento (contradicción)</td>
+<td>$p \land \neg p \equiv F$</td>
+</tr>
+<tr>
+<td>Complemento (tautología)</td>
+<td>$p \lor \neg p \equiv V$</td>
+</tr>
+<tr>
+<td>Identidad ($\land$)</td>
+<td>$p \land V \equiv p$</td>
+</tr>
+<tr>
+<td>Identidad ($\lor$)</td>
+<td>$p \lor F \equiv p$</td>
+</tr>
+<tr>
+<td>Dominación ($\land$)</td>
+<td>$p \land F \equiv F$</td>
+</tr>
+<tr>
+<td>Dominación ($\lor$)</td>
+<td>$p \lor V \equiv V$</td>
+</tr>
+<tr>
+<td>Absorción ($\land$)</td>
+<td>$p \land (p \lor q) \equiv p$</td>
+</tr>
+<tr>
+<td>Absorción ($\lor$)</td>
+<td>$p \lor (p \land q) \equiv p$</td>
+</tr>
+<tr>
+<td>Conmutatividad ($\land$)</td>
+<td>$p \land q \equiv q \land p$</td>
+</tr>
+<tr>
+<td>Conmutatividad ($\lor$)</td>
+<td>$p \lor q \equiv q \lor p$</td>
+</tr>
+<tr>
+<td>Asociatividad ($\land$)</td>
+<td>$(p \land q) \land r \equiv p \land (q \land r)$</td>
+</tr>
+<tr>
+<td>Asociatividad ($\lor$)</td>
+<td>$(p \lor q) \lor r \equiv p \lor (q \lor r)$</td>
+</tr>
+<tr>
+<td>Distributiva ($\land$sobre$\lor$)</td>
+<td>$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$</td>
+</tr>
+<tr>
+<td>Distributiva ($\lor$sobre$\land$)</td>
+<td>$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$</td>
+</tr>
+<tr>
+<td>De Morgan ($\land$)</td>
+<td>$\neg(p \land q) \equiv \neg p \lor \neg q$</td>
+</tr>
+<tr>
+<td>De Morgan ($\lor$)</td>
+<td>$\neg(p \lor q) \equiv \neg p \land \neg q$</td>
+</tr>
+<tr>
+<td>Doble negación</td>
+<td>$\neg\neg p \equiv p$</td>
+</tr>
+<tr>
+<td>Condicional–disyunción</td>
+<td>$p \rightarrow q \equiv \neg p \lor q$</td>
+</tr>
+<tr>
+<td>Bicondicional (condicionales)</td>
+<td>$p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)$</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Ejemplo resuelto de referencia (en tabla)</h2>
+<p>Un ejemplo resuelto sirve como guía del tipo de prueba que se espera en la hoja: premisas numeradas, cada línea justificada y longitud moderada.<br>
+El contexto mezcla un escenario de sistemas con razonamiento por encadenamiento y descarte, muy similar a los ejercicios intermedios de la práctica adjunta.</p>
+<h3>Enunciado</h3>
+<p>En un sistema de respaldo:</p>
+<ul>
+<li>Si el respaldo automático está habilitado, los datos se replican cada hora.</li>
+<li>Si los datos se replican cada hora, entonces el historial de cambios se mantiene consistente.</li>
+<li>El historial de cambios no se mantiene consistente.</li>
+</ul>
+<p>¿Qué se puede concluir sobre el respaldo automático?</p>
+<h3>Variables</h3>
+<p>-$h$: el respaldo automático está habilitado.<br>
+-$r$: los datos se replican cada hora.<br>
+-$c$: el historial de cambios se mantiene consistente.</p>
+<h3>Premisas formales</h3>
+<p>1.$h \rightarrow r$
+2.$r \rightarrow c$
+3.$\neg c$</p>
+<h3>Conclusión a demostrar</h3>
+<p>$\neg h$</p>
+<h3>Prueba formal en tabla</h3>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Fórmula</th>
+<th>Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$h \rightarrow r$</td>
+<td>Premisa</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$r \rightarrow c$</td>
+<td>Premisa</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$\neg c$</td>
+<td>Premisa</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$h \rightarrow c$</td>
+<td>SH, 1 y 2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>$\neg h$</td>
+<td>MT, 4 y 3</td>
+</tr>
+</tbody>
+</table>
+<p>La lectura en lenguaje natural: si el respaldo automático estuviera habilitado, garantizaría que los datos se replican cada hora y, por lo tanto, que el historial es consistente; como el historial no es consistente, se concluye que el respaldo automático no estaba habilitado.</p>
+<hr>
+<h2>Hoja de ejercicios de prueba formal</h2>
+<p>Los siguientes ejercicios son de nivel básico a intermedio; cada uno requiere entre 4 y 6 pasos usando solo las reglas permitidas.<br>
+Se sugiere escoger al menos dos ejercicios de esta sección para desarrollarlos como parte de la entrega.</p>
+<hr>
+<h3>Ejercicio 1 — Cadena condicional con conclusión compuesta</h3>
+<p>Contexto<br>
+Si el servidor de aplicación está disponible, entonces las peticiones se atienden; si las peticiones se atienden, entonces el registro de actividad se actualiza; el servidor de aplicación está disponible.</p>
+<p>Variables</p>
+<p>-$s$: el servidor de aplicación está disponible.<br>
+-$p$: las peticiones se atienden.<br>
+-$r$: el registro de actividad se actualiza.</p>
+<p>Premisas</p>
+<p>1.$s \rightarrow p$
+2.$p \rightarrow r$
+3.$s$</p>
+<p>Conclusión</p>
+<p>$p \land r$</p>
+<hr>
+<h3>Ejercicio 2 — Disyunción y descarte en monitoreo</h3>
+<p>Contexto<br>
+Si la CPU está sobrecargada o la memoria está sobrecargada, entonces se genera una alerta; si se genera una alerta, entonces se envía un correo al administrador; no se envió correo al administrador; hay sobrecarga en CPU o hay sobrecarga en memoria.</p>
+<p>Variables</p>
+<p>-$c$: la CPU está sobrecargada.<br>
+-$m$: la memoria está sobrecargada.<br>
+-$a$: se genera una alerta.<br>
+-$e$: se envía un correo al administrador.</p>
+<p>Premisas</p>
+<p>1.$(c \lor m) \rightarrow a$
+2.$a \rightarrow e$
+3.$\neg e$
+4.$c \lor m$</p>
+<p>Conclusión</p>
+<p>$\neg (c \lor m)$</p>
+<hr>
+<h3>Ejercicio 3 — Conjunción, simplificación y nueva conjunción</h3>
+<p>Contexto<br>
+El sistema está en modo seguro y el registro de auditoría está activo; si el registro de auditoría está activo, se guardan eventos críticos; si el sistema está en modo seguro, se bloquean accesos no autorizados.</p>
+<p>Variables</p>
+<p>-$s$: el sistema está en modo seguro.<br>
+-$a$: el registro de auditoría está activo.<br>
+-$g$: se guardan eventos críticos.<br>
+-$b$: se bloquean accesos no autorizados.</p>
+<p>Premisas</p>
+<p>1.$s \land a$
+2.$a \rightarrow g$
+3.$s \rightarrow b$</p>
+<p>Conclusión</p>
+<p>$g \land b$</p>
+<hr>
+<h3>Ejercicio 4 — De Morgan y modus tollens en reservas</h3>
+<p>Contexto<br>
+Si el sistema no está en mantenimiento y hay conexión a la red, entonces se puede crear una reserva; si se puede crear una reserva, se envía un comprobante; no se envió comprobante.</p>
+<p>Variables</p>
+<p>-$m$: el sistema está en mantenimiento.<br>
+-$n$: hay conexión a la red.<br>
+-$r$: se puede crear una reserva.<br>
+-$c$: se envía un comprobante.</p>
+<p>Premisas</p>
+<p>1.$(\neg m \land n) \rightarrow r$
+2.$r \rightarrow c$
+3.$\neg c$</p>
+<p>Conclusión</p>
+<p>$m \lor \neg n$</p>
+<hr>
+<h2>Problema de modelado con prueba formal</h2>
+<p>Modelar es traducir un problema narrado a fórmulas de lógica de proposiciones y luego derivar una conclusión usando reglas de inferencia.<br>
+Este problema debe incluirse como parte de la entrega, con la estructura completa: variables, traducción, prueba y conclusión en lenguaje natural.</p>
+<h3>Enunciado</h3>
+<p>Si Ana lleva credencial y el sistema de acceso está activo, entonces entra al laboratorio; si Ana entra al laboratorio, entonces enciende el equipo; Ana no encendió el equipo.</p>
+<p>Variables</p>
+<ul>
+<li>Aquí pones tus variables</li>
+</ul>
+<p>Premisas formales</p>
+<ol>
+<li>Aquí pones tus premisas</li>
+</ol>
+<p>Conclusión a demostrar</p>
+<p>No es cierto que Ana lleva credencial y el sistema de acceso está activo.</p>
+<p>La conclusión debe acompañarse con una frase en lenguaje natural, por ejemplo: “no se puede afirmar que Ana tuviera credencial y que el sistema de acceso estuviera activo al mismo tiempo”.</p>
+<hr>
+<h2>Verificación antes de entregar</h2>
+<p>La verificación final de la hoja es análoga a revisar un programa: cada línea de código debe tener sentido y cada transición debe estar justificada.</p>
+<ul>
+<li>La última línea de cada prueba coincide exactamente con la conclusión indicada.</li>
+<li>Cada línea tiene una justificación clara (Premisa o nombre de regla con números de línea).</li>
+<li>No se utilizan reglas fuera de la tabla de reglas permitidas.</li>
+<li>El problema de modelado separa bien variables, premisas formales, prueba y conclusión en lenguaje natural.</li>
+</ul>
+
+</body>
+</html>
