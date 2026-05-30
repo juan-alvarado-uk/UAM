@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Bases de Datos Orientadas a Objetos (Parte 1)</h1>
+    </section>
+    <section>
+      <h1>Objetivos de aprendizaje</h1>
+    </section>
+    <section>
+      <h2>Objetivos de aprendizaje</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Explicar qué es la <strong>impedancia objeto‑relacional</strong> y por qué es un problema.</li><li>Describir los conceptos básicos del <strong>modelo orientado a objetos</strong> aplicado a bases de datos.</li><li>Diferenciar entre <strong>objetos transitorios</strong> y <strong>objetos persistentes</strong>.</li></ul></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Objetivos de aprendizaje</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0019.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Explicar el papel de los <strong>identificadores de objeto (OID)</strong> en una BDOO.</li><li>Describir cómo se navega en una BDOO usando referencias/enlaces en lugar de JOINs.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Recordatorio: Programación Orientada a Objetos</h1>
+    </section>
+    <section>
+      <h2>Conceptos fundamentales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Clase</strong>: plantilla o molde para crear objetos con atributos y métodos.</li><li><strong>Objeto</strong>: instancia concreta de una clase que vive en memoria.</li><li><strong>Atributo</strong>: dato o propiedad que caracteriza al objeto.</li><li><strong>Método</strong>: comportamiento o función asociada al objeto.</li></ul></div>
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Pilares de POO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0037.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Encapsulamiento</strong>: ocultar detalles internos y exponer solo una interfaz pública.</li><li><strong>Herencia</strong>: definir jerarquías de clases por especialización y reutilizar código.</li><li><strong>Polimorfismo</strong>: un mismo mensaje puede tener diferentes implementaciones según la clase concreta.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Identidad vs igualdad en objetos</h1>
+    </section>
+    <section>
+      <h2>Identidad vs igualdad en objetos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0049.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Dos objetos pueden tener los mismos valores en sus atributos y aun así ser objetos distintos.</li><li><strong>Igualdad</strong>: comparación de valores de atributos (<code>alumno1.nombre == alumno2.nombre</code>).</li><li><strong>Identidad</strong>: referencia única en memoria; dos objetos con misma información pueden tener identidades distintas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Identidad vs igualdad en objetos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>En memoria, la identidad suele estar dada por la dirección de memoria o referencia.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Identidad vs igualdad en objetos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta diferencia será fundamental cuando hablemos de bases de datos y <strong>OID</strong>.</p></div>
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo de clases en código (Python)</h1>
+    </section>
+    <section>
+      <h2>Ejemplo de clases en código (Python)</h2>
+      <pre><code class="language-python">class Alumno:
+    def __init__(self, matricula, nombre):
+        self.matricula = matricula
+        self.nombre = nombre
+        self.cursos = []  # Lista de objetos Curso
+
+    def inscribir(self, curso):
+        self.cursos.append(curso)
+        curso.agregar_alumno(self)
+
+class Curso:
+    def __init__(self, clave, nombre):
+        self.clave = clave
+        self.nombre = nombre
+        self.alumnos = []  # Lista de objetos Alumno
+
+    def agregar_alumno(self, alumno):
+        if alumno not in self.alumnos:
+            self.alumnos.append(alumno)</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo de clases en código (Python)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este ejemplo modela una relación muchos a muchos Alumno–Curso de forma natural en POO.</p></div>
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>¿Cómo se mapean estos objetos a tablas relacionales?</h1>
+    </section>
+    <section>
+      <h2>¿Cómo se mapean estos objetos a tablas relacionales?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0088.jpg" alt="image" /></div>
+        <div class="text-col"><p>De objetos a tablas relacionales</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tablas relacionales correspondientes</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0015.jpg" alt="image" /></div>
+        <div class="text-col"><p>Tablas relacionales del ejemplo anterior</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tabla Alumnos</h2>
+      <table>
+        <thead><tr><th>matricula</th><th>nombre</th></tr></thead>
+        <tbody>
+          <tr><td>2023001</td><td>Ana</td></tr>
+<tr><td>2023002</td><td>Carlos</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Tabla Cursos</h2>
+      <table>
+        <thead><tr><th>clave</th><th>nombre</th></tr></thead>
+        <tbody>
+          <tr><td>BD101</td><td>Bases de Datos</td></tr>
+<tr><td>POO01</td><td>POO Avanzada</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Tabla Alumnos_Cursos (relación muchos a muchos)</h2>
+      <table>
+        <thead><tr><th>matricula</th><th>clave</th></tr></thead>
+        <tbody>
+          <tr><td>2023001</td><td>BD101</td></tr>
+<tr><td>2023001</td><td>POO01</td></tr>
+<tr><td>2023002</td><td>BD101</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Tabla Alumnos_Cursos (relación muchos a muchos)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para representar una lista de cursos dentro de un Alumno se necesita una tabla intermedia y claves foráneas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Problemas del enfoque relacional (impedancia objeto‑relacional)</h1>
+    </section>
+    <section>
+      <h2>Problemas del enfoque relacional (impedancia objeto‑relacional)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0084.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un problema que se menciona cuando se habla de bases de datos relacionales y bases de datos orientadas a objetos es la impedancia objeto-relacional</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Pérdida (o transformación) de identidad de objeto</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>En memoria, un objeto tiene identidad propia (referencia).</li><li>En la BD relacional, solo se almacenan <strong>valores</strong> y <strong>claves primarias</strong>.</li><li>La identidad de un registro se basa en un valor (por ejemplo, la matrícula), no en el objeto.</li></ul></div>
+        <div class="image-col"><img src="../../img/0082.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Necesidad de JOINs para reconstruir objetos</h2>
+      <pre><code class="language-sql">SELECT a.nombre, c.nombre
+FROM Alumnos a
+JOIN Alumnos_Cursos ac ON a.matricula = ac.matricula
+JOIN Cursos c ON ac.clave = c.clave
+WHERE a.matricula = &#39;2023001&#39;;</code></pre>
+    </section>
+    <section>
+      <h2>Necesidad de JOINs para reconstruir objetos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para obtener los cursos de un alumno, se requieren varios JOINs entre tablas.</p></div>
+        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo: Herencia en código</h1>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en código</h2>
+      <pre><code class="language-python">class Alumno:
+    def __init__(self, matricula, nombre):
+        self.matricula = matricula
+        self.nombre = nombre
+
+class AlumnoPosgrado(Alumno):
+    def __init__(self, matricula, nombre, tema_tesis):
+        super().__init__(matricula, nombre)
+        self.tema_tesis = tema_tesis</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en código</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0063.jpg" alt="image" /></div>
+        <div class="text-col"><p>La herencia es natural en POO: AlumnoPosgrado reutiliza atributos y comportamiento de Alumno, y agrega <code>tema_tesis</code>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo: Herencia en tablas (Opción 1)</h1>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 1)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0001.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Opción 1: Tabla única con columna tipo</strong></p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 1)</h2>
+      <table>
+        <thead><tr><th>matricula</th><th>nombre</th><th>tipo</th><th>tema_tesis</th></tr></thead>
+        <tbody>
+          <tr><td>2023001</td><td>Ana</td><td>Licenciatura</td><td>NULL</td></tr>
+<tr><td>2023002</td><td>Carlos</td><td>Posgrado</td><td>ML en Medicina</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 1)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0086.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Ventaja: una sola tabla.</li><li>Desventaja: muchas columnas NULL y lógica extra para interpretar la columna <code>tipo</code>.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo: Herencia en tablas (Opción 2)</h1>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0018.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Opción 2: Varias tablas relacionadas por claves foráneas</strong></p><p><strong>Tabla Alumno (superclase)</strong></p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <table>
+        <thead><tr><th>id_alumno</th><th>matricula</th><th>nombre</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>2023001</td><td>Ana</td></tr>
+<tr><td>2</td><td>2023002</td><td>Carlos</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0046.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Tabla AlumnoPosgrado (subclase)</strong></p><p>(Hereda de Alumno)</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <table>
+        <thead><tr><th>id_alumno</th><th>tema_tesis</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>ML en Medicina</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0034.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para reconstruir un objeto AlumnoPosgrado se necesita hacer JOIN:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <pre><code class="language-sql">SELECT a.matricula, a.nombre, ap.tema_tesis
+FROM Alumno a
+JOIN AlumnoPosgrado ap ON a.id_alumno = ap.id_alumno;</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo: Herencia en tablas (Opción 2)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Ventaja: evita columnas NULL.</li><li>Desventaja: requiere <strong>más JOINs</strong> y mayor complejidad en las consultas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Impedancia objeto‑relacional (resumen)</h1>
+    </section>
+    <section>
+      <h2>Impedancia objeto‑relacional (resumen)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición:</strong></p><p>Desajuste conceptual y estructural entre:</p>
+<ul><li>El paradigma orientado a objetos (objetos con identidad, referencias, herencia, métodos).</li><li>El paradigma relacional (tablas, filas, valores, claves, JOINs).</li></ul></div>
+        <div class="image-col"><img src="../../img/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Impedancia objeto‑relacional (resumen)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Consecuencias prácticas:</strong></p>
+<ul><li>Código adicional para mapear objetos ↔ tablas.</li><li>Complejidad en las consultas que involucran herencia y relaciones complejas.</li><li>Posibles problemas de rendimiento y mantenimiento.</li></ul>
+<p>Este problema motiva el surgimiento de las <strong>bases de datos orientadas a objetos (BDOO)</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Modelo orientado a objetos (conceptual)</h1>
+    </section>
+    <section>
+      <h2>Modelo orientado a objetos (conceptual)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ahora veamos el <strong>Modelo Orientado a Objetos</strong> a nivel conceptual</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Componentes principales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Clases</strong>: definen tipos de objetos con atributos y métodos.</li><li><strong>Objetos</strong>: instancias concretas de clases.</li><li><strong>Asociaciones</strong>: relaciones entre clases (uno a uno, uno a muchos, muchos a muchos).</li><li><strong>Agregación</strong>: relación parte–todo donde la parte puede existir sin el todo.</li></ul></div>
+        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Componentes principales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Composición</strong>: relación parte–todo fuerte; la parte no existe sin el todo.</li></ul></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Componentes principales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este modelo conceptual se puede representar con diagramas UML.</p></div>
+        <div class="image-col"><img src="../../img/0026.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Diagrama de clases (UML simplificado)</h1>
+    </section>
+    <section>
+      <h2>Diagrama de clases (UML simplificado)</h2>
+      <pre><code class="">┌─────────────────┐         ┌─────────────────┐
+│     Alumno      │         │      Curso      │
+├─────────────────┤         ├─────────────────┤
+│ - matricula     │◆───────◇│ - clave         │
+│ - nombre        │  n    m │ - nombre        │
+│ - cursos[]      │         │ - alumnos[]     │
+├─────────────────┤         ├─────────────────┤
+│ + inscribir()   │         │ + agregar()     │
+└─────────────────┘         └─────────────────┘</code></pre>
+    </section>
+    <section>
+      <h2>Diagrama de clases (UML simplificado)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Comparación con modelo Entidad–Relación (E‑R):</p>
+<ul><li>Clases ≈ Entidades.</li><li>Asociaciones ≈ Relaciones.</li><li>Diferencia importante: las clases incluyen <strong>comportamiento</strong> (métodos).</li></ul></div>
+        <div class="image-col"><img src="../../img/0093.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>¿Qué es una Base de Datos Orientada a Objetos (BDOO)?</h1>
+    </section>
+    <section>
+      <h2>¿Qué es una Base de Datos Orientada a Objetos (BDOO)?</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Bases de datos orientadas a objetos</strong></p></div>
+        <div class="image-col"><img src="../../img/0090.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Definición general</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una BDOO es un sistema de administración de bases de datos que almacena <strong>objetos</strong> (no solo filas o documentos), preservando:</p>
+<ul><li>Identidad propia de cada objeto.</li><li>Encapsulamiento de datos y métodos.</li><li>Herencia entre clases.</li><li>Polimorfismo en las operaciones sobre objetos.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Definición general</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0025.jpg" alt="image" /></div>
+        <div class="text-col"><p>El objetivo principal es reducir o eliminar la impedancia objeto‑relacional.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Objetos transitorios vs objetos persistentes</h1>
+    </section>
+    <section>
+      <h2>Objetos transitorios vs objetos persistentes</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Veamos ahora el concepto de objetos transitorios y objetos persistentes.</p><p>Estos conceptos son valiosos para la elaboración del concepto de bases de datos orientadas a objetos.</p></div>
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Objeto transitorio (solo en memoria)</h2>
+      <pre><code class="language-python">alumno1 = Alumno(&quot;2023001&quot;, &quot;Ana&quot;)
+# El objeto existe mientras el programa está en ejecución</code></pre>
+    </section>
+    <section>
+      <h2>Objeto persistente (almacenado en la BD)</h2>
+      <pre><code class="language-python"># Pseudocódigo
+alumno1 = Alumno(&quot;2023001&quot;, &quot;Ana&quot;)
+
+db.store(alumno1)   # Guardar el objeto en la base de datos orientada a objetos
+# El objeto sobrevive a la finalización del programa</code></pre>
+    </section>
+    <section>
+      <h2>Objeto persistente (almacenado en la BD)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0043.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Persistencia transparente:</strong></p>
+<ul><li>El objeto se usa de la misma manera en el código, esté solo en memoria o almacenado en la BD.</li><li>El programador no necesita reescribir lógica para cargar/guardar atributos individuales.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Identificadores de objeto (OID)</h1>
+    </section>
+    <section>
+      <h2>Identificadores de objeto (OID)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0002.jpg" alt="image" /></div>
+        <div class="text-col"><p>Veamos los identificadores de objeto (OID) y su relación con las formas de identificar la información en bases de datos relacionales.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Claves primarias en BD relacionales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Identifican filas usando <strong>valores</strong> (por ejemplo, <code>matricula</code> en Alumnos).</li><li>Si el valor cambia, hay que actualizar claves foráneas en otras tablas.</li></ul></div>
+        <div class="image-col"><img src="../../img/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>OID en BDOO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Identificador único e inmutable asignado por el sistema.</li><li>Independiente de los valores de los atributos.</li><li>Similar a una <strong>referencia</strong> o <strong>puntero</strong> persistente.</li></ul>
+<p>Ejemplo conceptual de objeto con OID:</p></div>
+        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>OID en BDOO</h2>
+      <pre><code class="">Alumno OID: 0x7F3A2B1C
+  matricula: &quot;2023001&quot;
+  nombre: &quot;Ana&quot;
+  cursos: [OID: 0x8E4B3C2D, OID: 0x9F5C4D3E]</code></pre>
+    </section>
+    <section>
+      <h2>OID en BDOO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0005.jpg" alt="image" /></div>
+        <div class="text-col"><p>Cambiar la matrícula no afecta la identidad del objeto (su OID).</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Clases como esquema de la BD</h1>
+    </section>
+    <section>
+      <h2>Clases como esquema de la BD</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En muchas BDOO:</p>
+<ul><li>El esquema de la BD está definido por las <strong>clases</strong> registradas en el sistema.</li><li>No se usa un DDL clásico (CREATE TABLE), sino definiciones de clases con sus atributos y métodos.</li></ul></div>
+        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Clases como esquema de la BD</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0023.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>La base de datos almacena metadatos de:<ul><li>Atributos y sus tipos.</li><li>Relaciones entre clases.</li><li>Jerarquías de herencia.</li></ul></li></ul>
+<p>Esto hace que el modelo de la BD se parezca mucho al modelo de objetos del lenguaje de programación.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Navegación por enlaces en BDOO</h1>
+    </section>
+    <section>
+      <h2>Navegación por enlaces en BDOO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La navegación implica poder encontrar lo que busco en mi conjunto de datos y las bases de datos relacionales y las orientadas a objetos no lo hacen igual.</p></div>
+        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>En BD relacionales (con JOINs)</h2>
+      <pre><code class="language-sql">SELECT c.*
+FROM Cursos c
+JOIN Alumnos_Cursos ac ON c.clave = ac.clave
+WHERE ac.matricula = &#39;2023001&#39;;</code></pre>
+    </section>
+    <section>
+      <h2>En BDOO (navegación directa)</h2>
+      <pre><code class="language-python"># Pseudocódigo en una BDOO
+
+# Recuperar al alumno por matrícula usando una consulta
+alumno = db.query(Alumno).filter(matricula=&quot;2023001&quot;).first()
+
+# Navegar por la lista de cursos relacionados
+for curso in alumno.cursos:  # cursos es una lista de referencias/OIDs
+    print(curso.nombre)</code></pre>
+    </section>
+    <section>
+      <h2>En BDOO (navegación directa)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
+        <div class="text-col"><p>No se escriben JOINs explícitos; se siguen las referencias almacenadas en los objetos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Encapsulamiento en la base de datos</h1>
+    </section>
+    <section>
+      <h2>Encapsulamiento en la base de datos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0016.jpg" alt="image" /></div>
+        <div class="text-col"><p>Encapsulamiento en la base de datos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo de clase con atributo privado</h2>
+      <pre><code class="language-python">class Producto:
+    def __init__(self, precio_base):
+        self.__precio_base = precio_base  # Atributo privado
+
+    def get_precio_con_iva(self):
+        return self.__precio_base * 1.16
+
+# Recuperación desde una BDOO (pseudocódigo)
+producto = db.get(OID_producto)
+
+# Acceso directo al atributo privado (incorrecto)
+# producto.__precio_base  # No debería ser accesible
+
+# Uso correcto a través del método público
+precio = producto.get_precio_con_iva()</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo de clase con atributo privado</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
+        <div class="text-col"><p>La BDOO respeta el encapsulamiento definido en las clases: los datos están protegidos y solo se exponen los métodos públicos.</p></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

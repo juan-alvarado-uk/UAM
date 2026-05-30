@@ -28,19 +28,20 @@ En esta práctica se usan reglas de inferencia básicas junto con equivalencias 
 Una regla de inferencia es un patrón que preserva la verdad: si las fórmulas de la parte superior del patrón son verdaderas, la fórmula de la parte inferior también lo es.  
 En esta práctica solo se usan las reglas listadas a continuación, que coinciden con las vistas en la sesión de reglas de inferencia y en la práctica de referencia.
 
-| Nombre                    | Hipótesis                                    | Conclusión                    |
-|---------------------------|----------------------------------------------|-------------------------------|
-| Modus Ponens (MP)         |$p \rightarrow q$,$p$                  |$q$                        |
-| Modus Tollens (MT)        |$p \rightarrow q$,$\neg q$             |$\neg p$                   |
-| Silogismo hipotético (SH) |$p \rightarrow q$,$q \rightarrow r$    |$p \rightarrow r$          |
-| Silogismo disyuntivo (SD) |$p \lor q$,$\neg p$                    |$q$                        |
-| Adición (Ad)              |$p$                                       |$p \lor q$                 |
-| Simplificación (Simp)     |$p \land q$                               |$p$, $q$                |
-| Conjunción (Conj)         |$p$,$q$                                |$p \land q$                |
-| Doble negación (DN)       |$p \equiv \neg\neg p$                      |$p \equiv \neg\neg p$       |
-| Transposición (Trans)     |$p \rightarrow q$                         |$\neg q \rightarrow \neg p$|
-| De Morgan (DM)            |$\neg(p \land q) \equiv \neg p \lor \neg q$| forma equivalente.            |
-| De Morgan (DM)            |$\neg(p \lor q) \equiv \neg p \land \neg q$| forma equivalente.            |
+| Nombre                    | Hipótesis                                   | Conclusión                        |
+|---------------------------|---------------------------------------------|-----------------------------------|
+| Modus Ponens (MP)         | $p \rightarrow q$, $p$                      | $q$                               |
+| Modus Tollens (MT)        | $p \rightarrow q$, $\neg q$                 | $\neg p$                          |
+| Silogismo hipotético (SH) | $p \rightarrow q$, $q \rightarrow r$        | $p \rightarrow r$                 |
+| Silogismo disyuntivo (SD) | $p \lor q$, $\neg p$                        | $q$                               |
+| Adición (Ad)              | $p$                                         | $p \lor q$                        |
+| Simplificación (Simp)     | $p \land q$                                 | $p$, $q$                          |
+| Conjunción (Conj)         | $p$, $q$                                    | $p \land q$                       |
+| Doble negación (DN)       | $p \equiv \neg\neg p$                       | $\neg\neg p \equiv p$             |
+| Transposición (Trans)     | $p \rightarrow q$                           | $\neg q \rightarrow \neg p$       |
+| Exportación               | $(p \land q) \rightarrow r$                 | $p \rightarrow (q \rightarrow r)$ |
+| Importación               | $p \rightarrow (q \rightarrow r)$           | $(p \land q) \rightarrow r$       |
+| Absorción                 | $p \rightarrow q$                           | $p \rightarrow (p \land q)$       |
 
 ***
 
@@ -49,29 +50,30 @@ En esta práctica solo se usan las reglas listadas a continuación, que coincide
 Una equivalencia lógica relaciona dos fórmulas con la misma tabla de verdad, de manera que cualquiera puede sustituir a la otra sin cambiar el significado de la condición.  
 Las siguientes leyes se usan para simplificar fórmulas y para transformar condicionales y bicondicionales en expresiones con$\land$,$\lor$y$\neg$, sobre todo al preparar pruebas o formas normales.
 
-| Ley                                     | Esquema equivalente                                                      |
-|-----------------------------------------|--------------------------------------------------------------------------|
-| Idempotencia ($\land$)                |$p \land p \equiv p$                                                  |
-| Idempotencia ($\lor$)                 |$p \lor p \equiv p$                                                   |
-| Complemento (contradicción)             |$p \land \neg p \equiv F$                                             |
-| Complemento (tautología)                |$p \lor \neg p \equiv V$                                              |
-| Identidad ($\land$)                   |$p \land V \equiv p$                                                  |
-| Identidad ($\lor$)                    |$p \lor F \equiv p$                                                   |
-| Dominación ($\land$)                  |$p \land F \equiv F$                                                  |
-| Dominación ($\lor$)                   |$p \lor V \equiv V$                                                   |
-| Absorción ($\land$)                   |$p \land (p \lor q) \equiv p$                                         |
-| Absorción ($\lor$)                    |$p \lor (p \land q) \equiv p$                                         |
-| Conmutatividad ($\land$)              |$p \land q \equiv q \land p$                                          |
-| Conmutatividad ($\lor$)               |$p \lor q \equiv q \lor p$                                            |
-| Asociatividad ($\land$)               |$(p \land q) \land r \equiv p \land (q \land r)$                      |
-| Asociatividad ($\lor$)                |$(p \lor q) \lor r \equiv p \lor (q \lor r)$                          |
-| Distributiva ($\land$sobre$\lor$) |$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$              |
-| Distributiva ($\lor$sobre$\land$) |$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$               |
-| De Morgan ($\land$)                   |$\neg(p \land q) \equiv \neg p \lor \neg q$                           |
-| De Morgan ($\lor$)                    |$\neg(p \lor q) \equiv \neg p \land \neg q$                           |
-| Doble negación                          |$\neg\neg p \equiv p$                                                 |
-| Condicional–disyunción                  |$p \rightarrow q \equiv \neg p \lor q$                                |
-| Bicondicional (condicionales)           |$p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)$|
+| Ley                                 | Esquema equivalente                                                    |
+|-------------------------------------|------------------------------------------------------------------------|
+| Idempotencia ($\land$)              | $p \land p \equiv p$                                                   |
+| Idempotencia ($\lor$)               | $p \lor p \equiv p$                                                    |
+| Complemento (contradicción)         | $p \land \neg p \equiv F$                                              |
+| Complemento (tautología)            | $p \lor \neg p \equiv V$                                               |
+| Identidad ($\land$)                 | $p \land V \equiv p$                                                   |
+| Identidad ($\lor$)                  | $p \lor F \equiv p$                                                    |
+| Dominación ($\land$)                | $p \land F \equiv F$                                                   |
+| Dominación ($\lor$)                 | $p \lor V \equiv V$                                                    |
+| Absorción ($\land$)                 | $p \land (p \lor q) \equiv p$                                          |
+| Absorción ($\lor$)                  | $p \lor (p \land q) \equiv p$                                          |
+| Conmutatividad ($\land$)            | $p \land q \equiv q \land p$                                           |
+| Conmutatividad ($\lor$)             | $p \lor q \equiv q \lor p$                                             |
+| Asociatividad ($\land$)             | $(p \land q) \land r \equiv p \land (q \land r)$                       |
+| Asociatividad ($\lor$)              | $(p \lor q) \lor r \equiv p \lor (q \lor r)$                           |
+| Distributiva ($\land$ sobre $\lor$) | $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$               |
+| Distributiva ($\lor$ sobre $\land$) | $p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$                |
+| De Morgan ($\land$)                 | $\neg(p \land q) \equiv \neg p \lor \neg q$                            |
+| De Morgan ($\lor$)                  | $\neg(p \lor q) \equiv \neg p \land \neg q$                            |
+| Doble negación                      | $\neg\neg p \equiv p$                                                  |
+| Condicional–disyunción              | $p \rightarrow q \equiv \neg p \lor q$                                 |
+| Bicondicional (condicionales)       | $p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)$ |
+| Bicondicional (disyunción)          | $p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$    |
 
 ***
 

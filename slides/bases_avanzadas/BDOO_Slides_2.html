@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="../../logos/variacion5Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_05.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Bases de Datos Orientadas a Objetos (Parte 2)</h1>
+    </section>
+    <section>
+      <h1>Objetivos de aprendizaje</h1>
+    </section>
+    <section>
+      <h2>Objetivos de aprendizaje</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Al finalizar esta sesión, podrán</p></div>
+        <div class="image-col"><img src="../../img/0053.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Objetivos de aprendizaje</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Describir la diferencia entre <strong>navegación</strong> y <strong>consultas declarativas</strong> en BDOO.</li><li>Explicar las ideas básicas de <strong>OQL (Object Query Language)</strong>.</li><li>Comparar <strong>modelos relacional, orientado a objetos y objeto‑relacional</strong>.</li><li>Mapear un pequeño dominio de aplicación a un esquema orientado a objetos.</li></ul></div>
+        <div class="image-col"><img src="../../img/0080.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Objetivos de aprendizaje</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0103.png" alt="image" /></div>
+        <div class="text-col"><ul><li>Relacionar BDOO con el uso de <strong>ORM (Object‑Relational Mapping)</strong> en aplicaciones.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Acceso a datos en BDOO: navegación vs consultas</h1>
+    </section>
+    <section>
+      <h2>Navegación (estilo procedimental)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0095.png" alt="image" /></div>
+        <div class="text-col"><ul><li>Se parte de un objeto raíz ya conocido.</li><li>Se recorren las referencias hacia otros objetos relacionados.</li><li>Es similar a recorrer estructuras enlazadas (listas, grafos) en memoria.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas declarativas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Se especifica <strong>qué</strong> objetos se desean, no <strong>cómo</strong> llegar a ellos.</li><li>Se utiliza un lenguaje de consulta (por ejemplo, OQL).</li><li>Se parece a SQL pero aplicado a objetos.</li></ul>
+<p>Ambos enfoques pueden coexistir en una misma BDOO.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Navegación: ejemplo en pseudocódigo</h1>
+    </section>
+    <section>
+      <h2>Navegación: ejemplo en pseudocódigo</h2>
+      <pre><code class="language-python"># Supongamos que ya tenemos un objeto curso persistente
+curso = db.query(Curso).filter(clave=&quot;BD101&quot;).first()
+
+print(&quot;Curso:&quot;, curso.nombre)
+
+for alumno in curso.alumnos:  # alumnos es una lista de objetos Alumno
+    print(&quot;-&quot;, alumno.nombre)</code></pre>
+    </section>
+    <section>
+      <h2>Navegación: ejemplo en pseudocódigo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0089.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><code>curso.alumnos</code> devuelve una colección de objetos relacionados.</li><li>La BD se encarga de seguir los OIDs y cargar los objetos cuando sea necesario.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Consultas declarativas: OQL (Object Query Language)</h1>
+    </section>
+    <section>
+      <h2>Consultas declarativas: OQL (Object Query Language)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>OQL es un lenguaje de consultas para bases de datos orientadas a objetos.</p>
+<ul><li>Sintaxis inspirada en SQL.</li><li>Opera sobre <strong>objetos</strong> en lugar de filas.</li><li>Permite expresiones de navegación (path expressions) como <code>alumno.cursos.nombre</code>.</li></ul>
+<p>Ejemplo básico de OQL:</p></div>
+        <div class="image-col"><img src="../../img/0051.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas declarativas: OQL (Object Query Language)</h2>
+      <pre><code class="language-sql">SELECT a
+FROM Alumno a
+WHERE a.matricula = &quot;2023001&quot;</code></pre>
+    </section>
+    <section>
+      <h2>Consultas declarativas: OQL (Object Query Language)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta consulta regresa un objeto Alumno (o un conjunto de ellos) cuyo atributo <code>matricula</code> coincide.</p></div>
+        <div class="image-col"><img src="../../img/0014.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo comparativo: SQL vs OQL vs navegación directa</h1>
+    </section>
+    <section>
+      <h2>SQL (modelo relacional)</h2>
+      <pre><code class="language-sql">SELECT c.nombre
+FROM Cursos c
+JOIN Alumnos_Cursos ac ON c.clave = ac.clave
+WHERE ac.matricula = &#39;2023001&#39;;</code></pre>
+    </section>
+    <section>
+      <h2>OQL (modelo orientado a objetos)</h2>
+      <pre><code class="language-sql">SELECT c.nombre
+FROM Alumno a, a.cursos c
+WHERE a.matricula = &quot;2023001&quot;</code></pre>
+    </section>
+    <section>
+      <h2>Navegación directa en el código</h2>
+      <pre><code class="language-python"># Recuperar al alumno por matrícula
+alumno = db.query(Alumno).filter(matricula=&quot;2023001&quot;).first()
+
+# Recorrer cursos
+for curso in alumno.cursos:
+    print(curso.nombre)</code></pre>
+    </section>
+    <section>
+      <h2>Navegación directa en el código</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En los tres casos se obtiene la lista de nombres de cursos del alumno con matrícula &quot;2023001&quot;.</p></div>
+        <div class="image-col"><img src="../../img/0057.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Comparación de modelos de bases de datos</h1>
+    </section>
+    <section>
+      <h2>Modelos considerados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Modelo relacional</strong>: datos en tablas, filas, columnas y claves.</li><li><strong>Modelo orientado a objetos (BDOO)</strong>: datos como objetos con identidad y relaciones por referencias.</li><li><strong>Modelo objeto‑relacional</strong>: híbrido; extiende el modelo relacional con tipos de datos complejos y algunas características OO.</li></ul></div>
+        <div class="image-col"><img src="../../img/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Comparación de características</h1>
+    </section>
+    <section>
+      <h2>Comparación de características</h2>
+      <table>
+        <thead><tr><th>Característica</th><th>Relacional</th><th>BDOO</th><th>Objeto‑relacional</th></tr></thead>
+        <tbody>
+          <tr><td>Unidad básica</td><td>Tupla / fila</td><td>Objeto</td><td>Fila con tipos objeto / compuestos</td></tr>
+<tr><td>Identidad</td><td>Clave primaria (valor)</td><td>OID (identificador de objeto)</td><td>Combinación de clave y tipos objeto</td></tr>
+<tr><td>Relaciones</td><td>Claves foráneas + JOIN</td><td>Referencias / enlaces (OIDs)</td><td>Ambas (claves foráneas y referencias)</td></tr>
+<tr><td>Herencia</td><td>No nativo</td><td>Soportada de forma nativa</td><td>Soportada parcialmente</td></tr>
+<tr><td>Encapsulamiento</td><td>No (solo datos)</td><td>Sí (datos + métodos)</td><td>Parcial (datos con funciones asociadas)</td></tr>
+<tr><td>Lenguaje de consulta</td><td>SQL</td><td>OQL u otros lenguajes sobre objetos</td><td>SQL extendido con tipos y funciones</td></tr>
+<tr><td>Navegación</td><td>No (se simula con JOINs)</td><td>Sí, navegación por referencias</td><td>Limitada, depende del SGBD</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h1>¿Cuándo usar cada modelo?</h1>
+    </section>
+    <section>
+      <h2>Modelo relacional</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Datos estructurados relativamente simples.</li><li>Muchas consultas ad‑hoc, reportes y analítica.</li><li>Integración con herramientas de Business Intelligence.</li><li>Requisitos fuertes de transacciones ACID clásicas.</li></ul></div>
+        <div class="image-col"><img src="../../img/0044.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo orientado a objetos (BDOO)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Modelos de datos con estructuras complejas y jerarquías profundas.</li><li>Necesidad de preservar identidad, herencia y polimorfismo.</li><li>Aplicaciones con fuerte orientación a objetos en el código.</li></ul></div>
+        <div class="image-col"><img src="../../img/0011.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplos de aplicaciones para BDOO</h1>
+    </section>
+    <section>
+      <h2>Ejemplos de aplicaciones para BDOO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Sistemas <strong>CAD (Computer‑Aided Design)</strong>: diseño asistido por computadora, por ejemplo modelos 3D de piezas mecánicas o edificios.</li><li>Sistemas <strong>CAM (Computer‑Aided Manufacturing)</strong>: fabricación asistida por computadora, que reutilizan los modelos CAD en procesos de producción.</li></ul></div>
+        <div class="image-col"><img src="../../img/0091.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de aplicaciones para BDOO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0035.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Sistemas <strong>GIS (Geographic Information Systems)</strong>: sistemas de información geográfica con objetos complejos (capas, mapas, entidades geoespaciales).</li><li>Aplicaciones científicas con estructuras de datos complejas (simulaciones, grafos, modelos numéricos detallados).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos de aplicaciones para BDOO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En estos contextos, las estructuras de datos se parecen mucho a grafos de objetos, y una BDOO puede ser más natural que una BD relacional.</p></div>
+        <div class="image-col"><img src="../../img/0032.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Modelo objeto‑relacional (visión general)</h1>
+    </section>
+    <section>
+      <h2>Modelo objeto‑relacional (visión general)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un SGBD objeto‑relacional extiende el modelo relacional con:</p>
+<ul><li>Tipos definidos por el usuario (UDT, User‑Defined Types).</li><li>Columnas que pueden almacenar estructuras complejas (por ejemplo, tuplas anidadas).</li><li>Posibilidad de asociar funciones o métodos a tipos.</li></ul>
+<p>Ejemplos: PostgreSQL, Oracle con tipos objeto.</p></div>
+        <div class="image-col"><img src="../../img/0012.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Modelo objeto‑relacional (visión general)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Limitaciones:</p>
+<ul><li>La navegación directa entre objetos es limitada.</li><li>La integración con lenguajes orientados a objetos no es tan transparente como en una BDOO pura.</li></ul></div>
+        <div class="image-col"><img src="../../img/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Caso práctico: dominio Cursos–Alumnos</h1>
+    </section>
+    <section>
+      <h2>Requisitos simplificados</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Un alumno puede inscribirse en varios cursos.</li><li>Un curso puede tener varios alumnos.</li><li>Hay alumnos de licenciatura y alumnos de posgrado.</li><li>Los alumnos de posgrado tienen un <code>tema_tesis</code> adicional.</li></ul>
+<p>Diseñaremos el modelo orientado a objetos y veremos cómo se almacena en una BDOO.</p></div>
+        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Diseño de clases en POO</h1>
+    </section>
+    <section>
+      <h2>Diseño de clases en POO</h2>
+      <pre><code class="language-python">class Persona:
+    def __init__(self, id_persona, nombre, email):
+        self.id_persona = id_persona
+        self.nombre = nombre
+        self.email = email
+
+class Alumno(Persona):
+    def __init__(self, id_persona, nombre, email, matricula):
+        super().__init__(id_persona, nombre, email)
+        self.matricula = matricula
+        self.cursos = []  # Lista de objetos Curso
+
+    def inscribir(self, curso):
+        if curso not in self.cursos:
+            self.cursos.append(curso)
+            curso.agregar_alumno(self)
+
+class AlumnoPosgrado(Alumno):
+    def __init__(self, id_persona, nombre, email, matricula, tema_tesis):
+        super().__init__(id_persona, nombre, email, matricula)
+        self.tema_tesis = tema_tesis
+
+class Curso:
+    def __init__(self, clave, nombre, creditos):
+        self.clave = clave
+        self.nombre = nombre
+        self.creditos = creditos
+        self.alumnos = []  # Lista de objetos Alumno o AlumnoPosgrado
+
+    def agregar_alumno(self, alumno):
+        if alumno not in self.alumnos:
+            self.alumnos.append(alumno)</code></pre>
+    </section>
+    <section>
+      <h2>Diseño de clases en POO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0021.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este diseño usa herencia, composición (listas) y relaciones bidireccionales.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Diagrama UML del caso práctico</h1>
+    </section>
+    <section>
+      <h2>Diagrama UML del caso práctico</h2>
+      <pre><code class="">         ┌──────────────┐
+         │   Persona    │
+         ├──────────────┤
+         │ - id_persona │
+         │ - nombre     │
+         │ - email      │
+         └──────┬───────┘
+                │
+                │ (herencia)
+                │
+         ┌──────▼───────┐           ┌──────────────┐
+         │    Alumno    │◆─────────◇│    Curso     │
+         ├──────────────┤  n      m ├──────────────┤
+         │ - matricula  │           │ - clave      │
+         │ - cursos[]   │           │ - nombre     │
+         └──────┬───────┘           │ - creditos   │
+                │                   │ - alumnos[]  │
+                │                   └──────────────┘
+                │
+         ┌──────▼──────────┐
+         │ AlumnoPosgrado  │
+         ├─────────────────┤
+         │ - tema_tesis    │
+         └─────────────────┘</code></pre>
+    </section>
+    <section>
+      <h2>Diagrama UML del caso práctico</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La relación Alumno–Curso es muchos a muchos, y AlumnoPosgrado hereda de Alumno.</p></div>
+        <div class="image-col"><img src="../../img/0054.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Representación conceptual en una BDOO</h1>
+    </section>
+    <section>
+      <h2>Representación conceptual en una BDOO</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Cada clase corresponde a una <strong>extensión</strong> (conjunto de objetos) en la BD.</li><li>Las listas <code>cursos</code> y <code>alumnos</code> almacenan <strong>referencias (OIDs)</strong> a otros objetos.</li></ul>
+<p>Esquema conceptual:</p></div>
+        <div class="image-col"><img src="../../img/0040.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Representación conceptual en una BDOO</h2>
+      <pre><code class="">Clase Persona
+├── Extensión: { objetos Persona (o subclases) }
+
+Clase Alumno (hereda de Persona)
+├── Extensión: { objetos Alumno }
+│   └── Atributo cursos: lista de OIDs → objetos Curso
+
+Clase AlumnoPosgrado (hereda de Alumno)
+├── Extensión: { objetos AlumnoPosgrado }
+│   └── Atributo tema_tesis: string (Tema de tesis)
+
+Clase Curso
+├── Extensión: { objetos Curso }
+    └── Atributo alumnos: lista de OIDs → objetos Alumno / AlumnoPosgrado</code></pre>
+    </section>
+    <section>
+      <h2>Representación conceptual en una BDOO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0004.jpg" alt="image" /></div>
+        <div class="text-col"><p>La herencia se conserva directamente en la base de datos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Persistencia del caso práctico en BDOO</h1>
+    </section>
+    <section>
+      <h2>Persistencia del caso práctico en BDOO</h2>
+      <pre><code class="language-python"># Crear objetos en memoria
+curso_bd = Curso(&quot;BD101&quot;, &quot;Bases de Datos&quot;, 8)
+
+alumno1 = Alumno(1, &quot;Ana López&quot;, &quot;ana@mail.com&quot;, &quot;2023001&quot;)
+alumno2 = AlumnoPosgrado(2, &quot;Carlos Ruiz&quot;, &quot;carlos@mail.com&quot;,
+                         &quot;2023002&quot;, &quot;ML en Medicina&quot;)
+
+# Establecer relaciones
+alumno1.inscribir(curso_bd)
+alumno2.inscribir(curso_bd)
+
+# Persistir en la BDOO (pseudocódigo)
+db.store(curso_bd)
+db.store(alumno1)
+db.store(alumno2)
+db.commit()</code></pre>
+    </section>
+    <section>
+      <h2>Persistencia del caso práctico en BDOO</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0072.jpg" alt="image" /></div>
+        <div class="text-col"><p>La BDOO almacena los objetos con sus OIDs y las referencias entre ellos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Recuperación y navegación en el caso práctico</h1>
+    </section>
+    <section>
+      <h2>Recuperación y navegación en el caso práctico</h2>
+      <pre><code class="language-python"># Recuperar un curso por su clave
+curso = db.query(Curso).filter(clave=&quot;BD101&quot;).first()
+
+print(&quot;Curso:&quot;, curso.nombre)
+print(&quot;Alumnos inscritos:&quot;)
+
+for alumno in curso.alumnos:
+    tipo = type(alumno).__name__
+    print(f&quot;- {alumno.nombre} ({tipo})&quot;)
+    if isinstance(alumno, AlumnoPosgrado):
+        print(f&quot;  Tema de tesis: {alumno.tema_tesis}&quot;)</code></pre>
+    </section>
+    <section>
+      <h2>Recuperación y navegación en el caso práctico</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La consulta sobre la extensión de Curso devuelve objetos completos, y la navegación permite acceder a sus relaciones y subtipos.</p></div>
+        <div class="image-col"><img src="../../img/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Consulta relacional equivalente (recordatorio)</h1>
+    </section>
+    <section>
+      <h2>Consulta relacional equivalente (recordatorio)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0030.jpg" alt="image" /></div>
+        <div class="text-col"><p>En un modelo relacional similar, necesitaríamos varias tablas (Persona, Alumno, AlumnoPosgrado, Curso, Alumno_Curso) y una consulta con JOINs:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consulta relacional equivalente (recordatorio)</h2>
+      <pre><code class="language-sql">SELECT p.nombre, a.matricula, ap.tema_tesis
+FROM Persona p
+JOIN Alumno a ON p.id_persona = a.id_persona
+LEFT JOIN AlumnoPosgrado ap ON a.id_persona = ap.id_persona
+JOIN Alumno_Curso ac ON a.id_persona = ac.id_alumno
+JOIN Curso c ON ac.curso_clave = c.clave
+WHERE c.clave = &#39;BD101&#39;;</code></pre>
+    </section>
+    <section>
+      <h2>Consulta relacional equivalente (recordatorio)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Comparar esta consulta con el código de navegación en BDOO ayuda a visualizar el cambio de paradigma.</p></div>
+        <div class="image-col"><img src="../../img/0078.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>ORMs y su relación con BDOO</h1>
+    </section>
+    <section>
+      <h2>¿Qué es un ORM?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0081.jpg" alt="image" /></div>
+        <div class="text-col"><p>ORM significa <strong>Object‑Relational Mapping</strong> (mapeo objeto‑relacional).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Qué es un ORM?</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Es una tecnología o biblioteca que permite trabajar con <strong>objetos</strong> en el código, mientras los datos se almacenan en una <strong>BD relacional</strong>.</li><li>El ORM se encarga de traducir operaciones sobre objetos a operaciones SQL (INSERT, UPDATE, DELETE, SELECT) sobre tablas.</li></ul>
+<p>Ejemplos de ORMs:</p></div>
+        <div class="image-col"><img src="../../img/0007.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Qué es un ORM?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0097.png" alt="image" /></div>
+        <div class="text-col"><ul><li>Hibernate (Java).</li><li>Django ORM (Python).</li><li>SQLAlchemy (Python).</li><li>Entity Framework (.NET).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>¿Dónde se usan los ORMs?</h1>
+    </section>
+    <section>
+      <h2>¿Dónde se usan los ORMs?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0099.png" alt="image" /></div>
+        <div class="text-col"><ul><li>En el desarrollo de aplicaciones web y de escritorio que usan BD relacionales.</li><li>En arquitecturas típicas de tres capas: presentación, lógica de negocio, datos.</li><li>Para reducir código repetitivo de acceso a datos (boilerplate SQL).</li></ul>
+<p>Relación con BDOO:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>¿Dónde se usan los ORMs?</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0085.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Los ORMs <strong>no son</strong> BDOO, pero intentan acercar el mundo de los objetos al mundo relacional.</li><li>Muchos conceptos de BDOO (identidad, navegación, herencia) inspiran el diseño de los ORMs.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ventajas y desventajas de BDOO</h1>
+    </section>
+    <section>
+      <h2>Ventajas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Representación directa de objetos complejos y jerarquías.</li><li>Navegación natural siguiendo referencias, sin JOINs.</li><li>Soporte nativo para herencia y polimorfismo.</li><li>Identidad de objeto preservada mediante OIDs.</li><li>Coherencia entre el modelo en código y el modelo en la base de datos.</li></ul></div>
+        <div class="image-col"><img src="../../img/0036.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Desventajas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Menor adopción industrial comparada con BD relacionales.</li><li>Ecosistema de herramientas (BI, reporting) menos desarrollado.</li><li>Menos soporte estándar para consultas ad‑hoc complejas.</li><li>Curva de aprendizaje para administradores y desarrolladores acostumbrados a SQL.</li></ul></div>
+        <div class="image-col"><img src="../../img/0087.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Contexto actual y nichos de uso</h1>
+    </section>
+    <section>
+      <h2>Nichos especializados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0070.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>CAD (Computer‑Aided Design)</strong>: diseño asistido por computadora.</li><li><strong>CAM (Computer‑Aided Manufacturing)</strong>: fabricación asistida por computadora.</li><li><strong>GIS (Geographic Information Systems)</strong>: sistemas de información geográfica.</li><li>Aplicaciones científicas y de simulación con estructuras de datos complejas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Tendencias dominantes</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Uso de ORMs sobre BD relacionales.</li><li>Uso de bases de datos NoSQL (por ejemplo, MongoDB) que almacenan documentos con estructura similar a objetos.</li><li>Uso de características objeto‑relacionales en SGBD como PostgreSQL.</li></ul>
+<p>Comprender BDOO ayuda a entender mejor estas tecnologías.</p></div>
+        <div class="image-col"><img src="../../img/0039.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Síntesis final</h1>
+    </section>
+    <section>
+      <h2>Síntesis final</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Conceptos clave a recordar:</p></div>
+        <div class="image-col"><img src="../../img/0073.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Síntesis final</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li><strong>Impedancia objeto‑relacional</strong>: desajuste entre objetos y tablas.</li><li><strong>OID</strong>: identificador de objeto, distinto de una clave primaria basada en valores.</li><li><strong>Persistencia de objetos</strong>: objetos que sobreviven a la ejecución del programa.</li><li><strong>Navegación vs JOINs</strong>: seguir referencias frente a combinar tablas.</li></ol></div>
+        <div class="image-col"><img src="../../img/0020.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Síntesis final</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0010.jpg" alt="image" /></div>
+        <div class="text-col"><ol start="5"><li><strong>BDOO vs relacional vs objeto‑relacional</strong>: distintos modelos para distintos problemas.</li></ol></div>
+      </div>
+    </section>
+    <section>
+      <h2>Síntesis final</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0058.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las BDOO son menos comunes que las BD relacionales, pero el paradigma orientado a objetos sigue influyendo fuertemente en el diseño de ORMs y bases modernas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Para seguir estudiando</h1>
+    </section>
+    <section>
+      <h2>Para seguir estudiando</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="../../img/0034.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Estándar ODMG (Object Data Management Group) para bases de datos orientadas a objetos.</li><li>Documentación de BDOO como db4o, ObjectDB o similares.</li><li>Características objeto‑relacionales de PostgreSQL.</li><li>Documentación de ORMs populares (Hibernate, SQLAlchemy, Django ORM).</li></ul></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="../../logos/cua_01.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
