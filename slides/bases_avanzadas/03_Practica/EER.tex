@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+\title{Modelo EER para una app de escritura de música}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	Esta actividad se ubica dentro del tema de Modelo Entidad-Relación Extendido (EER) y tiene como propósito aplicar los constructores principales: especialización/generalización, atributos multivaluados, entidades débiles y agregación. Aunque en las notas del tema no se desarrollan ejemplos detallados de atributos derivados ni compuestos, el modelo a entregar puede incluirlos si el diseño lo requiere.\footnote{Formulación basada en las notas del tema de modelo Entidad-Relación Extendido.}
+	
+	\section*{Descripción de la actividad}
+	
+	Diseña el modelo conceptual EER de una aplicación para escribir música (por ejemplo, una app tipo editor de partituras o secuenciador) que permita representar de forma clara los elementos principales del dominio musical y sus relaciones.
+	
+	El modelo debe capturar, al menos, entidades relacionadas con:
+	\begin{itemize}
+		\item Obra musical, secciones, compases, notas u otros elementos relevantes para representar una pieza musical.
+		\item Personas usuarias o perfiles (por ejemplo, compositoras/es, arreglistas, intérpretes).
+		\item Cualquier información adicional que se considere necesaria para que la app tenga sentido (instrumentos, proyectos, colaboraciones, etc.).
+	\end{itemize}
+	
+	El diseño debe aprovechar las extensiones del modelo EER para expresar mejor el significado del dominio, evitando pensar directamente en tablas o implementación.
+	
+	\section*{Requisitos del entregable}
+	
+	Entregar un \textbf{diagrama EER} (en imagen o PDF legible) que incluya explícitamente:
+	\begin{itemize}
+		\item Al menos \textbf{una jerarquía de especialización/generalización}, con sus restricciones de disjunción y completitud claramente indicadas (disjunta/superpuesta y total/parcial).
+		\item Al menos \textbf{un atributo multivaluado} si el dominio lo justifica (por ejemplo, múltiples instrumentos, etiquetas, géneros, etc.).
+		\item Al menos \textbf{una entidad débil}, en caso de identificar alguna estructura que dependa de otra entidad para su identidad, indicando su \textbf{discriminante} y la \textbf{relación identificadora}.
+		\item Uso de \textbf{agregación} si se identifica algún caso donde una relación (junto con sus entidades) deba participar en otra relación de nivel superior.
+	\end{itemize}
+	
+	De forma opcional (no obligatorio, pero permitido):
+	\begin{itemize}
+		\item \textbf{Atributos derivados}, por ejemplo, duración total de una pieza derivada de la suma de sus secciones, o número de compases.
+		\item \textbf{Atributos compuestos}.
+	\end{itemize}
+	
+	\section*{Criterios de evaluación}
+	
+	\begin{itemize}
+		\item \textbf{Corrección conceptual del modelo EER}: uso adecuado de entidades fuertes y débiles.
+		\item \textbf{Uso apropiado de las extensiones EER}: jerarquías de especialización, atributos multivaluados, entidades débiles con discriminante y, en su caso, agregación.
+		\item \textbf{Claridad y legibilidad del diagrama}: símbolos consistentes con la notación vista en clase (rectángulos, elipses simples/dobles/discontinuas, rombos, líneas simples/dobles, etc.).
+		\item \textbf{Coherencia del dominio modelado}: que el modelo tenga sentido para una app de escritura de música y refleje de forma razonable las estructuras y restricciones del mundo real.
+	\end{itemize}
+	
+	\section*{Formato y entrega}
+	
+	\begin{itemize}
+		\item Entregable: 1 archivo con el diagrama EER (formato imagen o PDF) y un texto que justifique por qué el modelo fue elaborado como lo fue y por qué este representa al dominio de forma correcta.
+		\item El diagrama puede elaborarse con cualquier herramienta (software de modelado, diagramas en línea, dibujo a mano escaneado de buena calidad, etc.).
+	\end{itemize}
+	
+\end{document}

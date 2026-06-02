@@ -23,11 +23,121 @@ IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp")
 IMAGE_URL_PREFIX = "https://juan-alvarado-uk.github.io/UAM/"
 IMAGE_URL_PREFIX2 = "../../"
 
+
 def load_decorative_images_from_parent(folder_name: str = "img") -> list:
     """
     Busca imágenes en ../<folder_name> respecto al directorio del script
     y devuelve rutas RELATIVAS respecto al cwd actual.
     """
+    # Devuelve directamente los links de las imágenes en Google Drive (Cuajimalpa)
+    return [
+        "https://drive.google.com/thumbnail?id=1-8BJ3_0oNuQ9sIrSRd184rJZiEhfpUoS&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1-U9yc572hW6_dymagg4zrY35R-3o9FeH&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1-ULMJtWOl4_vWfD3XPvA6me4WuwNUc30&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1-s5QsBuxnktxHY_n25nTzTGKh1ME5Zc-&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1-zMLLmGb4CDfmp6MeVg1T3nefqju01DS&sz=s4000",
+        "https://drive.google.com/thumbnail?id=10WlwgZLV9bEaVh3gduRN_4mfx4UWuVZU&sz=s4000",
+        "https://drive.google.com/thumbnail?id=10pMdqT899hiZaqMq5QjWVSSbC4PASCTw&sz=s4000",
+        "https://drive.google.com/thumbnail?id=131L25xNXQ3Nyez8CSnoECgD1JoPsO3rj&sz=s4000",
+        "https://drive.google.com/thumbnail?id=13HemcLSUduvwW5z8mD7b35XGY0NAuYwj&sz=s4000",
+        "https://drive.google.com/thumbnail?id=13WH7rxhiM5O8jxG1uD0CVbcH8y2Q6bfy&sz=s4000",
+        "https://drive.google.com/thumbnail?id=14x41OCgVv_P_i-FmfoK0ek3ORT7ZnrvX&sz=s4000",
+        "https://drive.google.com/thumbnail?id=15lngYqOjPk9qi-ZI_F0b9nBCCQh7eVwO&sz=s4000",
+        "https://drive.google.com/thumbnail?id=15rCHj2kUWpBCumUsguCqsjC93CMYYMu_&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1678iEhgQgMnEYW8zR_nMO7JUj-nNVhLx&sz=s4000",
+        "https://drive.google.com/thumbnail?id=16llWLmDbY_L-o26j_sn1yz51_kGGkZPF&sz=s4000",
+        "https://drive.google.com/thumbnail?id=17L-Z4s2KaP48ehRDn2ppIa6fXgIGZtsp&sz=s4000",
+        "https://drive.google.com/thumbnail?id=17nPco_fKiufJOc0n6CWPK5iYm8uxEUrW&sz=s4000",
+        "https://drive.google.com/thumbnail?id=19F7uBnqVo3ea1dNykHuokuzuUEIZ-yHl&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1CENNu7Y3go_MP1ltMa1WyMqZANMiG8EQ&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1CFXajhi6IdtSOdeDIbrNtxrrqOrboiSh&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1CNLXWlyf8x1biKFBRyCNUdpGJhz1sepV&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1CNU32ax_lgZ-_Zjs9iLrVR5DfEMmGcjU&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1CeIb-HQaS0k2g5pJnxZ_NuIJv3J39SC_&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1ChbxlM_dnVnmWuhhZP7Ycuhkq9nELgGb&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Cyse2GuhPwcCvx0W3GvCdFkhTzfU3uyS&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1D4pCfDKH1tQt3QvWUNz4xPVS6aY9QhGB&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1EV0i1uia4JOyqzhIdFvrecEJwFtnD4yF&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1G99x933S3AsbHPyXlmkMw9RNP4sdO9Xb&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1He4A37oOcTJPUhu0PNZGTtyKSbglrIJj&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1IBK_hrMia1v7CAvw7pCnhesYMQJsc1eT&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1IpGvkAi3sKSaMD_jNRM0n0E7e5izFMaO&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Ip_88wr2so19QifwwNOzjtruXcCLGiJt&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Jby69ljDK6PgA_yLBooXTct0KJwFtRiA&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1KFQLfqViO2P90GRBhClYGM2ptki9JopY&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1LBnWHkDvBECORA0gixEmbZwrXa8QOtIW&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1LNKu3yMFAdjjFNTZ6ZUhlV1dpFPB0j68&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1LlKZO3iOWv2UmXisVYvB1MP9vJHmqZLm&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1LrM7C5XITYFXmIHQEKi1SY7j98wtV7KG&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1MCOVmDqGuYCY7yMWB-Xuc1e75AFXmtQc&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1MPgQCarXGVw0zxACcEvb5N2cJNLfUUEI&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1MS3HiCLrh9YVk0QK7F8cxKL-PZJi13PA&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Mi9uUooks5CdHVTwOhN3RLzXE3yD5QJF&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1O9tODHaKu-phMlYqEmr9cL3WBmrEHhz4&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1OE4rSgFu3JFz36kgDK2XIaYgS3K-Hcg7&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1OMAk2ERQNPg8Ojqn12Tx-6JBAXUG5sX6&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1OsPav3kdWWEphilwyUzFRAvk-KcJ5fzZ&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1PTd5oRGWrExWdPCiQM08WOlUvvRP72c6&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Pxvv7MhZoZZNf62f3isCRSq9TC8IM-TV&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Q5mY7BHyBG9OCvc5nNzjnsZYKGZMyHPx&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Rzmr4vgZGpje9PlpVQgISIb1qpBW04QR&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1S1OY5sv5VM0Dii-dLgqZNaPKmUncMHaF&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1S7OdDEBjANOTlxlwnXdSxfSsEBEs0JaW&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1SY7LBQtEjhDUmGOQA_rZnmR1739FXmXY&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1SspDxauJkT5Yv10Oy52FqsPvMbKnfXs9&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1Tfa4evCDVO44q7GuMk1--UDcoOz4ADxu&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1UEA0vwtWueOn0F-dM8o4YWDR_TA0NqZR&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1UL5cHenqjlGzgzvWAcG_yoKGjt0NErGc&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1WHE1zP2V24Z_X1Rfk28O6F1tm4UIdEs2&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1YiKWbdLLFIbOxFHdYksPGjBYigg6vJkD&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1ZijMNcIC_IihaE_8mY5ruBAwojUVJQPc&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1_SwPm3V2frsslEClPf2Dg06it5JVK1hx&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1ahEyJs0X7QObv4zPgzuXYheqXdTW15ES&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1bAq9WDsQdY_t5H_M6TONXhCXihGyOOQg&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1bUPUgBseEBWlBj0kNhz7N1nF83AOWI3X&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1ci1xXWV4PZiWGWhPn4NCrFs-Ra5PVIEr&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1dM3t9czEwQ5BA-ENqKwBNmMhYjSlGRQ5&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1e69h1W0KZ4QwfMTooQS_edVFDJ7Iw8ze&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1f6bOauPR9wuXtdab2xOZYSvpt4SXg_Gi&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1fJEo06jYyRtTpMPB1tHzrkIjF5B-ggEi&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1gIRDgsKbTbivN8EOkJiiXD-pO1GGFIMS&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1gb3CglJVHm8IKNI8LUNjhyzSYTXvuxWn&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1h1Dx62P5WWxmQSynFbBGJc-mQKD15nRp&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1h2UaoyLvryxUwGkE1WhD1kF1_jf2ap97&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1hRyDwAKqekvJS5zWQVlDdgC25oz40QGt&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1iHf73OzsBgZobvIvp6HBun5Sf708YSvU&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1jnk1yrq7z2bXfKHa9i9cQACCXD-fw1Z0&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1kS33uoFHlV8WGhK3QShSGobuF1rosEOU&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1lCaDjduJqQ9ZGw6UW8VM4Jv_1PNTt6vf&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1mqBwDjpqcfFKa7DwX2KvccyMBBokG1Tq&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1nIzAuDqLcw2ZSON7ULc8elr6momd2Zv5&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1nkw6eFelGWGAIhRvxlWFbxXbCjjZGkWB&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1o2tFzN_2HjZ2k82InFqqiMyHfjtk302-&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1pJN8G7a68GypBv1ujh5A46b7cSkSsPB6&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1qOH4eKvdtELrxzmxp8DE9d_FkLHu8lyK&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1rBzeqcyrLmBmV11i0y-DDOTbFmpEx0LB&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1s6_Id8M5QKQ7fEWjnkWVS-s0_qONLnLb&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1skQH791kQbe3qH2Vwuc36G2FYrZ0r1yy&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1tKiVm2yj-JhemME_M7MJHrymSQUNiykL&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1tVYWihkPsKRPWNAyRgPNVgGxl7Bd-dVe&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1u17FcnCkcLqWoxq5zwZX_N0uJsLy7l9r&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1u1ynzKuwf8WGQrD0a2s_9ZP73FVHs0z7&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1vkwrF1i-ERdb7dbTzrVCyxAQ7iXQLBbt&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1wUrstFcTrkASBCWZ3r3fwgRcULhb4Bl6&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1w_61iagleOxUd50aLW8Sdn5Jqxr9JD2h&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1w_nD94qUCZ6jGCI4YPzuwCyZJXwhbllK&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1xMD__68R7IUTsP66_Um8Pnl7H2hiZCFV&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1xbbJ8xhBDt4K14ce1kgea59Mpo8Ff-LC&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1y9YFn7twpXRr_2oLmAKO4XlhDGPYFhaJ&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1ybO5SsUUkUDIgobH-iCtqwR0gYNCUDJE&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1z_B5dcWamcNMmCCHPxLr0fjzAdoUZEwZ&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1A6PM6Gnj3zR_HA5FXPM-lbsM0-icsIPw&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1gdNVlTLjJzIRJxXFhoPw50PSKj_374mB&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1naCIbMdOmake8CKlB1Q9y-llHxOm7Waa&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1tJViL-fIHvlzf-E9DV1uK-stMfgeJgnh&sz=s4000",
+        "https://drive.google.com/thumbnail?id=1uyfTdvzEHt_zY7HS6zz65UTasROChC9q&sz=s4000",
+    ]
+
     # Directorio donde está el script
     script_dir = Path(__file__).resolve().parent
     # Carpeta de imágenes un nivel arriba: ../img
@@ -51,8 +161,10 @@ def load_decorative_images_from_parent(folder_name: str = "img") -> list:
 
     return decorative_images
 
+
 # Poblar lista global con rutas relativas
 DECORATIVE_IMAGES = load_decorative_images_from_parent("img")
+
 
 # DECORATIVE_IMAGES = [
 #     # Cambia estas URLs por tu propio repositorio o carpeta
@@ -63,11 +175,11 @@ DECORATIVE_IMAGES = load_decorative_images_from_parent("img")
 
 class MarkdownToRevealJS:
     def __init__(
-        self,
-        max_sentences_per_slide: int = 4,
-        max_table_rows: int = 8,
-        debug: bool = False,
-        use_images: bool = True,
+            self,
+            max_sentences_per_slide: int = 4,
+            max_table_rows: int = 8,
+            debug: bool = False,
+            use_images: bool = True,
     ):
         self.max_sentences_per_slide = max_sentences_per_slide
         self.max_table_rows = max_table_rows
@@ -338,8 +450,8 @@ class MarkdownToRevealJS:
                 list_items = self._count_list_items(block)
 
                 if current_blocks and (
-                    current_list_items_count + list_items > max_list_items_per_slide or
-                    current_chars + (1 if current_chars > 0 else 0) + list_size > max_chars_per_slide
+                        current_list_items_count + list_items > max_list_items_per_slide or
+                        current_chars + (1 if current_chars > 0 else 0) + list_size > max_chars_per_slide
                 ):
                     flush_slide()
 
@@ -350,9 +462,9 @@ class MarkdownToRevealJS:
                 else:
                     flush_slide()
                     for split_block in self._split_list_block_for_slides(
-                        block,
-                        max_items=max_list_items_per_slide,
-                        max_chars=max_chars_per_slide,
+                            block,
+                            max_items=max_list_items_per_slide,
+                            max_chars=max_chars_per_slide,
                     ):
                         append_content_slide([split_block])
 
@@ -572,7 +684,6 @@ class MarkdownToRevealJS:
                 total += self._count_list_text_chars(child)
         return total
 
-
     def _clone_list_item(self, item: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "text": item.get("text", ""),
@@ -586,7 +697,8 @@ class MarkdownToRevealJS:
             "items": [self._clone_list_item(item) for item in block.get("items", [])]
         }
 
-    def _split_list_block_for_slides(self, block: Dict[str, Any], max_items: int, max_chars: int) -> List[Dict[str, Any]]:
+    def _split_list_block_for_slides(self, block: Dict[str, Any], max_items: int, max_chars: int) -> List[
+        Dict[str, Any]]:
         items = block.get("items", [])
         if not items:
             return []
@@ -815,7 +927,7 @@ class MarkdownToRevealJS:
 <body>
 <div class="reveal">
     <div>
-      <img src="{IMAGE_URL_PREFIX2}logos/variacion5Cua.png"  width = "100" alt="Logo">
+      <img src="https://drive.google.com/thumbnail?id=1Uj4iU7mPDXGuy91UEBl6ivpz1l_oS9Dk&sz=s4000"  width = "100" alt="Logo">
     </div>
   <div class="slides">
 {chr(10).join(slide_html_parts)}
@@ -856,10 +968,11 @@ class MarkdownToRevealJS:
             # Si quieres poner un título general aquí, puedes hacerlo:
             # title_overlay = '<h1>Integración de Sistemas</h1>'
             title_overlay = ""
+            full_src = "https://drive.google.com/thumbnail?id=1ZDN6IQnMFUPReow1lgaWOqs2Li6z1cXe&sz=s4000"
         elif kind == "closing":
             title_overlay = '<h2>Gracias</h2>'
+            full_src = "https://drive.google.com/thumbnail?id=1COyl09OXvJDnmEoddkLLaEQsoMTYz5Ub&sz=s4000"
 
-        full_src = IMAGE_URL_PREFIX2 + img[3:]  # "https://juan-alvarado-uk.github.io/UAM/" +
         img_html = f'<img class="full-slide-image" src="{full_src}" alt="slide image" />'
 
         return f"""    <section class="full-image-slide">
@@ -874,7 +987,7 @@ class MarkdownToRevealJS:
 
         # Slides con imagen decorativa → layout dos columnas
         if slide.get("image") and slide.get("image_side") in ("left", "right"):
-            full_src = IMAGE_URL_PREFIX2 + slide["image"][3:] # "https://juan-alvarado-uk.github.io/UAM/"
+            full_src = slide["image"]
             img_html = f'<img src="{full_src}" alt="image" />'
             text_html = self._render_blocks_as_text(slide.get("content_blocks", []))
 
@@ -997,10 +1110,10 @@ class MarkdownToRevealJS:
 
     def _escape_html(self, text: str) -> str:
         return (text.replace("&", "&amp;")
-                    .replace("<", "&lt;")
-                    .replace(">", "&gt;")
-                    .replace('"', "&quot;")
-                    .replace("'", "&#39;"))
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace('"', "&quot;")
+                .replace("'", "&#39;"))
 
     # ===================== SLIDES ESPECIALES (PORTADA / CIERRE) =====================
     def _add_cover_slide(self, image: str):
@@ -1061,9 +1174,9 @@ def main():
     # Elegir imágenes para portada y cierre (pueden ser fijas o aleatorias)
     cover_img = None
     closing_img = None
-    if not args.no_images: #and DECORATIVE_IMAGES:
-        cover_img = "../logos/cua_05.jpg"   # random.choice(DECORATIVE_IMAGES)
-        closing_img = "../logos/cua_01.jpg"   # random.choice(DECORATIVE_IMAGES)
+    if not args.no_images:  #and DECORATIVE_IMAGES:
+        cover_img = "../logos/cua_05.jpg"  # random.choice(DECORATIVE_IMAGES)
+        closing_img = "../logos/cua_01.jpg"  # random.choice(DECORATIVE_IMAGES)
 
     if cover_img:
         converter._add_cover_slide(cover_img)

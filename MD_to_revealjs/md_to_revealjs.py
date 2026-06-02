@@ -663,7 +663,7 @@ class MarkdownToRevealJS:
 <body>
 <div class="reveal">
     <div>
-      <img src="{IMAGE_URL_PREFIX2}logos/variacion5Cua.png"  width = "200" alt="Logo">
+      <img src="https://drive.google.com/uc?export=view&id=1Uj4iU7mPDXGuy91UEBl6ivpz1l_oS9Dk"  width = "200" alt="Logo">
       <p style="color:grey;font-size:18px;">&nbsp;&nbsp;&nbsp;Dr. Juan Alvarado</p>
     </div>
   <div class="slides">
@@ -703,12 +703,12 @@ class MarkdownToRevealJS:
         title_overlay = ""
         if kind == "cover":
             # Si quieres poner un título general aquí, puedes hacerlo:
-            title_overlay = '<h1>Integración de Sistemas</h1>'
-            # title_overlay = ""
+            title_overlay = ""
+            full_src = "https://drive.google.com/uc?export=view&id=1ZDN6IQnMFUPReow1lgaWOqs2Li6z1cXe"
         elif kind == "closing":
             title_overlay = '<h2>Gracias</h2>'
+            full_src = "https://drive.google.com/uc?export=view&id=1COyl09OXvJDnmEoddkLLaEQsoMTYz5Ub"
 
-        full_src = IMAGE_URL_PREFIX2 + img[3:]  # "https://juan-alvarado-uk.github.io/UAM/" +
         img_html = f'<img class="full-slide-image" src="{full_src}" alt="slide image" />'
 
         return f"""    <section class="full-image-slide">
@@ -723,7 +723,7 @@ class MarkdownToRevealJS:
 
         # Slides con imagen decorativa → layout dos columnas
         if slide.get("image") and slide.get("image_side") in ("left", "right"):
-            full_src = IMAGE_URL_PREFIX2 + slide["image"][3:] # "https://juan-alvarado-uk.github.io/UAM/"
+            full_src = slide["image"]
             img_html = f'<img src="{full_src}" alt="image" />'
             text_html = self._render_blocks_as_text(slide.get("content_blocks", []))
 

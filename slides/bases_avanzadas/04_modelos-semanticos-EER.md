@@ -30,7 +30,7 @@ Estas extensiones permiten distinguir con mayor precisión qué atributos son co
 - **Línea doble / simple** en la conexión entidad–relación → participación total / parcial. 
 
 ***
-![EER_simbologia.png](EER_simbologia.png)
+![EER_simbologia](https://drive.google.com/thumbnail?id=1Tx-phkY0FQwImGZjmRaPiRLCmXeVbvdp&sz=s4000)
 
 # Especialización y generalización
 
@@ -61,7 +61,7 @@ Al definir una jerarquía, hay que responder dos preguntas fundamentales.
 ***
 
 ## Ejemplo — red de sensores (disjunta, total)
-![EER_disjunta_total.png](EER_disjunta_total.png)
+![EER_disjunta_total.png](https://drive.google.com/thumbnail?id=1zXwHM3dNfUi2Se17IFIzj89x-bbIcMDN&sz=s4000)
 
 ***
 Todo dispositivo es exactamente uno de los tres tipos. Los atributos comunes se definen una sola vez en la superclase.
@@ -299,7 +299,7 @@ El **discriminante** es el atributo —o conjunto de atributos— que, combinado
 ***
 
 **Ejemplo**
-![EER-Sensores-Lecturas.png](EER-Sensores-Lecturas.png)
+![EER-Sensores-Lecturas.png](https://drive.google.com/thumbnail?id=1ivzG1EXmDWQRWCubCKB9MAOHtryo1jFN&sz=s4000)
 
 ***
 
@@ -322,7 +322,7 @@ Un **atributo multivaluado** puede contener más de un valor para la misma ocurr
 ---
 **Ejemplo — atributo multivaluado**
 
-![EER_Multivaluado.png](EER_Multivaluado.png)
+![EER_Multivaluado.png](https://drive.google.com/thumbnail?id=1ayqcyGK8x7t5AYDi8b7olwTHa8_4cRZW&sz=s4000)
 
 ***
 
@@ -343,7 +343,7 @@ La **agregación** permite tratar una relación —junto con las entidades que c
 ***
 
 **Ejemplo — técnicos en proyectos de infraestructura:**
-![EER_tecnicos-proyectos-equipos-Agregacion.png](EER_tecnicos-proyectos-equipos-Agregacion.png)
+![EER_tecnicos-proyectos-equipos-Agregacion.png](https://drive.google.com/thumbnail?id=1Ex2uOORBRQ5x3wy0rEFPRCwbANpXtaXa&sz=s4000)
 
 
 ***
@@ -408,7 +408,7 @@ El esquema no impide asignar `tipo_accion` a un sensor, ni impone que todo senso
 
 ## Modelo EER equivalente
 
-![EER_equivalente.png](EER_equivalente.png)
+![EER_equivalente.png](https://drive.google.com/thumbnail?id=1KuaiJfU07F6hh3sq33BZ8BOfl9Hn4NLD&sz=s4000)
 
 Se generan cinco tablas: una para la superclase, una por cada subclase y una para `LECTURA`, que se modela como entidad débil. Esta organización reduce nulos y refleja mejor las restricciones del dominio. 
 
