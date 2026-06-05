@@ -116,8 +116,12 @@ En los tres casos se obtiene la lista de nombres de cursos del alumno con matrí
 | Característica      | Relacional                       | BDOO                                 | Objeto‑relacional                          |
 |---------------------|----------------------------------|--------------------------------------|--------------------------------------------|
 | Unidad básica       | Tupla / fila                    | Objeto                               | Fila con tipos objeto / compuestos         |
-| Identidad           | Clave primaria (valor)          | OID (identificador de objeto)        | Combinación de clave y tipos objeto        |
-| Relaciones          | Claves foráneas + JOIN          | Referencias / enlaces (OIDs)         | Ambas (claves foráneas y referencias)      |
+| Identidad           | Llave primaria (valor)          | OID (identificador de objeto)        | Combinación de clave y tipos objeto        |
+| Relaciones          | Llaves foráneas + JOIN          | Referencias / enlaces (OIDs)         | Ambas (claves foráneas y referencias)      |
+
+---
+| Característica      | Relacional                       | BDOO                                 | Objeto‑relacional                          |
+|---------------------|----------------------------------|--------------------------------------|--------------------------------------------|
 | Herencia            | No nativo                       | Soportada de forma nativa            | Soportada parcialmente                     |
 | Encapsulamiento     | No (solo datos)                 | Sí (datos + métodos)                 | Parcial (datos con funciones asociadas)    |
 | Lenguaje de consulta| SQL                             | OQL u otros lenguajes sobre objetos  | SQL extendido con tipos y funciones        |
@@ -155,13 +159,13 @@ En estos contextos, las estructuras de datos se parecen mucho a grafos de objeto
 
 # Modelo objeto‑relacional (visión general)
 
-Un SGBD objeto‑relacional extiende el modelo relacional con:
+Un BDMS objeto‑relacional extiende el modelo relacional con:
 
 - Tipos definidos por el usuario (UDT, User‑Defined Types).
 - Columnas que pueden almacenar estructuras complejas (por ejemplo, tuplas anidadas).
 - Posibilidad de asociar funciones o métodos a tipos.
 
-Ejemplos: PostgreSQL, Oracle con tipos objeto.
+Ejemplos: PostgreSQL, Oracle.
 
 Limitaciones:
 
@@ -179,7 +183,7 @@ Limitaciones:
 - Hay alumnos de licenciatura y alumnos de posgrado.
 - Los alumnos de posgrado tienen un `tema_tesis` adicional.
 
-Diseñaremos el modelo orientado a objetos y veremos cómo se almacena en una BDOO.
+Diseñar el modelo orientado a objetos y ver cómo se almacena en una BDOO.
 
 ---
 
@@ -259,7 +263,7 @@ La relación Alumno–Curso es muchos a muchos, y AlumnoPosgrado hereda de Alumn
 
 # Representación conceptual en una BDOO
 
-- Cada clase corresponde a una **extensión** (conjunto de objetos) en la BD.
+- Cada clase corresponde a un conjunto de objetos (extensión) en la BD.
 - Las listas `cursos` y `alumnos` almacenan **referencias (OIDs)** a otros objetos.
 
 Esquema conceptual:
@@ -299,7 +303,7 @@ alumno2 = AlumnoPosgrado(2, "Carlos Ruiz", "carlos@mail.com",
 alumno1.inscribir(curso_bd)
 alumno2.inscribir(curso_bd)
 
-# Persistir en la BDOO (pseudocódigo)
+# Persistir en la BDOO
 db.store(curso_bd)
 db.store(alumno1)
 db.store(alumno2)
@@ -330,7 +334,7 @@ La consulta sobre la extensión de Curso devuelve objetos completos, y la navega
 
 ---
 
-# Consulta relacional equivalente (recordatorio)
+# Consulta relacional equivalente
 
 En un modelo relacional similar, necesitaríamos varias tablas (Persona, Alumno, AlumnoPosgrado, Curso, Alumno_Curso) y una consulta con JOINs:
 
@@ -354,7 +358,7 @@ Comparar esta consulta con el código de navegación en BDOO ayuda a visualizar 
 
 ORM significa **Object‑Relational Mapping** (mapeo objeto‑relacional).
 
-- Es una tecnología o biblioteca que permite trabajar con **objetos** en el código, mientras los datos se almacenan en una **BD relacional**.
+- Es una tecnología que permite trabajar con **objetos** en el código, mientras los datos se almacenan en una **BD relacional**.
 - El ORM se encarga de traducir operaciones sobre objetos a operaciones SQL (INSERT, UPDATE, DELETE, SELECT) sobre tablas.
 
 Ejemplos de ORMs:
@@ -411,13 +415,13 @@ Relación con BDOO:
 
 - Uso de ORMs sobre BD relacionales.
 - Uso de bases de datos NoSQL (por ejemplo, MongoDB) que almacenan documentos con estructura similar a objetos.
-- Uso de características objeto‑relacionales en SGBD como PostgreSQL.
+- Uso de características objeto‑relacionales en DBMS como PostgreSQL.
 
 Comprender BDOO ayuda a entender mejor estas tecnologías.
 
 ---
 
-# Síntesis final
+# Para llevar...
 
 Conceptos clave a recordar:
 
@@ -427,7 +431,7 @@ Conceptos clave a recordar:
 4. **Navegación vs JOINs**: seguir referencias frente a combinar tablas.
 5. **BDOO vs relacional vs objeto‑relacional**: distintos modelos para distintos problemas.
 
-Las BDOO son menos comunes que las BD relacionales, pero el paradigma orientado a objetos sigue influyendo fuertemente en el diseño de ORMs y bases modernas.
+Las BDOO son menos comunes que las BD relacionales, pero el paradigma orientado a objetos sigue influyendo en el diseño de ORMs y bases modernas.
 
 ---
 
