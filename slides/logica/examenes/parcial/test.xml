@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Logica_y_Programacion_Logica/Examen_Parcial</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Banco de preguntas sobre lógica de proposiciones, tablas de verdad, equivalencias, formas normales y reglas de inferencia.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+  <!-- ============ LÓGICA DE PROPOSICIONES (SOLO EN PANTALLA) ============ -->
+
+  <!-- P1 -->
+  <question type="multichoice">
+    <name>
+      <text>Proposiciones_en_sistemas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Indica cuál de los siguientes enunciados <b>sí</b> es una proposición en el sentido de la lógica de proposiciones.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Una proposición es un enunciado declarativo al que se le puede asignar de manera clara un valor de verdad verdadero o falso.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text>¿El servidor está disponible?</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Es una pregunta, no una proposición.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Configura el servidor de respaldo.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Es una orden, no una proposición.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>El servidor de bases de datos está disponible.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Enunciado declarativo con valor de verdad bien definido.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Qué rápido es este sistema.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Enunciado ambiguo, no tiene un valor de verdad claro.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- P2 -->
+  <question type="multichoice">
+    <name>
+      <text>Formalizacion_condicional_red</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Sea:</p>
+      <ul>
+        <li><b>p</b>: El servidor está activo.</li>
+        <li><b>q</b>: La red está disponible.</li>
+        <li><b>r</b>: Los usuarios pueden conectarse.</li>
+      </ul>
+      <p>Selecciona la fórmula que formaliza la oración: “Si el servidor está activo y la red está disponible, entonces los usuarios pueden conectarse”.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La formalización tiene la forma condicional con antecedente conjuntivo: $$(p \land q) \to r$$.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>$$(p \land q) \to r$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Condicional cuyo antecedente es la conjunción de p y q.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$p \land (q \to r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Aquí se afirma un condicional distinto en el consecuente.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$p \to (q \land r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>El consecuente no corresponde al enunciado original.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$p \lor q \to r$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>El antecedente usa disyunción, no conjunción.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- P3 -->
+  <question type="shortanswer">
+    <name>
+      <text>Conectivo_principal</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Considera la fórmula $$\neg (p \lor q) \to r$$.</p>
+      <p>Escribe cuál es el conectivo principal de la fórmula (una palabra: negacion, conjuncion, disyuncion, condicional, bicondicional).</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>El conectivo principal es el que estructura toda la fórmula y no está contenido dentro de paréntesis externos.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>condicional</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Conecta la subfórmula negada con r.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- P4 -->
+  <question type="truefalse">
+    <name>
+      <text>Proposicion_compuesta</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>“El servidor está activo y la red está disponible” es una proposición compuesta que combina dos proposiciones simples mediante un conectivo lógico.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Una proposición compuesta se forma a partir de proposiciones simples unidas por conectivos como “y”, “o”, “si... entonces”.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Conjunción de dos enunciados simples.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Describe correctamente la estructura; marcar falso sería incorrecto.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- ============ TABLAS / CLASIFICACIÓN / CONSECUENCIA (SOLO PANTALLA) ============ -->
+
+  <!-- T1 -->
+  <question type="multichoice">
+    <name>
+      <text>Clasificacion_ppvnp</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Selecciona la clasificación correcta de la fórmula $$p \lor \neg p$$.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La clasificación se decide observando si la columna final contiene solo V, solo F, o una mezcla de V y F.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>Tautología</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Columna final con solo valores verdaderos.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Contradicción</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Una contradicción tiene solo valores falsos.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Fórmula contingente</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Una fórmula contingente mezcla V y F.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- T2 (sin pedir trabajo en papel) -->
+  <question type="numerical">
+    <name>
+      <text>Renglones_tabla_tres_proposiciones</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Una fórmula contiene exactamente tres proposiciones distintas: p, q y r. ¿Cuántos renglones debe tener la tabla de verdad completa para esa fórmula?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Una fórmula con n proposiciones distintas requiere una tabla con $$2^n$$ renglones.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>8</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Tres proposiciones generan ocho combinaciones posibles.</p>]]></text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+  <!-- T3: consecuencia / contraejemplo mejor planteada -->
+  <question type="multichoice">
+    <name>
+      <text>Consecuencia_y_contraejemplo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>En la tabla de verdad de un argumento se marcan los renglones donde todas las premisas son verdaderas. ¿Cuál de las siguientes afirmaciones describe correctamente cuándo <b>no</b> hay consecuencia lógica?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Si en al menos un renglón con premisas verdaderas la conclusión resulta falsa, ese renglón es un contraejemplo y muestra que la conclusión no es consecuencia lógica.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>Existe al menos un renglón donde todas las premisas son verdaderas y la conclusión es falsa.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Describe el criterio estándar para que no haya consecuencia lógica.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>En todos los renglones donde las premisas son verdaderas, la conclusión también es verdadera.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>En este caso sí hay consecuencia lógica.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>La conclusión es verdadera en todos los renglones de la tabla de verdad.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Que la conclusión sea siempre verdadera no basta para decidir la consecuencia lógica.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- T4 (sin trabajo en papel) -->
+  <question type="multichoice">
+    <name>
+      <text>Caso_falso_condicional</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>En la tabla de verdad del condicional $$p \to q$$, ¿en cuál de las siguientes combinaciones de valores es falso el condicional?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>El condicional es falso únicamente cuando el antecedente es verdadero y el consecuente es falso.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>p verdadera, q falsa</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Único caso en que el condicional resulta falso.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>p verdadera, q verdadera</text>
+      <feedback format="html">
+        <text><![CDATA[<p>El condicional es verdadero en este caso.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>p falsa, q verdadera</text>
+      <feedback format="html">
+        <text><![CDATA[<p>El condicional es verdadero cuando p es falsa.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>p falsa, q falsa</text>
+      <feedback format="html">
+        <text><![CDATA[<p>También aquí el condicional es verdadero.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- T5 -->
+  <question type="matching">
+    <name>
+      <text>Clasificacion_formulas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Relaciona cada fórmula con su clasificación adecuada.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La clasificación se basa en la columna final de la tabla de verdad de cada fórmula.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>6.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <shuffleanswers>true</shuffleanswers>
+    <subquestion format="html">
+      <text><![CDATA[<p>$$(p \lor \neg p)$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>tautología</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>$$(p \land \neg p)$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>contradicción</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>$$(p \to q)$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>fórmula contingente</p>]]></text>
+      </answer>
+    </subquestion>
+  </question>
+
+  <!-- ============ EQUIVALENCIAS Y FORMAS NORMALES (SOLO PANTALLA) ============ -->
+
+  <!-- E1 -->
+  <question type="multichoice">
+    <name>
+      <text>De_Morgan_conjuncion</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Selecciona la equivalencia correcta para $$\neg(p \land q)$$.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Las leyes de De Morgan relacionan la negación de conjunciones y disyunciones con fórmulas equivalentes.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>$$\neg p \lor \neg q$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Equivalencia estándar de De Morgan para la conjunción.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$\neg p \land \neg q$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No coincide con la distribución correcta de la negación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$p \lor q$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No hay negaciones en esta fórmula.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$\neg(p \lor q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Es otra fórmula distinta.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- E2 -->
+  <question type="multichoice">
+    <name>
+      <text>Equivalencia_condicional</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Selecciona la fórmula equivalente a $$p \to q$$ que no utiliza el conectivo $$\to$$.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>El condicional puede escribirse como una disyunción que combina la negación del antecedente con el consecuente.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text>$$\neg p \lor q$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Forma disyuntiva estándar del condicional.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$\neg q \lor p$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No es equivalente a $$p \to q$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$p \land q$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Es una conjunción, no un condicional reescrito.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$\neg(p \land q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No corresponde al esquema de equivalencia del condicional.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- E3 -->
+  <question type="shortanswer">
+    <name>
+      <text>Tipo_forma_normal</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Considera la fórmula $$ (p \lor q) \land (\neg p \lor r) \land (\neg q \lor \neg r) $$. Indica si es una forma normal conjuntiva o una forma normal disyuntiva. Escribe exactamente “fnc” o “fnd”.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>En una forma normal conjuntiva, aparece una conjunción de cláusulas disyuntivas; en una forma normal disyuntiva, aparece una disyunción de cláusulas conjuntivas.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>fnc</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Conjunción de cláusulas disyuntivas.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- E4 -->
+  <question type="multichoice">
+    <name>
+      <text>Distribucion_para_FNC</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Para transformar $$p \lor (q \land r)$$ a una fórmula equivalente en forma normal conjuntiva, ¿qué expresión se obtiene al aplicar la distribución correcta?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La distribución de la disyunción sobre la conjunción produce una conjunción de disyunciones.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>$$(p \lor q) \land (p \lor r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Resultado típico al distribuir la disyunción sobre la conjunción.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(p \land q) \lor (p \land r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Corresponde a otra distribución, no a la que parte de $$p \lor (q \land r)$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(p \lor q \lor r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Se pierde la estructura conjuntiva por completo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(p \land q \land r)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No es equivalente a la fórmula inicial.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- ============ REGLAS DE INFERENCIA Y FALACIAS (SOLO PANTALLA) ============ -->
+
+  <!-- R1 -->
+  <question type="multichoice">
+    <name>
+      <text>Regla_para_q</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>En la siguiente inferencia:</p>
+      <ul>
+        <li>1. $$p \to q$$</li>
+        <li>2. $$p$$</li>
+        <li>3. $$q$$</li>
+      </ul>
+      <p>¿Qué regla de inferencia se ha aplicado para obtener q en la línea 3?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La regla se expresa como un patrón que preserva la verdad al pasar de premisas a conclusión.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>Modus Ponens</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Se aplica al tener $$p \to q$$ y $$p$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Modus Tollens</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Parte de $$p \to q$$ y $$\neg q$$, no de $$p$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Silogismo disyuntivo</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Trabaja con disyunciones, no con un condicional y su antecedente.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Conjunción</text>
+      <feedback format="html">
+        <text><![CDATA[<p>La conjunción combina fórmulas, no deriva q del condicional.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- R2 -->
+  <question type="multichoice">
+    <name>
+      <text>Falacia_formal</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Considera el siguiente razonamiento:</p>
+      <ul>
+        <li>1. $$p \to q$$</li>
+        <li>2. $$q$$</li>
+        <li>3. $$p$$</li>
+      </ul>
+      <p>¿Cómo se llama este patrón de razonamiento?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Este tipo de argumento utiliza un patrón que no garantiza la verdad de la conclusión aunque las premisas sean verdaderas.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>Afirmación del consecuente</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falacia formal que parte de $$p \to q$$ y $$q$$ para afirmar $$p$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Negación del antecedente</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falacia distinta que parte de $$p \to q$$ y $$\neg p$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Modus Ponens</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Es una regla válida con antecedente $$p$$, no con $$q$$.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Silogismo hipotético</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Encadena condicionales, no se ajusta al esquema mostrado.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- R3 -->
+  <question type="matching">
+    <name>
+      <text>Reglas_basicas_esquemas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Relaciona cada esquema de inferencia con el nombre de la regla correspondiente.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Cada regla se expresa con un esquema de premisas y una conclusión que preserva la verdad.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>6.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <shuffleanswers>true</shuffleanswers>
+    <subquestion format="html">
+      <text><![CDATA[<p>1. $$p \to q, \; p \; / \; q$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Modus Ponens</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>2. $$p \to q, \; \neg q \; / \; \neg p$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Modus Tollens</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>3. $$p \to q, \; q \to r \; / \; p \to r$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Silogismo hipotético</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>4. $$p \lor q, \; \neg p \; / \; q$$</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Silogismo disyuntivo</p>]]></text>
+      </answer>
+    </subquestion>
+  </question>
+
+  <!-- R4 -->
+  <question type="numerical">
+    <name>
+      <text>Minimo_lineas_prueba</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Un argumento tiene exactamente dos premisas distintas y se aplica una sola regla de inferencia una vez para obtener la conclusión. ¿Cuál es el número mínimo de líneas que tendrá la prueba formal completa, incluyendo las premisas y la conclusión?</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Las pruebas formales numeran cada premisa y cada línea derivada hasta llegar a la conclusión.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>3</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Dos premisas y una línea adicional para la conclusión.</p>]]></text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+  <!-- R5 -->
+  <question type="truefalse">
+    <name>
+      <text>Doble_negacion_regla</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>De $$p$$ se puede derivar $$\neg \neg p$$, y de $$\neg \neg p$$ se puede derivar $$p$$, utilizando la regla de doble negación.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La doble negación establece una equivalencia entre la fórmula y su negación doble.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Refleja la regla tal como se usa en deducciones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Negar esta propiedad contradice la regla de doble negación.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- R6 -->
+  <question type="truefalse">
+    <name>
+      <text>FBF_compuestas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p>Las expresiones $$\neg (p \lor q)$$ y $$p \to q$$ son fórmulas bien formadas de la lógica de proposiciones.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Una fórmula bien formada se construye aplicando las reglas de formación permitidas a letras proposicionales y conectivos.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Se ajustan a los esquemas de construcción de fórmulas.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No hay violación de las reglas de formación en estas expresiones.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- ============ PREGUNTAS TIPO PP (TRABAJO EN PAPEL + RESPUESTA EN MOODLE) ============ -->
+
+  <!-- PP1: contexto y asignación de letras -->
+  <question type="multichoice">
+    <name>
+      <text>PP1_Contexto_servidor_y_red</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p><b>Identificador de pregunta: PP1</b></p>
+      <p>Lee el siguiente contexto:</p>
+      <blockquote>
+      “El servidor está activo. La red está disponible. Si el servidor está activo y la red está disponible, entonces los usuarios pueden conectarse. Si los usuarios pueden conectarse, se registra actividad en el sistema.”
+      </blockquote>
+      <p>En tus hojas de respuesta:</p>
+      <ul>
+        <li>Escribe el identificador <b>PP1</b>.</li>
+        <li>Escribe cuatro enunciados que sean proposiciones extraídas del texto.</li>
+        <li>Asigna a cada proposición una letra proposicional (por ejemplo, p, q, r, s).</li>
+      </ul>
+      <p>En Ubicua, selecciona la opción que coincide con una posible asignación coherente de letras proposicionales.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>El trabajo en papel se centra en reconocer proposiciones y asociarlas con letras proposicionales que luego se utilizarán para formalizar condicionales.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>4.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>p: El servidor está activo; q: La red está disponible; r: Los usuarios pueden conectarse; s: Se registra actividad en el sistema.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Asignación coherente con el contexto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>p: La red está disponible; q: Los usuarios pueden conectarse; r: Se registra actividad en el sistema; s: La red está disponible.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Asignación inconsistente o repetida.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>p: Se registra actividad en el sistema; q: La red está disponible; r: El servidor está activo; s: Los usuarios pueden conectarse.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Asignación coherente con el contexto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>p: El servidor está activo; q: La red está disponible; r: La red está disponible; r: Se registra actividad en el sistema.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Asocia proposiciones distintas a la misma letra.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- PP2: tabla y clasificación de φ1 -->
+  <question type="multichoice">
+    <name>
+      <text>PP2_Tabla_y_clasificacion_phi1</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p><b>Identificador de pregunta: PP2</b></p>
+      <p>Sea $$\varphi_1 = (p \lor q) \to r$$.</p>
+      <p>En tus hojas de respuesta:</p>
+      <ul>
+        <li>Escribe el identificador <b>PP2</b>.</li>
+        <li>Construye la tabla de verdad completa de $$\varphi_1$$, incluyendo las columnas intermedias necesarias.</li>
+        <li>Clasifica $$\varphi_1$$ como tautología, contradicción o fórmula contingente.</li>
+      </ul>
+      <p>En Ubicua, selecciona la clasificación que coincide con tu tabla de verdad.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>La clasificación se obtiene observando si la columna final de $$\varphi_1$$ contiene solo V, solo F o una mezcla de V y F.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>4.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="html">
+      <text>Tautología</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Requeriría que la fórmula fuera verdadera en todos los renglones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Contradicción</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Requeriría que la fórmula fuera falsa en todos los renglones.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Fórmula contingente</text>
+      <feedback format="html">
+        <text><![CDATA[<p>La columna final mezcla renglones verdaderos y falsos.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- PP3: FNC para ψ -->
+  <question type="multichoice">
+    <name>
+      <text>PP3_FNC_para_psi</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p><b>Identificador de pregunta: PP3</b></p>
+      <p>Sea $$\psi = \neg (p \land q) \to (r \lor \neg q)$$.</p>
+      <p>En tus hojas de respuesta:</p>
+      <ul>
+        <li>Escribe el identificador <b>PP3</b>.</li>
+        <li>Transforma $$\psi$$ paso a paso hasta eliminar el conectivo $$\to$$ utilizando equivalencias.</li>
+        <li>Continúa hasta obtener una forma normal conjuntiva (FNC) equivalente.</li>
+      </ul>
+      <p>En Ubicua, selecciona una fórmula que pueda ser el resultado correcto en FNC (equivalente aunque cambie el orden de literales o cláusulas).</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Para llegar a FNC se usan, en general, la eliminación del condicional, las leyes de De Morgan y las distribuciones apropiadas.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>5.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <!-- La fórmula correcta se da como un posible resultado en FNC sin detallar el camino -->
+    <answer fraction="100" format="html">
+      <text>$$(\neg p \lor \neg q \lor r) \land (\neg p \lor \neg q \lor \neg q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Ejemplo de FNC equivalente a $$\psi$$ (orden y repeticiones de literales pueden variar).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(p \land q) \lor (r \lor \neg q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No corresponde a la eliminación correcta del condicional.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(\neg p \lor q) \land (r \lor \neg q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No refleja la negación completa de $(p \land q)$ en el antecedente.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>$$(p \lor q) \land (\neg r \lor q)$$</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No es equivalente a la fórmula original.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <!-- PP4: consecuencia lógica concreta -->
+  <question type="multichoice">
+    <name>
+      <text>PP4_Consecuencia_con_tabla</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p><b>Identificador de pregunta: PP4</b></p>
+      <p>Considera el argumento con:</p>
+      <p>Premisas: $$1.\; p \to q \quad 2.\; q \to r \quad 3.\; p$$</p>
+      <p>Conclusión: $$r$$</p>
+      <p>En tus hojas de respuesta:</p>
+      <ul>
+        <li>Escribe el identificador <b>PP4</b>.</li>
+        <li>Construye una tabla de verdad que incluya las tres premisas y la conclusión.</li>
+        <li>Si la conclusión <b>no</b> es consecuencia lógica, indica en qué renglón o renglones hay contraejemplos.</li>
+      </ul>
+      <p>En Ubicua, selecciona la opción que describe correctamente la relación entre premisas y conclusión.</p>
+      ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Se revisan todos los renglones para ver si existe alguno donde las premisas sean verdaderas y la conclusión falsa.</p>
+      ]]></text>
+    </generalfeedback>
+    <defaultgrade>4.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text>La conclusión es consecuencia lógica de las premisas; en todos los renglones donde las premisas son verdaderas, la conclusión también es verdadera.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>No aparece ningún renglón de contraejemplo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>No hay consecuencia lógica, porque existe al menos un renglón con premisas verdaderas y conclusión falsa.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Esta opción describe un caso con contraejemplo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>No puede decidirse con tablas de verdad, solo con pruebas formales.</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Las tablas de verdad sí permiten decidir consecuencias lógicas en lógica proposicional.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+    <!-- PP5: prueba formal con tabla de reglas y secuencia de pasos -->
+  <question type="shortanswer">
+    <name>
+      <text>PP5_Prueba_formal_acceso</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[
+      <p><b>Identificador de pregunta: PP5</b></p>
+
+      <p>Se consideran las siguientes proposiciones:</p>
+      <ul>
+        <li>p: El usuario tiene credenciales válidas.</li>
+        <li>q: El usuario tiene permisos de escritura.</li>
+        <li>r: El usuario puede modificar el archivo.</li>
+        <li>s: Se registra la operación en el log.</li>
+      </ul>
+
+      <p>Premisas:</p>
+      <ul>
+        <li>1. $$ (p \land q) \to r $$</li>
+        <li>2. $$ r \to s $$</li>
+        <li>3. $$ p $$</li>
+        <li>4. $$ q $$</li>
+      </ul>
+
+      <p>Objetivo: demostrar $$ s $$ mediante una prueba formal.</p>
+
+      <p><b>Reglas de inferencia y abreviaturas permitidas</b></p>
+      <table border="1" cellpadding="4" cellspacing="0">
+        <tr>
+          <th>Nombre</th>
+          <th>Hipótesis</th>
+          <th>Conclusión</th>
+          <th>Abrev.</th>
+        </tr>
+        <tr>
+          <td>Modus Ponens</td>
+          <td>$$ p \to q, \; p $$</td>
+          <td>$$ q $$</td>
+          <td>MP</td>
+        </tr>
+        <tr>
+          <td>Modus Tollens</td>
+          <td>$$ p \to q, \; \neg q $$</td>
+          <td>$$ \neg p $$</td>
+          <td>MT</td>
+        </tr>
+        <tr>
+          <td>Silogismo hipotético</td>
+          <td>$$ p \to q, \; q \to r $$</td>
+          <td>$$ p \to r $$</td>
+          <td>SH</td>
+        </tr>
+        <tr>
+          <td>Silogismo disyuntivo</td>
+          <td>$$ p \lor q, \; \neg p $$</td>
+          <td>$$ q $$</td>
+          <td>SD</td>
+        </tr>
+        <tr>
+          <td>Adición</td>
+          <td>$$ p $$</td>
+          <td>$$ p \lor q $$</td>
+          <td>AD</td>
+        </tr>
+        <tr>
+          <td>Simplificación</td>
+          <td>$$ p \land q $$</td>
+          <td>$$ p $$ o $$ q $$</td>
+          <td>SIMP</td>
+        </tr>
+        <tr>
+          <td>Conjunción</td>
+          <td>$$ p, \; q $$</td>
+          <td>$$ p \land q $$</td>
+          <td>CONJ</td>
+        </tr>
+        <tr>
+          <td>Doble negación</td>
+          <td>$$ p $$ o $$ \neg \neg p $$</td>
+          <td>$$ \neg \neg p $$ o $$ p $$</td>
+          <td>DN</td>
+        </tr>
+      </table>
+
+      <p>En tus hojas de respuesta, escribe el identificador <b>PP5</b> y construye la prueba formal completa, numerando las líneas y anotando la regla usada en cada paso.</p>
+
+      <p>En Ubicua, escribe una secuencia de pasos que sea consistente con una prueba correcta, usando el formato:</p>
+      <p><code>CONJ(3,4), MP(1,5), MP(2,6)</code></p>
+
+      <p>Se aceptan abreviaturas en mayúsculas o minúsculas (por ejemplo, <code>mp</code> o <code>MP</code>).</p>
+      ]]></text>
+    </questiontext>
+
+    <generalfeedback format="html">
+      <text><![CDATA[
+      <p>Una prueba formal correcta encadena reglas desde las premisas hasta la conclusión, sin saltos injustificados.</p>
+      ]]></text>
+    </generalfeedback>
+
+    <defaultgrade>5.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+
+    <!-- Variante principal de la secuencia -->
+    <answer fraction="100" format="moodle_auto_format">
+      <text>CONJ(3,4),MP(1,5),MP(2,6)</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Secuencia válida de reglas desde las premisas hasta $$s$$.</p>]]></text>
+      </feedback>
+    </answer>
+
+    <!-- Variante equivalente en minúsculas -->
+    <answer fraction="100" format="moodle_auto_format">
+      <text>conj(3,4),mp(1,5),mp(2,6)</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Variante equivalente con abreviaturas en minúsculas.</p>]]></text>
+      </feedback>
+    </answer>
+
+    <!-- Otra variante de orden razonable -->
+    <answer fraction="100" format="moodle_auto_format">
+      <text>mp(1,5),conj(3,4),mp(2,6)</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Variante donde se aplica primero una instancia de Modus Ponens y luego la conjunción, suponiendo una numeración de líneas coherente en la prueba en papel.</p>]]></text>
+      </feedback>
+    </answer>
+
+  </question>
+
+</quiz>

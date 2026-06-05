@@ -1,0 +1,396 @@
+Considera los archivos con los temas de clase siguientes:
+"01_Logica_de_proposiciones.md
+02_tablas_tautologia_contra_contingen_consecuencia.md
+03_Equivalencias_formas_normales.md
+04_Reglas_Inferencia.md"
+
+Considera los archivos para las prácticas de los temas vistos en clase siguientes:
+"01_Practica de Logica de Proposiciones_PRACTICA.md
+02_Tablas_clasificacion_consecuencia_PRACTICA.md
+03_Equivalencias_formas_normales_PRACTICA.md
+04_Pruebas_formales_PRACTICA.md"
+
+Considera un banco de preguntas para Moodle en formato XML como el siguiente:
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Por defecto en 26-P-CCD-TSI-COURSE019-DD01T</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Categoría por defecto para preguntas compartidas en el contexto 26-P-CCD-TSI-COURSE019-DD01T.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914468  -->
+  <question type="matching">
+    <name>
+      <text>Países y capitales</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Relaciona cada país con su capital correspondiente.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>España - Madrid, Francia - París, Japón - Tokio.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>3.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>true</shuffleanswers>
+    <correctfeedback format="html">
+      <text><![CDATA[<p>¡Excelente! Has emparejado correctamente todos los países con sus capitales.</p>]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[<p>Algunos emparejamientos son correctos, revisa los que faltan.</p>]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[<p>No es correcto, vuelve a revisar las capitales de cada país.</p>]]></text>
+    </incorrectfeedback>
+    <subquestion format="html">
+      <text><![CDATA[<p>España</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Madrid</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>Francia</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>París</p>]]></text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>Japón</p>]]></text>
+      <answer>
+        <text><![CDATA[<p>Tokio</p>]]></text>
+      </answer>
+    </subquestion>
+  </question>
+
+<!-- question: 914464  -->
+  <question type="multichoice">
+    <name>
+      <text>Capital de México</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es la capital de México?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La capital de México es Ciudad de México, también conocida como CDMX.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[<p>¡Correcto! Ciudad de México es la capital del país.</p>]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[<p>Algunas respuestas son correctas, revisa de nuevo la capital oficial.</p>]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[<p>No es correcto. La capital de México es Ciudad de México.</p>]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text>Ciudad de México</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, Ciudad de México es la capital.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Guadalajara</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto, Guadalajara es una ciudad importante, pero no la capital.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Monterrey</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto, Monterrey es una ciudad industrial, pero no la capital.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Puebla</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto, Puebla es una ciudad histórica, pero no la capital.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914469  -->
+  <question type="multichoice">
+    <name>
+      <text>Planetas del Sistema Solar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuáles de los siguientes son planetas del Sistema Solar?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Marte, Júpiter y Saturno son planetas; Plutón se clasifica como planeta enano.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>false</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[<p>Correcto, has elegido únicamente planetas del Sistema Solar.</p>]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[<p>Algunas respuestas son correctas, pero hay errores u omisiones.</p>]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[<p>No es correcto, revisa qué cuerpos celestes son planetas y cuáles no.</p>]]></text>
+    </incorrectfeedback>
+    <answer fraction="33.33333" format="html">
+      <text>Marte</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Marte es un planeta rocoso del Sistema Solar.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="33.33333" format="html">
+      <text>Júpiter</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Júpiter es el planeta más grande del Sistema Solar.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="33.33333" format="html">
+      <text>Saturno</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Saturno es un planeta gaseoso conocido por sus anillos.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text>Plutón</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Plutón se considera actualmente un planeta enano, no un planeta principal.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914467  -->
+  <question type="numerical">
+    <name>
+      <text>Año llegada a la Luna</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿En qué año llegó el ser humano a la Luna por primera vez? (Misión Apolo 11)</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La misión Apolo 11 alunizó en 1969.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>1969</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, la misión Apolo 11 llegó a la Luna en 1969.</p>]]></text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 914470  -->
+  <question type="numerical">
+    <name>
+      <text>Temperatura de congelación del agua</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿A qué temperatura (en grados Celsius) se congela el agua a nivel del mar?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El agua pura se congela a 0 grados Celsius a presión atmosférica estándar.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>0</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, el valor estándar es 0 °C; se acepta un pequeño margen.</p>]]></text>
+      </feedback>
+      <tolerance>0.5</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 914466  -->
+  <question type="shortanswer">
+    <name>
+      <text>Idioma oficial de Brasil</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el idioma oficial de Brasil?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>En Brasil se habla principalmente portugués.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>portugués</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, el idioma oficial de Brasil es el portugués.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>portugues</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, se acepta la respuesta sin tilde.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914471  -->
+  <question type="shortanswer">
+    <name>
+      <text>Océano más grande</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el océano más grande de la Tierra?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El océano Pacífico es el más grande del planeta.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>océano pacífico</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, es el océano de mayor superficie.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>oceano pacifico</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, se acepta la respuesta sin tildes.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>pacífico</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, el Pacífico es el océano más grande.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914465  -->
+  <question type="truefalse">
+    <name>
+      <text>El Sol es una estrella</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El Sol es una estrella.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>En astronomía, el Sol se clasifica como una estrella de tipo G.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, el Sol es una estrella.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto, el Sol sí es una estrella.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914473  -->
+  <question type="truefalse">
+    <name>
+      <text>La Gran Muralla China es visible desde la Luna</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>La Gran Muralla China se puede ver claramente a simple vista desde la Luna.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Es un mito popular; en realidad no es fácilmente visible a simple vista desde la Luna.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto, es un mito; no se distingue claramente desde la Luna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto, es sólo un mito que se vea claramente desde la Luna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 914463  -->
+  <question type="truefalse">
+    <name>
+      <text>Una pregunta de verdadero o falso</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una pregunta de verdadero o falso $$ \neg (p \lor q) $$</p>
+<p>$$ p \to q $$</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Retroalimentación general para Una pregunta de verdadero o falso</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto!  Retroalimentación Verdadero para Una pregunta de verdadero o falso</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto!! Retroalimentación Falso para Una pregunta de verdadero o falso</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
+
+Dame un banco de preguntas en un archivo XML en formato de Moodle 3.x y 4.x o reciente como el ejemplo anterior. El examen debe contener preguntas de varios tipos que se pueda calificar automáticamente (por ejemplo, ninguna pregunta de ensayo). Nota en particular la pregunta <!-- question: 914463  -->, en ella aparecen expresiones matemáticas en LaTex delimitadas por $$ $$. Solo se puede usar ese delimitador, el delimitador $ $ no funciona, usa siempre $$. El examen debe cubrir los temas vistos en clase y en las prácticas, debe ser de un total de 100 puntos (si me das preguntas de más, osea que se pase de 100, está bien para que yo pueda elegir preguntas), y deben ser un total de preguntas calculadas para responderse en una hora.
+
+También dame una parte de examen que será en papel en la que se resuelvan ejercicios como los de los archivos de prácticas, también debe tomar 1 hora. Esta hoja de examen deberá ser de preferencia un archivo latex.
+
+Tanto las preguntas del examen teórico (del banco de preguntas) como del práctico deberán tener una mezcla de grados de dificultad en las preguntas. Todas las preguntas deben salir de los materiales que te he indicado, ninguna referencia externa ha de usarse.
