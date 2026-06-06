@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Categoría por defecto para preguntas compartidas en el contexto Examen Parcial.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Teoria_Proposiciones</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Teoria_Proposiciones</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914880  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_teoria_proposiciones</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_teoria_proposiciones</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Teoria_Tablas_consecuencia</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Teoria_Tablas_consecuencia</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914882  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_teoria_tablas_consecuencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_teoria_tablas_consecuencia</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Teoria_Equiv_FN</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Teoria_Equiv_FN</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914879  -->
+  <question type="essay">
+    <name>
+      <text>Teoria_Equiv_FN_Pregunta</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Teoria_Equiv_FN_Pregunta</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Teoria_Pruebas_Inferencia</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Teoria_Pruebas_Inferencia</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914881  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_Teoria_pruebas_inferencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_Teoria_pruebas_inferencia</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Practica_Proposiciones</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Practica_Proposiciones</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914884  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_practica_proposiciones</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_practica_proposiciones</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Practica_Tablas_consecuencia</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Practica_Tablas_consecuencia</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914886  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_practica_tablas_consecuencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_practica_tablas_consecuencia</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Practica_Equiv_FN</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Practica_Equiv_FN</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914883  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_practica_equiv_FN</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_practica_equiv_FN</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/Practica_Pruebas_Inferencia</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Practica_Pruebas_Inferencia</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 914885  -->
+  <question type="essay">
+    <name>
+      <text>Pregunta_practica_pruebas_inferencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Pregunta_practica_pruebas_inferencia</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+</quiz>

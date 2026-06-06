@@ -394,3 +394,41 @@ Dame un banco de preguntas en un archivo XML en formato de Moodle 3.x y 4.x o re
 También dame una parte de examen que será en papel en la que se resuelvan ejercicios como los de los archivos de prácticas, también debe tomar 1 hora. Esta hoja de examen deberá ser de preferencia un archivo latex.
 
 Tanto las preguntas del examen teórico (del banco de preguntas) como del práctico deberán tener una mezcla de grados de dificultad en las preguntas. Todas las preguntas deben salir de los materiales que te he indicado, ninguna referencia externa ha de usarse.
+
+
+
+
+
+
+
+
+
+
+
+-----######-------########
+
+
+Considera el archivo adjunto como plantilla para generar un banco de preguntas con varias categorías. La plantilla contiene una sola pregunta de tipo ensayo en cada categoría, excepto por la categoría principal: $module$/top/Por defecto en Examen Parcial. Esta categoría principal es solo un agrupador global.
+Para la categoría "Teoria_Proposiciones" usa el archivo "01_Lógica_de_proposiciones.md" y dame un banco de 15 a 20 preguntas de un punto cada pregunta.
+Para la categoría "Teoria_Tablas_consecuencia" usa el archivo "02_tablas_tautologia_contra_contingen_consecuencia.md" y dame un banco de 15 a 20 preguntas de tres puntos cada pregunta.
+Para la categoría "Teoria_Equiv_FN" usa el archivo "03_Equivalencias_formas_normales.md" y dame un banco de 15 a 20 preguntas de tres puntos cada pregunta.
+Para la categoría "Teoria_Pruebas_Inferencia" usa el archivo "04_Reglas_Inferencia.md" y dame un banco de 15 a 20 preguntas de tres puntos cada pregunta.
+Todas las preguntas de los bancos anteriores pueden ser de varios tipos como opción múltiple de una sola o muchas respuestas, relacionar columnas, numéricas, respuesta corta, etc., pero todas deber de calificarse automáticamente (por ejemplo no debe haber ninguna de tipo ensayo).
+Para la categoría  "Practica_Proposiciones" usa el archivo "01_Practica de Logica de Proposiciones_PRACTICA.md" como ejemplo y dame 6 preguntas distintas con ejercicios como: "Ejercicio Integrado de Formalización
+Contexto: Proceso de respaldo de base de datos
+Lee el siguiente escenario y responde:
+“El sistema realiza respaldos automáticos cada noche. Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco. Si el respaldo no es exitoso, se envía una alerta al administrador. El administrador puede iniciar un respaldo manual cuando lo considere necesario.”
+Instrucciones:
+Identifica al menos 5 enunciados que sean proposiciones
+Define variables proposicionales para cada una
+Formaliza la siguiente afirmación del texto: “Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco”
+Formaliza esta otra afirmación: “Si el respaldo no es exitoso, se envía una alerta al administrador”"
+Para la categoria "Practica_Tablas_consecuencia", usa el archivo "02_Tablas_clasificacion_consecuencia_PRACTICA.md" como ejemplo y dame tres ejercicios para construir la tabla de verdad completa de una expresión y clasificarla y 6 ejercicios para determinar consecuencia lógica usando para ello tablas de verdad. La mitad de los ejemplos de consecuencia lógica sí serán consecuencia lógica y la otra mitad no lo será, en ambos casos pedir determinar si es consecuencia lógica y si no lo es indicar el renglón o renglones que son contraejemplos.
+Para la categoría "Practica_Equiv_FN" usa el archivo "03_Equivalencias_formas_normales_PRACTICA.md" como ejemplo y dame 3 ejercicios para simplificar, 3 ejercicios para encontrar una forma normal conjuntiva y 3 ejercicios para encontrar la forma normal disyuntiva.
+Para la categoría "Practica_Pruebas_Inferencia", usa el archivo "04_Pruebas_formales_PRACTICA.md" como ejemplo y dame 6 ejercicios de pruebas formales que involucren el uso de 5-6 reglas de inferencia o de simplificación y equivalencia para llegar a la conclusión, los dos ejercicios deben llegar a la conclusión.
+Para todos los ejercicios de tipo práctico, 1) incluye en la pregunta un identificador único, pues los alumnos tendrán que anotar este identificador único en su hoja de respuestas de papel y entregarán la hoja al final del examen.  Para la categoría  "Practica_Proposiciones" solo darás el texto y las instrucciones sin resolver nada de la pregunta. Para la categoría "Practica_Equiv_FN", agrega en el cuerpo de todas las preguntas, el repertorio de leyes que pueden utilizar, se encuentra en el archivo: "03_Equivalencias_formas_normales_PRACTICA.md". Para la categoría "Practica_Pruebas_Inferencia" agrega en el cuerpo de todas las preguntas, las reglas de inferencia y de simplificación que están en el archivo "04_Pruebas_formales_PRACTICA.md".  Todas las preguntas prácticas deber tener un valor de 5 puntos. Todas las preguntas prácticas deberán ser de tipo ensayo, donde la escritura de texto sea opcional. Ninguna pregunta teórica ni práctica deben contener conceptos que no estén en los archivos que se han indicado. Si es necesario hacer preguntas que sean muy parecidas o iguales haz paráfrasis para que no se vean igual. En CUALQUIER sitio en donde haga falta incluir expresiones matemáticas usa delimitador de matemático de LaTex: "$$", es el único que funciona así que usa solo ese en cualquier sitio en donde haya una expresión matemática o fórmula. Dame el banco de preguntas usando la plantilla de examen en XML.
+
+
+
+
+
