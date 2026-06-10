@@ -1,3 +1,8 @@
+Este documento salió de un latex del TEC 
+pedí la conversión a .md y no lo convirtió muy bien
+Tampoco las imágenes quedaron bien.
+
+
 # Modelo Relacional
 
 

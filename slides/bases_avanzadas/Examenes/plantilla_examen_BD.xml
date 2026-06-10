@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Categoría por defecto para preguntas compartidas en el contexto Examen Parcial.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/BD_OO</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>BD_OO</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 915150  -->
+  <question type="essay">
+    <name>
+      <text>Una pregunta de prueba</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una pregunta de prueba</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>0</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+</quiz>
