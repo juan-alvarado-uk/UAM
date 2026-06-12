@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>De la lógica proposicional a la lógica de primer orden</h1>
+    </section>
+    <section>
+      <h2>De la lógica proposicional a la lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La <strong>lógica de proposiciones</strong> ya es conocida: trabaja con <strong>proposiciones completas</strong> como “Llueve”, “Juan estudia”, “Hoy es martes”, y analiza cómo se combinan con conectivos como <strong>no</strong>, <strong>y</strong>, <strong>o</strong>, <strong>si… entonces…</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/5gpXnVqz/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la lógica proposicional a la lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/5h2n2P88/0032.jpg" alt="image" /></div>
+        <div class="text-col"><p>Cada proposición se ve como un bloque al que se le asigna <strong>verdadero</strong> o <strong>falso</strong>, sin entrar a analizar su estructura interna.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Por qué la lógica proposicional se queda corta</h1>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La lógica proposicional resulta muy útil, pero tiene límites claros cuando se quieren modelar datos y relaciones más finas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/KjKmJWsX/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Solo ve proposiciones completas como bloques:<ul><li><code>p</code>: “Juan es alto”</li><li><code>q</code>: “María es alta”</li></ul></li></ul>
+<p>Cada una es una pieza indivisible.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/2YKkLXSx/0098.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/21MQw1fB/0091.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>No distingue <strong>individuos</strong>:</li></ul>
+<p>No se puede representar directamente “Juan”, “María”, “Pedro” como elementos sobre los que se pueda cuantificar o comparar; solo aparecen escondidos dentro de frases como “Juan es alto”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/MxPJbfPL/0054.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>No maneja de forma explícita <strong>relaciones entre individuos</strong>:</li></ul>
+<p>“Juan es padre de María” se vuelve una sola letra proposicional, por ejemplo <code>r</code>, en lugar de algo estructurado como <strong>Padre(juan, maría)</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/r2FVpTjQ/0039.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>No expresa <strong>propiedades generales</strong> de manera natural:</li></ul>
+<p>La frase “Todos los estudiantes entregan tareas” no se puede escribir de forma general en lógica proposicional.</p><p>Solo sería posible listar una cantidad finita de casos: <strong>p ∧ q ∧ r</strong>… si se tuviera una lista cerrada de estudiantes.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si entra un nuevo estudiante, la fórmula tendría que modificarse.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/GfwFQKhN/0065.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+        <div class="text-col"><p>En resumen, la lógica proposicional <strong>no puede hablar directamente de individuos, propiedades y relaciones</strong> con suficiente riqueza; solo ve oraciones completas como bloques indivisibles.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Por qué la lógica proposicional se queda corta</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+        <div class="text-col"><p>La <strong>lógica de primer orden</strong> aparece para superar esas limitaciones y permitir un modelado más parecido a una base de datos o a un modelo de objetos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Elementos básicos del lenguaje de primer orden</h1>
+    </section>
+    <section>
+      <h2>Elementos básicos del lenguaje de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/cKMV7cs4/0018.jpg" alt="image" /></div>
+        <div class="text-col"><p>La lógica de primer orden introduce nuevos tipos de símbolos que permiten hablar de individuos y relaciones:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Elementos básicos del lenguaje de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/5h2n2P88/0032.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Variables</strong>: <code>x</code>, <code>y</code>, <code>z</code>, …</li><li><strong>Constantes</strong>: <code>ana</code>, <code>luis</code>, <code>servidor1</code>, <code>toluca</code>.</li><li><strong>Predicados</strong>: <code>Humano(x)</code>, <code>MayorQue(x,y)</code>, <code>Padre(x,y)</code>, <code>Disponible(x)</code>.</li><li><strong>Funciones</strong> (si el lenguaje las incluye): <code>padre_de(x)</code>, <code>siguiente(x)</code>.</li><li><strong>Cuantificadores</strong>: <strong>∀</strong> (para todo), <strong>∃</strong> (existe).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Elementos básicos del lenguaje de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Conectivos ya conocidos: <strong>¬</strong>, <strong>∧</strong>, <strong>∨</strong>, <strong>→</strong>, <strong>↔</strong>.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/BHQYVktn/0099.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Variables y constantes</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una <strong>variable</strong> representa un objeto cualquiera del dominio, algo así como un “espacio en blanco” que puede tomar distintos valores: <code>x</code>, <code>y</code>, <code>z</code>.</p><p>Una <strong>constante</strong> nombra un individuo concreto del dominio: <code>ana</code>, <code>luis</code>, <code>servidor_principal</code>, <code>router1</code>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/gZst5BrW/0036.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Variables y constantes</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En una estructura fija, cada constante se asocia con un individuo específico.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Variables y constantes</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/W4Y9B1fk/0033.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplos cotidianos:</p>
+<ul><li><code>maria</code> puede representar a una persona específica.</li><li><code>x</code> puede representar “una persona cualquiera”.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Variables y constantes</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplos tecnológicos:</p>
+<ul><li><code>servidor1</code> puede representar un servidor en un centro de datos.</li><li><code>usuarioA</code> puede representar a un usuario registrado.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/RGfDxMs8/0008.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Predicados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/sh7t1w0/0045.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un <strong>predicado</strong> expresa una <strong>propiedad</strong> o una <strong>relación</strong> entre individuos.</p>
+<ul><li>Predicado unario (una posición): <strong>Persona(x)</strong>, <strong>Disponible(x)</strong>.</li></ul>
+<p>Ejemplo: <strong>Persona(ana)</strong>, <strong>Disponible(servidor1)</strong>.</p>
+<ul><li>Predicado binario (dos posiciones): <strong>Padre(x,y)</strong>, <strong>MayorQue(x,y)</strong>, <strong>ConectadoA(x,y)</strong>.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Predicados</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/v6wsDBsh/0075.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo: <strong>Padre(carlos,luis)</strong>, <strong>ConectadoA(router1,switch2)</strong>.</p><p>En una estructura concreta, a cada predicado se le asigna un conjunto de tuplas que indican para qué individuos la propiedad o relación se cumple.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una <strong>función</strong> es un símbolo que, dado uno o varios individuos, <strong>devuelve un individuo</strong>.</p><p>Se escribe como en matemáticas o en programación: nombre de la función seguido de paréntesis con argumentos.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/b5NVW6dp/0025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/MxPJbfPL/0054.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Ejemplos cotidianos:<ul><li><strong>madre_de(x)</strong>: devuelve la madre de \(x\).</li><li><strong>edad_de(x)</strong>: devuelve la edad de \(x\) (si el dominio incluye números).</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Ejemplos tecnológicos:<ul><li><strong>ip_de(servidor1)</strong>: devuelve la dirección IP asociada a <code>servidor1</code>.</li><li><strong>gateway_de(router1)</strong>: devuelve el equipo que funciona como puerta de enlace del router.</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Los <strong>términos</strong> se construyen a partir de variables, constantes y funciones:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/RkZTppB2/0089.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/dJ35QKZ2/0047.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Toda <strong>variable</strong> es un término: <code>x</code>.</li><li>Toda <strong>constante</strong> es un término: <code>ana</code>.</li><li>Si <code>f</code> es una función y <code>t</code> es un término, entonces <strong>f(t)</strong> es un término: <code>padre_de(x)</code>.</li><li>Si <code>g</code> es binaria y <code>t1</code>, <code>t2</code> son términos, entonces <strong>g(t1,t2)</strong> también es un término: <code>siguiente_salto(router1, router2)</code>.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Funciones (si el lenguaje las incluye)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/whJ0xQjL/0006.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un término <strong>no afirma nada</strong>, solo <strong>designa</strong> un individuo.</p><p>La verdad o falsedad aparece cuando se usan predicados aplicados a términos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Cuantificadores $ \forall $ y $ \exists $</h1>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/j9xQPcGR/0049.jpg" alt="image" /></div>
+        <div class="text-col"><p>Los cuantificadores son los responsables de expresar generalidad y existencia.</p><p>Son parte central de la lógica de primer orden.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/JWJvhCWB/0074.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Cuantificador universal</strong> <strong>∀x</strong></li></ul>
+<p>Se lee: “para todo x”.</p><p>Expresa que <strong>todos</strong> los individuos del dominio cumplen cierta propiedad.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Cuantificador existencial</strong> <strong>∃x</strong></li></ul>
+<p>Se lee: “existe al menos un x”.</p><p>Expresa que <strong>algún</strong> individuo del dominio cumple la propiedad indicada.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/r2FVpTjQ/0039.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplos cotidianos:</p>
+<ul><li><strong>∀x (Persona(x) → Respira(x))</strong></li></ul>
+<p>“Para toda x, si x es persona, entonces x respira”.</p><p>Afirmación general sobre todas las personas.</p>
+<ul><li><strong>∃x (Persona(x) ∧ UsaLentes(x))</strong></li></ul>
+<p>“Existe al menos una persona que usa lentes”.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/zVbwcGkh/0095.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplos tecnológicos:</p>
+<ul><li><strong>∀x (Servidor(x) → Monitoreado(x))</strong></li></ul>
+<p>“Todo servidor está monitoreado”.</p>
+<ul><li><strong>∃x (Servidor(x) ∧ ¬Disponible(x))</strong></li></ul>
+<p>“Existe al menos un servidor que no está disponible”.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/5h2n2P88/0032.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificadores $ \forall $ y $ \exists $</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El orden de los cuantificadores también importa:</p>
+<ul><li><strong>∀x ∃y Ama(x,y)</strong></li></ul>
+<p>“Cada individuo ama a alguien (que puede depender de x)”.</p>
+<ul><li><strong>∃y ∀x Ama(x,y)</strong></li></ul>
+<p>“Existe un individuo que es amado por todos”.</p><p>Estas fórmulas tienen significados muy distintos, aunque se parezcan.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Términos, fórmulas atómicas y FBF</h1>
+    </section>
+    <section>
+      <h2>Términos, fórmulas atómicas y FBF</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/S7R3YWrX/0100.png" alt="image" /></div>
+        <div class="text-col"><p>Un <strong>término</strong> es una expresión que <strong>designa un individuo</strong>: variables, constantes y combinaciones con funciones.</p><p>Una <strong>fórmula atómica</strong> aparece cuando un <strong>predicado</strong> se aplica al número correcto de <strong>términos</strong>: <code>Humano(x)</code>, <code>Padre(carlos,luis)</code>, <code>MayorQue(ana,luis)</code>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos, fórmulas atómicas y FBF</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/nqZv1Gcz/0021.jpg" alt="image" /></div>
+        <div class="text-col"><p>A partir de las fórmulas atómicas se construyen <strong>fórmulas bien formadas</strong> usando conectivos y cuantificadores.</p><p>Una fórmula bien formada respeta las reglas sintácticas del lenguaje, igual que una expresión correctamente escrita en un lenguaje de programación debe respetar su gramática.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos, fórmulas atómicas y FBF</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplos de fórmulas bien formadas:</p>
+<ul><li><code>Humano(ana)</code></li><li><code>Padre(carlos,luis)</code></li><li><code>¬Disponible(servidor1)</code></li><li><code>Autenticado(x) → PuedeAcceder(x)</code></li><li><code>∀x (Humano(x) → Mortal(x))</code></li><li><code>∃x (Servidor(x) ∧ Disponible(x))</code></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/9HzzdMtn/0082.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos, fórmulas atómicas y FBF</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/r2FVpTjQ/0039.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplos de expresiones que <strong>no</strong> son fórmulas bien formadas:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Términos, fórmulas atómicas y FBF</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><code>Padre(x)</code> si el predicado <strong>Padre</strong> es binario.</li><li><code>∀ (Humano(x))</code> porque falta la variable después del cuantificador.</li><li><code>→ Humano(x)</code> porque el conectivo carece de fórmula a la izquierda.</li><li><code>x y</code> porque no hay predicado que relacione esos términos.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqZv1Gcz/0021.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Variables libres y ligadas</h1>
+    </section>
+    <section>
+      <h2>Variables libres y ligadas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una <strong>variable ligada</strong> es aquella que está bajo el control de un cuantificador que la nombra.</p><p>Una <strong>variable libre</strong> aparece en la fórmula sin estar afectada por un cuantificador correspondiente.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/j9xQPcGR/0049.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Variables libres y ligadas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>En <code>∀x Humano(x)</code>, la variable <strong>x</strong> está ligada.</li><li>En <code>Humano(x) ∧ Estudiante(y)</code>, <strong>x</strong> y <strong>y</strong> están libres.</li><li>En <code>∀x (Humano(x) → Ama(x,y))</code>, <strong>x</strong> está ligada, <strong>y</strong> está libre.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/JRHpdG9r/0019.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Alcance de los cuantificadores</h1>
+    </section>
+    <section>
+      <h2>Alcance de los cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El <strong>alcance</strong> de un cuantificador es la parte de la fórmula a la que realmente aplica.</p><p>Los paréntesis indican dónde empieza y dónde termina ese alcance.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/5gpXnVqz/0043.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance de los cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Comparemos:</p>
+<ol><li><strong>∀x (Humano(x) → Mortal(x))</strong></li></ol>
+<p>El cuantificador actúa sobre toda la implicación.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/3q5QHLW/0056.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance de los cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li><strong>(∀x Humano(x)) → Mortal(x)</strong></li></ol>
+<p>Aquí el cuantificador solo afecta a <strong>Humano(x)</strong>, y luego aparece una implicación con otra fórmula donde <strong>x</strong> puede quedar mal definida si no se cierra bien.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/b5NVW6dp/0025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance de los cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/JVhWchV/0071.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una <strong>sentencia cerrada</strong> es una fórmula sin variables libres; es el tipo de fórmula a la que se puede asignar directamente verdadero o falso en una estructura.</p><p>Ejemplos de sentencias cerradas:</p>
+<ul><li><code>∀x (Humano(x) → Mortal(x))</code></li><li><code>∃x Disponible(x)</code></li><li><code>Padre(carlos,luis)</code></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance de los cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9HJV7SJP/0051.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplos que <strong>no</strong> son sentencias cerradas:</p>
+<ul><li><code>Padre(x,luis)</code></li><li><code>MayorQue(x,y)</code></li><li><code>Autenticado(x) → PuedeAcceder(x)</code></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicios de reconocimiento y formalización</h1>
+    </section>
+    <section>
+      <h2>Ejercicios de reconocimiento y formalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se revisa si las siguientes expresiones son términos, fórmulas atómicas o fórmulas bien formadas:</p>
+<ul><li><code>x</code></li><li><code>ana</code></li><li><code>padre_de(x)</code></li><li><code>Humano(x)</code></li><li><code>∀x (Humano(x) → Mortal(x))</code></li><li><code>Padre(x)</code> (si <strong>Padre</strong> es binario)</li><li><code>∃y (MayorQue(y,ana))</code></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/5h2n2P88/0032.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicios de reconocimiento y formalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Clasificación esperada:</p>
+<ul><li><strong>Términos</strong>: <code>x</code>, <code>ana</code>, <code>padre_de(x)</code>.</li><li><strong>Fórmulas atómicas</strong>: <code>Humano(x)</code>.</li><li><strong>Fórmula bien formada cerrada</strong>: <code>∀x (Humano(x) → Mortal(x))</code>.</li><li><strong>Incorrecta</strong> (si Padre es binario): <code>Padre(x)</code>.</li><li><strong>Fórmula bien formada</strong>: <code>∃y (MayorQue(y,ana))</code>.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/tt0cmfS/0102.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicios de reconocimiento y formalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Formalizaciones de ejemplo:</p>
+<ul><li>“Todos los routers están activos”:</li></ul>
+<p><strong>∀x (Router(x) → Activo(x))</strong></p>
+<ul><li>“Algún usuario no está autenticado”:</li></ul>
+<p><strong>∃x (Usuario(x) ∧ ¬Autenticado(x))</strong></p>
+<ul><li>“Ana es mayor que Luis”:</li></ul>
+<p><strong>MayorQue(ana,luis)</strong></p>
+<ul><li>“Cada estudiante entregó alguna tarea”:</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/RGfDxMs8/0008.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicios de reconocimiento y formalización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>∀x (Estudiante(x) → ∃y (Tarea(y) ∧ Entrego(x,y)))</strong></p></div>
+        <div class="image-col"><img src="https://i.ibb.co/KjKmJWsX/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

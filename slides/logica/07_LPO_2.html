@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Lógica de primer orden (2)(Semántica)</h1>
+    </section>
+    <section>
+      <h2>Lógica de primer orden (2)(Semántica)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Semántica</strong>: dominios, interpretaciones y verdad de una fórmula</p><p>Una vez conocida la sintaxis, falta responder cómo se asigna significado a las fórmulas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/jvGH2Lky/0101.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Lógica de primer orden (2)(Semántica)</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La <strong>semántica</strong> de la lógica de primer orden indica qué representa cada símbolo y cuándo una fórmula resulta verdadera o falsa en una <strong>estructura</strong> concreta.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/prvhGdjq/0029.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Dominio, interpretación y estructuras</h1>
+    </section>
+    <section>
+      <h2>Dominio, interpretación y estructuras</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DX6794m/0069.jpg" alt="image" /></div>
+        <div class="text-col"><p>La idea central es que el lenguaje lógico (símbolos como <code>ana</code>, <code>Padre</code>, <code>MayorQue</code>) es <strong>puro símbolo</strong>, sin significado por sí mismo; el significado aparece solo cuando se fija un <strong>dominio</strong> y una <strong>interpretación</strong>, y juntos forman una <strong>estructura</strong> donde se evalúan las fórmulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Dominio (D): de qué “cosas” se está hablando</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/GfwFQKhN/0065.jpg" alt="image" /></div>
+        <div class="text-col"><p>El <strong>dominio</strong> (o <strong>universo</strong>) es simplemente un <strong>conjunto de objetos</strong> sobre los que se va a hablar con el lenguaje lógico.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Dominio (D): de qué “cosas” se está hablando</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Es un conjunto cualquiera, no tiene por sí mismo nombres ni etiquetas lógicas.</li><li>Puede ser:<ul><li>Un conjunto de personas: {Ana, Luis, Carlos}.</li><li>Un conjunto de dispositivos: {Servidor1, Servidor2, Router1}.</li><li>Un conjunto de números: {0,1,2,3,…}.</li><li>Un conjunto de cualquier cosa que interese al modelo.</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Dominio (D): de qué “cosas” se está hablando</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En este nivel, el dominio es solo un <strong>conjunto de “cosas”</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqZv1Gcz/0021.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Dominio (D): de qué “cosas” se está hablando</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/MxPJbfPL/0054.jpg" alt="image" /></div>
+        <div class="text-col"><p>Analógicamente:</p>
+<ul><li>En programación, el dominio se parece a un conjunto de objetos en memoria.</li><li>Todavía no se ha dicho qué variable apunta a qué objeto; solo se sabe qué objetos existen y de que tipo son.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Cómo se “conectan” los símbolos con D</strong></p><p>Un lenguaje de primer orden tiene símbolos <strong>no lógicos</strong>: constantes, predicados y funciones.</p><p>La <strong>interpretación</strong> es una especie de “tabla de correspondencia” que indica qué significan esos símbolos dentro del dominio:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/zVbwcGkh/0095.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/S7R3YWrX/0100.png" alt="image" /></div>
+        <div class="text-col"><ul><li>A cada <strong>constante</strong> del lenguaje le asigna <strong>un elemento del dominio</strong>.<ul><li>Si el lenguaje tiene constantes <code>a</code>, <code>b</code>, <code>c</code>, la interpretación dice:<ul><li><code>a</code> ↦ algún elemento de D,</li><li><code>b</code> ↦ algún elemento de D,</li><li>etc.</li></ul></li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Eso significa: “cuando se ve la constante <code>a</code> en una fórmula, se está hablando de ese elemento concreto del dominio”.</li><li>Usando la analogía de la programación, el nombre de la variable <code>a</code> es la constante que usamos para referirnos a un objeto en memoria (del conjunto de objetos en memoria (D)).</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>A cada <strong>predicado</strong> de aridad \(n\) le asigna un <strong>conjunto de \(n\)-tuplas</strong> de elementos del dominio.<ul><li>Si <code>Padre</code> es binario, la interpretación dice para qué pares (x,y) del dominio es verdadero:<ul><li><code>Padre</code> ↦ un subconjunto de \(D^2\).</li></ul></li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/JWJvhCWB/0074.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Por ejemplo, si D = {Ana, Luis, Carlos}:<ul><li><code>Padre</code> ↦ { (Carlos, Luis) }</li></ul></li></ul>
+<p>significa: “Carlos es padre de Luis”, este predicado es verdadero, y ningún otro par lo es.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/1GMYBQdd/0048.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/r2FVpTjQ/0039.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>A cada <strong>función</strong> de aridad \(n\) le asigna una <strong>función concreta</strong> \[f^M : D^n → D\]. &quot;...la interpretación de \(f\) en la estructura \(M\).&quot; (Estructura viene adelante...)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Si <code>madre_de</code> es unaria, la interpretación dice:<ul><li>para cada \(d \in D\), cuál es <code>madre_de(d)</code> en D.</li></ul></li><li>Si D son personas, <code>madre_de</code> podría ser una función que da la madre de cada persona.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/cKMV7cs4/0018.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En resumen:</p>
+<ul><li>La <strong>sintaxis</strong> dice: “he aquí símbolos <code>ana</code>, <code>Padre</code>, <code>MayorQue</code>”.</li><li>La <strong>interpretación</strong> dice: “en este mundo concreto, <code>ana</code> se refiere a este individuo; <code>Padre</code> es esta relación; <code>MayorQue</code> es esta otra relación”.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/XkMM9szL/0030.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una <strong>estructura</strong> (también llamada modelo en muchos textos) para un lenguaje de primer orden es simplemente:</p>
+<ul><li>un <strong>dominio</strong> D,</li><li>una <strong>interpretación</strong> I que dice qué significa cada símbolo en D.</li></ul>
+<p>Se suele denotar como \[ \mathcal{M} = \langle D, I \rangle \].</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/v6wsDBsh/0075.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/nshMkXsh/0003.jpg" alt="image" /></div>
+        <div class="text-col"><p>En esa estructura es donde se puede preguntar:</p>
+<ul><li>“¿Es verdadera la fórmula <code>Padre(carlos,luis)</code>?”</li><li>“¿Es verdadera la fórmula <code>∀x (Humano(x) → Mortal(x))</code>?”</li></ul>
+<p>Sin estructura, el lenguaje es “pura sintaxis”, no tiene verdad ni falsedad.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo de dominio cotidiano:</p>
+<ul><li><strong>Dominio</strong>: un conjunto pequeño de personas: {Ana, Luis, Carlos}.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/wN0Mdj75/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Interpretación</strong></p>
+<ul><li>Constantes:<ul><li><code>ana</code> ↦ Ana</li><li><code>luis</code> ↦ Luis</li><li><code>carlos</code> ↦ Carlos</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/RGfDxMs8/0008.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/DHqgMbBN/0016.jpg" alt="image" /></div>
+        <div class="text-col"><p>Con ello se está diciendo: cuando aparezca el símbolo <code>luis</code> en una fórmula (por ejemplo <code>Humano(luis)</code>), debe entenderse que se está hablando del mismo individuo que el elemento <strong>Luis</strong> del dominio.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Predicados:<ul><li><code>Padre(x,y)</code> ↦ { (Carlos, Luis) }</li></ul></li></ul>
+<p>Es decir, la relación de paternidad, en esta estructura, solo se cumple para (Carlos, Luis).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/m5n6kZsx/0084.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y7WZxxkj/0067.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><code>MayorQue(x,y)</code> ↦ conjunto de pares (persona1, persona2) donde persona1 es mayor que persona2.</li></ul>
+<p>Por ejemplo, si se sabe que Carlos es mayor que Luis y Luis es mayor que Ana, la interpretación podría ser: <code>MayorQue</code> ↦ { (Carlos, Luis), (Luis, Ana), (Carlos, Ana) }.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/84SPSxBZ/0066.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>(Si hubiera funciones, se definiría su resultado para cada argumento del dominio.)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Estructura</strong></p>
+<ul><li>La estructura sería algo como:</li></ul>
+<p>\( \mathcal{M} = \langle D, I \rangle \),</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9HzzdMtn/0082.jpg" alt="image" /></div>
+        <div class="text-col"><p>donde:</p>
+<ul><li>D = {Ana, Luis, Carlos},</li><li>I es la correspondencia que acabamos de describir (en Interpretación).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En esta estructura:</p>
+<ul><li>La fórmula <code>Padre(carlos,luis)</code> es <strong>verdadera</strong>, porque:<ul><li><code>carlos</code> se interpreta como Carlos,</li><li><code>luis</code> se interpreta como Luis,</li><li>(Carlos, Luis) pertenece al conjunto que es la interpretación de <code>Padre</code>.</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/wN0Mdj75/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/tt0cmfS/0102.png" alt="image" /></div>
+        <div class="text-col"><ul><li>La fórmula <code>Padre(luis,carlos)</code> es <strong>falsa</strong>, porque (Luis, Carlos) no está en esa relación.</li></ul>
+<ul><li>La fórmula <code>MayorQue(luis,ana)</code> será verdadera o falsa dependiendo de si (Luis, Ana) está o no en la relación que se definió para <code>MayorQue</code>. (en el ejemplo descrito antes, será verdadera)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo tecnológico de dominio:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructura: dominio + interpretación</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/W4Y9B1fk/0033.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Dominio: un conjunto de equipos: {Servidor1, Servidor2, Router1}.</li><li>Interpretación:<ul><li><code>servidor1</code> ↦ Servidor1, <code>router1</code> ↦ Router1.</li><li><code>Servidor(x)</code> verdadero para Servidor1 y Servidor2.</li><li><code>Disponible(x)</code> verdadero solo para Servidor1.</li><li><code>ConectadoA(x,y)</code> verdadero para las parejas de equipos que tienen un enlace.</li></ul></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Asignación de valores a variables</h1>
+    </section>
+    <section>
+      <h2>Asignación de valores a variables</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/CKVXn2f0/0022.jpg" alt="image" /></div>
+        <div class="text-col"><p>Además de la interpretación de los símbolos, se necesita una <strong>asignación</strong> que indique qué elemento del dominio toma cada <strong>variable</strong> libre.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asignación de valores a variables</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/MktvzmKz/0105.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Una asignación es una función que envía cada variable (<code>x</code>, <code>y</code>, <code>z</code>, …) a un elemento del dominio.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asignación de valores a variables</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>A partir de esa asignación se puede evaluar el valor de cada término:<ul><li><code>x</code> se evalúa como el elemento asignado a <code>x</code>.</li><li><code>padre_de(x)</code> se evalúa aplicando la función interpretada como <strong>padre_de</strong> al elemento asignado a <code>x</code>.</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/2YKkLXSx/0098.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asignación de valores a variables</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RKHB5w5/0009.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo cotidiano:</p>
+<ul><li>Dominio: {Ana, Luis, Carlos}.</li><li>Asignación: <code>x</code> ↦ Ana.</li><li>Entonces el término <strong>x</strong> designa a Ana.</li><li>Si <code>madre_de</code> está interpretada y <code>madre_de(Ana)</code> es, digamos, Teresa, entonces <strong>madre_de(x)</strong> se evalúa como Teresa.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Asignación de valores a variables</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo tecnológico:</p>
+<ul><li>Dominio: {Servidor1, Servidor2, Router1}.</li><li>Asignación: <code>x</code> ↦ Servidor2.</li><li>Término <strong>x</strong> designa Servidor2.</li><li>Si <code>gateway_de(Servidor2)</code> está definido y vale Router1, entonces <strong>gateway_de(x)</strong> designa Router1.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/zVbwcGkh/0095.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Verdad de fórmulas sin cuantificadores</h1>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas sin cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para fórmulas sin cuantificadores, la verdad se decide evaluando los predicados y usando los conectivos del mismo modo que en lógica proposicional.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/KjKmJWsX/0060.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas sin cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Una fórmula atómica <strong>P(t1,…,tn)</strong> es verdadera si la tupla de valores de los términos \((t1,…,tn)\) pertenece al conjunto de tuplas que la interpretación asignó al predicado <strong>P</strong>.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas sin cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Los conectivos <strong>¬</strong>, <strong>∧</strong>, <strong>∨</strong>, <strong>→</strong>, <strong>↔</strong> se interpretan como en lógica proposicional, pero ahora sobre el valor de verdad de fórmulas que pueden involucrar términos y predicados.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/yFMjgdf3/0035.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas sin cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/VcQSg0Zm/0023.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo tecnológico en una estructura pequeña:</p>
+<ul><li>Dominio: {Servidor1, Servidor2}.</li><li>Interpretación:<ul><li><code>Disponible</code> verdadero para {Servidor1}.</li></ul></li><li>Fórmula: <strong>Disponible(servidor1)</strong> → verdadera.</li><li>Fórmula: <strong>Disponible(servidor2)</strong> → falsa.</li><li>Fórmula: <strong>¬Disponible(servidor2)</strong> → verdadera.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Verdad de fórmulas con cuantificadores</h1>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/j9xQPcGR/0049.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para fórmulas que incluyen cuantificadores, la evaluación se hace recorriendo el dominio:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/jvGH2Lky/0101.png" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>∀x φ(x)</strong> es verdadera si, para <strong>todos</strong> los elementos del dominio, al asignar cada uno a <code>x</code>, la fórmula <strong>φ(x)</strong> resulta verdadera.</li><li><strong>∃x φ(x)</strong> es verdadera si existe <strong>al menos un</strong> elemento del dominio que, al asignarse a <code>x</code>, hace verdadera la fórmula <strong>φ(x)</strong>.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rG8nzmQz/0001.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo cotidiano:</p><p>Dominio: {Ana, Luis}.</p><p>Predicados:</p>
+<ul><li><code>Persona(x)</code> verdadero para ambas.</li><li><code>UsaLentes(x)</code> verdadero solo para Ana.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/bMdPcXLy/0011.jpg" alt="image" /></div>
+        <div class="text-col"><p>Evaluaciones:</p>
+<ul><li><strong>∀x (Persona(x) → UsaLentes(x))</strong><ul><li>Se revisa x = Ana: persona y usa lentes → verdadero.</li><li>Se revisa x = Luis: persona pero no usa lentes → la implicación se vuelve falsa.</li></ul></li></ul>
+<p>Conclusión: la fórmula universal es <strong>falsa</strong>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>∃x (Persona(x) ∧ UsaLentes(x))</strong><ul><li>Ana cumple ambas condiciones.</li></ul></li></ul>
+<p>Conclusión: la fórmula existencial es <strong>verdadera</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/0pxW79Qc/0094.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo tecnológico:</p><p>Dominio: {Servidor1, Servidor2}.</p><p>Interpretación:</p>
+<ul><li><code>Servidor(x)</code> verdadero para ambos.</li><li><code>Disponible(x)</code> verdadero solo para Servidor1.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Verdad de fórmulas con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Evaluaciones:</p>
+<ul><li><strong>∀x (Servidor(x) → Disponible(x))</strong> → falsa, porque Servidor2 no está disponible.</li><li><strong>∃x (Servidor(x) ∧ ¬Disponible(x))</strong> → verdadera, porque Servidor2 es servidor y no está disponible.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/MktvzmKz/0105.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Estructuras finitas y decisión de verdad</h1>
+    </section>
+    <section>
+      <h2>Estructuras finitas y decisión de verdad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+        <div class="text-col"><p>En muchos ejercicios iniciales se trabaja con <strong>estructuras finitas</strong>: pequeños dominios donde se puede listar explícitamente qué predicados son verdaderos para qué tuplas.</p><p>Esto permite decidir de forma muy concreta si una fórmula es verdadera o falsa:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructuras finitas y decisión de verdad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ol><li>Se lista el dominio.</li><li>Se indica para qué individuos son verdaderos los predicados.</li><li>Se recorre el dominio para evaluar las instancias de la fórmula con cada valor de las variables.</li></ol></div>
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructuras finitas y decisión de verdad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo con relación <strong>es_hermano_de</strong>:</p><p>Dominio: {Ana, Luis, Carlos}.</p><p>Interpretación:</p>
+<ul><li><code>HermanoDe(luis, carlos)</code> verdadero.</li><li><code>HermanoDe(carlos, luis)</code> verdadero.</li><li>No hay otras parejas con la relación.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/XxC2Dn6g/0052.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Estructuras finitas y decisión de verdad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Fórmulas:</p>
+<ul><li><strong>∃x ∃y HermanoDe(x,y)</strong> → verdadera, porque existen Luis y Carlos con esa relación.</li><li><strong>∀x ∃y HermanoDe(x,y)</strong> → falsa, si Ana no tiene ningún hermano en la estructura.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/nshMkXsh/0003.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Instanciación de fórmulas universales</h1>
+    </section>
+    <section>
+      <h2>Instanciación de fórmulas universales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un uso frecuente del cuantificador universal es la <strong>instanciación</strong>: pasar de una fórmula universal a un caso particular sustituyendo la variable por un término.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/0jPN9L6C/0005.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación de fórmulas universales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y7WZxxkj/0067.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Si <strong>∀x φ(x)</strong> es verdadera en una estructura, entonces, para cualquier término <strong>t</strong> que represente un individuo del dominio, la fórmula <strong>φ(t)</strong> también es verdadera.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación de fórmulas universales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo cotidiano:</p>
+<ul><li><strong>∀x (Humano(x) → Mortal(x))</strong>.</li></ul>
+<p>A partir de ahí se puede escribir:</p>
+<ul><li><strong>Humano(ana) → Mortal(ana)</strong>.</li><li><strong>Humano(luis) → Mortal(luis)</strong>.</li></ul>
+<p>Si además se sabe que <strong>Humano(ana)</strong> es verdadera en la estructura, entonces por las reglas usuales se concluye <strong>Mortal(ana)</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/s9Vn7LfR/0002.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación de fórmulas universales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo tecnológico:</p>
+<ul><li><strong>∀x (Servidor(x) → Monitoreado(x))</strong>.</li></ul>
+<p>Instancias:</p>
+<ul><li><strong>Servidor(servidor1) → Monitoreado(servidor1)</strong>.</li><li><strong>Servidor(servidor2) → Monitoreado(servidor2)</strong>.</li></ul>
+<p>Si se conoce <strong>Servidor(servidor1)</strong> como verdadera en la estructura, se concluye <strong>Monitoreado(servidor1)</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/PZB8k5q5/0050.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicios semánticos</h1>
+    </section>
+    <section>
+      <h2>Ejercicios semánticos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se propone una estructura finita simple:</p><p>Dominio: {Ana, Luis}.</p><p>Interpretación:</p>
+<ul><li><code>Persona(x)</code> verdadero para Ana y Luis.</li><li><code>Estudiante(x)</code> verdadero solo para Ana.</li><li><code>HermanoDe(luis, ana)</code> verdadero.</li><li>No hay otras tuplas con <code>HermanoDe</code>.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicios semánticos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y7WZxxkj/0067.jpg" alt="image" /></div>
+        <div class="text-col"><p>Analizar las siguientes fórmulas:</p>
+<ol><li><strong>∃x Estudiante(x)</strong></li><li><strong>∀x Estudiante(x)</strong></li><li><strong>∃x∃y HermanoDe(x,y)</strong></li><li><strong>∀x ∃y HermanoDe(x,y)</strong></li></ol>
+<p>Decidir en cada caso si la fórmula es verdadera o falsa en esta estructura, justificar.</p></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

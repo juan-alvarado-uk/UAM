@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<link rel="stylesheet" href="file:////Users/juanalvarado/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
+
+</head>
+<body class="markdown-body">
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h3 dir="auto" id="actividad-1-describir-una-estructura">Actividad 1. Describir una estructura</h3>
+<p dir="auto">Se considera el siguiente lenguaje:</p>
+<ul dir="auto">
+<li dir="auto">constantes: <code>ana</code>, <code>luis</code>, <code>carlos</code></li>
+<li dir="auto">predicados unarios: <code>Persona(x)</code>, <code>UsaLentes(x)</code></li>
+<li dir="auto">predicados binarios: <code>Padre(x,y)</code>, <code>MayorQue(x,y)</code></li>
+</ul>
+<p dir="auto">a) Proponer un <strong>dominio</strong> D formado por exactamente tres personas reales o ficticias.<br>
+b) Especificar una <strong>interpretación</strong> I, indicando:</p>
+<ul dir="auto">
+<li dir="auto">a qué individuo del dominio se asigna cada constante (<code>ana</code>, <code>luis</code>, <code>carlos</code>),</li>
+<li dir="auto">para qué individuos es verdadero <code>Persona(x)</code>,</li>
+<li dir="auto">para qué individuo(s) es verdadero <code>UsaLentes(x)</code>,</li>
+<li dir="auto">para qué pares (x,y) es verdadero <code>Padre(x,y)</code>,</li>
+<li dir="auto">para qué pares (x,y) es verdadero <code>MayorQue(x,y)</code>.</li>
+</ul>
+<p dir="auto">c) Escribir la estructura resultante en la forma <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">M</mi><mo>=</mo><mo stretchy="false">⟨</mo><mi>D</mi><mo separator="true">,</mo><mi>I</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\mathcal{M} = \langle D, I \rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mclose">⟩</span></span></span></span>.</p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-2-verdad-de-fórmulas-sin-cuantificadores">Actividad 2. Verdad de fórmulas sin cuantificadores</h3>
+<ul dir="auto">
+<li dir="auto">Dominio: {Servidor1, Servidor2}.</li>
+<li dir="auto"><code>servidor1</code> ↦ Servidor1, <code>servidor2</code> ↦ Servidor2.</li>
+<li dir="auto"><code>Disponible(x)</code> verdadero solo para Servidor1.</li>
+</ul>
+<p dir="auto">Decidir si cada fórmula es <strong>verdadera</strong> o <strong>falsa</strong> en esta estructura</p>
+<p dir="auto">a) <code>Disponible(servidor1)</code><br>
+b) <code>Disponible(servidor2)</code><br>
+c) <code>¬Disponible(servidor2)</code><br>
+d) <code>Disponible(servidor1) ∧ Disponible(servidor2)</code><br>
+e) <code>Disponible(servidor1) ∨ Disponible(servidor2)</code></p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-3-verdad-de-fórmulas-con-cuantificadores-en-estructuras-finitas">Actividad 3. Verdad de fórmulas con cuantificadores en estructuras finitas</h3>
+<p dir="auto">Se considera la estructura de personas:</p>
+<ul dir="auto">
+<li dir="auto">Dominio: {Ana, Luis}.</li>
+<li dir="auto"><code>Persona(x)</code> verdadero para Ana y Luis.</li>
+<li dir="auto"><code>UsaLentes(x)</code> verdadero solo para Ana.</li>
+</ul>
+<p dir="auto">Se decide si cada fórmula es <strong>verdadera</strong> o <strong>falsa</strong> en esta estructura, mostrando explícitamente los casos que se revisan:</p>
+<p dir="auto">a) <code>∀x (Persona(x) → UsaLentes(x))</code><br>
+b) <code>∃x (Persona(x) ∧ UsaLentes(x))</code><br>
+c) <code>∃x Persona(x)</code><br>
+d) <code>∀x UsaLentes(x)</code><br>
+e) <code>∃x ¬UsaLentes(x)</code></p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-4-hermanode-en-una-estructura-pequeña">Actividad 4. HermanoDe en una estructura pequeña</h3>
+<p dir="auto">Se considera la estructura:</p>
+<ul dir="auto">
+<li dir="auto">Dominio: {Ana, Luis, Carlos}.</li>
+<li dir="auto"><code>HermanoDe(luis, carlos)</code> verdadero.</li>
+<li dir="auto"><code>HermanoDe(carlos, luis)</code> verdadero.</li>
+<li dir="auto">No hay otras tuplas con <code>HermanoDe</code>.</li>
+</ul>
+<p dir="auto">Decidir si cada fórmula es <strong>verdadera</strong> o <strong>falsa</strong> en esta estructura.</p>
+<p dir="auto">a) <code>∃x ∃y HermanoDe(x,y)</code><br>
+b) <code>∀x ∃y HermanoDe(x,y)</code><br>
+c) <code>HermanoDe(ana,luis)</code><br>
+d) <code>∃y HermanoDe(luis,y)</code><br>
+e) <code>∀x ∀y ¬HermanoDe(x,y)</code></p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-5-instanciación-de-fórmulas-universales">Actividad 5. Instanciación de fórmulas universales</h3>
+<p dir="auto">Se parte de la fórmula universal:</p>
+<ul dir="auto">
+<li dir="auto"><code>∀x (Servidor(x) → Monitoreado(x))</code></li>
+</ul>
+<p dir="auto">y de la estructura:</p>
+<ul dir="auto">
+<li dir="auto">Dominio: {Servidor1, Servidor2}.</li>
+<li dir="auto"><code>Servidor(x)</code> verdadero para ambos.</li>
+<li dir="auto"><code>Monitoreado(x)</code> verdadero solo para Servidor1.</li>
+</ul>
+<p dir="auto">a) Escribir las <strong>instancias</strong> de la fórmula universal al sustituir <code>x</code> por <code>servidor1</code> y por <code>servidor2</code>.<br>
+b) Evaluar cada instancia en la estructura (verdadero o falso).<br>
+c) Concluir, a partir de las instancias, si la fórmula universal <code>∀x (Servidor(x) → Monitoreado(x))</code> es verdadera o falsa en esta estructura, explicando por qué basta revisar esos dos casos.</p>
+
+</body>
+</html>

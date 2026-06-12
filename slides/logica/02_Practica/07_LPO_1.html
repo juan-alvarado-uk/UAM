@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<link rel="stylesheet" href="file:////Users/juanalvarado/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
+
+</head>
+<body class="markdown-body">
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h3 dir="auto" id="actividad-1-basta-lógica-proposicional">Actividad 1. ¿Basta lógica proposicional?</h3>
+<p dir="auto">Para cada enunciado, indicar:</p>
+<ol dir="auto">
+<li dir="auto">Si se puede modelar razonablemente solo con lógica proposicional.</li>
+<li dir="auto">Si requiere lógica de primer orden.</li>
+<li dir="auto">Una justificación breve (1–2 frases).</li>
+</ol>
+<p dir="auto">a) “Si llueve, la calle se moja.”<br>
+b) “Ana es mayor que Luis.”<br>
+c) “Todos los estudiantes entregan tareas.”<br>
+d) “Existe un servidor que no está disponible.”<br>
+e) “Juan es padre de María.”</p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-2-términos-fórmulas-atómicas-y-expresiones-mal-formadas">Actividad 2. Términos, fórmulas atómicas y expresiones mal formadas</h3>
+<p dir="auto">Suponer:</p>
+<ul dir="auto">
+<li dir="auto"><code>Humano</code> predicado unario,</li>
+<li dir="auto"><code>Padre</code> predicado binario,</li>
+<li dir="auto"><code>MayorQue</code> predicado binario,</li>
+<li dir="auto"><code>Disponible</code> predicado unario,</li>
+<li dir="auto"><code>padre_de</code> función unaria,</li>
+<li dir="auto"><code>ana</code>, <code>luis</code>, <code>servidor1</code> constantes.</li>
+</ul>
+<p dir="auto">Para cada expresión, decidir si es:</p>
+<ul dir="auto">
+<li dir="auto"><strong>término</strong>,</li>
+<li dir="auto"><strong>fórmula atómica</strong>,</li>
+<li dir="auto"><strong>fórmula bien formada no atómica</strong>,</li>
+<li dir="auto"><strong>expresión incorrecta</strong>,</li>
+</ul>
+<p dir="auto">y justificar brevemente.</p>
+<ol dir="auto">
+<li dir="auto"><code>x</code></li>
+<li dir="auto"><code>ana</code></li>
+<li dir="auto"><code>padre_de(x)</code></li>
+<li dir="auto"><code>Humano(x)</code></li>
+<li dir="auto"><code>Padre(carlos,luis)</code></li>
+<li dir="auto"><code>MayorQue(ana,luis)</code></li>
+<li dir="auto"><code>Padre(x)</code></li>
+<li dir="auto"><code>∀x (Humano(x) → Mortal(x))</code></li>
+<li dir="auto"><code>∃y (MayorQue(y,ana))</code></li>
+<li dir="auto"><code>∀ (Humano(x))</code></li>
+</ol>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-3-cuantificadores--y--lectura-y-sentido">Actividad 3. Cuantificadores ∀ y ∃: lectura y sentido</h3>
+<p dir="auto">a) Traducir a lenguaje natural claro:</p>
+<ol dir="auto">
+<li dir="auto"><code>∀x (Persona(x) → Respira(x))</code></li>
+<li dir="auto"><code>∃x (Persona(x) ∧ UsaLentes(x))</code></li>
+<li dir="auto"><code>∀x (Servidor(x) → Monitoreado(x))</code></li>
+<li dir="auto"><code>∃x (Servidor(x) ∧ ¬Disponible(x))</code></li>
+</ol>
+<p dir="auto">b) Explicar con palabras la diferencia de significado entre:</p>
+<ol dir="auto">
+<li dir="auto"><code>∀x ∃y Ama(x,y)</code> y <code>∃y ∀x Ama(x,y)</code></li>
+<li dir="auto"><code>∀x (Estudiante(x) → EntregaTarea(x))</code> y <code>∃x (Estudiante(x) ∧ EntregaTarea(x))</code></li>
+</ol>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-4-variables-libres-ligadas-y-sentencias-cerradas">Actividad 4. Variables libres, ligadas y sentencias cerradas</h3>
+<p dir="auto">Para cada fórmula:</p>
+<ol dir="auto">
+<li dir="auto">Indicar qué variables están <strong>ligadas</strong>.</li>
+<li dir="auto">Indicar qué variables están <strong>libres</strong>.</li>
+<li dir="auto">Decir si la fórmula es una <strong>sentencia cerrada</strong> (sin variables libres).</li>
+</ol>
+<p dir="auto">a) <code>Humano(x)</code><br>
+b) <code>∀x Humano(x)</code><br>
+c) <code>∀x (Humano(x) → Ama(x,y))</code><br>
+d) <code>∃y (MayorQue(x,y) ∧ Persona(y))</code><br>
+e) <code>∀x ∃y ConectadoA(x,y)</code><br>
+f) <code>Padre(x,luis)</code></p>
+<hr dir="auto">
+<h3 dir="auto" id="actividad-5-formalización-de-enunciados">Actividad 5. Formalización de enunciados</h3>
+<p dir="auto">Formalizar los siguientes enunciados usando la notación vista en el documento (predicados tipo <code>Persona(x)</code>, <code>Estudiante(x)</code>, <code>Servidor(x)</code>, etc.):</p>
+<p dir="auto">a) “Todos los routers están activos.”<br>
+b) “Algún usuario no está autenticado.”<br>
+c) “Ana es mayor que Luis.”<br>
+d) “Cada estudiante entregó alguna tarea.”<br>
+e) “Existe un servidor que no está disponible.”</p>
+
+</body>
+</html>
