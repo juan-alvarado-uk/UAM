@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DB4O</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h1>Tutorial DB4O</h1>
+<h2>Parte 0 – Preparar el entorno en VS Code</h2>
+<p>Antes de escribir código con Db4o, es necesario tener un entorno Java funcional y asegurarse de que la librería de Db4o está correctamente integrada.</p>
+<h3>0.1. Instalar Java y comprobar la versión</h3>
+<p>Java es el lenguaje que se utilizará para escribir el código que se conecta a Db4o. Conviene comprobar que la JDK está instalada y disponible en línea de comandos.</p>
+<p>En una terminal (bash, zsh, PowerShell o CMD) se ejecuta:</p>
+<pre><code class="language-bash">java -version
+</code></pre>
+<p>La salida debe mostrar una versión de Java instalada (por ejemplo, 8, 11 o superior). Esto confirma que:</p>
+<ul>
+<li>Hay una JVM disponible para ejecutar programas Java.</li>
+<li>El sistema reconoce el comando <code>java</code>, lo que será necesario cuando VS Code intente compilar y ejecutar el código.</li>
+</ul>
+<p>Si no aparece ninguna versión o el comando no se reconoce, se debe instalar una JDK (por ejemplo, OpenJDK) antes de continuar.</p>
+<p>Este tutorial ha sido probado con la versión 18.0.2</p>
+<h3>0.2. Instalar la extensión de Java en VS Code</h3>
+<p>VS Code, por sí solo, no sabe compilar ni ejecutar Java. La extensión <strong>“Extension Pack for Java”</strong> (de Microsoft) añade soporte para:</p>
+<ul>
+<li>Compilar proyectos Java.</li>
+<li>Ejecutar clases con <code>main</code>.</li>
+<li>Gestionar librerías y dependencias.</li>
+</ul>
+<p>Esta extensión se instala desde la pestaña de extensiones de VS Code, buscando “Extension Pack for Java” y pulsando en “Install”.</p>
+<p>Una vez instalada, se puede crear un proyecto Java simple y ejecutar un programa “Hola Mundo” para confirmar que todo está configurado correctamente.</p>
+<h3>0.3. Crear un proyecto Java en VS Code</h3>
+<p>Desde la paleta de comandos de VS Code (Ctrl+Shift+P), se ejecuta:</p>
+<ul>
+<li><code>Java: Create Java Project</code>.</li>
+</ul>
+<p>Se puede elegir la opción “No build tools” para un proyecto simple (sin Maven o Gradle) y darle un nombre, por ejemplo: <code>HolaOODB</code>.</p>
+<p>VS Code crea una estructura con una carpeta <code>src</code> y una clase inicial (por ejemplo <code>App.java</code>). Se puede reemplazar o complementar esa clase con una clase como:</p>
+<pre><code class="language-java">public class App {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hola Mundo desde VS Code&quot;);
+    }
+}
+</code></pre>
+<p>Ejecutar esta clase confirma que:</p>
+<ul>
+<li>El proyecto compila.</li>
+<li>La extensión de Java funciona correctamente.</li>
+<li>La salida aparece en la terminal integrada.</li>
+</ul>
+<h3>0.4. Incorporar el jar de Db4o al proyecto</h3>
+<p>Db4o se distribuye como un archivo <code>.jar</code> que contiene el motor de base de datos orientada a objetos. La idea es que el programa Java incluya ese jar en su classpath para poder usar clases como <code>Db4oEmbedded</code> y <code>ObjectContainer</code>.</p>
+<p>Los pasos generales son:</p>
+<ol>
+<li>Descargar el jar correspondiente (por ejemplo, <code>db4o-8.0.276.16149-all-java5.jar</code>) y guardarlo en una carpeta del proyecto, por ejemplo <code>lib/</code>.</li>
+<li>Asegurarse de que VS Code incluye ese jar en el classpath. En proyectos simples, la extensión de Java detecta jars en ciertas rutas o se puede configurar el classpath según la estructura. En proyectos Maven, se usaría una dependencia declarada.</li>
+<li>Una forma de comprobar que el jar está correctamente integrado es escribir una clase que importe <code>com.db4o.Db4oEmbedded</code> y <code>com.db4o.ObjectContainer</code> y ver si compila.</li>
+</ol>
+<p>El objetivo de este paso es que el código Java “vea” la API de Db4o y pueda invocar sus métodos.</p>
+<hr>
+<h2>Parte 1 – Primer contacto con Db4o</h2>
+<p>En esta parte se abre y se cierra una base de datos Db4o desde Java, para comprobar que la integración con el jar funciona.</p>
+<h3>1.1. Verificar los imports de Db4o</h3>
+<p>Se crea la clase <code>PruebaDb4oImports</code>:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+
+public class PruebaDb4oImports {
+    public static void main(String[] args) {
+        System.out.println(&quot;Imports de Db4o compilando correctamente&quot;);
+    }
+}
+</code></pre>
+<p>Si esta clase compila, significa que:</p>
+<ul>
+<li>El jar de Db4o está correctamente añadido.</li>
+<li>El compilador encuentra las clases de Db4o.</li>
+<li>Se puede seguir adelante con el uso del motor de base de datos.</li>
+</ul>
+<p>Este paso es importante porque evita avanzar con problemas de configuración de librerías.</p>
+<h3>1.2. Abrir y cerrar una base de datos: <code>HolaOODB</code></h3>
+<p>Se crea la clase <code>HolaOODB</code>:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+
+public class HolaOODB {
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;holaOODB.db4o&quot;);
+            System.out.println(&quot;Base de datos Db4o abierta correctamente.&quot;);
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;Base de datos Db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>En este programa:</p>
+<ul>
+<li><code>Db4oEmbedded.openFile(&quot;holaOODB.db4o&quot;)</code> abre (o crea) un archivo de base de datos con ese nombre.</li>
+<li><code>ObjectContainer db</code> representa la conexión a esa base de datos.</li>
+<li>El bloque <code>finally</code> garantiza que la base se cierra aunque ocurra alguna excepción.</li>
+</ul>
+<p>El propósito de este paso es que el alumno vea cómo se establece la conexión con una base de datos orientada a objetos y cómo se gestiona su ciclo de vida básico (abrir y cerrar).</p>
+<hr>
+<h2>Parte 2 – Definir <code>Persona</code> y almacenar objetos</h2>
+<p>En esta parte se introduce una clase de dominio (<code>Persona</code>) y se aprende a almacenar instancias en la base de datos Db4o.</p>
+<h3>2.1. Definir la clase <code>Persona</code></h3>
+<p>Se crea <code>Persona.java</code>:</p>
+<pre><code class="language-java">public class Persona {
+
+    private int id;
+    private String nombre;
+    private String ciudad;
+
+    // Constructor sin argumentos (Db4o lo exige para instanciar objetos al recuperar)
+    public Persona() {
+    }
+
+    public Persona(int id, String nombre, String ciudad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Persona{ID= &quot; + id + &quot;, nombre='&quot; + nombre + &quot;', ciudad='&quot; + ciudad + &quot;'}&quot;;
+    }
+}
+</code></pre>
+<p>Esta clase representa el “modelo de datos” en el mundo de objetos. Db4o almacenará instancias de esta clase directamente, sin necesidad de transformarlas a tablas.</p>
+<p>El constructor sin argumentos permite que Db4o cree objetos <code>Persona</code> cuando los recupera de la base. El método <code>toString</code> facilita la visualización de los datos al imprimirlos.</p>
+<h3>2.2. Insertar varias personas: <code>DBPersonas</code></h3>
+<p>Se crea <code>DBPersonas.java</code>:</p>
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class DBPersonas {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta.&quot;);
+
+            // Recuperar todas las instancias de Persona solo para contar y asignar IDs
+            ObjectSet resultado = db.queryByExample(Persona.class);
+
+            // Crear objetos Persona
+            String[] nombres = { &quot;Juan&quot;, &quot;Ana&quot;, &quot;Luis&quot;, &quot;Pedro&quot;, &quot;Paco&quot; };
+            String[] ciudades = { &quot;Guadalajara&quot;, &quot;Madrid&quot;, &quot;Granada&quot;, &quot;Asturias&quot;, &quot;Madrid&quot; };
+
+            List personas = new ArrayList&lt;&gt;();
+
+            int ids = resultado.size() + 1;
+            for (int i = 0; i &lt; nombres.length; i++) {
+                Persona p = new Persona(ids, nombres[i], ciudades[i]);
+                personas.add(p);
+                ids++; // id incremental
+                // Almacenar objetos Persona
+                db.store(p);
+            }
+
+            System.out.println(&quot;Personas almacenadas en la BD.&quot;);
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Este programa:</p>
+<ul>
+<li>Abre la base <code>personas.db4o</code>.</li>
+<li>Recupera las personas ya existentes para saber cuántas hay y calcular ids nuevos.</li>
+<li>Crea varias <code>Persona</code> con ids consecutivos, nombres y ciudades.</li>
+<li>Llama a <code>db.store(p)</code> para guardar cada persona.</li>
+<li>Cierra la base de datos.</li>
+</ul>
+<p>El objetivo aquí es que el alumno vea cómo se insertan objetos en una OODB de manera muy directa: se crean objetos en Java y se almacenan tal cual, con una llamada a <code>store</code>.</p>
+<hr>
+<h2>Parte 3 – Consultas sobre <code>Persona</code></h2>
+<p>En esta parte se exploran distintas formas de recuperar información: listar todo, buscar por nombre, ciudad, combinación de campos, prefijos y rangos.</p>
+<h3>3.1. Listar todas las personas</h3>
+<p>La clase <code>ListarPersonas</code> muestra todas las personas almacenadas:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class ListarPersonas {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para lectura.&quot;);
+
+            // Recuperar todas las instancias de Persona
+            ObjectSet resultado = db.queryByExample(Persona.class);
+
+            System.out.println(&quot;Total de personas: &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>La clase <code>ListarTodasQBE</code> hace lo mismo usando un prototipo vacío:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class ListarTodasQBE {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para listar todas las personas.&quot;);
+
+            Persona prototipo = new Persona(); // todos los campos en valor por defecto
+            ObjectSet resultado = db.queryByExample(prototipo);
+
+            System.out.println(&quot;Total de personas (QBE): &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Estos ejemplos muestran cómo recuperar todos los objetos de una clase, lo que sirve para comprobar el contenido de la base y entender qué se ha almacenado.</p>
+<h3>3.2. Consultas QBE: prototipos</h3>
+<h4>3.2.1. Buscar por nombre</h4>
+<p><code>BuscarPorNombre</code> usa un prototipo con el nombre rellenado:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class BuscarPorNombre {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta por nombre.&quot;);
+
+            // Prototipo: sólo establecemos el nombre
+            Persona prototipo = new Persona();
+            prototipo.setNombre(&quot;Juan&quot;);
+
+            ObjectSet resultado = db.queryByExample(prototipo);
+
+            System.out.println(&quot;Personas con nombre 'Juan': &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>En QBE (Query By Example), el prototipo define qué campos se consideran en la búsqueda. Aquí se busca cualquier <code>Persona</code> cuyo <code>nombre</code> sea “Juan”.</p>
+<h4>3.2.2. Buscar por ciudad</h4>
+<p><code>BuscarPorCiudad</code> usa un prototipo con la ciudad:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class BuscarPorCiudad {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta por ciudad.&quot;);
+
+            Persona prototipo = new Persona();
+            prototipo.setCiudad(&quot;Madrid&quot;);
+
+            ObjectSet resultado = db.queryByExample(prototipo);
+
+            System.out.println(&quot;Personas en 'Madrid': &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<h4>3.2.3. Buscar por nombre y ciudad</h4>
+<p><code>BuscarPorNombreYCiudad</code> combina ambos campos:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class BuscarPorNombreYCiudad {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta por nombre y ciudad.&quot;);
+
+            Persona prototipo = new Persona();
+            prototipo.setNombre(&quot;Juan&quot;);
+            prototipo.setCiudad(&quot;Guadalajara&quot;);
+
+            ObjectSet resultado = db.queryByExample(prototipo);
+
+            System.out.println(&quot;Personas 'Juan' en 'Guadalajara': &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Aquí se busca a quienes coincidan simultáneamente en nombre y ciudad, mostrando cómo QBE permite combinar criterios.</p>
+<h3>3.3. Consultas nativas: predicados en Java</h3>
+<p><code>BuscarPorPrefijoNombre</code> muestra cómo escribir una consulta que filtra por un criterio más complejo, en este caso, un prefijo en el nombre:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Predicate;
+
+public class BuscarPorPrefijoNombre {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta por prefijo de nombre.&quot;);
+
+            ObjectSet resultado = db.query(new Predicate() {
+                @Override
+                public boolean match(Persona p) {
+                    return p.getNombre() != null &amp;&amp; p.getNombre().startsWith(&quot;A&quot;);
+                }
+            });
+
+            System.out.println(&quot;Personas cuyo nombre empieza por 'A': &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Esta forma de consulta permite expresar condiciones usando el propio lenguaje Java, lo que resulta natural cuando se quieren filtros más expresivos (como prefijos, subcadenas, rangos, etc.).</p>
+<h3>3.4. Consultas SODA: filtros estructurados</h3>
+<h4>3.4.1. Buscar por nombre</h4>
+<p><code>BuscarConSODA</code> utiliza la API SODA:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Query;
+
+public class BuscarConSODA {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta SODA.&quot;);
+
+            Query query = db.query();
+            query.constrain(Persona.class);
+            query.descend(&quot;nombre&quot;).constrain(&quot;Juan&quot;);
+
+            ObjectSet resultado = query.execute();
+
+            System.out.println(&quot;Personas 'Juan' (SODA): &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>SODA permite construir consultas de manera estructurada, indicando la clase, el campo y las condiciones sobre ese campo.</p>
+<h4>3.4.2. Buscar por rango de id</h4>
+<p><code>BuscarPorRango</code> muestra cómo filtrar por un rango de <code>id</code>:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Constraint;
+import com.db4o.query.Query;
+
+public class BuscarPorRango {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para consulta SODA por rango de id.&quot;);
+
+            // Definimos límites (no inclusivos)
+            int idMin = 2;
+            int idMax = 5;
+
+            // Crear consulta SODA
+            Query query = db.query();
+
+            // Restringir a la clase Persona
+            query.constrain(Persona.class);
+
+            // Bajar al campo &quot;id&quot;
+            Query subQuery = query.descend(&quot;id&quot;);
+
+            // Añadir restricciones &gt;= idMin y &lt;= idMax
+            Constraint cMin = subQuery.constrain(idMin).greater();
+            Constraint cMax = subQuery.constrain(idMax).smaller();
+
+            // Combinar (la combinación AND es implícita cuando se aplican sobre el mismo descend)
+            cMin.and(cMax);
+
+            // Ejecutar
+            ObjectSet resultado = query.execute();
+
+            System.out.println(&quot;Personas con id entre &quot; + idMin + &quot; y &quot; + idMax + &quot;: &quot; + resultado.size());
+            for (Persona p : resultado) {
+                System.out.println(p);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Con SODA se observa cómo se pueden expresar condiciones de tipo “mayor que” y “menor que” directamente sobre campos numéricos, utilizando <code>greater()</code> y <code>smaller()</code>.</p>
+<hr>
+<h2>Parte 4 – Actualizar y eliminar personas usando <code>id</code></h2>
+<p>En esta parte se completan las operaciones de actualización y eliminación, utilizando el <code>id</code> como identificador lógico de las personas.</p>
+<h3>4.1. Actualizar ciudad de una persona por <code>id</code></h3>
+<p>La clase <code>ActualizarPersonaPorId</code> busca una persona por <code>id</code>, modifica su ciudad y guarda de nuevo el objeto:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class ActualizarPersonaPorId {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para actualización por id.&quot;);
+
+            // Prototipo con sólo el id
+            Persona prototipo = new Persona();
+            prototipo.setId(1);
+
+            ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
+
+            if (resultado.isEmpty()) {
+                System.out.println(&quot;No se encontró ninguna persona con id=1.&quot;);
+            } else {
+                Persona encontrada = resultado.next();
+                System.out.println(&quot;Persona encontrada: &quot; + encontrada);
+
+                // Modificar la ciudad en memoria
+                encontrada.setCiudad(&quot;Monterrey&quot;);
+
+                // Guardar de nuevo (update)
+                db.store(encontrada);
+                System.out.println(&quot;Persona actualizada: &quot; + encontrada);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Aquí se observa que Db4o no requiere un comando especial para “update”: basta con recuperar el objeto, modificarlo y volver a llamar a <code>store</code>.</p>
+<h3>4.2. Ajustar datos utilizando <code>id</code> como criterio</h3>
+<p>La clase <code>IncrementarEdadDesdeId</code> ilustra una operación masiva basada en <code>id</code>. Aunque en el código actual <code>Persona</code> no tiene <code>edad</code>, el patrón sigue siendo válido para cualquier atributo:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class IncrementarEdadDesdeId {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para actualización de edades.&quot;);
+
+            int idMinimo = 2;
+
+            // Prototipo sin id (para traer todas y filtrar en memoria)
+            Persona prototipo = new Persona();
+            ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
+
+            while (resultado.hasNext()) {
+                Persona p = resultado.next();
+                if (p.getId() &gt;= idMinimo) {
+                    System.out.println(&quot;Antes: &quot; + p);
+                    // Aquí se incrementaría un atributo como edad si existiera
+                    // p.setEdad(p.getEdad() + 1);
+                    System.out.println(&quot;Después: &quot; + p);
+                    db.store(p);
+                }
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Este ejemplo muestra cómo se puede recorrer un conjunto de objetos y aplicar cambios según condiciones sobre el <code>id</code>.</p>
+<h3>4.3. Eliminar una persona por <code>id</code></h3>
+<p><code>EliminarPersonaPorId</code> elimina a una persona específica:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class EliminarPersonaPorId {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
+            System.out.println(&quot;BD personas.db4o abierta para eliminación por id.&quot;);
+
+            int idBuscado = 3;
+
+            Persona prototipo = new Persona();
+            prototipo.setId(idBuscado);
+
+            ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
+
+            if (resultado.isEmpty()) {
+                System.out.println(&quot;No se encontró ninguna persona con id=&quot; + idBuscado);
+            } else {
+                Persona encontrada = resultado.next();
+                System.out.println(&quot;Persona a eliminar: &quot; + encontrada);
+                db.delete(encontrada);
+                System.out.println(&quot;Persona eliminada.&quot;);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>De este modo, se completa el CRUD:</p>
+<ul>
+<li>Create: <code>DBPersonas</code>.</li>
+<li>Read: <code>ListarPersonas</code>, consultas QBE, Native y SODA.</li>
+<li>Update: <code>ActualizarPersonaPorId</code>, <code>IncrementarEdadDesdeId</code> (adaptable a cualquier atributo).</li>
+<li>Delete: <code>EliminarPersonaPorId</code>.</li>
+</ul>
+<hr>
+<h2>Parte 5 – Herencia y relaciones: <code>Alumno</code> y <code>Curso</code></h2>
+<p>El siguiente paso consiste en ampliar el modelo para representar no sólo personas aisladas, sino relaciones más complejas, como alumnos inscritos en cursos, aprovechando que Db4o almacena grafos de objetos.</p>
+<h3>5.1. Subclase <code>Alumno</code></h3>
+<p><code>Alumno</code> extiende <code>Persona</code> y añade campos específicos:</p>
+<pre><code class="language-java">public class Alumno extends Persona {
+
+    private String matricula;
+    private String carrera;
+
+    public Alumno() {
+        super();
+    }
+
+    public Alumno(int id, String nombre, String ciudad,
+                  String matricula, String carrera) {
+        super(id, nombre, ciudad);
+        this.matricula = matricula;
+        this.carrera = carrera;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Alumno{&quot; +
+               &quot;id=&quot; + getId() +
+               &quot;, nombre='&quot; + getNombre() + '\'' +
+               &quot;, ciudad='&quot; + getCiudad() + '\'' +
+               &quot;, matricula='&quot; + matricula + '\'' +
+               &quot;, carrera='&quot; + carrera + '\'' +
+               '}';
+    }
+}
+</code></pre>
+<p>Esto muestra cómo Db4o puede trabajar con jerarquías de clases, almacenando tanto la parte común (<code>Persona</code>) como la parte específica (<code>Alumno</code>).</p>
+<h3>5.2. Clase <code>Curso</code> con lista de alumnos</h3>
+<p><code>Curso</code> contiene un <code>id</code>, un nombre, una descripción y una lista de <code>Alumno</code>:</p>
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+
+public class Curso {
+
+    private int id;
+    private String nombre;
+    private String descripcion;
+    private List&lt;Alumno&gt; alumnos;
+
+    public Curso() {
+        this.alumnos = new ArrayList&lt;&gt;();
+    }
+
+    public Curso(int id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.alumnos = new ArrayList&lt;&gt;();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public List&lt;Alumno&gt; getAlumnos() {
+        return alumnos;
+    }
+
+    public void agregarAlumno(Alumno alumno) {
+        this.alumnos.add(alumno);
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Curso{&quot; +
+               &quot;id=&quot; + id +
+               &quot;, nombre='&quot; + nombre + '\'' +
+               &quot;, descripcion='&quot; + descripcion + '\'' +
+               &quot;, alumnos=&quot; + alumnos +
+               '}';
+    }
+}
+</code></pre>
+<p>Esta clase sirve para ilustrar cómo se representan relaciones uno-a-muchos en una base de datos orientada a objetos: el curso mantiene referencias directas a los alumnos.</p>
+<h3>5.3. Crear un curso con alumnos y guardarlo</h3>
+<p>La clase <code>CrearCursoConAlumnos</code> crea alumnos y un curso, los relaciona y persiste el grafo:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+
+public class CrearCursoConAlumnos {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
+            System.out.println(&quot;BD cursos.db4o abierta.&quot;);
+
+            // Crear alumnos
+            Alumno a1 = new Alumno(1, &quot;Juan&quot;, &quot;Guadalajara&quot;,
+                                   &quot;A001&quot;, &quot;Ingeniería en Computación&quot;);
+            Alumno a2 = new Alumno(2, &quot;Ana&quot;, &quot;Madrid&quot;,
+                                   &quot;A002&quot;, &quot;Matemáticas&quot;);
+            Alumno a3 = new Alumno(3, &quot;Luis&quot;, &quot;Granada&quot;,
+                                   &quot;A003&quot;, &quot;Física&quot;);
+
+            // Crear curso
+            Curso curso = new Curso(101, &quot;Bases de Datos OO&quot;,
+                                    &quot;Introducción a bases de datos orientadas a objetos&quot;);
+
+            // Asociar alumnos al curso
+            curso.agregarAlumno(a1);
+            curso.agregarAlumno(a2);
+            curso.agregarAlumno(a3);
+
+            // Persistir curso (y, con él, los alumnos relacionados)
+            db.store(curso);
+
+            System.out.println(&quot;Curso y alumnos almacenados en la BD.&quot;);
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Aquí el curso es el “objeto raíz” que se almacena. Db4o se encarga de registrar también los alumnos asociados.</p>
+<h3>5.4. Listar cursos y alumnos</h3>
+<p><code>ListarCursosYAlumnos</code> muestra los cursos y sus listas de alumnos:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+
+public class ListarCursosYAlumnos {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
+            System.out.println(&quot;BD cursos.db4o abierta para lectura.&quot;);
+
+            // Recuperar todos los cursos
+            Curso prototipo = new Curso();
+            ObjectSet&lt;Curso&gt; resultado = db.queryByExample(prototipo);
+
+            System.out.println(&quot;Total de cursos: &quot; + resultado.size());
+            while (resultado.hasNext()) {
+                Curso c = resultado.next();
+                System.out.println(&quot;Curso: &quot; + c.getNombre() +
+                                   &quot; (id=&quot; + c.getId() + &quot;)&quot;);
+                System.out.println(&quot;Alumnos inscritos:&quot;);
+                for (Alumno a : c.getAlumnos()) {
+                    System.out.println(&quot;  &quot; + a);
+                }
+                System.out.println(&quot;------------------------&quot;);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Este ejemplo muestra cómo se navega el grafo de objetos: se recupera el curso y, a través de su lista interna, se recorren los alumnos.</p>
+<h3>5.5. Consultar alumnos de un curso por <code>id</code> de curso</h3>
+<p>La clase <code>AlumnosDeCursoPorId</code> utiliza una Native Query para localizar un curso por <code>id</code> y mostrar sus alumnos:</p>
+<pre><code class="language-java">import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Predicate;
+
+public class AlumnosDeCursoPorId {
+
+    public static void main(String[] args) {
+        ObjectContainer db = null;
+        try {
+            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
+            System.out.println(&quot;BD cursos.db4o abierta para consulta.&quot;);
+
+            int idCursoBuscado = 101;
+
+            ObjectSet&lt;Curso&gt; resultado = db.query(new Predicate&lt;Curso&gt;() {
+                @Override
+                public boolean match(Curso c) {
+                    return c.getId() == idCursoBuscado;
+                }
+            });
+
+            if (resultado.isEmpty()) {
+                System.out.println(&quot;No se encontró curso con id=&quot; + idCursoBuscado);
+                return;
+            }
+
+            Curso curso = resultado.next();
+            System.out.println(&quot;Curso encontrado: &quot; + curso.getNombre());
+            System.out.println(&quot;Alumnos inscritos:&quot;);
+            for (Alumno a : curso.getAlumnos()) {
+                System.out.println(&quot;  &quot; + a);
+            }
+
+        } finally {
+            if (db != null) {
+                db.close();
+                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Con esta última parte, se completa un ejemplo donde:</p>
+<ul>
+<li>Se define un modelo orientado a objetos con herencia.</li>
+<li>Se representa una relación uno-a-muchos mediante una lista.</li>
+<li>Se almacena y se consulta un grafo de objetos completo en una base de datos orientada a objetos.</li>
+</ul>
+
+</body>
+</html>
