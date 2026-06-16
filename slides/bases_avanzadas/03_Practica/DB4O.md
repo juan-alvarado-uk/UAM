@@ -66,7 +66,7 @@ Db4o se distribuye como un archivo `.jar` que contiene el motor de base de datos
 Los pasos generales son:
 
 1. Descargar el jar correspondiente (por ejemplo, `db4o-8.0.276.16149-all-java5.jar`) y guardarlo en una carpeta del proyecto, por ejemplo `lib/`.
-2. Asegurarse de que VS Code incluye ese jar en el classpath. En proyectos simples, la extensión de Java detecta jars en ciertas rutas o se puede configurar el classpath según la estructura. En proyectos Maven, se usaría una dependencia declarada.
+2. En proyectos simples, la extensión de Java detecta jars en ciertas rutas o se puede configurar el classpath según la estructura. En proyectos Maven, se usaría una dependencia declarada.
 3. Una forma de comprobar que el jar está correctamente integrado es escribir una clase que importe `com.db4o.Db4oEmbedded` y `com.db4o.ObjectContainer` y ver si compila.
 
 El objetivo de este paso es que el código Java “vea” la API de Db4o y pueda invocar sus métodos.
@@ -129,8 +129,6 @@ En este programa:
 - `Db4oEmbedded.openFile("holaOODB.db4o")` abre (o crea) un archivo de base de datos con ese nombre.
 - `ObjectContainer db` representa la conexión a esa base de datos.
 - El bloque `finally` garantiza que la base se cierra aunque ocurra alguna excepción.
-
-El propósito de este paso es que el alumno vea cómo se establece la conexión con una base de datos orientada a objetos y cómo se gestiona su ciclo de vida básico (abrir y cerrar).
 
 ***
 
@@ -252,7 +250,7 @@ Este programa:
 - Llama a `db.store(p)` para guardar cada persona.
 - Cierra la base de datos.
 
-El objetivo aquí es que el alumno vea cómo se insertan objetos en una OODB de manera muy directa: se crean objetos en Java y se almacenan tal cual, con una llamada a `store`.
+El objetivo aquí es ver cómo se insertan objetos en una OODB de manera muy directa: se crean objetos en Java y se almacenan tal cual, con una llamada a `store`.
 
 ***
 
@@ -553,7 +551,7 @@ public class BuscarPorRango {
             db = Db4oEmbedded.openFile("personas.db4o");
             System.out.println("BD personas.db4o abierta para consulta SODA por rango de id.");
 
-            // Definimos límites (no inclusivos)
+            // Definimos límites
             int idMin = 2;
             int idMax = 5;
 
@@ -570,7 +568,7 @@ public class BuscarPorRango {
             Constraint cMin = subQuery.constrain(idMin).greater();
             Constraint cMax = subQuery.constrain(idMax).smaller();
 
-            // Combinar (la combinación AND es implícita cuando se aplican sobre el mismo descend)
+            // Combinar
             cMin.and(cMax);
 
             // Ejecutar
@@ -675,8 +673,7 @@ public class IncrementarEdadDesdeId {
                 Persona p = resultado.next();
                 if (p.getId() >= idMinimo) {
                     System.out.println("Antes: " + p);
-                    // Aquí se incrementaría un atributo como edad si existiera
-                    // p.setEdad(p.getEdad() + 1);
+                    // Aquí se incrementaría un atributo como edad 
                     System.out.println("Después: " + p);
                     db.store(p);
                 }
@@ -800,7 +797,7 @@ public class Alumno extends Persona {
 }
 ```
 
-Esto muestra cómo Db4o puede trabajar con jerarquías de clases, almacenando tanto la parte común (`Persona`) como la parte específica (`Alumno`).
+Db4o puede trabajar con jerarquías de clases, almacenando tanto la parte común (`Persona`) como la parte específica (`Alumno`).
 
 ### 5.2. Clase `Curso` con lista de alumnos
 
