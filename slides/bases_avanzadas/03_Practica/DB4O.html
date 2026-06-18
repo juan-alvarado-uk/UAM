@@ -1,915 +1,905 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DB4O</title>
-	<style>
-		/* Basic styles for readability */
-		body {
-			font-family: sans-serif;
-			max-width: 800px;
-			margin: 2em auto;
-			padding: 0 1em;
-			line-height: 1.6;
-		}
-		img { max-width: 100%; height: auto; }
-		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
-		code { font-family: monospace; }
-	</style>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<link rel="stylesheet" href="file:////home/Juan/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
+
 </head>
-<body>
-	<h1>Tutorial DB4O</h1>
-<h2>Parte 0 – Preparar el entorno en VS Code</h2>
-<p>Antes de escribir código con Db4o, es necesario tener un entorno Java funcional y asegurarse de que la librería de Db4o está correctamente integrada.</p>
-<h3>0.1. Instalar Java y comprobar la versión</h3>
-<p>Java es el lenguaje que se utilizará para escribir el código que se conecta a Db4o. Conviene comprobar que la JDK está instalada y disponible en línea de comandos.</p>
-<p>En una terminal (bash, zsh, PowerShell o CMD) se ejecuta:</p>
-<pre><code class="language-bash">java -version
+<body class="markdown-body">
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 dir="auto" id="tutorial-db4o">Tutorial DB4O</h1>
+<h2 dir="auto" id="parte-0--preparar-el-entorno-en-vs-code">Parte 0 – Preparar el entorno en VS Code</h2>
+<p dir="auto">Antes de escribir código con Db4o, es necesario tener un entorno Java funcional y asegurarse de que la librería de Db4o está correctamente integrada.</p>
+<h3 dir="auto" id="01-instalar-java-y-comprobar-la-versión">0.1. Instalar Java y comprobar la versión</h3>
+<p dir="auto">Java es el lenguaje que se utilizará para escribir el código que se conecta a Db4o. Conviene comprobar que la JDK está instalada y disponible en línea de comandos.</p>
+<p dir="auto">En una terminal (bash, zsh, PowerShell o CMD) se ejecuta:</p>
+<pre><code class="code-line language-bash" dir="auto">java -version
 </code></pre>
-<p>La salida debe mostrar una versión de Java instalada (por ejemplo, 8, 11 o superior). Esto confirma que:</p>
-<ul>
-<li>Hay una JVM disponible para ejecutar programas Java.</li>
-<li>El sistema reconoce el comando <code>java</code>, lo que será necesario cuando VS Code intente compilar y ejecutar el código.</li>
+<p dir="auto">La salida debe mostrar una versión de Java instalada (por ejemplo, 8, 11 o superior). Esto confirma que:</p>
+<ul dir="auto">
+<li dir="auto">Hay una JVM disponible para ejecutar programas Java.</li>
+<li dir="auto">El sistema reconoce el comando <code>java</code>, lo que será necesario cuando VS Code intente compilar y ejecutar el código.</li>
 </ul>
-<p>Si no aparece ninguna versión o el comando no se reconoce, se debe instalar una JDK (por ejemplo, OpenJDK) antes de continuar.</p>
-<p>Este tutorial ha sido probado con la versión 18.0.2</p>
-<h3>0.2. Instalar la extensión de Java en VS Code</h3>
-<p>VS Code, por sí solo, no sabe compilar ni ejecutar Java. La extensión <strong>“Extension Pack for Java”</strong> (de Microsoft) añade soporte para:</p>
-<ul>
-<li>Compilar proyectos Java.</li>
-<li>Ejecutar clases con <code>main</code>.</li>
-<li>Gestionar librerías y dependencias.</li>
+<p dir="auto">Si no aparece ninguna versión o el comando no se reconoce, se debe instalar una JDK (por ejemplo, OpenJDK) antes de continuar.</p>
+<p dir="auto">Este tutorial ha sido probado con la versión 18.0.2</p>
+<h3 dir="auto" id="02-instalar-la-extensión-de-java-en-vs-code">0.2. Instalar la extensión de Java en VS Code</h3>
+<p dir="auto">VS Code, por sí solo, no sabe compilar ni ejecutar Java. La extensión <strong>“Extension Pack for Java”</strong> (de Microsoft) añade soporte para:</p>
+<ul dir="auto">
+<li dir="auto">Compilar proyectos Java.</li>
+<li dir="auto">Ejecutar clases con <code>main</code>.</li>
+<li dir="auto">Gestionar librerías y dependencias.</li>
 </ul>
-<p>Esta extensión se instala desde la pestaña de extensiones de VS Code, buscando “Extension Pack for Java” y pulsando en “Install”.</p>
-<p>Una vez instalada, se puede crear un proyecto Java simple y ejecutar un programa “Hola Mundo” para confirmar que todo está configurado correctamente.</p>
-<h3>0.3. Crear un proyecto Java en VS Code</h3>
-<p>Desde la paleta de comandos de VS Code (Ctrl+Shift+P), se ejecuta:</p>
-<ul>
-<li><code>Java: Create Java Project</code>.</li>
+<p dir="auto">Esta extensión se instala desde la pestaña de extensiones de VS Code, buscando “Extension Pack for Java” y pulsando en “Install”.</p>
+<p dir="auto">Una vez instalada, se puede crear un proyecto Java simple y ejecutar un programa “Hola Mundo” para confirmar que todo está configurado correctamente.</p>
+<h3 dir="auto" id="03-crear-un-proyecto-java-en-vs-code">0.3. Crear un proyecto Java en VS Code</h3>
+<p dir="auto">Desde la paleta de comandos de VS Code (Ctrl+Shift+P), se ejecuta:</p>
+<ul dir="auto">
+<li dir="auto"><code>Java: Create Java Project</code>.</li>
 </ul>
-<p>Se puede elegir la opción “No build tools” para un proyecto simple (sin Maven o Gradle) y darle un nombre, por ejemplo: <code>HolaOODB</code>.</p>
-<p>VS Code crea una estructura con una carpeta <code>src</code> y una clase inicial (por ejemplo <code>App.java</code>). Se puede reemplazar o complementar esa clase con una clase como:</p>
-<pre><code class="language-java">public class App {
-    public static void main(String[] args) {
-        System.out.println(&quot;Hola Mundo desde VS Code&quot;);
+<p dir="auto">Se puede elegir la opción “No build tools” para un proyecto simple (sin Maven o Gradle) y darle un nombre, por ejemplo: <code>HolaOODB</code>.</p>
+<p dir="auto">VS Code crea una estructura con una carpeta <code>src</code> y una clase inicial (por ejemplo <code>App.java</code>). Se puede reemplazar o complementar esa clase con una clase como:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        System.out.println(<span class="hljs-string">&quot;Hola Mundo desde VS Code&quot;</span>);
     }
 }
 </code></pre>
-<p>Ejecutar esta clase confirma que:</p>
-<ul>
-<li>El proyecto compila.</li>
-<li>La extensión de Java funciona correctamente.</li>
-<li>La salida aparece en la terminal integrada.</li>
+<p dir="auto">Ejecutar esta clase confirma que:</p>
+<ul dir="auto">
+<li dir="auto">El proyecto compila.</li>
+<li dir="auto">La extensión de Java funciona correctamente.</li>
+<li dir="auto">La salida aparece en la terminal integrada.</li>
 </ul>
-<h3>0.4. Incorporar el jar de Db4o al proyecto</h3>
-<p>Db4o se distribuye como un archivo <code>.jar</code> que contiene el motor de base de datos orientada a objetos. La idea es que el programa Java incluya ese jar en su classpath para poder usar clases como <code>Db4oEmbedded</code> y <code>ObjectContainer</code>.</p>
-<p>Los pasos generales son:</p>
-<ol>
-<li>Descargar el jar correspondiente (por ejemplo, <code>db4o-8.0.276.16149-all-java5.jar</code>) y guardarlo en una carpeta del proyecto, por ejemplo <code>lib/</code>.</li>
-<li>Asegurarse de que VS Code incluye ese jar en el classpath. En proyectos simples, la extensión de Java detecta jars en ciertas rutas o se puede configurar el classpath según la estructura. En proyectos Maven, se usaría una dependencia declarada.</li>
-<li>Una forma de comprobar que el jar está correctamente integrado es escribir una clase que importe <code>com.db4o.Db4oEmbedded</code> y <code>com.db4o.ObjectContainer</code> y ver si compila.</li>
+<h3 dir="auto" id="04-incorporar-el-jar-de-db4o-al-proyecto">0.4. Incorporar el jar de Db4o al proyecto</h3>
+<p dir="auto">Db4o se distribuye como un archivo <code>.jar</code> que contiene el motor de base de datos orientada a objetos. La idea es que el programa Java incluya ese jar en su classpath para poder usar clases como <code>Db4oEmbedded</code> y <code>ObjectContainer</code>.</p>
+<p dir="auto">Los pasos generales son:</p>
+<ol dir="auto">
+<li dir="auto">Descargar el jar correspondiente (por ejemplo, <code>db4o-8.0.276.16149-all-java5.jar</code>) y guardarlo en una carpeta del proyecto, por ejemplo <code>lib/</code>.</li>
+<li dir="auto">En proyectos simples, la extensión de Java detecta jars en ciertas rutas o se puede configurar el classpath según la estructura. En proyectos Maven, se usaría una dependencia declarada.</li>
+<li dir="auto">Una forma de comprobar que el jar está correctamente integrado es escribir una clase que importe <code>com.db4o.Db4oEmbedded</code> y <code>com.db4o.ObjectContainer</code> y ver si compila.</li>
 </ol>
-<p>El objetivo de este paso es que el código Java “vea” la API de Db4o y pueda invocar sus métodos.</p>
-<hr>
-<h2>Parte 1 – Primer contacto con Db4o</h2>
-<p>En esta parte se abre y se cierra una base de datos Db4o desde Java, para comprobar que la integración con el jar funciona.</p>
-<h3>1.1. Verificar los imports de Db4o</h3>
-<p>Se crea la clase <code>PruebaDb4oImports</code>:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
+<p dir="auto">El objetivo de este paso es que el código Java “vea” la API de Db4o y pueda invocar sus métodos.</p>
+<hr dir="auto">
+<h2 dir="auto" id="parte-1--primer-contacto-con-db4o">Parte 1 – Primer contacto con Db4o</h2>
+<p dir="auto">En esta parte se abre y se cierra una base de datos Db4o desde Java, para comprobar que la integración con el jar funciona.</p>
+<h3 dir="auto" id="11-verificar-los-imports-de-db4o">1.1. Verificar los imports de Db4o</h3>
+<p dir="auto">Se crea la clase <code>PruebaDb4oImports</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
 
-public class PruebaDb4oImports {
-    public static void main(String[] args) {
-        System.out.println(&quot;Imports de Db4o compilando correctamente&quot;);
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PruebaDb4oImports</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        System.out.println(<span class="hljs-string">&quot;Imports de Db4o compilando correctamente&quot;</span>);
     }
 }
 </code></pre>
-<p>Si esta clase compila, significa que:</p>
-<ul>
-<li>El jar de Db4o está correctamente añadido.</li>
-<li>El compilador encuentra las clases de Db4o.</li>
-<li>Se puede seguir adelante con el uso del motor de base de datos.</li>
+<p dir="auto">Si esta clase compila, significa que:</p>
+<ul dir="auto">
+<li dir="auto">El jar de Db4o está correctamente añadido.</li>
+<li dir="auto">El compilador encuentra las clases de Db4o.</li>
+<li dir="auto">Se puede seguir adelante con el uso del motor de base de datos.</li>
 </ul>
-<p>Este paso es importante porque evita avanzar con problemas de configuración de librerías.</p>
-<h3>1.2. Abrir y cerrar una base de datos: <code>HolaOODB</code></h3>
-<p>Se crea la clase <code>HolaOODB</code>:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
+<p dir="auto">Este paso es importante porque evita avanzar con problemas de configuración de librerías.</p>
+<h3 dir="auto" id="12-abrir-y-cerrar-una-base-de-datos-holaoodb">1.2. Abrir y cerrar una base de datos: <code>HolaOODB</code></h3>
+<p dir="auto">Se crea la clase <code>HolaOODB</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
 
-public class HolaOODB {
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;holaOODB.db4o&quot;);
-            System.out.println(&quot;Base de datos Db4o abierta correctamente.&quot;);
-        } finally {
-            if (db != null) {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HolaOODB</span> {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;holaOODB.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;Base de datos Db4o abierta correctamente.&quot;</span>);
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;Base de datos Db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;Base de datos Db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>En este programa:</p>
-<ul>
-<li><code>Db4oEmbedded.openFile(&quot;holaOODB.db4o&quot;)</code> abre (o crea) un archivo de base de datos con ese nombre.</li>
-<li><code>ObjectContainer db</code> representa la conexión a esa base de datos.</li>
-<li>El bloque <code>finally</code> garantiza que la base se cierra aunque ocurra alguna excepción.</li>
+<p dir="auto">En este programa:</p>
+<ul dir="auto">
+<li dir="auto"><code>Db4oEmbedded.openFile(&quot;holaOODB.db4o&quot;)</code> abre (o crea) un archivo de base de datos con ese nombre.</li>
+<li dir="auto"><code>ObjectContainer db</code> representa la conexión a esa base de datos.</li>
+<li dir="auto">El bloque <code>finally</code> garantiza que la base se cierra aunque ocurra alguna excepción.</li>
 </ul>
-<p>El propósito de este paso es que el alumno vea cómo se establece la conexión con una base de datos orientada a objetos y cómo se gestiona su ciclo de vida básico (abrir y cerrar).</p>
-<hr>
-<h2>Parte 2 – Definir <code>Persona</code> y almacenar objetos</h2>
-<p>En esta parte se introduce una clase de dominio (<code>Persona</code>) y se aprende a almacenar instancias en la base de datos Db4o.</p>
-<h3>2.1. Definir la clase <code>Persona</code></h3>
-<p>Se crea <code>Persona.java</code>:</p>
-<pre><code class="language-java">public class Persona {
+<hr dir="auto">
+<h2 dir="auto" id="parte-2--definir-persona-y-almacenar-objetos">Parte 2 – Definir <code>Persona</code> y almacenar objetos</h2>
+<p dir="auto">En esta parte se introduce una clase de dominio (<code>Persona</code>) y se aprende a almacenar instancias en la base de datos Db4o.</p>
+<h3 dir="auto" id="21-definir-la-clase-persona">2.1. Definir la clase <code>Persona</code></h3>
+<p dir="auto">Se crea <code>Persona.java</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Persona</span> {
 
-    private int id;
-    private String nombre;
-    private String ciudad;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String nombre;
+    <span class="hljs-keyword">private</span> String ciudad;
 
-    // Constructor sin argumentos (Db4o lo exige para instanciar objetos al recuperar)
-    public Persona() {
+    <span class="hljs-comment">// Constructor sin argumentos (Db4o lo exige para instanciar objetos al recuperar)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Persona</span><span class="hljs-params">()</span> {
     }
 
-    public Persona(int id, String nombre, String ciudad) {
-        this.id = id;
-        this.nombre = nombre;
-        this.ciudad = ciudad;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Persona</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, String ciudad)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+        <span class="hljs-built_in">this</span>.ciudad = ciudad;
     }
 
-    public int getId(){
-        return id;
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getId</span><span class="hljs-params">()</span>{
+        <span class="hljs-keyword">return</span> id;
     }
 
-    public void setId(int id){
-        this.id = id;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span>{
+        <span class="hljs-built_in">this</span>.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getNombre</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNombre</span><span class="hljs-params">(String nombre)</span> {
+        <span class="hljs-built_in">this</span>.nombre = nombre;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCiudad</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> ciudad;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCiudad</span><span class="hljs-params">(String ciudad)</span> {
+        <span class="hljs-built_in">this</span>.ciudad = ciudad;
     }
 
-    @Override
-    public String toString() {
-        return &quot;Persona{ID= &quot; + id + &quot;, nombre='&quot; + nombre + &quot;', ciudad='&quot; + ciudad + &quot;'}&quot;;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Persona{ID= &quot;</span> + id + <span class="hljs-string">&quot;, nombre=&#x27;&quot;</span> + nombre + <span class="hljs-string">&quot;&#x27;, ciudad=&#x27;&quot;</span> + ciudad + <span class="hljs-string">&quot;&#x27;}&quot;</span>;
     }
 }
 </code></pre>
-<p>Esta clase representa el “modelo de datos” en el mundo de objetos. Db4o almacenará instancias de esta clase directamente, sin necesidad de transformarlas a tablas.</p>
-<p>El constructor sin argumentos permite que Db4o cree objetos <code>Persona</code> cuando los recupera de la base. El método <code>toString</code> facilita la visualización de los datos al imprimirlos.</p>
-<h3>2.2. Insertar varias personas: <code>DBPersonas</code></h3>
-<p>Se crea <code>DBPersonas.java</code>:</p>
-<pre><code class="language-java">import java.util.ArrayList;
-import java.util.List;
+<p dir="auto">Esta clase representa el “modelo de datos” en el mundo de objetos. Db4o almacenará instancias de esta clase directamente, sin necesidad de transformarlas a tablas.</p>
+<p dir="auto">El constructor sin argumentos permite que Db4o cree objetos <code>Persona</code> cuando los recupera de la base. El método <code>toString</code> facilita la visualización de los datos al imprimirlos.</p>
+<h3 dir="auto" id="22-insertar-varias-personas-dbpersonas">2.2. Insertar varias personas: <code>DBPersonas</code></h3>
+<p dir="auto">Se crea <code>DBPersonas.java</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
 
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class DBPersonas {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DBPersonas</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta.&quot;</span>);
 
-            // Recuperar todas las instancias de Persona solo para contar y asignar IDs
-            ObjectSet resultado = db.queryByExample(Persona.class);
+            <span class="hljs-comment">// Recuperar todas las instancias de Persona solo para contar y asignar IDs</span>
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(Persona.class);
 
-            // Crear objetos Persona
-            String[] nombres = { &quot;Juan&quot;, &quot;Ana&quot;, &quot;Luis&quot;, &quot;Pedro&quot;, &quot;Paco&quot; };
-            String[] ciudades = { &quot;Guadalajara&quot;, &quot;Madrid&quot;, &quot;Granada&quot;, &quot;Asturias&quot;, &quot;Madrid&quot; };
+            <span class="hljs-comment">// Crear objetos Persona</span>
+            String[] nombres = { <span class="hljs-string">&quot;Juan&quot;</span>, <span class="hljs-string">&quot;Ana&quot;</span>, <span class="hljs-string">&quot;Luis&quot;</span>, <span class="hljs-string">&quot;Pedro&quot;</span>, <span class="hljs-string">&quot;Paco&quot;</span> };
+            String[] ciudades = { <span class="hljs-string">&quot;Guadalajara&quot;</span>, <span class="hljs-string">&quot;Madrid&quot;</span>, <span class="hljs-string">&quot;Granada&quot;</span>, <span class="hljs-string">&quot;Asturias&quot;</span>, <span class="hljs-string">&quot;Madrid&quot;</span> };
 
-            List personas = new ArrayList&lt;&gt;();
+            <span class="hljs-type">List</span> <span class="hljs-variable">personas</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
 
-            int ids = resultado.size() + 1;
-            for (int i = 0; i &lt; nombres.length; i++) {
-                Persona p = new Persona(ids, nombres[i], ciudades[i]);
+            <span class="hljs-type">int</span> <span class="hljs-variable">ids</span> <span class="hljs-operator">=</span> resultado.size() + <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nombres.length; i++) {
+                <span class="hljs-type">Persona</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>(ids, nombres[i], ciudades[i]);
                 personas.add(p);
-                ids++; // id incremental
-                // Almacenar objetos Persona
+                ids++; <span class="hljs-comment">// id incremental</span>
+                <span class="hljs-comment">// Almacenar objetos Persona</span>
                 db.store(p);
             }
 
-            System.out.println(&quot;Personas almacenadas en la BD.&quot;);
+            System.out.println(<span class="hljs-string">&quot;Personas almacenadas en la BD.&quot;</span>);
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Este programa:</p>
-<ul>
-<li>Abre la base <code>personas.db4o</code>.</li>
-<li>Recupera las personas ya existentes para saber cuántas hay y calcular ids nuevos.</li>
-<li>Crea varias <code>Persona</code> con ids consecutivos, nombres y ciudades.</li>
-<li>Llama a <code>db.store(p)</code> para guardar cada persona.</li>
-<li>Cierra la base de datos.</li>
+<p dir="auto">Este programa:</p>
+<ul dir="auto">
+<li dir="auto">Abre la base <code>personas.db4o</code>.</li>
+<li dir="auto">Recupera las personas ya existentes para saber cuántas hay y calcular ids nuevos.</li>
+<li dir="auto">Crea varias <code>Persona</code> con ids consecutivos, nombres y ciudades.</li>
+<li dir="auto">Llama a <code>db.store(p)</code> para guardar cada persona.</li>
+<li dir="auto">Cierra la base de datos.</li>
 </ul>
-<p>El objetivo aquí es que el alumno vea cómo se insertan objetos en una OODB de manera muy directa: se crean objetos en Java y se almacenan tal cual, con una llamada a <code>store</code>.</p>
-<hr>
-<h2>Parte 3 – Consultas sobre <code>Persona</code></h2>
-<p>En esta parte se exploran distintas formas de recuperar información: listar todo, buscar por nombre, ciudad, combinación de campos, prefijos y rangos.</p>
-<h3>3.1. Listar todas las personas</h3>
-<p>La clase <code>ListarPersonas</code> muestra todas las personas almacenadas:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">El objetivo aquí es ver cómo se insertan objetos en una OODB de manera muy directa: se crean objetos en Java y se almacenan tal cual, con una llamada a <code>store</code>.</p>
+<hr dir="auto">
+<h2 dir="auto" id="parte-3--consultas-sobre-persona">Parte 3 – Consultas sobre <code>Persona</code></h2>
+<p dir="auto">En esta parte se exploran distintas formas de recuperar información: listar todo, buscar por nombre, ciudad, combinación de campos, prefijos y rangos.</p>
+<h3 dir="auto" id="31-listar-todas-las-personas">3.1. Listar todas las personas</h3>
+<p dir="auto">La clase <code>ListarPersonas</code> muestra todas las personas almacenadas:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class ListarPersonas {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListarPersonas</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para lectura.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para lectura.&quot;</span>);
 
-            // Recuperar todas las instancias de Persona
-            ObjectSet resultado = db.queryByExample(Persona.class);
+            <span class="hljs-comment">// Recuperar todas las instancias de Persona</span>
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(Persona.class);
 
-            System.out.println(&quot;Total de personas: &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Total de personas: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>La clase <code>ListarTodasQBE</code> hace lo mismo usando un prototipo vacío:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">La clase <code>ListarTodasQBE</code> hace lo mismo usando un prototipo vacío:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class ListarTodasQBE {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListarTodasQBE</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para listar todas las personas.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para listar todas las personas.&quot;</span>);
 
-            Persona prototipo = new Persona(); // todos los campos en valor por defecto
-            ObjectSet resultado = db.queryByExample(prototipo);
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>(); <span class="hljs-comment">// todos los campos en valor por defecto</span>
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(prototipo);
 
-            System.out.println(&quot;Total de personas (QBE): &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Total de personas (QBE): &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Estos ejemplos muestran cómo recuperar todos los objetos de una clase, lo que sirve para comprobar el contenido de la base y entender qué se ha almacenado.</p>
-<h3>3.2. Consultas QBE: prototipos</h3>
-<h4>3.2.1. Buscar por nombre</h4>
-<p><code>BuscarPorNombre</code> usa un prototipo con el nombre rellenado:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">Estos ejemplos muestran cómo recuperar todos los objetos de una clase, lo que sirve para comprobar el contenido de la base y entender qué se ha almacenado.</p>
+<h3 dir="auto" id="32-consultas-qbe-prototipos">3.2. Consultas QBE: prototipos</h3>
+<h4 dir="auto" id="321-buscar-por-nombre">3.2.1. Buscar por nombre</h4>
+<p dir="auto"><code>BuscarPorNombre</code> usa un prototipo con el nombre rellenado:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class BuscarPorNombre {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarPorNombre</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta por nombre.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta por nombre.&quot;</span>);
 
-            // Prototipo: sólo establecemos el nombre
-            Persona prototipo = new Persona();
-            prototipo.setNombre(&quot;Juan&quot;);
+            <span class="hljs-comment">// Prototipo: sólo establecemos el nombre</span>
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
+            prototipo.setNombre(<span class="hljs-string">&quot;Juan&quot;</span>);
 
-            ObjectSet resultado = db.queryByExample(prototipo);
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(prototipo);
 
-            System.out.println(&quot;Personas con nombre 'Juan': &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas con nombre &#x27;Juan&#x27;: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>En QBE (Query By Example), el prototipo define qué campos se consideran en la búsqueda. Aquí se busca cualquier <code>Persona</code> cuyo <code>nombre</code> sea “Juan”.</p>
-<h4>3.2.2. Buscar por ciudad</h4>
-<p><code>BuscarPorCiudad</code> usa un prototipo con la ciudad:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">En QBE (Query By Example), el prototipo define qué campos se consideran en la búsqueda. Aquí se busca cualquier <code>Persona</code> cuyo <code>nombre</code> sea “Juan”.</p>
+<h4 dir="auto" id="322-buscar-por-ciudad">3.2.2. Buscar por ciudad</h4>
+<p dir="auto"><code>BuscarPorCiudad</code> usa un prototipo con la ciudad:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class BuscarPorCiudad {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarPorCiudad</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta por ciudad.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta por ciudad.&quot;</span>);
 
-            Persona prototipo = new Persona();
-            prototipo.setCiudad(&quot;Madrid&quot;);
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
+            prototipo.setCiudad(<span class="hljs-string">&quot;Madrid&quot;</span>);
 
-            ObjectSet resultado = db.queryByExample(prototipo);
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(prototipo);
 
-            System.out.println(&quot;Personas en 'Madrid': &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas en &#x27;Madrid&#x27;: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<h4>3.2.3. Buscar por nombre y ciudad</h4>
-<p><code>BuscarPorNombreYCiudad</code> combina ambos campos:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<h4 dir="auto" id="323-buscar-por-nombre-y-ciudad">3.2.3. Buscar por nombre y ciudad</h4>
+<p dir="auto"><code>BuscarPorNombreYCiudad</code> combina ambos campos:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class BuscarPorNombreYCiudad {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarPorNombreYCiudad</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta por nombre y ciudad.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta por nombre y ciudad.&quot;</span>);
 
-            Persona prototipo = new Persona();
-            prototipo.setNombre(&quot;Juan&quot;);
-            prototipo.setCiudad(&quot;Guadalajara&quot;);
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
+            prototipo.setNombre(<span class="hljs-string">&quot;Juan&quot;</span>);
+            prototipo.setCiudad(<span class="hljs-string">&quot;Guadalajara&quot;</span>);
 
-            ObjectSet resultado = db.queryByExample(prototipo);
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.queryByExample(prototipo);
 
-            System.out.println(&quot;Personas 'Juan' en 'Guadalajara': &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas &#x27;Juan&#x27; en &#x27;Guadalajara&#x27;: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Aquí se busca a quienes coincidan simultáneamente en nombre y ciudad, mostrando cómo QBE permite combinar criterios.</p>
-<h3>3.3. Consultas nativas: predicados en Java</h3>
-<p><code>BuscarPorPrefijoNombre</code> muestra cómo escribir una consulta que filtra por un criterio más complejo, en este caso, un prefijo en el nombre:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.query.Predicate;
+<p dir="auto">Aquí se busca a quienes coincidan simultáneamente en nombre y ciudad, mostrando cómo QBE permite combinar criterios.</p>
+<h3 dir="auto" id="33-consultas-nativas-predicados-en-java">3.3. Consultas nativas: predicados en Java</h3>
+<p dir="auto"><code>BuscarPorPrefijoNombre</code> muestra cómo escribir una consulta que filtra por un criterio más complejo, en este caso, un prefijo en el nombre:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
+<span class="hljs-keyword">import</span> com.db4o.query.Predicate;
 
-public class BuscarPorPrefijoNombre {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarPorPrefijoNombre</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta por prefijo de nombre.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta por prefijo de nombre.&quot;</span>);
 
-            ObjectSet resultado = db.query(new Predicate() {
-                @Override
-                public boolean match(Persona p) {
-                    return p.getNombre() != null &amp;&amp; p.getNombre().startsWith(&quot;A&quot;);
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> db.query(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Predicate</span>() {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">match</span><span class="hljs-params">(Persona p)</span> {
+                    <span class="hljs-keyword">return</span> p.getNombre() != <span class="hljs-literal">null</span> &amp;&amp; p.getNombre().startsWith(<span class="hljs-string">&quot;A&quot;</span>);
                 }
             });
 
-            System.out.println(&quot;Personas cuyo nombre empieza por 'A': &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas cuyo nombre empieza por &#x27;A&#x27;: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Esta forma de consulta permite expresar condiciones usando el propio lenguaje Java, lo que resulta natural cuando se quieren filtros más expresivos (como prefijos, subcadenas, rangos, etc.).</p>
-<h3>3.4. Consultas SODA: filtros estructurados</h3>
-<h4>3.4.1. Buscar por nombre</h4>
-<p><code>BuscarConSODA</code> utiliza la API SODA:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.query.Query;
+<p dir="auto">Esta forma de consulta permite expresar condiciones usando el propio lenguaje Java, lo que resulta natural cuando se quieren filtros más expresivos (como prefijos, subcadenas, rangos, etc.).</p>
+<h3 dir="auto" id="34-consultas-soda-filtros-estructurados">3.4. Consultas SODA: filtros estructurados</h3>
+<h4 dir="auto" id="341-buscar-por-nombre">3.4.1. Buscar por nombre</h4>
+<p dir="auto"><code>BuscarConSODA</code> utiliza la API SODA:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
+<span class="hljs-keyword">import</span> com.db4o.query.Query;
 
-public class BuscarConSODA {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarConSODA</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta SODA.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta SODA.&quot;</span>);
 
-            Query query = db.query();
+            <span class="hljs-type">Query</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> db.query();
             query.constrain(Persona.class);
-            query.descend(&quot;nombre&quot;).constrain(&quot;Juan&quot;);
+            query.descend(<span class="hljs-string">&quot;nombre&quot;</span>).constrain(<span class="hljs-string">&quot;Juan&quot;</span>);
 
-            ObjectSet resultado = query.execute();
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> query.execute();
 
-            System.out.println(&quot;Personas 'Juan' (SODA): &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas &#x27;Juan&#x27; (SODA): &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>SODA permite construir consultas de manera estructurada, indicando la clase, el campo y las condiciones sobre ese campo.</p>
-<h4>3.4.2. Buscar por rango de id</h4>
-<p><code>BuscarPorRango</code> muestra cómo filtrar por un rango de <code>id</code>:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.query.Constraint;
-import com.db4o.query.Query;
+<p dir="auto">SODA permite construir consultas de manera estructurada, indicando la clase, el campo y las condiciones sobre ese campo.</p>
+<h4 dir="auto" id="342-buscar-por-rango-de-id">3.4.2. Buscar por rango de id</h4>
+<p dir="auto"><code>BuscarPorRango</code> muestra cómo filtrar por un rango de <code>id</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
+<span class="hljs-keyword">import</span> com.db4o.query.Constraint;
+<span class="hljs-keyword">import</span> com.db4o.query.Query;
 
-public class BuscarPorRango {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BuscarPorRango</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para consulta SODA por rango de id.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para consulta SODA por rango de id.&quot;</span>);
 
-            // Definimos límites (no inclusivos)
-            int idMin = 2;
-            int idMax = 5;
+            <span class="hljs-comment">// Definimos límites</span>
+            <span class="hljs-type">int</span> <span class="hljs-variable">idMin</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;
+            <span class="hljs-type">int</span> <span class="hljs-variable">idMax</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>;
 
-            // Crear consulta SODA
-            Query query = db.query();
+            <span class="hljs-comment">// Crear consulta SODA</span>
+            <span class="hljs-type">Query</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> db.query();
 
-            // Restringir a la clase Persona
+            <span class="hljs-comment">// Restringir a la clase Persona</span>
             query.constrain(Persona.class);
 
-            // Bajar al campo &quot;id&quot;
-            Query subQuery = query.descend(&quot;id&quot;);
+            <span class="hljs-comment">// Bajar al campo &quot;id&quot;</span>
+            <span class="hljs-type">Query</span> <span class="hljs-variable">subQuery</span> <span class="hljs-operator">=</span> query.descend(<span class="hljs-string">&quot;id&quot;</span>);
 
-            // Añadir restricciones &gt;= idMin y &lt;= idMax
-            Constraint cMin = subQuery.constrain(idMin).greater();
-            Constraint cMax = subQuery.constrain(idMax).smaller();
+            <span class="hljs-comment">// Añadir restricciones &gt;= idMin y &lt;= idMax</span>
+            <span class="hljs-type">Constraint</span> <span class="hljs-variable">cMin</span> <span class="hljs-operator">=</span> subQuery.constrain(idMin).greater();
+            <span class="hljs-type">Constraint</span> <span class="hljs-variable">cMax</span> <span class="hljs-operator">=</span> subQuery.constrain(idMax).smaller();
 
-            // Combinar (la combinación AND es implícita cuando se aplican sobre el mismo descend)
+            <span class="hljs-comment">// Combinar</span>
             cMin.and(cMax);
 
-            // Ejecutar
-            ObjectSet resultado = query.execute();
+            <span class="hljs-comment">// Ejecutar</span>
+            <span class="hljs-type">ObjectSet</span> <span class="hljs-variable">resultado</span> <span class="hljs-operator">=</span> query.execute();
 
-            System.out.println(&quot;Personas con id entre &quot; + idMin + &quot; y &quot; + idMax + &quot;: &quot; + resultado.size());
-            for (Persona p : resultado) {
+            System.out.println(<span class="hljs-string">&quot;Personas con id entre &quot;</span> + idMin + <span class="hljs-string">&quot; y &quot;</span> + idMax + <span class="hljs-string">&quot;: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">for</span> (Persona p : resultado) {
                 System.out.println(p);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Con SODA se observa cómo se pueden expresar condiciones de tipo “mayor que” y “menor que” directamente sobre campos numéricos, utilizando <code>greater()</code> y <code>smaller()</code>.</p>
-<hr>
-<h2>Parte 4 – Actualizar y eliminar personas usando <code>id</code></h2>
-<p>En esta parte se completan las operaciones de actualización y eliminación, utilizando el <code>id</code> como identificador lógico de las personas.</p>
-<h3>4.1. Actualizar ciudad de una persona por <code>id</code></h3>
-<p>La clase <code>ActualizarPersonaPorId</code> busca una persona por <code>id</code>, modifica su ciudad y guarda de nuevo el objeto:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">Con SODA se observa cómo se pueden expresar condiciones de tipo “mayor que” y “menor que” directamente sobre campos numéricos, utilizando <code>greater()</code> y <code>smaller()</code>.</p>
+<hr dir="auto">
+<h2 dir="auto" id="parte-4--actualizar-y-eliminar-personas-usando-id">Parte 4 – Actualizar y eliminar personas usando <code>id</code></h2>
+<p dir="auto">En esta parte se completan las operaciones de actualización y eliminación, utilizando el <code>id</code> como identificador lógico de las personas.</p>
+<h3 dir="auto" id="41-actualizar-ciudad-de-una-persona-por-id">4.1. Actualizar ciudad de una persona por <code>id</code></h3>
+<p dir="auto">La clase <code>ActualizarPersonaPorId</code> busca una persona por <code>id</code>, modifica su ciudad y guarda de nuevo el objeto:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class ActualizarPersonaPorId {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ActualizarPersonaPorId</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para actualización por id.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para actualización por id.&quot;</span>);
 
-            // Prototipo con sólo el id
-            Persona prototipo = new Persona();
-            prototipo.setId(1);
+            <span class="hljs-comment">// Prototipo con sólo el id</span>
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
+            prototipo.setId(<span class="hljs-number">1</span>);
 
             ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
 
-            if (resultado.isEmpty()) {
-                System.out.println(&quot;No se encontró ninguna persona con id=1.&quot;);
-            } else {
-                Persona encontrada = resultado.next();
-                System.out.println(&quot;Persona encontrada: &quot; + encontrada);
+            <span class="hljs-keyword">if</span> (resultado.isEmpty()) {
+                System.out.println(<span class="hljs-string">&quot;No se encontró ninguna persona con id=1.&quot;</span>);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-type">Persona</span> <span class="hljs-variable">encontrada</span> <span class="hljs-operator">=</span> resultado.next();
+                System.out.println(<span class="hljs-string">&quot;Persona encontrada: &quot;</span> + encontrada);
 
-                // Modificar la ciudad en memoria
-                encontrada.setCiudad(&quot;Monterrey&quot;);
+                <span class="hljs-comment">// Modificar la ciudad en memoria</span>
+                encontrada.setCiudad(<span class="hljs-string">&quot;Monterrey&quot;</span>);
 
-                // Guardar de nuevo (update)
+                <span class="hljs-comment">// Guardar de nuevo (update)</span>
                 db.store(encontrada);
-                System.out.println(&quot;Persona actualizada: &quot; + encontrada);
+                System.out.println(<span class="hljs-string">&quot;Persona actualizada: &quot;</span> + encontrada);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Aquí se observa que Db4o no requiere un comando especial para “update”: basta con recuperar el objeto, modificarlo y volver a llamar a <code>store</code>.</p>
-<h3>4.2. Ajustar datos utilizando <code>id</code> como criterio</h3>
-<p>La clase <code>IncrementarEdadDesdeId</code> ilustra una operación masiva basada en <code>id</code>. Aunque en el código actual <code>Persona</code> no tiene <code>edad</code>, el patrón sigue siendo válido para cualquier atributo:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">Aquí se observa que Db4o no requiere un comando especial para “update”: basta con recuperar el objeto, modificarlo y volver a llamar a <code>store</code>.</p>
+<h3 dir="auto" id="42-ajustar-datos-utilizando-id-como-criterio">4.2. Ajustar datos utilizando <code>id</code> como criterio</h3>
+<p dir="auto">La clase <code>IncrementarEdadDesdeId</code> ilustra una operación masiva basada en <code>id</code>. Aunque en el código actual <code>Persona</code> no tiene <code>edad</code>, el patrón sigue siendo válido para cualquier atributo:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class IncrementarEdadDesdeId {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">IncrementarEdadDesdeId</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para actualización de edades.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para actualización de edades.&quot;</span>);
 
-            int idMinimo = 2;
+            <span class="hljs-type">int</span> <span class="hljs-variable">idMinimo</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;
 
-            // Prototipo sin id (para traer todas y filtrar en memoria)
-            Persona prototipo = new Persona();
+            <span class="hljs-comment">// Prototipo sin id (para traer todas y filtrar en memoria)</span>
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
             ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
 
-            while (resultado.hasNext()) {
-                Persona p = resultado.next();
-                if (p.getId() &gt;= idMinimo) {
-                    System.out.println(&quot;Antes: &quot; + p);
-                    // Aquí se incrementaría un atributo como edad si existiera
-                    // p.setEdad(p.getEdad() + 1);
-                    System.out.println(&quot;Después: &quot; + p);
+            <span class="hljs-keyword">while</span> (resultado.hasNext()) {
+                <span class="hljs-type">Persona</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> resultado.next();
+                <span class="hljs-keyword">if</span> (p.getId() &gt;= idMinimo) {
+                    System.out.println(<span class="hljs-string">&quot;Antes: &quot;</span> + p);
+                    <span class="hljs-comment">// Aquí se incrementaría un atributo como edad </span>
+                    System.out.println(<span class="hljs-string">&quot;Después: &quot;</span> + p);
                     db.store(p);
                 }
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Este ejemplo muestra cómo se puede recorrer un conjunto de objetos y aplicar cambios según condiciones sobre el <code>id</code>.</p>
-<h3>4.3. Eliminar una persona por <code>id</code></h3>
-<p><code>EliminarPersonaPorId</code> elimina a una persona específica:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">Este ejemplo muestra cómo se puede recorrer un conjunto de objetos y aplicar cambios según condiciones sobre el <code>id</code>.</p>
+<h3 dir="auto" id="43-eliminar-una-persona-por-id">4.3. Eliminar una persona por <code>id</code></h3>
+<p dir="auto"><code>EliminarPersonaPorId</code> elimina a una persona específica:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class EliminarPersonaPorId {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EliminarPersonaPorId</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;personas.db4o&quot;);
-            System.out.println(&quot;BD personas.db4o abierta para eliminación por id.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;personas.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD personas.db4o abierta para eliminación por id.&quot;</span>);
 
-            int idBuscado = 3;
+            <span class="hljs-type">int</span> <span class="hljs-variable">idBuscado</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
 
-            Persona prototipo = new Persona();
+            <span class="hljs-type">Persona</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>();
             prototipo.setId(idBuscado);
 
             ObjectSet&lt;Persona&gt; resultado = db.queryByExample(prototipo);
 
-            if (resultado.isEmpty()) {
-                System.out.println(&quot;No se encontró ninguna persona con id=&quot; + idBuscado);
-            } else {
-                Persona encontrada = resultado.next();
-                System.out.println(&quot;Persona a eliminar: &quot; + encontrada);
+            <span class="hljs-keyword">if</span> (resultado.isEmpty()) {
+                System.out.println(<span class="hljs-string">&quot;No se encontró ninguna persona con id=&quot;</span> + idBuscado);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-type">Persona</span> <span class="hljs-variable">encontrada</span> <span class="hljs-operator">=</span> resultado.next();
+                System.out.println(<span class="hljs-string">&quot;Persona a eliminar: &quot;</span> + encontrada);
                 db.delete(encontrada);
-                System.out.println(&quot;Persona eliminada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;Persona eliminada.&quot;</span>);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD personas.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD personas.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>De este modo, se completa el CRUD:</p>
-<ul>
-<li>Create: <code>DBPersonas</code>.</li>
-<li>Read: <code>ListarPersonas</code>, consultas QBE, Native y SODA.</li>
-<li>Update: <code>ActualizarPersonaPorId</code>, <code>IncrementarEdadDesdeId</code> (adaptable a cualquier atributo).</li>
-<li>Delete: <code>EliminarPersonaPorId</code>.</li>
+<p dir="auto">De este modo, se completa el CRUD:</p>
+<ul dir="auto">
+<li dir="auto">Create: <code>DBPersonas</code>.</li>
+<li dir="auto">Read: <code>ListarPersonas</code>, consultas QBE, Native y SODA.</li>
+<li dir="auto">Update: <code>ActualizarPersonaPorId</code>, <code>IncrementarEdadDesdeId</code> (adaptable a cualquier atributo).</li>
+<li dir="auto">Delete: <code>EliminarPersonaPorId</code>.</li>
 </ul>
-<hr>
-<h2>Parte 5 – Herencia y relaciones: <code>Alumno</code> y <code>Curso</code></h2>
-<p>El siguiente paso consiste en ampliar el modelo para representar no sólo personas aisladas, sino relaciones más complejas, como alumnos inscritos en cursos, aprovechando que Db4o almacena grafos de objetos.</p>
-<h3>5.1. Subclase <code>Alumno</code></h3>
-<p><code>Alumno</code> extiende <code>Persona</code> y añade campos específicos:</p>
-<pre><code class="language-java">public class Alumno extends Persona {
+<hr dir="auto">
+<h2 dir="auto" id="parte-5--herencia-y-relaciones-alumno-y-curso">Parte 5 – Herencia y relaciones: <code>Alumno</code> y <code>Curso</code></h2>
+<p dir="auto">El siguiente paso consiste en ampliar el modelo para representar no sólo personas aisladas, sino relaciones más complejas, como alumnos inscritos en cursos, aprovechando que Db4o almacena grafos de objetos.</p>
+<h3 dir="auto" id="51-subclase-alumno">5.1. Subclase <code>Alumno</code></h3>
+<p dir="auto"><code>Alumno</code> extiende <code>Persona</code> y añade campos específicos:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Alumno</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Persona</span> {
 
-    private String matricula;
-    private String carrera;
+    <span class="hljs-keyword">private</span> String matricula;
+    <span class="hljs-keyword">private</span> String carrera;
 
-    public Alumno() {
-        super();
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Alumno</span><span class="hljs-params">()</span> {
+        <span class="hljs-built_in">super</span>();
     }
 
-    public Alumno(int id, String nombre, String ciudad,
-                  String matricula, String carrera) {
-        super(id, nombre, ciudad);
-        this.matricula = matricula;
-        this.carrera = carrera;
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Alumno</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, String ciudad,
+                  String matricula, String carrera)</span> {
+        <span class="hljs-built_in">super</span>(id, nombre, ciudad);
+        <span class="hljs-built_in">this</span>.matricula = matricula;
+        <span class="hljs-built_in">this</span>.carrera = carrera;
     }
 
-    public String getMatricula() {
-        return matricula;
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getMatricula</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMatricula</span><span class="hljs-params">(String matricula)</span> {
+        <span class="hljs-built_in">this</span>.matricula = matricula;
     }
 
-    public String getCarrera() {
-        return carrera;
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCarrera</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> carrera;
     }
 
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCarrera</span><span class="hljs-params">(String carrera)</span> {
+        <span class="hljs-built_in">this</span>.carrera = carrera;
     }
 
-    @Override
-    public String toString() {
-        return &quot;Alumno{&quot; +
-               &quot;id=&quot; + getId() +
-               &quot;, nombre='&quot; + getNombre() + '\'' +
-               &quot;, ciudad='&quot; + getCiudad() + '\'' +
-               &quot;, matricula='&quot; + matricula + '\'' +
-               &quot;, carrera='&quot; + carrera + '\'' +
-               '}';
-    }
-}
-</code></pre>
-<p>Esto muestra cómo Db4o puede trabajar con jerarquías de clases, almacenando tanto la parte común (<code>Persona</code>) como la parte específica (<code>Alumno</code>).</p>
-<h3>5.2. Clase <code>Curso</code> con lista de alumnos</h3>
-<p><code>Curso</code> contiene un <code>id</code>, un nombre, una descripción y una lista de <code>Alumno</code>:</p>
-<pre><code class="language-java">import java.util.ArrayList;
-import java.util.List;
-
-public class Curso {
-
-    private int id;
-    private String nombre;
-    private String descripcion;
-    private List&lt;Alumno&gt; alumnos;
-
-    public Curso() {
-        this.alumnos = new ArrayList&lt;&gt;();
-    }
-
-    public Curso(int id, String nombre, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.alumnos = new ArrayList&lt;&gt;();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public List&lt;Alumno&gt; getAlumnos() {
-        return alumnos;
-    }
-
-    public void agregarAlumno(Alumno alumno) {
-        this.alumnos.add(alumno);
-    }
-
-    @Override
-    public String toString() {
-        return &quot;Curso{&quot; +
-               &quot;id=&quot; + id +
-               &quot;, nombre='&quot; + nombre + '\'' +
-               &quot;, descripcion='&quot; + descripcion + '\'' +
-               &quot;, alumnos=&quot; + alumnos +
-               '}';
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Alumno{&quot;</span> +
+               <span class="hljs-string">&quot;id=&quot;</span> + getId() +
+               <span class="hljs-string">&quot;, nombre=&#x27;&quot;</span> + getNombre() + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&quot;, ciudad=&#x27;&quot;</span> + getCiudad() + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&quot;, matricula=&#x27;&quot;</span> + matricula + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&quot;, carrera=&#x27;&quot;</span> + carrera + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&#x27;}&#x27;</span>;
     }
 }
 </code></pre>
-<p>Esta clase sirve para ilustrar cómo se representan relaciones uno-a-muchos en una base de datos orientada a objetos: el curso mantiene referencias directas a los alumnos.</p>
-<h3>5.3. Crear un curso con alumnos y guardarlo</h3>
-<p>La clase <code>CrearCursoConAlumnos</code> crea alumnos y un curso, los relaciona y persiste el grafo:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
+<p dir="auto">Db4o puede trabajar con jerarquías de clases, almacenando tanto la parte común (<code>Persona</code>) como la parte específica (<code>Alumno</code>).</p>
+<h3 dir="auto" id="52-clase-curso-con-lista-de-alumnos">5.2. Clase <code>Curso</code> con lista de alumnos</h3>
+<p dir="auto"><code>Curso</code> contiene un <code>id</code>, un nombre, una descripción y una lista de <code>Alumno</code>:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
 
-public class CrearCursoConAlumnos {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Curso</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
-            System.out.println(&quot;BD cursos.db4o abierta.&quot;);
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String nombre;
+    <span class="hljs-keyword">private</span> String descripcion;
+    <span class="hljs-keyword">private</span> List&lt;Alumno&gt; alumnos;
 
-            // Crear alumnos
-            Alumno a1 = new Alumno(1, &quot;Juan&quot;, &quot;Guadalajara&quot;,
-                                   &quot;A001&quot;, &quot;Ingeniería en Computación&quot;);
-            Alumno a2 = new Alumno(2, &quot;Ana&quot;, &quot;Madrid&quot;,
-                                   &quot;A002&quot;, &quot;Matemáticas&quot;);
-            Alumno a3 = new Alumno(3, &quot;Luis&quot;, &quot;Granada&quot;,
-                                   &quot;A003&quot;, &quot;Física&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Curso</span><span class="hljs-params">()</span> {
+        <span class="hljs-built_in">this</span>.alumnos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+    }
 
-            // Crear curso
-            Curso curso = new Curso(101, &quot;Bases de Datos OO&quot;,
-                                    &quot;Introducción a bases de datos orientadas a objetos&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Curso</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, String descripcion)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+        <span class="hljs-built_in">this</span>.descripcion = descripcion;
+        <span class="hljs-built_in">this</span>.alumnos = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+    }
 
-            // Asociar alumnos al curso
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getId</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> id;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setId</span><span class="hljs-params">(<span class="hljs-type">int</span> id)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+    }
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getNombre</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> nombre;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNombre</span><span class="hljs-params">(String nombre)</span> {
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+    }
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getDescripcion</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> descripcion;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setDescripcion</span><span class="hljs-params">(String descripcion)</span> {
+        <span class="hljs-built_in">this</span>.descripcion = descripcion;
+    }
+
+    <span class="hljs-keyword">public</span> List&lt;Alumno&gt; <span class="hljs-title function_">getAlumnos</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> alumnos;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">agregarAlumno</span><span class="hljs-params">(Alumno alumno)</span> {
+        <span class="hljs-built_in">this</span>.alumnos.add(alumno);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Curso{&quot;</span> +
+               <span class="hljs-string">&quot;id=&quot;</span> + id +
+               <span class="hljs-string">&quot;, nombre=&#x27;&quot;</span> + nombre + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&quot;, descripcion=&#x27;&quot;</span> + descripcion + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +
+               <span class="hljs-string">&quot;, alumnos=&quot;</span> + alumnos +
+               <span class="hljs-string">&#x27;}&#x27;</span>;
+    }
+}
+</code></pre>
+<p dir="auto">Esta clase sirve para ilustrar cómo se representan relaciones uno-a-muchos en una base de datos orientada a objetos: el curso mantiene referencias directas a los alumnos.</p>
+<h3 dir="auto" id="53-crear-un-curso-con-alumnos-y-guardarlo">5.3. Crear un curso con alumnos y guardarlo</h3>
+<p dir="auto">La clase <code>CrearCursoConAlumnos</code> crea alumnos y un curso, los relaciona y persiste el grafo:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CrearCursoConAlumnos</span> {
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;cursos.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD cursos.db4o abierta.&quot;</span>);
+
+            <span class="hljs-comment">// Crear alumnos</span>
+            <span class="hljs-type">Alumno</span> <span class="hljs-variable">a1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Alumno</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Juan&quot;</span>, <span class="hljs-string">&quot;Guadalajara&quot;</span>,
+                                   <span class="hljs-string">&quot;A001&quot;</span>, <span class="hljs-string">&quot;Ingeniería en Computación&quot;</span>);
+            <span class="hljs-type">Alumno</span> <span class="hljs-variable">a2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Alumno</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;Ana&quot;</span>, <span class="hljs-string">&quot;Madrid&quot;</span>,
+                                   <span class="hljs-string">&quot;A002&quot;</span>, <span class="hljs-string">&quot;Matemáticas&quot;</span>);
+            <span class="hljs-type">Alumno</span> <span class="hljs-variable">a3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Alumno</span>(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;Luis&quot;</span>, <span class="hljs-string">&quot;Granada&quot;</span>,
+                                   <span class="hljs-string">&quot;A003&quot;</span>, <span class="hljs-string">&quot;Física&quot;</span>);
+
+            <span class="hljs-comment">// Crear curso</span>
+            <span class="hljs-type">Curso</span> <span class="hljs-variable">curso</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Curso</span>(<span class="hljs-number">101</span>, <span class="hljs-string">&quot;Bases de Datos OO&quot;</span>,
+                                    <span class="hljs-string">&quot;Introducción a bases de datos orientadas a objetos&quot;</span>);
+
+            <span class="hljs-comment">// Asociar alumnos al curso</span>
             curso.agregarAlumno(a1);
             curso.agregarAlumno(a2);
             curso.agregarAlumno(a3);
 
-            // Persistir curso (y, con él, los alumnos relacionados)
+            <span class="hljs-comment">// Persistir curso (y, con él, los alumnos relacionados)</span>
             db.store(curso);
 
-            System.out.println(&quot;Curso y alumnos almacenados en la BD.&quot;);
+            System.out.println(<span class="hljs-string">&quot;Curso y alumnos almacenados en la BD.&quot;</span>);
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD cursos.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Aquí el curso es el “objeto raíz” que se almacena. Db4o se encarga de registrar también los alumnos asociados.</p>
-<h3>5.4. Listar cursos y alumnos</h3>
-<p><code>ListarCursosYAlumnos</code> muestra los cursos y sus listas de alumnos:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
+<p dir="auto">Aquí el curso es el “objeto raíz” que se almacena. Db4o se encarga de registrar también los alumnos asociados.</p>
+<h3 dir="auto" id="54-listar-cursos-y-alumnos">5.4. Listar cursos y alumnos</h3>
+<p dir="auto"><code>ListarCursosYAlumnos</code> muestra los cursos y sus listas de alumnos:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
 
-public class ListarCursosYAlumnos {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListarCursosYAlumnos</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
-            System.out.println(&quot;BD cursos.db4o abierta para lectura.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;cursos.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD cursos.db4o abierta para lectura.&quot;</span>);
 
-            // Recuperar todos los cursos
-            Curso prototipo = new Curso();
+            <span class="hljs-comment">// Recuperar todos los cursos</span>
+            <span class="hljs-type">Curso</span> <span class="hljs-variable">prototipo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Curso</span>();
             ObjectSet&lt;Curso&gt; resultado = db.queryByExample(prototipo);
 
-            System.out.println(&quot;Total de cursos: &quot; + resultado.size());
-            while (resultado.hasNext()) {
-                Curso c = resultado.next();
-                System.out.println(&quot;Curso: &quot; + c.getNombre() +
-                                   &quot; (id=&quot; + c.getId() + &quot;)&quot;);
-                System.out.println(&quot;Alumnos inscritos:&quot;);
-                for (Alumno a : c.getAlumnos()) {
-                    System.out.println(&quot;  &quot; + a);
+            System.out.println(<span class="hljs-string">&quot;Total de cursos: &quot;</span> + resultado.size());
+            <span class="hljs-keyword">while</span> (resultado.hasNext()) {
+                <span class="hljs-type">Curso</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> resultado.next();
+                System.out.println(<span class="hljs-string">&quot;Curso: &quot;</span> + c.getNombre() +
+                                   <span class="hljs-string">&quot; (id=&quot;</span> + c.getId() + <span class="hljs-string">&quot;)&quot;</span>);
+                System.out.println(<span class="hljs-string">&quot;Alumnos inscritos:&quot;</span>);
+                <span class="hljs-keyword">for</span> (Alumno a : c.getAlumnos()) {
+                    System.out.println(<span class="hljs-string">&quot;  &quot;</span> + a);
                 }
-                System.out.println(&quot;------------------------&quot;);
+                System.out.println(<span class="hljs-string">&quot;------------------------&quot;</span>);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD cursos.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Este ejemplo muestra cómo se navega el grafo de objetos: se recupera el curso y, a través de su lista interna, se recorren los alumnos.</p>
-<h3>5.5. Consultar alumnos de un curso por <code>id</code> de curso</h3>
-<p>La clase <code>AlumnosDeCursoPorId</code> utiliza una Native Query para localizar un curso por <code>id</code> y mostrar sus alumnos:</p>
-<pre><code class="language-java">import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.ObjectSet;
-import com.db4o.query.Predicate;
+<p dir="auto">Este ejemplo muestra cómo se navega el grafo de objetos: se recupera el curso y, a través de su lista interna, se recorren los alumnos.</p>
+<h3 dir="auto" id="55-consultar-alumnos-de-un-curso-por-id-de-curso">5.5. Consultar alumnos de un curso por <code>id</code> de curso</h3>
+<p dir="auto">La clase <code>AlumnosDeCursoPorId</code> utiliza una Native Query para localizar un curso por <code>id</code> y mostrar sus alumnos:</p>
+<pre><code class="code-line language-java" dir="auto"><span class="hljs-keyword">import</span> com.db4o.Db4oEmbedded;
+<span class="hljs-keyword">import</span> com.db4o.ObjectContainer;
+<span class="hljs-keyword">import</span> com.db4o.ObjectSet;
+<span class="hljs-keyword">import</span> com.db4o.query.Predicate;
 
-public class AlumnosDeCursoPorId {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AlumnosDeCursoPorId</span> {
 
-    public static void main(String[] args) {
-        ObjectContainer db = null;
-        try {
-            db = Db4oEmbedded.openFile(&quot;cursos.db4o&quot;);
-            System.out.println(&quot;BD cursos.db4o abierta para consulta.&quot;);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">ObjectContainer</span> <span class="hljs-variable">db</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">try</span> {
+            db = Db4oEmbedded.openFile(<span class="hljs-string">&quot;cursos.db4o&quot;</span>);
+            System.out.println(<span class="hljs-string">&quot;BD cursos.db4o abierta para consulta.&quot;</span>);
 
-            int idCursoBuscado = 101;
+            <span class="hljs-type">int</span> <span class="hljs-variable">idCursoBuscado</span> <span class="hljs-operator">=</span> <span class="hljs-number">101</span>;
 
-            ObjectSet&lt;Curso&gt; resultado = db.query(new Predicate&lt;Curso&gt;() {
-                @Override
-                public boolean match(Curso c) {
-                    return c.getId() == idCursoBuscado;
+            ObjectSet&lt;Curso&gt; resultado = db.query(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Predicate</span>&lt;Curso&gt;() {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">match</span><span class="hljs-params">(Curso c)</span> {
+                    <span class="hljs-keyword">return</span> c.getId() == idCursoBuscado;
                 }
             });
 
-            if (resultado.isEmpty()) {
-                System.out.println(&quot;No se encontró curso con id=&quot; + idCursoBuscado);
-                return;
+            <span class="hljs-keyword">if</span> (resultado.isEmpty()) {
+                System.out.println(<span class="hljs-string">&quot;No se encontró curso con id=&quot;</span> + idCursoBuscado);
+                <span class="hljs-keyword">return</span>;
             }
 
-            Curso curso = resultado.next();
-            System.out.println(&quot;Curso encontrado: &quot; + curso.getNombre());
-            System.out.println(&quot;Alumnos inscritos:&quot;);
-            for (Alumno a : curso.getAlumnos()) {
-                System.out.println(&quot;  &quot; + a);
+            <span class="hljs-type">Curso</span> <span class="hljs-variable">curso</span> <span class="hljs-operator">=</span> resultado.next();
+            System.out.println(<span class="hljs-string">&quot;Curso encontrado: &quot;</span> + curso.getNombre());
+            System.out.println(<span class="hljs-string">&quot;Alumnos inscritos:&quot;</span>);
+            <span class="hljs-keyword">for</span> (Alumno a : curso.getAlumnos()) {
+                System.out.println(<span class="hljs-string">&quot;  &quot;</span> + a);
             }
 
-        } finally {
-            if (db != null) {
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (db != <span class="hljs-literal">null</span>) {
                 db.close();
-                System.out.println(&quot;BD cursos.db4o cerrada.&quot;);
+                System.out.println(<span class="hljs-string">&quot;BD cursos.db4o cerrada.&quot;</span>);
             }
         }
     }
 }
 </code></pre>
-<p>Con esta última parte, se completa un ejemplo donde:</p>
-<ul>
-<li>Se define un modelo orientado a objetos con herencia.</li>
-<li>Se representa una relación uno-a-muchos mediante una lista.</li>
-<li>Se almacena y se consulta un grafo de objetos completo en una base de datos orientada a objetos.</li>
+<p dir="auto">Con esta última parte, se completa un ejemplo donde:</p>
+<ul dir="auto">
+<li dir="auto">Se define un modelo orientado a objetos con herencia.</li>
+<li dir="auto">Se representa una relación uno-a-muchos mediante una lista.</li>
+<li dir="auto">Se almacena y se consulta un grafo de objetos completo en una base de datos orientada a objetos.</li>
 </ul>
 
 </body>

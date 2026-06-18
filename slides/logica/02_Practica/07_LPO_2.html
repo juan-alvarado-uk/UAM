@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
-<link rel="stylesheet" href="file:////Users/juanalvarado/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
+<link rel="stylesheet" href="file:////home/Juan/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
 
 </head>
 <body class="markdown-body">
@@ -16,7 +16,7 @@
 <ul dir="auto">
 <li dir="auto">constantes: <code>ana</code>, <code>luis</code>, <code>carlos</code></li>
 <li dir="auto">predicados unarios: <code>Persona(x)</code>, <code>UsaLentes(x)</code></li>
-<li dir="auto">predicados binarios: <code>Padre(x,y)</code>, <code>MayorQue(x,y)</code></li>
+<li dir="auto">predicados binarios: <code>AmigoDe(x,y)</code>, <code>MayorQue(x,y)</code></li>
 </ul>
 <p dir="auto">a) Proponer un <strong>dominio</strong> D formado por exactamente tres personas reales o ficticias.<br>
 b) Especificar una <strong>interpretación</strong> I, indicando:</p>
@@ -24,10 +24,10 @@ b) Especificar una <strong>interpretación</strong> I, indicando:</p>
 <li dir="auto">a qué individuo del dominio se asigna cada constante (<code>ana</code>, <code>luis</code>, <code>carlos</code>),</li>
 <li dir="auto">para qué individuos es verdadero <code>Persona(x)</code>,</li>
 <li dir="auto">para qué individuo(s) es verdadero <code>UsaLentes(x)</code>,</li>
-<li dir="auto">para qué pares (x,y) es verdadero <code>Padre(x,y)</code>,</li>
+<li dir="auto">para qué pares (x,y) es verdadero <code>AmigoDe(x,y)</code>,</li>
 <li dir="auto">para qué pares (x,y) es verdadero <code>MayorQue(x,y)</code>.</li>
 </ul>
-<p dir="auto">c) Escribir la estructura resultante en la forma <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">M</mi><mo>=</mo><mo stretchy="false">⟨</mo><mi>D</mi><mo separator="true">,</mo><mi>I</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\mathcal{M} = \langle D, I \rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mclose">⟩</span></span></span></span>.</p>
+<p dir="auto">Notése que la estructura resultante está en la forma <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">M</mi><mo>=</mo><mo stretchy="false">⟨</mo><mi>D</mi><mo separator="true">,</mo><mi>I</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">\mathcal{M} = \langle D, I \rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathcal">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mclose">⟩</span></span></span></span></eq>.</p>
 <hr dir="auto">
 <h3 dir="auto" id="actividad-2-verdad-de-fórmulas-sin-cuantificadores">Actividad 2. Verdad de fórmulas sin cuantificadores</h3>
 <ul dir="auto">
@@ -84,7 +84,7 @@ e) <code>∀x ∀y ¬HermanoDe(x,y)</code></p>
 </ul>
 <p dir="auto">a) Escribir las <strong>instancias</strong> de la fórmula universal al sustituir <code>x</code> por <code>servidor1</code> y por <code>servidor2</code>.<br>
 b) Evaluar cada instancia en la estructura (verdadero o falso).<br>
-c) Concluir, a partir de las instancias, si la fórmula universal <code>∀x (Servidor(x) → Monitoreado(x))</code> es verdadera o falsa en esta estructura, explicando por qué basta revisar esos dos casos.</p>
+c) Concluir, a partir de las instancias, si la fórmula universal <code>∀x (Servidor(x) → Monitoreado(x))</code> es verdadera o falsa en esta estructura. Justificar.</p>
 
 </body>
 </html>
