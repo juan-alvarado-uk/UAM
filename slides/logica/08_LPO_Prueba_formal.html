@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Lógica de primer orden, Prueba formal.</h1>
+    </section>
+    <section>
+      <h1>Alcance</h1>
+    </section>
+    <section>
+      <h2>Alcance</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El objetivo práctico de esta sesión consiste en pasar de fórmulas con cuantificadores a expresiones manipulables dentro de una prueba formal, entender bien las reglas de instanciación y generalización, y ver cómo una fórmula universal genera instancias sobre las que se aplican las reglas proposicionales ya conocidas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>De la prueba formal proposicional a la prueba con cuantificadores</h1>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una prueba formal en lógica de primer orden sigue conservando la misma idea central ya conocida: una secuencia finita de líneas donde cada fórmula está justificada por una premisa o por una regla válida aplicada a líneas anteriores.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Dgw5H8vY/0096.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9mCFFhy2/0076.jpg" alt="image" /></div>
+        <div class="text-col"><p>La diferencia importante es que ahora las fórmulas pueden contener variables, cuantificadores y términos, por lo que la justificación debe cuidar no solo la forma del conectivo, sino también cómo se sustituyen variables por términos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Cuando aparece una fórmula como \(\forall x \, Usuario(x) \rightarrow PuedeEntrar(x)\), no se está afirmando algo de una persona específica, sino de cualquiera del dominio.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqZv1Gcz/0021.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La prueba formal ahora necesita reglas que permitan pasar de lo universal a casos concretos y, en sentido controlado, de un caso arbitrario a una afirmación universal; por eso las reglas de cuantificadores son la extensión natural de la deducción o conclusión lógica ya trabajada en lógica proposicional.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/RkZTppB2/0089.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una analogía útil es pensar en una política de acceso de un sistema.</p><p>Una regla escrita para “todo usuario autenticado” funciona como una plantilla; una prueba formal debe poder aplicar esa plantilla a Ana, a Luis o a un identificador concreto del sistema, sin perder rigor.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/prvhGdjq/0029.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>De la prueba formal proposicional a la prueba con cuantificadores</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La lógica no “adivina” ese paso: lo justifica mediante reglas precisas de instanciación y generalización.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/BHd7VgCG/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Instanciación universal</h1>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/3q5QHLW/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>La instanciación universal permite pasar de una afirmación universal a un caso particular.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si se sabe \(\forall x \, P(x)\), entonces puede obtenerse \(P(t)\) para cualquier término \(t\) que tenga sentido en el lenguaje, porque la fórmula universal afirma justamente que la propiedad vale para todos los individuos representables.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/CKVXn2f0/0022.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RGfDxMs8/0008.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo: si se tiene \(\forall x \, DispositivoRegistrado(x) \rightarrow PuedeConectarse(x)\), entonces para la constante \(router1\) se puede derivar \(DispositivoRegistrado(router1) \rightarrow PuedeConectarse(router1)\).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KMGQprW/0078.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si además se cuenta con \(DispositivoRegistrado(router1)\), entonces por modus ponens se concluye \(PuedeConectarse(router1)\); la novedad no está en el MP, sino en que antes fue necesario aterrizar la regla universal a un caso concreto.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Otro ejemplo: de \(\forall x \, Estudiante(x) \rightarrow TieneCredencial(x)\) se puede derivar \(Estudiante(María) \rightarrow TieneCredencial(María)\).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/BHQYVktn/0099.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/d4GxfzhY/0083.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si también se sabe \(Estudiante(María)\), entonces se concluye \(TieneCredencial(María)\); la estructura del razonamiento es la misma, pero ahora trabaja sobre individuos nombrados.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo breve de prueba formal:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <table>
+        <thead><tr><th>Línea</th><th>Fórmula</th><th>Justificación</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>\(\forall x \, Alumno(x) \rightarrow EntregaTarea(x)\)</td><td>Premisa</td></tr>
+<tr><td>2</td><td>\(Alumno(Elena)\)</td><td>Premisa</td></tr>
+<tr><td>3</td><td>\(Alumno(Elena) \rightarrow EntregaTarea(Elena)\)</td><td>Instanciación universal de 1</td></tr>
+<tr><td>4</td><td>\(EntregaTarea(Elena)\)</td><td>MP, 2 y 3</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Instanciación universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/wN0Mdj75/0024.jpg" alt="image" /></div>
+        <div class="text-col"><p>La idea importante es que una fórmula universal funciona como una regla reutilizable.</p><p>En términos de ingeniería, se parece a una plantilla de validación aplicada a distintos registros o nodos de red: la regla es una, pero sus instancias son muchas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Generalización universal</h1>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La generalización universal permite pasar de una fórmula sobre un individuo arbitrario a una afirmación universal.</p><p>Si en una prueba se ha razonado sobre una variable que no depende de supuestos especiales sobre un objeto particular, entonces puede cerrarse el paso con \(\forall x\).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/JRHpdG9r/0019.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y7WZxxkj/0067.jpg" alt="image" /></div>
+        <div class="text-col"><p>La restricción es esencial: no se puede observar algo de un caso especial y luego elevarlo sin control a todos los casos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Dicho en lenguaje cotidiano, comprobar que “este servidor respondió bien” no autoriza concluir “todos los servidores responden bien”; la generalización solo es correcta cuando el razonamiento no usó rasgos particulares del elemento elegido.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/ks4YTKFB/0041.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo conceptual: si a partir de una hipótesis arbitraria \(x\) se demuestra \(Proceso(x) \rightarrow RequiereMemoria(x)\), sin usar propiedades particulares de ese \(x\), entonces puede escribirse \(\forall x \, (Proceso(x) \rightarrow RequiereMemoria(x))\).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/0jPN9L6C/0005.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La lógica exige disciplina aquí porque, sin esa condición, aparecerían conclusiones falsas construidas a partir de ejemplos aislados.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/S7R3YWrX/0100.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Generalización universal</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>La instanciación universal baja de lo general a lo particular</strong>, mientras que la generalización universal sube de lo arbitrario a lo general.</p><p>Son movimientos opuestos y complementarios dentro de la prueba formal en lógica de primer orden.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Cuantificador existencial y cuidado en la prueba</h1>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La afirmación existencial expresa que hay al menos un individuo del dominio que satisface cierta propiedad.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/b5NVW6dp/0025.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0jPN9L6C/0005.jpg" alt="image" /></div>
+        <div class="text-col"><p>Cuando se tiene \(\exists x \, P(x)\), no se sabe quién es ese individuo; solo se sabe que existe alguno, por lo que el razonamiento debe evitar tratarlo como si ya estuviera completamente identificado.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En una lectura intuitiva, \(\exists x \, AlarmaActiva(x)\) significa que hay al menos una alarma activa, pero no dice cuál.</p><p>De manera parecida, si en un campus se afirma “existe una persona con credencial vencida”, todavía no se sabe si es Ana, Bruno o Carla; la información es real, pero incompleta.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/prvhGdjq/0029.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Jacques Herbrand (1908–1931) trabajó en los fundamentos de la lógica de primer orden y formuló lo que hoy se conoce como teorema de Herbrand, que conecta las fórmulas con cuantificadores con colecciones de fórmulas proposicionales construidas a partir de sus instancias.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/M58tZsn2/0026.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para la preparación del método de Herbrand interesa sobre todo comprender que la existencia tendrá que representarse más adelante de una manera que elimine la vaguedad del “algún individuo”.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/JRHpdG9r/0019.jpg" alt="image" /></div>
+        <div class="text-col"><p>Por eso la transformación de fórmulas buscará reemplazar existenciales por términos testigo mediante skolemización, no como magia, sino como una técnica para dejar la fórmula en una forma operable con cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El nombre skolemización viene del lógico y matemático noruego Thoralf Skolem (1887–1963).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cuantificador existencial y cuidado en la prueba</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/jvGH2Lky/0101.png" alt="image" /></div>
+        <div class="text-col"><p>Skolem trabajó en lógica de primer orden y en teoría de modelos, y estudió cómo convertir fórmulas en una forma prenexa especial en la que los cuantificadores existenciales se eliminan mediante nuevas funciones, las llamadas funciones de Skolem.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Reglas de inferencia útiles en lógica de primer orden</h1>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/S7R3YWrX/0100.png" alt="image" /></div>
+        <div class="text-col"><p>Además de las reglas proposicionales ya vistas —como modus ponens, conjunción, simplificación o silogismo hipotético—, en lógica de primer orden se agregan reglas ligadas a cuantificadores.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La estructura proposicional sigue funcionando dentro de las fórmulas, pero ahora convive con pasos de instanciación y de control sobre variables libres y ligadas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un patrón frecuente de prueba tiene esta forma:</p>
+<ol><li>Fórmula universal.</li><li>Instanciación a un término concreto.</li><li>Premisa que activa el antecedente.</li><li>Aplicación de MP o de otra regla proposicional.</li></ol></div>
+        <div class="image-col"><img src="https://i.ibb.co/VcQSg0Zm/0023.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/21MQw1fB/0091.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ese patrón es importante porque muchas demostraciones en lógica de primer orden son, en realidad, combinaciones de dos niveles: primero se adapta la fórmula cuantificada y luego se aplica inferencia proposicional sobre la instancia obtenida.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo de autenticación:</p>
+<ol><li>\(\forall x \, UsuarioValido(x) \rightarrow AccesoPermitido(x)\)</li><li>\(UsuarioValido(ana)\)</li><li>\(UsuarioValido(ana) \rightarrow AccesoPermitido(ana)\)</li><li>\(AccesoPermitido(ana)\)</li></ol></div>
+        <div class="image-col"><img src="https://i.ibb.co/fVG9L6Fk/0088.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas de inferencia útiles en lógica de primer orden</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/S7R3YWrX/0100.png" alt="image" /></div>
+        <div class="text-col"><p>La línea 3 se obtiene por instanciación universal y la línea 4 por modus ponens.</p><p>El razonamiento conserva el mismo esqueleto formal de sesiones anteriores, pero ahora aplicado a predicados y términos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Sustitución e instancias</h1>
+    </section>
+    <section>
+      <h2>Sustitución e instancias</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una sustitución reemplaza variables por términos del lenguaje.</p><p>Esta operación es delicada porque no basta con cambiar símbolos “a ojo”; se debe respetar la estructura de la fórmula y evitar alteraciones indebidas del alcance de cuantificadores.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/h6k5W6d/0012.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Sustitución e instancias</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si el lenguaje tiene la constante \(a\) y la función \(f\), entonces desde \(\forall x \, P(x)\) pueden derivarse \(P(a)\), \(P(f(a))\), \(P(f(f(a)))\), y así sucesivamente.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/s9B57J7b/0068.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Sustitución e instancias</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RGfDxMs8/0008.jpg" alt="image" /></div>
+        <div class="text-col"><p>Esa observación parece sencilla, pero más adelante será decisiva porque el universo de Herbrand se construye precisamente con todos los términos posibles generados a partir de constantes y símbolos de función.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Sustitución e instancias</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DX6794m/0069.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplo breve:</p>
+<ul><li>Lenguaje: constante \(a\), función unaria \(s\), predicado \(Par\).</li><li>De \(\forall x \, Par(s(s(x)))\) se obtiene \(Par(s(s(a)))\).</li><li>También se obtiene \(Par(s(s(s(a))))\) si la sustitución toma \(x := s(a)\).</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Sustitución e instancias</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Nota importante</strong>: una afirmación universal no es una sola oración aislada, sino una fuente potencial de muchas instancias.</p><p>Justamente por eso el trabajo con Herbrand se vuelve manejable cuando se fija un conjunto de términos y se estudian las instancias que nacen de ellos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Para llevar...</h1>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se ha visto cómo se insertan los cuantificadores en la prueba formal, cómo se pasa de universal a particular y de un caso arbitrario a una afirmación general, y cómo las sustituciones generan instancias.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/qLm4Tf31/0042.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Con estas herramientas ya se puede empezar a ver por qué conviene tener fórmulas en formas más estructuradas y cómo, detrás de cada afirmación universal, hay un abanico de instancias que luego se verán reflejadas en términos y átomos dentro del universo de Herbrand.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
