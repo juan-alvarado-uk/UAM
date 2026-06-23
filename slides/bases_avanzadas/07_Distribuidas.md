@@ -19,9 +19,9 @@ Una **base de datos distribuida** es una colección de datos lógicamente relaci
 
 ***
 
-### Analogía cotidiana
+### Ejemplo 
 
-Imaginando una cadena de supermercados:
+Una cadena de supermercados.
 
 - Toda la información de inventario podría estar en un solo almacén de datos central, al que todas las sucursales se conectan.  
 - En un enfoque distribuido, cada sucursal mantiene parte de la información (lo que vende localmente) y existe coordinación para compartir datos necesarios a nivel nacional (por ejemplo, estadísticas de ventas globales). 
@@ -33,7 +33,7 @@ Para la persona que revisa un reporte nacional, el sistema parece uno solo, aunq
 
 ### Ventajas y retos
 
-Ventajas habituales: 
+Ventajas: 
 
 - Mejor rendimiento local: se consulta y actualiza en nodos cercanos a usuarios concretos.  
 - Escalabilidad horizontal: es posible agregar nodos y repartir carga.  
@@ -44,17 +44,22 @@ Retos principales:
 
 - Consistencia: mantener la información coherente entre nodos no es trivial.  
 - Complejidad de diseño: se debe decidir cómo fragmentar, replicar y coordinar los datos.  
-- Coordinación en fallos: se necesitan protocolos para detectar fallos y recuperar el estado.
+- Coordinación en caso de fallas: se necesitan protocolos para detectar fallas y recuperar el estado.
 
 ***
 
 ### Para pensar...
 
-Se pide imaginar un sistema de bibliotecas en varias ciudades.  
+Se pide diseñar un sistema de bibliotecas en varias ciudades.  
 Preguntas a discutir:
 
+---
 - ¿Qué información tendría sentido que esté en todas las sedes (por ejemplo, catálogo global)?  
+
+---
 - ¿Qué información conviene que viva localmente (por ejemplo, préstamos de cada sucursal)?  
+
+---
 - ¿Qué problemas aparecerían si se pierde momentáneamente la conexión con la sede central?
 
 ***
@@ -69,7 +74,7 @@ Definición:
 Un sistema de base de datos **centralizado** es aquel en el que todos los datos residen en un solo servidor, aunque existan muchos clientes conectados a él. 
 
 ---
-Ejemplo cotidiano:  
+Ejemplo:  
 Un pequeño negocio que guarda todas sus ventas y clientes en un solo servidor dentro del local. Si ese servidor se apaga, nadie puede consultar ni registrar ventas.
 
 ***
@@ -96,14 +101,14 @@ Características:
 ### Sistemas de bases de datos distribuidos
 
 Definición:  
-Un **sistema de bases de datos distribuido** es un conjunto de nodos, cada uno con su propio gestor de base de datos, que cooperan para ofrecer una vista única y coherente de los datos. 
+Un **sistema de bases de datos distribuido** es un conjunto de nodos, cada uno con su propio manejador de base de datos, que cooperan para ofrecer una vista única y coherente de los datos. 
 
 ---
 Características importantes:
 
 - Transparencia de localización: idealmente, el usuario no sabe en qué nodo está cada dato.  
 - Transparencia de fragmentación: una tabla puede estar dividida en partes, pero se ve como una sola. 
-- Uso de fragmentación y replicación para lograr rendimiento y tolerancia a fallos. 
+- Uso de fragmentación y replicación para lograr rendimiento y tolerancia a fallas. 
 
 ---
 Analogía:  
@@ -114,7 +119,7 @@ Parece un solo “súper almacén de información”, pero por dentro es una red
 ### Sistemas federados
 
 Definición:  
-Un **sistema de bases de datos federado** integra varias bases de datos que pueden pertenecer incluso a gestores o dueños distintos, pero que cooperan mediante un esquema común o vistas integradas. 
+Un **sistema de bases de datos federado** integra varias bases de datos que pueden pertenecer incluso a manejadores o dueños distintos, pero que cooperan mediante un esquema común o vistas integradas. 
 
 - Cada base participante conserva su autonomía (puede tener su propio esquema y reglas).  
 - La federación expone una vista lógica que permite combinar datos de varias fuentes. 
@@ -146,10 +151,14 @@ Desde la vista federada, se pueden hacer consultas cruzadas sin unificar física
 
 ### Ejemplo
 
-Imaginando un servicio de transporte por aplicación:
+Un servicio de transporte por app
 
 - Un diseño centralizado pone toda la información de viajes, usuarios y pagos en un solo servidor.  
+
+
 - Un diseño distribuido puede tener clusters por región: Ciudad de México, Guadalajara, Monterrey, cada uno con sus datos locales, pero con mecanismos para obtener estadísticas nacionales. 
+
+
 - Un sistema federado integraría, además, una base externa para pagos, otra para mapas y otra para verificación de identidad, manteniendo cada una su propia administración.
 
 ***
@@ -185,7 +194,7 @@ Definición:
 La **fragmentación horizontal** divide una tabla por filas, generando fragmentos que contienen subconjuntos de registros, típicamente definidos por condiciones sobre atributos. 
 
 ---
-Ejemplo cotidiano:
+Ejemplo
 
 - Una cadena de gimnasios tiene una tabla de “Socios” con sucursal, nombre, tipo de membresía y fecha de registro.  
 - Fragmentación horizontal por sucursal:  
@@ -220,7 +229,7 @@ Ventajas:
 
 ***
 
-### Ejercicio corto
+### Ejercicio
 
 Se propone la tabla `Venta(id, tienda, fecha, total)` con muchas filas.
 
@@ -236,13 +245,13 @@ Definición:
 La **fragmentación vertical** divide una tabla por columnas, generando fragmentos que contienen subconjuntos de atributos, generalmente repitiendo el identificador para poder reconstruir la tabla original mediante JOIN. 
 
 ---
-Ejemplo cotidiano:
+Ejemplo
 
 - En un banco, la información básica de clientes (nombre, fecha de nacimiento, CURP) puede almacenarse en un fragmento.  
 - Los datos sensibles de seguridad (contraseñas hash, preguntas secretas, factores de autenticación) pueden estar en otro fragmento, quizá en un nodo más protegido. 
 
 ---
-Ejemplo simple:
+Ejemplo en tablas (simple)
 
 Tabla original `Cliente(idcliente, nombre, correo, telefono, saldo, limitecredito)`.  
 
@@ -268,14 +277,14 @@ Ventajas:
 - Optimiza I/O si algunas consultas solo necesitan un subconjunto de columnas. 
 
 ---
-Riesgos:
+Desventajas:
 
 - Se incrementa el costo de consultas que requieren unir frecuentemente ambos fragmentos.  
 - Se debe garantizar que el identificador esté presente en todos los fragmentos. 
 
 ***
 
-### Ejercicio corto
+### Ejercicio
 
 Dada una tabla `Usuario(id, nombre, correo, telefono, fecharegistro, ultimologin, rol)`:
 
@@ -332,19 +341,19 @@ También se recuerda que la fragmentación por sí sola no crea copias redundant
 ### Definición y motivación
 
 Definición:  
-La **replicación de datos** consiste en mantener múltiples copias de un mismo objeto o fragmento de datos en diferentes nodos de la red, sincronizadas mediante algún protocolo, con el objetivo de mejorar rendimiento de lectura, disponibilidad y tolerancia a fallos. 
+La **replicación de datos** consiste en mantener múltiples copias de un mismo objeto o fragmento de datos en diferentes nodos de la red, sincronizadas mediante algún protocolo, con el objetivo de mejorar rendimiento de lectura, disponibilidad y tolerancia a fallas. 
 
 ---
 Motivaciones principales:
 
 - **Rendimiento en lectura**: varios nodos pueden responder consultas sobre los mismos datos.  
 - **Alta disponibilidad**: si un nodo falla, otro con la misma información puede seguir atendiendo solicitudes. 
-- **Tolerancia a fallos**: el sistema puede seguir funcionando, aun cuando uno o varios nodos estén inactivos. 
+- **Tolerancia a fallas**: el sistema puede seguir funcionando, aun cuando uno o varios nodos estén inactivos. 
 
 ---
-Analogía cotidiana:
+Analogía:
 
-Se imagina un grupo de estudiantes que comparten apuntes de clase.  
+Un grupo de estudiantes que comparten apuntes de clase.  
 Si solo una persona tiene el cuaderno y falta, todos se quedan sin información.  
 Si varios tienen copias (actualizadas) de los apuntes, es más difícil que todo el grupo se quede sin acceso.
 
@@ -356,18 +365,18 @@ Aunque la terminología exacta puede variar entre productos, a nivel conceptual 
 
 - **Replicación completa**: todos los nodos mantienen una copia del conjunto total de datos.  
 - **Replicación parcial**: solo ciertos fragmentos se replican en los nodos que los necesitan.  
-- **Replicación sincrónica**: una actualización se considera confirmada solo cuando ha sido aplicada en todas las réplicas relevantes.  
-- **Replicación asincrónica**: una actualización se aplica primero en un nodo y se propaga después a los demás, admitiendo breves periodos de inconsistencia. 
+- **Replicación síncrona**: una actualización se considera confirmada solo cuando ha sido aplicada en todas las réplicas relevantes.  
+- **Replicación asíncrona**: una actualización se aplica primero en un nodo y se propaga después a los demás, admitiendo breves periodos de inconsistencia. 
 
 ---
 Efectos típicos:
 
-- La replicación sincrónica mejora la consistencia fuerte, pero puede incrementar la latencia.  
-- La replicación asincrónica reduce latencia percibida y mejora disponibilidad, pero puede aceptar estados intermedios donde no todas las réplicas tienen el mismo valor. 
+- La replicación síncrona mejora la consistencia fuerte, pero puede incrementar la latencia.  
+- La replicación asíncrona reduce latencia percibida y mejora disponibilidad, pero puede aceptar estados intermedios donde no todas las réplicas tienen el mismo valor. 
 
 ***
 
-### Replicación, rendimiento y tolerancia a fallos
+### Replicación, rendimiento y tolerancia a fallas 
 
 La replicación se relaciona de forma directa con: 
 
@@ -382,7 +391,7 @@ La replicación se relaciona de forma directa con:
   - Se reducen ventanas de inactividad percibida por usuarios.
 
 ---
-- **Tolerancia a fallos**:  
+- **Tolerancia a fallas**:  
   - Se evitan puntos únicos de falla: un nodo caído no implica pérdida de datos, siempre que exista al menos una réplica actualizada. 
 
 ---
@@ -402,8 +411,8 @@ La replicación introduce una tensión natural entre:
 
 Aunque el análisis detallado de modelos de consistencia se aborda en otros temas, para bases distribuidas relacionales es importante notar:
 
-- En replicación sincrónica, las transacciones suelen bloquearse hasta que todas las réplicas confirman la operación.  
-- En replicación asincrónica, pueden aparecer lecturas de datos “antiguos” en algunas réplicas, pero el sistema logra soportar mejor fallos y distancias largas. 
+- En replicación síncrona, las transacciones suelen bloquearse hasta que todas las réplicas confirman la operación.  
+- En replicación asíncrona, pueden aparecer lecturas de datos “antiguos” en algunas réplicas, pero el sistema logra soportar mejor fallas. 
 
 ***
 
@@ -413,7 +422,7 @@ Se considera un sistema de reservas de vuelos:
 
 - ¿En qué casos se aceptaría leer datos ligeramente desactualizados, si eso reduce latencia?  
 - ¿En qué operaciones es indispensable consistencia fuerte (por ejemplo, venta de un asiento)?  
-- ¿Qué combinación de replicación sincrónica y asincrónica podría utilizarse?
+- ¿Qué combinación de replicación síncrona y asíncrona podría utilizarse?
 
 ***
 
