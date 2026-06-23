@@ -19,15 +19,104 @@ Una **base de datos distribuida** es una colección de datos lógicamente relaci
 
 ***
 
-### Ejemplo 
 
+# Arquitecturas
+
+***
+
+### Sistemas centralizados
+
+Definición:  
+Un sistema de base de datos **centralizado** es aquel en el que todos los datos residen en un solo servidor, aunque existan muchos clientes conectados a él. 
+
+
+### Ejemplos  
+Un pequeño negocio que guarda todas sus ventas y clientes en un solo servidor dentro del local. Si ese servidor se apaga, nadie puede consultar ni registrar ventas.
+
+***
+
+- Aplicaciones web de la UAM que consultan una base de datos académica central.  
+- El navegador actúa como cliente (a través del backend), el servidor de base de datos atiende consultas a una base de datos única. 
+
+---
+Características:
+
+- El cliente no necesita conocer detalles de almacenamiento físico.  
+- El servidor concentra funciones de seguridad, control de concurrencia, etc. 
+
+
+***
+
+### Sistemas federados
+
+Definición:  
+Un **sistema de bases de datos federado** integra varias bases de datos que pueden pertenecer incluso a manejadores o dueños distintos, pero que cooperan mediante un esquema común o vistas integradas. 
+
+- Cada base participante conserva su autonomía (puede tener su propio esquema y reglas).  
+- La federación expone una vista lógica que permite combinar datos de varias fuentes. 
+
+---
+### Ejemplo
+
+- Una federación que integra:  
+  - La base de recursos humanos de una institución.  
+  - La base académica de alumnos y planes de estudio.  
+  - La base contable de pagos y becas.  
+
+Desde la vista federada, se pueden hacer consultas cruzadas sin unificar físicamente todos los datos en un solo servidor.
+
+
+***
+
+### Sistemas de bases de datos distribuidos
+
+Definición:  
+Un **sistema de bases de datos distribuido** es un conjunto de nodos, cada uno con su propio manejador de base de datos, que cooperan para ofrecer una vista única y coherente de los datos. 
+
+---
+### Características importantes
+
+- Transparencia de localización: idealmente, el usuario no sabe en qué nodo está cada dato.  
+- Transparencia de fragmentación: una tabla puede estar dividida en partes, pero se ve como una sola. 
+- Uso de fragmentación y replicación para lograr rendimiento y tolerancia a fallas. 
+
+---
+Analogía:  
+Parece un solo “súper almacén de información”, pero por dentro es una red de muchas bodegas coordinadas.
+
+
+***
+
+### Comparación breve
+
+| Tipo de sistema  | Datos                             | Autonomía de nodos  | Vista lógica                           |
+|------------------|-----------------------------------|---------------------|----------------------------------------|
+| Centralizado     | En un solo nodo                   | Nula                | Única, simple                          |
+| Federado         | Varias bases existentes           | Alta                | Vista integrada sobre fuentes diversas |
+| Distribuido      | Repartidos en varios nodos        | Media               | Única, con transparencias deseables    |
+
+
+***
+
+### Ejemplos
+
+Un servicio de transporte por app
+
+- Un diseño centralizado pone toda la información de viajes, usuarios y pagos en un solo servidor.  
+
+- Un diseño distribuido puede tener clusters por región: Ciudad de México, Guadalajara, Monterrey, cada uno con sus datos locales, pero con mecanismos para obtener estadísticas nacionales. 
+
+- Un sistema federado integraría, además, una base externa para pagos, otra para mapas y otra para verificación de identidad, manteniendo cada una su propia administración.
+
+
+---
 Una cadena de supermercados.
 
 - Toda la información de inventario podría estar en un solo almacén de datos central, al que todas las sucursales se conectan.  
 - En un enfoque distribuido, cada sucursal mantiene parte de la información (lo que vende localmente) y existe coordinación para compartir datos necesarios a nivel nacional (por ejemplo, estadísticas de ventas globales). 
 
 ---
-Para la persona que revisa un reporte nacional, el sistema parece uno solo, aunque en realidad consulta a varios nodos coordinados.
+Para la persona que revisa un reporte nacional de la cadena de supermercados, el sistema parece uno solo, aunque en realidad consulta a varios nodos coordinados.
 
 ***
 
@@ -54,123 +143,31 @@ Se pide diseñar un sistema de bibliotecas en varias ciudades.
 Preguntas a discutir:
 
 ---
-- ¿Qué información tendría sentido que esté en todas las sedes (por ejemplo, catálogo global)?  
+¿Qué información tendría sentido que esté en todas las sedes? 
 
 ---
-- ¿Qué información conviene que viva localmente (por ejemplo, préstamos de cada sucursal)?  
+(por ejemplo, catálogo de libros global)  
+
+---
+¿Qué información conviene que viva localmente? 
+
+---
+(por ejemplo, préstamos de libros de cada sucursal)  
 
 ---
 - ¿Qué problemas aparecerían si se pierde momentáneamente la conexión con la sede central?
 
-***
 
-# Arquitecturas: centralizado, cliente–servidor, distribuido y federado
-
-***
-
-### Sistemas centralizados
-
-Definición:  
-Un sistema de base de datos **centralizado** es aquel en el que todos los datos residen en un solo servidor, aunque existan muchos clientes conectados a él. 
-
----
-Ejemplo:  
-Un pequeño negocio que guarda todas sus ventas y clientes en un solo servidor dentro del local. Si ese servidor se apaga, nadie puede consultar ni registrar ventas.
-
-***
-
-### Arquitectura cliente–servidor
-
-Definición:  
-En la arquitectura **cliente–servidor**, un conjunto de clientes (aplicaciones) envían solicitudes a uno o varios servidores de base de datos, que responden con resultados. 
-
----
-Ejemplo tecnológico:  
-
-- Aplicaciones web de la UAM que consultan una base de datos académica central.  
-- El navegador actúa como cliente (a través del backend), el servidor de base de datos atiende consultas SQL. 
-
----
-Características:
-
-- El cliente no necesita conocer detalles de almacenamiento físico.  
-- El servidor concentra funciones de seguridad, control de concurrencia y consultas complejas. 
-
-***
-
-### Sistemas de bases de datos distribuidos
-
-Definición:  
-Un **sistema de bases de datos distribuido** es un conjunto de nodos, cada uno con su propio manejador de base de datos, que cooperan para ofrecer una vista única y coherente de los datos. 
-
----
-Características importantes:
-
-- Transparencia de localización: idealmente, el usuario no sabe en qué nodo está cada dato.  
-- Transparencia de fragmentación: una tabla puede estar dividida en partes, pero se ve como una sola. 
-- Uso de fragmentación y replicación para lograr rendimiento y tolerancia a fallas. 
-
----
-Analogía:  
-Parece un solo “súper almacén de información”, pero por dentro es una red de muchas bodegas coordinadas.
-
-***
-
-### Sistemas federados
-
-Definición:  
-Un **sistema de bases de datos federado** integra varias bases de datos que pueden pertenecer incluso a manejadores o dueños distintos, pero que cooperan mediante un esquema común o vistas integradas. 
-
-- Cada base participante conserva su autonomía (puede tener su propio esquema y reglas).  
-- La federación expone una vista lógica que permite combinar datos de varias fuentes. 
-
----
-Ejemplo:
-
-- Una federación que integra:  
-  - La base de recursos humanos de una institución.  
-  - La base académica de alumnos y planes de estudio.  
-  - La base contable de pagos y becas.  
-
-Desde la vista federada, se pueden hacer consultas cruzadas sin unificar físicamente todos los datos en un solo servidor.
-
-***
-
-### Comparación breve
-
-| Tipo de sistema  | Datos                             | Autonomía de nodos  | Vista lógica                           |
-|------------------|-----------------------------------|---------------------|----------------------------------------|
-| Centralizado     | En un solo nodo                   | Nula                | Única, simple                          |
-| Cliente–servidor | Servidor central, muchos clientes | Nula en el servidor | Única                                  |
-| Distribuido      | Repartidos en varios nodos        | Media               | Única, con transparencia deseable      |
-| Federado         | Varias bases existentes           | Alta                | Vista integrada sobre fuentes diversas |
-
- 
-
-***
-
-### Ejemplo
-
-Un servicio de transporte por app
-
-- Un diseño centralizado pone toda la información de viajes, usuarios y pagos en un solo servidor.  
-
-
-- Un diseño distribuido puede tener clusters por región: Ciudad de México, Guadalajara, Monterrey, cada uno con sus datos locales, pero con mecanismos para obtener estadísticas nacionales. 
-
-
-- Un sistema federado integraría, además, una base externa para pagos, otra para mapas y otra para verificación de identidad, manteniendo cada una su propia administración.
 
 ***
 
 # Fragmentación de datos
 
-***
 
 ### Definición general
 
 Definición:  
-La **fragmentación** consiste en dividir una relación (tabla lógica) en partes más pequeñas llamadas fragmentos, que pueden almacenarse en distintos nodos, manteniendo la posibilidad de reconstruir la tabla original mediante operaciones como UNION o JOIN. 
+La **fragmentación** consiste en dividir una relación (tabla lógica) en partes más pequeñas llamadas fragmentos, que pueden almacenarse en distintos nodos, manteniendo la posibilidad de reconstruir la tabla original. 
 
 ---
 Objetivos principales:
@@ -188,7 +185,7 @@ Requisitos importantes:
 
 ***
 
-### Fragmentación horizontal
+# Fragmentación horizontal
 
 Definición:  
 La **fragmentación horizontal** divide una tabla por filas, generando fragmentos que contienen subconjuntos de registros, típicamente definidos por condiciones sobre atributos. 
@@ -205,7 +202,7 @@ Ejemplo
 Cada gimnasio puede almacenar solo sus socios, pero el sistema central puede reconstruir la tabla global mediante la unión de todos los fragmentos.
 
 ---
-Ejemplo en contexto académico:
+Ejemplo de la UAM:
 
 - Tabla Estudiante con atributo campus.  
 - Fragmentos:  
@@ -234,12 +231,12 @@ Ventajas:
 Se propone la tabla `Venta(id, tienda, fecha, total)` con muchas filas.
 
 - Diseñar fragmentos horizontales por tienda (por ejemplo, Toluca, CDMX, Puebla).  
-- Preguntarse: ¿qué consultas se benefician si cada tienda atiende sus propias ventas?  
+- ¿qué consultas se benefician si cada tienda atiende sus propias ventas?  
 - ¿Qué sucede con un reporte nacional de ventas mensuales?
 
 ***
 
-### Fragmentación vertical
+# Fragmentación vertical
 
 Definición:  
 La **fragmentación vertical** divide una tabla por columnas, generando fragmentos que contienen subconjuntos de atributos, generalmente repitiendo el identificador para poder reconstruir la tabla original mediante JOIN. 
@@ -330,7 +327,7 @@ Al decidir cómo fragmentar, se discute:
 - **Localidad**: qué datos conviene mantener cerca de qué grupo de usuarios.  
 - **Equilibrio de carga**: cómo evitar que un nodo se sature mientras otros están subutilizados. 
 
-También se recuerda que la fragmentación por sí sola no crea copias redundantes; para eso se combina con replicación.
+Además, la fragmentación por sí sola no crea copias redundantes; para eso se combina con replicación.
 
 ***
 
@@ -368,11 +365,6 @@ Aunque la terminología exacta puede variar entre productos, a nivel conceptual 
 - **Replicación síncrona**: una actualización se considera confirmada solo cuando ha sido aplicada en todas las réplicas relevantes.  
 - **Replicación asíncrona**: una actualización se aplica primero en un nodo y se propaga después a los demás, admitiendo breves periodos de inconsistencia. 
 
----
-Efectos típicos:
-
-- La replicación síncrona mejora la consistencia fuerte, pero puede incrementar la latencia.  
-- La replicación asíncrona reduce latencia percibida y mejora disponibilidad, pero puede aceptar estados intermedios donde no todas las réplicas tienen el mismo valor. 
 
 ***
 
@@ -411,8 +403,11 @@ La replicación introduce una tensión natural entre:
 
 Aunque el análisis detallado de modelos de consistencia se aborda en otros temas, para bases distribuidas relacionales es importante notar:
 
+- La replicación síncrona mejora la consistencia fuerte, pero puede incrementar la latencia.  
+- La replicación asíncrona reduce latencia percibida y mejora disponibilidad, pero puede aceptar estados intermedios donde no todas las réplicas tienen el mismo valor. 
 - En replicación síncrona, las transacciones suelen bloquearse hasta que todas las réplicas confirman la operación.  
-- En replicación asíncrona, pueden aparecer lecturas de datos “antiguos” en algunas réplicas, pero el sistema logra soportar mejor fallas. 
+- En replicación asíncrona, pueden aparecer lecturas de datos “antiguos” en algunas réplicas, provocando problemas de consistencia, pero el sistema logra un desempeño más rápido. 
+
 
 ***
 
@@ -420,9 +415,13 @@ Aunque el análisis detallado de modelos de consistencia se aborda en otros tema
 
 Se considera un sistema de reservas de vuelos:
 
-- ¿En qué casos se aceptaría leer datos ligeramente desactualizados, si eso reduce latencia?  
-- ¿En qué operaciones es indispensable consistencia fuerte (por ejemplo, venta de un asiento)?  
-- ¿Qué combinación de replicación síncrona y asíncrona podría utilizarse?
+¿En qué casos se aceptaría leer datos ligeramente desactualizados, si eso reduce latencia?  
+
+---
+¿En qué operaciones es indispensable consistencia fuerte? 
+
+--- 
+¿Qué combinación de replicación síncrona y asíncrona podría utilizarse?
 
 ***
 
@@ -439,13 +438,13 @@ Al diseñar una base de datos distribuida, se toman decisiones encadenadas:
 3. ¿Cómo se mantendrá la **consistencia** entre nodos (protocolos de actualización y, si aplica, consenso)?  
 4. ¿Qué **transparencias** se desea ofrecer al usuario: localización, fragmentación, replicación, etc.?
 
-En todas estas decisiones influye lo que se vio previamente sobre rendimiento, escalabilidad y limitaciones del modelo relacional en entornos distribuidos. 
+En todas estas decisiones influye el rendimiento, escalabilidad y limitaciones del modelo relacional en entornos distribuidos. 
 
 ***
 
-### Ejemplo guiado: sistema de campus múltiples
+### Ejemplo: sistema de campus múltiples
 
-Se imagina una institución con tres campus: Norte, Sur y Centro.  
+Una institución con tres campus: Norte, Sur y Centro.  
 La base lógica contempla tablas como:
 
 - `Alumno(id, nombre, correo, campus, programa)`  
@@ -458,7 +457,7 @@ La base lógica contempla tablas como:
    - `Alumno_Norte`, `Alumno_Sur`, `Alumno_Centro`, cada uno en un nodo cercano a su campus. 
 2. **Fragmentación horizontal de Curso por campus**  
    - `Curso_Norte`, `Curso_Sur`, `Curso_Centro`.  
-3. **Fragmentación horizontal de Inscripcion por campus del curso**  
+3. **Fragmentación horizontal de Inscripción por campus del curso**  
    - `Inscripcion_Norte`, etc.  
 4. **Replicación parcial** de una vista de `Curso` (idcurso, nombre) en los tres nodos, para permitir que cualquier campus consulte el catálogo global de cursos. 
 
@@ -469,7 +468,7 @@ La base lógica contempla tablas como:
 
 ***
 
-### Analogía: red de sucursales bancarias
+### Red de sucursales bancarias
 
 En una red de bancos:
 
@@ -483,7 +482,7 @@ Este tipo de organización reduce tráfico y mantiene la seguridad, al tiempo qu
 
 ### Aspectos prácticos
 
-- La **gran mayoría** de las consultas de una aplicación se atiendan en un solo nodo o en pocos nodos.  
-- Las operaciones que involucran varios nodos no se conviertan en cuellos de botella diarios, sino en operaciones de reporte o mantenimiento con frecuencia controlada. 
-- La **fragmentación** y la **replicación** se ajusten con el tiempo conforme cambia el patrón de uso real del sistema.
+- La **gran mayoría** de las consultas de una aplicación se atienden en un solo nodo o en pocos nodos.  
+- Las operaciones que involucran varios nodos no se conviertan en cuellos de botella diarios, sino en operaciones de reporte o mantenimiento con frecuencia controladas. 
+- La **fragmentación** y la **replicación** se ajustan con el tiempo conforme cambia el patrón de uso real del sistema.
 
