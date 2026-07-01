@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Transformación hacia cláusulas y preparación de Herbrand</h1>
+    </section>
+    <section>
+      <h1>Alcance</h1>
+    </section>
+    <section>
+      <h2>Alcance</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/jvGH2Lky/0101.png" alt="image" /></div>
+        <div class="text-col"><p>El foco ahora va de las reglas con cuantificadores a la transformación sistemática de fórmulas hacia formas cercanas a cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/dJ35QKZ2/0047.jpg" alt="image" /></div>
+        <div class="text-col"><p>Con esas formas, el análisis de satisfacibilidad se puede plantear usando universos, bases e interpretaciones de Herbrand, que viven completamente en el plano sintáctico del lenguaje.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Dgw5H8vY/0096.png" alt="image" /></div>
+        <div class="text-col"><p>El objetivo práctico consiste en entender por qué se eliminan implicaciones, cómo se empujan negaciones, para qué sirve la forma prenexa y qué papel juega la skolemización.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Alcance</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/tw7XJ66w/0092.jpg" alt="image" /></div>
+        <div class="text-col"><p>A partir de ahí, se introducen las nociones de universo y base de Herbrand, así como interpretaciones sencillas para decidir satisfacibilidad de conjuntos pequeños de cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Hacia formas cercanas a cláusulas</h1>
+    </section>
+    <section>
+      <h2>Hacia formas cercanas a cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/v6wsDBsh/0075.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una <strong>cláusula</strong> es una disyunción de literales, donde un <strong>literal</strong> es un átomo o la negación de un átomo.</p><p>Trabajar con conjuntos de cláusulas conviene porque la representación se vuelve uniforme y facilita el análisis de satisfacibilidad mediante procedimientos sistemáticos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Hacia formas cercanas a cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9HzzdMtn/0082.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si cada fórmula tuviera una forma arbitraria, el razonamiento mecánico sería desordenado.</p><p>Al llevarlas a una forma cercana a cláusulas, se reduce la variedad superficial y se hace visible la estructura lógica relevante.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Hacia formas cercanas a cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El punto central es entender por qué se eliminan implicaciones, por qué las negaciones se empujan hacia adentro y por qué las existencias se reemplazan mediante términos especiales: todo eso acerca la fórmula a un conjunto de cláusulas sobre el cual puede trabajarse de manera más sistemática.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/bMdPcXLy/0011.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Eliminar implicaciones y bicondicionales</h1>
+    </section>
+    <section>
+      <h2>Eliminar implicaciones y bicondicionales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KpCm5Yvq/0037.jpg" alt="image" /></div>
+        <div class="text-col"><p>La eliminación de implicaciones reemplaza conectivos como \(\rightarrow\) y \(\leftrightarrow\) por combinaciones de negación, conjunción y disyunción.</p><p>Este paso es importante porque las cláusulas se construyen más fácilmente cuando la fórmula ya no depende de conectivos derivados.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Eliminar implicaciones y bicondicionales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KpCm5Yvq/0037.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las equivalencias básicas que interesan son:</p>
+<ul><li>\(A \to B \equiv \neg A \lor B\)</li><li>\(A \leftrightarrow B \equiv (A \to B) \land (B \to A)\)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Eliminar implicaciones y bicondicionales</h2>
+      <div class="text-col">
+<p>Ejemplo: \[ \forall x \, (Servidor(x) \rightarrow Disponible(x)) \] se reescribe como \[ \forall x \, (\neg Servidor(x) \lor Disponible(x)) \] Esta forma ya se parece mucho más a una cláusula, porque dentro del alcance del cuantificador aparece una disyunción de literales.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Eliminar implicaciones y bicondicionales</h2>
+      <div class="text-col">
+<p>Ejemplo fuera del ámbito tecnológico: \[ \forall x \, (Estudiante(x) \rightarrow UsaBiblioteca(x)) \] pasa a \[ \forall x \, (\neg Estudiante(x) \lor UsaBiblioteca(x)) \] La información semántica es la misma; lo que cambia es la forma de presentación para facilitar pasos posteriores.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Mover negaciones hacia adentro</h1>
+    </section>
+    <section>
+      <h2>Mover negaciones hacia adentro</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/1GMYBQdd/0048.jpg" alt="image" /></div>
+        <div class="text-col"><p>Mover negaciones hacia adentro significa usar leyes como De Morgan y las reglas para cuantificadores negados, con el fin de dejar la negación lo más cerca posible de los átomos.</p><p>La meta es evitar negaciones aplicadas a fórmulas grandes, porque una cláusula trabaja con literales simples.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Mover negaciones hacia adentro</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0pxW79Qc/0094.jpg" alt="image" /></div>
+        <div class="text-col"><p>Las transformaciones más importantes son:</p>
+<ul><li>\(\neg (A \land B) \equiv \neg A \lor \neg B\)</li><li>\(\neg (A \lor B) \equiv \neg A \land \neg B\)</li><li>\(\neg \forall x \, A(x) \equiv \exists x \, \neg A(x)\)</li><li>\(\neg \exists x \, A(x) \equiv \forall x \, \neg A(x)\)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Mover negaciones hacia adentro</h2>
+      <div class="text-col">
+<p>Ejemplo: \[ \neg \forall x \, (Usuario(x) \rightarrow Autorizado(x)) \] primero se transforma en \[ \exists x \, \neg (Usuario(x) \rightarrow Autorizado(x)) \] y luego, al eliminar la implicación, queda \[ \exists x \, \neg (\neg Usuario(x) \lor Autorizado(x)) \]</p>
+      </div>
+    </section>
+    <section>
+      <h2>Mover negaciones hacia adentro</h2>
+      <div class="text-col">
+<p>por De Morgan se obtiene \[ \exists x \, (Usuario(x) \land \neg Autorizado(x)) \] La negación ya quedó pegada al átomo \(Autorizado(x)\), que es el tipo de forma que nos interesa conservar.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Mover negaciones hacia adentro</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este proceso es, digamos...</p><p>despejar la expresión hasta dejarla compuesta por piezas manejables.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Forma prenexa</h1>
+    </section>
+    <section>
+      <h2>Forma prenexa</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/1GMYBQdd/0048.jpg" alt="image" /></div>
+        <div class="text-col"><p>La forma prenexa es una presentación de la fórmula donde todos los cuantificadores quedan al frente y, después de ellos, aparece una parte libre de cuantificadores llamada matriz.</p><p>Esta forma resulta útil porque separa el “patrón de cuantificación” de la estructura proposicional interna.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Forma prenexa</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo: \[ (\forall x \, P(x)) \lor (\forall y \, Q(y)) \] bajo condiciones de variables adecuadas puede reacomodarse como una fórmula con cuantificador al frente.</p><p>Conviene ordenar primero quiénes son los objetos sobre los que se habla y después qué condición se afirma sobre ellos.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/PsdHGFRC/0061.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Forma prenexa</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Para la preparación de Herbrand, la forma prenexa ayuda porque pone los cuantificadores en una zona visible y permite identificar con claridad cuáles son universales y cuáles existenciales antes del paso de skolemización.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/tMTpjGd9/0004.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Skolemización</h1>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/xqHSsDsd/0085.jpg" alt="image" /></div>
+        <div class="text-col"><p>La skolemización elimina cuantificadores existenciales reemplazando las variables existenciales por términos especiales llamados términos de Skolem.</p><p>La idea es introducir un “testigo simbólico” que represente al objeto cuya existencia estaba garantizada por la fórmula.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SDKs4CwH/0093.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si la existencia no depende de variables universales anteriores, el testigo puede ser una constante nueva.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="text-col">
+<p>Por ejemplo, de una forma como \[\exists x \, ServidorRespaldo(x)\] se pasa a \[ServidorRespaldo(c)\] donde \(c\) es una nueva constante de Skolem que nombra a algún servidor de respaldo garantizado por la existencia.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si la existencia sí depende de variables universales previas, el testigo ya no es una constante sino una función.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/GfwFQKhN/0065.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="text-col">
+<p>Por ejemplo, en \[ \forall x \, \exists y \, Atiende(y,x) \] el objeto \(y\) puede depender de \(x\), así que se reemplaza por \(f(x)\), obteniendo una forma como \[ \forall x \, Atiende(f(x),x) \] donde \(f\) representa “el atendiente asociado a \(x\)”.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="text-col">
+<p>Ejemplo fuera de tecnología: \[ \forall x \, (Persona(x) \rightarrow \exists y \, MadreDe(y,x)) \] puede esbozarse como \[ \forall x \, (Persona(x) \rightarrow MadreDe(m(x),x)) \] donde \(m(x)\) funciona como “la madre de \(x\)” dentro del lenguaje formal.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/ks4YTKFB/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p>No se está diciendo que se conozca el nombre real de esa persona, sino que se introduce un símbolo que garantiza el papel lógico del testigo.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Skolemización</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La skolemización convierte existencias en términos concretos del lenguaje, y eso permite construir instancias y cláusulas sin cargar con el cuantificador existencial original.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Paso final hacia cláusulas</h1>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/5gpXnVqz/0043.jpg" alt="image" /></div>
+        <div class="text-col"><p>Después de eliminar implicaciones, mover negaciones, llevar la fórmula a forma prenexa y skolemizar, la expresión queda muy cerca de una forma normal conjuntiva de primer orden.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/1GMYBQdd/0048.jpg" alt="image" /></div>
+        <div class="text-col"><p>En esa etapa, los cuantificadores universales suelen omitirse por convención y la matriz se interpreta como un conjunto de cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="text-col">
+<p>Ejemplo:</p><p>Fórmula inicial: \[ \forall x \, (Usuario(x) \rightarrow \exists y \, Recurso(y) \land PuedeUsar(x,y)) \]</p><p>Esbozo de transformación:</p>
+      </div>
+      <div class="text-col">
+<ul><li>Eliminar implicación:</li></ul>
+      </div>
+      <div class="text-col">
+<p>\[ \forall x \, (\neg Usuario(x) \lor \exists y \, (Recurso(y) \land PuedeUsar(x,y))) \]</p>
+      </div>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="text-col">
+<ul><li>Llevar a forma apta para skolemizar:</li></ul>
+      </div>
+      <div class="text-col">
+<p>\[ \forall x \, \exists y \, (\neg Usuario(x) \lor (Recurso(y) \land PuedeUsar(x,y))) \]</p>
+      </div>
+      <div class="text-col">
+<ul><li>Skolemizar \(y\) como \(f(x)\):</li></ul>
+      </div>
+      <div class="text-col">
+<p>\[ \forall x \, (\neg Usuario(x) \lor (Recurso(f(x)) \land PuedeUsar(x,f(x)))) \]</p>
+      </div>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="text-col">
+<ul><li>Distribuir para hacer cláusulas:</li><li>\(\neg Usuario(x) \lor Recurso(f(x))\)</li><li>\(\neg Usuario(x) \lor PuedeUsar(x,f(x))\)</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Paso final hacia cláusulas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/m5n6kZsx/0084.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ahora ya aparecen dos cláusulas.</p><p>Esa es la razón práctica de todo el proceso: una fórmula compacta, pero poco operable, se convierte en piezas uniformes que luego pueden analizarse mediante instancias sobre términos del lenguaje.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Un ejemplo para la forma clausular</h1>
+    </section>
+    <section>
+      <h2>Un ejemplo para la forma clausular</h2>
+      <div class="text-col">
+<p>\[ F = \exists x P(x, c) \lor \forall x P(c, x) \to \forall x \exists y P(x, y) \]</p><p>Primer, renombrar variables para no entrar en confusiones.</p><p>Luego, resolver implicaciones y negaciones, incluídas las que queden en cuantificadores (deben llegar al átomo).</p>
+      </div>
+    </section>
+    <section>
+      <h2>Un ejemplo para la forma clausular</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Agrupar los cuantificadores y aplicar distribuitividad.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/PsknrHZM/0062.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Motivación para Herbrand</h1>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El método de Herbrand nace de la necesidad de estudiar satisfacibilidad sin tener que recorrer dominios arbitrarios y potencialmente complicados.</p><p>La idea es trasladar el problema a un terreno sintáctico, construido con los propios símbolos del lenguaje: términos, átomos e instancias de cláusulas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/yFMjgdf3/0035.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Dicho de otra manera, en vez de preguntarse por cualquier dominio imaginable, interesa mirar primero el “mundo generado por el propio lenguaje”.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/0pxW79Qc/0094.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/6RwhY0M9/0053.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si el lenguaje tiene constantes y funciones, entonces con ellas se construyen términos; con esos términos se construyen átomos; y con esas piezas se prueban combinaciones que reflejan la satisfacibilidad de los conjuntos de cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9H9YXgtJ/0103.png" alt="image" /></div>
+        <div class="text-col"><p>La idea es similar a probar un sistema a partir de los objetos que su propia especificación puede construir.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/BHd7VgCG/0046.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si un modelo de red solo usa ciertos nodos, funciones de enrutamiento y relaciones de conexión, resulta natural comenzar por estudiar todas las configuraciones simbólicas que esos mismos componentes permiten describir.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivación para Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Por eso la preparación hacia cláusulas no es un adorno técnico.</p><p>Es el paso que hace posible que la atención se centre en instancias concretas de un lenguaje formal, y no en estructuras completamente arbitrarias y difíciles de manipular.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/MktvzmKz/0105.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Universo de Herbrand</h1>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/G46sX2KM/0020.jpg" alt="image" /></div>
+        <div class="text-col"><p>El universo de Herbrand es el conjunto de todos los términos cerrados que pueden construirse con las constantes y símbolos de función del lenguaje.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RkZTppB2/0089.jpg" alt="image" /></div>
+        <div class="text-col"><p>“Cerrados” significa que no contienen variables; son expresiones completas que pueden nombrar individuos dentro del mundo sintáctico generado por el propio lenguaje.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KMGQprW/0078.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si el lenguaje tiene la constante \(a\) y la función unaria \(f\), el universo de Herbrand comienza así:</p>
+<ul><li>Profundidad 0: \(a\)</li><li>Profundidad 1: \(f(a)\)</li><li>Profundidad 2: \(f(f(a))\)</li><li>Profundidad 3: \(f(f(f(a)))\)</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si además hubiera otra constante \(b\), entonces desde profundidad 0 aparecerían \(a, b\), y luego \(f(a), f(b)\), y así sucesivamente.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/SX8BvQBw/0028.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/1GMYBQdd/0048.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si existe una función binaria \(g\), el crecimiento es más rápido porque surgen términos como \(g(a,a)\), \(g(a,b)\), \(g(f(a),b)\), entre muchos otros; esto muestra por qué en la práctica se trabaja por niveles de profundidad.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="text-col">
+<p>Ejemplo: Lenguaje con constantes \(a, b\), función unaria \(s\), función binaria \(g\).</p>
+      </div>
+      <div class="text-col">
+<ul><li>Profundidad 0: \(a, b\)</li><li>Profundidad 1: \(s(a), s(b), g(a,a), g(a,b), g(b,a), g(b,b)\)</li><li>Profundidad 2: aparecen términos como \(s(s(a))\), \(g(s(a),b)\), \(g(g(a,b),s(b))\)</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Universo de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La construcción por profundidad funciona como generar cadenas o árboles en estructura de datos: primero se tienen nodos base, luego se aplican funciones para producir objetos más complejos.</p><p>El universo de Herbrand es, en ese sentido, el inventario de términos posibles del lenguaje.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/G46sX2KM/0020.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Base de Herbrand</h1>
+    </section>
+    <section>
+      <h2>Base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La base de Herbrand es el conjunto de todos los átomos cerrados que se pueden formar usando los predicados del lenguaje y los términos del universo de Herbrand.</p><p>Si el universo aporta los nombres posibles de individuos, la base aporta las afirmaciones atómicas posibles sobre ellos.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/j9xQPcGR/0049.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo: Si el universo contiene \(a, f(a)\) y hay un predicado unario \(P\) y uno binario \(R\), entonces la base de Herbrand incluye:</p>
+<ul><li>\(P(a)\)</li><li>\(P(f(a))\)</li><li>\(R(a,a)\)</li><li>\(R(a,f(a))\)</li><li>\(R(f(a),a)\)</li><li>\(R(f(a),f(a))\)</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/MxPJbfPL/0054.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DggB7tw/0055.jpg" alt="image" /></div>
+        <div class="text-col"><p>En un escenario de redes, si el predicado es \(Conectado(x,y)\) y los términos posibles son \(r1, r2\), la base contiene \(Conectado(r1,r1)\), \(Conectado(r1,r2)\), \(Conectado(r2,r1)\) y \(Conectado(r2,r2)\).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En un ejemplo de personas, con el predicado \(Amigo(x,y)\) y términos \(ana, luis\), la base contiene las cuatro combinaciones atómicas correspondientes.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/7JTTT93P/0072.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/278d7VnG/0087.jpg" alt="image" /></div>
+        <div class="text-col"><p>La base de Herbrand es importante porque una interpretación de Herbrand puede decidir, para cada átomo de esa base, si se considera verdadero o falso.</p><p>Así, el problema semántico se vuelve una cuestión sobre asignaciones de verdad a un conjunto de átomos construidos sintácticamente.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Interpretaciones de Herbrand y satisfacibilidad</h1>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una interpretación de Herbrand toma como dominio el universo de Herbrand y asigna verdad o falsedad a los átomos de la base de Herbrand.</p><p>Con eso ya puede evaluarse si determinadas cláusulas quedan satisfechas o no bajo esa interpretación.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/tw7XJ66w/0092.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo: Lenguaje con constante \(a\), predicado unario \(P\).</p><p>Universo de Herbrand: \(\{a\}\).</p><p>Base de Herbrand: \(\{P(a)\}\).</p><p>Las interpretaciones de Herbrand posibles son dos:</p>
+<ul><li>\(P(a)\) verdadera</li><li>\(P(a)\) falsa</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/hx8kGNnH/0017.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si el conjunto de cláusulas es \(\{P(a)\}\), solo la primera interpretación lo satisface.</p><p>Si el conjunto es \(\{\neg P(a)\}\), solo la segunda lo satisface.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/MxPJbfPL/0054.jpg" alt="image" /></div>
+        <div class="text-col"><p>Si el conjunto es \(\{P(a), \neg P(a)\}\), ninguna interpretación lo satisface, porque las dos cláusulas exigen valores incompatibles para el mismo átomo.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo con dos átomos:</p><p>Base: \(\{P(a), Q(a)\}\)</p><p>Conjunto de cláusulas:</p>
+<ul><li>\(P(a) \lor Q(a)\)</li><li>\(\neg P(a)\)</li></ul>
+<p>Para satisfacer ambas, la segunda cláusula obliga a que \(P(a)\) sea falsa.</p><p>Entonces la primera obliga a que \(Q(a)\) sea verdadera.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/VcQSg0Zm/0023.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y satisfacibilidad</h2>
+      <div class="text-col">
+<p>Una interpretación que funciona es:</p>
+      </div>
+      <div class="text-col">
+<ul><li>\(P(a)\) falsa</li><li>\(Q(a)\) verdadera</li></ul>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo integrado completo</h1>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se considera el lenguaje con:</p>
+<ul><li>Constante: \(a\)</li><li>Función unaria: \(f\)</li><li>Predicados: \(P(x)\), \(R(x,y)\)</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/Cp3nfXTZ/0073.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/PsdHGFRC/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>Universo de Herbrand hasta profundidad 2:</p>
+<ul><li>Profundidad 0: \(a\)</li><li>Profundidad 1: \(f(a)\)</li><li>Profundidad 2: \(f(f(a))\)</li></ul>
+<p>Por tanto, hasta esa profundidad: \[ U_H^{(2)} = \{a, f(a), f(f(a))\} \]</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Base de Herbrand correspondiente hasta esa misma profundidad:</p>
+<ul><li>Átomos con \(P\):<ul><li>\(P(a)\)</li><li>\(P(f(a))\)</li><li>\(P(f(f(a)))\)</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/gZst5BrW/0036.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Átomos con \(R\):<ul><li>\(R(a,a)\)</li><li>\(R(a,f(a))\)</li><li>\(R(a,f(f(a)))\)</li><li>\(R(f(a),a)\)</li><li>\(R(f(a),f(a))\)</li><li>\(R(f(a),f(f(a)))\)</li><li>\(R(f(f(a)),a)\)</li><li>\(R(f(f(a)),f(a))\)</li><li>\(R(f(f(a)),f(f(a)))\)</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/bMdPcXLy/0011.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="text-col">
+<p>Ahora se analizan las cláusulas:</p>
+      </div>
+      <div class="text-col">
+<ol><li>\(\neg P(x) \lor R(x,f(x))\)</li><li>\(P(a)\)</li></ol>
+      </div>
+      <div class="text-col">
+<p>Instancias relevantes hasta profundidad 1:</p>
+      </div>
+      <div class="text-col">
+<ul><li>De la cláusula 1 con \(x:=a\): \(\neg P(a) \lor R(a,f(a))\)</li><li>De la cláusula 1 con \(x:=f(a)\): \(\neg P(f(a)) \lor R(f(a),f(f(a)))\)</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si una interpretación hace verdadera \(P(a)\), entonces la primera instancia obliga a que \(R(a,f(a))\) sea verdadera.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqxLfGwn/0007.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="text-col">
+<p>En cambio (para \(x:=f(a)\)), nada obliga todavía a que \(P(f(a))\) sea verdadera, así que la segunda instancia puede quedar satisfecha ya sea porque \(P(f(a))\) sea verdadera (o falsa) o porque \(R(f(a),f(f(a)))\) sea verdadera (o falsa).</p><p>La condición solo sería que alguna sea verdadera.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo integrado completo</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una interpretación de Herbrand que satisface esas instancias es:</p>
+<ul><li>\(P(a)\): verdadera</li><li>\(P(f(a))\): falsa</li><li>\(R(a,f(a))\): verdadera</li><li>Los demás átomos: falsos</li></ul>
+<p>Con esa asignación, la cláusula 2 se satisface directamente y la cláusula 1 también queda satisfecha con las instancias mostradas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Errores que deben evitarse</h1>
+    </section>
+    <section>
+      <h2>Errores que deben evitarse</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/PsdHGFRC/0061.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un error frecuente consiste en confundir una variable con un término cerrado.</p><p>El universo de Herbrand no se construye con variables como \(x\) o \(y\), sino con términos sin variables, porque su función es servir como catálogo de individuos sintácticos completos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores que deben evitarse</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+        <div class="text-col"><p>Otro error consiste en creer que la base de Herbrand contiene fórmulas complejas.</p><p>La base contiene solo átomos cerrados; las cláusulas y conjuntos de cláusulas se construyen después usando esos átomos o sus negaciones como literales.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores que deben evitarse</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>También es común skolemizar de manera apresurada.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores que deben evitarse</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si un existencial depende de universales previos, no debe reemplazarse por una constante cualquiera, sino por una función cuyos argumentos reflejen esa dependencia; de lo contrario, se pierde información lógica importante sobre cómo varía el testigo con los valores universales.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Errores que deben evitarse</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un último error aparece al analizar satisfacibilidad: no basta con ver una cláusula aislada, sino el conjunto completo.</p><p>Una interpretación puede satisfacer una cláusula y violar otra; por eso se evalúa el comportamiento total del conjunto de cláusulas bajo la misma interpretación.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Para llevar...</h1>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La prueba formal se extiende a cuantificadores mediante reglas como instanciación universal y generalización; las fórmulas se transforman para quedar cerca de cláusulas; y esa forma estándar permite preparar el estudio de universos, bases e interpretaciones de Herbrand.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nshMkXsh/0003.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En lugar de tratar las fórmulas de primer orden como expresiones demasiado amplias para manipularse, se aprende a desarmarlas, normalizarlas y reconstruirlas en un formato más operativo.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/sh7t1w0/0045.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/CKVXn2f0/0022.jpg" alt="image" /></div>
+        <div class="text-col"><p>Esa es la puerta de entrada para trabajar con satisfacibilidad de conjuntos de cláusulas usando objetos que el propio lenguaje puede generar.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Con estas herramientas se pueden construir universos de Herbrand por profundidad, formar bases de Herbrand, producir instancias relevantes y decidir la satisfacibilidad de conjuntos pequeños de cláusulas bajo interpretaciones sencillas.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/r2FVpTjQ/0039.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

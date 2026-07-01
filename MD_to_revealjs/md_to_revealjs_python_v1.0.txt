@@ -8,8 +8,6 @@ Convierte un Markdown en una presentación Reveal.js.
 - Tablas largas se parten en varias slides.
 - Bloques de código se respetan como bloque completo.
 - Imágenes decorativas solo en slides de texto, en layout de dos columnas.
-- El marcador :::fullwidth hace que la siguiente slide de contenido
-se renderice a ancho completo y sin imágenes decorativas.
 """
 
 import re
@@ -200,7 +198,6 @@ class MarkdownToRevealJS:
         self.current_table_lines: List[str] = []
 
         self.current_text_buffer: List[str] = []
-        self.next_slide_fullwidth = False
 
     # ===================== PARSEO LINEA A LINEA =====================
 
@@ -239,14 +236,6 @@ class MarkdownToRevealJS:
                 # Vaciar cualquier texto acumulado en slides
                 self._flush_text_buffer()
                 # Avanzar a la siguiente línea y seguir
-                i += 1
-                continue
-
-            # Marcador semántico: la siguiente slide de contenido irá
-            # a ancho completo y sin imagen decorativa
-            if re.match(r'^\s*:::fullwidth\s*$', line):
-                self._flush_text_buffer()
-                self.next_slide_fullwidth = True
                 i += 1
                 continue
 
@@ -407,16 +396,8 @@ class MarkdownToRevealJS:
         current_list_items_count = 0
 
         def append_content_slide(content_blocks: List[Dict[str, Any]]):
-            # img = self._pick_image()
-            # side = random.choice(["left", "right"]) if img else None
-            if self.next_slide_fullwidth:
-                img = None
-                side = None
-                self.next_slide_fullwidth = False
-            else:
-                img = self._pick_image()
-                side = random.choice(["left", "right"]) if img else None
-
+            img = self._pick_image()
+            side = random.choice(["left", "right"]) if img else None
             self.slides.append({
                 "type": "content",
                 "title": self._current_title(),
