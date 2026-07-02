@@ -202,6 +202,53 @@ Luego, resolver implicaciones y negaciones, incluídas las que queden en cuantif
 
 Agrupar los cuantificadores y aplicar distribuitividad.
 
+:::fullwidth
+\[ F = \exists x P(x, c) \lor \forall x P(c, x) \to \forall x \exists y P(x, y) \]
+\[ F = \exists x P(x, c) \lor \forall u P(c, u) \to \forall w \exists y P(w, y) \]
+\[ F = \neg (\exists x P(x, c) \lor \forall u P(c, u)) \lor \forall w \exists y P(w, y) \]
+
+:::fullwidth
+\[ F = \neg \exists x P(x, c) \land \neg \forall u P(c, u) \lor \forall w \exists y P(w, y) \]
+\[ F = \forall x \neg P(x, c) \land \exists u \neg P(c, u) \lor \forall w \exists y P(w, y) \]
+\[ F = \forall x \exists u \forall w \exists y (\neg P(x, c) \land \neg P(c, u) \lor P(w, y)) \]
+
+:::fullwidth
+Prenexa
+\[ F = \forall x \exists u \forall w \exists y (( \neg P(x, c) \lor P(w, y)) \land (\neg P(c, u) \lor P(w, y))) \]
+
+---
+Para construir la forma clausular se deben eliminar los cuantificadores existenciales, para ello se debe considerar:
+
+:::fullwidth
+- Si la fórmula es de la forma \[ A = \forall y_1 \forall y_2 \ldots \forall y_n \exists x M(x, y_1, y_2, \ldots , y_n )   \]
+  - Se define un nuevo símbolo de función de aridad n
+  - Se reemplaza toda ocurrencia de x por \( f(y_1, y_2, \ldots, y_n) \)
+
+:::fullwidth
+\( A = \forall y_1 \forall y_2 \ldots \forall y_n \exists x M(f(y_1, y_2, \ldots, y_n), y_1, y_2, \ldots , y_n )   \)
+
+
+---
+:::fullwidth
+- Si la fórmla es de la forma \[ A = \exists x M(x) \]
+  - Se reemplaza toda ocurrencia de x por una nueva constante a
+
+\( A = M(a) \)
+
+:::fullwidth
+
+En el ejemplo que estabamos trabajando:
+
+\[ F = \forall x \exists u \forall w \exists y (( \neg P(x, c) \lor P(w, y)) \land (\neg P(c, u) \lor P(w, y))) \]
+
+- u se reemplaza por g(x)
+
+- y se reemplaza por f(x, w)
+
+:::fullwidth
+Clausular
+\[ F = \forall x \forall w (( \neg P(x, c) \lor P(w, f(x, w))) \land (\neg P(c, g(x)) \lor P(w, f(x, w)))) \]
+
 # Motivación para Herbrand
 
 El método de Herbrand nace de la necesidad de estudiar satisfacibilidad sin tener que recorrer dominios arbitrarios y potencialmente complicados. La idea es trasladar el problema a un terreno sintáctico, construido con los propios símbolos del lenguaje: términos, átomos e instancias de cláusulas. 
