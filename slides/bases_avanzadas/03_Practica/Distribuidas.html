@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Distribuidas</title>
+	<style>
+		/* Basic styles for readability */
+		body {
+			font-family: sans-serif;
+			max-width: 800px;
+			margin: 2em auto;
+			padding: 0 1em;
+			line-height: 1.6;
+		}
+		img { max-width: 100%; height: auto; }
+		pre { background-color: #f4f4f4; padding: 1em; overflow-x: auto; }
+		code { font-family: monospace; }
+	</style>
+</head>
+<body>
+	<h1>Práctica</h1>
+<p>Implementar un escenario de bases de datos distribuidas usando tres nodos virtuales (<code>db-nodo1</code>, <code>db-nodo2</code>, <code>db-nodo3</code>) con diferentes motores de base de datos y un motor adicional en el host, aplicando fragmentación horizontal, vertical e híbrida, ejecutando consultas locales y globales, y representando replicación de catálogos compartidos.</p>
+<hr>
+<h2>Parte 1. Preparación de máquinas virtuales y redes</h2>
+<ol>
+<li>
+<p><strong>Descargar Ubuntu apropiado al host</strong></p>
+<ul>
+<li>Si el host es Mac con procesador M1/M2/M3: descargar Ubuntu ARM (ARM 64‑bit).</li>
+<li>Si el host es PC o laptop con procesador Intel/AMD (Windows o Linux): descargar Ubuntu “Intel or AMD 64‑bit architecture”.</li>
+<li>La arquitectura de la ISO debe coincidir con la arquitectura que soporta el hipervisor en ese host.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar redes en modo experto en VirtualBox</strong></p>
+<ul>
+<li>Abrir VirtualBox y entrar a <strong>Preferencias → Red</strong> en modo experto.</li>
+</ul>
+</li>
+<li>
+<p><strong>Crear red solo‑anfitrión</strong></p>
+<ul>
+<li>En la sección de redes “Host‑only”:
+<ul>
+<li>Nombre: <code>default</code> (o el que se muestre por defecto).</li>
+<li>Máscara: <code>255.255.255.0</code>.</li>
+<li>IP del anfitrión: <code>192.168.56.1</code>.</li>
+<li>Rango DHCP: desde <code>192.168.56.1</code> hasta <code>192.168.56.199</code>.</li>
+<li>DHCP habilitado.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Crear red NAT</strong></p>
+<ul>
+<li>En la sección de redes NAT:
+<ul>
+<li>Nombre: <code>default</code>.</li>
+<li>Prefijo IPv4: <code>192.168.50.0/24</code>.</li>
+<li>DHCP habilitado.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Crear las tres máquinas virtuales</strong></p>
+<ul>
+<li>Crear tres VMs en VirtualBox con nombres:
+<ul>
+<li><code>db-nodo1</code></li>
+<li><code>db-nodo2</code></li>
+<li><code>db-nodo3</code></li>
+</ul>
+</li>
+<li>Tipo: Linux, Ubuntu (ARM o Intel/AMD según la ISO).</li>
+<li>RAM: 2 GB.</li>
+<li>Disco: 20 GB, <strong>dinamically allocated</strong>.</li>
+<li>Adjuntar la ISO de Ubuntu y completar la instalación, creando un usuario y contraseña.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar adaptadores de red en cada VM</strong></p>
+<ul>
+<li>Para <code>db-nodo1</code>, <code>db-nodo2</code> y <code>db-nodo3</code>, en <strong>Settings → Network</strong>:
+<ul>
+<li>Adaptador 1:
+<ul>
+<li>Activado.</li>
+<li>Conectado a: <strong>Red NAT</strong>.</li>
+<li>Nombre: <code>default</code> (192.168.50.0/24).</li>
+</ul>
+</li>
+<li>Adaptador 2:
+<ul>
+<li>Activado.</li>
+<li>Conectado a: <strong>Red solo‑anfitrión</strong>.</li>
+<li>Nombre: <code>default</code> (host‑only, 192.168.56.0/24).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Obtener las IP de cada VM y probar conectividad</strong></p>
+<ul>
+<li>En cada VM, ejecutar:<pre><code class="language-bash">ip addr
+</code></pre>
+</li>
+<li>Tomar nota de:
+<ul>
+<li>IP del adaptador host‑only (192.168.56.x).</li>
+</ul>
+</li>
+<li>Desde cada VM, hacer <code>ping</code> a las otras VMs usando las IP host‑only (192.168.56.x) para confirmar conectividad.</li>
+<li>Desde el host, hacer <code>ping</code> a las IP host‑only de cada VM (por ejemplo 192.168.56.3, 192.168.56.4, 192.168.56.5) para verificar comunicación host ↔ nodos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Actualizar y preparar SSH en cada VM</strong></p>
+<ul>
+<li>En cada VM (<code>db-nodo1</code>, <code>db-nodo2</code>, <code>db-nodo3</code>), ejecutar:<pre><code class="language-bash">sudo apt update
+sudo apt upgrade
+sudo apt install openssh-server
+</code></pre>
+</li>
+<li>Habilitar y arrancar SSH:<pre><code class="language-bash">sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+</code></pre>
+</li>
+<li>El estado debe mostrar “active (running)”.</li>
+</ul>
+</li>
+<li>
+<p><strong>Conectar por SSH desde el host a cada VM</strong></p>
+<ul>
+<li>Desde el host, conectarse a cada nodo usando su IP host‑only:<pre><code class="language-bash">ssh usuario@192.168.56.3   # db-nodo1
+ssh usuario@192.168.56.4   # db-nodo2
+ssh usuario@192.168.56.5   # db-nodo3
+</code></pre>
+</li>
+<li><code>usuario</code> es el usuario creado durante la instalación de Ubuntu.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Parte 2. Instalación de motores de base de datos</h2>
+<h3>Nodo1: PostgreSQL (<code>db-nodo1</code>)</h3>
+<ol start="10">
+<li>
+<p>Conectarse a <code>db-nodo1</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.3
+</code></pre>
+</li>
+<li>
+<p>Instalar PostgreSQL:</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install postgresql
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+</code></pre>
+</li>
+<li>
+<p>Verificar PostgreSQL:</p>
+<pre><code class="language-bash">sudo -u postgres psql -c &quot;SELECT version();&quot;
+</code></pre>
+<ul>
+<li>Confirmar que se muestra la versión de PostgreSQL.</li>
+</ul>
+</li>
+</ol>
+<h3>Nodo2: MySQL (<code>db-nodo2</code>)</h3>
+<ol start="13">
+<li>
+<p>Conectarse a <code>db-nodo2</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.4
+</code></pre>
+</li>
+<li>
+<p>Instalar MySQL Server:</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install mysql-server
+sudo systemctl enable mysql
+sudo systemctl start mysql
+</code></pre>
+</li>
+<li>
+<p>Entrar a MySQL como root usando socket:</p>
+<pre><code class="language-bash">sudo mysql
+</code></pre>
+<ul>
+<li>Dentro del prompt, ejecutar:<pre><code class="language-sql">SELECT VERSION();
+</code></pre>
+</li>
+<li>Confirmar que se muestra la versión de MySQL.</li>
+</ul>
+</li>
+</ol>
+<h3>Nodo3: MariaDB (<code>db-nodo3</code>)</h3>
+<ol start="16">
+<li>
+<p>Conectarse a <code>db-nodo3</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.5
+</code></pre>
+</li>
+<li>
+<p>Instalar MariaDB:</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install mariadb-server
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+</code></pre>
+</li>
+<li>
+<p>Entrar a MariaDB:</p>
+<pre><code class="language-bash">sudo mysql
+</code></pre>
+<ul>
+<li>Dentro del prompt, ejecutar:<pre><code class="language-sql">SELECT VERSION();
+</code></pre>
+</li>
+<li>Confirmar que se muestra la versión de MariaDB.</li>
+</ul>
+</li>
+</ol>
+<h3>Host: PostgreSQL (coordinador)</h3>
+<ol start="19">
+<li>
+<p>Instalar PostgreSQL en el host (ejemplo en Linux):</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install postgresql
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+</code></pre>
+</li>
+<li>
+<p>Verificar PostgreSQL en el host:</p>
+<pre><code class="language-bash">sudo -u postgres psql -c &quot;SELECT version();&quot;
+</code></pre>
+<ul>
+<li>Confirmar que se muestra la versión.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Parte 3. Modelo lógico y creación de bases/esquemas</h2>
+<p>Modelo lógico global de referencia:</p>
+<ul>
+<li><code>alumno(id_alumno, nombre, correo, telefono, campus, carrera, promedio)</code></li>
+<li><code>curso(id_curso, nombre, campus, creditos)</code></li>
+<li><code>inscripcion(id_inscripcion, id_alumno, id_curso, periodo, calificacion, fecha_inscripcion)</code></li>
+<li><code>profesor(id_profesor, nombre, correo, telefono, campus, salario, grado)</code></li>
+<li><code>departamento(id_depto, nombre, edificio, extension)</code></li>
+</ul>
+<p>La implementación física se repartirá en fragmentos horizontales, verticales e híbridos, más un catálogo replicado.</p>
+<h3>Nodo1 (PostgreSQL): fragmentos horizontales de alumno y curso</h3>
+<ol start="21">
+<li>
+<p>Conectarse a PostgreSQL de <code>db-nodo1</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.3
+sudo -u postgres psql
+</code></pre>
+</li>
+<li>
+<p>Crear base de datos del nodo:</p>
+<pre><code class="language-sql">CREATE DATABASE bd_nodo1;
+\c bd_nodo1;
+</code></pre>
+</li>
+<li>
+<p>Crear tablas fragmentadas horizontalmente por campus:</p>
+<pre><code class="language-sql">CREATE TABLE alumno_centro (
+    id_alumno      INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    correo         VARCHAR(120),
+    telefono       VARCHAR(20),
+    campus         VARCHAR(20),
+    carrera        VARCHAR(100),
+    promedio       NUMERIC(4,2),
+    CHECK (campus = 'CENTRO')
+);
+
+CREATE TABLE alumno_norte (
+    id_alumno      INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    correo         VARCHAR(120),
+    telefono       VARCHAR(20),
+    campus         VARCHAR(20),
+    carrera        VARCHAR(100),
+    promedio       NUMERIC(4,2),
+    CHECK (campus = 'NORTE')
+);
+
+CREATE TABLE curso_centro (
+    id_curso       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    campus         VARCHAR(20),
+    creditos       INT,
+    CHECK (campus = 'CENTRO')
+);
+
+CREATE TABLE curso_norte (
+    id_curso       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    campus         VARCHAR(20),
+    creditos       INT,
+    CHECK (campus = 'NORTE')
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar datos de ejemplo:</p>
+<pre><code class="language-sql">INSERT INTO alumno_centro VALUES
+(1, 'Ana',  'ana@uni.mx',  '555-0001', 'CENTRO', 'Computación', 8.5),
+(2, 'Luis', 'luis@uni.mx', '555-0002', 'CENTRO', 'Matemáticas', 9.0);
+
+INSERT INTO alumno_norte VALUES
+(3, 'Juan',  'juan@uni.mx',  '555-0003', 'NORTE', 'Física',    8.2),
+(4, 'María', 'maria@uni.mx', '555-0004', 'NORTE', 'Biología',  8.8);
+
+INSERT INTO curso_centro VALUES
+(101, 'BD Avanzadas', 'CENTRO', 8),
+(102, 'Algoritmos',   'CENTRO', 6);
+
+INSERT INTO curso_norte VALUES
+(201, 'Redes',        'NORTE', 8),
+(202, 'Programación', 'NORTE', 6);
+</code></pre>
+</li>
+</ol>
+<h3>Nodo2 (MySQL): fragmentos horizontales y catálogo replicado</h3>
+<ol start="25">
+<li>
+<p>Conectarse a <code>db-nodo2</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.4
+sudo mysql
+</code></pre>
+</li>
+<li>
+<p>Crear base de datos:</p>
+<pre><code class="language-sql">CREATE DATABASE bd_nodo2;
+USE bd_nodo2;
+</code></pre>
+</li>
+<li>
+<p>Crear fragmentos horizontales para campus SUR:</p>
+<pre><code class="language-sql">CREATE TABLE alumno_sur (
+    id_alumno      INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    correo         VARCHAR(120),
+    telefono       VARCHAR(20),
+    campus         VARCHAR(20),
+    carrera        VARCHAR(100),
+    promedio       DECIMAL(4,2),
+    CHECK (campus = 'SUR')
+);
+
+CREATE TABLE curso_sur (
+    id_curso       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    campus         VARCHAR(20),
+    creditos       INT,
+    CHECK (campus = 'SUR')
+);
+</code></pre>
+</li>
+<li>
+<p>Crear catálogo <code>departamento</code> replicado:</p>
+<pre><code class="language-sql">CREATE TABLE departamento (
+    id_depto       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    edificio       VARCHAR(50),
+    extension      VARCHAR(10)
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar datos:</p>
+<pre><code class="language-sql">INSERT INTO alumno_sur VALUES
+(5, 'Paco',  'paco@uni.mx',  '555-0005', 'SUR', 'Química',      8.0),
+(6, 'Elena', 'elena@uni.mx', '555-0006', 'SUR', 'Computación',  9.1);
+
+INSERT INTO curso_sur VALUES
+(301, 'Seguridad', 'SUR', 8),
+(302, 'Linux',     'SUR', 6);
+
+INSERT INTO departamento VALUES
+(1, 'Computación', 'Edif A', '1001'),
+(2, 'Matemáticas', 'Edif B', '1002'),
+(3, 'Física',      'Edif C', '1003');
+</code></pre>
+</li>
+</ol>
+<h3>Nodo3 (MariaDB): fragmentación vertical e híbrida</h3>
+<ol start="30">
+<li>
+<p>Conectarse a <code>db-nodo3</code>:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.5
+sudo mysql
+</code></pre>
+</li>
+<li>
+<p>Crear base de datos:</p>
+<pre><code class="language-sql">CREATE DATABASE bd_nodo3;
+USE bd_nodo3;
+</code></pre>
+</li>
+<li>
+<p>Crear fragmentos verticales de <code>profesor</code>:</p>
+<pre><code class="language-sql">CREATE TABLE profesor_datos (
+    id_profesor    INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    correo         VARCHAR(120),
+    telefono       VARCHAR(20),
+    campus         VARCHAR(20),
+    grado          VARCHAR(50)
+);
+
+CREATE TABLE profesor_nomina (
+    id_profesor    INT PRIMARY KEY,
+    salario        DECIMAL(10,2)
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar datos:</p>
+<pre><code class="language-sql">INSERT INTO profesor_datos VALUES
+(1, 'Dr. López', 'lopez@uni.mx', '555-0101', 'CENTRO', 'Doctorado'),
+(2, 'Mtra. Ruiz', 'ruiz@uni.mx', '555-0102', 'SUR',    'Maestría');
+
+INSERT INTO profesor_nomina VALUES
+(1, 35000.00),
+(2, 28000.00);
+</code></pre>
+</li>
+<li>
+<p>Crear fragmentación híbrida de <code>inscripcion</code> (académica/operativa):</p>
+<pre><code class="language-sql">CREATE TABLE inscripcion_centro_academica (
+    id_inscripcion     INT PRIMARY KEY,
+    id_alumno          INT,
+    id_curso           INT,
+    periodo            VARCHAR(20),
+    calificacion       DECIMAL(4,2)
+);
+
+CREATE TABLE inscripcion_centro_operativa (
+    id_inscripcion     INT PRIMARY KEY,
+    fecha_inscripcion  DATE
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar datos:</p>
+<pre><code class="language-sql">INSERT INTO inscripcion_centro_academica VALUES
+(1001, 1, 101, '2026-1', 9.0),
+(1002, 2, 102, '2026-1', 8.5);
+
+INSERT INTO inscripcion_centro_operativa VALUES
+(1001, '2026-02-01'),
+(1002, '2026-02-02');
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2>Parte 4. Consultas locales de reconstrucción</h2>
+<h3>Profesor (fragmentación vertical, nodo3)</h3>
+<ol start="36">
+<li>En <code>db-nodo3</code>:<pre><code class="language-sql">USE bd_nodo3;
+
+SELECT d.id_profesor,
+       d.nombre,
+       d.campus,
+       d.grado,
+       n.salario
+FROM profesor_datos d
+JOIN profesor_nomina n
+  ON d.id_profesor = n.id_profesor;
+</code></pre>
+<ul>
+<li>Esta consulta reconstruye la vista lógica de <code>profesor</code>.</li>
+</ul>
+</li>
+</ol>
+<h3>Inscripcion (fragmentación híbrida, nodo3)</h3>
+<ol start="37">
+<li>En <code>db-nodo3</code>:<pre><code class="language-sql">USE bd_nodo3;
+
+SELECT a.id_inscripcion,
+       a.id_alumno,
+       a.id_curso,
+       a.periodo,
+       a.calificacion,
+       o.fecha_inscripcion
+FROM inscripcion_centro_academica a
+JOIN inscripcion_centro_operativa o
+  ON a.id_inscripcion = o.id_inscripcion;
+</code></pre>
+<ul>
+<li>Esta consulta reconstruye <code>inscripcion</code> para el campus CENTRO.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Parte 5. Consultas cruzadas desde el host</h2>
+<h3>Preparación en el host</h3>
+<ol start="38">
+<li>
+<p>En el host, asegurarse de tener los clientes:</p>
+<ul>
+<li><code>psql</code> para PostgreSQL (host y nodo1).</li>
+<li><code>mysql</code> para MySQL (nodo2) y MariaDB (nodo3).</li>
+</ul>
+</li>
+<li>
+<p>Conectarse al PostgreSQL del host:</p>
+<pre><code class="language-bash">sudo -u postgres psql
+</code></pre>
+</li>
+<li>
+<p>Crear base de datos coordinadora:</p>
+<pre><code class="language-sql">CREATE DATABASE bd_coordinador;
+\c bd_coordinador;
+</code></pre>
+</li>
+</ol>
+<h3>Obtener datos de alumnos desde los nodos</h3>
+<ol start="41">
+<li>
+<p>Alumnos CENTRO y NORTE (nodo1), desde el host:</p>
+<pre><code class="language-bash">ssh -t usuario@192.168.56.3 \
+&quot;sudo -u postgres psql -d bd_nodo1 -c \
+\&quot;SELECT id_alumno, nombre, campus, carrera, promedio
+   FROM alumno_centro
+   UNION ALL
+   SELECT id_alumno, nombre, campus, carrera, promedio
+   FROM alumno_norte;\&quot;&quot;
+</code></pre>
+<ul>
+<li>Este comando ejecuta la consulta en <code>db-nodo1</code> y muestra el resultado en el host.</li>
+</ul>
+</li>
+<li>
+<p>Alumnos SUR (nodo2), desde el host:</p>
+<pre><code class="language-bash">ssh -t usuario@192.168.56.4 \
+&quot;sudo mysql -D bd_nodo2 -e \
+\&quot;SELECT id_alumno, nombre, campus, carrera, promedio
+   FROM alumno_sur;\&quot;&quot;
+</code></pre>
+<ul>
+<li>Se usa <code>sudo mysql</code> en la VM para no requerir contraseña por socket.</li>
+</ul>
+</li>
+</ol>
+<h3>Registrar resultados en <code>bd_coordinador</code> (host)</h3>
+<ol start="43">
+<li>
+<p>En el host, dentro de <code>bd_coordinador</code>, crear tabla de apoyo:</p>
+<pre><code class="language-sql">CREATE TABLE alumno_global (
+    id_alumno  INT PRIMARY KEY,
+    nombre     VARCHAR(100),
+    campus     VARCHAR(20),
+    carrera    VARCHAR(100),
+    promedio   NUMERIC(4,2)
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar en <code>alumno_global</code> los datos obtenidos desde los nodos.</p>
+<ul>
+<li>Esta inserción puede hacerse manualmente copiando los resultados o mediante scripts adicionales que no forman parte del núcleo de la práctica (requiere código para automatizar la transferencia).</li>
+<li>Es importante aclarar que a partir de este punto la consolidación en <code>alumno_global</code> es manual o requiere programación de apoyo.</li>
+</ul>
+</li>
+<li>
+<p>Consultas globales sobre <code>alumno_global</code>:</p>
+<ul>
+<li>Listar todos los alumnos:<pre><code class="language-sql">SELECT * FROM alumno_global;
+</code></pre>
+</li>
+<li>Contar alumnos por campus:<pre><code class="language-sql">SELECT campus, COUNT(*) AS total
+FROM alumno_global
+GROUP BY campus;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>De forma similar, se pueden obtener desde nodo3 las vistas reconstruidas de <code>profesor</code> e <code>inscripcion</code>, registrar los resultados en tablas <code>profesor_global</code> e <code>inscripcion_global</code> en <code>bd_coordinador</code>, y luego hacer joins globales:</p>
+</li>
+</ol>
+<ul>
+<li>Ejemplo de consulta global:<pre><code class="language-sql">SELECT a.nombre AS alumno,
+       a.campus,
+       COUNT(i.id_inscripcion) AS total_inscripciones
+FROM alumno_global a
+LEFT JOIN inscripcion_global i
+  ON a.id_alumno = i.id_alumno
+GROUP BY a.nombre, a.campus;
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2>Parte 6. Ejemplo de catálogo replicado requerido en varios nodos</h2>
+<ol start="47">
+<li>El catálogo <code>departamento</code> representa información que todas las sedes necesitan consultar (por ejemplo, nombres de departamentos académicos). Para simular replicación:</li>
+</ol>
+<ul>
+<li>
+<p>En <code>db-nodo2</code> (MySQL), ya se creó la tabla:</p>
+<pre><code class="language-sql">CREATE TABLE departamento (
+    id_depto       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    edificio       VARCHAR(50),
+    extension      VARCHAR(10)
+);
+</code></pre>
+</li>
+<li>
+<p>En <code>db-nodo1</code> (PostgreSQL), crear una tabla equivalente:</p>
+<pre><code class="language-bash">ssh usuario@192.168.56.3
+sudo -u postgres psql
+</code></pre>
+<pre><code class="language-sql">\c bd_nodo1;
+
+CREATE TABLE departamento (
+    id_depto       INT PRIMARY KEY,
+    nombre         VARCHAR(100),
+    edificio       VARCHAR(50),
+    extension      VARCHAR(10)
+);
+</code></pre>
+</li>
+<li>
+<p>Insertar en <code>db-nodo1</code> los mismos registros que en <code>db-nodo2</code>:</p>
+<pre><code class="language-sql">INSERT INTO departamento VALUES
+(1, 'Computación', 'Edif A', '1001'),
+(2, 'Matemáticas', 'Edif B', '1002'),
+(3, 'Física',      'Edif C', '1003');
+</code></pre>
+</li>
+</ul>
+<p>De este modo, el catálogo <code>departamento</code> está <strong>replicado</strong> en al menos dos nodos (PostgreSQL nodo1 y MySQL nodo2), permitiendo que consultas locales en cada nodo usen la misma información de referencia sin necesidad de solicitarla a un nodo central.</p>
+<ol start="48">
+<li>Verificar replicación:</li>
+</ol>
+<ul>
+<li>En <code>db-nodo1</code>:<pre><code class="language-sql">SELECT * FROM departamento;
+</code></pre>
+</li>
+<li>En <code>db-nodo2</code>:<pre><code class="language-sql">SELECT * FROM departamento;
+</code></pre>
+</li>
+<li>Confirmar que el contenido es idéntico en ambos nodos.</li>
+</ul>
+<p>Con esta práctica se cubre: preparación de nodos, instalación de motores, diseño de fragmentación horizontal/vertical/híbrida, ejecución de consultas de reconstrucción en cada nodo, aproximación a consultas globales desde el host y representación de replicación de catálogos compartidos.</p>
+
+</body>
+</html>

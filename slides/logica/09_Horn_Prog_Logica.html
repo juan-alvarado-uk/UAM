@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>De Herbrand a programas lógicos</h1>
+    </section>
+    <section>
+      <h2>De Herbrand a programas lógicos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/tTwJWL1W/0063.jpg" alt="image" /></div>
+        <div class="text-col"><p>El trabajo anterior mostró cómo una fórmula de lógica de primer orden puede transformarse en un conjunto de cláusulas, pasando por eliminación de implicaciones, movimiento de negaciones, forma prenexa y skolemización.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>De Herbrand a programas lógicos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/M58tZsn2/0026.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ahora, esas cláusulas se leen como piezas cercanas a un programa lógico: los literales positivos se interpretan como conclusiones y los literales negativos como condiciones que deben cumplirse para que la conclusión sea verdadera.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>De Herbrand a programas lógicos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/bMdPcXLy/0011.jpg" alt="image" /></div>
+        <div class="text-col"><p>Esta lectura aproxima el método de Herbrand a un lenguaje tipo Prolog, donde las cláusulas se convierten en hechos y reglas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>De Herbrand a programas lógicos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La idea central es ver que:</p>
+<ul><li>un conjunto de cláusulas universales puede entenderse como base de conocimiento;</li><li>el universo y la base de Herbrand describen los “casos posibles” dentro del lenguaje;</li><li>los mecanismos de prueba se pueden leer como respuesta a consultas sobre esa base.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Cláusulas de tipo Horn y su lectura</h1>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una cláusula de Horn es una disyunción de literales con a lo más un literal positivo.</p><p>En notación cercana a la forma clausular, una cláusula de Horn típica se ve como:</p><p>\[ A \lor \neg B_1 \lor \cdots \lor \neg B_n \]</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/5h2n2P88/0032.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>y puede reescribirse como una implicación:</p><p>\[ (B_1 \land \cdots \land B_n) \to A \]</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/jvGH2Lky/0101.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta forma se alinea con la manera en que se escriben reglas en un lenguaje de programación lógica:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/BHd7VgCG/0046.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <pre><code class="language-prolog">A :- B1, ..., Bn.</code></pre>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/WWwqLP1m/0058.jpg" alt="image" /></div>
+        <div class="text-col"><p>donde el lado izquierdo representa la cabeza (conclusión) y el lado derecho representa el cuerpo (condiciones).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/W4Y9B1fk/0033.jpg" alt="image" /></div>
+        <div class="text-col"><p>Dos casos particulares de cláusulas de Horn se reconocen fácilmente:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Cláusulas de tipo Horn y su lectura</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Si no hay literales negativos (n = 0), la cláusula es simplemente un <strong>hecho</strong>.</li><li>Si no hay literal positivo, se obtiene una cláusula puramente negativa que puede leerse como una restricción (en muchos ejemplos introductorios se enfatizan sobre todo hechos y reglas).</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/RKHB5w5/0009.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Del conjunto de cláusulas a base de conocimiento</h1>
+    </section>
+    <section>
+      <h2>Del conjunto de cláusulas a base de conocimiento</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+        <div class="text-col"><p>Retomamos la noción de universo de Herbrand: el conjunto de todos los términos cerrados construibles con las constantes y funciones del lenguaje.</p><p>A partir de ahí, la base de Herbrand reúne todos los átomos cerrados que se pueden formar con los predicados del lenguaje y esos términos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Del conjunto de cláusulas a base de conocimiento</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Cuando un conjunto de cláusulas está libre de cuantificadores existenciales (gracias a la skolemización) y los cuantificadores universales se dejan implícitos, estas cláusulas se pueden entender como una descripción declarativa de un dominio.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/GfwFQKhN/0065.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Del conjunto de cláusulas a base de conocimiento</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esa descripción, a su vez, puede interpretarse como un “programa lógico” que responde preguntas sobre el dominio.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rRfbj65Q/0038.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Del conjunto de cláusulas a base de conocimiento</h2>
+      <div class="text-col">
+<p>Así, el puente entre lógica y programación lógica se construye así:</p>
+      </div>
+      <div class="text-col">
+<ol><li>Fórmulas de LPO.</li><li>Transformación hacia forma clausular (prenexa).</li><li>Eliminación de existenciales (skolemización).</li><li>Conjunto de cláusulas universales.</li><li>Lectura de esas cláusulas como hechos y reglas de un programa lógico.</li></ol>
+      </div>
+    </section>
+    <section>
+      <h1>Introducción a un lenguaje de programación lógica</h1>
+    </section>
+    <section>
+      <h2>Programación lógica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un lenguaje de programación lógica se basa en tres componentes fundamentales:</p>
+<ul><li>hechos,</li><li>reglas,</li><li>consultas.</li></ul>
+<p>Estos componentes se conectan con las cláusulas, instancias y satisfacibilidad desarrolladas con el método de Herbrand.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/wN0Mdj75/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Programación lógica</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DX6794m/0069.jpg" alt="image" /></div>
+        <div class="text-col"><p>En este paradigma, el énfasis está en describir qué relaciones se cumplen en un dominio, no en especificar paso a paso cómo obtener el resultado.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Programación lógica</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El sistema de programación lógica intenta encontrar demostraciones de las consultas a partir de los hechos y reglas disponibles, de manera similar a como una prueba formal explora instancias de fórmulas universales.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqxLfGwn/0007.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Hechos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Un hecho expresa que un átomo particular es verdadero.</p><p>En una lectura clausular, un hecho corresponde a una cláusula con un único literal positivo.</p><p>En programación lógica se escribe simplemente como un predicado aplicado a términos concretos, terminado en punto.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/W4Y9B1fk/0033.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos:</h2>
+      <pre><code class="language-prolog">usuario(ana).
+usuario(luis).
+servidor(web1).
+servidor(db1).
+activo(web1).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos:</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Cada una de estas líneas afirma algo sobre individuos particulares, igual que una cláusula como \(Usuario(ana)\) o \(Servidor(db1)\) dentro de una base de Herbrand.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos:</h2>
+      <pre><code class="language-prolog">padre(juan, ana).
+padre(juan, luis).
+madre(elena, ana).
+madre(elena, luis).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos:</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9mnnDhJG/0097.png" alt="image" /></div>
+        <div class="text-col"><p>Aquí se describen relaciones familiares básicas, y cada hecho aporta un átomo cerrado a la base de conocimiento.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Reglas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/7JTTT93P/0072.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una regla expresa que un enunciado es verdadero si se satisfacen otras condiciones.</p><p>En forma clausular, una regla con un literal positivo y varios negativos equivale a una cláusula de Horn.</p><p>En programación lógica, se escribe con el símbolo <code>:-</code>, que separa la cabeza del cuerpo.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <pre><code class="language-prolog">autenticado(X) :- usuario(X), credencial_valida(X).
+acceso(X) :- autenticado(X), permiso(X).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <div class="text-col">
+<p>Que corresponden, respectivamente, a cláusulas del tipo:</p><p>\[ \neg Usuario(x) \lor \neg CredencialValida(x) \lor Autenticado(x) \]</p><p>\[ \neg Autenticado(x) \lor \neg Permiso(x) \lor Acceso(x) \]</p>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DggB7tw/0055.jpg" alt="image" /></div>
+        <div class="text-col"><p>donde cada literal positivo actúa como cabeza de una regla, y el conjunto de literales negativos conforma el cuerpo.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <pre><code class="language-prolog">puede_entrar(X) :- tiene_boleto(X), llega_a_tiempo(X).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <div class="text-col">
+<p>Lectura:</p><p>“X puede entrar si tiene boleto y llega a tiempo”.</p><p>Su forma clausular se ajusta a la misma plantilla de cláusula de Horn.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Una consulta es una pregunta al sistema acerca de si cierto átomo o combinación de átomos puede derivarse de la base de conocimiento.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/VcQSg0Zm/0023.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En términos de Herbrand, <strong>cada consulta corresponde a preguntar si existe una interpretación de Herbrand que haga verdadera la cláusula asociada, dada la información del programa</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/bMdPcXLy/0011.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0jPN9L6C/0005.jpg" alt="image" /></div>
+        <div class="text-col"><p>En sintaxis tipo Prolog, una consulta se escribe así:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <pre><code class="language-prolog">?- usuario(ana).
+?- disponible(web1).
+?- acceso(X).</code></pre>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>Una consulta cerrada, como <code>?- usuario(ana).</code>, pregunta si el átomo <code>usuario(ana)</code> puede derivarse.</li><li>Una consulta con variables, como <code>?- acceso(X).</code>, pregunta por qué valores de X el átomo <code>acceso(X)</code> podría ser demostrado.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/rG8nzmQz/0001.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <pre><code class="language-prolog">?- servidor(db1).
+?- disponible(db1).
+?- disponible(X).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si se tienen los hechos y reglas adecuados, el sistema responde cuáles átomos de la base de Herbrand quedan justificados.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/RKHB5w5/0009.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <pre><code class="language-prolog">?- padre(juan, ana).
+?- progenitor(X, ana).
+?- hermano(ana, Y).</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Estas consultas exploran derivaciones posibles a partir de la base sobre relaciones familiares.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Universo y base de Herbrand en lectura declarativa</h1>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En el contexto de programación lógica, estos conceptos se pueden ver así:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/9mCFFhy2/0076.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li>el universo de Herbrand enumera los “datos posibles” nombrables dentro del lenguaje;</li><li>la base de Herbrand lista todas las afirmaciones posibles sobre esos datos;</li><li>el programa lógico escoge algunas de esas afirmaciones como verdaderas (hechos) y establece reglas que relacionan unas con otras.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/0pxW79Qc/0094.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Ejemplo con funciones:</p><p>Lenguaje con constante \(a\) y función unaria \(f\).</p><p>Universo de Herbrand:</p>
+<ul><li>profundidad 0: \(a\)</li><li>profundidad 1: \(f(a)\)</li><li>profundidad 2: \(f(f(a))\)</li><li>…</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/zVbwcGkh/0095.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/9HzzdMtn/0082.jpg" alt="image" /></div>
+        <div class="text-col"><p>Con un predicado unario \(P\) y uno binario \(R\), la base de Herbrand incluye átomos como \(P(a)\), \(P(f(a))\), \(R(a,f(a))\), \(R(f(a),f(f(a)))\), etcétera.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Si se tiene una cláusula de Horn como:</p><p>\[ \neg P(x) \lor R(x,f(x)) \]</p><p>su lectura como regla es:</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/2YKkLXSx/0098.png" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <pre><code class="language-prolog">r(X, f(X)) :- p(X).</code></pre>
+    </section>
+    <section>
+      <h2>Universo y base de Herbrand</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>y las instancias de Herbrand, para \[x := a\] o \[x := f(a)\] muestran cómo se van particularizando estas reglas sobre términos concretos.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/36PbqJ0/0059.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Interpretaciones de Herbrand y programas</h1>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y programas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/2YKkLXSx/0098.png" alt="image" /></div>
+        <div class="text-col"><p>Una interpretación de Herbrand asigna valores de verdad a los átomos de la base de Herbrand tomando como dominio el universo de Herbrand.</p><p>En ejercicios previos se vio cómo, con unos cuantos átomos, se puede enumerar las posibles interpretaciones y decidir si un conjunto de cláusulas es satisfacible.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y programas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En programación lógica, el conjunto de hechos fija parte de esa interpretación: cada hecho declara un átomo que se considera verdadero.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/CKVXn2f0/0022.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Interpretaciones de Herbrand y programas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Las reglas imponen condiciones adicionales que deben cumplirse para que otros átomos sean verdaderos, de modo que la interpretación resultante respete todas las cláusulas de Horn del programa.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/d4GxfzhY/0083.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo: autenticación y acceso</h1>
+    </section>
+    <section>
+      <h2>Ejemplo: autenticación y acceso</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Se construye una base de conocimiento sobre autenticación y acceso usando hechos y reglas que se ajustan a la forma clausular trabajada antes.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/hx8kGNnH/0017.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Base</h2>
+      <pre><code class="language-prolog">usuario(ana).
+usuario(luis).
+credencial_valida(ana).
+permiso(ana).
+permiso(luis).
+
+autenticado(X) :- usuario(X), credencial_valida(X).
+acceso(X) :- autenticado(X), permiso(X).</code></pre>
+    </section>
+    <section>
+      <h2>Universo</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+        <div class="text-col"><p>El universo de Herbrand (en este fragmento) incluye al menos <code>ana</code> y <code>luis</code>.</p><p>La base de Herbrand contiene átomos como <code>usuario(ana)</code>, <code>credencial_valida(ana)</code>, <code>autenticado(ana)</code>, <code>acceso(ana)</code>, <code>usuario(luis)</code>, <code>permiso(luis)</code>, <code>autenticado(luis)</code>, <code>acceso(luis)</code>.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="text-col">
+<ul><li><code>?- autenticado(ana).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Se verifica <code>usuario(ana)</code> y <code>credencial_valida(ana)</code>, por lo que la regla <code>autenticado/1</code> se satisface y la consulta responde afirmativamente.</p>
+      </div>
+      <div class="text-col">
+<ul><li><code>?- autenticado(luis).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Falta <code>credencial_valida(luis)</code> en los hechos, por lo que la regla no se puede activar.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="text-col">
+<ul><li><code>?- acceso(ana).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Como <code>autenticado(ana)</code> y <code>permiso(ana)</code> se sostienen, la regla <code>acceso/1</code> se cumple para <code>ana</code>.</p>
+      </div>
+      <div class="text-col">
+<ul><li><code>?- acceso(luis).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Aunque <code>permiso(luis)</code> es verdadero, <code>autenticado(luis)</code> no se ha demostrado.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta situación ilustra la lectura declarativa: el programa describe quiénes son usuarios, qué credenciales son válidas y bajo qué condiciones se concede acceso.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/rKK1sTj8/0027.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/VcQSg0Zm/0023.jpg" alt="image" /></div>
+        <div class="text-col"><p>También muestra la lectura operacional: el sistema genera instancias de Herbrand de las reglas y verifica si las condiciones se cumplen para los individuos concretos.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejemplo integrado: familias y hermanos</h1>
+    </section>
+    <section>
+      <h2>Base</h2>
+      <pre><code class="language-prolog">padre(juan, ana).
+padre(juan, luis).
+madre(elena, ana).
+madre(elena, luis).
+
+progenitor(X, Y) :- padre(X, Y).
+progenitor(X, Y) :- madre(X, Y).
+hermano(X, Y) :- padre(P, X), padre(P, Y).</code></pre>
+    </section>
+    <section>
+      <h2>Base</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En esta definición, <code>hermano(X, Y)</code> se lee: “X y Y son hermanos si hay un padre P que es padre de X y de Y”.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/DHqgMbBN/0016.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="text-col">
+<ul><li><code>?- progenitor(juan, ana).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Afirmativa, porque <code>padre(juan, ana)</code> está en la base y la regla <code>progenitor(X, Y) :- padre(X, Y).</code> se cumple.</p>
+      </div>
+      <div class="text-col">
+<ul><li><code>?- progenitor(elena, luis).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Afirmativa, porque <code>madre(elena, luis)</code> está en la base y la regla <code>progenitor(X, Y) :- madre(X, Y).</code> se cumple.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="text-col">
+<ul><li><code>?- hermano(ana, luis).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>Afirmativa, porque existe <code>P = juan</code> tal que <code>padre(juan, ana)</code> y <code>padre(juan, luis)</code> se sostienen.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="text-col">
+<ul><li><code>?- hermano(ana, ana).</code></li></ul>
+      </div>
+      <div class="text-col">
+<p>También se justificaría con la regla dada, porque si <code>X = ana</code> y <code>Y = ana</code>, entonces <code>P = juan</code> satisface <code>padre(juan, ana)</code> dos veces; la regla no impide que X y Y sean iguales.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/zVbwcGkh/0095.png" alt="image" /></div>
+        <div class="text-col"><p>Ese último resultado muestra un fenómeno importante: el programa, tal como está escrito, responde correctamente según su forma lógica, aunque la respuesta choque con la expectativa informal de que nadie es hermano de sí mismo.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>La base de conocimiento refleja exactamente lo que las reglas dicen, no lo que se “tenía en mente”.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/84SPSxBZ/0066.jpg" alt="image" /></div>
+        <div class="text-col"><p>Para corregir esta situación, se puede enriquecer la regla de <code>hermano/2</code> con una condición adicional que exija que X y Y sean distintos:</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <pre><code class="language-prolog">hermano(X, Y) :- padre(P, X), padre(P, Y), X \= Y.</code></pre>
+    </section>
+    <section>
+      <h2>Consultas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RKHB5w5/0009.jpg" alt="image" /></div>
+        <div class="text-col"><p>Con esta versión, <code>hermano(ana, ana)</code> queda descartado porque la condición <code>X \= Y</code> falla cuando X e Y son la misma persona, mientras que <code>hermano(ana, luis)</code> continúa siendo derivable.</p></div>
+      </div>
+    </section>
+    <section>
+      <h1>Ejercicios de lectura declarativa y predicción</h1>
+    </section>
+    <section>
+      <h2>Ejercicios de lectura declarativa y predicción</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KjKmJWsX/0060.jpg" alt="image" /></div>
+        <div class="text-col"><p>Se proponen ahora fragmentos cortos de programas lógicos para practicar la lectura declarativa y la predicción de consultas, en línea con el trabajo previo sobre instancias de Herbrand y conjuntos de cláusulas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 1: dispositivos y red</h2>
+      <pre><code class="language-prolog">dispositivo(pc1).
+dispositivo(pc2).
+en_red(pc1).
+
+visible(X) :- dispositivo(X), en_red(X).</code></pre>
+    </section>
+    <section>
+      <h2>Ejercicio 1: dispositivos y red</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/W4Y9B1fk/0033.jpg" alt="image" /></div>
+        <div class="text-col"><p>Consultas a analizar:</p>
+<ul><li><code>?- visible(pc1).</code></li><li><code>?- visible(pc2).</code></li><li><code>?- dispositivo(pc2).</code></li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 1: dispositivos y red</h2>
+      <div class="text-col">
+<p>Lectura declarativa:</p>
+      </div>
+      <div class="text-col">
+<ul><li><code>dispositivo/1</code> indica qué elementos son dispositivos.</li><li><code>en_red/1</code> indica cuáles están conectados a la red.</li><li><code>visible/1</code> indica dispositivos visibles desde la red, es decir, que son dispositivos y están en red.</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 1: dispositivos y red</h2>
+      <div class="text-col">
+<ul><li><code>visible(pc1)</code> se justifica porque <code>dispositivo(pc1)</code> y <code>en_red(pc1)</code> aparecen como hechos; la instancia de la regla para <code>X = pc1</code> se cumple.</li><li><code>visible(pc2)</code> no se justifica porque, aunque <code>dispositivo(pc2)</code> es verdadero, falta <code>en_red(pc2)</code>.</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 1: dispositivos y red</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><code>dispositivo(pc2)</code> es afirmativa porque aparece directamente como hecho.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/8DggB7tw/0055.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 2: prerequisitos adicionales</h2>
+      <pre><code class="language-prolog">curso(bases_datos).
+curso(ia1).
+
+prerrequisito(ia1, logica).
+
+puede_inscribirse(X, Y) :- curso(Y), prerrequisito(Y, X).</code></pre>
+    </section>
+    <section>
+      <h2>Ejercicio 2: prerequisitos adicionales</h2>
+      <div class="text-col">
+<p>Consultas:</p>
+      </div>
+      <div class="text-col">
+<ul><li><code>?- puede_inscribirse(logica, ia1).</code></li><li><code>?- puede_inscribirse(ia1, bases_datos).</code></li><li><code>?- curso(ia1).</code></li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 2: prerequisitos adicionales</h2>
+      <div class="text-col">
+<ul><li><code>puede_inscribirse(logica, ia1)</code> afirmativa, porque <code>curso(ia1)</code> y <code>prerrequisito(ia1, logica)</code> son verdaderos.</li><li><code>puede_inscribirse(ia1, bases_datos)</code> no se justifica con la base dada, dado que no se declaró <code>prerrequisito(bases_datos, ia1)</code>.</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Ejercicio 2: prerequisitos adicionales</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><code>curso(ia1)</code> afirmativa, porque se declara directamente en el programa.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/FkNDmjJQ/0044.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>para llevar...</h1>
+    </section>
+    <section>
+      <h2>para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Esta sesión enlaza tres niveles:</p>
+<ul><li>el nivel de fórmulas de LPO transformadas hacia cláusulas,</li><li>el nivel de universos y bases de Herbrand,</li><li>y el nivel de programas lógicos escritos con hechos, reglas y consultas.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/8DX6794m/0069.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Gracias a este enlace, un conjunto de cláusulas de Horn puede verse simultáneamente como objeto lógico y como programa en un lenguaje de programación lógica.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/G46sX2KM/0020.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>El trabajo con bases y universos de Herbrand deja de ser solamente un ejercicio abstracto y se convierte en la base semántica para entender cómo funciona la programación lógica.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>para llevar...</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/3q5QHLW/0056.jpg" alt="image" /></div>
+        <div class="text-col"><p>Respone a: Qué significado tienen los hechos, cómo operan las reglas y por qué las consultas reflejan la búsqueda de interpretaciones que satisfacen las cláusulas del programa.</p></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>

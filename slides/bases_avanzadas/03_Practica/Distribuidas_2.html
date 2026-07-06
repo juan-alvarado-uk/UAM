@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+<link rel="stylesheet" href="file:////Users/juanalvarado/.vscode/extensions/goessner.mdmath-2.7.4/themes/default/style.css">
+
+</head>
+<body class="markdown-body">
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 dir="auto" id="práctica-fragmentación-horizontal-y-vertical-en-una-base-de-datos-distribuida">Práctica: Fragmentación horizontal y vertical en una base de datos distribuida</h1>
+<h2 dir="auto" id="objetivo">Objetivo</h2>
+<p dir="auto">Implementar un escenario básico de base de datos distribuida usando dos nodos:</p>
+<ul dir="auto">
+<li dir="auto">El <strong>host</strong> como nodo principal con <strong>PostgreSQL</strong>.</li>
+<li dir="auto">Una <strong>máquina virtual</strong> como segundo nodo con <strong>MySQL</strong>.</li>
+</ul>
+<p dir="auto">En esta práctica se aplicarán dos tipos de fragmentación:</p>
+<ul dir="auto">
+<li dir="auto"><strong>Fragmentación horizontal</strong> de la tabla <code>alumno</code>.</li>
+<li dir="auto"><strong>Fragmentación vertical</strong> de la tabla <code>profesor</code>.</li>
+</ul>
+<p dir="auto">Al finalizar, se debe poder observar que una misma base lógica puede distribuirse entre dos nodos distintos, manteniendo la posibilidad de reconstruir la información original por medio de operaciones de union y join.</p>
+<h2 dir="auto" id="competencias-a-desarrollar">Competencias a desarrollar</h2>
+<p dir="auto">Al completar esta práctica, se deberá ser capaz de:</p>
+<ul dir="auto">
+<li dir="auto">Configurar una red virtual con conectividad entre host y máquina virtual.</li>
+<li dir="auto">Instalar y verificar PostgreSQL en el host y MySQL en una máquina virtual.</li>
+<li dir="auto">Implementar fragmentación horizontal mediante distribución de filas entre nodos.</li>
+<li dir="auto">Implementar fragmentación vertical mediante distribución de columnas entre nodos.</li>
+<li dir="auto">Ejecutar consultas locales y consultas de reconstrucción de la información lógica.</li>
+</ul>
+<h2 dir="auto" id="requisitos-previos">Requisitos previos</h2>
+<p dir="auto">Antes de iniciar, se requiere contar con lo siguiente:</p>
+<ul dir="auto">
+<li dir="auto">VirtualBox instalado.</li>
+<li dir="auto">Una imagen ISO de Ubuntu compatible con la arquitectura del equipo.</li>
+<li dir="auto">Permisos para instalar software en el host y en la máquina virtual.</li>
+<li dir="auto">Acceso a terminal en el host.</li>
+<li dir="auto">Conexión a internet para instalar paquetes en Ubuntu.</li>
+</ul>
+<h2 dir="auto" id="parte-1-preparación-de-red-en-virtualbox">Parte 1. Preparación de red en VirtualBox</h2>
+<p dir="auto">En esta práctica se usará una sola máquina virtual. La VM tendrá dos interfaces de red:</p>
+<ul dir="auto">
+<li dir="auto">Una red <strong>NAT</strong> para tener salida a internet y poder instalar paquetes.</li>
+<li dir="auto">Una red <strong>solo-anfitrión</strong> para permitir la comunicación directa entre el host y la máquina virtual.</li>
+</ul>
+<h3 dir="auto" id="1-descargar-la-imagen-de-ubuntu">1. Descargar la imagen de Ubuntu</h3>
+<p dir="auto">Descargar la imagen ISO de Ubuntu adecuada para el equipo anfitrión:</p>
+<ul dir="auto">
+<li dir="auto">Si el equipo usa procesador Apple Silicon, descargar la versión ARM de Ubuntu.</li>
+<li dir="auto">Si el equipo usa procesador Intel o AMD, descargar la versión de 64 bits correspondiente.</li>
+</ul>
+<p dir="auto">La arquitectura de la ISO debe coincidir con la arquitectura soportada por el equipo y por VirtualBox.</p>
+<h3 dir="auto" id="2-crear-la-red-nat">2. Crear la red NAT</h3>
+<ol dir="auto">
+<li dir="auto">Abrir VirtualBox.</li>
+<li dir="auto">Ir a <strong>Herramientas</strong> o <strong>Preferencias</strong>, según la versión instalada.</li>
+<li dir="auto">Entrar al apartado <strong>Red</strong>.</li>
+<li dir="auto">Abrir la sección <strong>Redes NAT</strong>.</li>
+<li dir="auto">Crear una nueva red NAT con los siguientes parámetros:
+<ul dir="auto">
+<li dir="auto">Nombre: <code>rednat-bd</code> (o el default)</li>
+<li dir="auto">Prefijo IPv4: <code>192.168.50.0/24</code></li>
+<li dir="auto">DHCP: habilitado</li>
+</ul>
+</li>
+<li dir="auto">Guardar la configuración.</li>
+</ol>
+<p dir="auto">La red NAT permitirá que la máquina virtual salga a internet para descargar e instalar paquetes del sistema operativo.</p>
+<h3 dir="auto" id="3-crear-la-red-solo-anfitrión">3. Crear la red solo-anfitrión</h3>
+<ol dir="auto">
+<li dir="auto">En VirtualBox, ir nuevamente al apartado <strong>Red</strong>.</li>
+<li dir="auto">Abrir la sección <strong>Redes solo-anfitrión</strong>.</li>
+<li dir="auto">Crear una nueva red solo-anfitrión con los todos los parámetros de default</li>
+<li dir="auto">Guardar la configuración.</li>
+</ol>
+<p dir="auto">La red solo-anfitrión permitirá la comunicación directa entre el host y la máquina virtual sin depender de internet.</p>
+<h2 dir="auto" id="parte-2-creación-de-la-máquina-virtual">Parte 2. Creación de la máquina virtual</h2>
+<h3 dir="auto" id="4-crear-la-única-vm">4. Crear la única VM</h3>
+<p dir="auto">Crear una máquina virtual con las siguientes características:</p>
+<ul dir="auto">
+<li dir="auto">Nombre sugerido: <code>db-vm</code></li>
+<li dir="auto">Memoria RAM: 2 GB</li>
+<li dir="auto">Disco duro virtual: 20 GB, asignación dinámica</li>
+<li dir="auto">Medio de instalación: la ISO de Ubuntu descargada previamente.</li>
+</ul>
+<p dir="auto">Completar la instalación de Ubuntu y crear un usuario con contraseña. Tomar nota del nombre del usuario, ya que se utilizará más adelante para conectarse por SSH.</p>
+<h3 dir="auto" id="5-configurar-los-adaptadores-de-red-de-la-vm">5. Configurar los adaptadores de red de la VM</h3>
+<p dir="auto">Con la máquina virtual apagada:</p>
+<ol dir="auto">
+<li dir="auto">Entrar a la configuración de la VM.</li>
+<li dir="auto">Abrir la sección <strong>Red</strong>.</li>
+<li dir="auto">Configurar el <strong>Adaptador 1</strong>:
+<ul dir="auto">
+<li dir="auto">Habilitado.</li>
+<li dir="auto">Conectado a: <strong>Red NAT</strong>.</li>
+<li dir="auto">Nombre: <La que fue creada previamente>.</li>
+</ul>
+</li>
+<li dir="auto">Configurar el <strong>Adaptador 2</strong>:
+<ul dir="auto">
+<li dir="auto">Habilitado.</li>
+<li dir="auto">Conectado a: <strong>Adaptador solo-anfitrión</strong>.</li>
+<li dir="auto">Nombre: <La que fue creada previamente>.</li>
+</ul>
+</li>
+<li dir="auto">Guardar los cambios.</li>
+</ol>
+<p dir="auto">La VM usará el adaptador NAT para internet y el adaptador solo-anfitrión para comunicarse con el host.</p>
+<h2 dir="auto" id="parte-3-verificación-de-conectividad">Parte 3. Verificación de conectividad</h2>
+<h3 dir="auto" id="6-iniciar-la-vm-y-revisar-direcciones-ip">6. Iniciar la VM y revisar direcciones IP</h3>
+<p dir="auto">Iniciar la máquina virtual y abrir una terminal. Ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">ip addr
+</code></pre>
+<p dir="auto">Identificar dos direcciones:</p>
+<ul dir="auto">
+<li dir="auto">La dirección asociada al adaptador conectado a la red NAT.</li>
+<li dir="auto">La dirección asociada al adaptador conectado a la red solo-anfitrión, que debe pertenecer al rango <code>192.168.56.x</code>.</li>
+</ul>
+<p dir="auto">Anotar la IP de la red solo-anfitrión, ya que se utilizará para la comunicación entre host y VM.</p>
+<h3 dir="auto" id="7-probar-conectividad-entre-host-y-vm">7. Probar conectividad entre host y VM</h3>
+<p dir="auto">Desde la VM, hacer ping a la IP del host (192.168.56.1) en la red solo-anfitrión:</p>
+<pre><code class="code-line language-bash" dir="auto">ping 192.168.56.1
+</code></pre>
+<p dir="auto">Desde el host, hacer ping a la IP de la VM en la red solo-anfitrión:</p>
+<pre><code class="code-line language-bash" dir="auto">ping 192.168.56.X
+</code></pre>
+<p dir="auto">Sustituir <code>192.168.56.X</code> por la IP real obtenida por la VM. La comunicación entre ambos debe funcionar correctamente.</p>
+<h2 dir="auto" id="parte-4-instalación-y-configuración-básica-de-ssh-en-la-vm">Parte 4. Instalación y configuración básica de SSH en la VM</h2>
+<h3 dir="auto" id="8-actualizar-paquetes-del-sistema">8. Actualizar paquetes del sistema</h3>
+<p dir="auto">En la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo apt update
+sudo apt upgrade -y
+</code></pre>
+<h3 dir="auto" id="9-instalar-el-servidor-ssh">9. Instalar el servidor SSH</h3>
+<p dir="auto">En la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo apt install openssh-server -y
+</code></pre>
+<h3 dir="auto" id="10-habilitar-e-iniciar-ssh">10. Habilitar e iniciar SSH</h3>
+<p dir="auto">En la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo systemctl <span class="hljs-built_in">enable</span> ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+</code></pre>
+<p dir="auto">Verificar que el estado del servicio aparezca como <code>active (running)</code>.</p>
+<h3 dir="auto" id="11-probar-acceso-por-ssh-desde-el-host">11. Probar acceso por SSH desde el host</h3>
+<p dir="auto">Desde el host, abrir una terminal y ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">ssh usuario@192.168.56.X
+</code></pre>
+<p dir="auto">Sustituir <code>usuario</code> por el nombre del usuario creado en Ubuntu y <code>192.168.56.X</code> por la IP host-only de la VM.</p>
+<h2 dir="auto" id="parte-5-instalación-de-postgresql-en-el-host">Parte 5. Instalación de PostgreSQL en el host</h2>
+<h3 dir="auto" id="12-instalar-postgresql">12. Instalar PostgreSQL</h3>
+<p dir="auto">Instalar PostgreSQL en el host. El procedimiento puede variar según el sistema operativo, pero en un host con Ubuntu o Debian puede realizarse con:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo apt update
+sudo apt install postgresql -y
+sudo systemctl <span class="hljs-built_in">enable</span> postgresql
+sudo systemctl start postgresql
+</code></pre>
+<p dir="auto">Si el host es Windows o Mac, consultar la forma de instalación apropiada.</p>
+<h3 dir="auto" id="13-verificar-postgresql">13. Verificar PostgreSQL</h3>
+<p dir="auto">Comprobar que PostgreSQL está disponible een el host, en un host con Ubuntu o Debian puede realizarse con:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo -u postgres psql -c <span class="hljs-string">&quot;SELECT version();&quot;</span>
+</code></pre>
+<p dir="auto">Se debe observar la versión instalada de PostgreSQL.
+En otros sistemas operativos, consultar la documentación apropiada</p>
+<h2 dir="auto" id="parte-6-instalación-de-mysql-en-la-vm">Parte 6. Instalación de MySQL en la VM</h2>
+<h3 dir="auto" id="14-instalar-mysql-server">14. Instalar MySQL Server</h3>
+<p dir="auto">Dentro de la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo apt update
+sudo apt install mysql-server -y
+sudo systemctl <span class="hljs-built_in">enable</span> mysql
+sudo systemctl start mysql
+</code></pre>
+<h3 dir="auto" id="15-verificar-el-estado-del-servicio-mysql">15. Verificar el estado del servicio MySQL</h3>
+<p dir="auto">En la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo systemctl status mysql
+</code></pre>
+<p dir="auto">Verificar que el servicio aparezca como <code>active (running)</code>.</p>
+<h3 dir="auto" id="16-entrar-a-mysql">16. Entrar a MySQL</h3>
+<p dir="auto">Dentro de la VM, ejecutar:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo mysql
+</code></pre>
+<p dir="auto">Una vez dentro del cliente MySQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> VERSION();
+</code></pre>
+<p dir="auto">Confirmar que se muestra correctamente la versión del motor. Para salir de MySQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto">exit
+</code></pre>
+<h2 dir="auto" id="parte-7-modelo-lógico-global">Parte 7. Modelo lógico global</h2>
+<p dir="auto">Para esta práctica se tomará como referencia el siguiente modelo lógico global del sistema académico:</p>
+<ul dir="auto">
+<li dir="auto"><code>alumno(id_alumno, nombre, correo, telefono, campus, carrera, promedio)</code></li>
+<li dir="auto"><code>profesor(id_profesor, nombre, correo, telefono, campus, grado, salario)</code></li>
+</ul>
+<p dir="auto">Estas tablas no se implementarán completas en un solo nodo, sino fragmentadas entre el host y la VM. La fragmentación tiene como objetivo dividir una relación en fragmentos que puedan almacenarse en nodos diferentes y reconstruirse posteriormente.</p>
+<h2 dir="auto" id="parte-8-fragmentación-horizontal-de-la-tabla-alumno">Parte 8. Fragmentación horizontal de la tabla alumno</h2>
+<p dir="auto">La fragmentación horizontal divide una tabla por filas, de forma que cada fragmento contiene un subconjunto de registros determinado por una condición sobre un atributo.</p>
+<p dir="auto">En esta práctica, la tabla lógica <code>alumno</code> se distribuirá por campus de la siguiente manera:</p>
+<ul dir="auto">
+<li dir="auto">En el <strong>host</strong> se almacenarán los alumnos de <code>CENTRO</code> y <code>NORTE</code>.</li>
+<li dir="auto">En la <strong>VM</strong> se almacenarán los alumnos de <code>SUR</code>.</li>
+</ul>
+<p dir="auto">La reconstrucción lógica de la tabla completa se expresa como:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>o</mi><mo>=</mo><mi>a</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>o</mi><mi mathvariant="normal">_</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>o</mi><mo>∪</mo><mi>a</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>o</mi><mi mathvariant="normal">_</mi><mi>n</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>e</mi><mo>∪</mo><mi>a</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>o</mi><mi mathvariant="normal">_</mi><mi>s</mi><mi>u</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">
+alumno = alumno\_centro \cup alumno\_norte \cup alumno\_sur
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">mn</span><span class="mord mathnormal">o</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">mn</span><span class="mord mathnormal">o</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">ce</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ro</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">mn</span><span class="mord mathnormal">o</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">mn</span><span class="mord mathnormal">o</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">s</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></span></p>
+</math>
+<p dir="auto">Esta distribución permite observar que cada nodo almacena un subconjunto distinto de filas de la misma tabla lógica.</p>
+<h3 dir="auto" id="17-crear-la-base-de-datos-en-el-host">17. Crear la base de datos en el host</h3>
+<p dir="auto">En el host, entrar a PostgreSQL:</p>
+<pre><code class="code-line language-bash" dir="auto">sudo -u postgres psql
+</code></pre>
+<p dir="auto">Crear la base de datos del nodo principal:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> DATABASE bd_host;
+\c bd_host;
+</code></pre>
+<h3 dir="auto" id="18-crear-los-fragmentos-horizontales-en-el-host">18. Crear los fragmentos horizontales en el host</h3>
+<p dir="auto">Ejecutar en PostgreSQL:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> alumno_centro (
+    id_alumno <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    correo    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">120</span>),
+    telefono  <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    campus    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    carrera   <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    promedio  <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>),
+    <span class="hljs-keyword">CHECK</span> (campus <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;CENTRO&#x27;</span>)
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> alumno_norte (
+    id_alumno <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    correo    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">120</span>),
+    telefono  <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    campus    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    carrera   <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    promedio  <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>),
+    <span class="hljs-keyword">CHECK</span> (campus <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;NORTE&#x27;</span>)
+);
+</code></pre>
+<h3 dir="auto" id="19-insertar-datos-en-los-fragmentos-del-host">19. Insertar datos en los fragmentos del host</h3>
+<p dir="auto">Ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> alumno_centro <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;Ana&#x27;</span>, <span class="hljs-string">&#x27;ana@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0001&#x27;</span>, <span class="hljs-string">&#x27;CENTRO&#x27;</span>, <span class="hljs-string">&#x27;Computación&#x27;</span>, <span class="hljs-number">8.5</span>),
+(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;Luis&#x27;</span>, <span class="hljs-string">&#x27;luis@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0002&#x27;</span>, <span class="hljs-string">&#x27;CENTRO&#x27;</span>, <span class="hljs-string">&#x27;Matemáticas&#x27;</span>, <span class="hljs-number">9.0</span>);
+
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> alumno_norte <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;Juan&#x27;</span>, <span class="hljs-string">&#x27;juan@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0003&#x27;</span>, <span class="hljs-string">&#x27;NORTE&#x27;</span>, <span class="hljs-string">&#x27;Física&#x27;</span>, <span class="hljs-number">8.2</span>),
+(<span class="hljs-number">4</span>, <span class="hljs-string">&#x27;María&#x27;</span>, <span class="hljs-string">&#x27;maria@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0004&#x27;</span>, <span class="hljs-string">&#x27;NORTE&#x27;</span>, <span class="hljs-string">&#x27;Biología&#x27;</span>, <span class="hljs-number">8.8</span>);
+</code></pre>
+<h3 dir="auto" id="20-crear-la-base-de-datos-en-la-vm">20. Crear la base de datos en la VM</h3>
+<p dir="auto">Conectarse a la VM y entrar a MySQL:</p>
+<pre><code class="code-line language-bash" dir="auto">ssh usuario@192.168.56.X
+sudo mysql
+</code></pre>
+<p dir="auto">Crear la base de datos:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> DATABASE bd_vm;
+USE bd_vm;
+</code></pre>
+<h3 dir="auto" id="21-crear-el-fragmento-horizontal-en-la-vm">21. Crear el fragmento horizontal en la VM</h3>
+<p dir="auto">Ejecutar en MySQL:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> alumno_sur (
+    id_alumno <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    correo    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">120</span>),
+    telefono  <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    campus    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    carrera   <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    promedio  <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>),
+    <span class="hljs-keyword">CHECK</span> (campus <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;SUR&#x27;</span>)
+);
+</code></pre>
+<h3 dir="auto" id="22-insertar-datos-en-el-fragmento-de-la-vm">22. Insertar datos en el fragmento de la VM</h3>
+<p dir="auto">Ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> alumno_sur <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-number">5</span>, <span class="hljs-string">&#x27;Paco&#x27;</span>, <span class="hljs-string">&#x27;paco@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0005&#x27;</span>, <span class="hljs-string">&#x27;SUR&#x27;</span>, <span class="hljs-string">&#x27;Química&#x27;</span>, <span class="hljs-number">8.0</span>),
+(<span class="hljs-number">6</span>, <span class="hljs-string">&#x27;Elena&#x27;</span>, <span class="hljs-string">&#x27;elena@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0006&#x27;</span>, <span class="hljs-string">&#x27;SUR&#x27;</span>, <span class="hljs-string">&#x27;Computación&#x27;</span>, <span class="hljs-number">9.1</span>);
+</code></pre>
+<h2 dir="auto" id="parte-9-fragmentación-vertical-de-la-tabla-profesor">Parte 9. Fragmentación vertical de la tabla profesor</h2>
+<p dir="auto">La fragmentación vertical divide una tabla por columnas. Para poder reconstruir la tabla original, cada fragmento debe conservar el identificador común.</p>
+<p dir="auto">En esta práctica, la tabla lógica <code>profesor</code> se distribuirá así:</p>
+<ul dir="auto">
+<li dir="auto">En el <strong>host</strong> se almacenarán los datos generales del profesor.</li>
+<li dir="auto">En la <strong>VM</strong> se almacenará la información de nómina.</li>
+</ul>
+<p dir="auto">La reconstrucción lógica de la tabla completa se expresa como:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>e</mi><mi>s</mi><mi>o</mi><mi>r</mi><mo>=</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>e</mi><mi>s</mi><mi>o</mi><mi>r</mi><mi mathvariant="normal">_</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>s</mi><mo>⋈</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>e</mi><mi>s</mi><mi>o</mi><mi>r</mi><mi mathvariant="normal">_</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">
+profesor = profesor\_datos \bowtie profesor\_nomina
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">esor</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">esor</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">os</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⋈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">esor</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">mina</span></span></span></span></span></p>
+</math>
+<p dir="auto">El atributo común para reunir ambos fragmentos será <code>id_profesor</code>.</p>
+<h3 dir="auto" id="23-crear-el-fragmento-vertical-en-el-host">23. Crear el fragmento vertical en el host</h3>
+<p dir="auto">En PostgreSQL, dentro de <code>bd_host</code>, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> profesor_datos (
+    id_profesor <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    correo      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">120</span>),
+    telefono    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    campus      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    grado       <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>)
+);
+</code></pre>
+<h3 dir="auto" id="24-insertar-datos-en-el-fragmento-del-host">24. Insertar datos en el fragmento del host</h3>
+<p dir="auto">Ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> profesor_datos <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;Dr. López&#x27;</span>, <span class="hljs-string">&#x27;lopez@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0101&#x27;</span>, <span class="hljs-string">&#x27;CENTRO&#x27;</span>, <span class="hljs-string">&#x27;Doctorado&#x27;</span>),
+(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;Mtra. Ruiz&#x27;</span>, <span class="hljs-string">&#x27;ruiz@uni.mx&#x27;</span>, <span class="hljs-string">&#x27;555-0102&#x27;</span>, <span class="hljs-string">&#x27;SUR&#x27;</span>, <span class="hljs-string">&#x27;Maestría&#x27;</span>);
+</code></pre>
+<h3 dir="auto" id="25-crear-el-fragmento-vertical-en-la-vm">25. Crear el fragmento vertical en la VM</h3>
+<p dir="auto">En MySQL, dentro de <code>bd_vm</code>, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> profesor_nomina (
+    id_profesor <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    salario     <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">10</span>,<span class="hljs-number">2</span>)
+);
+</code></pre>
+<h3 dir="auto" id="26-insertar-datos-en-el-fragmento-de-la-vm">26. Insertar datos en el fragmento de la VM</h3>
+<p dir="auto">Ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> profesor_nomina <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-number">1</span>, <span class="hljs-number">35000.00</span>),
+(<span class="hljs-number">2</span>, <span class="hljs-number">28000.00</span>);
+</code></pre>
+<h2 dir="auto" id="parte-10-consultas-locales">Parte 10. Consultas locales</h2>
+<h3 dir="auto" id="27-consultar-los-fragmentos-horizontales-en-el-host">27. Consultar los fragmentos horizontales en el host</h3>
+<p dir="auto">En PostgreSQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> alumno_centro;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> alumno_norte;
+</code></pre>
+<h3 dir="auto" id="28-consultar-el-fragmento-horizontal-en-la-vm">28. Consultar el fragmento horizontal en la VM</h3>
+<p dir="auto">En MySQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> alumno_sur;
+</code></pre>
+<h3 dir="auto" id="29-consultar-el-fragmento-vertical-en-el-host">29. Consultar el fragmento vertical en el host</h3>
+<p dir="auto">En PostgreSQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> profesor_datos;
+</code></pre>
+<h3 dir="auto" id="30-consultar-el-fragmento-vertical-en-la-vm">30. Consultar el fragmento vertical en la VM</h3>
+<p dir="auto">En MySQL, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> profesor_nomina;
+</code></pre>
+<p dir="auto">Estas consultas permiten observar que cada nodo contiene solamente una parte de la base lógica global.</p>
+<h2 dir="auto" id="parte-11-reconstrucción-lógica-de-la-información">Parte 11. Reconstrucción lógica de la información</h2>
+<h3 dir="auto" id="31-reconstrucción-conceptual-de-alumno">31. Reconstrucción conceptual de <code>alumno</code></h3>
+<p dir="auto">La tabla <code>alumno</code> se reconstruye combinando todos los fragmentos horizontales. Desde el punto de vista teórico, la reconstrucción se realiza con una unión de registros provenientes de los tres campus.</p>
+<p dir="auto">En el host, crear una tabla de apoyo para visualizar la reconstrucción global:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> alumno_global (
+    id_alumno <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    campus    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    carrera   <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    promedio  <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>)
+);
+</code></pre>
+<p dir="auto">Insertar primero los datos del host:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> alumno_global
+<span class="hljs-keyword">SELECT</span> id_alumno, nombre, campus, carrera, promedio
+<span class="hljs-keyword">FROM</span> alumno_centro;
+
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> alumno_global
+<span class="hljs-keyword">SELECT</span> id_alumno, nombre, campus, carrera, promedio
+<span class="hljs-keyword">FROM</span> alumno_norte;
+</code></pre>
+<p dir="auto">Después, recuperar desde la VM los datos del fragmento <code>alumno_sur</code> con el siguiente comando ejecutado en el host:</p>
+<pre><code class="code-line language-bash" dir="auto">ssh -t usuario@192.168.56.X <span class="hljs-string">&quot;sudo mysql -D bd_vm -e \&quot;SELECT id_alumno, nombre, campus, carrera, promedio FROM alumno_sur;\&quot;&quot;</span>
+</code></pre>
+<p dir="auto">Con base en el resultado mostrado, insertar manualmente esos registros en <code>alumno_global</code>:</p>
+<p dir="auto">Verificar el contenido global:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> alumno_global;
+</code></pre>
+<h3 dir="auto" id="32-reconstrucción-conceptual-de-profesor">32. Reconstrucción conceptual de <code>profesor</code></h3>
+<p dir="auto">La tabla <code>profesor</code> se reconstruye reuniendo los fragmentos verticales por medio del atributo <code>id_profesor</code>, ya que ambos fragmentos comparten la llave primaria.</p>
+<p dir="auto">Crear en el host una tabla global de apoyo:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> profesor_global (
+    id_profesor <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+    nombre      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    correo      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">120</span>),
+    telefono    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    campus      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),
+    grado       <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+    salario     <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">10</span>,<span class="hljs-number">2</span>)
+);
+</code></pre>
+<p dir="auto">Consultar desde el host el contenido local del fragmento <code>profesor_datos</code>:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> profesor_datos;
+</code></pre>
+<p dir="auto">Recuperar desde la VM el contenido del fragmento <code>profesor_nomina</code>:</p>
+<pre><code class="code-line language-bash" dir="auto">ssh -t usuario@192.168.56.X <span class="hljs-string">&quot;sudo mysql -D bd_vm -e \&quot;SELECT * FROM profesor_nomina;\&quot;&quot;</span>
+</code></pre>
+<p dir="auto">Con base en los datos observados, insertar manualmente los registros completos en <code>profesor_global</code>:</p>
+<p dir="auto">Verificar el resultado:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> profesor_global;
+</code></pre>
+<h2 dir="auto" id="parte-12-consultas-finales">Parte 12. Consultas finales</h2>
+<h3 dir="auto" id="33-consultas-globales-sobre-alumnos">33. Consultas globales sobre alumnos</h3>
+<p dir="auto">En el host, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> alumno_global;
+</code></pre>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> campus, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> total_alumnos
+<span class="hljs-keyword">FROM</span> alumno_global
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> campus;
+</code></pre>
+<h3 dir="auto" id="34-consultas-globales-sobre-profesores">34. Consultas globales sobre profesores</h3>
+<p dir="auto">En el host, ejecutar:</p>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> profesor_global;
+</code></pre>
+<pre><code class="code-line language-sql" dir="auto"><span class="hljs-keyword">SELECT</span> campus, <span class="hljs-built_in">AVG</span>(salario) <span class="hljs-keyword">AS</span> salario_promedio
+<span class="hljs-keyword">FROM</span> profesor_global
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> campus;
+</code></pre>
+<h2 dir="auto" id="parte-13-actividades-de-análisis">Parte 13. Actividades de análisis</h2>
+<p dir="auto">Responder las siguientes preguntas en el reporte:</p>
+<ol dir="auto">
+<li dir="auto">¿Qué parte de la práctica corresponde a fragmentación horizontal y por qué?</li>
+<li dir="auto">¿Qué parte de la práctica corresponde a fragmentación vertical y por qué?</li>
+<li dir="auto">¿Qué atributo permite reconstruir la tabla <code>profesor</code>?</li>
+<li dir="auto">¿Por qué <code>alumno</code> se reconstruye con unión y <code>profesor</code> con reunión (JOIN)?</li>
+<li dir="auto">¿Qué ventajas ofrece almacenar en el host fragmentos que la VM no contiene y viceversa?</li>
+</ol>
+<h2 dir="auto" id="entregables">Entregables</h2>
+<p dir="auto">Entregar un archivo comprimido con los siguientes elementos:</p>
+<ol dir="auto">
+<li dir="auto">
+<p dir="auto"><strong>Reporte en PDF</strong> con:</p>
+<ul dir="auto">
+<li dir="auto">Portada.</li>
+<li dir="auto">Objetivo de la práctica.</li>
+<li dir="auto">Respuestas a las preguntas de análisis.</li>
+</ul>
+</li>
+<li dir="auto">
+<p dir="auto"><strong>Capturas de pantalla</strong> integradas en el reporte que muestren al menos:</p>
+<ul dir="auto">
+<li dir="auto">La verificación de versión de PostgreSQL en el host.</li>
+<li dir="auto">La verificación de versión de MySQL en la VM.</li>
+<li dir="auto">Las consultas finales. (Parte 12)</li>
+</ul>
+</li>
+</ol>
+
+</body>
+</html>

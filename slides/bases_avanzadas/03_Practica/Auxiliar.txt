@@ -1,0 +1,267 @@
+He seguido los pasos siguientes y con ellos y las aclaraciones todo funciona bien.
+Usa los pasos que he listado para fabricar el instructivo completo para la práctica.
+Y dame un ejemplo final de un catalogo que requieren todos los nodos o un par de nodos para representar la replicación:
+
+
+Descargar las versiones de VM apropiada al host
+Descargar ubuntu ARM para mac m1, m2, etc e intel o amd para pc y linux
+Deben coincidir las arquitecturas
+
+Para hacer lo siguiente hay que poner el modo experto
+
+en el panel derecho seleccionar "Red" (o network, según el idioma)
+
+Hacer una red solo-anfitrión
+(datos a continuación)
+Nombre: default
+255.255.255.0
+192.168.56.1
+192.168.56.199
+(DHCP habilitado)
+Hacer la red nat, nombre: default, prefijo IPv4: 192.168.50.0/24, Habilitar DHCP
+
+Crear las VM
+
+configurar en adaptador 1 la red NAT (BD-distribuidas)
+configurar en adaptador 2 la red solo anfitrion
+
+Tomar nota de las ip de cada máquina virtual
+y hacer ping para probar conectividad
+
+Instalar en cada máquina virtual sus actualizaciones y el ssh-server
+
+sudo apt upgrade
+sudo apt install openssh-server
+
+luego..
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+
+status debe mostrar algo como “active (running)”.
+
+Conectar por ssh con la máquina virtual
+ssh usuario@<IP de la VM>
+
+
+
+Parte 2. Instalación de motores de base de datos
+Nodo1: PostgreSQL (db-nodo1)
+Conectarse por SSH a db-nodo1:
+
+bash
+ssh usuario@192.168.56.3
+Instalar PostgreSQL:
+
+bash
+sudo apt update
+sudo apt install postgresql
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+Verificar PostgreSQL:
+
+bash
+sudo -u postgres psql -c "SELECT version();"
+Confirmar que muestra la versión de PostgreSQL.
+
+
+
+Nodo2: MySQL (db-nodo2)
+Conectarse por SSH a db-nodo2:
+
+bash
+ssh usuario@192.168.56.4
+Instalar MySQL Server:
+
+bash
+sudo apt update
+sudo apt install mysql-server
+sudo systemctl enable mysql
+sudo systemctl start mysql
+
+
+
+sudo mysql
+SELECT VERSION();
+
+
+
+
+Instalar MariaDB:
+
+bash
+sudo apt update
+sudo apt install mariadb-server
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+
+Verificar MariaDB:
+
+bash
+NOTA: Esto no funciona, No ponerlo
+mysql -u root -p -e "SELECT VERSION();"
+
+En lugar de eso poner
+sudo mysql
+
+y esto ya da la versión de MariaDB
+
+
+luego para la parte 3
+
+Nodo1 (PostgreSQL): fragmentos horizontales de alumno y curso
+Conectarse a PostgreSQL de db-nodo1:
+
+bash
+ssh usuario@192.168.56.3
+sudo -u postgres psql
+
+
+Crear una base de datos para el nodo:
+
+sql
+CREATE DATABASE bd_nodo1;
+\c bd_nodo1;
+
+Todo lo anterior bien,
+
+y la creación de tablas (e inserciones) también está bien
+
+
+
+Nodo2 (MySQL): fragmentos horizontales de alumno/curso y departamento replicado
+Conectarse a db-nodo2:
+
+bash
+ssh usuario@192.168.56.4
+ESTO NO SIRVE: mysql -u root -p
+
+USAR ESTO: sudo mysql
+
+
+Crear base de datos del nodo:
+
+sql
+CREATE DATABASE bd_nodo2;
+USE bd_nodo2;
+
+
+Tablas e inserts, bien!
+
+
+luego...
+
+Nodo3 (MariaDB): fragmentación vertical de profesor e híbrida de inscripcion
+Conectarse a db-nodo3:
+
+bash
+ssh usuario@192.168.56.5
+sudo mysql
+
+
+Crear base de datos:
+
+sql
+CREATE DATABASE bd_nodo3;
+USE bd_nodo3;
+
+
+
+
+Parte 5. Consultas cruzadas desde el host
+Preparación: clientes y conexiones desde el host
+En el host, asegurarse de tener los clientes de cada motor:
+
+psql para PostgreSQL (host y nodo1).
+
+mysql para MySQL (nodo2) y MariaDB (nodo3).
+
+En el host, conectar a PostgreSQL propio:
+
+bash
+psql -U postgres
+o
+sudo -u postgres psql
+
+Crear una base de datos coordinadora:
+
+CREATE DATABASE bd_coordinador;
+\c bd_coordinador;
+
+
+Consultas cruzadas por scripts (conceptual)
+Nota: cada motor corre en su VM, y el host se conecta a ellos por sus IP host‑only. Ejemplo de flujo manual:
+
+Desde el host, obtener datos de alumnos de cada nodo:
+
+Alumnos CENTRO y NORTE (nodo1):
+
+
+ssh -t usuario@192.168.56.3 \
+"sudo -u postgres psql -d bd_nodo1 -c \
+\"SELECT id_alumno, nombre, campus, carrera, promedio
+   FROM alumno_centro
+   UNION ALL
+   SELECT id_alumno, nombre, campus, carrera, promedio
+   FROM alumno_norte;\""
+
+
+Alumnos SUR (nodo2):
+
+bash
+ssh -t usuario@192.168.56.4 "mysql -u root -p -D bd_nodo2 -e \
+\"SELECT id_alumno, nombre, campus, carrera, promedio FROM alumno_sur;\""
+
+
+Registrar los resultados en tablas de apoyo en bd_coordinador (PostgreSQL host), por ejemplo:
+
+
+
+sql
+CREATE TABLE alumno_global (
+    id_alumno  INT PRIMARY KEY,
+    nombre     VARCHAR(100),
+    campus     VARCHAR(20),
+    carrera    VARCHAR(100),
+    promedio   NUMERIC(4,2)
+);
+
+[Todo a partir de aqui es manual o requiere de código para controlar los datos.
+Hacer la aclaración de lo anterior ]
+Luego insertar, copiando los datos obtenidos de cada nodo (de forma manual o mediante scripts).
+
+Ejecutar consultas globales en el host sobre alumno_global:
+
+Listar todos los alumnos:
+
+sql
+SELECT * FROM alumno_global;
+Contar alumnos por campus:
+
+sql
+SELECT campus, COUNT(*) AS total
+FROM alumno_global
+GROUP BY campus;
+De forma similar, obtener desde el host vistas agregadas:
+
+Desde nodo3, tabla reconstruida de profesor (JOIN vertical), y registrar en una tabla profesor_global en el host.
+
+Desde nodo3, vista reconstruida de inscripción híbrida, y registrarla en inscripcion_global en el host.
+
+Desde el host, realizar consultas conjuntas:
+
+Alumnos y sus profesores por campus.
+
+Alumnos y total de inscripciones por periodo.
+
+Ejemplo:
+
+sql
+SELECT a.nombre AS alumno,
+       a.campus,
+       COUNT(i.id_inscripcion) AS total_inscripciones
+FROM alumno_global a
+LEFT JOIN inscripcion_global i
+  ON a.id_alumno = i.id_alumno
+GROUP BY a.nombre, a.campus;
+
