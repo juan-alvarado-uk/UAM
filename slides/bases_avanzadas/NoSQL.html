@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Presentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/solarized.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+    <style>
+
+        /* Usar más ancho de pantalla */
+        .reveal .slides {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .reveal section {
+            padding: 0.5em 0.5em;
+            text-align: left;
+        }
+        .reveal section h1,
+        .reveal section h2,
+        .reveal section h3,
+        .reveal section p,
+        .reveal section li,
+        .reveal section ol,
+        .reveal section ul,
+        .reveal section div {
+            text-align: left;
+        }
+
+        /* Slides de portada/cierre con imagen casi a pantalla completa */
+        .full-image-slide {
+            text-align: center;
+        }
+        .full-image-slide .full-slide-image {
+            max-width: 100%;
+            max-height: 90vh;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* o 'cover' si prefieres recorte estilizado */
+            border-radius: 12px;
+        }
+        .full-image-slide h1,
+        .full-image-slide h2 {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        /* Layout dos columnas cuando hay imagen */
+      .slide-two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .text-col {
+        font-size: 0.9em;
+        text-align: left !important;
+        align-self: start;
+        justify-self: stretch;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .text-col {
+        text-align: left !important;
+        width: 100%;
+      }
+
+      .slide-two-col .image-col {
+        display: flex;
+        align-items: center;   /* centrar verticalmente la imagen dentro de su mitad */
+        justify-content: center;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+
+      .slide-two-col .image-col img {
+        /* que NUNCA exceda la mitad de la slide ni en ancho ni en alto */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        /* quitar márgenes globales de reveal en imágenes dentro de este layout */
+        margin: 0 !important;
+      }
+
+      /* Opcional: limitar cualquier imagen genérica de reveal aún más */
+      .reveal section img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+        /* Ajuste general */
+        .reveal table {
+            font-size: 0.7em;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        .reveal table th,
+        .reveal table td {
+            border: 1px solid #ddd;
+            padding: 0.3em 0.5em;
+        }
+        .reveal table th {
+            background-color: rgba(100,100,100,0.2);
+        }
+        .reveal pre {
+            font-size: 0.6em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div>
+      <img src="https://i.ibb.co/d4zZTcgV/variacion5-Cua.png"  width = "100" alt="Logo">
+    </div>
+  <div class="slides">
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/V0DcBmKz/cua-01.jpg" alt="slide image" />
+              
+            </section>
+    <section>
+      <h1>Datos semiestructurados y NoSQL</h1>
+    </section>
+    <section>
+      <h2>Datos semiestructurados y NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/gZst5BrW/0036.jpg" alt="image" /></div>
+        <div class="text-col"><p>En esta presentación veremos datos semiestructurados y las bases de datos NoSQL como complemento al modelo relacional.</p><p>Retomaremos limitaciones con el uso del modelo relacional ya identificadas en sesiones previas ...</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Datos semiestructurados y NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/8DggB7tw/0055.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>estructuras internas complejas,</li><li>listas de tamaño variable,</li><li>integración con formatos XML y JSON y</li><li>necesidades de escalabilidad y distribución que exceden el escenario relacional clásico.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>El objetivo es explorar:</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/j9Pg45Vh/0040.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li>Qué se entiende por dato semiestructurado.</li><li>Cómo se organizan XML y JSON.</li><li>Qué aportan las bases documentales frente a bases relacionales.</li><li>Cuáles son las motivaciones técnicas para NoSQL.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Datos semiestructurados: concepto general</h1>
+    </section>
+    <section>
+      <h2>Datos semiestructurados: concepto general</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/b5NVW6dp/0025.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> Los datos semiestructurados son datos que conservan organización interna mediante atributos, anidamientos y listas, pero que no comparten obligatoriamente un esquema fijo idéntico para todos los registros.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Datos semiestructurados: concepto general</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Existe cierta estructura, pero con campos opcionales y variaciones entre instancias</strong>.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/nqxLfGwn/0007.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Datos semiestructurados: concepto general</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/fVG9L6Fk/0088.jpg" alt="image" /></div>
+        <div class="text-col"><p>En un esquema relacional clásico, cada fila de una tabla comparte el mismo conjunto de columnas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Datos semiestructurados: concepto general</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0jMd7CMx/0080.jpg" alt="image" /></div>
+        <div class="text-col"><p>Cuando el dominio incluye objetos con partes internas, colecciones de tamaño variable o jerarquías de tipos, el diseño tiende a multiplicar tablas y relaciones para poder representarlos, lo que incrementa complejidad de consultas, mantenimiento y migraciones.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Datos semiestructurados: concepto general</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Los datos semiestructurados permiten:</p>
+<ul><li>Campos opcionales según el caso.</li><li>Anidamiento de objetos.</li><li>Arreglos de elementos.</li><li>Cambios frecuentes en estructura sin redefinir un esquema rígido central cada vez.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/0pxW79Qc/0094.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>XML y JSON como formatos semiestructurados</h1>
+    </section>
+    <section>
+      <h2>XML: elementos y atributos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0RN08tgd/0010.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> XML (Extensible Markup Language) es un lenguaje de marcado que representa información mediante elementos y atributos organizados jerárquicamente.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>XML: elementos y atributos</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/ks4YTKFB/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p>Un documento XML bien formado respeta reglas estructurales: cada etiqueta que se abre debe cerrarse, la anidación debe ser correcta y debe existir un único elemento raíz que contenga a los demás.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>XML: elementos y atributos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Características básicas de XML:</p>
+<ul><li>Elementos: delimitados por etiquetas de apertura y cierre.</li><li>Atributos: pares nombre‑valor asociados a un elemento.</li><li>Jerarquía: elementos contenidos unos dentro de otros.</li><li>Documentos bien formados: cumplen reglas sintácticas y de estructura.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/SX8BvQBw/0028.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <pre><code class="language-xml">&lt;alumno matricula=&quot;220145&quot;&gt;
+  &lt;nombre&gt;Ana López&lt;/nombre&gt;
+  &lt;programa&gt;LTSI&lt;/programa&gt;
+  &lt;materias&gt;
+    &lt;materia&gt;Bases de Datos Avanzadas&lt;/materia&gt;
+    &lt;materia&gt;Sistemas Distribuidos&lt;/materia&gt;
+  &lt;/materias&gt;
+&lt;/alumno&gt;</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/d4GxfzhY/0083.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este documento muestra un atributo (<code>matricula</code>), elementos simples (<code>nombre</code>, <code>programa</code>) y una estructura anidada (<code>materias</code> con varios elementos <code>materia</code>).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>JSON: objetos, arreglos y pares atributo‑valor</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición.</strong> JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos que representa información mediante objetos, arreglos y pares atributo‑valor.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/wN0Mdj75/0024.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>JSON: objetos, arreglos y pares atributo‑valor</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Es muy utilizado en servicios web, APIs, aplicaciones móviles y bases documentales (bases donde cada registro es un documento JSON/XML completo en vez de una fila en una tabla).</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/278d7VnG/0087.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>JSON: objetos, arreglos y pares atributo‑valor</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/ks4YTKFB/0041.jpg" alt="image" /></div>
+        <div class="text-col"><p>Elementos básicos de JSON:</p>
+<ul><li>Objetos: colecciones delimitadas por llaves <code>{}</code>, formados por pares atributo‑valor.</li><li>Arreglos: listas delimitadas por corchetes <code>[]</code>.</li><li>Atributos: cadenas de texto que identifican cada valor.</li><li>Valores: pueden ser números, cadenas, booleanos, objetos o arreglos.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <pre><code class="language-json">{
+  &quot;matricula&quot;: 220145,
+  &quot;nombre&quot;: &quot;Ana López&quot;,
+  &quot;programa&quot;: &quot;TSI&quot;,
+  &quot;materias&quot;: [
+    &quot;Bases de Datos Avanzadas&quot;,
+    &quot;Sistemas Distribuidos&quot;
+  ]
+}</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/RKHB5w5/0009.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este objeto JSON representa la misma información que el ejemplo XML anterior y se adapta de forma directa a estructuras usadas en aplicaciones web y servicios REST.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>JSON es especialmente útil cuando:</p>
+<ul><li>Se intercambian datos entre servicios y aplicaciones.</li><li>Se requiere una representación compacta y legible.</li><li>La aplicación ya maneja datos en forma de objetos y arreglos.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/JWJvhCWB/0074.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Bases semiestructuradas y bases documentales</h1>
+    </section>
+    <section>
+      <h2>Bases semiestructuradas y bases documentales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SXN7q3q7/0079.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> Una base de datos semiestructurada almacena datos cuya forma puede <strong>variar entre registros</strong>, normalmente como documentos o estructuras jerárquicas.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases semiestructuradas y bases documentales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/KpCm5Yvq/0037.jpg" alt="image" /></div>
+        <div class="text-col"><p>Una base <strong>documental</strong> es un tipo de base NoSQL centrada en almacenar <strong>documentos</strong>, generalmente representados en JSON o XML o en formatos equivalentes.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases semiestructuradas y bases documentales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/gZst5BrW/0036.jpg" alt="image" /></div>
+        <div class="text-col"><p>En una base documental:</p>
+<ul><li>Los datos se agrupan en colecciones de documentos.</li><li>Cada documento puede tener campos comunes y campos propios.</li><li>Es posible anidar objetos y arreglos dentro de cada documento.</li><li>El esquema puede evolucionar sin reestructurar constantemente tablas físicas.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases semiestructuradas y bases documentales</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/s9Vn7LfR/0002.jpg" alt="image" /></div>
+        <div class="text-col"><p>Comparación con el modelo relacional:</p>
+<ul><li>El modelo relacional se apoya en tablas, filas y columnas con tipos definidos, llaves e integridad referencial.</li><li>Las bases documentales se apoyan en documentos completos que representan entidades o agregados importantes para la aplicación.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo de documento en una base documental</h2>
+      <pre><code class="language-json">{
+  &quot;pedidoId&quot;: 8451,
+  &quot;cliente&quot;: {
+    &quot;nombre&quot;: &quot;María Hernández&quot;,
+    &quot;correo&quot;: &quot;maria@example.com&quot;
+  },
+  &quot;productos&quot;: [
+    {&quot;nombre&quot;: &quot;Cuaderno&quot;, &quot;cantidad&quot;: 3, &quot;precio&quot;: 45},
+    {&quot;nombre&quot;: &quot;Pluma&quot;, &quot;cantidad&quot;: 5, &quot;precio&quot;: 12}
+  ],
+  &quot;direccionEnvio&quot;: {
+    &quot;ciudad&quot;: &quot;Toluca&quot;,
+    &quot;cp&quot;: &quot;50000&quot;
+  },
+  &quot;estado&quot;: &quot;en preparación&quot;
+}</code></pre>
+    </section>
+    <section>
+      <h2>Ejemplo de documento en una base documental</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este tipo de estructura podría representarse en relacional con varias tablas y relaciones, pero en una base documental se almacena como unidad lógica.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/CKVXn2f0/0022.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>Motivaciones para bases de datos NoSQL</h1>
+    </section>
+    <section>
+      <h2>Motivaciones para bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición.</strong> NoSQL se entiende como <em>Not Only SQL</em> y son tecnologías que amplían el panorama más allá del modelo relacional clásico para atender necesidades de flexibilidad, escalabilidad, distribución y disponibilidad.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/m5n6kZsx/0084.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivaciones para bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+        <div class="text-col"><p>No implica que SQL deje de ser útil, sino que no es suficiente para todos los escenarios o no es la mejor opción.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivaciones para bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Motivaciones principales:</p>
+<ul><li><strong>Escalabilidad.</strong> Capacidad de mantener o mejorar rendimiento cuando crecen:<ul><li>Volumen de datos.</li><li>Usuarios concurrentes.</li><li>Nodos o regiones involucradas.</li></ul></li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/QjzvxvrL/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivaciones para bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><ul><li><strong>Alta disponibilidad.</strong> Capacidad de mantener el servicio activo aún ante fallas de componentes individuales, mediante replicación y distribución de datos.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/JWJvhCWB/0074.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Motivaciones para bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/zTdxTFyY/0013.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Flexibilidad de esquemas.</strong> Posibilidad de trabajar con datos complejos, multimedia, semiestructurados y formatos externos (JSON, XML) sin depender de esquemas rígidos con migraciones constantes.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h1>Tipos principales de bases de datos NoSQL</h1>
+    </section>
+    <section>
+      <h2>Tipos principales de bases de datos NoSQL</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/JVhWchV/0071.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> Las bases NoSQL pueden agruparse según el modelo que usan para organizar los datos.</p><p>Cada tipo prioriza ciertos patrones de acceso y casos de uso.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases de documentos (o documentales)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/6RwhY0M9/0053.jpg" alt="image" /></div>
+        <div class="text-col"><p>(De repaso...)</p><p>Bases que almacenan información en documentos con estructura flexible, generalmente usando JSON o derivados.</p><p>Son adecuadas cuando el objeto natural del dominio es un documento rico con listas, objetos anidados y campos opcionales.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases de documentos (o documentales)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SXN7q3q7/0079.jpg" alt="image" /></div>
+        <div class="text-col"><p>Características:</p>
+<ul><li>Colecciones de documentos.</li><li>Esquema flexible a nivel de documento.</li><li>Integración directa con datos JSON.</li><li>Consultas sobre campos simples y campos anidados.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases de documentos (o documentales)</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Y4mHpPXp/0081.jpg" alt="image" /></div>
+        <div class="text-col"><p>Ejemplos de uso:</p>
+<ul><li>Catálogos de productos con atributos variables.</li><li>Perfiles de usuario con configuración y preferencias.</li><li>Pedidos de comercio electrónico con variantes.</li><li>Bitácoras de eventos con metadatos heterogéneos.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases llave‑valor</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Q3nvhXyv/0034.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> Bases que almacenan pares (identificador, valor) donde el identificador permite recuperar el valor asociado de forma directa.</p><p>Adecuadas cuando el patrón de acceso principal es “dado un identificador, recuperar el valor completo”.</p><p>(Redis, Amazon DynamoDB, Memorystore GCP)</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases llave‑valor</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Características:</p>
+<ul><li>Acceso muy rápido por identificador.</li><li>Modelo simple y directo.</li><li>Usadas como cachés, almacenamiento de sesiones o configuraciones.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/3q5QHLW/0056.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Ejemplo:</h2>
+      <div class="text-col">
+<ul><li>Llave: session:U12345</li><li>Valor: {&quot;usuario&quot;: &quot;Ana&quot;, &quot;rol&quot;: &quot;admin&quot;, &quot;ultimoLogin&quot;: &quot;2026-07-06T21:10:00&quot;}</li></ul>
+      </div>
+    </section>
+    <section>
+      <h2>Bases orientadas a columnas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/whJ0xQjL/0006.jpg" alt="image" /></div>
+        <div class="text-col"><p><strong>Definición.</strong> Bases que organizan datos por familias de columnas y están diseñadas para grandes volúmenes de datos distribuidos, con muchas operaciones simultáneas de lectura y escritura.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases orientadas a columnas</h2>
+      <table>
+        <thead><tr><th>Row Key</th><th>Personal_Info:Name</th><th>Personal_Info:Age</th><th>Academic_Info:Course</th></tr></thead>
+        <tbody>
+          <tr><td>101</td><td>Ethan</td><td>21</td><td>Data Science</td></tr>
+<tr><td>102</td><td>Harper</td><td>20</td><td>Computer Science</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Bases orientadas a columnas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En el modelo de columnas cada fila tiene un número de fila (row key), y los datos se agrupan en familias de columnas (por ejemplo, Personal_Info, Academic_Info).</p><p>Dentro de cada familia hay columnas como Name, Age, Course, y los valores se almacenan físicamente agrupados por columna, no por fila.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/whSFcgYS/0031.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases orientadas a columnas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/0jPN9L6C/0005.jpg" alt="image" /></div>
+        <div class="text-col"><p>Este enfoque lo usan bases como Apache Cassandra, HBase y Google Bigtable (Amazon DynamoDB también es orientada a columnas, además de llave-valor).</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases orientadas a columnas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Aplicaciones frecuentes:</p>
+<ul><li>Series de tiempo.</li><li>Métricas.</li><li>Registros de eventos.</li><li>Telemetría.</li></ul></div>
+        <div class="image-col"><img src="https://i.ibb.co/tTwJWL1W/0063.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases de grafos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición.</strong> Bases que representan datos mediante nodos y aristas, centrando la atención en las relaciones entre entidades.</p><p>Adecuadas cuando se requiere explorar estructuras de relaciones, como redes sociales, rutas, dependencias o vínculos entre eventos.</p><p>(Ejemplos: Neo4j, Amazon Neptune (AWS))</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/d4GxfzhY/0083.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Bases de grafos</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>En una base de grafos se podría hacer una consulta tipo “amigos de mis amigos” y obtener rápidamente los nodos conectados a través de varias aristas, algo que en SQL tradicional requeriría múltiples JOIN anidados.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/qLm4Tf31/0042.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h1>ACID y consistencia eventual</h1>
+    </section>
+    <section>
+      <h2>ACID y consistencia eventual</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p><strong>Definición.</strong> Un modelo de consistencia establece cómo se perciben los datos en sistemas con posibles réplicas, concurrencia y distribución.</p><p>En particular, es importante notar el enfoque ACID tradicional con modelos como consistencia eventual.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/3q5QHLW/0056.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>ACID en bases relacionales clásicas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/Jw8hP31G/0104.png" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Atomicidad:</strong> las transacciones se ejecutan completas o no se aplican.</li><li><strong>Consistencia:</strong> las reglas declaradas se respetan antes y después de cada transacción.</li><li><strong>Aislamiento:</strong> las transacciones concurrentes no comparten estados intermedios entre sí.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>ACID en bases relacionales clásicas</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/d4GxfzhY/0083.jpg" alt="image" /></div>
+        <div class="text-col"><ul><li><strong>Durabilidad:</strong> una vez confirmadas, las transacciones persisten.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>ACID en bases relacionales clásicas</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Este enfoque es muy importante en dominios transaccionales estrictos.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/QjzvxvrL/0064.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consistencia eventual</h2>
+      <div class="slide-two-col">
+        <div class="image-col"><img src="https://i.ibb.co/SXN7q3q7/0079.jpg" alt="image" /></div>
+        <div class="text-col"><p>En varios sistemas distribuidos y bases NoSQL:</p>
+<ul><li>Se admite que <strong>no todas las réplicas reflejen el mismo estado en el mismo instante</strong>.</li><li>Si no hay cambios conflictivos, los estados convergen con el tiempo.</li></ul></div>
+      </div>
+    </section>
+    <section>
+      <h2>Consistencia eventual</h2>
+      <div class="slide-two-col">
+        <div class="text-col"><p>Contraste:</p>
+<ul><li>La consistencia fuerte busca que cada lectura vea el mismo estado en todos los nodos.</li><li>La consistencia eventual acepta divergencias temporales para favorecer disponibilidad y baja latencia.</li></ul>
+<p>La elección depende del dominio y del riesgo que se está dispuesto a aceptar.</p></div>
+        <div class="image-col"><img src="https://i.ibb.co/8DggB7tw/0055.jpg" alt="image" /></div>
+      </div>
+    </section>
+    <section class="full-image-slide">
+              <img class="full-slide-image" src="https://i.ibb.co/gMsqmCB6/cua-05.jpg" alt="slide image" />
+              <h2>Gracias</h2>
+            </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    margin: 0.10,
+    width: 1280,
+    height: 720,
+    plugins: [ RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+  });
+</script>
+</body>
+</html>
