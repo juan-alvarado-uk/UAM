@@ -8,7 +8,7 @@ El objetivo práctico de esta sesión consiste en pasar de fórmulas con cuantif
 
 # De la prueba formal proposicional a la prueba con cuantificadores
 
-Una prueba formal en lógica de primer orden sigue conservando la misma idea central ya conocida: una secuencia finita de líneas donde cada fórmula está justificada por una premisa o por una regla válida aplicada a líneas anteriores. La diferencia importante es que ahora las fórmulas pueden contener variables, cuantificadores y términos, por lo que la justificación debe cuidar no solo la forma del conectivo, sino también cómo se sustituyen variables por términos. 
+Una prueba formal en lógica de primer orden sigue conservando el mismo concepto ya conocido: una secuencia finita de líneas donde cada fórmula está justificada por una premisa o por una regla válida aplicada a líneas anteriores. La diferencia importante es que ahora las fórmulas pueden contener variables, cuantificadores y términos, por lo que la justificación debe cuidar no solo la forma del conectivo, sino también cómo se sustituyen variables por términos. 
 
 ***
 Cuando aparece una fórmula como \(\forall x \, Usuario(x) \rightarrow PuedeEntrar(x)\), no se está afirmando algo de una persona específica, sino de cualquiera del dominio. La prueba formal ahora necesita reglas que permitan pasar de lo universal a casos concretos y, en sentido controlado, de un caso arbitrario a una afirmación universal; por eso las reglas de cuantificadores son la extensión natural de la deducción o conclusión lógica ya trabajada en lógica proposicional. 
@@ -48,7 +48,7 @@ La idea importante es que una fórmula universal funciona como una regla reutili
 La generalización universal permite pasar de una fórmula sobre un individuo arbitrario a una afirmación universal. Si en una prueba se ha razonado sobre una variable que no depende de supuestos especiales sobre un objeto particular, entonces puede cerrarse el paso con \(\forall x\). 
 
 ***
-La restricción es esencial: no se puede observar algo de un caso especial y luego elevarlo sin control a todos los casos. Dicho en lenguaje cotidiano, comprobar que “este servidor respondió bien” no autoriza concluir “todos los servidores responden bien”; la generalización solo es correcta cuando el razonamiento no usó rasgos particulares del elemento elegido. 
+La restricción es esencial: no se puede observar algo de un caso especial y luego elevarlo sin control a todos los casos. Dicho en lenguaje cotidiano, comprobar que “este servidor respondió bien” no autoriza concluir “todos los servidores responden bien”; la generalización solo es correcta cuando el razonamiento **no usó rasgos particulares** del elemento elegido. 
 
 ***
 Ejemplo conceptual: si a partir de una hipótesis arbitraria \(x\) se demuestra \(Proceso(x) \rightarrow RequiereMemoria(x)\), sin usar propiedades particulares de ese \(x\), entonces puede escribirse \(\forall x \, (Proceso(x) \rightarrow RequiereMemoria(x))\). La lógica exige disciplina aquí porque, sin esa condición, aparecerían conclusiones falsas construidas a partir de ejemplos aislados. 
@@ -58,7 +58,7 @@ Ejemplo conceptual: si a partir de una hipótesis arbitraria \(x\) se demuestra 
 
 ***
 
-# Cuantificador existencial y cuidado en la prueba
+# Cuantificador existencial 
 
 La afirmación existencial expresa que hay al menos un individuo del dominio que satisface cierta propiedad. Cuando se tiene \(\exists x \, P(x)\), no se sabe quién es ese individuo; solo se sabe que existe alguno, por lo que el razonamiento debe evitar tratarlo como si ya estuviera completamente identificado. 
 
@@ -115,7 +115,7 @@ Si el lenguaje tiene la constante \(a\) y la función \(f\), entonces desde \(\f
 Ejemplo breve:
 
 - Lenguaje: constante \(a\), función unaria \(s\), predicado \(Par\).  
-- De \(\forall x \, Par(s(s(x)))\) se obtiene \(Par(s(s(a)))\).  
+- De \(\forall x \, Par(s(s(x)))\) se obtiene \(Par(s(s(a)))\) si la sustitución toma \(x := a\)..  
 - También se obtiene \(Par(s(s(s(a))))\) si la sustitución toma \(x := s(a)\).  
 
 ***

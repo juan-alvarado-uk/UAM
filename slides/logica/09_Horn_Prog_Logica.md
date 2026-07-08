@@ -1,6 +1,6 @@
 # De Herbrand a programas lógicos
 
-El trabajo anterior mostró cómo una fórmula de lógica de primer orden puede transformarse en un conjunto de cláusulas, pasando por eliminación de implicaciones, movimiento de negaciones, forma prenexa y skolemización. 
+En temas previos se ha mostrado cómo una fórmula de lógica de primer orden puede transformarse en un conjunto de cláusulas, pasando por eliminación de implicaciones, movimiento de negaciones, usando la forma prenexa y skolemización. 
 
 ***
 
@@ -8,7 +8,7 @@ Ahora, esas cláusulas se leen como piezas cercanas a un programa lógico: los l
 
 ***
 
-La idea central es ver que:
+Es importante notar que:
 
 - un conjunto de cláusulas universales puede entenderse como base de conocimiento;
 - el universo y la base de Herbrand describen los “casos posibles” dentro del lenguaje;
@@ -18,7 +18,7 @@ La idea central es ver que:
 
 # Cláusulas de tipo Horn y su lectura
 
-Una cláusula de Horn es una disyunción de literales con a lo más un literal positivo. En notación cercana a la forma clausular, una cláusula de Horn típica se ve como:
+Una **cláusula de Horn** es una disyunción de literales con a lo más un literal positivo. En notación cercana a la forma clausular, una cláusula de Horn típica se ve como:
 
 \[
 A \lor \neg B_1 \lor \cdots \lor \neg B_n
@@ -46,12 +46,12 @@ donde el lado izquierdo representa la cabeza (conclusión) y el lado derecho rep
 Dos casos particulares de cláusulas de Horn se reconocen fácilmente:
 
 - Si no hay literales negativos (n = 0), la cláusula es simplemente un **hecho**.
-- Si no hay literal positivo, se obtiene una cláusula puramente negativa que puede leerse como una restricción (en muchos ejemplos introductorios se enfatizan sobre todo hechos y reglas). 
+- Si no hay literal positivo, se obtiene una cláusula puramente negativa que puede leerse como una restricción (no usaremos restricciones, nos concentraremos en hechos y reglas). 
 
 
 # Del conjunto de cláusulas a base de conocimiento
 
-Retomamos la noción de universo de Herbrand: el conjunto de todos los términos cerrados construibles con las constantes y funciones del lenguaje. A partir de ahí, la base de Herbrand reúne todos los átomos cerrados que se pueden formar con los predicados del lenguaje y esos términos. 
+Retomamos el concepto de universo de Herbrand: el conjunto de todos los términos cerrados construibles con las constantes y funciones del lenguaje. A partir de ahí, la base de Herbrand reúne todos los átomos cerrados que se pueden formar con los predicados del lenguaje y esos términos. 
 
 ***
 
@@ -297,7 +297,7 @@ Esta situación ilustra la lectura declarativa: el programa describe quiénes so
 
 ***
 
-# Ejemplo integrado: familias y hermanos
+# Ejemplo: familias y hermanos
 
 ### Base
 

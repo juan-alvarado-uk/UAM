@@ -19,9 +19,6 @@ Si cada fórmula tuviera una forma arbitraria, el razonamiento mecánico sería 
 Al llevarlas a una forma cercana a cláusulas, se reduce la variedad superficial y se hace visible la estructura lógica relevante. 
 
 ***
-El punto central es entender por qué se eliminan implicaciones, por qué las negaciones se empujan hacia adentro y por qué las existencias se reemplazan mediante términos especiales: todo eso acerca la fórmula a un conjunto de cláusulas sobre el cual puede trabajarse de manera más sistemática. 
-
-***
 
 # Eliminar implicaciones y bicondicionales
 
@@ -249,7 +246,7 @@ En el ejemplo que estabamos trabajando:
 Clausular
 \[ F = \forall x \forall w (( \neg P(x, c) \lor P(w, f(x, w))) \land (\neg P(c, g(x)) \lor P(w, f(x, w)))) \]
 
-# Motivación para Herbrand
+# Por qué usar Herbrand
 
 El método de Herbrand nace de la necesidad de estudiar satisfacibilidad sin tener que recorrer dominios arbitrarios y potencialmente complicados. La idea es trasladar el problema a un terreno sintáctico, construido con los propios símbolos del lenguaje: términos, átomos e instancias de cláusulas. 
 

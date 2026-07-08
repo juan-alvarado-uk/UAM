@@ -48,7 +48,7 @@ Estas leyes dicen que repetir la misma proposición con ∧ o ∨ no cambia su v
 
 ## Complemento
 
-**Algunas veces se encuentra con ⊥ para F y ⊤ para V):**  
+**(Algunas veces se encuentra con ⊥ para F y ⊤ para V):**  
 
 - Para ∧:  
   $$ 
@@ -262,7 +262,7 @@ Las leyes vistas (conmutatividad, asociatividad, distributividad, De Morgan, dob
 **Ejemplo tecnológico de simplificación**  
 
 Se modela la siguiente condición para un sistema de autenticación:  
-“ Si el usuario está en la lista de permitidos y su contraseña es correcta entonces el acceso es concedido”.  
+“Si el usuario está en la lista de permitidos y su contraseña es correcta entonces el acceso es concedido”.  
 
 ---
 Sea:  
@@ -434,31 +434,6 @@ De forma análoga al caso conjuntivo, cualquier fórmula proposicional puede esc
    - Usar: $$ p \land (q \lor r) \equiv (p \land q) \lor (p \land r) $$  
 
    
-
-***
-
-## Ejemplo completo de transformación a FND
-
-$$
-p \lor (q \land r)
-$$  
-
-1. No hay condicionales ni bicondicionales.  
-2. No hay negaciones externas.  
-3. Se usa distributividad:  
-   $$
-   p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)
-   $$  
-   Pero esto produce una FNC, no una FND.  
-
-Para obtener FND se parte de una forma donde la conjunción esté fuera  
-$$
-(p \land q) \lor r
-$$  
-
-Es una disyunción de dos cláusulas y cada cláusula es una conjunción, por lo tanto, es FND.
-$ r $ se considera **conjunción de un solo literal**.
-
 ***
 
 ## Ejemplo con FND

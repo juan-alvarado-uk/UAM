@@ -106,7 +106,7 @@ Estas proposiciones **combinan** partes más simples y utilizan **conectivos ló
 
 # Representación simbólica de proposiciones
 
-**Definición**: En lógica de proposiciones, cada proposición simple se representa mediante una letra proposicional (generalmente mayúscula), como P, Q, R, S, etc., para trabajar de forma más concisa y abstracta. 
+**Definición**: En lógica de proposiciones, cada proposición simple se representa mediante una letra proposicional (muchas veces son letras mayúsculas), como P, Q, R, S, etc., para trabajar de forma más concisa y abstracta. 
 
 Esta sustitución de frases largas por símbolos funciona como una especie de “alias” para razonamiento lógico; el contenido específico se puede anotar aparte. 
 
