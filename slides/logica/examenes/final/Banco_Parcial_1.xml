@@ -1,0 +1,3494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final</text>
+        </category>
+        <info format="moodle_auto_format">
+            <text>Categoría por defecto para preguntas compartidas en el contexto Examen Parcial.</text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+
+    <!-- ===== Categoría: Teoria_Proposiciones ===== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Teoria_Proposiciones</text>
+        </category>
+    </question>
+
+    <!-- TP01: Es proposición o no -->
+    <question type="multichoice">
+        <name>
+            <text>TP01_Proposicion_o_no</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál de los siguientes enunciados SÍ es una proposición en el sentido de la lógica de proposiciones?</p>
+    <p>a) ¿El servidor está encendido?<br/>
+    b) Guarda tu trabajo antes de cerrar la sesión.<br/>
+    c) El proceso de respaldo se ejecutó correctamente.<br/>
+    d) ¡Qué rápido es este sistema!</p>
+    ]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[
+    <p>Una proposición es un enunciado declarativo al que se le puede asignar claramente un valor de verdad verdadero o falso.</p>
+    ]]></text>
+        </generalfeedback>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>a) y c)</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>Solo c)</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>c) y d)</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>b) y c)</text>
+        </answer>
+    </question>
+
+    <!-- TP02: Enunciados no proposicionales -->
+    <question type="multichoice">
+        <name>
+            <text>TP02_No_proposiciones</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Selecciona la opción que solo contiene enunciados que NO son proposiciones.</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100" format="html">
+            <text>“¿Qué hora es?”, “Cierra la ventana del navegador.”</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>“La base de datos está disponible.”, “2 + 2 = 5.”</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>“Hoy llueve en Toluca.”, “El servidor respondió en menos de dos segundos.”</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>“El usuario está autenticado.”, “La red tendrá mejor rendimiento el próximo mes.”</text>
+        </answer>
+    </question>
+
+    <!-- TP03: Simple vs compuesta -->
+    <question type="multichoice">
+        <name>
+            <text>TP03_Simple_compuesta</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál de los siguientes enunciados es una proposición <b>compuesta</b>?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>El servidor web está activo.</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>El usuario ingresó su contraseña.</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>El sistema es seguro si y solo si todas las políticas están habilitadas.</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>Hoy es miércoles.</text>
+        </answer>
+    </question>
+
+    <!-- TP04: Clasificar simple/compuesta -->
+    <question type="multichoice">
+        <name>
+            <text>TP04_Clasificar_simple_compuesta</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Clasifica correctamente las siguientes afirmaciones:</p>
+    <p>1) “La aplicación móvil está actualizada.”<br/>
+    2) “La consulta terminó en error o el tiempo de espera fue excedido.”</p>
+    <p>Selecciona la opción correcta:</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>1) simple, 2) simple</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>1) simple, 2) compuesta</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>1) compuesta, 2) simple</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>1) compuesta, 2) compuesta</text>
+        </answer>
+    </question>
+
+    <!-- TP05: Representación simbólica conjunción -->
+    <question type="multichoice">
+        <name>
+            <text>TP05_Representacion_conjuncion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Sea P: “La contraseña es correcta.” y Q: “La cuenta está activa.”. ¿Qué fórmula simboliza correctamente “La contraseña es correcta y la cuenta está activa”?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$P \lor Q$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$P \land Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \to Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\neg P \land Q$$</text>
+        </answer>
+    </question>
+
+    <!-- TP06: Negación -->
+    <question type="multichoice">
+        <name>
+            <text>TP06_Negacion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Si P significa “El servidor está en línea.”, ¿cuál de las siguientes fórmulas representa “El servidor NO está en línea.”?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100" format="html">
+            <text>$$\neg P$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \to \neg P$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \lor \neg P$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \land \neg P$$</text>
+        </answer>
+    </question>
+
+    <!-- TP07: Condicional lectura -->
+    <question type="multichoice">
+        <name>
+            <text>TP07_Condicional_lectura</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Sea P: “El usuario está autenticado.” y Q: “El usuario puede acceder al panel de administración.”. ¿Qué fórmula representa “Si el usuario está autenticado, entonces puede acceder al panel de administración”?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$P \land Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \lor Q$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$P \to Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$Q \to P$$</text>
+        </answer>
+    </question>
+
+    <!-- TP08: Bicondicional -->
+    <question type="multichoice">
+        <name>
+            <text>TP08_Bicondicional</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Sea P: “El sistema está disponible.” y Q: “La base de datos está disponible.”. ¿Cuál fórmula simboliza “El sistema está disponible si y solo si la base de datos está disponible”?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$P \lor Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \land Q$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \to Q$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$P \leftrightarrow Q$$</text>
+        </answer>
+    </question>
+
+    <!-- TP09: FBF correcta -->
+    <question type="multichoice">
+        <name>
+            <text>TP09_FBF_correcta</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál de las siguientes expresiones es una fórmula bien formada (FBF)?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$P \land \land Q$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$\neg(P \lor Q)$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\neg \lor P$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P Q \land$$</text>
+        </answer>
+    </question>
+
+    <!-- TP10: FBF incorrecta -->
+    <question type="multichoice">
+        <name>
+            <text>TP10_FBF_incorrecta</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Selecciona la expresión que <b>NO</b> es una fórmula bien formada.</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$P$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$(P \land Q) \to R$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\neg(P \lor Q)$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$P \lor Q \land$$</text>
+        </answer>
+    </question>
+
+    <!-- TP11: Traducción 1 -->
+    <question type="multichoice">
+        <name>
+            <text>TP11_Traduccion_1</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Traduce: “Si el usuario está autenticado y tiene rol de administrador, entonces puede eliminar registros.”</p>
+    <p>Sean P: “El usuario está autenticado.”, Q: “El usuario tiene rol de administrador.”, R: “El usuario puede eliminar registros.”</p>
+    <p>¿Cuál es la fórmula correcta?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$(P \land Q) \leftrightarrow R$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \land (Q \to R)$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$(P \land Q) \to R$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \to (Q \land R)$$</text>
+        </answer>
+    </question>
+
+    <!-- TP12: Traducción 2 -->
+    <question type="multichoice">
+        <name>
+            <text>TP12_Traduccion_2</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>“El sistema genera una alerta si la temperatura es mayor a 80 grados o el ventilador está apagado.”</p>
+    <p>Sea P: “La temperatura es mayor a 80 grados.”, Q: “El ventilador está apagado.”, R: “El sistema genera una alerta.”</p>
+    <p>¿Cuál fórmula corresponde?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$R \to (P \lor Q)$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$(P \lor Q) \to R$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$P \land Q \to R$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$R \to P \lor Q$$</text>
+        </answer>
+    </question>
+
+    <!-- TP13: Conectivo principal 1 -->
+    <question type="multichoice">
+        <name>
+            <text>TP13_Conectivo_principal_1</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál es el conectivo principal de la fórmula $$(P \land Q) \to R$$?</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$\land$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\lor$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$\to$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\neg$$</text>
+        </answer>
+    </question>
+
+    <!-- TP14: Conectivo principal 2 -->
+    <question type="multichoice">
+        <name>
+            <text>TP14_Conectivo_principal_2</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>En la fórmula $$\neg(P \lor Q)$$, el conectivo principal es:</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100" format="html">
+            <text>$$\neg$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\lor$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\land$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\to$$</text>
+        </answer>
+    </question>
+
+    <!-- TP15: Conectivo principal 3 -->
+    <question type="multichoice">
+        <name>
+            <text>TP15_Conectivo_principal_3</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>En la fórmula $$(P \leftrightarrow (Q \land R))$$, el conectivo principal es:</p>
+    <p>
+    
+    
+    </p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>1.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0" format="html">
+            <text>$$\land$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\lor$$</text>
+        </answer>
+        <answer fraction="0" format="html">
+            <text>$$\to$$</text>
+        </answer>
+        <answer fraction="100" format="html">
+            <text>$$\leftrightarrow$$</text>
+        </answer>
+    </question>
+
+
+    <!-- ===== Categoría: Teoria_Tablas_consecuencia ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Teoria_Tablas_consecuencia</text>
+        </category>
+    </question>
+
+<!-- TTC01: definición de tabla de verdad -->
+<question type="multichoice">
+  <name><text>TTC01_Definicion_tabla_verdad</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una tabla de verdad es:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Un listado de reglas de inferencia para realizar pruebas formales.</text></answer>
+  <answer fraction="100"><text>Un arreglo sistemático de casos posibles para las proposiciones de una fórmula.</text></answer>
+  <answer fraction="0"><text>Un diagrama de flujo que muestra decisiones en un programa.</text></answer>
+  <answer fraction="0"><text>Un conjunto de ejemplos en lenguaje natural sin simbolizar.</text></answer>
+</question>
+
+<!-- TTC02: número de filas (2 proposiciones) -->
+<question type="multichoice">
+  <name><text>TTC02_Filas_dos_proposiciones</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una tabla de verdad completa para dos proposiciones simples (p, q) tiene:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>2 filas.</text></answer>
+  <answer fraction="0"><text>3 filas.</text></answer>
+  <answer fraction="100"><text>4 filas.</text></answer>
+  <answer fraction="0"><text>8 filas.</text></answer>
+</question>
+
+<!-- TTC03: número de filas (3 proposiciones) -->
+<question type="multichoice">
+  <name><text>TTC03_Filas_tres_proposiciones</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una tabla de verdad completa para tres proposiciones simples (p, q, r) tiene:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>4 filas.</text></answer>
+  <answer fraction="0"><text>6 filas.</text></answer>
+  <answer fraction="100"><text>8 filas.</text></answer>
+  <answer fraction="0"><text>16 filas.</text></answer>
+</question>
+
+<!-- TTC04: definición de tautología -->
+<question type="multichoice">
+  <name><text>TTC04_Definicion_tautologia</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una fórmula es una <b>tautología</b> cuando en su columna final de la tabla de verdad:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Aparecen solo valores falsos.</text></answer>
+  <answer fraction="0"><text>Mezcla valores verdaderos y falsos.</text></answer>
+  <answer fraction="100"><text>Aparecen solo valores verdaderos.</text></answer>
+  <answer fraction="0"><text>No se puede determinar su valor de verdad.</text></answer>
+</question>
+
+<!-- TTC05: definición de contradicción -->
+<question type="multichoice">
+  <name><text>TTC05_Definicion_contradiccion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una fórmula es una <b>contradicción</b> cuando en su columna final de la tabla de verdad:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100"><text>Aparecen solo valores falsos.</text></answer>
+  <answer fraction="0"><text>Mezcla valores verdaderos y falsos.</text></answer>
+  <answer fraction="0"><text>Aparecen solo valores verdaderos.</text></answer>
+  <answer fraction="0"><text>No tiene variables proposicionales.</text></answer>
+</question>
+
+<!-- TTC06: definición de contingente -->
+<question type="multichoice">
+  <name><text>TTC06_Definicion_contingente</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una fórmula es <b>contingente</b> cuando en su columna final de la tabla de verdad:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Es verdadera en todos los renglones.</text></answer>
+  <answer fraction="0"><text>Es falsa en todos los renglones.</text></answer>
+  <answer fraction="100"><text>Tiene al menos un verdadero y al menos un falso.</text></answer>
+  <answer fraction="0"><text>Tiene más variables que conectivos.</text></answer>
+</question>
+
+<!-- TTC07 -->
+<question type="truefalse">
+  <name><text>TTC07_p_o_no_p_tautologia</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula $$p \lor \neg p$$ es una tautología porque su columna final en la tabla de verdad contiene solo valores verdaderos.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100"><text>true</text></answer>
+  <answer fraction="0"><text>false</text></answer>
+</question>
+
+<!-- TTC08 -->
+<question type="truefalse">
+  <name><text>TTC08_p_y_no_p_contradiccion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula $$p \land \neg p$$ es una contradicción porque su columna final en la tabla de verdad contiene solo valores falsos.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100"><text>true</text></answer>
+  <answer fraction="0"><text>false</text></answer>
+</question>
+
+<!-- TTC09 -->
+<question type="multichoice">
+  <name><text>TTC09_Clasificacion_p_y_q</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Según el ejemplo guiado, la fórmula $$p \land q$$ resulta ser:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Tautología.</text></answer>
+  <answer fraction="0"><text>Contradicción.</text></answer>
+  <answer fraction="100"><text>Contingente.</text></answer>
+  <answer fraction="0"><text>No es una fórmula bien formada.</text></answer>
+</question>
+
+<!-- TTC10 -->
+<question type="multichoice">
+  <name><text>TTC10_Definicion_consecuencia_tabla</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Al usar una tabla de verdad para revisar si una conclusión se sigue de unas premisas, se debe verificar que:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>La conclusión sea verdadera al menos una vez.</text></answer>
+  <answer fraction="0"><text>Las premisas sean tautologías.</text></answer>
+  <answer fraction="100"><text>No exista renglón con todas las premisas verdaderas y la conclusión falsa.</text></answer>
+  <answer fraction="0"><text>La conclusión tenga más conectivos que las premisas.</text></answer>
+</question>
+
+<!-- TTC11 -->
+<question type="multichoice">
+  <name><text>TTC11_Definicion_contraejemplo</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el contexto de tablas de verdad, un <b>contraejemplo</b> para un argumento es:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100"><text>Un renglón donde todas las premisas son verdaderas y la conclusión es falsa.</text></answer>
+  <answer fraction="0"><text>Un renglón donde todas las premisas son falsas.</text></answer>
+  <answer fraction="0"><text>Un renglón donde la conclusión es verdadera.</text></answer>
+  <answer fraction="0"><text>Un renglón donde hay al menos una premisa falsa y la conclusión verdadera.</text></answer>
+</question>
+
+<!-- TTC12 -->
+<question type="multichoice">
+  <name><text>TTC12_Contraejemplo_p_o_q_entonces_p</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el ejemplo con premisa $$p \lor q$$ y conclusión $$p$$, el contraejemplo aparece cuando:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>p=V, q=F porque la premisa es verdadera y la conclusión falsa.</text></answer>
+  <answer fraction="100"><text>p=F, q=V porque la premisa es verdadera y la conclusión es falsa.</text></answer>
+  <answer fraction="0"><text>p=V, q=V porque la premisa es falsa y la conclusión verdadera.</text></answer>
+  <answer fraction="0"><text>p=F, q=F porque la premisa es verdadera y la conclusión falsa.</text></answer>
+</question>
+
+<!-- TTC13 -->
+<question type="multichoice">
+  <name><text>TTC13_Patron_dos_variables</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>El patrón base de una tabla de verdad con dos proposiciones (p, q) mostrado en la práctica es:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100"><text>p: V, V, F, F; q: V, F, V, F.</text></answer>
+  <answer fraction="0"><text>p: V, F, V, F; q: V, V, F, F.</text></answer>
+  <answer fraction="0"><text>p: V, F, F, V; q: V, F, F, V.</text></answer>
+  <answer fraction="0"><text>Cualquier orden, sin importancia.</text></answer>
+</question>
+
+<!-- TTC14 -->
+<question type="multichoice">
+  <name><text>TTC14_Pasos_construccion_tabla</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Según el método recomendado, el orden correcto para construir una tabla de verdad es:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Empezar por la conclusión, luego inventar las premisas.</text></answer>
+  <answer fraction="100"><text>Llenar columnas base, luego subfórmulas, y al final la fórmula completa.</text></answer>
+  <answer fraction="0"><text>Llenar solo algunos renglones representativos.</text></answer>
+  <answer fraction="0"><text>Calcular primero la clasificación y luego la tabla.</text></answer>
+</question>
+
+<!-- TTC15 -->
+<question type="multichoice">
+  <name><text>TTC15_Conectivos_basicos_tablas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En la práctica se menciona que las tablas de verdad se construyen usando los conectivos básicos:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Solo negación y conjunción.</text></answer>
+  <answer fraction="100"><text>Negación, conjunción, disyunción, condicional y bicondicional.</text></answer>
+  <answer fraction="0"><text>Solo condicional y bicondicional.</text></answer>
+  <answer fraction="0"><text>Ningún conectivo, solo variables.</text></answer>
+</question>
+
+<!-- TTC16 -->
+<question type="truefalse">
+  <name><text>TTC16_Convencion_V_F</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En la práctica se establece que se usarán las letras V y F para representar verdadero y falso en las tablas de verdad.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100"><text>true</text></answer>
+  <answer fraction="0"><text>false</text></answer>
+</question>
+
+<!-- TTC17 -->
+<question type="multichoice">
+  <name><text>TTC17_Analogia_tautologia</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el texto, una tautología se compara con:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Una condición que nunca se evalúa.</text></answer>
+  <answer fraction="0"><text>Una condición que siempre falla.</text></answer>
+  <answer fraction="100"><text>Una condición que nunca falla.</text></answer>
+  <answer fraction="0"><text>Una condición que depende del contexto.</text></answer>
+</question>
+
+<!-- TTC18 -->
+<question type="multichoice">
+  <name><text>TTC18_Analogia_contradiccion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el texto, una contradicción se compara con:</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0"><text>Una condición que nunca falla.</text></answer>
+  <answer fraction="100"><text>Una condición imposible, como pedir que un servicio esté disponible y no disponible a la vez.</text></answer>
+  <answer fraction="0"><text>Una regla cuyo resultado depende del contexto.</text></answer>
+  <answer fraction="0"><text>Una condición que siempre se omite en la tabla.</text></answer>
+</question>
+
+
+
+
+    <!-- ===== Categoría: Teoria_Equiv_FN ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Teoria_Equiv_FN</text>
+        </category>
+    </question>
+
+    <!-- TEF01: definición de equivalencia lógica -->
+    <question type="multichoice">
+        <name>
+            <text>TEF01_Definicion_equivalencia_logica</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Dos fórmulas proposicionales $$\varphi$$ y $$\psi$$ son lógicamente equivalentes si:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[
+    <p>La equivalencia lógica se define porque $$\varphi$$ y $$\psi$$ coinciden en todos los renglones de sus tablas de verdad: $$\varphi \equiv \psi$$.</p>
+    ]]></text>
+        </generalfeedback>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>Tienen el mismo número de conectivos lógicos.</text>
+        </answer>
+        <answer fraction="100">
+            <text>Tienen exactamente la misma tabla de verdad.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Se pueden escribir sin paréntesis.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Ambas son tautologías.</text>
+        </answer>
+    </question>
+
+    <!-- TEF02: idempotencia -->
+    <question type="multichoice">
+        <name>
+            <text>TEF02_Idempotencia</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál de las siguientes expresiones ilustra correctamente una ley de idempotencia?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[
+    <p>Idempotencia indica que repetir la misma proposición con $$\land$$ o $$\lor$$ no cambia su valor lógico.</p>
+    ]]></text>
+        </generalfeedback>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$A \lor A \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \land \neg A \equiv F$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg\neg A \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor \neg A \equiv V$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF03: complemento -->
+    <question type="multichoice">
+        <name>
+            <text>TEF03_Complemento</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál par de equivalencias corresponde a leyes de complemento?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$A \lor A \equiv A$$ y $$A \land A \equiv A$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$A \land \neg A \equiv F$$ y $$A \lor \neg A \equiv V$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg\neg A \equiv A$$ y $$A \lor V \equiv V$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor F \equiv A$$ y $$A \land V \equiv A$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF04: identidad -->
+    <question type="multichoice">
+        <name>
+            <text>TEF04_Identidad</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Selecciona la opción que contiene <b>solo</b> leyes de identidad:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$A \lor F \equiv A$$ y $$A \land V \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor V \equiv V$$ y $$A \land F \equiv F$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor A \equiv A$$ y $$A \land A \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg\neg A \equiv A$$ y $$A \lor \neg A \equiv V$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF05: dominación -->
+    <question type="multichoice">
+        <name>
+            <text>TEF05_Dominacion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Las leyes de dominación (o anulación) dicen que:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$A \lor F \equiv A$$ y $$A \land V \equiv A$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$A \lor V \equiv V$$ y $$A \land F \equiv F$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor A \equiv A$$ y $$A \land A \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor \neg A \equiv V$$ y $$A \land \neg A \equiv F$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF06: absorción -->
+    <question type="multichoice">
+        <name>
+            <text>TEF06_Absorcion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál equivalencia es un ejemplo de ley de absorción?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$A \lor (A \land B) \equiv A$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \lor \neg A \equiv V$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$A \land F \equiv F$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg\neg A \equiv A$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF07: De Morgan -->
+    <question type="multichoice">
+        <name>
+            <text>TEF07_De_Morgan</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál de las siguientes es una ley de De Morgan?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$\neg(p \land q) \equiv \neg p \lor \neg q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg(p \land q) \equiv \neg p \land \neg q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg(p \lor q) \equiv \neg p \lor \neg q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg(p \lor q) \equiv p \land q$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF08: doble negación -->
+    <question type="truefalse">
+        <name>
+            <text>TEF08_Doble_negacion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La ley de doble negación afirma que $$\neg\neg p \equiv p$$.</p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>1.0000000</penalty>
+        <hidden>0</hidden>
+        <answer fraction="100">
+            <text>true</text>
+        </answer>
+        <answer fraction="0">
+            <text>false</text>
+        </answer>
+    </question>
+
+    <!-- TEF09: condicional como disyunción -->
+    <question type="multichoice">
+        <name>
+            <text>TEF09_Condicional_como_disyuncion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿A cuál fórmula es lógicamente equivalente el condicional $$p \to q$$?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[
+    <p>La equivalencia fundamental del condicional es $$p \to q \equiv \neg p \lor q$$.</p>
+    ]]></text>
+        </generalfeedback>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$p \land q$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$\neg p \lor q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg p \land q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor \neg q$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF10: aplicación de condicional→disyunción -->
+    <question type="multichoice">
+        <name>
+            <text>TEF10_Transformacion_condicional</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Aplicando la equivalencia del condicional a $$(p \land q) \to r$$, ¿qué fórmula se obtiene?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$p \land q \land r$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$\neg(p \land q) \lor r$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg p \lor \neg q \lor r$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor q \lor r$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF11: distribución para FNC -->
+    <question type="multichoice">
+        <name>
+            <text>TEF11_Distributiva_para_FNC</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Para llevar $$p \lor (q \land r)$$ a una forma que ayude a obtener una forma normal conjuntiva, se usa la ley:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor (q \land r) \equiv (p \land q) \lor r$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor (q \land r) \equiv (p \land q) \land (p \land r)$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor (q \land r) \equiv p \land q \land r$$</text>
+        </answer>
+    </question>
+
+    <!-- TEF12: qué es FNC -->
+    <question type="multichoice">
+        <name>
+            <text>TEF12_Definicion_FNC</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál enunciado describe mejor una fórmula en forma normal conjuntiva (FNC)?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>Una disyunción de cláusulas conjuntivas.</text>
+        </answer>
+        <answer fraction="100">
+            <text>Una conjunción de cláusulas disyuntivas.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Una conjunción de proposiciones simples sin negaciones.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Una disyunción de literales sin paréntesis.</text>
+        </answer>
+    </question>
+
+    <!-- TEF13: qué es FND -->
+    <question type="multichoice">
+        <name>
+            <text>TEF13_Definicion_FND</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál enunciado describe mejor una fórmula en forma normal disyuntiva (FND)?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Una disyunción de conjunciones de literales.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Una conjunción de literales sin paréntesis.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Una conjunción de disyunciones de literales.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Un condicional sin conectivos $$\lor$$ ni $$\land$$.</text>
+        </answer>
+    </question>
+
+    <!-- TEF14: reconocer FNC/FND -->
+    <question type="matching">
+        <name>
+            <text>TEF14_Reconocer_FNC_FND</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Relaciona cada fórmula con el tipo de forma normal que representa.</p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>true</shuffleanswers>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$(p \lor q) \land (\neg p \lor r)$$</p>
+    ]]></text>
+            <answer>
+                <text>FNC</text>
+            </answer>
+        </subquestion>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$(p \land q) \lor (r \land \neg s)$$</p>
+    ]]></text>
+            <answer>
+                <text>FND</text>
+            </answer>
+        </subquestion>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$(p \lor \neg q \lor r) \land (q \lor r)$$</p>
+    ]]></text>
+            <answer>
+                <text>FNC</text>
+            </answer>
+        </subquestion>
+    </question>
+
+    <!-- TEF15: pasos típicos para formas normales -->
+    <question type="multichoice">
+        <name>
+            <text>TEF15_Pasos_para_forma_normal</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Al transformar una fórmula arbitraria a FNC o FND usando equivalencias, ¿cuál orden de pasos es razonable?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Eliminar condicionales, mover negaciones hacia adentro, aplicar leyes distributivas.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Agregar condicionales, eliminar disyunciones, quitar todas las negaciones.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Eliminar letras proposicionales, introducir bicondicionales, distribuir $$\leftrightarrow$$.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Solo cambiar el orden de las proposiciones usando conmutatividad.</text>
+        </answer>
+    </question>
+
+
+    <!-- ===== Categoría: Teoria_Pruebas_Inferencia ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Teoria_Pruebas_Inferencia</text>
+        </category>
+    </question>
+
+    <!-- TPI01: qué es una prueba formal -->
+    <question type="multichoice">
+        <name>
+            <text>TPI01_Definicion_prueba_formal</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Una prueba formal en lógica proposicional es:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <generalfeedback format="html">
+            <text><![CDATA[
+    <p>Cada línea de una prueba formal es una premisa o se justifica aplicando una regla de inferencia a líneas anteriores.</p>
+    ]]></text>
+        </generalfeedback>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>Cualquier tabla de verdad que no tenga contraejemplos.</text>
+        </answer>
+        <answer fraction="100">
+            <text>Una secuencia finita de fórmulas donde cada una es premisa o se obtiene por una regla de inferencia.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Una lista de fórmulas elegidas al azar que termina en la conclusión.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Un diagrama que muestra todas las combinaciones de verdad de las premisas.</text>
+        </answer>
+    </question>
+
+    <!-- TPI02: formato de línea en prueba -->
+    <question type="multichoice">
+        <name>
+            <text>TPI02_Formato_linea_prueba</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>En la notación de pruebas formales presentada, cada línea debe incluir:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Número de línea, fórmula y justificación.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Solo la fórmula, sin explicación.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Solo la justificación, la fórmula es opcional.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Número de línea y conclusión final, nada más.</text>
+        </answer>
+    </question>
+
+    <!-- TPI03: propósito de reglas de inferencia -->
+    <question type="multichoice">
+        <name>
+            <text>TPI03_Proposito_reglas_inferencia</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Las reglas de inferencia en lógica proposicional se utilizan para:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>Generar fórmulas al azar para construir tablas de verdad.</text>
+        </answer>
+        <answer fraction="100">
+            <text>Derivar nuevas fórmulas a partir de premisas preservando la verdad.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Traducir enunciados del lenguaje natural a símbolos.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Clasificar fórmulas como tautologías, contradicciones o contingentes.</text>
+        </answer>
+    </question>
+
+    <!-- TPI04: Modus Ponens esquema -->
+    <question type="multichoice">
+        <name>
+            <text>TPI04_Regla_Modus_Ponens</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál es el esquema correcto de la regla Modus Ponens (MP)?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$\dfrac{p \to q \quad \neg q}{\neg p}$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$\dfrac{p \to q \quad p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \lor q \quad \neg p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \land q}{p}$$</text>
+        </answer>
+    </question>
+
+    <!-- TPI05: Modus Tollens esquema -->
+    <question type="multichoice">
+        <name>
+            <text>TPI05_Regla_Modus_Tollens</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál es el esquema correcto de la regla Modus Tollens (MT)?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$\dfrac{p \to q \quad \neg q}{\neg p}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \to q \quad q}{p}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \lor q \quad \neg p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \land q}{p}$$</text>
+        </answer>
+    </question>
+
+    <!-- TPI06: Silogismo hipotético -->
+    <question type="multichoice">
+        <name>
+            <text>TPI06_Silogismo_Hipotetico</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla llamada Silogismo Hipotético (SH) tiene el siguiente esquema:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$\dfrac{p \lor q \quad \neg p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \land q}{p}$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$\dfrac{p \to q \quad q \to r}{p \to r}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \to q \quad \neg q}{\neg p}$$</text>
+        </answer>
+    </question>
+
+    <!-- TPI07: Silogismo disyuntivo -->
+    <question type="multichoice">
+        <name>
+            <text>TPI07_Silogismo_Disyuntivo</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>¿Cuál esquema corresponde al Silogismo Disyuntivo (SD)?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>$$\dfrac{p \lor q \quad \neg p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \land q}{p}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \to q \quad p}{q}$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\dfrac{p \lor q \quad q}{p}$$</text>
+        </answer>
+    </question>
+
+    <!-- TPI08: Adición -->
+    <question type="multichoice">
+        <name>
+            <text>TPI08_Adicion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla de Adición (Ad) permite concluir:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>De $$p$$ se concluye $$p \land q$$.</text>
+        </answer>
+        <answer fraction="100">
+            <text>De $$p$$ se concluye $$p \lor q$$.</text>
+        </answer>
+        <answer fraction="0">
+            <text>De $$p \lor q$$ se concluye $$p$$.</text>
+        </answer>
+        <answer fraction="0">
+            <text>De $$p \land q$$ se concluye $$p \lor q$$.</text>
+        </answer>
+    </question>
+
+    <!-- TPI09: Simplificación -->
+    <question type="multichoice">
+        <name>
+            <text>TPI09_Simplificacion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla de Simplificación (Simp) se aplica típicamente a:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$p \lor q$$ para concluir $$p$$.</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor q$$ para concluir $$\neg p$$.</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$p \land q$$ para concluir $$p$$ o $$q$$.</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \to q$$ para concluir $$p$$.</text>
+        </answer>
+    </question>
+
+    <!-- TPI10: Conjunción -->
+    <question type="multichoice">
+        <name>
+            <text>TPI10_Conjuncion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla de Conjunción (Conj) permite concluir $$p \land q$$ a partir de:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$p \to q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$p \lor q$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$p$$ y $$q$$ en líneas diferentes.</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg p$$ y $$\neg q$$ en líneas diferentes.</text>
+        </answer>
+    </question>
+
+    <!-- TPI11: Doble negación -->
+    <question type="truefalse">
+        <name>
+            <text>TPI11_Doble_negacion_regla</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla de Doble Negación (DN) permite pasar de $$p$$ a $$\neg\neg p$$, y de $$\neg\neg p$$ a $$p$$ dentro de una prueba formal.</p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>1.0000000</penalty>
+        <hidden>0</hidden>
+        <answer fraction="100">
+            <text>true</text>
+        </answer>
+        <answer fraction="0">
+            <text>false</text>
+        </answer>
+    </question>
+
+    <!-- TPI12: Transposición -->
+    <question type="multichoice">
+        <name>
+            <text>TPI12_Transposicion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>La regla de Transposición (Trans) permite derivar a partir de $$p \to q$$ la fórmula:</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>$$\neg p \to \neg q$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$q \to p$$</text>
+        </answer>
+        <answer fraction="100">
+            <text>$$\neg q \to \neg p$$</text>
+        </answer>
+        <answer fraction="0">
+            <text>$$\neg p \lor q$$</text>
+        </answer>
+    </question>
+
+    <!-- TPI13: Exportación/Importación -->
+    <question type="matching">
+        <name>
+            <text>TPI13_Exportacion_Importacion</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Relaciona cada forma con el nombre correcto de la regla que las conecta.</p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <shuffleanswers>true</shuffleanswers>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$(p \land q) \to r$$</p>
+    ]]></text>
+            <answer>
+                <text>Exportación/Importación</text>
+            </answer>
+        </subquestion>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$p \to (q \to r)$$</p>
+    ]]></text>
+            <answer>
+                <text>Exportación/Importación</text>
+            </answer>
+        </subquestion>
+
+        <subquestion format="html">
+            <text><![CDATA[
+    <p>$$p \to q$$ y luego $$p \to (p \land q)$$</p>
+    ]]></text>
+            <answer>
+                <text>Absorción</text>
+            </answer>
+        </subquestion>
+    </question>
+
+    <!-- TPI14: reconocer aplicación de regla en prueba -->
+    <question type="multichoice">
+        <name>
+            <text>TPI14_Identificar_regla_en_prueba</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>En la siguiente parte de una prueba:</p>
+    <pre>
+1. $$p \to q$$      Premisa
+2. $$p$$            Premisa
+3. $$q$$            ?
+    </pre>
+    <p>¿Qué regla se aplica para justificar la línea 3?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="100">
+            <text>Modus Ponens (MP).</text>
+        </answer>
+        <answer fraction="0">
+            <text>Modus Tollens (MT).</text>
+        </answer>
+        <answer fraction="0">
+            <text>Silogismo Disyuntivo (SD).</text>
+        </answer>
+        <answer fraction="0">
+            <text>Conjunción (Conj).</text>
+        </answer>
+    </question>
+
+    <!-- TPI15: por qué tablas no siempre son prácticas -->
+    <question type="multichoice">
+        <name>
+            <text>TPI15_Limite_tablas_de_verdad</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p>Según el texto, ¿cuál es una desventaja importante de usar tablas de verdad para verificar validez de argumentos?</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>3.0000000</defaultgrade>
+        <penalty>0.3333333</penalty>
+        <hidden>0</hidden>
+        <single>true</single>
+        <shuffleanswers>true</shuffleanswers>
+        <answernumbering>abc</answernumbering>
+        <answer fraction="0">
+            <text>No permiten detectar contraejemplos.</text>
+        </answer>
+        <answer fraction="100">
+            <text>Requieren construir $$2^n$$ filas cuando hay $$n$$ variables, lo que crece muy rápido.</text>
+        </answer>
+        <answer fraction="0">
+            <text>No se pueden aplicar cuando hay condicionales.</text>
+        </answer>
+        <answer fraction="0">
+            <text>Solo sirven para fórmulas sin negaciones.</text>
+        </answer>
+    </question>
+
+
+    <!-- ===== Categoría: Practica_Proposiciones (versión integrada de formalización) ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Proposiciones</text>
+        </category>
+    </question>
+
+    <!-- PRP01: Proceso de respaldo de base de datos -->
+    <question type="essay">
+        <name>
+            <text>PRP01_Respaldos_base_datos</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP01</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Proceso de respaldo de base de datos</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“El sistema realiza respaldos automáticos cada noche. Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco. Si el respaldo no es exitoso, se envía una alerta al administrador. El administrador puede iniciar un respaldo manual cuando lo considere necesario.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP01</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada una de las proposiciones que selecciones (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación del texto: “Un respaldo es exitoso si el servidor de almacenamiento está disponible y hay espacio suficiente en disco”.</li>
+      <li>Formaliza la afirmación: “Si el respaldo no es exitoso, se envía una alerta al administrador”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+    <!-- PRP02: Sistema de autenticación y acceso -->
+    <question type="essay">
+        <name>
+            <text>PRP02_Sistema_autenticacion_acceso</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP02</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Sistema de autenticación y acceso</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“El sistema concede acceso solo si el usuario ingresó una contraseña válida y la cuenta está activa. Si la cuenta no está activa, el acceso es rechazado. Cuando el acceso es concedido, se registra el inicio de sesión en el log. El administrador puede bloquear una cuenta en cualquier momento.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP02</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada una (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación: “El sistema concede acceso solo si el usuario ingresó una contraseña válida y la cuenta está activa”.</li>
+      <li>Formaliza la afirmación: “Si la cuenta no está activa, el acceso es rechazado”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+    <!-- PRP03: Monitoreo de red -->
+    <question type="essay">
+        <name>
+            <text>PRP03_Monitoreo_red</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP03</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Monitoreo del estado de la red</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“El servidor de monitoreo está en línea. Cuando el servidor de monitoreo está en línea y la red responde al ping, el estado de la red se marca como disponible. Si la red no responde al ping, se genera una alerta de conectividad. Siempre que se genera una alerta de conectividad, se registra un evento en el log.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP03</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada proposición (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación: “Cuando el servidor de monitoreo está en línea y la red responde al ping, el estado de la red se marca como disponible”.</li>
+      <li>Formaliza la afirmación: “Si la red no responde al ping, se genera una alerta de conectividad”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+    <!-- PRP04: Política de seguridad y firewall -->
+    <question type="essay">
+        <name>
+            <text>PRP04_Politica_seguridad_firewall</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP04</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Política de seguridad y firewall</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“El sistema se considera seguro si el firewall está activo y el antivirus está actualizado. Si el firewall no está activo, el sistema no es seguro. Si el antivirus no está actualizado, se muestra una advertencia al usuario. Cuando el sistema no es seguro, se restringe el acceso a ciertas funciones.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP04</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada proposición (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación: “El sistema se considera seguro si el firewall está activo y el antivirus está actualizado”.</li>
+      <li>Formaliza la afirmación: “Si el firewall no está activo, el sistema no es seguro”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+    <!-- PRP05: Sistema de respaldo de energía -->
+    <question type="essay">
+        <name>
+            <text>PRP05_Respaldo_energia</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP05</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Sistema de respaldo de energía</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“Si la energía eléctrica se interrumpe y el generador de respaldo está disponible, el sistema entra en modo de respaldo. Si el generador de respaldo no está disponible, el sistema se apaga. Siempre que el sistema entra en modo de respaldo, se envía una notificación al administrador. Si el sistema se apaga, se registra un evento crítico.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP05</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada proposición (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación: “Si la energía eléctrica se interrumpe y el generador de respaldo está disponible, el sistema entra en modo de respaldo”.</li>
+      <li>Formaliza la afirmación: “Si el generador de respaldo no está disponible, el sistema se apaga”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+    <!-- PRP06: Servicio web y base de datos -->
+    <question type="essay">
+        <name>
+            <text>PRP06_Servicio_web_bd</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PRP06</b></p>
+    <p><b>Ejercicio integrado de formalización</b></p>
+    <p><b>Contexto: Servicio web y base de datos</b></p>
+    <p>Lee el siguiente escenario y responde:</p>
+    <p>“El servicio web está disponible. La base de datos responde a las consultas. Si el servicio web está disponible y la base de datos responde a las consultas, los usuarios pueden realizar operaciones. Si los usuarios pueden realizar operaciones, se genera registro de actividad. Si la base de datos no responde a las consultas, se muestra un mensaje de error.”</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PRP06</b>.</li>
+      <li>Identifica al menos 5 enunciados del texto que sean proposiciones.</li>
+      <li>Define variables proposicionales para cada proposición (por ejemplo, $$p, q, r, s, t$$) e indica su significado.</li>
+      <li>Formaliza la afirmación: “Si el servicio web está disponible y la base de datos responde a las consultas, los usuarios pueden realizar operaciones”.</li>
+      <li>Formaliza la afirmación: “Si la base de datos no responde a las consultas, se muestra un mensaje de error”.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>14</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+        <graderinfo format="html">
+            <text></text>
+        </graderinfo>
+        <responsetemplate format="html">
+            <text></text>
+        </responsetemplate>
+    </question>
+
+
+    <!-- ===== Categoría: Practica_Tablas_consecuencia ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Tablas_consecuencia</text>
+        </category>
+    </question>
+
+    <!-- ================== SECCIÓN I: TABLAS COMPLETAS Y CLASIFICACIÓN ================== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Tablas_consecuencia/Tablas_clasificacion</text>
+        </category>
+    </question>
+
+    <!-- PTC01: Tabla completa 2 proposiciones, clasificación -->
+    <question type="essay">
+        <name>
+            <text>PTC01_Tabla_y_clasificacion_neg_p_o_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC01</b></p>
+    <p><b>Ejercicio: tabla de verdad completa y clasificación</b></p>
+    <p>Considera la fórmula siguiente:</p>
+    <p>$$\neg p \lor q$$</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC01</b>.</li>
+      <li>Construye la tabla de verdad completa de la fórmula $$\neg p \lor q$$, usando el patrón de 4 renglones para dos proposiciones $$p, q$$.</li>
+      <li>Incluye columnas intermedias para $$\neg p$$ y para la fórmula completa $$\neg p \lor q$$.</li>
+      <li>Con base en la columna final, clasifica la fórmula como <b>tautología</b>, <b>contradicción</b> o <b>contingente</b>.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>16</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC02: Tabla completa condicional con conjunción -->
+    <question type="essay">
+        <name>
+            <text>PTC02_Tabla_y_clasificacion_p_y_q_implica_r</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC02</b></p>
+    <p><b>Ejercicio: tabla de verdad completa y clasificación</b></p>
+    <p>Considera la fórmula:</p>
+    <p>$$ (p \land q) \to r $$</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC02</b>.</li>
+      <li>Construye la tabla de verdad completa para las proposiciones $$p, q, r$$ (8 renglones).</li>
+      <li>Incluye columnas para $$p \land q$$, y para la fórmula completa $$(p \land q) \to r$$.</li>
+      <li>Con base en la columna final, clasifica la fórmula como <b>tautología</b>, <b>contradicción</b> o <b>contingente</b>.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC03: Tabla completa fórmula mixta para clasificación -->
+    <question type="essay">
+        <name>
+            <text>PTC03_Tabla_y_clasificacion_p_o_q_implica_p</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC03</b></p>
+    <p><b>Ejercicio: tabla de verdad completa y clasificación</b></p>
+    <p>Considera la fórmula:</p>
+    <p>$$ (p \lor q) \to p $$</p>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC03</b>.</li>
+      <li>Construye la tabla de verdad completa para las proposiciones $$p, q$$ (4 renglones).</li>
+      <li>Incluye columnas intermedias para $$p \lor q$$ y luego para $$(p \lor q) \to p$$.</li>
+      <li>Con base en la columna final, clasifica la fórmula como <b>tautología</b>, <b>contradicción</b> o <b>contingente</b>.</li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>16</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- ================== SECCIÓN II: CONSECUENCIA LÓGICA CON TABLAS ================== -->
+
+    <!-- ================== SI CONSECUENCIA LÓGICA ================== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Tablas_consecuencia/SI_consecuencia</text>
+        </category>
+    </question>
+
+    <!-- PTC04: Sí hay consecuencia lógica (p→q, p ⊨ q) -->
+    <question type="essay">
+        <name>
+            <text>PTC04_Consecuencia_si_estudio_apruebo</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC04</b></p>
+    <p><b>Ejercicio: consecuencia lógica con tabla de verdad</b></p>
+    <p>Analiza el siguiente argumento:</p>
+    <p>Premisas:</p>
+    <ul>
+      <li>1. $$p \to q$$</li>
+      <li>2. $$p$$</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$q$$</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC04</b>.</li>
+      <li>Construye una tabla de verdad con las proposiciones $$p, q$$ y columnas para cada premisa y para la conclusión.</li>
+      <li>En la tabla, identifica los renglones donde todas las premisas son verdaderas al mismo tiempo.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$q$$ es consecuencia lógica de las premisas? (sí o no).</li>
+          <li>Si la respuesta es “no”, indica en qué renglón o renglones aparece un contraejemplo (todas las premisas verdaderas y la conclusión falsa). Si la respuesta es “sí”, indica explícitamente que no hay ningún renglón que sea contraejemplo.</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC06: Sí hay consecuencia lógica (p∨q, ¬p ⊨ q) -->
+    <question type="essay">
+        <name>
+            <text>PTC06_Consecuencia_silogismo_disyuntivo</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC06</b></p>
+    <p><b>Ejercicio: consecuencia lógica con disyunción</b></p>
+    <p>Analiza el siguiente argumento:</p>
+    <p>Premisas:</p>
+    <ul>
+      <li>1. $$p \lor q$$</li>
+      <li>2. $$\neg p$$</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$q$$</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC06</b>.</li>
+      <li>Construye la tabla de verdad completa para $$p, q$$, incluyendo columnas para $$p \lor q$$, $$\neg p$$ y la conclusión $$q$$.</li>
+      <li>Identifica los renglones en los que ambas premisas son verdaderas.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$q$$ es consecuencia lógica de las premisas? (sí o no).</li>
+          <li>Si no hubiera consecuencia lógica, deberías señalar un contraejemplo; si sí hay consecuencia lógica, explica por qué no aparece ningún renglón con premisas verdaderas y conclusión falsa.</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC08: Sí hay consecuencia lógica (p∧q, (p∧q)→r ⊨ r) -->
+    <question type="essay">
+        <name>
+            <text>PTC08_Consecuencia_con_tres_proposiciones</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC08</b></p>
+    <p><b>Ejercicio: consecuencia lógica con tres proposiciones</b></p>
+    <p>Analiza el siguiente argumento:</p>
+    <p>Premisas:</p>
+    <ul>
+      <li>1. $$p \land q$$</li>
+      <li>2. $$(p \land q) \to r$$</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$r$$</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC08</b>.</li>
+      <li>Construye la tabla de verdad completa para $$p, q, r$$, agregando columnas para $$p \land q$$, $$(p \land q) \to r$$ y la conclusión $$r$$.</li>
+      <li>Localiza los renglones donde ambas premisas sean verdaderas.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$r$$ es consecuencia lógica de las premisas? (sí o no).</li>
+          <li>Explica si existe o no algún renglón que sea contraejemplo (todas las premisas verdaderas y la conclusión falsa).</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- ================== NO CONSECUENCIA LÓGICA ================== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Tablas_consecuencia/NO_consecuencia</text>
+        </category>
+    </question>
+
+    <!-- PTC07: No hay consecuencia lógica (p→q, r ⊭ q) -->
+    <question type="essay">
+        <name>
+            <text>PTC07_Consecuencia_p_implica_q_r_no_entails_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC07</b></p>
+    <p><b>Ejercicio: consecuencias con proposición irrelevante</b></p>
+    <p>Analiza el siguiente argumento:</p>
+    <p>Premisas:</p>
+    <ul>
+      <li>1. $$p \to q$$</li>
+      <li>2. $$r$$</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$q$$</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC07</b>.</li>
+      <li>Construye la tabla de verdad completa para $$p, q, r$$, con columnas para cada premisa y para la conclusión.</li>
+      <li>Identifica los renglones donde todas las premisas son verdaderas.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$q$$ es consecuencia lógica de las premisas? (sí o no).</li>
+          <li>Si no lo es, señala uno o más renglones que sean contraejemplos (premisas verdaderas y conclusión falsa), y explica brevemente qué muestran sobre el argumento.</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC05: No hay consecuencia lógica (p→q, q ⊭ p) -->
+    <question type="essay">
+        <name>
+            <text>PTC05_Consecuencia_no_se_sigue_q_implica_p</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC05</b></p>
+    <p><b>Ejercicio: consecuencia lógica y contraejemplo</b></p>
+    <p>Analiza el siguiente argumento:</p>
+    <p>Premisas:</p>
+    <ul>
+      <li>1. $$p \to q$$</li>
+      <li>2. $$q$$</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$p$$</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC05</b>.</li>
+      <li>Construye la tabla de verdad completa con las proposiciones $$p, q$$ y columnas para cada premisa y para la conclusión.</li>
+      <li>Localiza los renglones en los que todas las premisas son verdaderas.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$p$$ es consecuencia lógica de las premisas? (sí o no).</li>
+          <li>Si no es consecuencia lógica, indica el renglón o renglones que funcionan como contraejemplo (todas las premisas verdaderas y la conclusión falsa) y explica por qué ese renglón muestra que el argumento no es válido.</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PTC09: No hay consecuencia lógica (p∨q, conclusión q) con contexto de respaldo -->
+    <question type="essay">
+        <name>
+            <text>PTC09_Consecuencia_ejemplo_contraejemplo_respaldo</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+    <p><b>Identificador de pregunta: PTC09</b></p>
+    <p><b>Ejercicio: consecuencia lógica y contraejemplo con contexto tecnológico</b></p>
+    <p>Considera este argumento en contexto de sistemas:</p>
+    <p>Interpretación:</p>
+    <ul>
+      <li>$$p$$: el servidor principal está disponible.</li>
+      <li>$$q$$: el servidor de respaldo está disponible.</li>
+    </ul>
+    <p>Premisa única:</p>
+    <ul>
+      <li>1. $$p \lor q$$ (el servidor principal o el de respaldo está disponible).</li>
+    </ul>
+    <p>Conclusión:</p>
+    <ul>
+      <li>$$q$$ (el servidor de respaldo está disponible).</li>
+    </ul>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+      <li>En tus hojas de respuesta, escribe el identificador <b>PTC09</b>.</li>
+      <li>Construye la tabla de verdad completa para $$p, q$$, incluyendo columnas para la premisa $$p \lor q$$ y la conclusión $$q$$.</li>
+      <li>Responde:
+        <ol type="a">
+          <li>¿La conclusión $$q$$ es consecuencia lógica de la premisa $$p \lor q$$? (sí o no).</li>
+          <li>Si no lo es, indica en qué renglón o renglones aparece un contraejemplo (premisa verdadera y conclusión falsa) e interpreta brevemente ese renglón en el contexto de los servidores principal y de respaldo.</li>
+        </ol>
+      </li>
+    </ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>22</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+
+
+    <!-- ===== Categoría: Practica_Equiv_FN ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Equiv_FN</text>
+        </category>
+    </question>
+
+    <!-- ========== A) 3 EJERCICIOS DE SIMPLIFICACIÓN ========== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Equiv_FN/Simplificar</text>
+        </category>
+    </question>
+
+    <!-- PEF01: Simplificar (p ∧ V) ∨ (p ∧ ¬q) -->
+    <question type="essay">
+        <name>
+            <text>PEF01_Simplificar_p_y_V_o_p_y_no_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF01</b></p>
+<p><b>Ejercicio de simplificación mediante equivalencias lógicas</b></p>
+
+<p>Fórmula a simplificar:</p>
+<p>$$ (p \land V) \lor (p \land \neg q) $$</p>
+
+<p><b>Repertorio de leyes disponibles</b> (puedes usar solo las que necesites):</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF01</b>.</li>
+  <li>Simplifica la fórmula $$ (p \land V) \lor (p \land \neg q) $$ mediante una secuencia de equivalencias lógicas.</li>
+  <li>En cada renglón de tu solución, escribe la fórmula obtenida y el nombre de la ley que utilizas.</li>
+  <li>Al final, destaca claramente la fórmula simplificada que obtuviste.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF02: Simplificar (p ∨ q) ∧ (p ∨ ¬q) -->
+    <question type="essay">
+        <name>
+            <text>PEF02_Simplificar_p_o_q_y_p_o_no_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF02</b></p>
+<p><b>Ejercicio de simplificación mediante equivalencias lógicas</b></p>
+
+<p>Fórmula a simplificar:</p>
+<p>$$ (p \lor q) \land (p \lor \neg q) $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF02</b>.</li>
+  <li>Simplifica la fórmula $$ (p \lor q) \land (p \lor \neg q) $$ por medio de una secuencia de equivalencias lógicas.</li>
+  <li>En cada paso, justifica la transformación indicando el nombre de la ley utilizada.</li>
+  <li>Resalta la fórmula simplificada final.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF03: Simplificar (p ∧ q) ∨ (p ∧ ¬q) -->
+    <question type="essay">
+        <name>
+            <text>PEF03_Simplificar_p_y_q_o_p_y_no_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF03</b></p>
+<p><b>Ejercicio de simplificación mediante equivalencias lógicas</b></p>
+
+<p>Fórmula a simplificar:</p>
+<p>$$ (p \land q) \lor (p \land \neg q) $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF03</b>.</li>
+  <li>Simplifica la fórmula $$ (p \land q) \lor (p \land \neg q) $$ describiendo paso a paso cada transformación.</li>
+  <li>En cada renglón indica la ley de equivalencia lógica empleada.</li>
+  <li>Destaca la fórmula final simplificada.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- ========== B) 3 EJERCICIOS PARA OBTENER FNC ========== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Equiv_FN/FNC</text>
+        </category>
+    </question>
+
+    <!-- PEF04: FNC de (p ∨ q) → r -->
+    <question type="essay">
+        <name>
+            <text>PEF04_Obtener_FNC_p_o_q_implica_r</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF04</b></p>
+<p><b>Ejercicio: transformación a forma normal conjuntiva (FNC)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ (p \lor q) \to r $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF04</b>.</li>
+  <li>Transforma la fórmula $$(p \lor q) \to r$$ a una forma normal conjuntiva (FNC), usando una secuencia de equivalencias.</li>
+  <li>Primero elimina el condicional, luego empuja negaciones hacia los literales si aparecen, y finalmente usa distributividad hasta obtener una conjunción de disyunciones de literales.</li>
+  <li>En cada paso, indica qué ley estás aplicando.</li>
+  <li>Resalta la FNC obtenida como resultado final.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF05: FNC de p → (q ∧ r) -->
+    <question type="essay">
+        <name>
+            <text>PEF05_Obtener_FNC_p_implica_q_y_r</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF05</b></p>
+<p><b>Ejercicio: transformación a forma normal conjuntiva (FNC)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ p \to (q \land r) $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF05</b>.</li>
+  <li>Transforma la fórmula $$p \to (q \land r)$$ a una forma normal conjuntiva (FNC).</li>
+  <li>Sigue la estrategia general: eliminar $$\to$$, mover negaciones hasta los literales y aplicar distributividad para obtener una conjunción de cláusulas disyuntivas.</li>
+  <li>Justifica cada transformación con el nombre de la ley usada.</li>
+  <li>Marca claramente la fórmula final en FNC.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF06: FNC de (p ∧ q) → r -->
+    <question type="essay">
+        <name>
+            <text>PEF06_Obtener_FNC_p_y_q_implica_r</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF06</b></p>
+<p><b>Ejercicio: transformación a forma normal conjuntiva (FNC)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ (p \land q) \to r $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF06</b>.</li>
+  <li>Transforma la fórmula $$(p \land q) \to r$$ a forma normal conjuntiva (FNC) usando equivalencias.</li>
+  <li>Escribe todos los pasos de la transformación, indicando la ley usada en cada paso.</li>
+  <li>Asegúrate de que el resultado final sea una conjunción de disyunciones de literales.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- ========== C) 3 EJERCICIOS PARA OBTENER FND ========== -->
+
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Equiv_FN/FND</text>
+        </category>
+    </question>
+
+    <!-- PEF07: FND de p → q -->
+    <question type="essay">
+        <name>
+            <text>PEF07_Obtener_FND_p_implica_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF07</b></p>
+<p><b>Ejercicio: transformación a forma normal disyuntiva (FND)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ p \to q $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF07</b>.</li>
+  <li>Transforma la fórmula $$p \to q$$ a una forma normal disyuntiva (FND), es decir, una disyunción de conjunciones de literales.</li>
+  <li>Describe cada paso de la transformación e indica explícitamente qué ley usas.</li>
+  <li>Resalta la fórmula final en FND.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF08: FND de (p ∨ q) ∧ r -->
+    <question type="essay">
+        <name>
+            <text>PEF08_Obtener_FND_p_o_q_y_r</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF08</b></p>
+<p><b>Ejercicio: transformación a forma normal disyuntiva (FND)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ (p \lor q) \land r $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF08</b>.</li>
+  <li>Transforma la fórmula $$(p \lor q) \land r$$ a forma normal disyuntiva (FND), es decir, una disyunción de conjunciones de literales.</li>
+  <li>Aplica las leyes de equivalencia paso a paso e indica en cada renglón qué ley utilizas.</li>
+  <li>Destaca la FND obtenida al final.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>20</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- PEF09: FND de ¬(p ∧ q) -->
+    <question type="essay">
+        <name>
+            <text>PEF09_Obtener_FND_no_p_y_q</text>
+        </name>
+        <questiontext format="html">
+            <text><![CDATA[
+<p><b>Identificador de pregunta: PEF09</b></p>
+<p><b>Ejercicio: transformación a forma normal disyuntiva (FND)</b></p>
+
+<p>Fórmula original:</p>
+<p>$$ \neg(p \land q) $$</p>
+
+<p><b>Repertorio de leyes disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$, $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \lor q) \equiv \neg p \land \neg q$$, $$\neg(p \land q) \equiv \neg p \lor \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$$.</li>
+</ul>
+
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tus hojas de respuesta, escribe el identificador <b>PEF09</b>.</li>
+  <li>Transforma la fórmula $$\neg(p \land q)$$ a forma normal disyuntiva (FND).</li>
+  <li>Usa una secuencia de equivalencias lógicas, nombrando la ley aplicada en cada paso.</li>
+  <li>Verifica que la forma final sea una disyunción de conjunciones de literales.</li>
+</ol>
+    ]]></text>
+        </questiontext>
+        <defaultgrade>5.0000000</defaultgrade>
+        <penalty>0.0000000</penalty>
+        <hidden>0</hidden>
+        <responseformat>editor</responseformat>
+        <responserequired>0</responserequired>
+        <responsefieldlines>18</responsefieldlines>
+        <attachments>0</attachments>
+        <attachmentsrequired>0</attachmentsrequired>
+    </question>
+
+    <!-- ===== Categoría: Practica_Pruebas_Inferencia ===== -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final/Practica_Pruebas_Inferencia</text>
+        </category>
+    </question>
+
+<!-- ============================================================= -->
+<!-- PPI01: VPN y log de auditoría                                 -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI01_Prueba_VPN_log_auditoria</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI01</b></p>
+<p><b>Ejercicio de prueba formal (4–6 pasos)</b></p>
+
+<p><b>Contexto:</b> Acceso a VPN y registro en log de auditoría.</p>
+<p>“Si un usuario intenta conectarse a la VPN, se verifica su identidad. Si se verifica su identidad, se registra el acceso en el log de auditoría. El usuario intenta conectarse a la VPN.”</p>
+
+<p><b>Variables proposicionales:</b></p>
+<ul>
+  <li>$$p$$: el usuario intenta conectarse a la VPN.</li>
+  <li>$$q$$: se verifica la identidad del usuario.</li>
+  <li>$$r$$: se registra el acceso en el log de auditoría.</li>
+</ul>
+
+<p><b>Premisas formales:</b></p>
+<ol>
+  <li>$$p \to q$$</li>
+  <li>$$q \to r$$</li>
+  <li>$$p$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$r$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b> (abreviaturas):</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tu hoja de respuestas, escribe el identificador <b>PPI01</b> y construye la prueba formal completa que demuestra $$r$$ a partir de las premisas, numerando las líneas y justificando cada una con la regla usada.</li>
+  <li>En Moodle, escribe solo la secuencia de pasos utilizada, en el formato:
+    <br/><code>SH(1,2), MP(4,3)</code>.</li>
+  <li>Se aceptan abreviaturas en mayúsculas o minúsculas (por ejemplo, <code>mp</code> o <code>MP</code>).</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>8</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+<!-- ============================================================= -->
+<!-- PPI02: Respaldo e inconsistencia (MT)                         -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI02_Prueba_respaldo_inconsistente</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI02</b></p>
+<p><b>Ejercicio de prueba formal (4–6 pasos)</b></p>
+
+<p><b>Contexto:</b> Sistema de respaldo y consistencia de historial.</p>
+<p>“Si los respaldos se ejecutan correctamente, entonces el historial de cambios es consistente. El historial de cambios no es consistente.”</p>
+
+<p><b>Variables proposicionales:</b></p>
+<ul>
+  <li>$$p$$: los respaldos se ejecutan correctamente.</li>
+  <li>$$q$$: el historial de cambios es consistente.</li>
+</ul>
+
+<p><b>Premisas formales:</b></p>
+<ol>
+  <li>$$p \to q$$</li>
+  <li>$$\neg q$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$\neg p$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b>:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tu hoja de respuestas, escribe el identificador <b>PPI02</b> y construye la prueba formal que concluye $$\neg p$$ a partir de las premisas.</li>
+  <li>En Moodle, captura solo la secuencia de reglas usadas, por ejemplo: <code>MT(1,2)</code>.</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>8</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+<!-- ============================================================= -->
+<!-- PPI03: Pagos en línea                                         -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI03_Prueba_pagos_linea</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI03</b></p>
+<p><b>Ejercicio de prueba formal (5 pasos aprox.)</b></p>
+
+<p><b>Contexto:</b> Plataforma de pagos.</p>
+<p>“Si el token de sesión es válido y el monto está dentro del límite autorizado, la transacción se aprueba. Si la transacción se aprueba, se envía una notificación al usuario. El token de sesión es válido y el monto está dentro del límite autorizado.”</p>
+
+<p><b>Variables:</b></p>
+<ul>
+  <li>$$p$$: el token de sesión es válido.</li>
+  <li>$$q$$: el monto está dentro del límite autorizado.</li>
+  <li>$$r$$: la transacción se aprueba.</li>
+  <li>$$s$$: se envía una notificación al usuario.</li>
+</ul>
+
+<p><b>Premisas:</b></p>
+<ol>
+  <li>$$(p \land q) \to r$$</li>
+  <li>$$r \to s$$</li>
+  <li>$$p \land q$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$s$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b>:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En la hoja de respuestas (papel), escribe el identificador <b>PPI03</b> y desarrolla la prueba formal completa que concluye $$s$$.</li>
+  <li>En Moodle, escribe solo la secuencia de reglas aplicadas, por ejemplo: <code>MP(1,3), MP(2,4)</code>.</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>8</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+<!-- ============================================================= -->
+<!-- PPI04: Rol admin y confidencialidad                           -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI04_Prueba_rol_admin_confidencialidad</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI04</b></p>
+<p><b>Ejercicio de prueba formal (5–6 pasos)</b></p>
+
+<p><b>Contexto:</b> Política de acceso a datos sensibles.</p>
+<p>“Si el usuario tiene rol de administrador o tiene autorización especial, puede ver los registros. El usuario no tiene autorización especial. Si el usuario puede ver los registros y los registros están clasificados, debe firmar un acuerdo de confidencialidad. Los registros están clasificados. El usuario tiene rol de administrador.”</p>
+
+<p><b>Variables:</b></p>
+<ul>
+  <li>$$a$$: el usuario tiene rol de administrador.</li>
+  <li>$$e$$: el usuario tiene autorización especial.</li>
+  <li>$$v$$: el usuario puede ver los registros.</li>
+  <li>$$c$$: los registros están clasificados.</li>
+  <li>$$f$$: el usuario firma un acuerdo de confidencialidad.</li>
+</ul>
+
+<p><b>Premisas:</b></p>
+<ol>
+  <li>$$(a \lor e) \to v$$</li>
+  <li>$$\neg e$$</li>
+  <li>$$(v \land c) \to f$$</li>
+  <li>$$c$$</li>
+  <li>$$a$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$f$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b>:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En papel, escribe el identificador <b>PPI04</b> y construye la prueba formal completa desde las premisas hasta $$f$$.</li>
+  <li>En Moodle, escribe una posible secuencia de reglas consistente con tu prueba, por ejemplo:
+    <br/><code>AD(a), MP(1,6), CONJ(7,4), MP(3,8)</code> (usa los números de línea que tú generes).</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>10</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+<!-- ============================================================= -->
+<!-- PPI05: Exportación / Importación                              -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI05_Prueba_exportacion_importacion</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI05</b></p>
+<p><b>Ejercicio de prueba formal con Exportación / Importación</b></p>
+
+<p><b>Contexto:</b> Política de envío de notificaciones.</p>
+<p>“Si el sistema detecta un evento crítico y el servicio de correo está disponible, entonces se envía un correo al administrador. Si el sistema detecta un evento crítico, entonces si el servicio de correo está disponible se envía un correo al administrador.”</p>
+
+<p>Se quiere demostrar la equivalencia entre las dos formas del condicional compuesto usando reglas de inferencia.</p>
+
+<p><b>Variables:</b></p>
+<ul>
+  <li>$$p$$: el sistema detecta un evento crítico.</li>
+  <li>$$q$$: el servicio de correo está disponible.</li>
+  <li>$$r$$: se envía un correo al administrador.</li>
+</ul>
+
+<p><b>Premisa:</b></p>
+<ol>
+  <li>$$(p \land q) \to r$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$p \to (q \to r)$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b>:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tu hoja de respuestas, escribe el identificador <b>PPI05</b> y construye una prueba formal que derive $$p \to (q \to r)$$ a partir de la premisa, usando especialmente la regla de Exportación (EXP).</li>
+  <li>En Moodle, proporciona una secuencia de reglas coherente con tu prueba, por ejemplo: <code>EXP(1)</code>.</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>8</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+<!-- ============================================================= -->
+<!-- PPI06: Sistema de alertas                                     -->
+<!-- ============================================================= -->
+<question type="essay">
+  <name>
+    <text>PPI06_Prueba_equivalencias_y_inferencia</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+<p><b>Identificador de pregunta: PPI06</b></p>
+<p><b>Ejercicio de prueba formal (5–6 pasos)</b></p>
+
+<p><b>Contexto:</b> Sistema de alertas.</p>
+<p>“Si el sensor detecta temperatura alta, entonces se activa la alarma. Si se activa la alarma, el sistema envía una notificación o registra el evento en el log. El sensor detecta temperatura alta.”</p>
+
+<p><b>Variables:</b></p>
+<ul>
+  <li>$$p$$: el sensor detecta temperatura alta.</li>
+  <li>$$q$$: se activa la alarma.</li>
+  <li>$$r$$: el sistema envía una notificación.</li>
+  <li>$$s$$: el sistema registra el evento en el log.</li>
+</ul>
+
+<p><b>Premisas:</b></p>
+<ol>
+  <li>$$p \to q$$</li>
+  <li>$$q \to (r \lor s)$$</li>
+  <li>$$p$$</li>
+</ol>
+
+<p><b>Conclusión a demostrar:</b> $$r \lor s$$</p>
+
+<hr/>
+<p><b>Reglas de inferencia permitidas</b>:</p>
+<table border="1" cellpadding="4" cellspacing="0">
+  <tr><th>Nombre</th><th>Hipótesis</th><th>Conclusión</th><th>Abrev.</th></tr>
+  <tr><td>Modus Ponens</td><td>$$p \to q,\; p$$</td><td>$$q$$</td><td>MP</td></tr>
+  <tr><td>Modus Tollens</td><td>$$p \to q,\; \neg q$$</td><td>$$\neg p$$</td><td>MT</td></tr>
+  <tr><td>Silogismo hipotético</td><td>$$p \to q,\; q \to r$$</td><td>$$p \to r$$</td><td>SH</td></tr>
+  <tr><td>Silogismo disyuntivo</td><td>$$p \lor q,\; \neg p$$</td><td>$$q$$</td><td>SD</td></tr>
+  <tr><td>Adición</td><td>$$p$$</td><td>$$p \lor q$$</td><td>AD</td></tr>
+  <tr><td>Simplificación</td><td>$$p \land q$$</td><td>$$p$$ o $$q$$</td><td>SIMP</td></tr>
+  <tr><td>Conjunción</td><td>$$p, q$$</td><td>$$p \land q$$</td><td>CONJ</td></tr>
+  <tr><td>Doble negación</td><td>$$p$$ o $$\neg\neg p$$</td><td>$$\neg\neg p$$ o $$p$$</td><td>DN</td></tr>
+  <tr><td>Transposición</td><td>$$p \to q$$</td><td>$$\neg q \to \neg p$$</td><td>TRANS</td></tr>
+  <tr><td>Exportación</td><td>$$(p \land q) \to r$$</td><td>$$p \to (q \to r)$$</td><td>EXP</td></tr>
+  <tr><td>Importación</td><td>$$p \to (q \to r)$$</td><td>$$(p \land q) \to r$$</td><td>IMP</td></tr>
+  <tr><td>Absorción</td><td>$$p \to q$$</td><td>$$p \to (p \land q)$$</td><td>ABS</td></tr>
+</table>
+
+<hr/>
+<p><b>Leyes de equivalencia lógicas disponibles</b>:</p>
+<ul>
+  <li><b>Idempotencia:</b> $$p \lor p \equiv p$$, $$p \land p \equiv p$$.</li>
+  <li><b>Complemento:</b> $$p \lor \neg p \equiv V$$, $$p \land \neg p \equiv F$$.</li>
+  <li><b>Identidad:</b> $$p \lor F \equiv p$$, $$p \land V \equiv p$$.</li>
+  <li><b>Dominación:</b> $$p \lor V \equiv V$$, $$p \land F \equiv F$$.</li>
+  <li><b>Absorción:</b> $$p \lor (p \land q) \equiv p$$, $$p \land (p \lor q) \equiv p$$.</li>
+  <li><b>Conmutatividad:</b> $$p \lor q \equiv q \lor p$$, $$p \land q \equiv q \land p$$.</li>
+  <li><b>Asociatividad:</b> $$(p \lor q) \lor r \equiv p \lor (q \lor r)$$, $$(p \land q) \land r \equiv p \land (q \land r)$$.</li>
+  <li><b>Distributividad:</b> $$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$$, $$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$$.</li>
+  <li><b>De Morgan:</b> $$\neg(p \land q) \equiv \neg p \lor \neg q$$, $$\neg(p \lor q) \equiv \neg p \land \neg q$$.</li>
+  <li><b>Doble negación:</b> $$\neg\neg p \equiv p$$.</li>
+  <li><b>Condicional–disyunción:</b> $$p \to q \equiv \neg p \lor q$$.</li>
+  <li><b>Bicondicional:</b> $$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$$, $$p \leftrightarrow q \equiv (p \land q) \lor (\neg q \land \neg p)$$.</li>
+</ul>
+
+<hr/>
+<p><b>Instrucciones:</b></p>
+<ol>
+  <li>En tu hoja de respuestas, escribe el identificador <b>PPI06</b> y desarrolla una prueba formal que concluya $$r \lor s$$.</li>
+  <li>Puedes, si lo consideras útil, usar equivalencias para reescribir alguna fórmula intermedia, pero la estructura central de la prueba debe usar reglas de inferencia.</li>
+  <li>En Moodle, escribe la secuencia de reglas empleadas, por ejemplo: <code>MP(1,3), MP(2,4)</code>.</li>
+</ol>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>5.0000000</defaultgrade>
+  <penalty>0.0000000</penalty>
+  <hidden>0</hidden>
+  <responseformat>editor</responseformat>
+  <responserequired>0</responserequired>
+  <responsefieldlines>10</responsefieldlines>
+  <attachments>0</attachments>
+  <attachmentsrequired>0</attachmentsrequired>
+</question>
+
+</quiz>

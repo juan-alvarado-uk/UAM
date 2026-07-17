@@ -432,3 +432,17 @@ Para todos los ejercicios de tipo práctico, 1) incluye en la pregunta un identi
 
 
 
+Final
+
+Siguiendo todas las instrucciones de este hilo, Dame la sección de examen "LPO_1" con 15 a 20 preguntas basadas únicamente en el archivo "07_LPO_1.md". Todas las preguntas deberán ser teóricas y autoevaluadas.
+
+Con el mismo formato de la sección anterior, con feedback para las respuestas correctas e incorrectas, sin hacer referencias cruzadas a otras preguntas ni al texto o las presentaciones, con opciones de respuestas de longitudes de texto similares para que no "salte a la vista" la respuesta correcta, Dame preguntas para la sección "LPO_2" con 15 a 20 preguntas basadas unicamente en el archivo "07_LPO_2.md". Todas las preguntas deberán ser teóricas y autoevaluadas. (evita usar palabras como clave, ordenador, fallo)
+
+
+Con el mismo formato de la sección anterior, con feedback para las respuestas correctas e incorrectas, sin hacer referencias cruzadas a otras preguntas ni al texto o las presentaciones, con opciones de respuestas de longitudes de texto similares para que no "salte a la vista" la respuesta correcta, Dame preguntas para la sección "LPO_01_Prueba_formal" con 15 a 20 preguntas basadas únicamente en el archivo "08_LPO_01_Prueba_formal.md". Todas las preguntas deberán ser teóricas y autoevaluadas. (evita usar palabras como clave, ordenador, fallo)
+
+
+Con el mismo formato de la sección anterior, con feedback para las respuestas correctas e incorrectas, sin hacer referencias cruzadas a otras preguntas ni al texto o las presentaciones, con opciones de respuestas de longitudes de texto similares para que no "salte a la vista" la respuesta correcta, Dame preguntas para la sección "LPO_Herbrand.md" con 20 preguntas basadas únicamente en el archivo "08_LPO_02_Herbrand.md". Todas las preguntas deberán ser teóricas y autoevaluadas. (evita usar palabras como clave, ordenador, fallo). Si hay forma de  que usando la creación de universos de herbrand o bases de herbrand puedan hacerse preguntas de respuesta directa, pero autoevaluable, agrega preguntas así.
+
+
+Con el mismo formato de la sección anterior, con feedback para las respuestas correctas e incorrectas, sin hacer referencias cruzadas a otras preguntas ni al texto o las presentaciones, con opciones de respuestas de longitudes de texto similares para que no "salte a la vista" la respuesta correcta, Dame preguntas para la sección "Horn_Prog_Logica" con 20 preguntas basadas únicamente en el archivo "09_Horn_Prog_Logica.md". Todas las preguntas deberán ser teóricas y autoevaluadas. (evita usar palabras como clave, ordenador, fallo). Dame sobre todo ejemplos de programas lógicos sencillos, con algunos hechos y algunas reglas y que se dé la respuesta que el programa produce además de la razón. También dame ejemplos de programas sencillos que tengas errores y se seleccione la respuesta que indique la razón del error o tal vez otros que tengas errores y que por respuesta se deba seleccionar el número de ellos, el feedback luego indicaría explicitamente cuáles son los errores. También dame alguna pregunta que dadas unas formas clausulares, los alumnos deban seleccionar el programa que representa a esas cláusulas, dame además alguna otra u otras preguntas que dadas unas clausulas de Horn también permitan seleccionar al programa que las representa.

@@ -1,0 +1,2646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <!-- question: 0  -->
+    <question type="category">
+        <category>
+            <text>$module$/top/Por defecto en Examen Final</text>
+        </category>
+        <info format="moodle_auto_format">
+            <text>Categoría por defecto para preguntas compartidas en el contexto Examen Parcial.</text>
+        </info>
+        <idnumber></idnumber>
+    </question>
+
+    <!-- ===== Categoría: LPO_1 ===== -->
+<question type="category">
+  <category>
+    <text>$module$/top/Por defecto en Examen Final/LPO_1</text>
+  </category>
+</question>
+
+<!-- LPO1_01: límite de la lógica proposicional -->
+<question type="multichoice">
+  <name><text>LPO1_01_Limites_logica_proposicional</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál es una de las limitaciones centrales de la lógica proposicional que motiva el paso a la lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Que solo permite usar el conectivo de negación.</text>
+    <feedback format="html">
+      <text><![CDATA[Esta opción no describe una limitación real: la lógica proposicional admite varios conectivos, no solo la negación.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Que trata las proposiciones como bloques indivisibles y no puede hablar directamente de individuos, propiedades y relaciones.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: esta es la limitación clave que justifica introducir variables, predicados y cuantificadores en lógica de primer orden.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que no se pueden combinar proposiciones con conectivos de la misma forma que ne la lógica de predicados.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: en lógica proposicional sí pueden combinarse proposiciones con conectivos; el problema está en el nivel de detalle, no en los conectivos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que siempre produce contradicciones.</text>
+    <feedback format="html">
+      <text><![CDATA[Esta afirmación es demasiado fuerte: la lógica proposicional no “siempre” produce contradicciones; puede expresar muchas tautologías y contingencias.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_02: individuos en lógica proposicional -->
+<question type="multichoice">
+  <name><text>LPO1_02_Individuos_en_LP</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cómo aparecen “Juan”, “María” o “Pedro” en la lógica proposicional tradicional?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Como constantes explícitas sobre las que se cuantifica.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: en lógica proposicional no hay cuantificación sobre individuos ni constantes que los representen directamente.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como variables libres que se pueden sustituir por números.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la lógica proposicional no introduce variables de individuo; solo usa letras proposicionales para enunciados completos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Escondidos dentro de proposiciones completas que se representan con letras proposicionales.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: los individuos aparecen “empaquetados” en proposiciones como P, Q, R, sin representación explícita como términos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como predicados binarios que relacionan servidores.</text>
+    <feedback format="html">
+      <text><![CDATA[Esta opción mezcla conceptos de lógica de predicados y ejemplos tecnológicos; no describe cómo se manejan individuos en lógica proposicional.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_03: propiedades generales -->
+<question type="multichoice">
+  <name><text>LPO1_03_Propiedades_generales_LP</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Por qué la frase “Todos los estudiantes entregan tareas” no se expresa de forma natural en lógica proposicional?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Porque la lógica proposicional no admite conectivos y de esta forma no es posible establecer relaciones.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la lógica proposicional sí admite conectivos; el problema es la ausencia de cuantificadores y predicados sobre individuos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque la lógica proposicional no admite negaciones, con lo que la formulación siempre quedaría incompleta por no poderse negar.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: la negación está presente en lógica proposicional; la dificultad está en expresar generalizaciones sobre todos los estudiantes.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Porque solo podría listarse una cantidad finita de casos con letras proposicionales y la fórmula cambiaría si se agrega un nuevo estudiante.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: se requeriría una proposición por estudiante, y la expresión no captaría de forma uniforme el “todos” sin cuantificadores.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque los cuantificadores universales solo existen en lógica proposicional.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: los cuantificadores universales no pertenecen a la lógica proposicional, sino a la lógica de primer orden.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_04: nuevos símbolos en LPO -->
+<question type="multichoice">
+  <name><text>LPO1_04_Elementos_basicos_LPO</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué tipos de símbolos introduce la lógica de primer orden para hablar de individuos y relaciones?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Nuevas letras proposicionales que solo funcionan en la lógica de primer orden y que entran en contradicción con la lógica proposicional.</text>
+    <feedback format="html">
+      <text><![CDATA[Esta opción es incorrecta: la lógica de primer orden no introduce “letras proposicionales especiales”, sino símbolos para individuos y predicados.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Variables, constantes, predicados, funciones (opcionalmente), cuantificadores y los mismos conectivos que en lógica proposicional.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: estos son los componentes básicos del lenguaje de primer orden para expresar propiedades y relaciones entre individuos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Únicamente cuantificadores y conectivos, pues estos no se encuentran en la lógica de predicados, todo lo demás lo reusa.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: además de cuantificadores y conectivos, se requiere un vocabulario de términos (variables, constantes, funciones) y predicados.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Funciones, dominios y números reales.</text>
+    <feedback format="html">
+      <text><![CDATA[Esta respuesta es demasiado restringida y confunde el lenguaje lógico con ejemplos de estructuras específicas; no describe el conjunto de símbolos.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_05: definición de término -->
+<question type="multichoice">
+  <name><text>LPO1_05_Definicion_termino</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el lenguaje de primer orden, ¿qué es un término?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Una expresión que designa un individuo, construida a partir de variables, constantes y funciones.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: los términos son la forma sintáctica de referirse a individuos del dominio en lógica de primer orden.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Una fórmula completa que siempre es verdadera.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: eso describiría una tautología o teorema, no un término; los términos por sí mismos no afirman nada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Una combinación cualquiera de conectivos sin predicados.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: los conectivos combinan fórmulas, no construyen términos; un término no se define solo a partir de conectivos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El nombre de un predicado unario.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: el nombre de un predicado unario designa una propiedad, no un individuo; los términos se usan como argumentos de predicados.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_06: términos no afirman nada -->
+<question type="truefalse">
+  <name><text>LPO1_06_Terminos_no_afirman</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Un término en lógica de primer orden no afirma nada por sí mismo; solo designa un individuo del dominio.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: para formular enunciados se requiere aplicar predicados a términos o combinarlos con cuantificadores y conectivos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: un término solo nombra un individuo; la afirmación surge cuando se usa en fórmulas con predicados y cuantificadores.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_07: fórmulas atómicas -->
+<question type="multichoice">
+  <name><text>LPO1_07_Definicion_formula_atomica</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué es una fórmula atómica en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Cualquier expresión con al menos un cuantificador.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: las fórmulas atómicas no contienen cuantificadores ni conectivos; son la forma más básica de aplicación de predicados.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Una expresión donde un predicado se aplica al número correcto de términos.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: esta es la definición estándar de fórmula atómica en lógica de primer orden.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Una combinación de conectivos sin predicados.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: una expresión sin predicados no puede ser fórmula atómica; los conectivos se usan para construir fórmulas compuestas.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Una fórmula que es tautológica en todas las estructuras.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la propiedad de ser tautología se refiere a validez semántica, no a ser fórmula atómica.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_08: ejemplos de términos -->
+<question type="multichoice">
+  <name><text>LPO1_08_Ejemplos_terminos</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál de las siguientes expresiones es un término en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>padre_de(x)</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: si padre_de es una función unaria, padre_de(x) es un término que designa un individuo (el padre de x).]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Humano(x)</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: Humano(x) es una fórmula atómica si Humano es un predicado unario, no un término.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>∀x (Humano(x) → Mortal(x))</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: esta expresión es una fórmula cuantificada completa, no un término.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>MayorQue(ana,luis)</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: MayorQue(ana,luis) es una fórmula atómica si MayorQue es un predicado binario; los argumentos son términos, pero la expresión completa no lo es.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_09: cuantificador universal -->
+<question type="multichoice">
+  <name><text>LPO1_09_Cuantificador_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué expresa el cuantificador universal ∀x en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Que todos los individuos del dominio cumplen cierta propiedad.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: ∀x se interpreta como “para todo x” en el dominio, aplicado a la propiedad que se indique en la fórmula.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que existe exactamente un individuo con cierta propiedad.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: esto corresponde a un cuantificador de unicidad, no al cuantificador universal estándar.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que al menos un individuo cumple cierta propiedad.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: “al menos uno” corresponde al cuantificador existencial ∃x, no a ∀x.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que ninguna fórmula es bien formada.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: esta opción no describe el significado semántico de ∀x y no tiene relación con la formación de fórmulas.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_10: cuantificador existencial -->
+<question type="multichoice">
+  <name><text>LPO1_10_Cuantificador_existencial</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué expresa el cuantificador existencial ∃x en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Que todos los individuos tienen la misma propiedad.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: “todos” corresponde al cuantificador universal ∀x, no al existencial ∃x.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Que al menos un individuo cumple cierta propiedad.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: ∃x se interpreta como “existe al menos un x” en el dominio que satisface la propiedad indicada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que ningún individuo cumple la propiedad indicada.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: esta interpretación correspondería a la negación de una afirmación existencial, no al propio ∃x.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que la fórmula es contradictoria.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: el uso de ∃x no implica por sí mismo contradicción; todo depende de la estructura y del resto de la fórmula.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_11: orden de cuantificadores -->
+<question type="multichoice">
+  <name><text>LPO1_11_Orden_cuantificadores</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál es la diferencia de significado entre las fórmulas ∀x ∃y Ama(x,y) y ∃y ∀x Ama(x,y)?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La primera dice que cada individuo ama a alguien (posiblemente distinto para cada x); la segunda dice que existe un individuo que es amado por todos.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: el cambio de orden de los cuantificadores altera la condición de dependencia entre x e y y, por tanto, el significado global.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>En la primera fórmula la combinación de cuantificadores produce una expresión mal formada, mientras que la segunda es sintácticamente correcta.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: ambas fórmulas son bien formadas; la diferencia es semántica, no sintáctica.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ambas fórmulas describen que existe un único individuo que se relaciona del mismo modo con todos los demás.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: solo la segunda fórmula ∃y ∀x Ama(x,y) sugiere un mismo individuo amado por todos; la primera permite que cambie según x.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Las dos fórmulas describen exactamente la misma situación, por lo que son equivalentes.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: las fórmulas no son equivalentes; el orden de los cuantificadores cambia la situación que se describe.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_12: fórmulas bien formadas -->
+<question type="multichoice">
+  <name><text>LPO1_12_Formula_bien_formada</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué caracteriza a una fórmula bien formada (FBF) en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="0">
+    <text>Se caracteriza por tener al menos tres cuantificadores, sin importar el resto de la estructura.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: el número de cuantificadores no garantiza que una expresión esté bien formada; lo determinan las reglas sintácticas del lenguaje.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="100">
+    <text>Se construye siguiendo las reglas del lenguaje, enlazando sus símbolos de forma permitida.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: una FBF respeta la gramática del lenguaje de primer orden, tanto en estructura como en el uso de símbolos.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Está escrita sin ningún conectivo lógico entre las partes de la expresión.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: puede haber FBF con conectivos; la presencia o ausencia de conectivos no define por sí sola la buena formación.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Usa únicamente constantes numéricas como símbolos centrales de la fórmula.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: las FBF pueden involucrar variables, predicados, funciones y cuantificadores, no solo constantes numéricas.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_13: ejemplos de FBF -->
+<question type="multichoice">
+  <name><text>LPO1_13_Ejemplos_FBF</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál de las siguientes expresiones es una fórmula bien formada cerrada?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>∀x (Humano(x) → Mortal(x))</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: la fórmula está bien formada y todas las variables están ligadas, por lo que es una sentencia cerrada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Humano(x) ∧ Estudiante(y)</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: aunque puede ser bien formada, tiene variables libres x e y, por lo que no es cerrada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Padre(x)</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcta: si Padre es un predicado unario, la fórmula tiene la variable x libre, así que no es cerrada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>→ Humano(x)</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: esta expresión ni siquiera está bien formada; falta la parte izquierda del conectivo de implicación.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_14: variables libres y ligadas -->
+<question type="multichoice">
+  <name><text>LPO1_14_Variables_libres_ligadas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En la fórmula ∀x (Humano(x) → Ama(x,y)), ¿cómo se clasifican las variables x y y?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>x está ligada, mientras que y aparece como variable libre.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: el cuantificador ∀x liga las apariciones de x, mientras que y no está bajo ningún cuantificador y permanece libre.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ambas variables se clasifican como libres.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: x está ligada por el cuantificador universal; solo y es variable libre en la fórmula.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ambas variables se clasifican como ligadas.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: y no está ligada por ningún cuantificador, por lo que no puede considerarse variable ligada.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>y está ligada, mientras que x aparece como variable libre.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la situación es justamente la inversa; x está ligada y y es libre.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_15: alcance de un cuantificador -->
+<question type="multichoice">
+  <name><text>LPO1_15_Alcance_cuantificador</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué se entiende por el alcance de un cuantificador en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La parte de la fórmula a la que realmente aplica el cuantificador, determinada por los paréntesis y la posición del símbolo.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: el alcance señala qué subfórmula queda bajo la influencia del cuantificador y qué variables resultan ligadas.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El número total de individuos del dominio.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: el alcance es un concepto sintáctico dentro de la fórmula, no un conteo de individuos del dominio.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La cantidad de premisas de un argumento.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: la cantidad de premisas pertenece al análisis de argumentos, no al alcance de cuantificadores en una fórmula.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de constantes utilizadas en la fórmula.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: el alcance no se define por las constantes usadas, sino por la subfórmula delimitada por la posición del cuantificador.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_16: sentencias cerradas -->
+<question type="multichoice">
+  <name><text>LPO1_16_Sentencias_cerradas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué distingue a una sentencia cerrada en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Que no contiene variables libres, por lo que se le puede asignar directamente verdadero o falso en una estructura.</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: las sentencias cerradas son fórmulas sin variables libres, evaluables directamente como verdaderas o falsas en un modelo.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que solo contiene variables libres, por lo que se le puede asignar directamente verdadero o falso en una estructura.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la presencia de variables libres impide asignar un valor de verdad sin fijar previamente una interpretación para ellas.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que no tiene predicados.</text>
+    <feedback format="html">
+      <text><![CDATA[No es correcto: una sentencia puede contener predicados; lo distintivo es la ausencia de variables libres, no de predicados.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que siempre incluye al menos un cuantificador existencial.</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: una sentencia cerrada puede no incluir cuantificadores existenciales; basta con que no queden variables libres.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_17: ejemplo tecnológico universal -->
+<question type="truefalse">
+  <name><text>LPO1_17_Ejemplo_servidores_monitoreados</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∀x (Servidor(x) → Monitoreado(x)) se interpreta como “todo servidor está monitoreado”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: la fórmula dice que cualquier individuo que sea servidor también cumple la propiedad de estar monitoreado.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: la lectura estándar de la fórmula es precisamente “todo servidor está monitoreado”.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+<!-- LPO1_18: ejemplo tecnológico existencial -->
+<question type="truefalse">
+  <name><text>LPO1_18_Ejemplo_servidor_no_disponible</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∃x (Servidor(x) ∧ ¬Disponible(x)) se interpreta como “existe al menos un servidor que no está disponible”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback format="html">
+      <text><![CDATA[Correcto: la combinación de ∃x con la conjunción Servidor(x) ∧ ¬Disponible(x) afirma la existencia de al menos un servidor no disponible.]]></text>
+    </feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback format="html">
+      <text><![CDATA[Incorrecto: negar esta interpretación contradice el significado estándar del cuantificador existencial en la fórmula dada.]]></text>
+    </feedback>
+  </answer>
+</question>
+
+
+<!-- ===== Categoría: LPO_2 ===== -->
+<question type="category">
+  <category>
+    <text>$module$/top/Por defecto en Examen Final/LPO_2</text>
+  </category>
+</question>
+
+<!-- LPO2_01: propósito de LPO -->
+<question type="multichoice">
+  <name><text>LPO2_01_Proposito_LPO</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué objetivo principal se persigue al pasar de la lógica proposicional a la lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Poder expresar propiedades y relaciones entre individuos, y no solo proposiciones globales.</text>
+    <feedback><text>Correcto: LPO permite hablar directamente de individuos, sus propiedades y relaciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Reducir todas las fórmulas a combinaciones de ¬ y ∨ sin usar otros símbolos.</text>
+    <feedback><text>No es correcto: el cambio no busca reducir conectivos, sino enriquecer la expresividad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Evitar completamente el uso de variables y cuantificadores en las fórmulas.</text>
+    <feedback><text>Incorrecto: LPO introduce justamente variables y cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Garantizar que todas las fórmulas sean siempre verdaderas en cualquier interpretación.</text>
+    <feedback><text>No es correcto: LPO no exige que todas las fórmulas sean verdaderas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_02: vocabulario de LPO -->
+<question type="multichoice">
+  <name><text>LPO2_02_Vocabulario_LPO</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué elementos forman el vocabulario básico de un lenguaje de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Variables, constantes, predicados, funciones, cuantificadores y conectivos lógicos.</text>
+    <feedback><text>Correcto: estos son los componentes habituales del lenguaje de primer orden.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo letras proposicionales y conectivos, sin términos ni cuantificadores.</text>
+    <feedback><text>Incorrecto: eso describe la lógica proposicional, no la de primer orden.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Únicamente números reales y símbolos de suma y producto entre ellos.</text>
+    <feedback><text>No es correcto: eso se parece más a un lenguaje aritmético específico.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo nombres propios y conjunciones, sin estructura lógica adicional.</text>
+    <feedback><text>Incorrecto: LPO no se limita a nombres y conjunciones.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_03: definición de término -->
+<question type="multichoice">
+  <name><text>LPO2_03_Definicion_termino</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En lógica de primer orden, ¿qué caracteriza a un término?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Designa un individuo del dominio y puede ser una variable, una constante o el resultado de una función.</text>
+    <feedback><text>Correcto: los términos sirven para señalar individuos dentro de la estructura.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Siempre incluye al menos un cuantificador universal en su interior.</text>
+    <feedback><text>No es correcto: los términos no contienen cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es cualquier combinación de predicados y conectivos que sea verdadera.</text>
+    <feedback><text>Incorrecto: eso describiría fórmulas, no términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo puede ser el nombre de una relación entre dos individuos.</text>
+    <feedback><text>No es correcto: eso se acerca más a la noción de predicado, no de término.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_04: función de los predicados -->
+<question type="multichoice">
+  <name><text>LPO2_04_Papel_predicados</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué papel cumplen los predicados en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Aplicados a términos, permiten afirmar propiedades o relaciones sobre los individuos.</text>
+    <feedback><text>Correcto: los predicados son los que expresan propiedades y relaciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Sirven solo para numerar las filas de una tabla de verdad proposicional.</text>
+    <feedback><text>Incorrecto: ese uso corresponde a letras proposicionales, no a predicados de LPO.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se usan para indicar el final de una fórmula bien formada.</text>
+    <feedback><text>No es correcto: los predicados no marcan el final de la fórmula.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Se limitan a representar conectivos como ∧, ∨, → y ↔ en notación alternativa.</text>
+    <feedback><text>Incorrecto: los predicados y los conectivos cumplen funciones distintas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_05: fórmulas atómicas -->
+<question type="multichoice">
+  <name><text>LPO2_05_Formulas_atomicas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuándo una expresión de primer orden se considera una fórmula atómica?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Cuando consiste en un predicado aplicado al número adecuado de términos, sin conectivos ni cuantificadores externos.</text>
+    <feedback><text>Correcto: las fórmulas atómicas son la base sobre la que se construyen fórmulas más complejas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando contiene al menos dos cuantificadores seguidos en la parte inicial.</text>
+    <feedback><text>Incorrecto: la presencia de cuantificadores ya indica que no es atómica.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando es una conjunción de varias fórmulas cerradas diferentes.</text>
+    <feedback><text>No es correcto: una conjunción de fórmulas ya no es atómica.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando no incluye términos y solo aparece un símbolo de cuantificación aislado.</text>
+    <feedback><text>Incorrecto: las fórmulas atómicas requieren predicado y términos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_06: cuantificador universal -->
+<question type="multichoice">
+  <name><text>LPO2_06_Sentido_cuantificador_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cómo se interpreta el cuantificador universal ∀x en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Indica que la propiedad o relación especificada se cumple para todos los individuos del dominio.</text>
+    <feedback><text>Correcto: el cuantificador universal generaliza la propiedad para todo el dominio.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Indica que la propiedad se cumple únicamente para un individuo concreto nombrado en la fórmula.</text>
+    <feedback><text>No es correcto: eso sería más típico de una constante, no de ∀x.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Indica que la propiedad se cumple solo para algunos individuos sin especificar cuántos.</text>
+    <feedback><text>Incorrecto: “solo algunos” se asocia más con la lectura existencial.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Indica que la fórmula no tiene ningún valor de verdad asignable.</text>
+    <feedback><text>No es correcto: el cuantificador universal no bloquea la evaluación de la fórmula.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_07: cuantificador existencial -->
+<question type="multichoice">
+  <name><text>LPO2_07_Sentido_cuantificador_existencial</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué lectura habitual se asigna al cuantificador existencial ∃x en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Que hay al menos un individuo del dominio para el cual se cumple la propiedad indicada.</text>
+    <feedback><text>Correcto: esa es la lectura estándar de ∃x.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que la propiedad se cumple para todos los individuos sin excepción.</text>
+    <feedback><text>Incorrecto: esa lectura corresponde al cuantificador universal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que la propiedad se cumple para exactamente dos individuos distintos.</text>
+    <feedback><text>No es correcto: ∃x no fija un número exacto de individuos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que la propiedad nunca se cumple en ningún caso dentro del dominio.</text>
+    <feedback><text>Incorrecto: esa lectura negaría la existencia que ∃x afirma.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_08: orden de cuantificadores -->
+<question type="multichoice">
+  <name><text>LPO2_08_Importancia_orden_cuantificadores</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Por qué el orden de los cuantificadores en una fórmula de primer orden suele ser relevante?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Porque cambiar el orden puede alterar la relación entre los individuos cuantificados y modificar el significado global.</text>
+    <feedback><text>Correcto: el orden de cuantificación afecta el sentido de la fórmula.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque los cuantificadores solo se usan para fines de presentación y no influyen en la interpretación.</text>
+    <feedback><text>No es correcto: los cuantificadores tienen impacto directo en la interpretación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque el orden determina el tipo de conectivo lógico que debe aparecer al final.</text>
+    <feedback><text>Incorrecto: los conectivos no se fijan únicamente por el orden de cuantificación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque las fórmulas con cuantificadores no admiten ninguna variación de orden sintáctico.</text>
+    <feedback><text>No es correcto: el orden puede cambiar, pero cambiando también el significado.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_09: variables libres -->
+<question type="multichoice">
+  <name><text>LPO2_09_Definicion_variable_libre</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En una fórmula de primer orden, ¿qué caracteriza a una variable libre?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>No está ligada por ningún cuantificador y su valor puede variar entre interpretaciones o asignaciones.</text>
+    <feedback><text>Correcto: las variables libres no quedan fijadas por cuantificación en la fórmula.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Está ligada por todos los cuantificadores que aparecen en la fórmula.</text>
+    <feedback><text>Incorrecto: eso describe más bien una variable ligada.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es una variable que representa siempre el mismo individuo en cualquier contexto.</text>
+    <feedback><text>No es correcto: ese papel lo cumple más bien una constante.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es una variable que nunca puede aparecer dentro de un predicado.</text>
+    <feedback><text>Incorrecto: las variables libres sí pueden participar en predicados.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_10: variables ligadas -->
+<question type="multichoice">
+  <name><text>LPO2_10_Definicion_variable_ligada</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuándo se dice que una variable está ligada en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Cuando aparece dentro del alcance de un cuantificador que la introduce explícitamente.</text>
+    <feedback><text>Correcto: la variable ligada queda asociada al cuantificador correspondiente.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando se encuentra fuera de cualquier predicado y no tiene valor asignado.</text>
+    <feedback><text>No es correcto: eso no define una variable ligada.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando se repite en todos los términos sin necesidad de cuantificadores.</text>
+    <feedback><text>Incorrecto: la repetición no implica que la variable esté ligada.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando aparece únicamente en fórmulas atómicas sin conectivos.</text>
+    <feedback><text>No es correcto: las variables ligadas pueden aparecer en fórmulas complejas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_11: alcance de un cuantificador -->
+<question type="multichoice">
+  <name><text>LPO2_11_Alcance_cuantificador</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué se entiende por el alcance de un cuantificador en una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La parte de la fórmula sobre la que ese cuantificador tiene efecto, determinada por la posición y los paréntesis.</text>
+    <feedback><text>Correcto: el alcance delimita dónde actúa cada cuantificador.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La cantidad de individuos que pueden cumplir la propiedad expresada.</text>
+    <feedback><text>No es correcto: el alcance no es un número de individuos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las fórmulas distintas que pueden aparecer en el mismo lenguaje.</text>
+    <feedback><text>Incorrecto: eso se refiere más bien al lenguaje completo, no al alcance.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El número de conectivos lógicos que se usan dentro de la fórmula cerrada.</text>
+    <feedback><text>No es correcto: el alcance no se define por la cantidad de conectivos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_12: sentencias cerradas -->
+<question type="multichoice">
+  <name><text>LPO2_12_Sentencia_cerrada</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué condición debe cumplir una fórmula de primer orden para considerarse una sentencia cerrada?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>No contener variables libres, de modo que pueda evaluarse como verdadera o falsa en una estructura dada.</text>
+    <feedback><text>Correcto: las sentencias cerradas permiten la evaluación directa de verdad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Contener al menos una variable libre en todos los predicados utilizados.</text>
+    <feedback><text>No es correcto: eso impediría que la fórmula fuera cerrada.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>No incluir conectivos lógicos entre las partes de la expresión.</text>
+    <feedback><text>Incorrecto: se puede ser cerrada y usar conectivos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Usar solo constantes y ningún tipo de cuantificación explicita.</text>
+    <feedback><text>No es correcto: la ausencia de cuantificadores no garantiza que sea cerrada.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_13: ejemplos de interpretación universal -->
+<question type="truefalse">
+  <name><text>LPO2_13_Interpretacion_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∀x (Humano(x) → Mortal(x)) se suele leer como “todo humano es mortal”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: la lectura estándar del cuantificador universal es de tipo “todo”.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: esa es precisamente la interpretación usual de la fórmula.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_14: ejemplos de interpretación existencial -->
+<question type="truefalse">
+  <name><text>LPO2_14_Interpretacion_existencial</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∃x (Humano(x) ∧ Estudiante(x)) se puede leer como “existe al menos un humano que es estudiante”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: la lectura de ∃x combina existencia con la propiedad indicada.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: la fórmula afirma la existencia de al menos un individuo con ambas propiedades.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_15: mezcla de cuantificadores -->
+<question type="multichoice">
+  <name><text>LPO2_15_Mezcla_cuantificadores</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué rasgo distingue a una fórmula como ∀x ∃y Relacion(x,y) en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Expresa que para cada individuo hay al menos otro con el que se cumple la relación indicada.</text>
+    <feedback><text>Correcto: esa fórmula combina universalidad sobre x y existencia sobre y.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Afirma que existe un solo individuo que no se relaciona con ningún otro.</text>
+    <feedback><text>No es correcto: la fórmula no habla de individuos sin relación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Describe que ningún individuo participa en la relación expresada por el predicado.</text>
+    <feedback><text>Incorrecto: la fórmula indica existencia de relaciones, no su ausencia.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Indica que la relación se cumple exactamente para un número fijo de individuos.</text>
+    <feedback><text>No es correcto: la fórmula no fija un número concreto de casos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_16: ejemplo tecnológico universal -->
+<question type="truefalse">
+  <name><text>LPO2_16_Ejemplo_servidores_monitoreados</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∀x (Servidor(x) → Monitoreado(x)) puede entenderse como “todo servidor está bajo vigilancia”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: la estructura refleja que cada servidor tiene la propiedad de estar vigilado.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: la lectura usual de esa fórmula sí es de tipo “todo servidor”.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_17: ejemplo tecnológico existencial -->
+<question type="truefalse">
+  <name><text>LPO2_17_Ejemplo_servidor_no_disponible</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La fórmula ∃x (Servidor(x) ∧ ¬Disponible(x)) puede leerse como “hay al menos un servidor que no está disponible”.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: la combinación de ∃x con la negación indica existencia de un servidor no disponible.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: esa es justamente la interpretación estándar de la fórmula.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPO2_18: fórmulas abiertas -->
+<question type="multichoice">
+  <name><text>LPO2_18_Formulas_abiertas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué diferencia principal hay entre una fórmula abierta y una sentencia cerrada en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La fórmula abierta tiene variables libres, mientras que la sentencia cerrada no las tiene.</text>
+    <feedback><text>Correcto: esa es la diferencia central entre fórmulas abiertas y sentencias.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La fórmula abierta no puede usar predicados, a diferencia de la sentencia cerrada.</text>
+    <feedback><text>No es correcto: ambas pueden incluir predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La fórmula abierta siempre tiene cuantificadores, mientras que la sentencia cerrada nunca los incluye.</text>
+    <feedback><text>Incorrecto: una sentencia cerrada puede contener cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La fórmula abierta es siempre verdadera y la sentencia cerrada siempre falsa en cualquier interpretación.</text>
+    <feedback><text>No es correcto: el estado de verdad depende de la estructura y no de ser abierta o cerrada.</text></feedback>
+  </answer>
+</question>
+
+
+<!-- ===== Categoría: LPO_Prueba_formal ===== -->
+<question type="category">
+  <category>
+    <text>$module$/top/Por defecto en Examen Final/LPO_Prueba_formal</text>
+  </category>
+</question>
+
+<!-- LPOP_01: idea general de prueba en LPO -->
+<question type="multichoice">
+  <name><text>LPOP_01_Idea_prueba_LPO</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué mantiene una prueba formal de lógica de primer orden respecto a la prueba formal proposicional?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>El esquema de secuencia de líneas, donde cada fórmula se justifica por premisas o reglas válidas aplicadas a líneas anteriores.</text>
+    <feedback><text>Correcto: la estructura de “líneas justificadas” sigue siendo la base de la prueba formal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La obligación de no usar conectivos lógicos en ninguna etapa del razonamiento.</text>
+    <feedback><text>No es correcto: los conectivos siguen presentes en la prueba formal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El requisito de que todas las fórmulas contengan únicamente constantes numéricas.</text>
+    <feedback><text>Incorrecto: la lógica de primer orden trabaja con términos más generales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La idea de que las fórmulas no deben depender de premisas previas para justificarse.</text>
+    <feedback><text>No es correcto: las fórmulas sí se justifican con premisas y reglas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_02: diferencia principal en LPO -->
+<question type="multichoice">
+  <name><text>LPOP_02_Diferencia_principal_LPO</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué diferencia importante aparece en la prueba formal cuando se pasa de lógica proposicional a lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Las fórmulas incluyen variables y cuantificadores, y se debe controlar cómo se sustituyen variables por términos.</text>
+    <feedback><text>Correcto: la presencia de cuantificadores y sustituciones es la gran novedad en LPO.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Las reglas proposicionales dejan de ser válidas y se reemplazan por otras completamente distintas.</text>
+    <feedback><text>Incorrecto: las reglas proposicionales se siguen usando sobre las instancias.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Las fórmulas ya no pueden ser justificadas por premisas de ningún tipo.</text>
+    <feedback><text>No es correcto: las premisas siguen siendo el punto de partida del razonamiento.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se permiten pruebas con una única línea, sin referencias a pasos anteriores.</text>
+    <feedback><text>Incorrecto: una prueba formal sigue siendo una secuencia de líneas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_03: función de la instanciación universal -->
+<question type="multichoice">
+  <name><text>LPOP_03_Funcion_instanciacion_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué permite hacer la instanciación universal en una prueba de lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Pasar de una afirmación universal a una fórmula particular, sustituyendo la variable por un término adecuado.</text>
+    <feedback><text>Correcto: la instanciación baja de la forma ∀x P(x) a una instancia P(t).</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Eliminar todas las variables de la fórmula sin introducir nuevos términos.</text>
+    <feedback><text>No es correcto: la instanciación sustituye la variable por un término concreto.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Transformar una premisa existencial en una premisa que no contiene cuantificadores.</text>
+    <feedback><text>Incorrecto: la instanciación universal parte de cuantificadores universales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Garantizar que la fórmula resultante sea una tautología proposicional en cualquier dominio.</text>
+    <feedback><text>No es correcto: la instanciación no asegura que la fórmula sea tautológica.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_04: ejemplo de patrón con instanciación -->
+<question type="truefalse">
+  <name><text>LPOP_04_Patron_instanciacion_MP</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Un patrón frecuente de prueba en LPO consiste en tomar una fórmula universal, instanciarla a un término y luego aplicar reglas proposicionales como modus ponens sobre la instancia.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: muchas pruebas combinan instanciación y reglas proposicionales en este orden.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: ese patrón describe precisamente el uso típico de la instanciación.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_05: condición sobre el término en instanciación -->
+<question type="multichoice">
+  <name><text>LPOP_05_Termino_instanciacion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Al usar instanciación universal desde ∀x P(x), ¿qué condición debe cumplir el término elegido para sustituir a x?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Debe ser un término bien formado del lenguaje, capaz de representar algún individuo del dominio.</text>
+    <feedback><text>Correcto: la sustitución solo tiene sentido con términos válidos del lenguaje.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Debe ser una constante numérica que no aparezca en ninguna otra línea de la prueba.</text>
+    <feedback><text>No es correcto: no se exige que el término sea numérico ni exclusivo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Debe ser una letra proposicional distinta de las usadas en las premisas.</text>
+    <feedback><text>Incorrecto: la instanciación trabaja con términos, no con letras proposicionales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Debe ser siempre el mismo término para todas las instanciaciones posibles.</text>
+    <feedback><text>No es correcto: se pueden usar distintos términos según la necesidad.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_06: idea de generalización universal -->
+<question type="multichoice">
+  <name><text>LPOP_06_Idea_generalizacion_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué movimiento conceptual realiza la generalización universal en una prueba de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Pasa de una fórmula demostrada para un individuo arbitrario a una afirmación que vale para todos los individuos.</text>
+    <feedback><text>Correcto: la generalización sube de lo arbitrario a lo universal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pasa de una fórmula cerrada sin variables a una fórmula con muchas variables nuevas.</text>
+    <feedback><text>No es correcto: la generalización no busca introducir variables de ese modo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pasa de una premisa existencial a una conclusión que no contiene conectivos.</text>
+    <feedback><text>Incorrecto: la generalización universal no se aplica a fórmulas existenciales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pasa de una conjunción de fórmulas a una disyunción sobre los mismos predicados.</text>
+    <feedback><text>No es correcto: ese paso pertenece a reglas sobre conectivos, no al cuantificador.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_07: restricción de generalización universal -->
+<question type="multichoice">
+  <name><text>LPOP_07_Restriccion_gener_universal</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué restricción importante acompaña al uso de la generalización universal en una prueba de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>El razonamiento previo no debe usar rasgos especiales del individuo elegido, sino tratarlo como arbitrario.</text>
+    <feedback><text>Correcto: sin esa restricción la generalización podría producir conclusiones engañosas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Se exige que la fórmula demostrada sea una tautología proposicional en todas las estructuras.</text>
+    <feedback><text>No es correcto: la generalización no se basa en que la fórmula sea tautológica.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Se exige que el individuo usado en el razonamiento aparezca nombrado por una constante específica.</text>
+    <feedback><text>Incorrecto: el uso de constantes no es la condición clave aquí.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Se exige que la fórmula original contenga solo conectivos y ningún predicado explícito.</text>
+    <feedback><text>No es correcto: la generalización opera sobre fórmulas con predicados.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_08: comparación instanciación vs generalización -->
+<question type="multichoice">
+  <name><text>LPOP_08_Comparacion_inst_gen</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cómo se relacionan la instanciación universal y la generalización universal en el contexto de la prueba formal?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Son movimientos complementarios: la instanciación baja de lo universal a lo particular y la generalización sube de lo arbitrario a lo universal.</text>
+    <feedback><text>Correcto: ambas reglas trabajan en direcciones opuestas dentro de la prueba.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Son reglas equivalentes que siempre producen exactamente las mismas fórmulas.</text>
+    <feedback><text>No es correcto: cada una actúa en sentido distinto sobre las fórmulas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Son reglas que se aplican únicamente a fórmulas sin cuantificadores iniciales.</text>
+    <feedback><text>Incorrecto: ambas reglas se relacionan directamente con cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Son reglas que se usan solo para eliminar conectivos de una fórmula bien formada.</text>
+    <feedback><text>No es correcto: su función no es eliminar conectivos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_09: afirmación existencial -->
+<question type="multichoice">
+  <name><text>LPOP_09_Sentido_existencial</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué se afirma cuando aparece una fórmula del tipo ∃x P(x) en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Que existe al menos un individuo del dominio que cumple la propiedad indicada, aunque no quede identificado cuál.</text>
+    <feedback><text>Correcto: la afirmación existencial garantiza al menos un caso, pero no lo nombra.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que todos los individuos del dominio cumplen la propiedad expresada por P.</text>
+    <feedback><text>No es correcto: esa lectura corresponde al cuantificador universal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que ningún individuo del dominio puede satisfacer la propiedad expresada por P.</text>
+    <feedback><text>Incorrecto: afirmar existencia niega esa posibilidad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que la propiedad expresada por P depende solo de conectivos y no de predicados.</text>
+    <feedback><text>No es correcto: P representa una condición sobre individuos, no solo conectivos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_10: cuidado con individuos existenciales -->
+<question type="multichoice">
+  <name><text>LPOP_10_Cuidado_existencial</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Al razonar con una fórmula ∃x P(x), ¿qué precaución conceptual se destaca que hay que tener?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Evitar tratar al individuo existencial como si estuviera completamente identificado, pues solo se sabe que hay alguno.</text>
+    <feedback><text>Correcto: la información existencial es real pero incompleta sobre la identidad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Suponer que el individuo existencial es siempre el mismo en todas las estructuras posibles.</text>
+    <feedback><text>No es correcto: la lógica no fija la identidad única del individuo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Suponer que la fórmula existencial puede sustituirse por una fórmula universal equivalente.</text>
+    <feedback><text>Incorrecto: existencia y universalidad expresan condiciones distintas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Suponer que la propiedad expresada es falsa para todos los individuos nombrados en el lenguaje.</text>
+    <feedback><text>No es correcto: la fórmula existencial afirma al menos un caso verdadero.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_11: sustitución de variables -->
+<question type="multichoice">
+  <name><text>LPOP_11_Sustitucion_variables</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué implica la operación de sustitución en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Reemplazar variables por términos del lenguaje respetando la estructura de la fórmula y el alcance de los cuantificadores.</text>
+    <feedback><text>Correcto: la sustitución exige cuidado con la sintaxis y los cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cambiar predicados por conectivos sin alterar la parte cuantificada de la expresión.</text>
+    <feedback><text>No es correcto: la sustitución trabaja sobre variables y términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Eliminar todos los términos que aparecen en la fórmula para simplificar su lectura.</text>
+    <feedback><text>Incorrecto: la sustitución no busca borrar términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Reemplazar conectivos lógicos por otros equivalentes de forma automática.</text>
+    <feedback><text>No es correcto: ese tipo de cambio corresponde a reglas de equivalencia proposicional.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_12: múltiples instancias desde un universal -->
+<question type="multichoice">
+  <name><text>LPOP_12_Multiples_instancias</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Si se tiene una fórmula universal ∀x P(x) y el lenguaje incluye constantes y funciones, ¿qué se destaca sobre las instancias que pueden generarse?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Se pueden obtener muchas fórmulas P(t) diferentes, usando términos construidos a partir de esas constantes y funciones.</text>
+    <feedback><text>Correcto: una misma universal da origen a numerosas instancias distintas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se puede obtener una única instancia bien formada a partir de la fórmula universal.</text>
+    <feedback><text>No es correcto: la combinación de términos permite muchas instancias.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Las instancias solo cambian los conectivos y mantienen las mismas variables.</text>
+    <feedback><text>Incorrecto: las instancias sustituyen variables por términos adecuados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Las instancias deben eliminar toda referencia a predicados para conservar la forma universal.</text>
+    <feedback><text>No es correcto: los predicados se mantienen en las instancias.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_13: universal como regla reutilizable -->
+<question type="truefalse">
+  <name><text>LPOP_13_Universal_como_regla</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Una fórmula universal puede verse como una regla reutilizable, cuya estructura se aplica muchas veces a distintos términos mediante instanciación.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: este enunciado destaca esta idea de la universal como plantilla de uso repetido.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: esa interpretación ayuda a entender el papel de las fórmulas universales.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_14: combinación niveles cuantificadores/proposición -->
+<question type="multichoice">
+  <name><text>LPOP_14_Dos_niveles_prueba</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué combinación de niveles se reconoce en muchas pruebas de lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Primero se ajustan las fórmulas con cuantificadores mediante instancias y luego se aplican reglas proposicionales sobre esas instancias.</text>
+    <feedback><text>Correcto: la prueba suele alternar pasos cuantificadores y proposicionales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Primero se eliminan todas las fórmulas universales y luego se usan solo reglas sobre conectivos.</text>
+    <feedback><text>No es correcto: las fórmulas universales se transforman, no se borran sin más.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Primero se sustituye cada predicado por una letra proposicional y luego se descartan las premisas iniciales.</text>
+    <feedback><text>Incorrecto: la prueba formal mantiene las premisas y predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Primero se construyen tablas de verdad completas y luego se descartan los cuantificadores.</text>
+    <feedback><text>No es correcto: las tablas de verdad no son el mecanismo central en LPO.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_15: rol de las reglas proposicionales en LPO -->
+<question type="multichoice">
+  <name><text>LPOP_15_Rol_reglas_proposicionales</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué papel tienen las reglas proposicionales como modus ponens dentro de la prueba formal en lógica de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Siguen aplicándose sobre fórmulas instanciadas, manteniendo la misma estructura de inferencia que en lógica proposicional.</text>
+    <feedback><text>Correcto: las reglas proposicionales se integran al trabajo con cuantificadores.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Se reemplazan por reglas nuevas que ya no toman en cuenta conectivos como → o ∧.</text>
+    <feedback><text>No es correcto: las reglas proposicionales siguen siendo válidas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se usan en pruebas que no contienen términos ni predicados.</text>
+    <feedback><text>Incorrecto: se aplican sobre fórmulas con predicados y términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se utilizan para justificar la primera línea de cada prueba.</text>
+    <feedback><text>No es correcto: se usan en cualquier paso donde proceda la inferencia.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_16: delicadeza de la sustitución -->
+<question type="truefalse">
+  <name><text>LPOP_16_Sustitucion_delicada</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La sustitución de variables por términos es una operación delicada porque no basta con cambiar símbolos sin cuidar la estructura y el alcance de los cuantificadores.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: la sustitución debe respetar la sintaxis y los cuantificadores para no alterar el significado de la fórmula.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: cambiar símbolos sin cuidado puede alterar el significado de la fórmula.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_17: universal como fuente de instancias -->
+<question type="multichoice">
+  <name><text>LPOP_17_Universal_fuente_instancias</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué aspecto se resalta al decir que una afirmación universal no es una sola oración aislada?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Que funciona como una fuente de muchas instancias diferentes, derivables mediante sustituciones adecuadas.</text>
+    <feedback><text>Correcto: una universal genera un abanico de fórmulas particulares relacionadas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que no puede ser usada en ninguna prueba formal con cuantificadores adicionales.</text>
+    <feedback><text>No es correcto: las fórmulas universales son centrales en la prueba formal.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que nunca se combina con reglas proposicionales ni con términos complejos.</text>
+    <feedback><text>Incorrecto: se combina justamente con instancias y reglas proposicionales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Que debe eliminarse del lenguaje para permitir una forma más simple de razonamiento.</text>
+    <feedback><text>No es correcto: la universal es parte esencial del lenguaje de primer orden.</text></feedback>
+  </answer>
+</question>
+
+<!-- LPOP_18: resumen de herramientas de prueba -->
+<question type="truefalse">
+  <name><text>LPOP_18_Resumen_herramientas_prueba</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La prueba formal con cuantificadores usa instanciación, generalización y sustituciones como herramientas para pasar entre fórmulas generales y casos particulares.</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>1.0000000</penalty><hidden>0</hidden>
+  <answer fraction="100">
+    <text>true</text>
+    <feedback><text>Correcto: esas herramientas permiten dar forma al razonamiento en lógica de primer orden.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>false</text>
+    <feedback><text>Incorrecto: justamente se mencionan instanciación, generalización y sustitución como recursos básicos.</text></feedback>
+  </answer>
+</question>
+
+
+<!-- ===== Categoría: LPO_Herbrand ===== -->
+<question type="category">
+  <category>
+    <text>$module$/top/Por defecto en Examen Final/LPO_Herbrand</text>
+  </category>
+</question>
+
+<!-- LH01: propósito de formas clausulares -->
+<question type="multichoice">
+  <name><text>LH01_Proposito_formas_clausulares</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Por qué resulta útil transformar fórmulas de primer orden en formas cercanas a cláusulas?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Porque se obtiene una representación uniforme que facilita analizar satisfacibilidad mediante procedimientos sistemáticos.</text>
+    <feedback><text>Correcto: las cláusulas hacen más manejable el estudio de satisfacibilidad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque se pierde información semántica y así las fórmulas se vuelven irrelevantes para el modelo.</text>
+    <feedback><text>No es correcto: la transformación busca conservar el contenido lógico útil.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque se evita por completo trabajar con predicados y términos en las expresiones.</text>
+    <feedback><text>Incorrecto: las cláusulas siguen usando predicados y términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque obliga a que todas las fórmulas contengan solo conectivos derivados, sin negaciones simples.</text>
+    <feedback><text>No es correcto: las cláusulas se basan en literales, no en conectar solo derivados.</text></feedback>
+  </answer>
+</question>
+
+
+<!-- LH03: eliminar implicaciones y bicondicionales -->
+<question type="multichoice">
+  <name><text>LH03_Eliminar_implicaciones_bicondicionales</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Por qué se eliminan implicaciones y bicondicionales antes de acercar una fórmula a forma clausular?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Porque conviene reescribirlas con negación, conjunción y disyunción, que son los conectivos base para formular cláusulas.</text>
+    <feedback><text>Correcto: esta reescritura simplifica la posterior formación de cláusulas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque las implicaciones no tienen ningún valor lógico asignable en primer orden.</text>
+    <feedback><text>No es correcto: las implicaciones sí son conectivos válidos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque las bicondicionales solo se usan en fórmulas proposicionales y no en fórmulas con términos.</text>
+    <feedback><text>Incorrecto: las bicondicionales pueden aparecer también con predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque se busca que todas las fórmulas terminen sin conectivos de ningún tipo.</text>
+    <feedback><text>No es correcto: las cláusulas siguen usando disyunciones de literales.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH04: equivalencia de A -> B -->
+<question type="multichoice">
+  <name><text>LH04_Equivalencia_implicacion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Según las equivalencias vistas, ¿cómo se reescribe la implicación A → B?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Como ¬A ∨ B, usando negación y disyunción.</text>
+    <feedback><text>Correcto: esa equivalencia es clave para eliminar implicaciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como A ∧ ¬B, usando conjunción y negación.</text>
+    <feedback><text>No es correcto: esa forma no es lógicamente equivalente a A → B.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como ¬A ∧ B, usando negación y conjunción.</text>
+    <feedback><text>Incorrecto: esa combinación no refleja el mismo significado que la implicación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como A ∨ ¬B, usando disyunción y negación.</text>
+    <feedback><text>No es correcto: esa disyunción tampoco equivale a A → B.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH05: mover negaciones hacia adentro -->
+<question type="multichoice">
+  <name><text>LH05_Mover_negaciones_adentro</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál es la meta al mover negaciones hacia adentro de una fórmula?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Dejar las negaciones lo más cerca posible de los átomos, evitando negaciones aplicadas a fórmulas grandes.</text>
+    <feedback><text>Correcto: así se prepara la fórmula para trabajar con literales sencillos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Eliminar cualquier negación para obtener fórmulas puramente positivas.</text>
+    <feedback><text>No es correcto: las negaciones se conservan, solo se reubican.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Agregar nuevas negaciones en cada nivel de la fórmula para hacerla más compleja.</text>
+    <feedback><text>Incorrecto: el proceso busca simplificación, no complicación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Mover las negaciones hacia el frente de la fórmula junto con los cuantificadores.</text>
+    <feedback><text>No es correcto: la forma prenexa coloca cuantificadores, no las negaciones.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH06: reglas para negación de cuantificadores -->
+<question type="multichoice">
+  <name><text>LH06_Negacion_cuantificadores</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué transformación se aplica para la negación de un cuantificador universal?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>¬∀x A(x) se reescribe como ∃x ¬A(x), cambiando el tipo de cuantificador y moviendo la negación.</text>
+    <feedback><text>Correcto: esa regla permite acercar la negación a los átomos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>¬∀x A(x) se reescribe como ∀x ¬A(x), manteniendo el cuantificador universal.</text>
+    <feedback><text>No es correcto: la transformación invierte el tipo de cuantificador.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>¬∀x A(x) se reescribe como ¬∃x ¬A(x), duplicando la negación.</text>
+    <feedback><text>Incorrecto: esa forma no refleja la equivalencia descrita.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>¬∀x A(x) se reescribe como ∃x A(x), sin aplicar negación al predicado.</text>
+    <feedback><text>No es correcto: la negación debe aplicarse al predicado A.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH07: forma prenexa -->
+<question type="multichoice">
+  <name><text>LH07_Forma_prenexa</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué caracteriza a la forma prenexa de una fórmula de primer orden?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Todos los cuantificadores aparecen al frente y tras ellos está una matriz sin cuantificadores.</text>
+    <feedback><text>Correcto: la forma prenexa separa patrón de cuantificación y parte proposicional.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Todas las negaciones aparecen al frente y los cuantificadores quedan en la matriz.</text>
+    <feedback><text>No es correcto: la forma prenexa organiza cuantificadores, no negaciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo se admite un único cuantificador universal en toda la fórmula.</text>
+    <feedback><text>Incorrecto: puede haber varios cuantificadores de distintos tipos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La fórmula se reescribe sin cuantificadores y sin conectivos lógicos internos.</text>
+    <feedback><text>No es correcto: la matriz puede contener conectivos, solo sin cuantificadores.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH08: utilidad de la forma prenexa para Herbrand -->
+<question type="multichoice">
+  <name><text>LH08_Forma_prenexa_y_Herbrand</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Por qué la forma prenexa resulta útil en la preparación hacia el método de Herbrand?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Porque permite identificar claramente cuáles cuantificadores son universales y cuáles existenciales antes de skolemizar.</text>
+    <feedback><text>Correcto: esa claridad es clave para aplicar skolemización correctamente.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque elimina automáticamente todos los predicados del lenguaje original.</text>
+    <feedback><text>No es correcto: la forma prenexa conserva los predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque transforma cualquier fórmula en una conjunción de términos cerrados.</text>
+    <feedback><text>Incorrecto: la forma prenexa organiza cuantificadores, no términos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Porque garantiza que las fórmulas resultantes ya sean directamente cláusulas sin más cambios.</text>
+    <feedback><text>No es correcto: tras la forma prenexa aún faltan pasos hacia cláusulas.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH09: idea de skolemización -->
+<question type="multichoice">
+  <name><text>LH09_Idea_skolemizacion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál es la idea central de la skolemización aplicada a fórmulas con existenciales?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Reemplazar las variables existenciales por términos especiales que actúan como testigos simbólicos de la existencia.</text>
+    <feedback><text>Correcto: los términos de Skolem representan los objetos asegurados por el existencial.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Introducir nuevos cuantificadores existenciales para reforzar las afirmaciones originales.</text>
+    <feedback><text>No es correcto: skolemizar elimina existenciales, no los multiplica.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Eliminar todos los predicados de la fórmula y dejar solo funciones y constantes.</text>
+    <feedback><text>Incorrecto: los predicados siguen formando parte de la expresión.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Convertir cuantificadores universales en existenciales para simplificar la forma prenexa.</text>
+    <feedback><text>No es correcto: la skolemización se centra en los existenciales.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH10: cuando el testigo es constante -->
+<question type="multichoice">
+  <name><text>LH10_Testigo_constante</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿En qué caso la skolemización puede usar una nueva constante como testigo de una variable existencial?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Cuando la existencia no depende de variables universales previas en la fórmula.</text>
+    <feedback><text>Correcto: en ausencia de universales anteriores, basta una constante de Skolem.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando la existencia depende de varias variables universales en diferentes posiciones.</text>
+    <feedback><text>No es correcto: ahí se requiere una función con esos argumentos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando la fórmula ya está en forma prenexa y clausular al mismo tiempo.</text>
+    <feedback><text>Incorrecto: esa condición no describe el uso de constantes en skolemización.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando la fórmula no contiene predicados y solo aparecen conectivos lógicos básicos.</text>
+    <feedback><text>No es correcto: la presencia de predicados no impide usar una constante.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH11: cuando el testigo es función -->
+<question type="multichoice">
+  <name><text>LH11_Testigo_funcion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿En qué situación la skolemización usa una función en lugar de una constante como término de Skolem?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Cuando la variable existencial depende de una o más variables universales que aparecen antes en la fórmula.</text>
+    <feedback><text>Correcto: la función refleja la dependencia del testigo en las variables universales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando la fórmula no contiene ningún cuantificador universal en su forma prenexa.</text>
+    <feedback><text>No es correcto: sin universales previos bastaría una constante.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando se desea eliminar todos los predicados y quedarse solo con términos cerrados.</text>
+    <feedback><text>Incorrecto: el uso de funciones no implica borrar predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Cuando se quiere asegurar que el testigo sea el mismo en cualquier interpretación de Herbrand.</text>
+    <feedback><text>No es correcto: la función describe dependencia, no identidad fija.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH12: paso final hacia cláusulas -->
+<question type="multichoice">
+  <name><text>LH12_Paso_final_clausulas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Tras eliminar implicaciones, mover negaciones, llevar a forma prenexa y skolemizar, ¿qué paso lleva la fórmula a un conjunto de cláusulas?</p>
+    ]]></text></questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Distribuir las conectivas para obtener una forma normal conjuntiva y leer la matriz como conjunto de cláusulas.</text>
+    <feedback><text>Correcto: la distribución permite separar las cláusulas que compondrán el conjunto.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Introducir cuantificadores existenciales nuevos para cada literal de la matriz.</text>
+    <feedback><text>No es correcto: en esa etapa los existenciales ya fueron eliminados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Mover todos los cuantificadores a la parte final de la fórmula junto a las negaciones.</text>
+    <feedback><text>Incorrecto: los cuantificadores ya se han gestionado en la forma prenexa y skolemización.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Reemplazar cada cláusula por una sola fórmula atómica sin conectivos internos.</text>
+    <feedback><text>No es correcto: las cláusulas siguen siendo disyunciones de literales.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH13: universo de Herbrand -->
+<question type="multichoice">
+  <name><text>LH13_Definicion_universo_Herbrand</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué es el universo de Herbrand?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>El conjunto de todos los términos cerrados que pueden construirse con las constantes y funciones del lenguaje.</text>
+    <feedback><text>Correcto: el universo reúne los términos sin variables que el lenguaje genera.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las variables que aparecen en alguna fórmula del lenguaje.</text>
+    <feedback><text>No es correcto: las variables no forman parte del universo de Herbrand.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las cláusulas que se obtienen tras transformar las fórmulas iniciales.</text>
+    <feedback><text>Incorrecto: el universo se construye a partir de términos, no de cláusulas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las interpretaciones posibles sobre cualquier dominio imaginable.</text>
+    <feedback><text>No es correcto: el universo se limita a los términos del propio lenguaje.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH14: universo de Herbrand para constante a y función f -->
+<question type="multichoice">
+  <name><text>LH14_Univ_Herbrand_a_f</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Si el lenguaje tiene una constante a y una función unaria f, ¿qué términos pertenecen al universo de Herbrand hasta profundidad 2?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>a, f(a) y f(f(a).</text>
+    <feedback><text>Correcto: cada aplicación de f aumenta la profundidad del término.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>a, f(a) y f(f(f(a)).</text>
+    <feedback><text>No es correcto: f(f(f(a)) tiene profundidad mayor que 2.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>a y f(f(a) únicamente, sin incluir f(a).</text>
+    <feedback><text>Incorrecto: f(a) también forma parte del universo a esa profundidad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo a, porque las funciones no aportan términos nuevos al universo.</text>
+    <feedback><text>No es correcto: aplicar f genera nuevos términos cerrados.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH15: base de Herbrand -->
+<question type="multichoice">
+  <name><text>LH15_Definicion_base_Herbrand</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué es la base de Herbrand asociada a un lenguaje dado?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>El conjunto de todos los átomos cerrados que se obtienen aplicando los predicados a los términos del universo de Herbrand.</text>
+    <feedback><text>Correcto: la base combina predicados con términos cerrados del universo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las cláusulas posibles que pueden aparecer en una prueba formal.</text>
+    <feedback><text>No es correcto: la base no se define en términos de cláusulas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las funciones y constantes que se usan en el lenguaje.</text>
+    <feedback><text>Incorrecto: eso describe parte del vocabulario, no la base de Herbrand.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>El conjunto de todas las variables libres y ligadas presentes en las fórmulas prenexas.</text>
+    <feedback><text>No es correcto: las variables no pertenecen a la base.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH16: ejemplo de base de Herbrand simple -->
+<question type="multichoice">
+  <name><text>LH16_Base_simple_P_a</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En un lenguaje con constante a y predicado unario P, ¿qué forma tiene la base de Herbrand?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Está formada solo por el átomo P(a).</text>
+    <feedback><text>Correcto: el universo es {a} y la base contiene únicamente P(a).</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Incluye P(a), ¬P(a) y todas las combinaciones posibles de estos literales.</text>
+    <feedback><text>No es correcto: la base se define en términos de átomos, no de literales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Incluye P(a) y Q(a) para cualquier otro predicado imaginado.</text>
+    <feedback><text>Incorrecto: solo se usan los predicados efectivamente presentes en el lenguaje.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Incluye solo el término a, sin asociarlo con predicados concretos.</text>
+    <feedback><text>No es correcto: la base describe átomos, no solo términos.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH17: interpretaciones de Herbrand -->
+<question type="multichoice">
+  <name><text>LH17_Interpretacion_Herbrand</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué hace una interpretación de Herbrand sobre el universo y la base de Herbrand?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Toma como dominio el universo de Herbrand y asigna verdad o falsedad a los átomos de la base.</text>
+    <feedback><text>Correcto: esa asignación permite evaluar cláusulas bajo esa interpretación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Toma como dominio cualquier conjunto arbitrario de objetos sin relación con el lenguaje.</text>
+    <feedback><text>No es correcto: el dominio se fija como el universo de Herbrand.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Asigna valores numéricos a los términos en lugar de valores de verdad a los átomos.</text>
+    <feedback><text>Incorrecto: el interés está en verdad o falsedad de los átomos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Decide qué conectivos se consideran válidos y cuáles se descartan en el razonamiento.</text>
+    <feedback><text>No es correcto: los conectivos tienen su semántica fija.</text></feedback>
+  </answer>
+</question>
+
+
+<!-- LH19: error sobre universo de Herbrand -->
+<question type="multichoice">
+  <name><text>LH19_Error_universo_variables</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cuál es un error frecuente relacionado con la construcción del universo de Herbrand?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Creer que el universo se construye con variables como x o y, en lugar de términos cerrados.</text>
+    <feedback><text>Correcto: el universo se forma solo con expresiones sin variables.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Creer que el universo incluye directamente todas las cláusulas posibles del lenguaje.</text>
+    <feedback><text>No es correcto: las cláusulas no forman parte del universo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Creer que el universo se limita a una única constante aunque existan funciones definidas.</text>
+    <feedback><text>Incorrecto: las funciones generan términos adicionales para el universo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Creer que el universo solo puede tener términos de profundidad 0 y nunca de mayor profundidad.</text>
+    <feedback><text>No es correcto: la construcción admite términos de profundidad creciente.</text></feedback>
+  </answer>
+</question>
+
+<!-- LH20: error sobre base y cláusulas -->
+<question type="multichoice">
+  <name><text>LH20_Error_base_clausulas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Qué error se puede cometer sobre la base de Herbrand y las fórmulas complejas?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Pensar que la base contiene fórmulas complejas, cuando en realidad solo incluye átomos cerrados.</text>
+    <feedback><text>Correcto: las cláusulas se construyen después usando esos átomos como piezas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pensar que la base incluye únicamente variables libres y ligadas de las fórmulas prenexas.</text>
+    <feedback><text>No es correcto: las variables nunca forman parte de la base.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pensar que la base solo se forma con constantes y nunca con términos más complejos.</text>
+    <feedback><text>Incorrecto: se usan todos los términos del universo, no solo constantes.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Pensar que la base se define sin hacer referencia a los predicados del lenguaje.</text>
+    <feedback><text>No es correcto: la base combina predicados con términos cerrados.</text></feedback>
+  </answer>
+</question>
+
+
+
+  <!-- ===== Categoría: Horn_Prog_Logica ===== -->
+<question type="category">
+  <category>
+    <text>$module$/top/Por defecto en Examen Final/Horn_Prog_Logica</text>
+  </category>
+</question>
+
+<!-- HP01: definición de cláusula de Horn -->
+<question type="multichoice">
+  <name><text>HP01_Definicion_clausula_Horn</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cómo se caracteriza una cláusula de Horn?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Es una disyunción de literales con a lo más un literal positivo.</text>
+    <feedback><text>Correcto: esta condición distingue las cláusulas de Horn de otras cláusulas generales.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es una conjunción de átomos que contiene al menos dos literales positivos.</text>
+    <feedback><text>No es correcto: las cláusulas de Horn se definen como disyunciones, no como conjunciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es cualquier fórmula de primer orden que no tiene cuantificadores universales.</text>
+    <feedback><text>Incorrecto: la presencia de cuantificadores no define por sí sola una cláusula de Horn.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Es una fórmula que solo contiene literales negativos y ningún átomo positivo.</text>
+    <feedback><text>No es correcto: ese caso es solo un tipo particular de cláusula, no una cláusula de Horn.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP02: lectura A v ¬B1 v ... v ¬Bn -->
+<question type="multichoice">
+  <name><text>HP02_Lectura_implicacion_regla</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>La cláusula de Horn A ∨ ¬B₁ ∨ … ∨ ¬Bₙ se reescribe como implicación. ¿Cuál es la forma equivalente?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>(B₁ ∧ … ∧ Bₙ) → A</text>
+    <feedback><text>Correcto: los literales negativos pasan al antecedente como condiciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>A → (B₁ ∧ … ∧ Bₙ)</text>
+    <feedback><text>No es correcto: esa lectura invierte el sentido de la regla.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>(B₁ ∨ … ∨ Bₙ) → A</text>
+    <feedback><text>Incorrecto: la reescritura usa conjunción, no disyunción, en el antecedente.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>A → (¬B₁ ∧ … ∧ ¬Bₙ)</text>
+    <feedback><text>No es correcto: los Bᵢ aparecen como condiciones positivas, no como negaciones en el consecuente.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP03: hechos como cláusulas de Horn -->
+<question type="multichoice">
+  <name><text>HP03_Hecho_como_clausula</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En la lectura clausular, ¿cómo se identifica un hecho dentro de las cláusulas de Horn?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Como una cláusula con un único literal positivo y sin literales negativos.</text>
+    <feedback><text>Correcto: un hecho afirma directamente que un átomo cerrado es verdadero.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como una cláusula que contiene varios literales positivos en disyunción.</text>
+    <feedback><text>No es correcto: esa forma no corresponde al concepto de hecho.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como cualquier cláusula que no tiene cabeza y solo contiene cuerpo.</text>
+    <feedback><text>Incorrecto: cláusulas sin literal positivo se interpretan más bien como restricciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como una fórmula prenexa que incluye cuantificadores existenciales y universales mezclados.</text>
+    <feedback><text>No es correcto: los hechos se identifican al nivel clausular, sin ese patrón de cuantificación.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP04: lectura de regla en Prolog -->
+<question type="multichoice">
+  <name><text>HP04_Lectura_regla_Prolog</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En un programa lógico, ¿cómo se interpreta una regla escrita como <code>a(X) :- b(X), c(X).</code>?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>a(X) es verdadera si b(X) y c(X) se sostienen al mismo tiempo.</text>
+    <feedback><text>Correcto: la cabeza se deriva cuando el cuerpo completo se cumple.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>a(X) es verdadera si al menos una de b(X) o c(X) se sostiene.</text>
+    <feedback><text>No es correcto: el cuerpo se interpreta como conjunción de condiciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>b(X) y c(X) son verdaderas si a(X) se sostiene previamente.</text>
+    <feedback><text>Incorrecto: la regla va de las condiciones hacia la conclusión, no al revés.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>a(X) es verdadera sin necesidad de verificar b(X) ni c(X).</text>
+    <feedback><text>No es correcto: la regla exige comprobar las condiciones del cuerpo.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP05: programa correcto y respuesta de consulta -->
+<question type="multichoice">
+  <name><text>HP05_Ejemplo_programa_visible</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Considera el siguiente programa lógico:</p>
+    <pre>
+dispositivo(pc1).
+dispositivo(pc2).
+en_red(pc1).
+
+visible(X) :- dispositivo(X), en_red(X).
+    </pre>
+    <p>¿Qué ocurre con la consulta <code>?- visible(pc2).</code> según este programa?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La consulta falla porque falta el hecho en_red(pc2) y la regla exige dispositivo(pc2) y en_red(pc2).</text>
+    <feedback><text>Correcto: visible(pc2) no se deriva ya que solo se cumple una de las dos condiciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta se responde afirmativamente porque dispositivo(pc2) es un hecho suficiente.</text>
+    <feedback><text>No es correcto: la regla visible/1 requiere dos condiciones simultáneas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta se responde afirmativamente porque en_red(pc1) implica en_red(pc2).</text>
+    <feedback><text>Incorrecto: no hay ninguna regla que relacione pc1 y pc2 en el programa.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta genera una contradicción porque visible(pc2) y ¬visible(pc2) están como hechos.</text>
+    <feedback><text>No es correcto: el programa no declara hechos contradictorios sobre pc2.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP06: programa correcto y múltiples consultas -->
+<question type="multichoice">
+  <name><text>HP06_Ejemplo_programa_curso</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Se tiene el siguiente programa lógico:</p>
+    <pre>
+curso(bases_datos).
+curso(ia1).
+
+prerrequisito(ia1, logica).
+
+puede_inscribirse(X, Y) :- curso(Y), prerrequisito(Y, X).
+    </pre>
+    <p>¿Qué afirmación describe correctamente el comportamiento del programa con las siguientes consultas?
+    <code>?- puede_inscribirse(logica, ia1).</code> y
+    <code>?- puede_inscribirse(ia1, bases_datos).</code>?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La primera consulta se satisface, mientras que la segunda no se deriva con las reglas dadas.</text>
+    <feedback><text>Correcto: solo ia1 tiene registrado el prerrequisito logica, bases_datos no tiene prerrequisito asociado.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ambas consultas se satisfacen porque curso/1 garantiza automáticamente puede_inscribirse/2.</text>
+    <feedback><text>No es correcto: la regla exige además un prerrequisito coincidente.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ninguna consulta se satisface porque el programa no contiene hechos sobre prerrequisito/2.</text>
+    <feedback><text>Incorrecto: sí existe el hecho prerrequisito(ia1, logica).</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo la consulta <code>?- puede_inscribirse(ia1, bases_datos).</code> se satisface porque bases_datos es un curso.</text>
+    <feedback><text>No es correcto: falta el hecho de prerrequisito para bases_datos.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP07: programa con error en regla -->
+<question type="multichoice">
+  <name><text>HP07_Programa_error_hermano</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Considera el programa:</p>
+    <pre>
+padre(juan, ana).
+padre(juan, luis).
+
+hermano(X, Y) :- padre(P, X), padre(P, Y).
+    </pre>
+    <p>¿Qué comportamiento problemático se observa con la consulta <code>?- hermano(ana, ana).</code> y cuál es la razón?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La consulta se satisface porque la regla permite que X y Y sean iguales, sin exigir que representen personas distintas.</text>
+    <feedback><text>Correcto: la definición formal de hermano/2 no impide que alguien sea hermano de sí mismo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta falla porque el programa prohíbe explícitamente que X y Y coincidan.</text>
+    <feedback><text>No es correcto: la regla dada no incluye ninguna comparación X \\= Y.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta falla porque no hay ningún hecho padre/2 que involucre a ana como hija.</text>
+    <feedback><text>Incorrecto: sí existe padre(juan, ana) en la base.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La consulta produce varios resultados contradictorios debido a hechos duplicados sobre padre(P, ana).</text>
+    <feedback><text>No es correcto: no se han declarado hechos duplicados en el programa.</text></feedback>
+  </answer>
+</question>
+
+
+<!-- HP09: programa con errores de definición -->
+<question type="multichoice">
+  <name><text>HP09_Programa_errores_contador</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Analiza el siguiente programa:</p>
+    <pre>
+usuario(ana).
+usuario(luis).
+
+acceso(X) :- usuario(X), permiso(X).
+permiso(Y) :- usuario(Y).
+acceso(Z) :- permiso(Z), usuario(Z).
+    </pre>
+    <p>¿Cuántos problemas de definición se pueden identificar a partir de este fragmento?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Dos problemas: se duplican las reglas de acceso/1 sin una diferencia clara, y permiso/1 depende de usuario/1 de forma que acceso/1 queda definido de manera circular.</text>
+    <feedback><text>Correcto: la doble definición de acceso/1 y la dependencia cruzada pueden generar comportamientos difíciles de seguir.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Un solo problema: falta declarar permiso/1 como hecho para algún usuario.</text>
+    <feedback><text>No es correcto: además de ese punto, hay duplicación y circularidad en las reglas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Tres problemas distintos, todos relacionados con la ausencia de consultas cerradas en el programa.</text>
+    <feedback><text>Incorrecto: los problemas señalados no dependen de la presencia de consultas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Ningún problema: las reglas generan acceso para cualquier X sin restricciones adicionales.</text>
+    <feedback><text>No es correcto: la estructura puede generar derivaciones poco controladas y confusas.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP10: cláusula de Horn y programa equivalente -->
+<question type="multichoice">
+  <name><text>HP10_Clausula_a_programa_simple</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Se da la cláusula de Horn:</p>
+    <pre>
+¬curso(Y) ∨ ¬prerrequisito(Y, X) ∨ puede_inscribirse(X, Y)
+    </pre>
+    <p>¿Cuál de los siguientes programas lógicos corresponde a esta cláusula?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text><pre>puede_inscribirse(X, Y) :- curso(Y), prerrequisito(Y, X).</pre></text>
+    <feedback><text>Correcto: los literales negativos forman el cuerpo y el literal positivo forma la cabeza.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>curso(Y) :- prerrequisito(Y, X), puede_inscribirse(X, Y).</pre></text>
+    <feedback><text>No es correcto: aquí la cabeza sería curso/1, lo que invierte el papel de la cláusula.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>prerrequisito(Y, X) :- curso(Y), puede_inscribirse(X, Y).</pre></text>
+    <feedback><text>Incorrecto: esta regla toma prerrequisito/2 como conclusión en lugar de puede_inscribirse/2.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>curso(Y) :- prerrequisito(Y, X).</pre></text>
+    <feedback><text>No es correcto: la cláusula dada tiene un literal positivo distinto de curso/1.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP11: formas clausulares y elección de programa -->
+<question type="multichoice">
+  <name><text>HP11_Formas_clausulares_a_programa</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Se tienen las cláusulas:</p>
+    <pre>
+¬usuario(X) ∨ ¬credencial_valida(X) ∨ autenticado(X)
+¬autenticado(X) ∨ ¬permiso(X) ∨ acceso(X)
+    </pre>
+    <p>¿Cuál programa lógico representa mejor estas cláusulas?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text><pre>
+autenticado(X) :- usuario(X), credencial_valida(X).
+acceso(X) :- autenticado(X), permiso(X).
+    </pre></text>
+    <feedback><text>Correcto: cada cláusula se traduce en una regla cuya cabeza es el literal positivo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>
+usuario(X) :- autenticado(X), credencial_valida(X).
+permiso(X) :- acceso(X), autenticado(X).
+    </pre></text>
+    <feedback><text>No es correcto: estas reglas toman los literales negativos como conclusiones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>
+autenticado(X) :- permiso(X).
+acceso(X) :- usuario(X).
+    </pre></text>
+    <feedback><text>Incorrecto: las dependencias indicadas por las cláusulas no se respetan.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>
+autenticado(X) :- usuario(X).
+acceso(X) :- permiso(X).
+    </pre></text>
+    <feedback><text>No es correcto: se omiten condiciones esenciales como credencial_valida(X) y autenticado(X).</text></feedback>
+  </answer>
+</question>
+
+<!-- HP12: programa lógico y universo de Herbrand -->
+<question type="multichoice">
+  <name><text>HP12_Universo_en_programa_autenticacion</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el programa de autenticación y acceso:</p>
+    <pre>
+usuario(ana).
+usuario(luis).
+credencial_valida(ana).
+permiso(ana).
+permiso(luis).
+
+autenticado(X) :- usuario(X), credencial_valida(X).
+acceso(X) :- autenticado(X), permiso(X).
+    </pre>
+    <p>¿Qué elementos forman parte del universo de Herbrand generado por este fragmento?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Al menos los términos ana y luis, junto con cualquier otro término cerrado que se introduzca en el mismo lenguaje.</text>
+    <feedback><text>Correcto: ana y luis son constantes que contribuyen al universo de Herbrand.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo los predicados usuario, credencial_valida, permiso, autenticado y acceso.</text>
+    <feedback><text>No es correcto: el universo se forma con términos cerrados, no con predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo los átomos usuario(ana) y usuario(luis), sin considerar otros términos.</text>
+    <feedback><text>Incorrecto: esos átomos pertenecen a la base, no al universo.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Solo los términos credencial_valida(ana) y permiso(ana).</text>
+    <feedback><text>No es correcto: esos son átomos, no términos aislados.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP13: lectura declarativa de programa de dispositivos -->
+<question type="multichoice">
+  <name><text>HP13_Lectura_declarativa_dispositivos</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Con el programa:</p>
+    <pre>
+dispositivo(pc1).
+dispositivo(pc2).
+en_red(pc1).
+
+visible(X) :- dispositivo(X), en_red(X).
+    </pre>
+    <p>¿Cómo se describe mejor la lectura declarativa de visible/1?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>visible(X) afirma que X es visible si X es un dispositivo y X está en red.</text>
+    <feedback><text>Correcto: la regla combina ambas propiedades como condiciones para visibilidad.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>visible(X) afirma que X es visible si al menos X es un dispositivo.</text>
+    <feedback><text>No es correcto: la lectura corresponde a conjunción, no a disyunción.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>visible(X) afirma que cualquier X es visible sin importar lo que digan los hechos.</text>
+    <feedback><text>Incorrecto: la regla exige condiciones específicas basadas en los hechos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>visible(X) afirma que pc1 y pc2 son visibles siempre que exista en_red(Y) para algún Y distinto.</text>
+    <feedback><text>No es correcto: la regla usa el mismo X en todas las posiciones.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP14: programa lógico y consultas familiares -->
+<question type="multichoice">
+  <name><text>HP14_Programa_familias_consultas</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Se tiene el programa:</p>
+    <pre>
+padre(juan, ana).
+padre(juan, luis).
+madre(elena, ana).
+madre(elena, luis).
+
+progenitor(X, Y) :- padre(X, Y).
+progenitor(X, Y) :- madre(X, Y).
+    </pre>
+    <p>¿Cuál enunciado describe correctamente el comportamiento de progenitor/2?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>progenitor(X, Y) se deriva, o es verdadero, cuando X es padre de Y o cuando X es madre de Y.</text>
+    <feedback><text>Correcto: las dos reglas amplían progenitor/2 a ambos tipos de relación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>progenitor(X, Y) se deriva solo cuando Y es padre de X y a la vez madre de Y.</text>
+    <feedback><text>No es correcto: Las condiciones están invertidas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>progenitor(X, Y) se deriva únicamente para los casos en que X y Y coinciden.</text>
+    <feedback><text>Incorrecto: las reglas no requieren que X = Y.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>progenitor(X, Y) nunca se deriva porque las reglas no tienen cabeza definida.</text>
+    <feedback><text>No es correcto: progenitor/2 aparece claramente como cabeza en ambas reglas.</text></feedback>
+  </answer>
+</question>
+
+
+
+<!-- HP16: de cláusula de Horn a regla Prolog -->
+<question type="multichoice">
+  <name><text>HP16_Clausula_a_regla_dispositivo</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>Se da la cláusula de Horn:</p>
+    <pre>
+¬dispositivo(X) ∨ ¬en_red(X) ∨ visible(X)
+    </pre>
+    <p>¿Cuál es la regla Prolog correspondiente?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text><pre>visible(X) :- dispositivo(X), en_red(X).</pre></text>
+    <feedback><text>Correcto: los literales negativos pasan al cuerpo como condiciones.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>dispositivo(X) :- visible(X), en_red(X).</pre></text>
+    <feedback><text>No es correcto: esta versión toma dispositivo/1 como cabeza, y la cabeza debería ser visible/1.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>en_red(X) :- dispositivo(X), visible(X).</pre></text>
+    <feedback><text>Incorrecto: el literal positivo de la cláusula es visible(X), no en_red(X).</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text><pre>visible(X) :- dispositivo(X).</pre></text>
+    <feedback><text>No es correcto: Se omite en_red(X) en las condiciones.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP17: consulta como pregunta sobre la base -->
+<question type="multichoice">
+  <name><text>HP17_Consulta_y_base_conocimiento</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>En el enfoque de programación lógica, ¿cómo se entiende una consulta como <code>?- acceso(ana).</code>?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>Como una pregunta sobre si el átomo acceso(ana) puede derivarse a partir de los hechos y reglas del programa.</text>
+    <feedback><text>Correcto: la consulta explora las consecuencias de la base de conocimiento.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como un nuevo hecho que se añade automáticamente a la base de conocimiento.</text>
+    <feedback><text>No es correcto: las consultas no se agregan como hechos.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como una instrucción para redefinir el predicado acceso/1 dentro del programa.</text>
+    <feedback><text>Incorrecto: las consultas no modifican la definición de los predicados.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>Como una orden para eliminar todas las reglas que mencionan el predicado acceso/1.</text>
+    <feedback><text>No es correcto: las consultas solo piden respuestas basadas en reglas vigentes.</text></feedback>
+  </answer>
+</question>
+
+<!-- HP18: interpretación de Herbrand y programa lógico -->
+<question type="multichoice">
+  <name><text>HP18_Interpreta_Herbrand_y_programa</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+    <p>¿Cómo se relaciona una interpretación de Herbrand con un programa lógico basado en cláusulas de Horn?</p>
+    ]]></text>
+  </questiontext>
+  <defaultgrade>2.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+  <single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+  <answer fraction="100">
+    <text>La interpretación fija qué átomos de la base de Herbrand son verdaderos, y el programa describe reglas que deben respetarse por esas asignaciones.</text>
+    <feedback><text>Correcto: hechos y reglas delimitan interpretaciones que satisfacen el conjunto de cláusulas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La interpretación se limita a decidir qué consultas son sintácticamente válidas.</text>
+    <feedback><text>No es correcto: la interpretación se ocupa de valores de verdad, no de sintaxis de consultas.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La interpretación sólo indica qué predicados pueden aparecer en el lenguaje Prolog.</text>
+    <feedback><text>Incorrecto: los predicados se fijan por el programa, no por la interpretación.</text></feedback>
+  </answer>
+  <answer fraction="0">
+    <text>La interpretación asigna números enteros a los términos del universo, sin afectar la semántica del programa.</text>
+    <feedback><text>No es correcto: la interpretación decide verdad o falsedad de los átomos.</text></feedback>
+  </answer>
+</question>
+
+
+
+</quiz>

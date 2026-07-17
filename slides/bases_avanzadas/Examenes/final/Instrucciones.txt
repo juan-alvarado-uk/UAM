@@ -1,0 +1,139 @@
+Considera un banco de preguntas para Moodle en formato XML como el siguiente:
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- Sirve para definir la categoría general del examen parcial en el banco de preguntas -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text>Categoría por defecto para preguntas compartidas en el contexto Examen Parcial.</text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- Sirve para definir una categoría anidada dentro de la categoría general del examen parcial en el banco de preguntas. Esta categoría anidada se llama BD_OO  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Parcial/BD_OO</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>BD_OO</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- Una pregunta de ejemplo que pertenece a la categoría BD_OO  -->
+  <question type="essay">
+    <name>
+      <text>Una_pregunta_de_prueba</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una pregunta de prueba</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>editor</responseformat>
+    <responserequired>0</responserequired>
+    <responsefieldlines>10</responsefieldlines>
+    <minwordlimit></minwordlimit>
+    <maxwordlimit></maxwordlimit>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxbytes>0</maxbytes>
+    <filetypeslist></filetypeslist>
+    <graderinfo format="html">
+      <text></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text></text>
+    </responsetemplate>
+  </question>
+
+</quiz>
+
+Dame un banco de preguntas en un archivo XML en formato de Moodle 3.x y 4.x o reciente como el ejemplo anterior para la categoría anidada:
+"#########" (es decir: $module$/top/Por defecto en Examen Parcial/########).
+Usa el archivo "##############.md" y dame un banco de 15 a 20 preguntas de <<<<un punto>>>> cada pregunta siguiendo el formato Moodle del ejemplo anterior.
+El examen debe contener preguntas de varios tipos que se puedan calificar automáticamente (por ejemplo, ninguna pregunta de ensayo).
+El examen debe cubrir los temas vistos en clase (o de las prácticas si se especifican).
+
+Tanto las preguntas del banco de preguntas deberán tener una mezcla de grados de dificultad en las preguntas. Todas las preguntas deben salir de el o los materiales indicados, ninguna referencia externa ha de usarse.
+
+En las preguntas del banco de preguntas del archivo XML resultante está prohibido incluir textos que hagan referencia a los materiales del curso o a lo visto en clase, por ejemplo: "Según los materiales del curso", "X cosa ...estudiada en el curso", es decir no debe haber referencias cruzadas a los materiales ni entre las preguntas, por ejemplo "Como se mencionó en la pregunta anterior...". Todas las preguntas deben ser autocontenidas; es decir, todo lo necesario para contestarlas está en la pregunta y no se necesita nada de otra pregunta ni de ninguna otra fuente para comprender y contestar la pregunta.
+
+Evita dar las respuestas de examen, en otras preguntas, por ejemplo: "Pregunta X: ¿Cuál es la capital de España?  a) Paris, b) Madrid, c) CDMX, d) Moscú   y luego en otra Pregunta Z digas en el cuerpo de la pregunta: "Como la capital de España es Madrid... "  ", con la pregunta Z das la respuesta de la pregunta X.
+
+Agrega textos de feedback general, de respuestas correctas y de respuestas incorrectas a todas las preguntas.
+
+
+Cuando las preguntas sean de opción múltiple, cuida que no pase esto:
+"<question type="multichoice">
+<name><text>TTC01_Definicion_tabla_verdad</text></name>
+<questiontext format="html">
+<text><![CDATA[
+<p>Una tabla de verdad es:</p>
+<!-- Aquí el ERROR es que las opciones de respuesta forman parte del cuerpo de la pregunta -->
+<p>A. Un listado de reglas de inferencia para realizar pruebas formales.</p>
+<p>B. Un arreglo sistemático de casos posibles para las proposiciones de una fórmula.</p>
+<p>C. Un diagrama de flujo que muestra decisiones en un programa.</p>
+<p>D. Un conjunto de ejemplos en lenguaje natural sin simbolizar.</p>
+]]></text>
+</questiontext>
+<defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+<single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<!-- Aquí el ERROR continua por que el texto de las respuestas no incluye el texto de la opción, en el examen como las opciones se barajan puede teminar en algo así a) B, b) C, c) D, d) A, lo cual hace confusa y propensa a errores la respuesta -->
+<answer fraction="0"><text>A</text></answer>
+<answer fraction="100"><text>B</text></answer>
+<answer fraction="0"><text>C</text></answer>
+<answer fraction="0"><text>D</text></answer>
+</question>"
+
+Ajústalo para que quede así y las opciones de respuesta no estén en el cuerpo de la pregunta:
+
+"<question type="multichoice">
+<name><text>TTC01_Definicion_tabla_verdad</text></name>
+<questiontext format="html">
+<text><![CDATA[
+<p>Una tabla de verdad es:</p>
+]]></text>
+</questiontext>
+<defaultgrade>3.0000000</defaultgrade><penalty>0.3333333</penalty><hidden>0</hidden>
+<single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<answer fraction="0"><text>Un listado de reglas de inferencia para realizar pruebas formales.</text></answer>
+<answer fraction="100"><text>Un arreglo sistemático de casos posibles para las proposiciones de una fórmula.</text></answer>
+<answer fraction="0"><text>Un diagrama de flujo que muestra decisiones en un programa.</text></answer>
+<answer fraction="0"><text>Un conjunto de ejemplos en lenguaje natural sin simbolizar.</text></answer>
+</question>"
+
+
+
+
+
+Incluye las preguntas de la parte práctica al examen teórico, es decir, en el banco de preguntas,  estás preguntas obligaran a los alumnos a trabajar los ejemplos prácticos en papel, y seleccionarán una respuesta del conjunto de opciones o algo similar en la pregunta en Moodle, pero además entregarán las hojas de respuestas indicando un Identificador de la pregunta. Este identificador debe aparecer en la pregunta, pues como las preguntas se mostrarán en orden aleatorio, no será posible decir el número de pregunta.
+
+Solo las preguntas del tipo Práctico son las que requieren que el alumno haga trabajo en papel, para todas las demás no pidas que anoten nada en papel ni des un identificador de la pregunta.
+
+... agrega textos de feedback general, de respuestas correctas y de respuestas incorrectas a todas las preguntas.
+
+gestión -> administración
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

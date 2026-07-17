@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Por defecto en Examen Final (Prueba)</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Categoría por defecto para preguntas compartidas en el contexto Examen Final (Prueba).</p>
+<p>Por defecto en Examen Final</p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 917169  -->
+  <question type="multichoice">
+    <name>
+      <text>P01_Prueba</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Seleccione la respuesta correcta en esta pregunta de opción múltiple.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>0</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[<p>Su respuesta es correcta.</p>]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[<p>Su respuesta es parcialmente correcta.</p>]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[<p>Su respuesta es incorrecta.</p>]]></text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Opción 1</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto!!</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Opción 2</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto 2!!</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Opción 3</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto 3!!</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Opción 4</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto 4!!</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
