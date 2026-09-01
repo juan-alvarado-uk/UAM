@@ -9,6 +9,8 @@ La versión actual de este proyecto genera presentaciones en revealjs con elemen
 
 Otra cosa que se podría hacer en este caso con **RevealJS** es utilizar las capacidades de transiciones hacia abajo y hacia arriba, como si fueran temas que se desprenden de alguna diapositiva de título, hay que pensar en ello. También se pueden agregar animaciones al código y hacer resatado de código con highlights y también están las animaciones de bullets de diapositiva normal (fragments con toda una variedad de opciones), tiene una opción auto-animate (ver demo: https://revealjs.com/demo/?view=scroll), están también el fit text que pone texto a la diapositiva completa y la exportación a pdf.
 
+También hace falta hacer una página de índice para poder navegar en todas las presentaciones, esta página puede ser más bien privada y personal para saber que hay y poder compartir más facilmente y mantenerla manualmente. 
+
 Algunas ideas anteriores...
 
 Otras cosas que hay que hacer en la versión actual de la aplicación es generar dos versiones de las presentaciones, 
