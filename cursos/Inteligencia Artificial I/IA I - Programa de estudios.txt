@@ -1,0 +1,67 @@
+UNIVERSIDAD AUTONOMA METROPOLITANA
+PROGRAMA DE ESTUDIOS
+UNIDAD CUAJIMALPA DIVISION CIENCIAS DE LA COMUNICACION Y DISEÑO
+
+NOMBRE DEL PLAN LICENCIATURA EN TECNOLOGIAS Y SISTEMAS DE INFORMACION
+CLAVE: 450208  
+CRED. 8
+UNIDAD DE ENSEÑANZA-APRENDIZAJE: INTELIGENCIA ARTIFICIAL I
+TIPO: OBL.
+TRIM. VI al XII
+H. TEOR.: 3.0
+H. PRAC.: 2.0 
+SERIACION: 450203
+
+OBJETIVO (S) :
+
+Objetivos Generales:
+
+Que al final del curso el alumno sea capaz de:
+1. Explicar las características y objetivos, así como posibles aplicaciones de la inteligencia artificial.
+2. Emplear los métodos utilizados por la inteligencia artificial para desarrollar sistemas de cómputo.
+
+Objetivos Específicos:
+
+Que al final del curso el alumno sea capaz de:
+1. Conocer los antecedentes históricos de la inteligencia artificial.
+2. Desarrollar agentes inteligentes resuelvan problemas simples utilizando técnicas búsqueda heurísticas y métodos básicos de representación del conocimiento.
+3. Analizar de manera crítica las implicaciones de la inteligencia artificial en las organizaciones, en la educación, en la sociedad, etc.
+
+
+CONTENIDO SINTETICO:
+1. Introducción a la inteligencia artificial y antecedentes históricos.
+2. Agentes inteligentes.
+3. Solución de problemas: búsquedas y heurísticas.
+4. Representación del conocimiento.
+5. Introducción a temas avanzados de inteligencia artificial.
+6. Implicaciones de inteligencia artificial para el individuo, las organizaciones y la sociedad.
+
+
+MODALIDADES DE CONDUCCION DEL PROCESO ENSEÑANZA-APRENDIZAJE:
+- Exposiciones temáticas del profesor y los alumnos.
+- Investigación documental de los alumnos.
+- Discusión grupal.
+- Reportes de lectura.
+- Desarrollo y entrega de programas de cómputo.
+
+MODALIDADES DE EVALUACION:
+Evaluación Global:
+Se ponderarán las siguientes actividades a criterio del profesor:
+Proyecto final: desarrollo de un programa de cómputo empleando las técnicas de la Inteligencia Artificial.
+- Tareas individuales.
+- Evaluaciones periódicas.
+- Participación tanto en las sesiones teóricas como prácticas.
+- Evaluación terminal.
+
+Evaluación de Recuperación:
+- E1 alumno deberá presentar una evaluación objetiva que contemple todos los contenidos de la UEA.
+- El alumno deberá desarrollar un programa de cómputo empleando las técnicas de la Inteligencia Artificial.
+- No requiere inscripción previa a la UEA.
+
+
+BIBLIOGRAFIA NECESARIA O RECOMENDABLE:
+1. Haugeland J., (2001), La inteligencia artificial, 3a. edición, Siglo XXI.
+2. Luger G., (2004), Artificial intelligence, 5th edition, Adisson Wesley.
+3. Rich E., Knight K., (1991), Artificial intelligence, McGraw Hill.
+4. Russell S., Norvig P., (2004), Inteligencia Artificial, Un Enfoque Moderno, 2a. edición., Prentice Hall Internacional.
+5. Winograd T., Flores C. F., (1986), Understanding Computers and Cognition, A New Foundation for Design, Ablex, Norwood.
